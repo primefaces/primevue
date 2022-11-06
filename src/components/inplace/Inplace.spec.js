@@ -64,4 +64,26 @@ describe('Inplace.vue', () => {
 
         expect(wrapper.find('.pi.pi-times').exists()).toBe(false);
     });
+
+    it('should have custom close icon', async () => {
+        const wrapper = mount(Inplace, {
+            global: {
+                components: {
+                    InputText
+                }
+            },
+            props: {
+                closable: true,
+                closeIcon: 'pi pi-discord'
+            },
+            slots: {
+                display: `{{'Click to Edit'}}`,
+                content: `<InputText autoFocus />`
+            }
+        });
+
+        await wrapper.vm.open({});
+
+        expect(wrapper.find('.pi.pi-discord').exists()).toBe(true);
+    });
 });

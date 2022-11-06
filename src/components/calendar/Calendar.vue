@@ -69,7 +69,7 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                     >
-                                        <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+                                        <span :class="['p-datepicker-prev-icon', previousIcon]" />
                                     </button>
                                     <div class="p-datepicker-title">
                                         <button
@@ -108,7 +108,7 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.nextDecade : currentView === 'month' ? $primevue.config.locale.nextYear : $primevue.config.locale.nextMonth"
                                     >
-                                        <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+                                        <span :class="['p-datepicker-next-icon', nextIcon]" />
                                     </button>
                                 </div>
                                 <div v-if="currentView === 'date'" class="p-datepicker-calendar-container">
@@ -185,7 +185,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ formattedCurrentHour }}</span>
                             <button
@@ -202,7 +202,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                         <div class="p-separator">
@@ -224,7 +224,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ formattedCurrentMinute }}</span>
                             <button
@@ -242,7 +242,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                         <div v-if="showSeconds" class="p-separator">
@@ -264,7 +264,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ formattedCurrentSecond }}</span>
                             <button
@@ -282,7 +282,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                         <div v-if="hourFormat == '12'" class="p-separator">
@@ -290,11 +290,11 @@
                         </div>
                         <div v-if="hourFormat == '12'" class="p-ampm-picker">
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled">
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled">
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                     </div>
@@ -348,6 +348,22 @@ export default {
         icon: {
             type: String,
             default: 'pi pi-calendar'
+        },
+        previousIcon: {
+            type: String,
+            default: 'pi pi-chevron-left'
+        },
+        nextIcon: {
+            type: String,
+            default: 'pi pi-chevron-right'
+        },
+        incrementIcon: {
+            type: String,
+            default: 'pi pi-chevron-up'
+        },
+        decrementIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
         },
         numberOfMonths: {
             type: Number,

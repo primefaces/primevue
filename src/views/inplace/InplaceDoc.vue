@@ -115,6 +115,12 @@ export default {
                         <td>false</td>
                         <td>When present, it specifies that the element should be disabled.</td>
                     </tr>
+                    <tr>
+                        <td>closeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in the close button.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -66,6 +66,12 @@ const FileUploadProps = [
         description: 'Maximum number of files that can be uploaded.'
     },
     {
+        name: 'invalidFileLimitMessage',
+        type: 'string',
+        default: '"{0}": Invalid file type, allowed file types: "{1}".',
+        description: 'Message of the invalid file type.'
+    },
+    {
         name: 'withCredentials',
         type: 'boolean',
         default: 'false',

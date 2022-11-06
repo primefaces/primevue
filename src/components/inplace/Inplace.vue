@@ -5,7 +5,7 @@
         </div>
         <div v-else class="p-inplace-content">
             <slot name="content"></slot>
-            <IPButton v-if="closable" icon="pi pi-times" @click="close"></IPButton>
+            <IPButton v-if="closable" :icon="closeIcon" @click="close" />
         </div>
     </div>
 </template>
@@ -28,6 +28,10 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
         }
     },
     data() {

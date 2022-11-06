@@ -39,6 +39,7 @@ import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
     name: 'ContextMenu',
+    inheritAttrs: false,
     emits: ['focus', 'blur', 'show', 'hide'],
     props: {
         model: {

@@ -114,7 +114,7 @@ myUploader(event) {
 
         &lt;div v-if="uploadedFiles.length &gt; 0"&gt;
             &lt;h5&gt;Completed&lt;/h5&gt;
-            &lt;div class="flex flex-wrap p-5 gap-5"&gt;
+            &lt;div class="flex flex-wrap p-0 sm:p-5 gap-5"&gt;
                 &lt;div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3"&gt;
                     &lt;div&gt;
                         &lt;img role="presentation" :alt="file.name" :src="file.objectURL" width="100" class="shadow-2" /&gt;
@@ -208,6 +208,12 @@ myUploader(event) {
                         <td>string</td>
                         <td>Maximum number of files exceeded, limit is &#123;0&#125; at most.</td>
                         <td>Message to display when number of files to be uploaded exceeeds the limit.</td>
+                    </tr>
+                    <tr>
+                        <td>invalidFileTypeMessage</td>
+                        <td>string</td>
+                        <td>"&#123;0&#125;: Invalid file type, allowed file types: &#123;1&#125;"".</td>
+                        <td>Message of the invalid file type.</td>
                     </tr>
                     <tr>
                         <td>fileLimit</td>
@@ -543,7 +549,7 @@ export default {
                     <div class="flex flex-wrap p-5 gap-5">
                         <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                             <div>
-                                <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" class="shadow-2" />
+                                <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" class="shadow-2" />
                             </div>
                             <span class="font-semibold">{{ file.name }}</span>
                             <div>{{ formatSize(file.size) }}</div>
@@ -555,10 +561,10 @@ export default {
 
                 <div v-if="uploadedFiles.length > 0">
                     <h5>Completed</h5>
-                    <div class="flex flex-wrap p-5 gap-5">
+                    <div class="flex flex-wrap p-0 sm:p-5 sm:p-5 gap-5">
                         <div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                             <div>
-                                <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" class="shadow-2" />
+                                <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" class="shadow-2" />
                             </div>
                             <span class="font-semibold">{{ file.name }}</span>
                             <div>{{ formatSize(file.size) }}</div>
@@ -685,10 +691,10 @@ export default {
             <template #content="{ files, uploadedFiles, removeUploadedFileCallback, fileRemoveCallback }">
                 <div v-if="files.length > 0">
                     <h5>Pending</h5>
-                    <div class="flex flex-wrap p-5 gap-5">
+                    <div class="flex flex-wrap p-0 sm:p-5 gap-5">
                         <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                             <div>
-                                <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" class="shadow-2" />
+                                <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" class="shadow-2" />
                             </div>
                             <span class="font-semibold">{{ file.name }}</span>
                             <div>{{ formatSize(file.size) }}</div>
@@ -700,10 +706,10 @@ export default {
 
                 <div v-if="uploadedFiles.length > 0">
                     <h5>Completed</h5>
-                    <div class="flex flex-wrap p-5 gap-5">
+                    <div class="flex flex-wrap p-0 sm:p-5 gap-5">
                         <div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                             <div>
-                                <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" class="shadow-2" />
+                                <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" class="shadow-2" />
                             </div>
                             <span class="font-semibold">{{ file.name }}</span>
                             <div>{{ formatSize(file.size) }}</div>
@@ -843,10 +849,10 @@ export default {
                     <template #content="{ files, uploadedFiles, removeUploadedFileCallback, fileRemoveCallback }">
                         <div v-if="files.length > 0">
                             <h5>Pending</h5>
-                            <div class="flex flex-wrap p-5 gap-5">
+                            <div class="flex flex-wrap p-0 sm:p-5 gap-5">
                                 <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                                     <div>
-                                        <img role="presentation" :alt="file.name" :src="file.objectURL" height="50" class="shadow-2" />
+                                        <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" class="shadow-2" />
                                     </div>
                                     <span class="font-semibold">{{ file.name }}</span>
                                     <div>{{ formatSize(file.size) }}</div>
@@ -858,10 +864,10 @@ export default {
 
                         <div v-if="uploadedFiles.length > 0">
                             <h5>Completed</h5>
-                            <div class="flex flex-wrap p-5 gap-5">
+                            <div class="flex flex-wrap p-0 sm:p-5 gap-5">
                                 <div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="card m-0 px-6 flex flex-column border-1 surface-border align-items-center gap-3">
                                     <div>
-                                        <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" class="shadow-2" />
+                                        <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" class="shadow-2" />
                                     </div>
                                     <span class="font-semibold">{{ file.name }}</span>
                                     <div>{{ formatSize(file.size) }}</div>

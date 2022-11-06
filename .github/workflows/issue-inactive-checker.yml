@@ -1,0 +1,22 @@
+name: Issue Inactive Checker
+
+on:
+  schedule:
+    - cron: "0 13 * * 1" # Every Monday at 1PM UTC (9AM EST)
+
+permissions:
+  contents: read
+
+jobs:
+  issue-close-require:
+    permissions:
+      issues: write 
+      pull-requests: write 
+    runs-on: ubuntu-latest
+    steps:
+      - name: cannot replicate
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: "close-issues"
+          labels: "cannot replicate"
+          inactive-day: 20

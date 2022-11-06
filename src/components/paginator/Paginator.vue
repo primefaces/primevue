@@ -203,9 +203,11 @@ export default {
             ];
         },
         setPaginatorAttribute() {
-            [...this.$refs.paginator].forEach((el) => {
-                el.setAttribute(this.attributeSelector, '');
-            });
+            if (this.$refs.paginator && this.$refs.paginator.length >= 0) {
+                [...this.$refs.paginator].forEach((el) => {
+                    el.setAttribute(this.attributeSelector, '');
+                });
+            }
         }
     },
     computed: {

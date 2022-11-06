@@ -28,6 +28,11 @@ export interface MessageProps {
      * Display a custom icon for the message.
      */
     icon?: string | undefined;
+    /**
+     * Icon to display in the message close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
 }
 
 export interface MessageSlots {

@@ -95,6 +95,26 @@ export interface CalendarProps {
      */
     icon?: string | undefined;
     /**
+     * Icon to show in the previous button.
+     * Default value is 'pi pi-chevron-left'.
+     */
+    previousIcon?: string | undefined;
+    /**
+     * Icon to show in the next button.
+     * Default value is 'pi pi-chevron-right'.
+     */
+    nextIcon?: string | undefined;
+    /**
+     * Icon to show in each of the increment buttons.
+     * Default value is 'pi pi-chevron-up'.
+     */
+    incrementIcon?: string | undefined;
+    /**
+     * Icon to show in each of the decrement buttons.
+     * Default value is 'pi pi-chevron-down'.
+     */
+    decrementIcon?: string | undefined;
+    /**
      * Number of months to display.
      * Default value is 1.
      */

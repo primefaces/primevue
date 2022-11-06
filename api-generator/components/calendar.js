@@ -48,6 +48,30 @@ const CalendarProps = [
         description: 'Icon of the calendar button.'
     },
     {
+        name: 'previousIcon',
+        type: 'string',
+        default: 'pi pi-chevron-left',
+        description: 'Icon to show in the previous button.'
+    },
+    {
+        name: 'nextIcon',
+        type: 'string',
+        default: 'pi pi-chevron-right',
+        description: 'Icon to show in the next button.'
+    },
+    {
+        name: 'incrementIcon',
+        type: 'string',
+        default: 'pi pi-chevron-up',
+        description: 'Icon to show in each of the increment buttons.'
+    },
+    {
+        name: 'decrementIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to show in each of the decrement buttons.'
+    },
+    {
         name: 'numberOfMonths',
         type: 'number',
         default: '1',

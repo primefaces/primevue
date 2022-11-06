@@ -127,10 +127,6 @@ export default {
     </div>
 </template>
 
-<script>
-export default {
-}
-<\\/script>
 `
                 },
                 'composition-api': {
@@ -146,10 +142,7 @@ export default {
     </div>
 </template>
 
-<script>
-export default {
-}
-<\\/script>`
+`
                 },
                 'browser-source': {
                     tabName: 'Browser Source',

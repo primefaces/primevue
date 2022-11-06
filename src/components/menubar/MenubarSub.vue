@@ -172,7 +172,7 @@ export default {
             return ['p-menuitem-icon', this.getItemProp(processedItem, 'icon')];
         },
         getSeparatorItemClass(processedItem) {
-            return ['p-menu-separator p-menuitem-separator', this.getItemProp(processedItem, 'class')]; // TODO: the 'p-menu-separator' class is deprecated since v3.18.0.
+            return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
         },
         getSubmenuIcon() {
             return ['p-submenu-icon pi', { 'pi-angle-right': !this.root, 'pi-angle-down': this.root }];

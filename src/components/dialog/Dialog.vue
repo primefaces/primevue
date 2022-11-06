@@ -12,7 +12,7 @@
                                 <span :class="maximizeIconClass"></span>
                             </button>
                             <button v-if="closable" v-ripple class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="ariaCloseLabel" type="button">
-                                <span class="p-dialog-header-close-icon pi pi-times"></span>
+                                <span :class="['p-dialog-header-close-icon', closeIcon]"></span>
                             </button>
                         </div>
                     </div>
@@ -99,6 +99,18 @@ export default {
         appendTo: {
             type: String,
             default: 'body'
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        maximizeIcon: {
+            type: String,
+            default: 'pi pi-window-maximize'
+        },
+        minimizeIcon: {
+            type: String,
+            default: 'pi pi-window-minimize'
         },
         _instance: null
     },
@@ -396,10 +408,10 @@ export default {
         },
         maximizeIconClass() {
             return [
-                'p-dialog-header-maximize-icon pi',
+                'p-dialog-header-maximize-icon',
                 {
-                    'pi-window-maximize': !this.maximized,
-                    'pi-window-minimize': this.maximized
+                    [this.maximizeIcon]: !this.maximized,
+                    [this.minimizeIcon]: this.maximized
                 }
             ];
         },

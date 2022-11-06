@@ -113,6 +113,12 @@ import Chips from 'primevue/chips';
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
                     </tr>
+                    <tr>
+                        <td>removeTokenIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times-circle</td>
+                        <td>Icon to display in chip remove action.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

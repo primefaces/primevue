@@ -121,6 +121,12 @@ import InlineMessage from 'primevue/inlinemessage';
                         <td>null</td>
                         <td>Display a custom icon for the message.</td>
                     </tr>
+                    <tr>
+                        <td>closeIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display in the message close button.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

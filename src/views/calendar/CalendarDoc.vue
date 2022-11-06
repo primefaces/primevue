@@ -246,6 +246,30 @@ export default {
                         <td>Icon of the calendar button.</td>
                     </tr>
                     <tr>
+                        <td>previousIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-left</td>
+                        <td>Icon to show in the previous button.</td>
+                    </tr>
+                    <tr>
+                        <td>nextIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-right</td>
+                        <td>Icon to show in the next button.</td>
+                    </tr>
+                    <tr>
+                        <td>incrementIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-up</td>
+                        <td>Icon to show in each of the increment buttons.</td>
+                    </tr>
+                    <tr>
+                        <td>decrementIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to show in each of the decrement buttons.</td>
+                    </tr>
+                    <tr>
                         <td>numberOfMonths</td>
                         <td>number</td>
                         <td>1</td>

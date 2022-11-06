@@ -16,6 +16,12 @@ const InplaceProps = [
         type: 'boolean',
         default: 'false',
         description: 'When present, it specifies that the element should be disabled.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display in the close button.'
     }
 ];
 

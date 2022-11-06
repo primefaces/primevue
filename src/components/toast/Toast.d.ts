@@ -82,6 +82,31 @@ export interface ToastProps {
      * @see ToastBreakpointsType
      */
     breakpoints?: ToastBreakpointsType;
+    /**
+     * Icon to display in the toast close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with info severity.
+     * Default value is 'pi pi-info-circle'.
+     */
+    infoIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with warn severity.
+     * Default value is 'pi pi-exclamation-triangle'.
+     */
+    warnIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with error severity.
+     * Default value is 'pi pi-times'.
+     */
+    errorIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with success severity.
+     * Default value is 'pi pi-check'.
+     */
+    successIcon?: string | undefined;
 }
 
 export interface ToastSlots {

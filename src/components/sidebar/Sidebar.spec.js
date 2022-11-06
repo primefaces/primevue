@@ -81,4 +81,11 @@ describe('Sidebar.vue', () => {
         await wrapper.setProps({ visible: true });
         expect(wrapper.getComponent(ChildComponent).html()).toContain('Changed');
     });
+
+    it('should have custom close icon when provided', async () => {
+        await wrapper.setProps({ closeIcon: 'pi pi-discord' });
+        const icon = wrapper.find('.p-sidebar-close-icon');
+
+        expect(icon.classes()).toContain('pi-discord');
+    });
 });
