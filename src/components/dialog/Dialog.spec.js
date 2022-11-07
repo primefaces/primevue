@@ -31,17 +31,16 @@ describe('Dialog.vue', () => {
                     teleport: true
                 }
             },
-            props: {
-                visible: true
-            },
             slots: {
                 default: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>',
                 footer: '<p>Dialog Footer</p>'
             }
         });
 
-        expect(wrapper.find('.p-dialog-content').exists()).toBe(false);
-        expect(wrapper.find('.p-dialog-footer').exists()).toBe(false);
+        await wrapper.setProps({ visible: true });
+
+        expect(wrapper.find('.p-dialog-content').exists()).toBe(true);
+        expect(wrapper.find('.p-dialog-footer').exists()).toBe(true);
     });
 
     describe('closable', () => {
