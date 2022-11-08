@@ -23,7 +23,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Splitter',
-    emits: ['resizestart','resizeend'],
+    emits: ['resizestart', 'resizeend'],
     props: {
         layout: {
             type: String,
