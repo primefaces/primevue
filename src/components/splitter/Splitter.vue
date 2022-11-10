@@ -103,8 +103,6 @@ export default {
             this.gutterElement = event.currentTarget || event.target.parentElement;
             this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
 
-            this.$emit('resizestart', { originalEvent: event, sizes: this.panelSizes });
-
             if (!isKeyDown) {
                 this.dragging = true;
                 this.startPos = this.layout === 'horizontal' ? event.pageX || event.changedTouches[0].pageX : event.pageY || event.changedTouches[0].pageY;
@@ -122,6 +120,7 @@ export default {
             }
 
             this.prevPanelIndex = index;
+            this.$emit('resizestart', { originalEvent: event, sizes: this.panelSizes });
             DomHandler.addClass(this.gutterElement, 'p-splitter-gutter-resizing');
             DomHandler.addClass(this.$el, 'p-splitter-resizing');
         },
