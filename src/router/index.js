@@ -380,6 +380,11 @@ const routes = [
                 component: () => import('../views/fileupload/FileUploadDemo.vue')
             },
             {
+                path: 'focustrap',
+                name: 'focustrap',
+                component: () => import('../views/focustrap/FocusTrapDemo.vue')
+            },
+            {
                 path: '/fullcalendar',
                 name: 'fullcalendar',
                 component: () => import('../views/fullcalendar/FullCalendarDemo.vue')

@@ -749,7 +749,6 @@
                             "name": "Thumbnail",
                             "to": "/galleria/thumbnail"
                         },
-
                         {
                             "name": "Navigator",
                             "to": "/galleria/navigator"
@@ -795,24 +794,21 @@
                     "to": "/badge"
                 },
                 {
-                    "name": "Chip",
-                    "to": "/chip"
-                },
-                {
                     "name": "BlockUI",
                     "to": "/blockui"
                 },
                 {
+                    "name": "Chip",
+                    "to": "/chip"
+                },
+                {
+                    "name": "FocusTrap",
+                    "to": "/focustrap",
+                    "badge": "NEW"
+                },
+                {
                     "name": "Inplace",
                     "to": "/inplace"
-                },
-                {
-                    "name": "ScrollTop",
-                    "to": "/scrolltop"
-                },
-                {
-                    "name": "Skeleton",
-                    "to": "/skeleton"
                 },
                 {
                     "name": "ProgressBar",
@@ -825,6 +821,14 @@
                 {
                     "name": "Ripple",
                     "to": "/ripple"
+                },
+                {
+                    "name": "ScrollTop",
+                    "to": "/scrolltop"
+                },
+                {
+                    "name": "Skeleton",
+                    "to": "/skeleton"
                 },
                 {
                     "name": "StyleClass",

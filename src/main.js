@@ -39,6 +39,7 @@ import DynamicDialog from './components/dynamicdialog/DynamicDialog';
 import Editor from './components/editor/Editor';
 import Fieldset from './components/fieldset/Fieldset';
 import FileUpload from './components/fileupload/FileUpload';
+import FocusTrap from './components/focustrap/FocusTrap';
 import FullCalendar from './components/fullcalendar/FullCalendar';
 import Galleria from './components/galleria/Galleria';
 import Image from './components/image/Image';
@@ -132,9 +133,10 @@ app.use(DialogService);
 app.use(router);
 
 app.directive('badge', BadgeDirective);
-app.directive('tooltip', Tooltip);
+app.directive('focustrap', FocusTrap);
 app.directive('ripple', Ripple);
 app.directive('styleclass', StyleClass);
+app.directive('tooltip', Tooltip);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
