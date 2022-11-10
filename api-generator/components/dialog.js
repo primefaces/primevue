@@ -54,6 +54,12 @@ const DialogProps = [
         description: 'Style class of the content section.'
     },
     {
+        name: 'contentProps',
+        type: 'null',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+    },
+    {
         name: 'rtl',
         type: 'boolean',
         default: 'null',
@@ -82,12 +88,6 @@ const DialogProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to automatically manage layering.'
-    },
-    {
-        name: 'ariaCloseLabel',
-        type: 'string',
-        default: 'close',
-        description: 'Aria label of the close icon.'
     },
     {
         name: 'maximizable',
