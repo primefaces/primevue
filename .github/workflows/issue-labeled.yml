@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cannot Replicate
-        if: github.event.label.name == 'cannot replicate'
+        if: github.event.label.name == 'Resolution: Cannot Replicate'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment'
