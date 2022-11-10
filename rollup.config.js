@@ -16,6 +16,7 @@ let coreDependencies = {
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
     'primevue/tooltip': 'primevue.tooltip',
+    'primevue/focustrap': 'primevue.focustrap',
     'primevue/virtualscroller': 'primevue.virtualscroller',
     'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
     'primevue/toasteventbus': 'primevue.toasteventbus',
