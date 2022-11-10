@@ -388,7 +388,7 @@ export default {
         </p>
 
         <pre v-code><code>
-&lt;Button label="Show" icon="pi pi-external-link" @click="setVisible(true)" :aria-controls={visible ? 'dlg' : null} :aria-expanded={visible ? true : false} /&gt;
+&lt;Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'dlg' : null" :aria-expanded="visible ? true : false" /&gt;
 
 &lt;Dialog id="dlg" header="Header" v-model:visible="visible" :style="{ width: '50vw' }"&gt;
     &lt;p&gt;Content&lt;/p&gt;
