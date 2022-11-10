@@ -156,7 +156,13 @@ export default {
             const sublistWidth = this.$refs.container.offsetParent ? this.$refs.container.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.$refs.container);
             const itemOuterWidth = DomHandler.getOuterWidth(parentItem.children[0]);
 
-            this.$refs.container.style.top = '0px';
+            let top = parseInt(containerOffset.top, 10) + this.$refs.container.offsetHeight;
+            
+            if (top  > viewport.height) {
+                this.$refs.container.style.top = viewport.height - top + 'px';
+            } else {
+                this.$refs.container.style.top = '0px';
+            }
 
             if (parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth > viewport.width - DomHandler.calculateScrollbarWidth()) {
                 this.$refs.container.style.left = -1 * sublistWidth + 'px';
