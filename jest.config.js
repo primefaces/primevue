@@ -6,6 +6,7 @@ module.exports = {
     moduleNameMapper: {
         '^primevue/ripple(.*)$': '<rootDir>/src/components/ripple/Ripple.js',
         '^primevue/tooltip(.*)$': '<rootDir>/src/components/tooltip/Tooltip.js',
+        '^primevue/focustrap(.*)$': '<rootDir>/src/components/focustrap/FocusTrap.js',
         '^primevue/useconfirm(.*)$': '<rootDir>/src/components/useconfirm/UseConfirm.js',
         '^primevue/usetoast(.*)$': '<rootDir>/src/components/usetoast/UseToast.js',
         '^primevue/utils(.*)$': '<rootDir>/src/components/utils/Utils.js',
