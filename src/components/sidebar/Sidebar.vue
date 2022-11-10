@@ -1,8 +1,7 @@
 <template>
     <Portal>
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div v-if="visible" :ref="containerRef"
-            v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" :aria-labelledby="ariaId" v-bind="$attrs"  >
+            <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" :aria-labelledby="ariaId" v-bind="$attrs">
                 <div class="p-sidebar-header">
                     <div v-if="$slots.header" class="p-sidebar-header-content">
                         <slot name="header"></slot>
@@ -23,7 +22,7 @@
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { DomHandler,UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Sidebar',
@@ -61,7 +60,7 @@ export default {
         modal: {
             type: Boolean,
             default: true
-        },
+        }
     },
     mask: null,
     documentKeydownListener: null,
@@ -103,7 +102,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.code === 'Escape' ) {
+            if (event.code === 'Escape') {
                 this.hide();
             }
         },
@@ -178,8 +177,7 @@ export default {
         },
         containerRef(el) {
             this.container = el;
-        },
-
+        }
     },
     computed: {
         containerClass() {
@@ -200,7 +198,7 @@ export default {
         },
         ariaId() {
             return UniqueComponentId();
-        },
+        }
     },
     directives: {
         ripple: Ripple,
