@@ -9,7 +9,7 @@
 
     <div class="content-section implementation">
         <div v-focustrap class="card">
-            <h5>Input</h5>
+            <h5 class="mt-0">Input</h5>
             <InputText id="input" v-model="value1" type="text" size="30" />
 
             <h5>Float Label</h5>
