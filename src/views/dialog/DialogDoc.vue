@@ -159,6 +159,12 @@ export default {
                         <td>Style class of the content section.</td>
                     </tr>
                     <tr>
+                        <td>contentProps</td>
+                        <td>null</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.</td>
+                    </tr>
+                    <tr>
                         <td>rtl</td>
                         <td>boolean</td>
                         <td>null</td>
@@ -189,10 +195,14 @@ export default {
                         <td>Whether to automatically manage layering.</td>
                     </tr>
                     <tr>
-                        <td>ariaCloseLabel</td>
+                        <td style="text-decoration: line-through">ariaCloseLabel</td>
                         <td>string</td>
                         <td>close</td>
-                        <td>Aria label of the close icon.</td>
+                        <td>
+                            Aria label of the close icon.
+                            <br />
+                            <b> Deprecated: </b> <i>aria.close</i> can be used in defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.
+                        </td>
                     </tr>
                     <tr>
                         <td>maximizable</td>
@@ -359,6 +369,84 @@ export default {
                     <tr>
                         <td>p-dialog-content</td>
                         <td>Content element</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Dialog component uses <i>dialog</i> role along with <i>aria-labelledby</i> referring to the header element however any attribute is passed to the root element so you may use <i>aria-labelledby</i> to override this default behavior. In
+            addition <i>aria-modal</i> is added since focus is kept within the popup.
+        </p>
+        <p>It is recommended to use a trigger component that can be accessed with keyboard such as a button, if not adding <i>tabindex</i> would be necessary.</p>
+        <p>Trigger element also requires <i>aria-expanded</i> and <i>aria-controls</i> to be handled explicitly.</p>
+        <p>
+            Close element is a <i>button</i> with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <router-link to="/locale">locale</router-link> API by default, you may use <i>closeButtonProps</i> to customize the element
+            and override the default <i>aria-label</i>.
+        </p>
+
+        <pre v-code><code>
+&lt;Button label="Show" icon="pi pi-external-link" @click="setVisible(true)" :aria-controls={visible ? 'dlg' : null} :aria-expanded={visible ? true : false} /&gt;
+
+&lt;Dialog id="dlg" header="Header" v-model:visible="visible" :style="{ width: '50vw' }"&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+&lt;/Dialog&gt;
+
+</code></pre>
+
+        <h6>Overlay Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the next the focusable element within the dialog.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous the focusable element within the dialog.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the dialog if <i>closeOnEscape</i> is true.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Close Button Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Closes the dialog.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Closes the dialog.</td>
                     </tr>
                 </tbody>
             </table>
