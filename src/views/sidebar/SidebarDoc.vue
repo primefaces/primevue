@@ -227,6 +227,80 @@ import Sidebar from 'primevue/sidebar';
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Sidebar component uses <i>complementary</i> role by default, since any attribute is passed to the root element aria role can be changed depending on your use case and additional attributes like <i>aria-labelledby</i> can be added. In
+            addition <i>aria-modal</i> is added since focus is kept within the sidebar when opened.
+        </p>
+        <p>It is recommended to use a trigger component that can be accessed with keyboard such as a button, if not adding <i>tabIndex</i> would be necessary.</p>
+        <p>Trigger element also requires <i>aria-expanded</i> and <i>aria-controls</i> to be handled explicitly.</p>
+
+        <pre v-code><code>
+&lt;Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible ? true : false" /&gt;
+
+&lt;Sidebar id="sbar" v-model="visible" role="region"&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+&lt;/Sidebar&gt;
+
+</code></pre>
+
+        <h6>Overlay Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the next the focusable element within the sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous the focusable element within the sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the dialog if <i>closeOnEscape</i> is true.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Close Button Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Closes the sidebar.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Closes the sidebar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
