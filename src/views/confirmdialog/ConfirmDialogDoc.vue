@@ -370,6 +370,7 @@ export default {
 
         <pre v-code.script><code>
 setup() {
+    const confirm = useConfirm();
     const isVisible = ref(false);
 
     const openDialog = () => {
@@ -383,7 +384,9 @@ setup() {
                 isVisible.value = false;
             }
         });
-    }
+    };
+
+    return { isVisible, openDialog};
 }
 
 </code></pre>
