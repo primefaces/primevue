@@ -1,12 +1,12 @@
 <template>
     <Portal>
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" :aria-labelledby="ariaId" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
                 <div class="p-sidebar-header">
                     <div v-if="$slots.header" class="p-sidebar-header-content">
                         <slot name="header"></slot>
                     </div>
-                    <button v-if="showCloseIcon" v-ripple class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="closeAriaLabel" type="button">
+                    <button v-if="showCloseIcon" v-ripple type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
                         <span :class="['p-sidebar-close-icon', closeIcon]" />
                     </button>
                 </div>
@@ -22,7 +22,7 @@
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
-import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Sidebar',
@@ -63,12 +63,10 @@ export default {
         }
     },
     mask: null,
-    documentKeydownListener: null,
     maskClickListener: null,
     container: null,
     beforeUnmount() {
         this.destroyModal();
-        this.unbindDocumentKeyDownListener();
 
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
@@ -82,7 +80,6 @@ export default {
         },
         onEnter(el) {
             this.$emit('show');
-            this.bindDocumentKeyDownListener();
 
             if (this.autoZIndex) {
                 ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
@@ -99,11 +96,6 @@ export default {
 
             if (this.modal && !this.fullScreen) {
                 this.disableModality();
-            }
-        },
-        onKeyDown(event) {
-            if (event.code === 'Escape') {
-                this.hide();
             }
         },
         onAfterLeave(el) {
@@ -149,22 +141,15 @@ export default {
                 this.mask.addEventListener('click', this.maskClickListener);
             }
         },
+        onKeydown(event) {
+            if (event.code === 'Escape') {
+                this.hide();
+            }
+        },
         unbindMaskClickListener() {
             if (this.maskClickListener) {
                 this.mask.removeEventListener('click', this.maskClickListener);
                 this.maskClickListener = null;
-            }
-        },
-        bindDocumentKeyDownListener() {
-            if (!this.documentKeydownListener) {
-                this.documentKeydownListener = this.onKeyDown.bind(this);
-                window.document.addEventListener('keydown', this.documentKeydownListener);
-            }
-        },
-        unbindDocumentKeyDownListener() {
-            if (this.documentKeydownListener) {
-                window.document.removeEventListener('keydown', this.documentKeydownListener);
-                this.documentKeydownListener = null;
             }
         },
         destroyModal() {
@@ -195,14 +180,11 @@ export default {
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
-        },
-        ariaId() {
-            return UniqueComponentId();
         }
     },
     directives: {
-        ripple: Ripple,
-        focustrap: FocusTrap
+        focustrap: FocusTrap,
+        ripple: Ripple
     },
     components: {
         Portal: Portal

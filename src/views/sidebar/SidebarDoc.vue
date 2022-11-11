@@ -112,10 +112,14 @@ import Sidebar from 'primevue/sidebar';
                         <td>Whether to a modal layer behind the sidebar.</td>
                     </tr>
                     <tr>
-                        <td>ariaCloseLabel</td>
+                        <td style="text-decoration: line-through">ariaCloseLabel</td>
                         <td>string</td>
                         <td>close</td>
-                        <td>Aria label of the close icon.</td>
+                        <td>
+                            Aria label of the close icon.
+                            <br />
+                            <b> Deprecated: </b> <i>aria.close</i> can be used in defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -237,17 +241,17 @@ import Sidebar from 'primevue/sidebar';
         <p>Trigger element also requires <i>aria-expanded</i> and <i>aria-controls</i> to be handled explicitly.</p>
 
         <pre v-code><code>
-&lt;Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible ? true : false" /&gt;
+&lt;Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible"/&gt;
 
-&lt;Sidebar id="sbar" v-model="visible" role="region"&gt;
+&lt;Sidebar id="sbar" v-model:visible="visible" role="region" &gt;
     &lt;p&gt;Content&lt;/p&gt;
 &lt;/Sidebar&gt;
 
 </code></pre>
 
         <h6>Overlay Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -269,15 +273,15 @@ import Sidebar from 'primevue/sidebar';
                         <td>
                             <i>escape</i>
                         </td>
-                        <td>Closes the dialog if <i>closeOnEscape</i> is true.</td>
+                        <td>Closes the dialog.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <h6>Close Button Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
