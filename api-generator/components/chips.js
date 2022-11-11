@@ -13,9 +13,9 @@ const ChipsProps = [
     },
     {
         name: 'separator',
-        type: 'string',
+        type: 'string | any',
         default: 'null',
-        description: 'Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ","'
+        description: 'Separator char to add an item when pressed in addition to the enter key.'
     },
     {
         name: 'addOnBlur',

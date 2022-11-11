@@ -36,9 +36,9 @@ export interface ChipsProps {
      */
     allowDuplicate?: boolean | undefined;
     /**
-     * Separator char to add an item when pressed in addition to the enter key. Currently only possible value is ','
+     * Separator char to add an item when pressed in addition to the enter key.
      */
-    separator?: string | undefined;
+    separator?: string | any;
     /**
      * 	Identifier of the focus input to match a label defined for the chips.
      */
