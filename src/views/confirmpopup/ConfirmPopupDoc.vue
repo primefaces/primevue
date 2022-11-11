@@ -46,6 +46,12 @@ export default {
                 },
                 reject: () => {
                     //callback to execute when user rejects the action
+                },
+                onShow: () => {
+                    //callback to execute when popup is shown
+                },
+                onHide: () => {
+                    //callback to execute when popup is hidden
                 }
             });
         },
@@ -73,6 +79,12 @@ export default defineComponent({
                 },
                 reject: () => {
                     //callback to execute when user rejects the action
+                },
+                onShow: () => {
+                    //callback to execute when popup is shown
+                },
+                onHide: () => {
+                    //callback to execute when popup is hidden
                 }
             });
         } 
@@ -159,6 +171,18 @@ export default {
                         <td>Function</td>
                         <td>null</td>
                         <td>Callback to execute when action is rejected.</td>
+                    </tr>
+                    <tr>
+                        <td>onShow</td>
+                        <td>Function</td>
+                        <td>null</td>
+                        <td>Callback to execute when popup is shown.</td>
+                    </tr>
+                    <tr>
+                        <td>onHide</td>
+                        <td>Function</td>
+                        <td>null</td>
+                        <td>Callback to execute when popup is hidden.</td>
                     </tr>
                     <tr>
                         <td>acceptLabel</td>
@@ -296,6 +320,104 @@ export default {
                     <tr>
                         <td>p-confirm-popup-footer</td>
                         <td>Footer element for buttons.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            ConfirmPopup component uses <i>alertdialog</i> role and since any attribute is passed to the root element you may define attributes like <i>aria-label</i> or <i>aria-labelledby</i> to describe the popup contents. In addition
+            <i>aria-modal</i> is added since focus is kept within the popup.
+        </p>
+        <p>
+            When <i>require</i> method of the <i>$confirm</i> instance is used and a trigger is passed as a parameter, ConfirmDialog adds <i>aria-expanded</i> state attribute and <i>aria-controls</i> to the trigger so that the relation between the
+            trigger and the dialog is defined.
+        </p>
+
+        <pre v-code><code>
+&lt;ConfirmPopup id="confirm" aria-label="popup" /&gt;
+
+&lt;Button @click="openPopup($event)" label="Confirm" id="confirmButton" :aria-expanded="isVisible" :aria-controls="isVisible ? 'confirm' : null" /&gt;
+
+</code></pre>
+
+        <pre v-code.script><code>
+setup() {
+    const confirm = useConfirm();
+    const isVisible = ref(false);
+
+    const openPopup = (event) => {
+        confirm.require({
+            target: event.currentTarget,
+            message: 'Are you sure you want to proceed?',
+            header: 'Confirmation',
+            onShow: () => {
+                isVisible.value = true;
+            },
+            onHide: () => {
+                isVisible.value = false;
+            }
+        });
+    }
+
+    return {isVisible, openPopup};
+}
+
+</code></pre>
+
+        <h6>Overlay Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the next the focusable element within the popup.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous the focusable element within the popup.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the popup and moves focus to the trigger.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Buttons Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Triggers the action, closes the popup and moves focus to the trigger.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Triggers the action, closes the popup and moves focus to the trigger.</td>
                     </tr>
                 </tbody>
             </table>
