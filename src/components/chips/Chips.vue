@@ -61,8 +61,6 @@ export default {
         modelValue: {
             type: Array,
             default: null
-
-
         },
         max: {
             type: Number,
