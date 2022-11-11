@@ -155,7 +155,7 @@ export default {
                     if (newValue < this.min) newValue = this.min;
                     else if (newValue >= this.max) newValue = this.max;
 
-                    if (newValue >= modelValue[1]) {
+                    if (newValue > modelValue[1]) {
                         modelValue[1] = newValue;
 
                         this.handleIndex = 1;
@@ -166,7 +166,7 @@ export default {
                     if (newValue > this.max) newValue = this.max;
                     else if (newValue <= this.min) newValue = this.min;
 
-                    if (newValue <= modelValue[0]) {
+                    if (newValue < modelValue[0]) {
                         modelValue[0] = newValue;
 
                         this.handleIndex = 0;
