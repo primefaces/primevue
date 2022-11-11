@@ -270,8 +270,6 @@ export default {
                     this.hide();
                 }
 
-                // REVIEW:
-                // this.dirty = !root;
                 DomHandler.focus(this.menubar);
             } else {
                 if (root || grouped) {
