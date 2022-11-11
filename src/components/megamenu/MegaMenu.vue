@@ -221,11 +221,12 @@ export default {
 
             const { index, key, parentKey, items } = processedItem;
             const grouped = ObjectUtils.isNotEmpty(items);
+            const root = ObjectUtils.isEmpty(processedItem.parent);
 
-            grouped && (this.activeItem = processedItem);
+            (grouped || root) && (this.activeItem = processedItem);
             this.focusedItemInfo = { index, key, parentKey };
 
-            grouped && (this.dirty = true);
+            (grouped || root) && (this.dirty = true);
             isFocus && DomHandler.focus(this.menubar);
         },
         onItemClick(event) {
@@ -243,7 +244,7 @@ export default {
                 this.dirty = !root;
                 DomHandler.focus(this.menubar);
             } else {
-                grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+                grouped || root ? this.onItemChange(event) : this.hide(originalEvent, !root);
             }
         },
         onItemMouseEnter(event) {

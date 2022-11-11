@@ -261,17 +261,15 @@ export default {
 
             if (ObjectUtils.isEmpty(processedItem)) return;
 
-            const { index, key, level, parentKey, items } = processedItem;
-            const grouped = ObjectUtils.isNotEmpty(items);
-
+            const { index, key, level, parentKey } = processedItem;
             const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
-            grouped && activeItemPath.push(processedItem);
+            activeItemPath.push(processedItem);
 
             this.focusedItemInfo = { index, level, parentKey };
             this.activeItemPath = activeItemPath;
 
-            grouped && (this.dirty = true);
+            this.dirty = true;
             isFocus && DomHandler.focus(this.menubar);
         },
         onOverlayClick(event) {
@@ -289,13 +287,23 @@ export default {
             if (selected) {
                 const { index, key, level, parentKey } = processedItem;
 
-                this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
-                this.focusedItemInfo = { index, level, parentKey };
+                if (grouped) {
+                    this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
+                    this.focusedItemInfo = { index, level, parentKey };
+                } else {
+                    this.hide(originalEvent, true);
+                }
 
-                this.dirty = !root;
+                // REVIEW:
+                // this.dirty = !root;
                 DomHandler.focus(this.menubar);
             } else {
-                grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+                if (root || grouped) {
+                    this.onItemChange(event);
+                } else {
+                    this.hide(originalEvent, true);
+                    this.mobileActive = false;
+                }
             }
         },
         onItemMouseEnter(event) {
@@ -319,13 +327,13 @@ export default {
                 }
 
                 this.popup && this.hide(event, true);
-                event.preventDefault();
             } else {
                 const itemIndex = this.focusedItemInfo.index !== -1 ? this.findPrevItemIndex(this.focusedItemInfo.index) : this.findLastFocusedItemIndex();
 
                 this.changeFocusedItemIndex(event, itemIndex);
-                event.preventDefault();
             }
+
+            event.preventDefault();
         },
         onArrowLeftKey(event) {
             const processedItem = this.visibleItems[this.focusedItemInfo.index];

@@ -244,14 +244,10 @@ export default {
 
             if (ObjectUtils.isEmpty(processedItem)) return;
 
-            const { index, key, level, parentKey, items } = processedItem;
-            const grouped = ObjectUtils.isNotEmpty(items);
+            const { index, key, level, parentKey } = processedItem;
             const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
-            if (grouped) {
-                activeItemPath.push(processedItem);
-                this.submenuVisible = true;
-            }
+            activeItemPath.push(processedItem);
 
             this.focusedItemInfo = { index, level, parentKey };
             this.activeItemPath = activeItemPath;
@@ -261,17 +257,29 @@ export default {
         onItemClick(event) {
             const { processedItem } = event;
             const grouped = this.isProccessedItemGroup(processedItem);
+            const root = ObjectUtils.isEmpty(processedItem.parent);
             const selected = this.isSelected(processedItem);
 
             if (selected) {
                 const { index, key, level, parentKey } = processedItem;
 
-                this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
-                this.focusedItemInfo = { index, level, parentKey };
+                if (grouped) {
+                    this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
+                    this.focusedItemInfo = { index, level, parentKey };
+                } else {
+                    this.hide();
+                }
 
-                DomHandler.focus(this.list);
+                // REVIEW:
+                // this.dirty = !root;
+                DomHandler.focus(this.menubar);
             } else {
-                grouped ? this.onItemChange(event) : this.hide();
+                if (root || grouped) {
+                    this.onItemChange(event);
+                } else {
+                    this.hide();
+                    this.mobileActive = false;
+                }
             }
         },
         onItemMouseEnter(event) {
