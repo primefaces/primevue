@@ -91,7 +91,7 @@ export default {
             default: false
         },
         groupRowsBy: {
-            type: [Array, String],
+            type: [Array, String, Function],
             default: null
         },
         sortMode: {

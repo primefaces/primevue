@@ -128,7 +128,7 @@ export default {
             default: null
         },
         groupRowsBy: {
-            type: [Array, String],
+            type: [Array, String, Function],
             default: null
         },
         expandableRowGroups: {
