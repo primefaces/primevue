@@ -256,6 +256,10 @@ export default {
             this.$refs.input.value = '';
             this.inputValue = '';
 
+            setTimeout(() => {
+                this.maxedOut && (this.focused = false);
+            }, 0);
+
             if (preventDefault) {
                 event.preventDefault();
             }
