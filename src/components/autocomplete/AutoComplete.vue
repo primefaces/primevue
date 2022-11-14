@@ -24,7 +24,6 @@
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onInput"
-            @change="onChange"
             v-bind="inputProps"
         />
         <ul
@@ -78,7 +77,6 @@
                     @blur="onBlur"
                     @keydown="onKeyDown"
                     @input="onInput"
-                    @change="onChange"
                     v-bind="inputProps"
                 />
             </li>
@@ -501,12 +499,14 @@ export default {
                 }
             }
         },
-        onChange(event) {
+        checkForceSelection(event) {
             if (this.forceSelection) {
                 let valid = false;
 
                 if (this.visibleOptions) {
-                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, event.target.value));
+                    const value = this.$refs.focusInput.value || '';
+
+                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, value));
 
                     if (matchedValue !== undefined) {
                         valid = true;
@@ -783,6 +783,7 @@ export default {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
                     if (this.overlayVisible && this.overlay && this.isOutsideClicked(event)) {
+                        this.checkForceSelection(event);
                         this.hide();
                     }
                 };
