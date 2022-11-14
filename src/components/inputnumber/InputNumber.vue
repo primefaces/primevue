@@ -451,6 +451,9 @@ export default {
                 this.repeat(event, null, -1);
             }
         },
+        focusOnInput() {
+            this.$refs.input.$el.focus();
+        },
         onUserInput() {
             if (this.isSpecialChar) {
                 this.$refs.input.$el.value = this.lastValue;
