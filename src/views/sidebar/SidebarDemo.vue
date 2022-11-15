@@ -10,29 +10,29 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" />
-                <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2" />
-                <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2" />
-                <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2" />
-                <Button icon="pi pi-th-large" @click="visibleFull = true" />
+                <Button icon="pi pi-arrow-right" @click="onOpenSidebar($event, 'visibleLeft')" class="mr-2" />
+                <Button icon="pi pi-arrow-left" @click="onOpenSidebar($event, 'visibleRight')" class="mr-2" />
+                <Button icon="pi pi-arrow-down" @click="onOpenSidebar($event, 'visibleTop')" class="mr-2" />
+                <Button icon="pi pi-arrow-up" @click="onOpenSidebar($event, 'visibleBottom')" class="mr-2" />
+                <Button icon="pi pi-th-large" @click="onOpenSidebar($event, 'visibleFull')" />
 
-                <Sidebar v-model:visible="visibleLeft" :baseZIndex="10000">
+                <Sidebar v-model:visible="visibleLeft" @hide="onHide" :baseZIndex="10000">
                     <h3>Left Sidebar</h3>
                 </Sidebar>
 
-                <Sidebar v-model:visible="visibleRight" :baseZIndex="10000" position="right">
+                <Sidebar v-model:visible="visibleRight" @hide="onHide" :baseZIndex="10000" position="right">
                     <h3>Right Sidebar</h3>
                 </Sidebar>
 
-                <Sidebar v-model:visible="visibleTop" :baseZIndex="10000" position="top">
+                <Sidebar v-model:visible="visibleTop" @hide="onHide" :baseZIndex="10000" position="top">
                     <h3>Top Sidebar</h3>
                 </Sidebar>
 
-                <Sidebar v-model:visible="visibleBottom" :baseZIndex="10000" position="bottom">
+                <Sidebar v-model:visible="visibleBottom" @hide="onHide" :baseZIndex="10000" position="bottom">
                     <h3>Bottom Sidebar</h3>
                 </Sidebar>
 
-                <Sidebar v-model:visible="visibleFull" :baseZIndex="10000" position="full">
+                <Sidebar v-model:visible="visibleFull" @hide="onHide" :baseZIndex="10000" position="full">
                     <h3>Full Screen</h3>
                 </Sidebar>
             </div>
@@ -52,8 +52,18 @@ export default {
             visibleRight: false,
             visibleTop: false,
             visibleBottom: false,
-            visibleFull: false
+            visibleFull: false,
+            targetElement: null
         };
+    },
+    methods: {
+        onOpenSidebar(event, position) {
+            this[position] = true;
+            this.targetElement = event.target;
+        },
+        onHide() {
+            this.targetElement.focus();
+        }
     },
     components: {
         SidebarDoc: SidebarDoc

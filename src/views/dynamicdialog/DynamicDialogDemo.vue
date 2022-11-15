@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
+                <Button label="Select a Product" icon="pi pi-search" @click="showProducts($event)" />
 
                 <DynamicDialog />
             </div>
@@ -28,7 +28,7 @@ import DynamicDialogDoc from './DynamicDialogDoc.vue';
 
 export default {
     methods: {
-        showProducts() {
+        showProducts(event) {
             const dialogRef = this.$dialog.open(ProductListDemo, {
                 props: {
                     header: 'Product List',
@@ -58,6 +58,8 @@ export default {
 
                         this.$toast.add({ severity: 'info', ...summary_and_detail, life: 3000 });
                     }
+
+                    event.target.focus();
                 }
             });
         }
