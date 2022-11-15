@@ -398,6 +398,11 @@ export declare type CalendarEmits = {
      * Callback to invoke when a key is pressed.
      */
     keydown: (event: Event) => void;
+    /**
+     * Callback to invoke when a user input is invalid.
+     * @param {string} value - The invalid user input
+     */
+    'invalid-input': (value: string) => void;
 };
 
 declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> {}

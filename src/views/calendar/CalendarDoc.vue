@@ -606,6 +606,11 @@ export default {
                         <td>event: Keyboard event</td>
                         <td>Callback to invoke when a key is pressed.</td>
                     </tr>
+                    <tr>
+                        <td>invalid-input</td>
+                        <td>value: The invalid user input</td>
+                        <td>Callback to invoke when a user input is invalid.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -441,6 +441,17 @@ const CalendarEvents = [
                 description: 'Keydown event'
             }
         ]
+    },
+    {
+        name: 'invalid-input',
+        description: 'Callback to invoke when a user input is invalid.',
+        arguments: [
+            {
+                name: 'value',
+                type: 'string',
+                description: 'The invalid user input'
+            }
+        ]
     }
 ];
 

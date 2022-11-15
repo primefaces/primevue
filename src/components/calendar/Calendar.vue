@@ -318,7 +318,7 @@ import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUti
 
 export default {
     name: 'Calendar',
-    emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
+    emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown', 'invalid-input'],
     props: {
         modelValue: null,
         selectionMode: {
@@ -2567,7 +2567,7 @@ export default {
                     this.updateModel(value);
                 }
             } catch (err) {
-                /* NoOp */
+                this.$emit('invalid-input', event.target.value);
             }
 
             this.$emit('input', event);
