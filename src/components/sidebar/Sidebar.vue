@@ -2,15 +2,15 @@
     <Portal>
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
             <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
-                <div class="p-sidebar-header">
+                <div :ref="headerContainerRef" class="p-sidebar-header">
                     <div v-if="$slots.header" class="p-sidebar-header-content">
                         <slot name="header"></slot>
                     </div>
-                    <button v-if="showCloseIcon" v-ripple type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
+                    <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
                         <span :class="['p-sidebar-close-icon', closeIcon]" />
                     </button>
                 </div>
-                <div class="p-sidebar-content">
+                <div :ref="contentRef" class="p-sidebar-content">
                     <slot></slot>
                 </div>
             </div>
@@ -65,6 +65,9 @@ export default {
     mask: null,
     maskClickListener: null,
     container: null,
+    content: null,
+    headerContainer: null,
+    closeButton: null,
     beforeUnmount() {
         this.destroyModal();
 
@@ -104,11 +107,21 @@ export default {
             }
         },
         focus() {
-            let focusable = DomHandler.findSingle(this.container, 'input,button');
+            const findFocusableElement = (container) => {
+                return container.querySelector('[autofocus]');
+            };
 
-            if (focusable) {
-                focusable.focus();
+            let focusTarget = this.$slots.default && findFocusableElement(this.content);
+
+            if (!focusTarget) {
+                focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
+
+                if (!focusTarget) {
+                    focusTarget = this.showCloseIcon ? this.closeButton : null;
+                }
             }
+
+            focusTarget && focusTarget.focus();
         },
         enableModality() {
             if (!this.mask) {
@@ -162,6 +175,15 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        contentRef(el) {
+            this.content = el;
+        },
+        headerContainerRef(el) {
+            this.headerContainer = el;
+        },
+        closeButtonRef(el) {
+            this.closeButton = el;
         }
     },
     computed: {
