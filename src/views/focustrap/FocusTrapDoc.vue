@@ -70,34 +70,44 @@ export default {
                     tabName: 'Options API Source',
                     content: `
 <template>
-    <div>
-        <div class="card" v-focustrap>
-            <h5>Input</h5>
-            <InputText id="input" v-model="value1" type="text" size="30" />
-
-            <h5>Float Label</h5>
-            <span class="p-float-label">
-                <InputText id="float-input" v-model="value2" type="text" size="30" />
-                <label for="float-input">Username</label>
-            </span>
-
-            <h5>Disabled Input</h5>
-            <InputText id="disabled-input" v-model="value3" type="text" size="30" disabled />
-
-            <h5>Input with tabindex -1</h5>
-            <InputText v-model="value4" type="text" size="30" tabindex="-1" />
-
-            <h5>Button</h5>
-            <Button type="button" icon="pi pi-check" label="Check"></Button>
-
-            <h5>Disabled Button</h5>
-            <Button type="button" icon="pi pi-check" disabled label="Disabled"></Button>
-
-            <h5>Button with tabindex -1</h5>
-            <Button type="button" icon="pi pi-check" tabindex="-1" label="Check"></Button>
-
-            <h5>Dropdown</h5>
-            <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" :showClear="true" />
+    <div class="focustrap-demo">
+        <div class="flex justify-content-center p-fluid">
+            <div v-focustrap class="card">
+                <div class="field">
+                    <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                </div>
+                <div class="field">
+                    <div class="p-input-icon-right">
+                        <i class="pi pi-envelope" />
+                        <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="p-float-label">
+                        <Password v-model="password">
+                            <template #header>
+                                <h6>Pick a password</h6>
+                            </template>
+                            <template #footer>
+                                <Divider />
+                                <p class="mt-2">Suggestions</p>
+                                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                    <li>At least one lowercase</li>
+                                    <li>At least one uppercase</li>
+                                    <li>At least one numeric</li>
+                                    <li>Minimum 8 characters</li>
+                                </ul>
+                            </template>
+                        </Password>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="field-checkbox">
+                    <Checkbox id="accept" v-model="accept" name="accept" value="Accept" />
+                    <label for="accept">I agree to the terms and conditions*</label>
+                </div>
+                <Button type="submit" label="Submit" class="mt-2" />
+            </div>
         </div>
     </div>
 </template>
@@ -106,23 +116,10 @@ export default {
 export default {
     data() {
         return {
-            value1: null,
-            value2: null,
-            value3: null,
-            value4: null,
-            selectedCountry: null,
-            countries: [
-                { name: 'Australia', code: 'AU' },
-                { name: 'Brazil', code: 'BR' },
-                { name: 'China', code: 'CN' },
-                { name: 'Egypt', code: 'EG' },
-                { name: 'France', code: 'FR' },
-                { name: 'Germany', code: 'DE' },
-                { name: 'India', code: 'IN' },
-                { name: 'Japan', code: 'JP' },
-                { name: 'Spain', code: 'ES' },
-                { name: 'United States', code: 'US' }
-            ]
+            name: null,
+            email: null,
+            password: null,
+            accept: null
         };
     }
 };
@@ -132,34 +129,44 @@ export default {
                     tabName: 'Composition API Source',
                     content: `
 <template>
-    <div>
-        <div class="card" v-focustrap>
-            <h5>Input</h5>
-            <InputText id="input" v-model="value1" type="text" size="30" />
-
-            <h5>Float Label</h5>
-            <span class="p-float-label">
-                <InputText id="float-input" v-model="value2" type="text" size="30" />
-                <label for="float-input">Username</label>
-            </span>
-
-            <h5>Disabled Input</h5>
-            <InputText id="disabled-input" v-model="value3" type="text" size="30" disabled />
-
-            <h5>Input with tabindex -1</h5>
-            <InputText v-model="value4" type="text" size="30" tabindex="-1" />
-
-            <h5>Button</h5>
-            <Button type="button" icon="pi pi-check" label="Check"></Button>
-
-            <h5>Disabled Button</h5>
-            <Button type="button" icon="pi pi-check" disabled label="Disabled"></Button>
-
-            <h5>Button with tabindex -1</h5>
-            <Button type="button" icon="pi pi-check" tabindex="-1" label="Check"></Button>
-
-            <h5>Dropdown</h5>
-            <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" :showClear="true" />
+    <div class="focustrap-demo">
+        <div class="flex justify-content-center p-fluid">
+            <div v-focustrap class="card">
+                <div class="field">
+                    <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                </div>
+                <div class="field">
+                    <div class="p-input-icon-right">
+                        <i class="pi pi-envelope" />
+                        <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="p-float-label">
+                        <Password v-model="password">
+                            <template #header>
+                                <h6>Pick a password</h6>
+                            </template>
+                            <template #footer>
+                                <Divider />
+                                <p class="mt-2">Suggestions</p>
+                                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                    <li>At least one lowercase</li>
+                                    <li>At least one uppercase</li>
+                                    <li>At least one numeric</li>
+                                    <li>Minimum 8 characters</li>
+                                </ul>
+                            </template>
+                        </Password>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="field-checkbox">
+                    <Checkbox id="accept" v-model="accept" name="accept" value="Accept" />
+                    <label for="accept">I agree to the terms and conditions*</label>
+                </div>
+                <Button type="submit" label="Submit" class="mt-2" />
+            </div>
         </div>
     </div>
 </template>
@@ -168,60 +175,62 @@ export default {
 import { ref } from 'vue';
 export default {
     setup() {
-        const value1 = ref(null),
-        const value2 = ref(null),
-        const value3 = ref(null),
-        const value4 = ref(null),
-        const selectedCountry: null,
-        const countries = ref([
-            { name: 'Australia', code: 'AU' },
-            { name: 'Brazil', code: 'BR' },
-            { name: 'China', code: 'CN' },
-            { name: 'Egypt', code: 'EG' },
-            { name: 'France', code: 'FR' },
-            { name: 'Germany', code: 'DE' },
-            { name: 'India', code: 'IN' },
-            { name: 'Japan', code: 'JP' },
-            { name: 'Spain', code: 'ES' },
-            { name: 'United States', code: 'US' }
-        ]);
+        const name = ref(null),
+        const email = ref(null),
+        const password = ref(null),
+        const accept = ref(null),
 
-        return { value1, value2, value3, value4, countries, selectedCountry };
+        return { name, email, password, accept };
     };
 };
 <\\/script>`
                 },
                 'browser-source': {
                     tabName: 'Browser Demo Source',
+                    imports: `<script src="https://unpkg.com/primevue@^3/password/password.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/divider/divider.min.js"><\\/script>
+        <script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"><\\/script>`,
                     content: `
 <div id="app">
-    <div class="card" v-focustrap>
-        <h5>Input</h5>
-        <p-inputtext id="input" v-model="value1" type="text" size="30"></p-inputtext>
-
-        <h5>Float Label</h5>
-        <span class="p-float-label">
-            <p-inputtext id="float-input" v-model="value2" type="text" size="30"></p-inputtext>
-            <label for="float-input">Username</label>
-        </span>
-
-        <h5>Disabled Input</h5>
-        <p-inputtext id="disabled-input" v-model="value3" type="text" size="30" disabled></p-inputtext>
-
-        <h5>Input with tabindex -1</h5>
-        <p-inputtext v-model="value4" type="text" size="30" tabindex="-1"></p-inputtext>
-
-        <h5>Button</h5>
-        <p-button type="button" icon="pi pi-check" label="Check"></p-button>
-
-        <h5>Disabled Button</h5>
-        <p-button type="button" icon="pi pi-check" disabled label="Disabled"></p-button>
-
-        <h5>Button with tabindex -1</h5>
-        <p-button type="button" icon="pi pi-check" tabindex="-1" label="Check"></p-button>
-
-        <h5>Dropdown</h5>
-        <p-dropdown v-model="selectedCountry" :options="countries" option-label="name" placeholder="Select a Country" :show-clear="true"></p-dropdown>
+    <div class="focustrap-demo">
+        <div class="flex justify-content-center p-fluid">
+            <div v-focustrap class="card">
+                <div class="field">
+                    <p-inputtext id="input" v-model="name" type="text" placeholder="Name"></p-inputtext>
+                </div>
+                <div class="field">
+                    <div class="p-input-icon-right">
+                        <i class="pi pi-envelope" />
+                        <p-inputtext id="email" v-model="email" type="email" placeholder="Email"></p-inputtext>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="p-float-label">
+                        <p-password v-model="password">
+                            <template #header>
+                                <h6>Pick a password</h6>
+                            </template>
+                            <template #footer>
+                                <p-divider></p-divider>
+                                <p class="mt-2">Suggestions</p>
+                                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                    <li>At least one lowercase</li>
+                                    <li>At least one uppercase</li>
+                                    <li>At least one numeric</li>
+                                    <li>Minimum 8 characters</li>
+                                </ul>
+                            </template>
+                        </p-password>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="field-checkbox">
+                    <p-checkbox id="accept" v-model="accept" name="accept" value="Accept"></p-checkbox>
+                    <label for="accept">I agree to the terms and conditions*</label>
+                </div>
+                <p-button type="submit" label="Submit" class="mt-2"></p-button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -231,30 +240,19 @@ export default {
     
     const App = {
         setup() {
-            const value1 = ref(null);
-            const value2 = ref(null);
-            const value3 = ref(null);
-            const value4 = ref(null);
-            const selectedCountry = ref(null);
-            const countries = ref([
-                { name: 'Australia', code: 'AU' },
-                { name: 'Brazil', code: 'BR' },
-                { name: 'China', code: 'CN' },
-                { name: 'Egypt', code: 'EG' },
-                { name: 'France', code: 'FR' },
-                { name: 'Germany', code: 'DE' },
-                { name: 'India', code: 'IN' },
-                { name: 'Japan', code: 'JP' },
-                { name: 'Spain', code: 'ES' },
-                { name: 'United States', code: 'US' }
-            ]);
+            const name = ref(null),
+            const email = ref(null),
+            const password = ref(null),
+            const accept = ref(null),
 
-            return { value1, value2, value3, value4, countries, selectedCountry };
+            return { name, email, password, accept };
         },
         components: {
-            "p-button": primevue.button,
             "p-inputtext": primevue.inputtext,
-            "p-dropdown": primevue.dropdown
+            "p-button": primevue.button,
+            "p-password": primevue.password,
+            "p-divider": primevue.divider,
+            "p-checkbox": primevue.checkbox,
         }
     }
 
