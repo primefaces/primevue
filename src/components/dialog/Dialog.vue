@@ -3,23 +3,23 @@
         <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div v-if="visible" :ref="containerRef" v-focustrap :class="dialogClass" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="$attrs">
-                    <div v-if="showHeader" class="p-dialog-header" @mousedown="initDrag">
+                    <div v-if="showHeader" :ref="headerContainerRef" class="p-dialog-header" @mousedown="initDrag">
                         <slot name="header">
                             <span v-if="header" :id="ariaLabelledById" class="p-dialog-title">{{ header }}</span>
                         </slot>
                         <div class="p-dialog-header-icons">
-                            <button v-if="maximizable" v-ripple class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'">
+                            <button v-if="maximizable" :ref="maximizableRef" v-ripple class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'">
                                 <span :class="maximizeIconClass"></span>
                             </button>
-                            <button v-if="closable" v-ripple class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="closeAriaLabel" type="button" v-bind="closeButtonProps">
+                            <button v-if="closable" :ref="closeButtonRef" v-ripple class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="closeAriaLabel" type="button" v-bind="closeButtonProps">
                                 <span :class="['p-dialog-header-close-icon', closeIcon]"></span>
                             </button>
                         </div>
                     </div>
-                    <div :class="contentStyleClass" :style="contentStyle" v-bind="contentProps">
+                    <div :ref="contentRef" :class="contentStyleClass" :style="contentStyle" v-bind="contentProps">
                         <slot></slot>
                     </div>
-                    <div v-if="footer || $slots.footer" class="p-dialog-footer">
+                    <div v-if="footer || $slots.footer" :ref="footerContainerRef" class="p-dialog-footer">
                         <slot name="footer">{{ footer }}</slot>
                     </div>
                 </div>
@@ -160,6 +160,11 @@ export default {
     documentKeydownListener: null,
     container: null,
     mask: null,
+    content: null,
+    headerContainer: null,
+    footerContainer: null,
+    maximizableButton: null,
+    closeButton: null,
     styleElement: null,
     dragging: null,
     documentDragListener: null,
@@ -229,11 +234,25 @@ export default {
             }
         },
         focus() {
-            let focusTarget = this.container.querySelector('[autofocus]');
+            const findFocusableElement = (container) => {
+                return container.querySelector('[autofocus]');
+            };
 
-            if (focusTarget) {
-                focusTarget.focus();
+            let focusTarget = this.$slots.default && findFocusableElement(this.content);
+
+            if (!focusTarget) {
+                focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
+
+                if (!focusTarget) {
+                    focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
+
+                    if (!focusTarget) {
+                        focusTarget = this.maximizable ? this.maximizableButton : this.closable ? this.closeButton : null;
+                    }
+                }
             }
+
+            focusTarget && focusTarget.focus();
         },
         maximize(event) {
             if (this.maximized) {
@@ -287,6 +306,21 @@ export default {
         },
         maskRef(el) {
             this.mask = el;
+        },
+        contentRef(el) {
+            this.content = el;
+        },
+        headerContainerRef(el) {
+            this.headerContainer = el;
+        },
+        footerContainerRef(el) {
+            this.footerContainer = el;
+        },
+        maximizableRef(el) {
+            this.maximizableButton = el;
+        },
+        closeButtonRef(el) {
+            this.closeButton = el;
         },
         createStyle() {
             if (!this.styleElement) {
