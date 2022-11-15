@@ -18,12 +18,13 @@ describe('ConfirmDialog', () => {
                         message: 'Are you sure you want to proceed?',
                         header: 'Confirmation',
                         icon: 'pi pi-exclamation-triangle'
-                    }
+                    },
+                    visible: true
                 };
             }
         });
 
-        await wrapper.setData({ visible: true });
+        await wrapper.vm.$nextTick();
 
         expect(wrapper.find('.p-dialog-mask .p-dialog.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-dialog-title').text()).toBe('Confirmation');
@@ -57,15 +58,15 @@ describe('ConfirmDialog', () => {
                             // eslint-disable-next-line no-console
                             console.log('reject');
                         }
-                    }
+                    },
+                    visible: true
                 };
             }
         });
 
+        await wrapper.vm.$nextTick();
+
         const acceptTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'accept');
-
-        await wrapper.setData({ visible: true });
-
         const CDAcceptBtn = wrapper.find('.p-confirm-dialog-accept');
 
         await CDAcceptBtn.trigger('click');
@@ -96,15 +97,15 @@ describe('ConfirmDialog', () => {
                             // eslint-disable-next-line no-console
                             console.log('reject');
                         }
-                    }
+                    },
+                    visible: true
                 };
             }
         });
 
+        await wrapper.vm.$nextTick();
+
         const rejectTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'reject');
-
-        await wrapper.setData({ visible: true });
-
         const CDRejectBtn = wrapper.find('.p-confirm-dialog-reject');
 
         await CDRejectBtn.trigger('click');
@@ -127,12 +128,13 @@ describe('ConfirmDialog', () => {
                         message: 'Are you sure you want to proceed?',
                         header: 'Confirmation',
                         icon: 'pi pi-exclamation-triangle'
-                    }
+                    },
+                    visible: true
                 };
             }
         });
 
-        await wrapper.setData({ visible: true });
+        await wrapper.vm.$nextTick();
 
         const dialogCloseBtn = wrapper.find('.p-dialog-header-close');
 
@@ -158,12 +160,13 @@ describe('ConfirmDialog', () => {
                         header: 'Delete Confirmation',
                         icon: 'pi pi-info-circle',
                         position: 'bottom'
-                    }
+                    },
+                    visible: true
                 };
             }
         });
 
-        await wrapper.setData({ visible: true });
+        await wrapper.vm.$nextTick();
 
         expect(wrapper.find('.p-dialog-mask.p-dialog-bottom').exists()).toBe(true);
     });

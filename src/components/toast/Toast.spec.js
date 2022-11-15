@@ -15,7 +15,8 @@ describe('Toast.vue', () => {
                     }
                 },
                 stubs: {
-                    teleport: true
+                    teleport: true,
+                    transition: true
                 }
             },
             data() {
