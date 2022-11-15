@@ -19,7 +19,7 @@ describe('Toast.vue', () => {
                     transition: true
                 }
             },
-            data () {
+            data() {
                 return {
                     messages: [{ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 }]
                 };
