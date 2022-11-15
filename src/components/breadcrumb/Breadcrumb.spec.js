@@ -5,7 +5,16 @@ describe('Breadcrumb', () => {
     it('should exist', () => {
         const wrapper = mount(Breadcrumb, {
             global: {
-                stubs: ['router-link']
+                stubs: {
+                    'router-link': true
+                },
+                mocks: {
+                    $router: {
+                        currentRoute: {
+                            path: jest.fn()
+                        }
+                    }
+                }
             },
             props: {
                 home: { icon: 'pi pi-home', to: '/' },
