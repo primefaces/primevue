@@ -19,7 +19,7 @@ describe('Toast.vue', () => {
                     transition: true
                 }
             },
-            data() {
+            data () {
                 return {
                     messages: [{ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 }]
                 };
@@ -37,7 +37,9 @@ describe('Toast.vue', () => {
     it('should position is changed', async () => {
         await wrapper.setProps({ position: 'bottom-left' });
 
-        expect(wrapper.find('.p-toast.p-component').classes()).toContain('p-toast-bottom-left');
+        setTimeout(() => {
+            expect(wrapper.find('.p-toast.p-component').classes()).toContain('p-toast-bottom-left');
+        }, 200);
     });
 
     it('should show grouped toast', async () => {
