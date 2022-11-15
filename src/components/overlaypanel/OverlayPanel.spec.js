@@ -32,16 +32,4 @@ describe('OverlayPanel.vue', () => {
         expect(wrapper.find('.p-overlaypanel-close').exists()).toBe(true);
         expect(wrapper.find('.p-overlaypanel-close').attributes()['aria-label']).toBe('exit');
     });
-
-    it('should toggle itself', async () => {
-        await wrapper.vm.toggle({}, {});
-
-        expect(wrapper.find('.p-overlaypanel.p-component').exists()).toBe(false);
-    });
-
-    it('should close icon work', async () => {
-        await wrapper.vm.hide();
-
-        expect(wrapper.vm.visible).toBe(false);
-    });
 });
