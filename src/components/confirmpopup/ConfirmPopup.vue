@@ -10,8 +10,8 @@
                 </template>
                 <component v-else :is="$slots.message" :message="confirmation"></component>
                 <div class="p-confirm-popup-footer">
-                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" />
-                    <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" autofocus />
+                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" />
+                    <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" />
                 </div>
             </div>
         </transition>
@@ -276,6 +276,12 @@ export default {
         },
         rejectClass() {
             return ['p-confirm-popup-reject p-button-sm', this.confirmation ? this.confirmation.rejectClass || 'p-button-text' : null];
+        },
+        autoFocusAccept() {
+            return this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
+        },
+        autoFocusReject() {
+            return this.confirmation.defaultFocus === 'reject' ? true : false;
         }
     },
     components: {

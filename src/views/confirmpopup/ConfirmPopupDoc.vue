@@ -220,6 +220,12 @@ export default {
                         <td>null</td>
                         <td>Style class of the reject button.</td>
                     </tr>
+                    <tr>
+                        <td>defaultFocus</td>
+                        <td>string</td>
+                        <td>accept</td>
+                        <td>Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
