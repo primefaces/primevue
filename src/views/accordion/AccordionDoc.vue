@@ -411,8 +411,8 @@ export default {
         <p>The content uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.</p>
 
         <h6>Header Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
