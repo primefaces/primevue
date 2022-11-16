@@ -135,7 +135,7 @@ import AccordionTab from 'primevue/accordiontab';
 &lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
 &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
 
-&lt;Accordion :multiple="true" :activeIdex="active"&gt;
+&lt;Accordion :multiple="true" :activeIndex="active"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
