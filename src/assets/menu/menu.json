@@ -431,8 +431,7 @@
                 },
                 {
                     "name": "Paginator",
-                    "to": "/paginator",
-                    "badge": "UPDATED"
+                    "to": "/paginator"
                 },
                 {
                     "name": "PickList",
@@ -614,8 +613,7 @@
             "children": [
                 {
                     "name": "Upload",
-                    "to": "/fileupload",
-                    "badge": "UPDATED"
+                    "to": "/fileupload"
                 }
             ]
         },
