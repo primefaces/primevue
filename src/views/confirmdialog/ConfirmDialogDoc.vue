@@ -516,7 +516,7 @@ export default {
 export default {
     data() {
         return {
-            targetElemen: null
+            targetElement: null
         };
     },
     methods: {
