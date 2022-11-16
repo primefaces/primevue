@@ -241,10 +241,10 @@ export default {
             let focusTarget = this.$slots.default && findFocusableElement(this.content);
 
             if (!focusTarget) {
-                focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
+                focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
 
                 if (!focusTarget) {
-                    focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
+                    focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
 
                     if (!focusTarget) {
                         focusTarget = this.maximizable ? this.maximizableButton : this.closable ? this.closeButton : null;
