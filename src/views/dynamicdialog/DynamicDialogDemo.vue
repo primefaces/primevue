@@ -59,18 +59,9 @@ export default {
                         this.$toast.add({ severity: 'info', ...summary_and_detail, life: 3000 });
                     }
 
-                    const targetElement = this.findButton(event.target);
-
-                    targetElement.focus();
+                    event.target.focus();
                 }
             });
-        },
-        findButton(element) {
-            if (element.nodeName !== 'BUTTON') {
-                return this.findButton(element.parentNode);
-            }
-
-            return element;
         }
     },
     components: {

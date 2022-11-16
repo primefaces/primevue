@@ -59,17 +59,10 @@ export default {
     methods: {
         onOpenSidebar(event, position) {
             this[position] = true;
-            this.targetElement = this.findButton(event.target);
+            this.targetElement = event.target;
         },
         onHide() {
             this.targetElement.focus();
-        },
-        findButton(element) {
-            if (element.nodeName !== 'BUTTON') {
-                return this.findButton(element.parentNode);
-            }
-
-            return element;
         }
     },
     components: {
