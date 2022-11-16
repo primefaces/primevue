@@ -569,6 +569,7 @@ import Dropdown from 'primevue/dropdown';
 import DynamicDialog from 'primevue/dynamicdialog';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
+import FocusTrap from 'primevue/focustrap';
 import Galleria from 'primevue/galleria';
 import Image from 'primevue/image';
 import InlineMessage from 'primevue/inlinemessage';
@@ -642,6 +643,7 @@ app.directive('tooltip', Tooltip);
 app.directive('badge', BadgeDirective);
 app.directive('ripple', Ripple);
 app.directive('styleclass', StyleClass);
+app.directive('focustrap', FocusTrap);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
