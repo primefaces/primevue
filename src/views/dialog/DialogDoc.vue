@@ -410,11 +410,11 @@ export default {
                         <td>
                             <i>tab</i>
                         </td>
-                        <td>Moves focus to the next the focusable element within the dialog.</td>
+                        <td>Moves focus to the next the focusable element within the dialog if <i>modal</i> is true. Otherwise, the focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
                         <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous the focusable element within the dialog.</td>
+                        <td>Moves focus to the previous the focusable element within the dialog if <i>modal</i> is true. Otherwise, the focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
                         <td>
