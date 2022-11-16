@@ -2698,7 +2698,7 @@ export default {
 
             if (propValue && Array.isArray(propValue)) {
                 if (this.isRangeSelection()) {
-                    propValue = propValue[1] || propValue[0];
+                    propValue = this.inline ? propValue[0] : propValue[1] || propValue[0];
                 } else if (this.isMultipleSelection()) {
                     propValue = propValue[propValue.length - 1];
                 }
