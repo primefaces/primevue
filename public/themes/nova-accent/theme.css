@@ -4226,6 +4226,9 @@
 .p-sidebar .p-sidebar-content {
   padding: 0.571rem 1rem;
 }
+.p-sidebar .p-sidebar-footer {
+  padding: 0.571rem 1rem;
+}
 
 .p-tooltip .p-tooltip-text {
   background: #333333;
