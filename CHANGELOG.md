@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.19.0](https://github.com/primefaces/primevue/tree/3.19.0) (2022-11-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.18.1...3.19.0)
+
+**Implemented New Features and Enhancements:**
+
+- Update PrimeFlex 3.3.0 [\#3261](https://github.com/primefaces/primevue/issues/3261)
+- Improve OverlayPanel Implementation for Accessibility [\#3254](https://github.com/primefaces/primevue/issues/3254)
+- Improve Tooltip Implementation for Accessibility [\#3248](https://github.com/primefaces/primevue/issues/3248)
+- Improve ConfirmPopup implementation for Accessibility [\#3236](https://github.com/primefaces/primevue/issues/3236)
+- Improve Sidebar implementation for Accessibility [\#3233](https://github.com/primefaces/primevue/issues/3233)
+- Improve ConfirmDialog implementation for Accessibility  [\#3232](https://github.com/primefaces/primevue/issues/3232)
+- Improve Dialog implementation for Accessibility  [\#3231](https://github.com/primefaces/primevue/issues/3231)
+- FocusTrap Directive [\#3225](https://github.com/primefaces/primevue/issues/3225)
+- Splitter: Emit Resize Start event [\#3203](https://github.com/primefaces/primevue/issues/3203)
+
+**Fixed bugs:**
+
+- PrimeVue Radiobutton - Mobile - scroll to top [\#3266](https://github.com/primefaces/primevue/issues/3266)
+- Calendar: Inline Calendar is jumping when selected mode is range and number of months is more then 1 [\#3247](https://github.com/primefaces/primevue/issues/3247)
+- Slider: Range feature not working correctly [\#3238](https://github.com/primefaces/primevue/issues/3238)
+- Chips | Cannot remove p-focus [\#3237](https://github.com/primefaces/primevue/issues/3237)
+- Menubar: should accept empty items [\#3224](https://github.com/primefaces/primevue/issues/3224)
+- Menu: TypeError with only disabled menuitems [\#3223](https://github.com/primefaces/primevue/issues/3223)
+- Menubar: Menu Icon in mobile view problem [\#3221](https://github.com/primefaces/primevue/issues/3221)
+- DataTable: groupRowsBy has wrong type [\#3219](https://github.com/primefaces/primevue/issues/3219)
+- TieredMenu \(and SplitButton\): Jumps to the top of the page [\#3212](https://github.com/primefaces/primevue/issues/3212)
+
 ## [3.18.1](https://github.com/primefaces/primevue/tree/3.18.1) (2022-10-31)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.18.0...3.18.1)
