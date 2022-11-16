@@ -327,7 +327,7 @@ export default {
                     content: `
 <template>
     <div>
-        <Button label="Show" @click="showProducts($event)" />
+        <Button label="Show" @click="onShow" />
 
         <DynamicDialog />
     </div>
@@ -340,7 +340,7 @@ import ProductListDemo from './components/ProductListDemo';
 
 export default {
     methods:{
-        showProducts(event) {
+        onShow() {
             const dialogRef = this.$dialog.open(ProductListDemo, {
                 props: {
                     header: 'Product List',
@@ -369,8 +369,6 @@ export default {
 
                         this.$toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
                     }
-
-                    event.target.focus();
                 }
             });
         }
@@ -384,7 +382,7 @@ export default {
                     content: `
 <template>
     <div>
-        <Button label="Show" @click="showProducts($event)" />
+        <Button label="Show" @click="showProducts" />
         <Toast />
 
         <DynamicDialog />
@@ -403,7 +401,7 @@ export default {
         const dialog = useDialog();
         const toast = useToast();
 
-        const showProducts = (event) => {
+        const showProducts = () => {
             const dialogRef = dialog.open(ProductListDemo, {
                 props: {
                     header: 'Product List',
@@ -432,8 +430,6 @@ export default {
 
                         toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
                     }
-
-                    event.target.focus();
                 }
             });
         }
@@ -454,7 +450,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/column/column.min.js"><\\/script>
         <script src="./ProductService.js"><\\/script>`,
                     content: `<div id="app">
-                <p-button label="Show" @click="showProducts($event)"></p-button>
+                <p-button label="Show" @click="showProducts"></p-button>
                 <p-toast></p-toast>
 
                 <p-dynamicdialog></p-dynamicdialog>
@@ -470,7 +466,7 @@ export default {
                     const dialog = useDialog();
                     const toast = useToast();
 
-                    const showProducts = (event) => {
+                    const showProducts = () => {
                         const dialogRef = dialog.open(ProductListDemo, {
                             props: {
                                 header: 'Product List',
@@ -499,8 +495,6 @@ export default {
 
                                     toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
                                 }
-
-                                event.target.focus();
                             }
                         });
                     }

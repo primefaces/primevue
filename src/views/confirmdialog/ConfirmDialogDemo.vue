@@ -9,8 +9,8 @@
         </div>
 
         <div class="content-section implementation">
-            <ConfirmDialog @hide="onHide"></ConfirmDialog>
-            <ConfirmDialog @hide="onHide" group="templating">
+            <ConfirmDialog></ConfirmDialog>
+            <ConfirmDialog group="templating">
                 <template #message="slotProps">
                     <div class="flex p-4">
                         <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
@@ -18,31 +18,31 @@
                     </div>
                 </template>
             </ConfirmDialog>
-            <ConfirmDialog @hide="onHide" group="positionDialog"></ConfirmDialog>
+            <ConfirmDialog group="positionDialog"></ConfirmDialog>
 
             <div class="card">
                 <h5>Basic</h5>
-                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
-                <Button @click="confirm2($event)" icon="pi pi-times" label="Delete"></Button>
+                <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
+                <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
 
                 <h5>Templating</h5>
-                <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
+                <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
 
                 <h5>Position</h5>
                 <div class="grid flex-column">
                     <div class="col">
-                        <Button @click="confirmPosition($event, 'left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
+                        <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
+                        <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
                     </div>
                     <div class="col">
-                        <Button @click="confirmPosition($event, 'topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
+                        <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
+                        <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
+                        <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
                     </div>
                     <div class="col">
-                        <Button @click="confirmPosition($event, 'bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
+                        <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
+                        <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
+                        <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                     </div>
                 </div>
             </div>
@@ -56,13 +56,8 @@
 import ConfirmDialogDoc from './ConfirmDialogDoc';
 
 export default {
-    data() {
-        return {
-            targetElemen: null
-        };
-    },
     methods: {
-        confirm1(event) {
+        confirm1() {
             this.$confirm.require({
                 message: 'Are you sure you want to proceed?',
                 header: 'Confirmation',
@@ -74,9 +69,8 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
         },
-        confirm2(event) {
+        confirm2() {
             this.$confirm.require({
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
@@ -89,9 +83,8 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
         },
-        confirmPosition(event, position) {
+        confirmPosition(position) {
             this.$confirm.require({
                 group: 'positionDialog',
                 message: 'Do you want to delete this record?',
@@ -105,9 +98,8 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
         },
-        showTemplate(event) {
+        showTemplate() {
             this.$confirm.require({
                 group: 'templating',
                 header: 'Terms and Conditions',
@@ -122,10 +114,6 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
-        },
-        onHide() {
-            this.targetElement.focus();
         }
     },
     components: {

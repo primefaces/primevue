@@ -356,19 +356,9 @@ export default {
             visibleRight: false,
             visibleTop: false,
             visibleBottom: false,
-            visibleFull: false,
-            targetElement: null
-        };
-    },
-    methods: {
-        onOpenSidebar(event, position) {
-            this[position] = true;
-            this.targetElement = event.target;
-        },
-        onHide() {
-            this.targetElement.focus();
+            visibleFull: false
         }
-    },
+    }
 }
 <\\/script>
 `
@@ -378,35 +368,31 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="content-section implementation">
-            <div class="card">
-                <Button icon="pi pi-arrow-right" @click="onOpenSidebar($event, 'visibleLeft')" class="mr-2" />
-                <Button icon="pi pi-arrow-left" @click="onOpenSidebar($event, 'visibleRight')" class="mr-2" />
-                <Button icon="pi pi-arrow-down" @click="onOpenSidebar($event, 'visibleTop')" class="mr-2" />
-                <Button icon="pi pi-arrow-up" @click="onOpenSidebar($event, 'visibleBottom')" class="mr-2" />
-                <Button icon="pi pi-th-large" @click="onOpenSidebar($event, 'visibleFull')" />
+        <Button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2" />
+        <Button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2"  />
+        <Button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2"  />
+        <Button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"  />
+        <Button icon="pi pi-th-large" @click="visibleFull = true"  />
 
-                <Sidebar v-model:visible="sidebarPositions.visibleLeft" @hide="onHide" :baseZIndex="10000">
-                    <h3>Left Sidebar</h3>
-                </Sidebar>
+        <Sidebar v-model:visible="visibleLeft" :baseZIndex="10000">
+            <h3>Left Sidebar</h3>
+        </Sidebar>
 
-                <Sidebar v-model:visible="sidebarPositions.visibleRight" @hide="onHide" :baseZIndex="10000" position="right">
-                    <h3>Right Sidebar</h3>
-                </Sidebar>
+        <Sidebar v-model:visible="visibleRight" :baseZIndex="10000" position="right">
+            <h3>Right Sidebar</h3>
+        </Sidebar>
 
-                <Sidebar v-model:visible="sidebarPositions.visibleTop" @hide="onHide" :baseZIndex="10000" position="top">
-                    <h3>Top Sidebar</h3>
-                </Sidebar>
+        <Sidebar v-model:visible="visibleTop" :baseZIndex="10000" position="top">
+            <h3>Top Sidebar</h3>
+        </Sidebar>
 
-                <Sidebar v-model:visible="sidebarPositions.visibleBottom" @hide="onHide" :baseZIndex="10000" position="bottom">
-                    <h3>Bottom Sidebar</h3>
-                </Sidebar>
+        <Sidebar v-model:visible="visibleBottom" :baseZIndex="10000" position="bottom">
+            <h3>Bottom Sidebar</h3>
+        </Sidebar>
 
-                <Sidebar v-model:visible="sidebarPositions.visibleFull" @hide="onHide" :baseZIndex="10000" position="full">
-                    <h3>Full Screen</h3>
-                </Sidebar>
-            </div>
-        </div>
+        <Sidebar v-model:visible="visibleFull" :baseZIndex="10000" position="full">
+            <h3>Full Screen</h3>
+        </Sidebar>
     </div>
 </template>
 
@@ -415,26 +401,13 @@ import { ref } from 'vue';
 
 export default {
     setup() {
-        const sidebarPositions = reactive({
-                    visibleLeft: false,
-                    visibleRight: false,
-                    visibleTop: false,
-                    visibleBottom: false,
-                    visibleFull: false,
-                    targetElement: null
-                });
-                const targetElement = ref(null);
+        const visibleLeft = ref(false);
+        const visibleRight = ref(false);
+        const visibleTop = ref(false);
+        const visibleBottom = ref(false);
+        const visibleFull = ref(false);
 
-                const onOpenSidebar = (event, position) => {
-                    sidebarPositions[position] = true;
-                    targetElement.value = event.target;
-                };
-
-                const onHide = () => {
-                    targetElement.value.focus();
-                };
-
-				return { sidebarPositions, onOpenSidebar, onHide }
+		return { visibleLeft, visibleRight, visibleTop, visibleBottom, visibleFull }
     }
 }
 <\\/script>
@@ -444,63 +417,45 @@ export default {
                     tabName: 'Browser Source',
                     imports: `<script src="https://unpkg.com/primevue@^3/sidebar/sidebar.min.js"><\\/script>`,
                     content: `<div id="app">
-			<p-button icon="pi pi-arrow-right" @click="onOpenSidebar($event, 'visibleLeft')" class="mr-2"></p-button>
-			<p-button icon="pi pi-arrow-left" @click="onOpenSidebar($event, 'visibleRight')" class="mr-2"></p-button>
-			<p-button icon="pi pi-arrow-down" @click="onOpenSidebar($event, 'visibleTop')" class="mr-2"></p-button>
-			<p-button icon="pi pi-arrow-up" @click="onOpenSidebar($event, 'visibleBottom')" class="mr-2"></p-button>
-			<p-button icon="pi pi-th-large" @click="onOpenSidebar($event, 'visibleFull')"></p-button>
+			<p-button icon="pi pi-arrow-right" @click="visibleLeft = true" class="mr-2"></p-button>
+			<p-button icon="pi pi-arrow-left" @click="visibleRight = true" class="mr-2"></p-button>
+			<p-button icon="pi pi-arrow-down" @click="visibleTop = true" class="mr-2"></p-button>
+			<p-button icon="pi pi-arrow-up" @click="visibleBottom = true" class="mr-2"></p-button>
+			<p-button icon="pi pi-th-large" @click="visibleFull = true"></p-button>
 
-			<p-sidebar v-model:visible="sidebarPositions.visibleLeft"
-            @hide="onHide" :base-z-index="10000">
+			<p-sidebar v-model:visible="visibleLeft" :base-z-index="10000">
 				<h3>Left Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="sidebarPositions.visibleRight"
-            @hide="onHide" :base-z-index="10000" position="right">
+			<p-sidebar v-model:visible="visibleRight" :base-z-index="10000" position="right">
 				<h3>Right Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="sidebarPositions.visibleTop"
-            @hide="onHide" :base-z-index="10000" position="top">
+			<p-sidebar v-model:visible="visibleTop" :base-z-index="10000" position="top">
 				<h3>Top Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="sidebarPositions.visibleBottom"
-            @hide="onHide" :base-z-index="10000" position="bottom">
+			<p-sidebar v-model:visible="visibleBottom" :base-z-index="10000" position="bottom">
 				<h3>Bottom Sidebar</h3>
 			</p-sidebar>
 
-			<p-sidebar v-model:visible="sidebarPositions.visibleFull"
-            @hide="onHide" :base-z-index="10000" position="full">
+			<p-sidebar v-model:visible="visibleFull" :base-z-index="10000" position="full">
 				<h3>Full Screen</h3>
 			</p-sidebar>
 		</div>
 
 		<script>
-		const { createApp, ref, reactive } = Vue;
+		const { createApp, ref } = Vue;
 
 		const App = {
 			setup() {
-				const sidebarPositions = reactive({
-                    visibleLeft: false,
-                    visibleRight: false,
-                    visibleTop: false,
-                    visibleBottom: false,
-                    visibleFull: false,
-                    targetElement: null
-                });
-                const targetElement = ref(null);
+				const visibleLeft = ref(false);
+				const visibleRight = ref(false);
+				const visibleTop = ref(false);
+				const visibleBottom = ref(false);
+				const visibleFull = ref(false);
 
-                const onOpenSidebar = (event, position) => {
-                    sidebarPositions[position] = true;
-                    targetElement.value = event.target;
-                };
-
-                const onHide = () => {
-                    targetElement.value.focus();
-                };
-
-				return { sidebarPositions, onOpenSidebar, onHide }
+				return { visibleLeft, visibleRight, visibleTop, visibleBottom, visibleFull }
 			},
 			components: {
 				"p-sidebar": primevue.sidebar,

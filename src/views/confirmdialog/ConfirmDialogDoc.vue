@@ -462,50 +462,41 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ConfirmDialog</h1>
-                <p>ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <ConfirmDialog @hide="onHide"></ConfirmDialog>
-            <ConfirmDialog @hide="onHide" group="templating">
+        <Toast />
+        <ConfirmDialog></ConfirmDialog>
+        <ConfirmDialog group="templating">
                 <template #message="slotProps">
                     <div class="flex p-4">
                         <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                        <p class="pl-2">{{ slotProps.message.message }}</p>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
                     </div>
                 </template>
-            </ConfirmDialog>
-            <ConfirmDialog @hide="onHide" group="positionDialog"></ConfirmDialog>
+        </ConfirmDialog>
+        <ConfirmDialog group="positionDialog"></ConfirmDialog>
 
-            <div class="card">
-                <h5>Basic</h5>
-                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
-                <Button @click="confirm2($event)" icon="pi pi-times" label="Delete"></Button>
+        <div class="card">
+            <h5>Basic</h5>
+            <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
+            <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
 
-                <h5>Templating</h5>
-                <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
+            <h5>Templating</h5>
+                <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
 
-                <h5>Position</h5>
-                <div class="grid flex-column">
-                    <div class="col">
-                        <Button @click="confirmPosition($event, 'left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
-                    </div>
-                    <div class="col">
-                        <Button @click="confirmPosition($event, 'topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
-                    </div>
-                    <div class="col">
-                        <Button @click="confirmPosition($event, 'bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
-                    </div>
+            <h5>Position</h5>
+            <div class="grid flex-column">
+                <div class="p-col">
+                    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
+                    <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
+                </div>
+                <div class="p-col">
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
+                    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
+                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
+                </div>
+                <div class="p-col">
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
+                    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
+                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
         </div>
@@ -514,42 +505,35 @@ export default {
 
 <script>
 export default {
-    data() {
-        return {
-            targetElemen: null
-        };
-    },
     methods: {
-        confirm1(event) {
+        confirm1() {
             this.$confirm.require({
                 message: 'Are you sure you want to proceed?',
                 header: 'Confirmation',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            this.targetElement = event.target;
         },
-        confirm2(event) {
+        confirm2() {
             this.$confirm.require({
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
                 icon: 'pi pi-info-circle',
                 acceptClass: 'p-button-danger',
                 accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            this.targetElement = event.target;
         },
-        confirmPosition(event, position) {
+        confirmPosition(position) {
             this.$confirm.require({
                 group: 'positionDialog',
                 message: 'Do you want to delete this record?',
@@ -557,15 +541,14 @@ export default {
                 icon: 'pi pi-info-circle',
                 position: position,
                 accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            this.targetElement = event.target;
         },
-        showTemplate(event) {
+        showTemplate() {
             this.$confirm.require({
                 group: 'templating',
                 header: 'Terms and Conditions',
@@ -574,22 +557,15 @@ export default {
                 acceptIcon: 'pi pi-check',
                 rejectIcon: 'pi pi-times',
                 accept: () => {
-                    this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                 },
                 reject: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            this.targetElement = event.target;
-        },
-        onHide() {
-            this.targetElement.focus();
         }
-    },
-    components: {
-        ConfirmDialogDoc: ConfirmDialogDoc
     }
-};
+}
 <\\/script>
 `
                 },
@@ -598,50 +574,41 @@ export default {
                     content: `
 <template>
     <div>
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ConfirmDialog</h1>
-                <p>ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <ConfirmDialog @hide="onHide"></ConfirmDialog>
-            <ConfirmDialog @hide="onHide" group="templating">
+        <Toast />
+        <ConfirmDialog></ConfirmDialog>
+        <ConfirmDialog group="templating">
                 <template #message="slotProps">
                     <div class="flex p-4">
                         <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                        <p class="pl-2">{{ slotProps.message.message }}</p>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
                     </div>
                 </template>
-            </ConfirmDialog>
-            <ConfirmDialog @hide="onHide" group="positionDialog"></ConfirmDialog>
+        </ConfirmDialog>
+        <ConfirmDialog group="positionDialog"></ConfirmDialog>
 
-            <div class="card">
-                <h5>Basic</h5>
-                <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
-                <Button @click="confirm2($event)" icon="pi pi-times" label="Delete"></Button>
+        <div class="card">
+            <h5>Basic</h5>
+            <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
+            <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>
 
-                <h5>Templating</h5>
-                <Button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
+            <h5>Templating</h5>
+                <Button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></Button>
 
-                <h5>Position</h5>
-                <div class="grid flex-column">
-                    <div class="col">
-                        <Button @click="confirmPosition($event, 'left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
-                    </div>
-                    <div class="col">
-                        <Button @click="confirmPosition($event, 'topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
-                    </div>
-                    <div class="col">
-                        <Button @click="confirmPosition($event, 'bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
-                        <Button @click="confirmPosition($event, 'bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
-                    </div>
+            <h5>Position</h5>
+            <div class="grid flex-column">
+                <div class="p-col">
+                    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></Button>
+                    <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></Button>
+                </div>
+                <div class="p-col">
+                    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></Button>
+                    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></Button>
+                    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></Button>
+                </div>
+                <div class="p-col">
+                    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></Button>
+                    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></Button>
+                    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></Button>
                 </div>
             </div>
         </div>
@@ -649,7 +616,7 @@ export default {
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import { useConfirm } from "primevue/useconfirm";
 import { useToast } from "primevue/usetoast";
 
@@ -657,9 +624,8 @@ export default defineComponent({
     setup() {
         const confirm = useConfirm();
         const toast = useToast();
-        const targetElement = ref(null);
 
-        const confirm1 = (event) => {
+        const confirm1 = () => {
             confirm.require({
                 message: 'Are you sure you want to proceed?',
                 header: 'Confirmation',
@@ -671,10 +637,9 @@ export default defineComponent({
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            targetElement.value = event.target
         }
 
-        const confirm2 = (event) => {
+        const confirm2 = () => {
             confirm.require({
                 message: 'Do you want to delete this record?',
                 header: 'Delete Confirmation',
@@ -687,10 +652,9 @@ export default defineComponent({
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            targetElement.value = event.target
         }
 
-        const confirmPosition = (event, position) => {
+        const confirmPosition = (position) => {
             confirm.require({
                 group: 'positionDialog',
                 message: 'Do you want to delete this record?',
@@ -704,10 +668,9 @@ export default defineComponent({
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            targetElement.value = event.target
         }
 
-        const showTemplate = (event) => {
+        const showTemplate = () => {
             confirm.require({
                 group: 'templating',
                 header: 'Terms and Conditions',
@@ -722,13 +685,9 @@ export default defineComponent({
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                 }
             });
-            targetElement.value = event.target
         }
 
-        const onHide = () {
-            targetElement.value.focus()
-        }
-        return { confirm1, confirm2, confirmPosition, showTemplate,onHide };
+        return { confirm1, confirm2, confirmPosition, showTemplate };
     }
 });
 <\\/script>
@@ -742,47 +701,47 @@ export default defineComponent({
         <script src="https://unpkg.com/primevue@^3/toastservice/toastservice.min.js"><\\/script>`,
                     content: `<div id="app">
             <p-toast></p-toast>
-            <p-confirmdialog @hide="onHide"></p-confirmdialog>
-            <p-confirmdialog @hide="onHide" group="templating">
+            <p-confirmdialog></p-confirmdialog>
+            <p-confirmdialog group="templating">
                 <template #message="slotProps">
                     <div class="flex p-4">
                         <i :class="slotProps.message.icon" style="font-size: 1.5rem"></i>
-                        <p class="pl-2">{{ slotProps.message.message }}</p>
+                        <p class="pl-2">{{slotProps.message.message}}</p>
                     </div>
                 </template>
             </p-confirmdialog>
-            <p-confirmdialog @hide="onHide" group="positionDialog"></p-confirmdialog>
+            <p-confirmdialog group="positionDialog"></p-confirmdialog>
 
             <div class="card">
                 <h5>Basic</h5>
-                <p-button @click="confirm1($event)" icon="pi pi-check" label="Confirm" class="mr-2"></p-button>
-                <p-button @click="confirm2($event)" icon="pi pi-times" label="Delete"></p-button>
+                <p-button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></p-button>
+                <p-button @click="confirm2()" icon="pi pi-times" label="Delete"></p-button>
 
                 <h5>Templating</h5>
-                <p-button @click="showTemplate($event)" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></p-button>
+                <p-button @click="showTemplate()" icon="pi pi-check" label="Terms and Conditions" class="mr-2"></p-button>
 
                 <h5>Position</h5>
                 <div class="grid flex-column">
-                    <div class="col">
-                        <p-button @click="confirmPosition($event, 'left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></p-button>
-                        <p-button @click="confirmPosition($event, 'right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></p-button>
+                    <div class="p-col">
+                        <p-button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" class="p-button-help mr-2"></p-button>
+                        <p-button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" class="p-button-help"></p-button>
                     </div>
-                    <div class="col">
-                        <p-button @click="confirmPosition($event, 'topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></p-button>
-                        <p-button @click="confirmPosition($event, 'top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></p-button>
-                        <p-button @click="confirmPosition($event, 'topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></p-button>
+                    <div class="p-col">
+                        <p-button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" class="p-button-warning mr-2"></p-button>
+                        <p-button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" class="p-button-warning mr-2"></p-button>
+                        <p-button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" class="p-button-warning"></p-button>
                     </div>
-                    <div class="col">
-                        <p-button @click="confirmPosition($event, 'bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></p-button>
-                        <p-button @click="confirmPosition($event, 'bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></p-button>
-                        <p-button @click="confirmPosition($event, 'bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></p-button>
+                    <div class="p-col">
+                        <p-button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" class="p-button-success mr-2"></p-button>
+                        <p-button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" class="p-button-success mr-2"></p-button>
+                        <p-button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" class="p-button-success"></p-button>
                     </div>
                 </div>
             </div>
         </div>
 
         <script type="module">
-        const { createApp, ref } = Vue;
+        const { createApp } = Vue;
         const { useConfirm } = primevue.useconfirm;
         const { useToast } = primevue.usetoast;
 
@@ -790,40 +749,37 @@ export default defineComponent({
             setup() {
                 const confirm = useConfirm();
                 const toast = useToast();
-                const targetElement = ref(null);
 
-                const confirm1 = (event) => {
+                const confirm1 = () => {
                     confirm.require({
                         message: 'Are you sure you want to proceed?',
                         header: 'Confirmation',
                         icon: 'pi pi-exclamation-triangle',
                         accept: () => {
-                            toast.add({severity:'info', summary:'Confirmed',         detail:'You have accepted', life: 3000});
+                            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                         },
                         reject: () => {
-                            toast.add({severity:'error', summary:'Rejected',         detail:'You have rejected', life: 3000});
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                         }
                     });
-                    targetElement.value = event.target
                 }
 
-                const confirm2 = (event) => {
+                const confirm2 = () => {
                     confirm.require({
                         message: 'Do you want to delete this record?',
                         header: 'Delete Confirmation',
                         icon: 'pi pi-info-circle',
                         acceptClass: 'p-button-danger',
                         accept: () => {
-                            toast.add({severity:'info', summary:'Confirmed',         detail:'Record deleted', life: 3000});
+                            toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                         },
                         reject: () => {
-                            toast.add({severity:'error', summary:'Rejected',         detail:'You have rejected', life: 3000});
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                         }
                     });
-                    targetElement.value = event.target
                 }
 
-                const confirmPosition = (event, position) => {
+                const confirmPosition = (position) => {
                     confirm.require({
                         group: 'positionDialog',
                         message: 'Do you want to delete this record?',
@@ -831,16 +787,15 @@ export default defineComponent({
                         icon: 'pi pi-info-circle',
                         position: position,
                         accept: () => {
-                            toast.add({severity:'info', summary:'Confirmed',         detail:'Record deleted', life: 3000});
+                            toast.add({severity:'info', summary:'Confirmed', detail:'Record deleted', life: 3000});
                         },
                         reject: () => {
-                            toast.add({severity:'error', summary:'Rejected',         detail:'You have rejected', life: 3000});
+                            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                         }
                     });
-                    targetElement.value = event.target
                 }
 
-                const showTemplate = (event) => {
+                const showTemplate = () => {
                     confirm.require({
                         group: 'templating',
                         header: 'Terms and Conditions',
@@ -849,20 +804,15 @@ export default defineComponent({
                         acceptIcon: 'pi pi-check',
                         rejectIcon: 'pi pi-times',
                         accept: () => {
-                            this.$toast.add({severity:'info',         summary:'Confirmed', detail:'You have accepted',         life: 3000});
+                            this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                         },
                         reject: () => {
-                            this.$toast.add({severity:'error',         summary:'Rejected', detail:'You have rejected', life:         3000});
+                            this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                         }
                     });
-                    targetElement.value = event.target
                 }
 
-                const onHide = () {
-                    targetElement.value.focus()
-                }
-
-                return { confirm1, confirm2, confirmPosition, showTemplate, onHide };
+                return { confirm1, confirm2, confirmPosition, showTemplate };
             },
             components: {
                 "p-confirmdialog": primevue.confirmdialog,

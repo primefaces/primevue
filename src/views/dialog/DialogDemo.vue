@@ -11,8 +11,8 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <Button label="Show" icon="pi pi-external-link" @click="openBasic($event)" />
-                <Dialog v-model:visible="displayBasic" @hide="onHide" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }">
+                <Button label="Show" icon="pi pi-external-link" @click="openBasic" />
+                <Dialog v-model:visible="displayBasic" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -23,8 +23,8 @@
                     </template>
                 </Dialog>
 
-                <Button label="Long Content" icon="pi pi-external-link" @click="openBasic2($event)" />
-                <Dialog v-model:visible="displayBasic2" @hide="onHide" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }">
+                <Button label="Long Content" icon="pi pi-external-link" @click="openBasic2" />
+                <Dialog v-model:visible="displayBasic2" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -51,7 +51,7 @@
 
                 <h5>Modal</h5>
                 <Button label="Show" icon="pi pi-external-link" @click="openModal" />
-                <Dialog v-model:visible="displayModal" @hide="onHide" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }" :modal="true">
+                <Dialog v-model:visible="displayModal" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }" :modal="true">
                     <p class="m-0">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -63,8 +63,8 @@
                 </Dialog>
 
                 <h5>Responsive</h5>
-                <Button label="Show" icon="pi pi-external-link" @click="openResponsive($event)" />
-                <Dialog v-model:visible="displayResponsive" @hide="onHide" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }">
+                <Button label="Show" icon="pi pi-external-link" @click="openResponsive" />
+                <Dialog v-model:visible="displayResponsive" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -76,8 +76,8 @@
                 </Dialog>
 
                 <h5>Confirmation</h5>
-                <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation($event)" />
-                <Dialog v-model:visible="displayConfirmation" @hide="onHide" header="Confirmation" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '350px' }" :modal="true">
+                <Button label="Confirm" icon="pi pi-external-link" @click="openConfirmation" />
+                <Dialog v-model:visible="displayConfirmation" header="Confirmation" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '350px' }" :modal="true">
                     <div class="confirmation-content">
                         <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
                         <span>Are you sure you want to proceed?</span>
@@ -90,7 +90,7 @@
 
                 <h5>Maximizable</h5>
                 <Button label="Show" icon="pi pi-external-link" @click="openMaximizable" />
-                <Dialog v-model:visible="displayMaximizable" @hide="onHide" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }" :maximizable="true" :modal="true">
+                <Dialog v-model:visible="displayMaximizable" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }" :maximizable="true" :modal="true">
                     <p class="m-0">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -104,22 +104,22 @@
                 <h5>Position</h5>
                 <div class="grid flex-column">
                     <div class="col">
-                        <Button label="Left" icon="pi pi-arrow-right" @click="openPosition($event, 'left')" class="p-button-warning" />
-                        <Button label="Right" icon="pi pi-arrow-left" @click="openPosition($event, 'right')" class="p-button-warning" />
+                        <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" class="p-button-warning" />
+                        <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" class="p-button-warning" />
                     </div>
                     <div class="col">
-                        <Button label="Top" icon="pi pi-arrow-down" @click="openPosition($event, 'top')" class="p-button-warning" />
-                        <Button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition($event, 'topleft')" class="p-button-warning" />
-                        <Button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition($event, 'topright')" class="p-button-warning" />
+                        <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" class="p-button-warning" />
+                        <Button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition('topleft')" class="p-button-warning" />
+                        <Button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition('topright')" class="p-button-warning" />
                     </div>
                     <div class="col">
-                        <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition($event, 'bottom')" class="p-button-warning" />
-                        <Button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition($event, 'bottomleft')" class="p-button-warning" />
-                        <Button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition($event, 'bottomright')" class="p-button-warning" />
+                        <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" class="p-button-warning" />
+                        <Button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition('bottomleft')" class="p-button-warning" />
+                        <Button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition('bottomright')" class="p-button-warning" />
                     </div>
                 </div>
 
-                <Dialog v-model:visible="displayPosition" @hide="onHide" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }" :position="position" :modal="true">
+                <Dialog v-model:visible="displayPosition" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }" :position="position" :modal="true">
                     <p class="m-0">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -149,64 +149,52 @@ export default {
             displayConfirmation: false,
             displayMaximizable: false,
             displayPosition: false,
-            position: 'center',
-            targetElement: null
+            position: 'center'
         };
     },
     methods: {
-        openBasic(event) {
+        openBasic() {
             this.displayBasic = true;
-            this.targetElement = event.target;
         },
         closeBasic() {
             this.displayBasic = false;
-            this.targetElement.focus();
         },
-        openBasic2(event) {
+        openBasic2() {
             this.displayBasic2 = true;
-            this.targetElement = event.target;
         },
         closeBasic2() {
             this.displayBasic2 = false;
         },
-        openResponsive(event) {
+        openResponsive() {
             this.displayResponsive = true;
-            this.targetElement = event.target;
         },
         closeResponsive() {
             this.displayResponsive = false;
         },
-        openModal(event) {
+        openModal() {
             this.displayModal = true;
-            this.targetElement = event.target;
         },
         closeModal() {
             this.displayModal = false;
         },
-        openConfirmation(event) {
+        openConfirmation() {
             this.displayConfirmation = true;
-            this.targetElement = event.target;
         },
         closeConfirmation() {
             this.displayConfirmation = false;
         },
-        openMaximizable(event) {
+        openMaximizable() {
             this.displayMaximizable = true;
-            this.targetElement = event.target;
         },
         closeMaximizable() {
             this.displayMaximizable = false;
         },
-        openPosition(event, position) {
+        openPosition(position) {
             this.position = position;
-            this.targetElement = event.target;
             this.displayPosition = true;
         },
         closePosition() {
             this.displayPosition = false;
-        },
-        onHide() {
-            this.targetElement.focus();
         }
     },
     components: {
