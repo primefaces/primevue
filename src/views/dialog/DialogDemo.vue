@@ -156,7 +156,7 @@ export default {
     methods: {
         openBasic(event) {
             this.displayBasic = true;
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         closeBasic() {
             this.displayBasic = false;
@@ -164,42 +164,42 @@ export default {
         },
         openBasic2(event) {
             this.displayBasic2 = true;
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         closeBasic2() {
             this.displayBasic2 = false;
         },
         openResponsive(event) {
             this.displayResponsive = true;
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         closeResponsive() {
             this.displayResponsive = false;
         },
         openModal(event) {
             this.displayModal = true;
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         closeModal() {
             this.displayModal = false;
         },
         openConfirmation(event) {
             this.displayConfirmation = true;
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         closeConfirmation() {
             this.displayConfirmation = false;
         },
         openMaximizable(event) {
             this.displayMaximizable = true;
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         closeMaximizable() {
             this.displayMaximizable = false;
         },
         openPosition(event, position) {
             this.position = position;
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
             this.displayPosition = true;
         },
         closePosition() {
@@ -207,6 +207,13 @@ export default {
         },
         onHide() {
             this.targetElement.focus();
+        },
+        findButton(element) {
+            if (element.nodeName !== 'BUTTON') {
+                return this.findButton(element.parentNode);
+            }
+
+            return element;
         }
     },
     components: {

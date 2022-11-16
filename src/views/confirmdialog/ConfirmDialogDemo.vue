@@ -74,7 +74,8 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
+
+            this.targetElement = this.findButton(event.target);
         },
         confirm2(event) {
             this.$confirm.require({
@@ -89,7 +90,7 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         confirmPosition(event, position) {
             this.$confirm.require({
@@ -105,7 +106,7 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         showTemplate(event) {
             this.$confirm.require({
@@ -122,10 +123,17 @@ export default {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
                 }
             });
-            this.targetElement = event.target;
+            this.targetElement = this.findButton(event.target);
         },
         onHide() {
             this.targetElement.focus();
+        },
+        findButton(element) {
+            if (element.nodeName !== 'BUTTON') {
+                return this.findButton(element.parentNode);
+            }
+
+            return element;
         }
     },
     components: {
