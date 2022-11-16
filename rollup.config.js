@@ -156,6 +156,7 @@ function addDirectives() {
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
     addEntry('ripple', 'Ripple.js', 'ripple');
     addEntry('tooltip', 'Tooltip.js', 'tooltip');
+    addEntry('focustrap', 'FocusTrap.js', 'focustrap');
     addEntry('styleclass', 'StyleClass.js', 'styleclass');
 }
 
