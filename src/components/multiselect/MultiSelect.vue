@@ -81,7 +81,7 @@
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
                         </span>
-                        <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
+                        <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click.stop="onCloseClick" type="button" v-bind="closeButtonProps">
                             <span :class="['p-multiselect-close-icon', closeIcon]" />
                         </button>
                     </div>
