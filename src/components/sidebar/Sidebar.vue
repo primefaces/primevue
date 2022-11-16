@@ -6,7 +6,7 @@
                     <div v-if="$slots.header" class="p-sidebar-header-content">
                         <slot name="header"></slot>
                     </div>
-                    <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
+                    <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
                         <span :class="['p-sidebar-close-icon', closeIcon]" />
                     </button>
                 </div>
@@ -117,7 +117,7 @@ export default {
                 focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
 
                 if (!focusTarget) {
-                    focusTarget = this.showCloseIcon ? this.closeButton : null;
+                    focusTarget = findFocusableElement(this.container);
                 }
             }
 
