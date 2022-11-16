@@ -64,10 +64,6 @@ const SidebarSlots = [
     {
         name: 'header',
         description: 'Custom content for the component header.'
-    },
-    {
-        name: 'footer',
-        description: 'Custom content for the component footer.'
     }
 ];
 

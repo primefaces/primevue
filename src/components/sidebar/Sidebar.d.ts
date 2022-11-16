@@ -55,10 +55,6 @@ export interface SidebarSlots {
      * Custom header template.
      */
     header: () => VNode[];
-    /**
-     * Custom footer template.
-     */
-    footer: () => VNode[];
 }
 
 export declare type SidebarEmits = {

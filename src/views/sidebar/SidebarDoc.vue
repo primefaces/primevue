@@ -164,10 +164,6 @@ import Sidebar from 'primevue/sidebar';
                         <td>header</td>
                         <td>-</td>
                     </tr>
-                    <tr>
-                        <td>footer</td>
-                        <td>-</td>
-                    </tr>
                 </tbody>
             </table>
         </div>

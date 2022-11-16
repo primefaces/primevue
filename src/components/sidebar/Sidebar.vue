@@ -13,9 +13,6 @@
                 <div :ref="contentRef" class="p-sidebar-content">
                     <slot></slot>
                 </div>
-                <div v-if="$slots.footer" :ref="footerContainerRef" class="p-sidebar-footer">
-                    <slot name="footer"></slot>
-                </div>
             </div>
         </transition>
     </Portal>
@@ -70,7 +67,6 @@ export default {
     container: null,
     content: null,
     headerContainer: null,
-    footerContainer: null,
     closeButton: null,
     beforeUnmount() {
         this.destroyModal();
@@ -121,11 +117,7 @@ export default {
                 focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
 
                 if (!focusTarget) {
-                    focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
-
-                    if (!focusTarget) {
-                        focusTarget = this.showCloseIcon ? this.closeButton : null;
-                    }
+                    focusTarget = this.showCloseIcon ? this.closeButton : null;
                 }
             }
 
@@ -189,9 +181,6 @@ export default {
         },
         headerContainerRef(el) {
             this.headerContainer = el;
-        },
-        footerContainerRef(el) {
-            this.footerContainer = el;
         },
         closeButtonRef(el) {
             this.closeButton = el;
