@@ -210,7 +210,6 @@ import AvatarGroup from 'primevue/avatargroup';
         </div>
 
         <h5>Accessibility</h5>
-
         <h6>Screen Reader</h6>
         <p>
             Avatar does not include any roles and attributes by default. Any attribute is passed to the root element so you may add a role like <i>img</i> along with <i>aria-labelledby</i> or <i>aria-label</i> to describe the component. In case
