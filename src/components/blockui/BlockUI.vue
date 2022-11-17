@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" class="p-blockui-container" v-bind="$attrs" :aria-busy="isBlocked">
+    <div ref="container" class="p-blockui-container" :aria-busy="isBlocked">
         <slot></slot>
     </div>
 </template>
