@@ -1,6 +1,18 @@
-import { mount } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import Inplace from './Inplace.vue';
 import InputText from '@/components/inputtext/InputText.vue';
+
+config.global.mocks = {
+    $primevue: {
+        config: {
+            locale: {
+                aria: {
+                    close: 'Close'
+                }
+            }
+        }
+    }
+};
 
 describe('Inplace.vue', () => {
     it('should exist', () => {
