@@ -1,6 +1,6 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
-        <button v-if="visible" :ref="containerRef" :class="containerClass" @click="onClick" type="button">
+        <button v-if="visible" :ref="containerRef" :class="containerClass" @click="onClick" type="button" :aria-label="$primevue.config.locale.aria.scrollTop">
             <span :class="iconClass"></span>
         </button>
     </transition>
