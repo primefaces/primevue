@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Numbers</h5>
-                <Badge value="2" class="mr-2"></Badge>
+                <Badge value="2" class="mr-2" aria-label="Tabable Primary Tag" tabindex="0"></Badge>
                 <Badge value="8" severity="success" class="mr-2"></Badge>
                 <Badge value="4" severity="info" class="mr-2"></Badge>
                 <Badge value="12" severity="warning" class="mr-2"></Badge>

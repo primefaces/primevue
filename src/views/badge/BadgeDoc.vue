@@ -188,6 +188,16 @@ app.directive('badge', BadgeDirective);
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Badge does not include any roles and attributes by default, any attribute is passed to the root element so aria roles and attributes can be added if required. If the badges are dynamic,
+            <i>aria-live</i> may be utilized as well. In case badges need to be tabbable, <i>tabIndex</i> can be added to implement custom key handlers.
+        </p>
+
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
@@ -204,7 +214,7 @@ export default {
 <template>
     <div>
         <h5>Numbers</h5>
-        <Badge value="2" class="mr-2"></Badge>
+        <Badge value="2" class="mr-2" aria-label="Tabable Primary Tag" tabindex="0"></Badge>
         <Badge value="8" severity="success" class="mr-2"></Badge>
         <Badge value="4" severity="info" class="mr-2"></Badge>
         <Badge value="12" severity="warning" class="mr-2"></Badge>
@@ -238,7 +248,7 @@ export default {
 <template>
     <div>
         <h5>Numbers</h5>
-        <Badge value="2" class="mr-2"></Badge>
+        <Badge value="2" class="mr-2" aria-label="Tabable Primary Tag" tabindex="0"></Badge>
         <Badge value="8" severity="success" class="mr-2"></Badge>
         <Badge value="4" severity="info" class="mr-2"></Badge>
         <Badge value="12" severity="warning" class="mr-2"></Badge>
@@ -271,7 +281,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Numbers</h5>
-            <p-badge value="2" class="mr-2"></p-badge>
+            <p-badge value="2" class="mr-2" aria-label="Tabable Primary Tag" tabindex="0"></p-badge>
             <p-badge value="8" severity="success" class="mr-2"></p-badge>
             <p-badge value="4" severity="info" class="mr-2"></p-badge>
             <p-badge value="12" severity="warning" class="mr-2"></p-badge>
