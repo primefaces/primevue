@@ -919,10 +919,10 @@ export default {
             }
         },
         maxBoundry() {
-            return this.d_value >= this.max;
+            return this.d_value !== null && this.d_value >= this.max;
         },
         minBoundry() {
-            return this.d_value <= this.min;
+            return this.d_value !== null && this.d_value <= this.min;
         },
     },
     computed: {
