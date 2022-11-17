@@ -120,14 +120,10 @@ data() {
         </p>
 
         <pre v-code><code><template v-pre>
-&lt;span aria-labelledby="label_status"&gt;
-&lt;/span&gt;
+&lt;span id="label_status /"&gt;
+&lt;ProgressBar aria-labelledby="label_status /"&gt;
 
-&lt;ProgressBar aria-labelledby="label_status"&gt;
-&lt;/ProgressBar&gt;
-
-&lt;ProgressBar aria-label="Status"&gt;
-&lt;/ProgressBar&gt;
+&lt;ProgressBar aria-label="Status /"&gt;
 </template>
 </code></pre>
 
