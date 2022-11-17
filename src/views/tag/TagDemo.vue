@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Tags</h5>
-                <Tag class="mr-2" value="Primary"></Tag>
+                <Tag class="mr-2" value="Primary" aria-label="Tabable Primary Tag" tabindex="0"></Tag>
                 <Tag class="mr-2" severity="success" value="Success"></Tag>
                 <Tag class="mr-2" severity="info" value="Info"></Tag>
                 <Tag class="mr-2" severity="warning" value="Warning"></Tag>
