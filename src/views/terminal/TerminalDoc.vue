@@ -173,7 +173,7 @@ export default {
 <template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" />
+        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
     </div>
 </template>
 
@@ -245,7 +245,7 @@ p {
 <template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" />
+        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
     </div>
 </template>
 
@@ -321,7 +321,7 @@ p {
                     imports: `<script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"><\\/script>`,
                     content: `<div id="app">
             <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-            <p-terminal welcome-message="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal"></p-terminal>
+            <p-terminal welcome-message="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service"></p-terminal>
         </div>
 
         <script type="module">
