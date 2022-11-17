@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import TerminalService from '@/components/terminalservice/TerminalService';
+import TerminalService from 'primevue/terminalservice';
 import Terminal from './Terminal.vue';
 
 describe('Terminal.vue', () => {
@@ -41,12 +41,12 @@ describe('Terminal.vue', () => {
         wrapper.find('input.p-terminal-input').setValue('d');
 
         wrapper.find('.p-terminal-input').trigger('keydown', {
-            keyCode: 13
+            key: 'Enter'
         });
 
-        await wrapper.vm.$nextTick();
-
-        expect(wrapper.find('.p-terminal-response').text()).toBe('Valid command');
+        setTimeout(() => {
+            expect(wrapper.find('.p-terminal-response').text()).toBe('Valid command');
+        }, 0);
     });
 
     it('should return invalid command', async () => {
@@ -87,11 +87,11 @@ describe('Terminal.vue', () => {
         wrapper.find('input.p-terminal-input').setValue('dd');
 
         wrapper.find('.p-terminal-input').trigger('keydown', {
-            keyCode: 13
+            key: 'Enter'
         });
 
-        await wrapper.vm.$nextTick();
-
-        expect(wrapper.find('.p-terminal-response').text()).toBe('Unknown command: dd');
+        setTimeout(() => {
+            expect(wrapper.find('.p-terminal-response').text()).toBe('Unknown command: dd');
+        }, 0);
     });
 });

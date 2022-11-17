@@ -1,11 +1,19 @@
 import { mount } from '@vue/test-utils';
+import PrimeVue from '@/components/config/PrimeVue';
 import ScrollTop from './ScrollTop.vue';
 
 describe('ScrollTop.vue', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(ScrollTop);
+        wrapper = mount(ScrollTop, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    transition: false
+                }
+            }
+        });
     });
 
     it('should exist', async () => {
