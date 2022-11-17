@@ -104,6 +104,17 @@ import ProgressSpinner from 'primevue/progressspinner';
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>ProgressSpinner components uses <i>progressbar</i> role. Value to describe the component can be defined using <i>aria-labelledby</i> and <i>aria-label</i> props.</p>
+        <pre v-code><code><template v-pre>
+&lt;ProgressSpinner aria-label="Loading" /&gt;
+
+</template></code></pre>
+
+        <h6>Keyboard Support</h6>
+        <p>Component does not include any interactive elements.</p>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
