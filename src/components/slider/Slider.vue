@@ -144,7 +144,7 @@ export default {
             this.dragging = true;
             this.updateDomData();
 
-            if (this.range && this.modelValue[0] === this.max) {
+            if (this.range && this.value[0] === this.max) {
                 this.handleIndex = 0;
             }
             else {
