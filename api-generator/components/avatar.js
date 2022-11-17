@@ -33,13 +33,13 @@ const AvatarProps = [
         name: 'aria-label',
         type: 'string',
         default: 'null',
-        description: 'Defines a string value that labels an interactive element.'
+        description: 'Establishes a string value that labels the component.'
     },
     {
         name: 'aria-labelledby',
         type: 'string',
         default: 'null',
-        description: 'Identifier of the underlying input element.'
+        description: 'Establishes relationships between the component and label(s) where its value should be one or more element IDs.'
     }
 ];
 
