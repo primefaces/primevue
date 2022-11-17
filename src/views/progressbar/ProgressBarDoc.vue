@@ -112,28 +112,6 @@ data() {
             </table>
         </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            ProgressBar components uses <i>progressbar</i> role along with <i>aria-valuemin</i>, <i>aria-valuemax</i> and <i>aria-valuenow</i> attributes. Value to describe the component can be defined using <i>aria-labelledby</i> and
-            <i>aria-label</i> props.
-        </p>
-
-        <pre v-code><code><template v-pre>
-&lt;span aria-labelledby="label_status"&gt;
-&lt;/span&gt;
-
-&lt;ProgressBar aria-labelledby="label_status"&gt;
-&lt;/ProgressBar&gt;
-
-&lt;ProgressBar aria-label="Status"&gt;
-&lt;/ProgressBar&gt;
-</template>
-</code></pre>
-
-        <h6>Keyboard Support</h6>
-        <p>Not applicable.</p>
-
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
