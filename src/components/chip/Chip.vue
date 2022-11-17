@@ -5,7 +5,7 @@
             <span v-else-if="icon" :class="iconClass"></span>
             <div v-if="label" class="p-chip-text">{{ label }}</div>
         </slot>
-        <span v-if="removable" tabindex="0" :class="removeIconClass" @click="close" @keydown.enter="close"></span>
+        <span v-if="removable" tabindex="0" :class="removeIconClass" @click="close" @keydown="onKeydown"></span>
     </div>
 </template>
 
@@ -41,6 +41,11 @@ export default {
         };
     },
     methods: {
+        onKeydown(event) {
+            if (event.key === 'Enter' || event.key === 'Backspace') {
+                this.close(event);
+            }
+        },
         close(event) {
             this.visible = false;
             this.$emit('remove', event);
