@@ -214,7 +214,7 @@ import AvatarGroup from 'primevue/avatargroup';
         <h6>Screen Reader</h6>
         <p>
             Avatar does not include any roles and attributes by default. Any attribute is passed to the root element so you may add a role like <i>img</i> along with <i>aria-labelledby</i> or <i>aria-label</i> to describe the component. In case
-            avatars need to be tabbable, <i>tabIndex</i> can be added as well to implement custom key handlers.
+            avatars need to be tabbable, <i>tabindex</i> can be added as well to implement custom key handlers.
         </p>
 
         <h5>Keyboard Support</h5>
