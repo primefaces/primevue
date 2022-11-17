@@ -131,10 +131,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ProgressSpinner />
+        <ProgressSpinner aria-label="Basic ProgressSpinner" />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s" aria-label="Custom ProgressSpinner"/>
     </div>
 </template>
 
@@ -146,10 +146,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ProgressSpinner />
+        <ProgressSpinner aria-label="Basic ProgressSpinner" />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s" aria-label="Custom ProgressSpinner"/>
     </div>
 </template>
 
@@ -160,10 +160,10 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/progressspinner/progressspinner.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Basic</h5>
-            <p-progressspinner></p-progressspinner>
+            <p-progressspinner aria-label="Basic ProgressSpinner"></p-progressspinner>
 
             <h5>Custom</h5>
-            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="var(--surface-ground)" animation-duration=".5s"></p-progressspinner>
+            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="var(--surface-ground)" animation-duration=".5s" aria-label="Custom ProgressSpinner"></p-progressspinner>
         </div>
 
         <script type="module">
