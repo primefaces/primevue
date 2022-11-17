@@ -159,6 +159,12 @@ import Chip from 'primevue/chip';
                         </td>
                         <td>Hides removable.</td>
                     </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Hides removable.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
