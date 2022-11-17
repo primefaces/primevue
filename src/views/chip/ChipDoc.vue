@@ -136,6 +136,33 @@ import Chip from 'primevue/chip';
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Chip uses the <i>label</i> property as the default <i>aria-label</i>, since any attribute is passed to the root element <i>aria-labelledby</i> or <i>aria-label</i> can be used to override the default behavior. Removable chips have a
+            <i>tabIndex</i> and focusable with the tab key.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>backspace</i>
+                        </td>
+                        <td>Hides removable.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>

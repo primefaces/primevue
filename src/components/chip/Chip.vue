@@ -1,5 +1,5 @@
 <template>
-    <div v-if="visible" :class="containerClass">
+    <div v-if="visible" :class="containerClass" :aria-label="label">
         <slot>
             <img v-if="image" :src="image" />
             <span v-else-if="icon" :class="iconClass"></span>
