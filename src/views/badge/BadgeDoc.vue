@@ -214,7 +214,7 @@ export default {
 <template>
     <div>
         <h5>Numbers</h5>
-        <Badge value="2" class="mr-2" aria-label="Tabable Primary Tag" tabindex="0"></Badge>
+        <Badge value="2" class="mr-2" aria-label="Tabable Primary Badge" tabindex="0"></Badge>
         <Badge value="8" severity="success" class="mr-2"></Badge>
         <Badge value="4" severity="info" class="mr-2"></Badge>
         <Badge value="12" severity="warning" class="mr-2"></Badge>
@@ -248,7 +248,7 @@ export default {
 <template>
     <div>
         <h5>Numbers</h5>
-        <Badge value="2" class="mr-2" aria-label="Tabable Primary Tag" tabindex="0"></Badge>
+        <Badge value="2" class="mr-2" aria-label="Tabable Primary Badge" tabindex="0"></Badge>
         <Badge value="8" severity="success" class="mr-2"></Badge>
         <Badge value="4" severity="info" class="mr-2"></Badge>
         <Badge value="12" severity="warning" class="mr-2"></Badge>
@@ -281,7 +281,7 @@ export default {
         <script src="https://unpkg.com/primevue@^3/badgedirective/badgedirective.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Numbers</h5>
-            <p-badge value="2" class="mr-2" aria-label="Tabable Primary Tag" tabindex="0"></p-badge>
+            <p-badge value="2" class="mr-2" aria-label="Tabable Primary Badge" tabindex="0"></p-badge>
             <p-badge value="8" severity="success" class="mr-2"></p-badge>
             <p-badge value="4" severity="info" class="mr-2"></p-badge>
             <p-badge value="12" severity="warning" class="mr-2"></p-badge>
