@@ -115,7 +115,7 @@ import Panel from 'primevue/panel';
                     </tr>
                     <tr>
                         <td>toggleButtonProps</td>
-                        <td>string</td>
+                        <td>object</td>
                         <td>null</td>
                         <td>Uses to pass the custom value to read for the button inside the component.</td>
                     </tr>
