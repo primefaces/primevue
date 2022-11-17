@@ -33,7 +33,7 @@ import Chip from 'primevue/chip';
         <p>Content can easily be customized with the default slot instead of using the built-in modes.</p>
         <pre v-code><code>
 &lt;Chip&gt;
-   Content
+    Content
 &lt;/Chip&gt;
 
 </code></pre>
@@ -140,7 +140,7 @@ import Chip from 'primevue/chip';
         <h6>Screen Reader</h6>
         <p>
             Chip uses the <i>label</i> property as the default <i>aria-label</i>, since any attribute is passed to the root element <i>aria-labelledby</i> or <i>aria-label</i> can be used to override the default behavior. Removable chips have a
-            <i>tabIndex</i> and focusable with the tab key.
+            <i>tabindex</i> and focusable with the tab key.
         </p>
 
         <h6>Keyboard Support</h6>
