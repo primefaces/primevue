@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" class="p-blockui-container" v-bind="$attrs">
+    <div ref="container" class="p-blockui-container" v-bind="$attrs" :aria-busy="isBlocked">
         <slot></slot>
     </div>
 </template>
@@ -29,6 +29,11 @@ export default {
         }
     },
     mask: null,
+    data() {
+        return {
+            isBlocked: false
+        };
+    },
     watch: {
         blocked(newValue) {
             if (newValue === true) this.block();
@@ -61,6 +66,7 @@ export default {
                 ZIndexUtils.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
 
+            this.isBlocked = true;
             this.$emit('block');
         },
         unblock() {
@@ -79,6 +85,7 @@ export default {
                 this.$refs.container.removeChild(this.mask);
             }
 
+            this.isBlocked = false;
             this.$emit('unblock');
         }
     }

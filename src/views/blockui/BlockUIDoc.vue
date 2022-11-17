@@ -143,6 +143,15 @@ export default {
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            BlockUI manages <i>aria-busy</i> state attribute when the UI gets blocked and unblocked. Any valid attribute is passed to the root element so additional attributes like <i>role</i> and <i>aria-live</i> can be used to define live regions.
+        </p>
+
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
