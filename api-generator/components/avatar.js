@@ -28,6 +28,18 @@ const AvatarProps = [
         type: 'string',
         default: 'square',
         description: 'Shape of the element, valid options are "square" and "circle".'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying input element.'
     }
 ];
 
