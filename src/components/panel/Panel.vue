@@ -44,7 +44,10 @@ export default {
         header: String,
         toggleable: Boolean,
         collapsed: Boolean,
-        toggleButtonProps: String
+        toggleButtonProps: {
+            type: null,
+            defaault: null
+        }
     },
     data() {
         return {
