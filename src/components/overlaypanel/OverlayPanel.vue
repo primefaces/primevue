@@ -5,7 +5,7 @@
                 <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown">
                     <slot></slot>
                 </div>
-                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" :aria-label="ariaCloseLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown">
+                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown">
                     <span class="p-overlaypanel-close-icon pi pi-times"></span>
                 </button>
             </div>
@@ -44,10 +44,6 @@ export default {
         autoZIndex: {
             type: Boolean,
             default: true
-        },
-        ariaCloseLabel: {
-            type: String,
-            default: 'close'
         },
         breakpoints: {
             type: Object,
@@ -309,6 +305,9 @@ export default {
         },
         attributeSelector() {
             return UniqueComponentId();
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     directives: {

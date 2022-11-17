@@ -14,8 +14,7 @@ describe('OverlayPanel.vue', () => {
                 }
             },
             props: {
-                showCloseIcon: true,
-                ariaCloseLabel: 'exit'
+                showCloseIcon: true
             },
             slots: {
                 default: 'PrimeVue'
@@ -30,6 +29,5 @@ describe('OverlayPanel.vue', () => {
         expect(wrapper.find('.p-overlaypanel-content').exists()).toBe(true);
         expect(wrapper.find('.p-overlaypanel-content').text()).toBe('PrimeVue');
         expect(wrapper.find('.p-overlaypanel-close').exists()).toBe(true);
-        expect(wrapper.find('.p-overlaypanel-close').attributes()['aria-label']).toBe('exit');
     });
 });

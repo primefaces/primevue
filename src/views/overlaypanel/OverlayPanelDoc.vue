@@ -96,16 +96,20 @@ toggle(event) {
                         <td>Whether to automatically manage layering.</td>
                     </tr>
                     <tr>
-                        <td>ariaCloseLabel</td>
-                        <td>string</td>
-                        <td>close</td>
-                        <td>Aria label of the close icon.</td>
-                    </tr>
-                    <tr>
                         <td>breakpoints</td>
                         <td>object</td>
                         <td>null</td>
                         <td>Object literal to define widths per screen size.</td>
+                    </tr>
+                    <tr>
+                        <td style="text-decoration: line-through">ariaCloseLabel</td>
+                        <td>string</td>
+                        <td>close</td>
+                        <td>
+                            Aria label of the close icon.
+                            <br />
+                            <b> Deprecated: </b> <i>aria.close</i> can be used in defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.
+                        </td>
                     </tr>
                 </tbody>
             </table>
