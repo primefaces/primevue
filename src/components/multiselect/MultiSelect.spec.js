@@ -1,4 +1,4 @@
-import PrimeVue from '@/components/config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import { mount } from '@vue/test-utils';
 import MultiSelect from './MultiSelect.vue';
 

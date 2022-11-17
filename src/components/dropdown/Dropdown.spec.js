@@ -1,6 +1,6 @@
 import { h } from 'vue';
 import { mount } from '@vue/test-utils';
-import PrimeVue from '@/components/config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import Dropdown from '@/components/dropdown/Dropdown.vue';
 
 describe('Dropdown.vue', () => {
