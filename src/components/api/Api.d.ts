@@ -256,7 +256,7 @@ export interface PrimeIconsOptions {
     readonly SORT_AMOUNT_UP: string;
     readonly SORT_AMOUNT_UP_ALT: string;
     readonly SORT_DOWN: string;
-    readonly SORT_NUMERIC_DOWN: string; 
+    readonly SORT_NUMERIC_DOWN: string;
     readonly SORT_NUMERIC_ALT_DOWN: string;
     readonly SORT_NUMERIC_UP: string;
     readonly SORT_NUMERIC_ALT_UP: string;
