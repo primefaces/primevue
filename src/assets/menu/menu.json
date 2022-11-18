@@ -136,8 +136,7 @@
             "children": [
                 {
                     "name": "Icons v6",
-                    "to": "/icons",
-                    "badge": "NEW"
+                    "to": "/icons"
                 }
             ]
         },
@@ -801,8 +800,7 @@
                 },
                 {
                     "name": "FocusTrap",
-                    "to": "/focustrap",
-                    "badge": "NEW"
+                    "to": "/focustrap"
                 },
                 {
                     "name": "Inplace",
