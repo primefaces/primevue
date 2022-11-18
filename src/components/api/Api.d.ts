@@ -76,16 +76,19 @@ export interface PrimeIconsOptions {
     readonly ARROW_DOWN_RIGHT: string;
     readonly ARROW_LEFT: string;
     readonly ARROW_RIGHT: string;
+    readonly ARROW_RIGHT_ARROW_LEFT: string;
     readonly ARROW_UP: string;
     readonly ARROW_UP_LEFT: string;
     readonly ARROW_UP_RIGHT: string;
     readonly ARROW_H: string;
     readonly ARROW_V: string;
+    readonly ARROW_A: string;
     readonly AT: string;
     readonly BACKWARD: string;
     readonly BAN: string;
     readonly BARS: string;
     readonly BELL: string;
+    readonly BITCOIN: string;
     readonly BOLT: string;
     readonly BOOK: string;
     readonly BOOKMARK: string;
@@ -97,12 +100,14 @@ export interface PrimeIconsOptions {
     readonly CALENDAR_MINUS: string;
     readonly CALENDAR_PLUS: string;
     readonly CALENDAR_TIMES: string;
+    readonly CALCULATOR: string;
     readonly CAMERA: string;
     readonly CAR: string;
     readonly CARET_DOWN: string;
     readonly CARET_LEFT: string;
     readonly CARET_RIGHT: string;
     readonly CARET_UP: string;
+    readonly CART_PLUS: string;
     readonly CHART_BAR: string;
     readonly CHART_LINE: string;
     readonly CHART_PIE: string;
@@ -132,6 +137,7 @@ export interface PrimeIconsOptions {
     readonly COPY: string;
     readonly CREDIT_CARD: string;
     readonly DATABASE: string;
+    readonly DELETELEFT: string;
     readonly DESKTOP: string;
     readonly DIRECTIONS: string;
     readonly DIRECTIONS_ALT: string;
@@ -142,6 +148,7 @@ export interface PrimeIconsOptions {
     readonly ELLIPSIS_H: string;
     readonly ELLIPSIS_V: string;
     readonly ENVELOPE: string;
+    readonly ERASER: string;
     readonly EURO: string;
     readonly EXCLAMATION_CIRCLE: string;
     readonly EXCLAMATION_TRIANGLE: string;
@@ -152,8 +159,12 @@ export interface PrimeIconsOptions {
     readonly FAST_BACKWARD: string;
     readonly FAST_FORWARD: string;
     readonly FILE: string;
+    readonly FILE_EDIT: string;
     readonly FILE_EXCEL: string;
+    readonly FILE_EXPORT: string;
+    readonly FILE_IMPORT: string;
     readonly FILE_PDF: string;
+    readonly FILE_WORD: string;
     readonly FILTER: string;
     readonly FILTER_FILL: string;
     readonly FILTER_SLASH: string;
@@ -162,6 +173,7 @@ export interface PrimeIconsOptions {
     readonly FOLDER: string;
     readonly FOLDER_OPEN: string;
     readonly FORWARD: string;
+    readonly GIFT: string;
     readonly GITHUB: string;
     readonly GLOBE: string;
     readonly GOOGLE: string;
@@ -169,6 +181,7 @@ export interface PrimeIconsOptions {
     readonly HEART: string;
     readonly HEART_FILL: string;
     readonly HISTORY: string;
+    readonly HOURGLASS: string;
     readonly HOME: string;
     readonly ID_CARD: string;
     readonly IMAGE: string;
@@ -178,6 +191,7 @@ export interface PrimeIconsOptions {
     readonly INFO_CIRCLE: string;
     readonly INSTAGRAM: string;
     readonly KEY: string;
+    readonly LANGUAGE: string;
     readonly LINK: string;
     readonly LINKEDIN: string;
     readonly LIST: string;
@@ -185,6 +199,8 @@ export interface PrimeIconsOptions {
     readonly LOCK_OPEN: string;
     readonly MAP: string;
     readonly MAP_MARKER: string;
+    readonly MEGAPHONE: string;
+    readonly MICREPHONE: string;
     readonly MICROSOFT: string;
     readonly MINUS: string;
     readonly MINUS_CIRCLE: string;
@@ -240,7 +256,7 @@ export interface PrimeIconsOptions {
     readonly SORT_AMOUNT_UP: string;
     readonly SORT_AMOUNT_UP_ALT: string;
     readonly SORT_DOWN: string;
-    readonly SORT_NUMERIC_DOWN: string;
+    readonly SORT_NUMERIC_DOWN: string; 
     readonly SORT_NUMERIC_ALT_DOWN: string;
     readonly SORT_NUMERIC_UP: string;
     readonly SORT_NUMERIC_ALT_UP: string;
@@ -253,6 +269,7 @@ export interface PrimeIconsOptions {
     readonly STEP_FORWARD: string;
     readonly STEP_FORWARD_ALT: string;
     readonly STOP: string;
+    readonly STOPWATCH: string;
     readonly STOP_CIRCLE: string;
     readonly SUN: string;
     readonly SYNC: string;
@@ -263,11 +280,14 @@ export interface PrimeIconsOptions {
     readonly TELEGRAM: string;
     readonly TH_LARGE: string;
     readonly THUMBS_DOWN: string;
+    readonly THUMBS_DOWN_FILL: string;
     readonly THUMBS_UP: string;
+    readonly THUMBS_UP_FILL: string;
     readonly TICKET: string;
     readonly TIMES: string;
     readonly TIMES_CIRCLE: string;
     readonly TRASH: string;
+    readonly TRUCK: string;
     readonly TWITTER: string;
     readonly UNDO: string;
     readonly UNLOCK: string;
@@ -277,6 +297,7 @@ export interface PrimeIconsOptions {
     readonly USER_MINUS: string;
     readonly USER_PLUS: string;
     readonly USERS: string;
+    readonly VERIFIED: string;
     readonly VIDEO: string;
     readonly VIMEO: string;
     readonly VOLUME_DOWN: string;
@@ -287,6 +308,7 @@ export interface PrimeIconsOptions {
     readonly WIFI: string;
     readonly WINDOW_MAXIMIZE: string;
     readonly WINDOW_MINIMIZE: string;
+    readonly WRENCH: string;
     readonly YOUTUBE: string;
 }
 
