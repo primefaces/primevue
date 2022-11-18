@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.10.1](https://github.com/primefaces/primevue/tree/2.10.1) (2022-11-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.10.0...2.10.1)
+
+**Implemented New Features and Enhancements:**
+
+- PrimeFlex & PrimeIcons version update v2 [\#3291](https://github.com/primefaces/primevue/issues/3291)
+- Sidebar v2: Add slot to header [\#3217](https://github.com/primefaces/primevue/issues/3217)
+
+**Fixed bugs:**
+
+- Slider v2: onDragStart\(\) -\> this.modelValue is undefined [\#3251](https://github.com/primefaces/primevue/issues/3251)
+- Slider v2: range does not work [\#2986](https://github.com/primefaces/primevue/issues/2986)
+- InputNumber v2:  Component with Horizontal with step down disabled [\#2980](https://github.com/primefaces/primevue/issues/2980)
+- Password v2: Initial value is not displayed [\#2894](https://github.com/primefaces/primevue/issues/2894)
+- Textarea v2: resize height when window resized if autoResize is true [\#2919](https://github.com/primefaces/primevue/issues/2919)
+- SpeedDial v2: Cannot use Scoped Slot to customize items [\#2889](https://github.com/primefaces/primevue/issues/2889)
+
 ## [2.10.0](https://github.com/primefaces/primevue/tree/2.10.0) (2022-08-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.9.2...2.10.0)
