@@ -185,7 +185,7 @@ export default {
             if (this.feedback) {
                 let value = event.target.value;
 
-                const {meter,label}  = this.checkPasswordStrength(value);
+                const { meter, label }  = this.checkPasswordStrength(value);
 
                 this.meter = meter;
                 this.infoText = label;
@@ -199,7 +199,7 @@ export default {
         setPasswordMeter() {
             if(!this.feedback || !this.d_value) return;
 
-            const {meter,label}  = this.checkPasswordStrength(this.d_value);
+            const { meter, label }  = this.checkPasswordStrength(this.d_value);
 
             this.meter = meter;
             this.infoText = label;
@@ -211,6 +211,7 @@ export default {
         checkPasswordStrength(value) {
             let label = null;
             let meter = null;
+
             switch (this.testStrength(value)) {
                     case 1:
                         label = this.weakText;
@@ -219,6 +220,7 @@ export default {
                             width: '33.33%'
                         };
                         break;
+
                     case 2:
                         label = this.mediumText;
                         meter = {
@@ -226,6 +228,7 @@ export default {
                             width: '66.66%'
                         };
                         break;
+
                     case 3:
                         label = this.strongText;
                         meter = {
@@ -233,6 +236,7 @@ export default {
                             width: '100%'
                         };
                         break;
+
                     default:
                         label = this.promptText;
                         meter = null;
@@ -334,7 +338,7 @@ export default {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         }
     },
-     components: {
+    components: {
         'PInputText': InputText
     }
 }
