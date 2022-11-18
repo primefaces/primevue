@@ -1618,9 +1618,9 @@ export default {
             setTimeout(() => (this.timePickerChange = false), 0);
         },
         toggleAMPM(event) {
-            const validHour  = this.validateTime(this.currentHour, this.currentMinute, this.currentSecond, !this.pm)
+            const validHour = this.validateTime(this.currentHour, this.currentMinute, this.currentSecond, !this.pm);
 
-            if(!validHour && (this.maxDate || this.minDate)) return
+            if (!validHour && (this.maxDate || this.minDate)) return;
 
             this.pm = !this.pm;
             this.updateModelTime();
