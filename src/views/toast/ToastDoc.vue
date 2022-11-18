@@ -11,8 +11,8 @@ Vue.use(ToastService);
 
 //example application instance
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount('#app');
 </CodeHighlight>
 
@@ -157,7 +157,7 @@ this.$toast.add({severity:'success', summary: 'Success Message', detail:'Order s
 
 <CodeHighlight>
 &lt;Toast /&gt;
-&lt;Toast position="mykey" /&gt;
+&lt;Toast group="mykey" /&gt;
 </CodeHighlight>
 
 <CodeHighlight lang="js">
