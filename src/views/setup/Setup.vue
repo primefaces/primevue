@@ -10,7 +10,7 @@
             <p>PrimeVue is available at <a href="https://www.npmjs.com/package/primevue">npm</a>, if you have an existing application run the following commands to download PrimeVue and PrimeIcons to your project.</p>
 
 <CodeHighlight lang="js">
-npm install primevue@^2.9.2 --save
+npm install primevue@^2 --save
 npm install primeicons --save
 </CodeHighlight>
 
@@ -42,11 +42,11 @@ Vue.component('Dialog', Dialog);
 <CodeHighlight>
 &lt;meta charset="utf-8"&gt;
 &lt;title&gt;calendar demo&lt;/title&gt;
-&lt;link href="https://unpkg.com/primevue/resources/themes/saga-blue/theme.css " rel="stylesheet"&gt;
-&lt;link href="https://unpkg.com/primevue/resources/primevue.min.css " rel="stylesheet"&gt;
+&lt;link href="https://unpkg.com/primevue^2/resources/themes/saga-blue/theme.css " rel="stylesheet"&gt;
+&lt;link href="https://unpkg.com/primevue^2/resources/primevue.min.css " rel="stylesheet"&gt;
 &lt;link href="https://unpkg.com/primeicons/primeicons.css " rel="stylesheet"&gt;
 &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/primevue@2.5.2/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/primevue^2/calendar/calendar.umd.min.js"&gt;&lt;/script&gt;
 
 &lt;div id="app"&gt;
     &lt;p-calendar&gt;&lt;/p-calendar&gt;
