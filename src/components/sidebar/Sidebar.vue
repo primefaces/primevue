@@ -5,14 +5,7 @@
                 <div v-if="$slots.header" class="p-sidebar-header-content">
                     <slot name="header"></slot>
                 </div>
-                <button
-                    class="p-sidebar-close p-sidebar-icon p-link"
-                    @click="hide"
-                    :aria-label="ariaCloseLabel"
-                    v-if="showCloseIcon"
-                    type="button"
-                    v-ripple
-                >
+                <button class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" v-if="showCloseIcon" type="button" v-ripple>
                     <span class="p-sidebar-close-icon pi pi-times" />
                 </button>
             </div>

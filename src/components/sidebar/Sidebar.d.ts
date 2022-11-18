@@ -13,6 +13,7 @@ declare class Sidebar extends Vue {
     $emit(eventName: 'hide'): this;
     $slots: {
         '': VNode[];
+        'header': VNode[];
     }
 }
 
