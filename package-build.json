@@ -27,6 +27,6 @@
     },
     "peerDependencies": {
       "vue": "^2.6.0",
-      "primeicons": "^5.0.0"
+      "primeicons": "^5.0.0 || ^6.0.0"
     }
 }
