@@ -15,6 +15,7 @@ function create(el) {
 
     ink.className = 'p-ink';
     ink.setAttribute('role', 'presentation');
+    ink.setAttribute('aria-hidden', 'true');
     el.appendChild(ink);
 
     ink.addEventListener('animationend', onAnimationEnd);

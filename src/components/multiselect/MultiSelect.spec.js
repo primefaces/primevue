@@ -1,4 +1,4 @@
-import PrimeVue from '@/components/config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import { mount } from '@vue/test-utils';
 import MultiSelect from './MultiSelect.vue';
 
@@ -205,8 +205,6 @@ describe('MultiSelect.vue', () => {
             await wrapper.vm.onContainerClick();
             const input = await wrapper.find('input.p-multiselect-filter');
 
-            //input.value = 'Ber';
-            //await wrapper.vm.onFilterChange({ target:input });
             input.setValue('Ber');
             input.trigger('input');
 

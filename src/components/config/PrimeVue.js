@@ -80,7 +80,8 @@ const defaultOptions = {
             close: 'Close',
             previous: 'Previous',
             next: 'Next',
-            navigation: 'Navigation'
+            navigation: 'Navigation',
+            scrollTop: 'Scroll Top'
         }
     },
     filterMatchModeOptions: {

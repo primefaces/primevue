@@ -109,6 +109,18 @@ import AvatarGroup from 'primevue/avatargroup';
                         <td>square</td>
                         <td>Shape of the element, valid options are "square" and "circle".</td>
                     </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -196,6 +208,16 @@ import AvatarGroup from 'primevue/avatargroup';
                 </tbody>
             </table>
         </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Avatar does not include any roles and attributes by default. Any attribute is passed to the root element so you may add a role like <i>img</i> along with <i>aria-labelledby</i> or <i>aria-label</i> to describe the component. In case
+            avatars need to be tabbable, <i>tabindex</i> can be added as well to implement custom key handlers.
+        </p>
+
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
 
         <h5>Dependencies</h5>
         <p>None.</p>
@@ -496,7 +518,7 @@ export default {
         <script type="module">
         const { createApp } = Vue;
         const BadgeDirective = primevue.badgedirective;
-        
+
         const App = {
             components: {
                 "p-avatar": primevue.avatar,

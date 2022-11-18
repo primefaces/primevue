@@ -304,8 +304,11 @@ export default {
             <h5>Comma Separator</h5>
             <Chips v-model="value2" separator="," />
 
+            <h5>RegExp Separator</h5>
+            <Chips v-model="value3" :separator="separatorExp" />
+
             <h5>Template</h5>
-            <Chips v-model="value3">
+            <Chips v-model="value4">
                 <template #chip="slotProps">
                     <div>
                         <span>{{slotProps.value}} - (active) </span>
@@ -323,7 +326,9 @@ export default {
         return {
             value1: null,
             value2: null,
-            value3: null
+            value3: null,
+            value4: null,
+            separatorExp:/,| /
         }
     }
 }
@@ -342,8 +347,11 @@ export default {
             <h5>Comma Separator</h5>
             <Chips v-model="value2" separator="," />
 
+            <h5>RegExp Separator</h5>
+            <Chips v-model="value3" :separator="separatorExp" />
+
             <h5>Template</h5>
-            <Chips v-model="value3">
+            <Chips v-model="value4">
                 <template #chip="slotProps">
                     <div>
                         <span>{{slotProps.value}} - (active) </span>
@@ -363,6 +371,8 @@ export default {
         const value1 = ref();
         const value2 = ref();
         const value3 = ref();
+        const value4 = ref();
+        const separatorExp = ref(/,| /);
 
         return { value1, value2, value3 }
     }
@@ -382,6 +392,9 @@ export default {
 
                     <h5>Comma Separator</h5>
                     <p-chips v-model="value2" separator=","></p-chips>
+
+                    <h5>RegExp Separator</h5>
+                    <p-chips v-model="value3" :separator="separatorExp" />
 
                     <h5>Template</h5>
                     <p-chips v-model="value3">
@@ -404,6 +417,8 @@ export default {
                 const value1 = ref();
                 const value2 = ref();
                 const value3 = ref();
+                const value4 = ref();
+                const separatorExp = ref(/,| /);
 
                 return { value1, value2, value3 }
             },

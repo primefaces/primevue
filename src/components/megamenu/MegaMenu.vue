@@ -543,10 +543,11 @@ export default {
                         key,
                         parent,
                         parentKey,
-                        columnIndex: columnIndex !== undefined ? columnIndex : parent.columnIndex
+                        columnIndex: columnIndex !== undefined ? columnIndex : parent.columnIndex !== undefined ? parent.columnIndex : index
                     };
 
-                    newItem['items'] = level === 0 ? item.items.map((_items, _index) => this.createProcessedItems(_items, level + 1, newItem, key, _index)) : this.createProcessedItems(item.items, level + 1, newItem, key);
+                    newItem['items'] =
+                        level === 0 && item.items && item.items.length > 0 ? item.items.map((_items, _index) => this.createProcessedItems(_items, level + 1, newItem, key, _index)) : this.createProcessedItems(item.items, level + 1, newItem, key);
                     processedItems.push(newItem);
                 });
 

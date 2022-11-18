@@ -41,7 +41,7 @@ import Tag from 'primevue/tag';
         <p>Content can easily be customized with the default slot instead of using the built-in display.</p>
         <pre v-code><code>
 &lt;Tag&gt;
-   Content
+    Content
 &lt;/Tag&gt;
 
 </code></pre>
@@ -118,6 +118,16 @@ import Tag from 'primevue/tag';
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Tag does not include any roles and attributes by default, any attribute is passed to the root element so aria roles and attributes can be added if required. If the tags are dynamic,
+            <i>aria-live</i> may be utilized as well. In case badges need to be tabbable, <i>tabindex</i> can be added to implement custom key handlers.
+        </p>
+
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
@@ -134,7 +144,7 @@ export default {
 <template>
     <div>
         <h5>Tags</h5>
-        <Tag class="mr-2" value="Primary"></Tag>
+        <Tag class="mr-2" value="Primary" aria-label="Tabable Primary Tag" tabindex="0"></Tag>
         <Tag class="mr-2" severity="success" value="Success"></Tag>
         <Tag class="mr-2" severity="info" value="Info"></Tag>
         <Tag class="mr-2" severity="warning" value="Warning"></Tag>
@@ -168,7 +178,7 @@ export default {
 <template>
     <div>
         <h5>Tags</h5>
-        <Tag class="mr-2" value="Primary"></Tag>
+        <Tag class="mr-2" value="Primary" aria-label="Tabable Primary Tag" tabindex="0"></Tag>
         <Tag class="mr-2" severity="success" value="Success"></Tag>
         <Tag class="mr-2" severity="info" value="Info"></Tag>
         <Tag class="mr-2" severity="warning" value="Warning"></Tag>
@@ -201,7 +211,7 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/tag/tag.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Tags</h5>
-            <p-tag class="mr-2" value="Primary"></p-tag>
+            <p-tag class="mr-2" value="Primary" aria-label="Tabable Primary Tag" tabindex="0"></p-tag>
             <p-tag class="mr-2" severity="success" value="Success"></p-tag>
             <p-tag class="mr-2" severity="info" value="Info"></p-tag>
             <p-tag class="mr-2" severity="warning" value="Warning"></p-tag>

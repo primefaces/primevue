@@ -16,6 +16,7 @@ let coreDependencies = {
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
     'primevue/tooltip': 'primevue.tooltip',
+    'primevue/focustrap': 'primevue.focustrap',
     'primevue/virtualscroller': 'primevue.virtualscroller',
     'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
     'primevue/toasteventbus': 'primevue.toasteventbus',
@@ -155,6 +156,7 @@ function addDirectives() {
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
     addEntry('ripple', 'Ripple.js', 'ripple');
     addEntry('tooltip', 'Tooltip.js', 'tooltip');
+    addEntry('focustrap', 'FocusTrap.js', 'focustrap');
     addEntry('styleclass', 'StyleClass.js', 'styleclass');
 }
 

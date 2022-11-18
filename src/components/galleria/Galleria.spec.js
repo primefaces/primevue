@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from '@/components/config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import Galleria from './Galleria.vue';
 
 describe('Gallleria.vue', () => {

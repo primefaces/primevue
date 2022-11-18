@@ -27,6 +27,7 @@ interface PrimeVueLocaleAriaOptions {
     previous?: string;
     next?: string;
     navigation?: string;
+    scrollTop?: string;
 }
 
 interface PrimeVueLocaleOptions {

@@ -1,6 +1,6 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
-        <button v-if="visible" :ref="containerRef" :class="containerClass" @click="onClick" type="button">
+        <button v-if="visible" :ref="containerRef" :class="containerClass" @click="onClick" type="button" :aria-label="scrollTopAriaLabel">
             <span :class="iconClass"></span>
         </button>
     </transition>
@@ -104,6 +104,9 @@ export default {
         },
         iconClass() {
             return ['p-scrolltop-icon', this.icon];
+        },
+        scrollTopAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.scrollTop : undefined;
         }
     }
 };

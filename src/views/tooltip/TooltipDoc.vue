@@ -84,6 +84,12 @@ directives: {
                         <td>When present, it specifies that the component should be disabled.</td>
                     </tr>
                     <tr>
+                        <td>id</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>When present, it adds a custom id to the tooltip.</td>
+                    </tr>
+                    <tr>
                         <td>class</td>
                         <td>string</td>
                         <td>null</td>
@@ -127,6 +133,30 @@ directives: {
                     <tr>
                         <td>p-tooltip-text</td>
                         <td>Text of the tooltip</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>Tooltip component uses <i>tooltip</i> role and when it becomes visible the generated id of the tooltip is defined as the <i>aria-describedby</i> of the target.</p>
+
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the tooltip when focus is on the target.</td>
                     </tr>
                 </tbody>
             </table>

@@ -50,8 +50,11 @@ export default {
                 reject: () => {
                     //callback to execute when user rejects the action
                 },
+                onShow: () => {
+                    //callback to execute when dialog is shown
+                },
                 onHide: () => {
-                    //Callback to execute when dialog is hidden
+                    //callback to execute when dialog is hidden
                 }
             });
         },
@@ -79,8 +82,11 @@ export default defineComponent({
             reject: () => {
                 //callback to execute when user rejects the action
             },
+            onShow: () => {
+                //callback to execute when dialog is shown
+            },
             onHide: () => {
-                //Callback to execute when dialog is hidden
+                //callback to execute when dialog is hidden
             }
         });
     }
@@ -179,6 +185,12 @@ export default {
                         <td>Function</td>
                         <td>null</td>
                         <td>Callback to execute when action is rejected.</td>
+                    </tr>
+                    <tr>
+                        <td>onShow</td>
+                        <td>Function</td>
+                        <td>null</td>
+                        <td>Callback to execute when dialog is shown.</td>
                     </tr>
                     <tr>
                         <td>onHide</td>
@@ -325,6 +337,112 @@ export default {
                         <td>p-confirm-dialog</td>
                         <td>Container element.</td>
                     </tr>
+                    <tr>
+                        <td>p-confirm-dialog-message</td>
+                        <td>Container of message.</td>
+                    </tr>
+                    <tr>
+                        <td>p-confirm-dialog-icon</td>
+                        <td>Icon container inside content.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            ConfirmDialog component uses <i>alertdialog</i> role along with <i>aria-labelledby</i> referring to the header element however any attribute is passed to the root element so you may use <i>aria-labelledby</i> to override this default
+            behavior. In addition <i>aria-modal</i> is added since focus is kept within the popup.
+        </p>
+
+        <p>
+            When <i>require</i> method of the <i>$confirm</i> instance is used and a trigger is passed as a parameter, ConfirmDialog adds <i>aria-expanded</i> state attribute and <i>aria-controls</i> to the trigger so that the relation between the
+            trigger and the dialog is defined.
+        </p>
+
+        <pre v-code><code>
+&lt;ConfirmDialog id="confirm" /&gt;
+
+&lt;Button @click="openDialog()" label="Confirm" :aria-expanded="visible" :aria-controls="visible ? 'confirm' : null"&gt;&lt;/Button&gt;
+
+</code></pre>
+
+        <pre v-code.script><code>
+setup() {
+    const confirm = useConfirm();
+    const isVisible = ref(false);
+
+    const openDialog = () => {
+        confirm.require({
+            message: 'Are you sure you want to proceed?',
+            header: 'Confirmation',
+            onShow: () => {
+                isVisible.value = true;
+            },
+            onHide: () => {
+                isVisible.value = false;
+            }
+        });
+    };
+
+    return { isVisible, openDialog};
+}
+
+</code></pre>
+
+        <h6>Overlay Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the next the focusable element within the dialog.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous the focusable element within the dialog.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the dialog.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Buttons Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Closes the dialog.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Closes the dialog.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -398,9 +516,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         },
@@ -415,9 +530,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         },
@@ -433,9 +545,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         },
@@ -452,9 +561,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -529,9 +635,6 @@ export default defineComponent({
                 },
                 reject: () => {
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -547,9 +650,6 @@ export default defineComponent({
                 },
                 reject: () => {
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -566,9 +666,6 @@ export default defineComponent({
                 },
                 reject: () => {
                     toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -586,9 +683,6 @@ export default defineComponent({
                 },
                 reject: () => {
                     this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                },
-                onHide: () => {
-                    this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                 }
             });
         }
@@ -666,9 +760,6 @@ export default defineComponent({
                         },
                         reject: () => {
                             toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                        },
-                        onHide: () => {
-                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                         }
                     });
                 }
@@ -684,9 +775,6 @@ export default defineComponent({
                         },
                         reject: () => {
                             toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                        },
-                        onHide: () => {
-                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                         }
                     });
                 }
@@ -703,9 +791,6 @@ export default defineComponent({
                         },
                         reject: () => {
                             toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
-                        },
-                        onHide: () => {
-                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
                         }
                     });
                 }
@@ -719,13 +804,10 @@ export default defineComponent({
                         acceptIcon: 'pi pi-check',
                         rejectIcon: 'pi pi-times',
                         accept: () => {
-                            this.$toast.add({severity:'info',         summary:'Confirmed', detail:'You have accepted',         life: 3000});
+                            this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
                         },
                         reject: () => {
-                            this.$toast.add({severity:'error',         summary:'Rejected', detail:'You have rejected',         life: 3000});
-                        },
-                        onHide: () => {
-                            this.$toast.add({severity:'error', summary:'Hide', detail:'You have hidden', life: 3000});
+                            this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
                         }
                     });
                 }

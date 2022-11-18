@@ -1,7 +1,7 @@
 name: Bug report
 description: Create a report to help us improve
 title: "Component Name: Issue Title"
-labels: "bug"
+labels: "Status: Needs Triage"
 body:
   - type: markdown
     attributes:
@@ -22,13 +22,13 @@ body:
       label: Reproducer
       placeholder: https://codesandbox.io/s/primevue-3-issue-template-ip3vm
       description: |
-        Please fork one of the issue template 
+        Please fork one of the issue template
         [PrimeVue 3 Issue Template](https://codesandbox.io/s/primevue-3-issue-template-ip3vm)
         [PrimeVue TypeScript Issue Template](https://codesandbox.io/s/primevue-3-typescript-issue-template-z1f6e2)
         [PrimeVue 2 Issue Template](https://codesandbox.io/s/primevue-2-issue-template-dw7jd7)
         and create a case demonstrating your bug report. Issues **without** a CodeSandbox have much less possibility to be reviewed.
     validations:
-      required: false
+      required: true
   - type: input
     id: pr-version
     attributes:

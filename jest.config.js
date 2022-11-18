@@ -4,12 +4,14 @@ module.exports = {
         '^.+\\.vue$': 'vue-jest'
     },
     moduleNameMapper: {
-        '^primevue/ripple(.*)$': '<rootDir>/src/components/ripple/Ripple.js',
-        '^primevue/tooltip(.*)$': '<rootDir>/src/components/tooltip/Tooltip.js',
-        '^primevue/useconfirm(.*)$': '<rootDir>/src/components/useconfirm/UseConfirm.js',
-        '^primevue/usetoast(.*)$': '<rootDir>/src/components/usetoast/UseToast.js',
+        '^primevue/config(.*)$': '<rootDir>/src/components/config/PrimeVue.js',
         '^primevue/utils(.*)$': '<rootDir>/src/components/utils/Utils.js',
         '^primevue/api(.*)$': '<rootDir>/src/components/api/Api.js',
+        '^primevue/ripple(.*)$': '<rootDir>/src/components/ripple/Ripple.js',
+        '^primevue/tooltip(.*)$': '<rootDir>/src/components/tooltip/Tooltip.js',
+        '^primevue/focustrap(.*)$': '<rootDir>/src/components/focustrap/FocusTrap.js',
+        '^primevue/useconfirm(.*)$': '<rootDir>/src/components/useconfirm/UseConfirm.js',
+        '^primevue/usetoast(.*)$': '<rootDir>/src/components/usetoast/UseToast.js',
         '^primevue/button(.*)$': '<rootDir>/src/components/button/Button.vue',
         '^primevue/inputtext(.*)$': '<rootDir>/src/components/inputtext/InputText.vue',
         '^primevue/dialog(.*)$': '<rootDir>/src/components/dialog/Dialog.vue',

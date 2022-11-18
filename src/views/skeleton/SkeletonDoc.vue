@@ -129,6 +129,16 @@ import Skeleton from 'primevue/skeleton';
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Skeleton uses <i>aria-hidden</i> as "true" so that it gets ignored by screen readers, any valid attribute is passed to the root element so you may customize it further if required. If multiple skeletons are grouped inside a container, you
+            may use <i>aria-busy</i> on the container element as well to indicate the loading process.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <p>Component does not include any interactive elements.</p>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>

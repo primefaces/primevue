@@ -12,7 +12,7 @@ const InplaceProps = [
         description: 'Displays a button to switch back to display mode.'
     },
     {
-        name: 'diabled',
+        name: 'disabled',
         type: 'boolean',
         default: 'false',
         description: 'When present, it specifies that the element should be disabled.'
@@ -22,6 +22,18 @@ const InplaceProps = [
         type: 'string',
         default: 'pi pi-times',
         description: 'Icon to display in the close button.'
+    },
+    {
+        name: 'displayProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLDivElement to display container.'
+    },
+    {
+        name: 'closeButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the close button.'
     }
 ];
 

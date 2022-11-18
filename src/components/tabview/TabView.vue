@@ -97,8 +97,14 @@ export default {
             type: Boolean,
             default: false
         },
-        previousButtonProps: null,
-        nextButtonProps: null
+        previousButtonProps: {
+            type: null,
+            defaault: null
+        },
+        nextButtonProps: {
+            type: null,
+            defaault: null
+        }
     },
     data() {
         return {

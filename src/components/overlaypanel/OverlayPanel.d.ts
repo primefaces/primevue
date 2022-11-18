@@ -49,11 +49,6 @@ export interface OverlayPanelProps {
      */
     autoZIndex?: boolean;
     /**
-     * Aria label of the close icon.
-     * Default value is 'close'.
-     */
-    ariaCloseLabel?: string;
-    /**
      * Object literal to define widths per screen size.
      * @see OverlayPanelBreakpoints
      */

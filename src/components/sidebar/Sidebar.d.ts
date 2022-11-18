@@ -45,11 +45,6 @@ export interface SidebarProps {
      */
     modal?: boolean | undefined;
     /**
-     * Aria label of the close icon.
-     * Default value is 'close'.
-     */
-    ariaCloseLabel?: string | undefined;
-    /**
      * Whether to dispose the contents of the sidebar when closed (false) or keep the contents alive (true)
      * Default value is false.
      */

@@ -5,6 +5,17 @@ type SplitterLayoutType = 'horizontal' | 'vertical' | undefined;
 
 type SplitterStateStorageType = 'local' | 'session' | undefined;
 
+export interface SplitterResizeStartEvent {
+    /**
+     * Browser event
+     */
+    originalEvent: Event;
+    /**
+     * Sizes of the panels
+     */
+    sizes: number[];
+}
+
 export interface SplitterResizeEndEvent {
     /**
      * Browser event
@@ -53,6 +64,11 @@ export interface SplitterSlots {
 }
 
 export declare type SplitterEmits = {
+    /**
+     * Callback to invoke when resize starts.
+     * @param {SplitterResizeStartEvent} event - Custom resize start event.
+     */
+    resizestar: (event: SplitterResizeStartEvent) => void;
     /**
      * Callback to invoke when resize ends.
      * @param {SplitterResizeEndEvent} event - Custom resize end event.

@@ -136,8 +136,7 @@
             "children": [
                 {
                     "name": "Icons v6",
-                    "to": "/icons",
-                    "badge": "NEW"
+                    "to": "/icons"
                 }
             ]
         },
@@ -431,8 +430,7 @@
                 },
                 {
                     "name": "Paginator",
-                    "to": "/paginator",
-                    "badge": "UPDATED"
+                    "to": "/paginator"
                 },
                 {
                     "name": "PickList",
@@ -614,8 +612,7 @@
             "children": [
                 {
                     "name": "Upload",
-                    "to": "/fileupload",
-                    "badge": "UPDATED"
+                    "to": "/fileupload"
                 }
             ]
         },
@@ -749,7 +746,6 @@
                             "name": "Thumbnail",
                             "to": "/galleria/thumbnail"
                         },
-
                         {
                             "name": "Navigator",
                             "to": "/galleria/navigator"
@@ -795,24 +791,20 @@
                     "to": "/badge"
                 },
                 {
-                    "name": "Chip",
-                    "to": "/chip"
-                },
-                {
                     "name": "BlockUI",
                     "to": "/blockui"
                 },
                 {
+                    "name": "Chip",
+                    "to": "/chip"
+                },
+                {
+                    "name": "FocusTrap",
+                    "to": "/focustrap"
+                },
+                {
                     "name": "Inplace",
                     "to": "/inplace"
-                },
-                {
-                    "name": "ScrollTop",
-                    "to": "/scrolltop"
-                },
-                {
-                    "name": "Skeleton",
-                    "to": "/skeleton"
                 },
                 {
                     "name": "ProgressBar",
@@ -825,6 +817,14 @@
                 {
                     "name": "Ripple",
                     "to": "/ripple"
+                },
+                {
+                    "name": "ScrollTop",
+                    "to": "/scrolltop"
+                },
+                {
+                    "name": "Skeleton",
+                    "to": "/skeleton"
                 },
                 {
                     "name": "StyleClass",
