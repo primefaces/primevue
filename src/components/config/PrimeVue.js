@@ -81,7 +81,14 @@ const defaultOptions = {
             previous: 'Previous',
             next: 'Next',
             navigation: 'Navigation',
-            scrollTop: 'Scroll Top'
+            scrollTop: 'Scroll Top',
+            pageLabel: 'Page',
+            firstPageLabel: 'First Page',
+            lastPageLabel: 'Last Page',
+            nextPageLabel: 'Next Page',
+            rowsPerPageDropdownLabel: 'Rows per page',
+            previousPageLabel: 'Previous Page',
+            jumpToPageLabel: 'Jump to Page',
         }
     },
     filterMatchModeOptions: {
