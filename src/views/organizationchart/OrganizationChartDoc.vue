@@ -482,6 +482,46 @@ export default {
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+
+        <h6>Screen Reader</h6>
+        <p>
+            Component currently uses a table based implementation and does not provide high level of screen reader support, a nested list implementation replacement is planned with aria roles and attributes aligned to a tree widget for high level of
+            reader support in the upcoming versions.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus through the focusable elements within the chart.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Toggles the expanded state of a node.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Toggles the expanded state of a node.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
