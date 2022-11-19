@@ -87,6 +87,7 @@ describe('TriStateCheckbox.vue', () => {
         expect(wrapper.vm.focused).toBeFalsy();
         expect(wrapper.emitted().blur).toBeTruthy();
     });
+
     it('is icon changed', async () => {
         expect(wrapper.find('.p-checkbox-icon').classes()).not.toContain('pi-check');
         expect(wrapper.find('.p-checkbox-icon').classes()).not.toContain('pi-times');
@@ -98,5 +99,15 @@ describe('TriStateCheckbox.vue', () => {
         await wrapper.setProps({ modelValue: false });
 
         expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-times');
+    });
+
+    it('should have custom icons when provided', async () => {
+        await wrapper.setProps({ trueIcon: 'pi pi-discord', falseIcon: 'pi pi-facebook', modelValue: true });
+
+        expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-discord');
+
+        await wrapper.setProps({ modelValue: false });
+
+        expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-facebook');
     });
 });

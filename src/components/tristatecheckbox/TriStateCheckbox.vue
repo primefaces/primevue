@@ -45,6 +45,14 @@ export default {
             type: Number,
             default: 0
         },
+        trueIcon: {
+            type: String,
+            default: 'pi pi-check'
+        },
+        falseIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
         'aria-labelledby': {
             type: String,
             default: null
@@ -105,23 +113,15 @@ export default {
     },
     computed: {
         icon() {
-            let icon;
-
-            switch (this.modelValue) {
-                case true:
-                    icon = 'pi pi-check';
-                    break;
-
-                case false:
-                    icon = 'pi pi-times';
-                    break;
-
-                case null:
-                    icon = null;
-                    break;
+            if (this.modelValue === true) {
+                return this.trueIcon;
             }
 
-            return icon;
+            if (this.modelValue === false) {
+                return this.falseIcon;
+            }
+
+            return null;
         },
         containerClass() {
             return [
