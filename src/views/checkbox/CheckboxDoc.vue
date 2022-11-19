@@ -117,6 +117,12 @@ export default {
                         <td>Index of the element in tabbing order.</td>
                     </tr>
                     <tr>
+                        <td>icon</td>
+                        <td>string</td>
+                        <td>pi pi-check</td>
+                        <td>Icon to display in the checkbox.</td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>string</td>
                         <td>null</td>

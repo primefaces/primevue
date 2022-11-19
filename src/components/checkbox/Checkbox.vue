@@ -22,7 +22,7 @@
             />
         </div>
         <div ref="box" :class="['p-checkbox-box', { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]">
-            <span :class="['p-checkbox-icon', { 'pi pi-check': checked }]"></span>
+            <span :class="['p-checkbox-icon', { [icon]: checked }]"></span>
         </div>
     </div>
 </template>
@@ -64,6 +64,10 @@ export default {
         tabindex: {
             type: Number,
             default: null
+        },
+        icon: {
+            type: String,
+            default: 'pi pi-check'
         },
         inputId: {
             type: String,

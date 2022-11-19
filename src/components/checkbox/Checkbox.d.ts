@@ -35,6 +35,10 @@ export interface CheckboxProps {
      */
     tabindex?: number | undefined;
     /**
+     * Icon to display in the checkbox.
+     */
+    icon?: string | undefined;
+    /**
      * Value in checked state.
      */
     trueValue?: any;
