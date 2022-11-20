@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import DataView from './DataView.vue';
-
+import PrimeVue from 'primevue/config';
 describe('DataView.vue', () => {
     it('should exist', () => {
         const wrapper = mount(DataView, {
@@ -71,6 +71,9 @@ describe('DataView.vue', () => {
                         </div>
                     </template>
                 `
+            },
+            global: {
+                plugins: [PrimeVue]
             }
         });
 
