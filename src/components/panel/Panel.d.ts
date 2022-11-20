@@ -29,6 +29,16 @@ export interface PanelProps {
      * Uses to pass the custom value to read for the button inside the component.
      */
     toggleButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Icon to display when in toggle button when panel is expanded.
+     * Default value is "pi pi-minus".
+     */
+    collapseIcon?: string | undefined;
+    /**
+     * Icon to display when in toggle button when panel is collapsed.
+     * Default value is "pi pi-plus".
+     */
+    expandIcon?: string | undefined;
 }
 
 export interface PanelSlots {

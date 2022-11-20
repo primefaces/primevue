@@ -22,6 +22,18 @@ const PanelProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass the custom value to read for the anchor inside the component.'
+    },
+    {
+        name: 'collapseIcon',
+        type: 'string',
+        default: 'pi pi-minus',
+        description: 'Icon to display when in toggle button when panel is expanded.'
+    },
+    {
+        name: 'expandIcon',
+        type: 'string',
+        default: 'pi pi-plus',
+        description: 'Icon to display when in toggle button when panel is collapsed.'
     }
 ];
 
