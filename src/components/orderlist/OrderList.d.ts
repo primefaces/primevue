@@ -65,6 +65,26 @@ export interface OrderListProps {
      * Whether to displays rows with alternating colors.
      */
     stripedRows?: boolean | undefined;
+    /**
+     * Icon to display in the move up button.
+     * Default value is "pi pi-angle-up".
+     */
+    moveUpIcon?: string | undefined;
+    /**
+     * Icon to display in the move top button.
+     * Default value is "pi pi-angle-double-up".
+     */
+    moveTopIcon?: string | undefined;
+    /**
+     * Icon to display in the move down button.
+     * Default value is "pi pi-angle-down".
+     */
+    moveDownIcon?: string | undefined;
+    /**
+     * Icon to display in the move bottom button.
+     * Default value is "pi pi-angle-double-down".
+     */
+    moveBottomIcon?: string | undefined;
 }
 
 export interface OrderListSlots {

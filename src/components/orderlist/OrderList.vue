@@ -2,10 +2,10 @@
     <div :class="containerClass">
         <div class="p-orderlist-controls">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" icon="pi pi-angle-up" @click="moveUp"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-up" @click="moveTop"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-down" @click="moveDown"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom"></OLButton>
+            <OLButton type="button" :icon="moveUpIcon" @click="moveUp"></OLButton>
+            <OLButton type="button" :icon="moveTopIcon" @click="moveTop"></OLButton>
+            <OLButton type="button" :icon="moveDownIcon" @click="moveDown"></OLButton>
+            <OLButton type="button" :icon="moveBottomIcon" @click="moveBottom"></OLButton>
             <slot name="controlsend"></slot>
         </div>
         <div class="p-orderlist-list-container">
@@ -72,6 +72,22 @@ export default {
         stripedRows: {
             type: Boolean,
             default: false
+        },
+        moveUpIcon: {
+            type: String,
+            default: 'pi pi-angle-up'
+        },
+        moveTopIcon: {
+            type: String,
+            default: 'pi pi-angle-double-up'
+        },
+        moveDownIcon: {
+            type: String,
+            default: 'pi pi-angle-down'
+        },
+        moveBottomIcon: {
+            type: String,
+            default: 'pi pi-angle-double-down'
         }
     },
     itemTouched: false,

@@ -137,4 +137,23 @@ describe('OrderList.vue', () => {
 
         expect(wrapper.emitted()['update:modelValue'][0][0][1]).toEqual(wrapper.vm.modelValue[2]);
     });
+
+    it('should have custom icons when provided', async () => {
+        await wrapper.setProps({
+            moveUpIcon: 'pi-discord',
+            moveTopIcon: 'pi-facebook',
+            moveDownIcon: 'pi-twitter',
+            moveBottomIcon: 'pi-bitcoin'
+        });
+
+        const moveUpButton = wrapper.find('.p-orderlist-controls button:nth-of-type(1) .p-button-icon');
+        const moveTopButton = wrapper.find('.p-orderlist-controls button:nth-of-type(2) .p-button-icon');
+        const moveDownButton = wrapper.find('.p-orderlist-controls button:nth-of-type(3) .p-button-icon');
+        const moveBottomButton = wrapper.find('.p-orderlist-controls button:nth-of-type(4) .p-button-icon');
+
+        expect(moveUpButton.classes()).toContain('pi-discord');
+        expect(moveTopButton.classes()).toContain('pi-facebook');
+        expect(moveDownButton.classes()).toContain('pi-twitter');
+        expect(moveBottomButton.classes()).toContain('pi-bitcoin');
+    });
 });

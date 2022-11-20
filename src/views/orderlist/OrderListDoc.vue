@@ -134,6 +134,30 @@ import OrderList from 'primevue/orderlist';
                         <td>false</td>
                         <td>Whether to displays rows with alternating colors.</td>
                     </tr>
+                    <tr>
+                        <td>moveUpIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-up</td>
+                        <td>Icon to display in the move up button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveTopIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-up</td>
+                        <td>Icon to display in the move top button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveDownIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-down</td>
+                        <td>Icon to display in the move down button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveBottomIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-down</td>
+                        <td>Icon to display in the move bottom button.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
