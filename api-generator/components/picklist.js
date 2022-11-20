@@ -59,6 +59,54 @@ const PickListProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show buttons of target list.'
+    },
+    {
+        name: 'moveUpIcon',
+        type: 'string',
+        default: 'pi pi-angle-up',
+        description: 'Icon to display in the move up button.'
+    },
+    {
+        name: 'moveTopIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-up',
+        description: 'Icon to display in the move top button.'
+    },
+    {
+        name: 'moveDownIcon',
+        type: 'string',
+        default: 'pi pi-angle-down',
+        description: 'Icon to display in the move down button.'
+    },
+    {
+        name: 'moveBottomIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-down',
+        description: 'Icon to display in the move bottom button.'
+    },
+    {
+        name: 'moveToTargetIcon',
+        type: 'string',
+        default: 'pi pi-angle-right',
+        description: 'Icon to display in the move to target button.'
+    },
+    {
+        name: 'moveAllToTargetIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-right',
+        description: 'Icon to display in the move all to target button.'
+    },
+    {
+        name: 'moveToSourceIcon',
+        type: 'string',
+        default: 'pi pi-angle-left',
+        description: 'Icon to display in the move to source button.'
+    },
+    {
+        name: 'moveAllToSourceIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-left',
+        description: 'Icon to display in the move all to source icon.'
     }
 ];
 

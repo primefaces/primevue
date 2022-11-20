@@ -103,6 +103,46 @@ export interface PickListProps {
      * Whether to show buttons of target list.
      */
     showTargetControls?: boolean | undefined;
+    /**
+     * Icon to display in the move up button.
+     * Default value is "pi pi-angle-up".
+     */
+    moveUpIcon?: string | undefined;
+    /**
+     * Icon to display in the move top button.
+     * Default value is "pi pi-angle-double-up".
+     */
+    moveTopIcon?: string | undefined;
+    /**
+     * Icon to display in the move down button.
+     * Default value is "pi pi-angle-down".
+     */
+    moveDownIcon?: string | undefined;
+    /**
+     * Icon to display in the move bottom button.
+     * Default value is "pi pi-angle-double-down".
+     */
+    moveBottomIcon?: string | undefined;
+    /**
+     * Icon to display in the move to target button.
+     * Default value is "pi pi-angle-right".
+     */
+    moveToTargetIcon?: string | undefined;
+    /**
+     * Icon to display in the move all to target button.
+     * Default value is "pi pi-angle-double-right".
+     */
+    moveAllToTargetIcon?: string | undefined;
+    /**
+     * Icon to display in the move to source button.
+     * Default value is "pi pi-angle-left".
+     */
+    moveToSourceIcon?: string | undefined;
+    /**
+     * Icon to display in the move all to source icon.
+     * Default value is "pi pi-angle-double-left".
+     */
+    moveAllToSourceIcon?: string | undefined;
 }
 
 export interface PickListSlots {

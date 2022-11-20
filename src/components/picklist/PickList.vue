@@ -2,10 +2,10 @@
     <div :class="containerClass">
         <div v-if="showSourceControls" class="p-picklist-buttons p-picklist-source-controls">
             <slot name="sourcecontrolsstart"></slot>
-            <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
+            <PLButton type="button" :icon="moveUpIcon" @click="moveUp($event, 0)"></PLButton>
+            <PLButton type="button" :icon="moveTopIcon" @click="moveTop($event, 0)"></PLButton>
+            <PLButton type="button" :icon="moveDownIcon" @click="moveDown($event, 0)"></PLButton>
+            <PLButton type="button" :icon="moveBottomIcon" @click="moveBottom($event, 0)"></PLButton>
             <slot name="sourcecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
@@ -32,10 +32,10 @@
         </div>
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
             <slot name="movecontrolsstart"></slot>
-            <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
+            <PLButton type="button" :icon="moveToTargetIcon" @click="moveToTarget"></PLButton>
+            <PLButton type="button" :icon="moveAllToTargetIcon" @click="moveAllToTarget"></PLButton>
+            <PLButton type="button" :icon="moveToSourceIcon" @click="moveToSource"></PLButton>
+            <PLButton type="button" :icon="moveAllToSourceIcon" @click="moveAllToSource"></PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
@@ -62,10 +62,10 @@
         </div>
         <div v-if="showTargetControls" class="p-picklist-buttons p-picklist-target-controls">
             <slot name="targetcontrolsstart"></slot>
-            <PLButton type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
+            <PLButton type="button" :icon="moveUpIcon" @click="moveUp($event, 1)"></PLButton>
+            <PLButton type="button" :icon="moveTopIcon" @click="moveTop($event, 1)"></PLButton>
+            <PLButton type="button" :icon="moveDownIcon" @click="moveDown($event, 1)"></PLButton>
+            <PLButton type="button" :icon="moveBottomIcon" @click="moveBottom($event, 1)"></PLButton>
             <slot name="targetcontrolsend"></slot>
         </div>
     </div>
@@ -119,6 +119,38 @@ export default {
         showTargetControls: {
             type: Boolean,
             default: true
+        },
+        moveUpIcon: {
+            type: String,
+            default: 'pi pi-angle-up'
+        },
+        moveTopIcon: {
+            type: String,
+            default: 'pi pi-angle-double-up'
+        },
+        moveDownIcon: {
+            type: String,
+            default: 'pi pi-angle-down'
+        },
+        moveBottomIcon: {
+            type: String,
+            default: 'pi pi-angle-double-down'
+        },
+        moveToTargetIcon: {
+            type: String,
+            default: 'pi pi-angle-right'
+        },
+        moveAllToTargetIcon: {
+            type: String,
+            default: 'pi pi-angle-double-right'
+        },
+        moveToSourceIcon: {
+            type: String,
+            default: 'pi pi-angle-left'
+        },
+        moveAllToSourceIcon: {
+            type: String,
+            default: 'pi pi-angle-double-left'
         }
     },
     itemTouched: false,

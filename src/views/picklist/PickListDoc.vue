@@ -157,6 +157,54 @@ import PickList from 'primevue/picklist';
                         <td>true</td>
                         <td>Whether to show buttons of target list.</td>
                     </tr>
+                    <tr>
+                        <td>moveUpIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-up</td>
+                        <td>Icon to display in the move up button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveTopIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-up</td>
+                        <td>Icon to display in the move top button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveDownIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-down</td>
+                        <td>Icon to display in the move down button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveBottomIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-down</td>
+                        <td>Icon to display in the move bottom button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveToTargetIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-right</td>
+                        <td>Icon to display in the move to target button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveAllToTargetIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-right</td>
+                        <td>Icon to display in the move all to target button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveToSourceIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-left</td>
+                        <td>Icon to display in the move to source button.</td>
+                    </tr>
+                    <tr>
+                        <td>moveAllToSourceIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-left</td>
+                        <td>Icon to display in the move all to source icon.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
