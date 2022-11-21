@@ -76,7 +76,7 @@ import Chip from 'primevue/chip';
                         <td>Whether to display a remove icon.</td>
                     </tr>
                     <tr>
-                        <td>removeIconClass</td>
+                        <td>removeIcon</td>
                         <td>string</td>
                         <td>pi pi-times-circle</td>
                         <td>Icon of the remove element.</td>
