@@ -1,0 +1,29 @@
+{
+    "id": 1,
+    "single": {
+        "new": {
+            "value": "$49",
+            "class": "font-bold text-2xl text-900"
+        },
+        "old": {
+            "value": "$99",
+            "class": "font-bold text-2xl text-500 line-through"
+        }
+    },
+    "team": {
+        "new": {
+            "value": "$149",
+            "class": "font-bold text-2xl text-900"
+        },
+        "old": {
+            "value": "$249",
+            "class": "font-bold text-2xl text-500 line-through"
+        }
+    },
+    "enterprise": {
+        "new": {
+            "value": "Exclusive Deals",
+            "class": "font-bold text-2xl text-900"
+        }
+    }
+}
