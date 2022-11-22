@@ -20,12 +20,14 @@
                                 <a :href="href" :class="getHeaderActionClass(item, { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)">
                                     <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
                                     <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
+                                    <PVBadge v-if="getItemBadge(item)" :severity="getItemBadgeSeverity(item)" :value="getItemBadge(item)" class="ml-1" :aria-label="getItemLabel(item) + ' Badge'" />
                                 </a>
                             </router-link>
                             <a v-else :href="getItemProp(item, 'url')" :class="getHeaderActionClass(item)" :tabindex="-1">
                                 <span v-if="getItemProp(item, 'items')" :class="getHeaderToggleIconClass(item)"></span>
                                 <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
                                 <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
+                                <PVBadge v-if="getItemBadge(item)" :severity="getItemBadgeSeverity(item)" :value="getItemBadge(item)" class="ml-1" :aria-label="getItemLabel(item) + ' Badge'" />
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item"></component>
@@ -45,6 +47,7 @@
 
 <script>
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import Badge from '../badge/Badge';
 import PanelMenuList from './PanelMenuList.vue';
 
 export default {
@@ -79,6 +82,12 @@ export default {
         },
         getItemLabel(item) {
             return this.getItemProp(item, 'label');
+        },
+        getItemBadge(item) {
+            return this.getItemProp(item, 'badge');
+        },
+        getItemBadgeSeverity(item) {
+            return this.getItemProp(item, 'badgeSeverity');
         },
         isItemActive(item) {
             return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : item === this.activeItem;
@@ -256,7 +265,8 @@ export default {
         }
     },
     components: {
-        PanelMenuList: PanelMenuList
+        PanelMenuList: PanelMenuList,
+        PVBadge: Badge
     }
 };
 </script>

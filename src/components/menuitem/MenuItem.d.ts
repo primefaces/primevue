@@ -1,6 +1,9 @@
 import { RouteLocationRaw } from 'vue-router';
+import { BadgeSeverityType } from '../badge/Badge';
 
 type MenuItemLabelType = string | ((...args: any) => string) | undefined;
+
+type MenuItemBadgeType = number | ((...args: any) => number) | undefined;
 
 type MenuItemDisabledType = boolean | ((...args: any) => boolean) | undefined;
 
@@ -55,6 +58,14 @@ export interface MenuItem {
      * A boolean or a function to return a boolean to specify if the item is visible.
      */
     visible?: MenuItemVisibleType;
+    /**
+     * A number or a function to return a number to specify if there is a badge and its content.
+     */
+    badge?: MenuItemBadgeType;
+    /**
+     * Severity of the displayed badge.
+     */
+    badgeSeverity?: BadgeSeverityType;
     /**
      * Specifies where to open the linked document.
      */

@@ -19,6 +19,7 @@
                         <template v-if="item.items && visible(item) && !item.separator">
                             <li v-if="item.items" :id="id + '_' + i" class="p-submenu-header" role="none">
                                 <slot name="item" :item="item">{{ label(item) }}</slot>
+                                <PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge(item)" class="ml-1" :aria-label="label(item) + ' Badge'" />
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
@@ -38,6 +39,7 @@
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import Badge from '../badge/Badge';
 import Menuitem from './Menuitem.vue';
 
 export default {
@@ -356,6 +358,9 @@ export default {
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
         },
+        badge(item) {
+            return typeof item.badge === 'function' ? item.badge() : item.badge;
+        },
         separatorClass(item) {
             return ['p-menuitem-separator', item.class];
         },
@@ -392,6 +397,7 @@ export default {
     },
     components: {
         PVMenuitem: Menuitem,
+        PVBadge: Badge,
         Portal: Portal
     }
 };

@@ -19,12 +19,14 @@
                             <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
                                 <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                                 <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                                <PVBadge v-if="getItemBadge(processedItem)" :severity="getItemBadgeSeverity(processedItem)" :value="getItemBadge(processedItem)" class="ml-1" :aria-label="getItemLabel(processedItem) + ' Badge'" />
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
                             <span v-if="isItemGroup(processedItem)" :class="getItemToggleIconClass(processedItem)"></span>
                             <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                            <PVBadge v-if="getItemBadge(processedItem)" :severity="getItemBadgeSeverity(processedItem)" :value="getItemBadge(processedItem)" class="ml-1" :aria-label="getItemLabel(processedItem) + ' Badge'" />
                         </a>
                     </template>
                     <component v-else :is="template" :item="processedItem.item"></component>
@@ -55,6 +57,7 @@
 <script>
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import Badge from '../badge/Badge';
 
 export default {
     name: 'PanelMenuSub',
@@ -101,6 +104,12 @@ export default {
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
+        },
+        getItemBadge(processedItem) {
+            return this.getItemProp(processedItem, 'badge');
+        },
+        getItemBadgeSeverity(processedItem) {
+            return this.getItemProp(processedItem, 'badgeSeverity');
         },
         isItemActive(processedItem) {
             return this.activeItemPath.some((path) => path.key === processedItem.key);
@@ -166,6 +175,9 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        PVBadge: Badge
     }
 };
 </script>

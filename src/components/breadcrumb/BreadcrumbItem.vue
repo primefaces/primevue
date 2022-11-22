@@ -5,11 +5,13 @@
                 <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)">
                     <span v-if="item.icon" :class="iconClass"></span>
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
+                    <PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge()" class="ml-1" :aria-label="label() + ' Badge'" />
                 </a>
             </router-link>
             <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick">
                 <span v-if="item.icon" :class="iconClass"></span>
                 <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
+                <PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge()" class="ml-1" :aria-label="label() + ' Badge'" />
             </a>
         </template>
         <component v-else :is="template" :item="item"></component>
@@ -17,6 +19,8 @@
 </template>
 
 <script>
+import Badge from '../badge/Badge';
+
 export default {
     name: 'BreadcrumbItem',
     props: {
@@ -58,6 +62,9 @@ export default {
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
         },
+        badge() {
+            return typeof this.item.badge === 'function' ? this.item.badge() : this.item.badge;
+        },
         isCurrentUrl() {
             const { to, url } = this.item;
             let lastPath = this.$router ? this.$router.currentRoute.path : '';
@@ -69,6 +76,9 @@ export default {
         iconClass() {
             return ['p-menuitem-icon', this.item.icon];
         }
+    },
+    components: {
+        PVBadge: Badge
     }
 };
 </script>

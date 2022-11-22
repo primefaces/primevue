@@ -6,11 +6,13 @@
                     <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
                         <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                         <span class="p-menuitem-text">{{ label() }}</span>
+                        <PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge()" class="ml-1" :aria-label="label() + ' Badge'" />
                     </a>
                 </router-link>
                 <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true">
                     <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
                     <span class="p-menuitem-text">{{ label() }}</span>
+                    <PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge()" class="ml-1" :aria-label="label() + ' Badge'" />
                 </a>
             </template>
             <component v-else :is="template" :item="item"></component>
@@ -21,6 +23,7 @@
 <script>
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import Badge from '../badge/Badge.vue';
 
 export default {
     name: 'Menuitem',
@@ -66,10 +69,16 @@ export default {
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
+        },
+        badge() {
+            return typeof this.item.badge === 'function' ? this.item.badge() : this.item.badge;
         }
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        PVBadge: Badge
     }
 };
 </script>

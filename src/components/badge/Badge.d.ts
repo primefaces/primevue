@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type BadgeSeverityType = 'info' | 'success' | 'warning' | 'danger' | undefined;
+export type BadgeSeverityType = 'info' | 'success' | 'warning' | 'danger' | undefined;
 
 type BadgeSizeType = 'large' | 'xlarge' | undefined;
 

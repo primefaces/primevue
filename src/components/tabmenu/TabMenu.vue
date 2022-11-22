@@ -11,6 +11,7 @@
                                 role="menuitem"
                                 :href="href"
                                 class="p-menuitem-link"
+                                :class="{ 'p-menuitem-link-with-badge': checkBadgePresence(model) == true }"
                                 :aria-label="label(item)"
                                 :aria-disabled="disabled(item)"
                                 :tabindex="isExactActive ? '0' : '-1'"
@@ -19,6 +20,7 @@
                             >
                                 <span v-if="item.icon" :class="getItemIcon(item)"></span>
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
+                                <PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge(item)" class="ml-1 p-tabmenu-badge" :aria-label="label(item) + ' Badge'" />
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item"></component>
@@ -32,6 +34,7 @@
                             role="menuitem"
                             :href="item.url"
                             class="p-menuitem-link"
+                            :class="{ 'p-menuitem-link-with-badge': checkBadgePresence(model) == true }"
                             :target="item.target"
                             :aria-label="label(item)"
                             :aria-disabled="disabled(item)"
@@ -41,6 +44,7 @@
                         >
                             <span v-if="item.icon" :class="getItemIcon(item)"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
+                            <PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge(item)" class="ml-1 p-tabmenu-badge" :aria-label="label(item) + ' Badge'" />
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -54,6 +58,7 @@
 <script>
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
+import Badge from '../badge/Badge';
 
 export default {
     name: 'TabMenu',
@@ -252,6 +257,9 @@ export default {
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
         },
+        badge(item) {
+            return typeof item.badge === 'function' ? item.badge() : item.badge;
+        },
         setDefaultTabIndexes(tabLinkRef) {
             setTimeout(() => {
                 tabLinkRef.forEach((item) => {
@@ -261,6 +269,15 @@ export default {
         },
         setTabIndex(index) {
             return this.d_activeIndex === index ? '0' : '-1';
+        },
+        checkBadgePresence(model) {
+            for (let index = 0; index < model.length; index++) {
+                const item = model[index];
+
+                if (item.badge) return true;
+            }
+
+            return false;
         },
         updateInkBar() {
             let tabs = this.$refs.nav.children;
@@ -284,6 +301,9 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        PVBadge: Badge
     }
 };
 </script>
@@ -310,6 +330,11 @@ export default {
     text-decoration: none;
     text-decoration: none;
     overflow: hidden;
+}
+
+.p-menuitem-link-with-badge {
+    /* Same as Badge */
+    max-height: 0.75rem;
 }
 
 .p-tabmenu-nav a:focus {

@@ -14,12 +14,12 @@
                                 @keydown="onItemKeydown($event, item, navigate)"
                             >
                                 <span class="p-steps-number">{{ index + 1 }}</span>
-                                <span class="p-steps-title">{{ label(item) }}</span>
+                                <span class="p-steps-title">{{ label(item) }}<PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge(item)" class="ml-1" :aria-label="label(item) + ' Badge'" /></span>
                             </a>
                         </router-link>
                         <span v-else :class="linkClass()" @keydown="onItemKeydown($event, item)">
                             <span class="p-steps-number">{{ index + 1 }}</span>
-                            <span class="p-steps-title">{{ label(item) }}</span>
+                            <span class="p-steps-title">{{ label(item) }}<PVBadge v-if="item.badge" :severity="item.badgeSeverity" :value="badge(item)" class="ml-1" :aria-label="label(item) + ' Badge'" /></span>
                         </span>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -31,6 +31,7 @@
 
 <script>
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import Badge from '../badge/Badge';
 
 export default {
     name: 'Steps',
@@ -196,12 +197,18 @@ export default {
         },
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
+        },
+        badge(item) {
+            return typeof item.badge === 'function' ? item.badge() : item.badge;
         }
     },
     computed: {
         containerClass() {
             return ['p-steps p-component', { 'p-readonly': this.readonly }];
         }
+    },
+    components: {
+        PVBadge: Badge
     }
 };
 </script>

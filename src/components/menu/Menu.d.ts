@@ -1,14 +1,24 @@
 import { VNode } from 'vue';
+import { BadgeSeverityType } from '../badge/Badge';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type MenuAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
+type MenuItemBadgeType = number | ((...args: any) => number) | undefined;
 
 export interface MenuProps {
     /**
      * An array of menuitems.
      */
     model?: MenuItem[] | undefined;
+    /**
+     * A number or a function to return a number to specify if there is a badge and its content.
+     */
+    badge?: MenuItemBadgeType;
+    /**
+     * Severity of the displayed badge.
+     */
+    badgeSeverity?: BadgeSeverityType;
     /**
      * Defines if menu would displayed as a popup.
      */

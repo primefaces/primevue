@@ -1,6 +1,8 @@
 <template>
     <ul>
-        <li v-if="submenu" :class="getSubmenuHeaderClass(submenu)" :style="getItemProp(submenu, 'style')" role="presentation">{{ getItemLabel(submenu) }}</li>
+        <li v-if="submenu" :class="getSubmenuHeaderClass(submenu)" :style="getItemProp(submenu, 'style')" role="presentation">
+            {{ getItemLabel(submenu) }}<PVBadge v-if="getItemBadge(submenu)" :severity="getItemBadgeSeverity(submenu)" :value="getItemBadge(submenu)" class="ml-1" :aria-label="getItemLabel(submenu) + ' Badge'" />
+        </li>
         <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -22,11 +24,14 @@
                             <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
                                 <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                                 <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                                <code>{{ getItemBadge(processedItem) }}</code>
+                                <PVBadge v-if="getItemBadge(processedItem)" :severity="getItemBadgeSeverity(processedItem)" :value="getItemBadge(processedItem)" class="ml-1" :aria-label="getItemLabel(processedItem) + ' Badge'" />
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
                             <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                            <PVBadge v-if="getItemBadge(processedItem)" :severity="getItemBadgeSeverity(processedItem)" :value="getItemBadge(processedItem)" class="ml-1" :aria-label="getItemLabel(processedItem) + ' Badge'" />
                             <span v-if="isItemGroup(processedItem)" :class="getItemToggleIconClass()"></span>
                         </a>
                     </template>
@@ -63,6 +68,7 @@
 <script>
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import Badge from '../badge/Badge';
 
 export default {
     name: 'MegaMenuSub',
@@ -123,6 +129,12 @@ export default {
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
+        },
+        getItemBadge(processedItem) {
+            return this.getItemProp(processedItem, 'badge');
+        },
+        getItemBadgeSeverity(processedItem) {
+            return this.getItemProp(processedItem, 'badgeSeverity');
         },
         isItemActive(processedItem) {
             return ObjectUtils.isNotEmpty(this.activeItem) ? this.activeItem.key === processedItem.key : false;
@@ -226,6 +238,9 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        PVBadge: Badge
     }
 };
 </script>
