@@ -5,7 +5,7 @@
         </button>
         <div v-if="checkboxSelectionMode && columnProp('expander')" :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox" role="checkbox" :aria-checked="checked">
             <div class="p-hidden-accessible">
-                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
+                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" />
             </div>
             <div ref="checkboxEl" :class="checkboxClass">
                 <span :class="checkboxIcon"></span>

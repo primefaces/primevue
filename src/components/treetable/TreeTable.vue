@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body">
+    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body" role="table">
         <div v-if="loading" class="p-treetable-loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
@@ -57,7 +57,7 @@
                 <tbody class="p-treetable-tbody">
                     <template v-if="!empty">
                         <TTRow
-                            v-for="node of dataToRender"
+                            v-for="(node, index) of dataToRender"
                             :key="node.key"
                             :columns="columns"
                             :node="node"
@@ -69,6 +69,10 @@
                             :selectionKeys="selectionKeys"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
+                            :aria-label="getItemLabel(node)"
+                            :ariaPosInset="index + 1"
+                            :ariaSetSize="dataToRender.length"
+                            :tabindex="0"
                         ></TTRow>
                     </template>
                     <tr v-else class="p-treetable-emptymessage">
@@ -836,6 +840,9 @@ export default {
         },
         updateScrollWidth() {
             this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
+        },
+        getItemLabel(node) {
+            return node.data.name;
         }
     },
     computed: {
