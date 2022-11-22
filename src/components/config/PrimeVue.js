@@ -81,7 +81,11 @@ const defaultOptions = {
             previous: 'Previous',
             next: 'Next',
             navigation: 'Navigation',
-            scrollTop: 'Scroll Top'
+            scrollTop: 'Scroll Top',
+            moveTop: 'Move Top',
+            moveUp: 'Move Up',
+            moveDown: 'Move Down',
+            moveBottom: 'Move Bottom'
         }
     },
     filterMatchModeOptions: {
