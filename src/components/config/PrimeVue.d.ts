@@ -32,6 +32,15 @@ interface PrimeVueLocaleAriaOptions {
     moveTop?: string;
     moveDown?: string;
     moveBottom?: string;
+    pageLabel?: string;
+    firstPageLabel?: string;
+    lastPageLabel?: string;
+    nextPageLabel?: string;
+    prevPageLabel?: string;
+    rowsPerPageLabel?: string;
+    previousPageLabel?: string;
+    jumpToPageDropdownLabel?: string;
+    jumpToPageInputLabel?: string;
 }
 
 interface PrimeVueLocaleOptions {

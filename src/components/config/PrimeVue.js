@@ -86,13 +86,15 @@ const defaultOptions = {
             moveUp: 'Move Up',
             moveDown: 'Move Down',
             moveBottom: 'Move Bottom',
-            pageLabel: 'Page',
+            pageLabel: '{page}',
             firstPageLabel: 'First Page',
             lastPageLabel: 'Last Page',
             nextPageLabel: 'Next Page',
-            rowsPerPageDropdownLabel: 'Rows per page',
+            prevPageLabel: 'Previous Page',
+            rowsPerPageLabel: 'Rows per page',
             previousPageLabel: 'Previous Page',
-            jumpToPageLabel: 'Jump to Page'
+            jumpToPageDropdownLabel: 'Jump to Page Dropdown',
+            jumpToPageInputLabel: 'Jump to Page Input'
         }
     },
     filterMatchModeOptions: {
