@@ -146,7 +146,16 @@ locale: {
         moveTop: 'Move Top',
         moveUp: 'Move Up',
         moveDown: 'Move Down',
-        moveBottom: 'Move Bottom'
+        moveBottom: 'Move Bottom',
+        pageLabel: '{page}',
+        firstPageLabel: 'First Page',
+        lastPageLabel: 'Last Page',
+        nextPageLabel: 'Next Page',
+        prevPageLabel: 'Previous Page',
+        rowsPerPageLabel: 'Rows per page',
+        previousPageLabel: 'Previous Page',
+        jumpToPageDropdownLabel: 'Jump to Page Dropdown',
+        jumpToPageInputLabel: 'Jump to Page Input'
     }
 }
 
