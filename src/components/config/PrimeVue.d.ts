@@ -28,6 +28,10 @@ interface PrimeVueLocaleAriaOptions {
     next?: string;
     navigation?: string;
     scrollTop?: string;
+    moveUp?: string;
+    moveTop?: string;
+    moveDown?: string;
+    moveBottom?: string;
 }
 
 interface PrimeVueLocaleOptions {
