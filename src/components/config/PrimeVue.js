@@ -82,13 +82,17 @@ const defaultOptions = {
             next: 'Next',
             navigation: 'Navigation',
             scrollTop: 'Scroll Top',
+            moveTop: 'Move Top',
+            moveUp: 'Move Up',
+            moveDown: 'Move Down',
+            moveBottom: 'Move Bottom',
             pageLabel: 'Page',
             firstPageLabel: 'First Page',
             lastPageLabel: 'Last Page',
             nextPageLabel: 'Next Page',
             rowsPerPageDropdownLabel: 'Rows per page',
             previousPageLabel: 'Previous Page',
-            jumpToPageLabel: 'Jump to Page',
+            jumpToPageLabel: 'Jump to Page'
         }
     },
     filterMatchModeOptions: {
