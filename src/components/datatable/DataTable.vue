@@ -31,7 +31,7 @@
         <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
             <DTVirtualScroller ref="virtualScroller" v-bind="virtualScrollerOptions" :items="processedData" :columns="columns" :style="{ height: scrollHeight }" :disabled="virtualScrollerDisabled" loaderDisabled :showSpacer="false">
                 <template #content="slotProps">
-                    <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]">
+                    <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]" v-bind="tableProps">
                         <DTTableHeader
                             :columnGroup="headerColumnGroup"
                             :columns="slotProps.columns"
@@ -510,6 +510,10 @@ export default {
         },
         tableClass: {
             type: String,
+            default: null
+        },
+        tableProps: {
+            type: null,
             default: null
         }
     },
