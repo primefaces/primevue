@@ -155,7 +155,18 @@ locale: {
         rowsPerPageLabel: 'Rows per page',
         previousPageLabel: 'Previous Page',
         jumpToPageDropdownLabel: 'Jump to Page Dropdown',
-        jumpToPageInputLabel: 'Jump to Page Input'
+        jumpToPageInputLabel: 'Jump to Page Input',
+        selectRow: 'Row Selected',
+        unselectRow: 'Row Unselected',
+        expandRow: 'Row Expanded',
+        collapseRow: 'Row Collapsed',
+        showFilterMenu: 'Show Filter Menu',
+        hideFilterMenu: 'Hide Filter Menu',
+        filterOperator: 'Filter Operator',
+        filterConstraint: 'Filter Constraint',
+        editRow: 'Row Edit',
+        saveEdit: 'Save Edit',
+        cancelEdit: 'Cancel Edit'
     }
 }
 

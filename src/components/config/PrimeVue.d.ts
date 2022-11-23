@@ -41,6 +41,17 @@ interface PrimeVueLocaleAriaOptions {
     previousPageLabel?: string;
     jumpToPageDropdownLabel?: string;
     jumpToPageInputLabel?: string;
+    selectRow?: string;
+    unselectRow?: string;
+    expandRow?: string;
+    collapseRow?: string;
+    showFilterMenu?: string;
+    hideFilterMenu?: string;
+    filterOperator?: string;
+    filterConstraint?: string;
+    editRow?: string;
+    saveEdit?: string;
+    cancelEdit?: string;
 }
 
 interface PrimeVueLocaleOptions {
