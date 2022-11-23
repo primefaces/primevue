@@ -1,4 +1,4 @@
-import { mount,config } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import PickList from './PickList.vue';
 
 config.global.mocks = {
@@ -9,7 +9,7 @@ config.global.mocks = {
                     moveUp: 'Move Up',
                     moveDown: 'Move Down',
                     moveTop: 'Move Top',
-                    moveBottom: 'Move Bottom',
+                    moveBottom: 'Move Bottom'
                 }
             }
         }
