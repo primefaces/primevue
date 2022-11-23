@@ -11,12 +11,14 @@ permissions:
 jobs:
   pr-open-check:
     permissions:
-      contents: read
+      issues: write
       pull-requests: write
     runs-on: ubuntu-latest
+    env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Verify Linked Issue
-        uses: hattan/verify-linked-issue-action@v1.1.0
+        uses: hattan/verify-linked-issue-action@v1.1.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
