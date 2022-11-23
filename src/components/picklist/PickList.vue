@@ -20,11 +20,13 @@
                 class="p-picklist-list p-picklist-source"
                 :style="listStyle"
                 role="listbox"
-                aria-multiselectable="multiple"
-                :aria-activedescendant="focused ? focusedOptionId : undefined"
+                aria-multiselectable="true"
+                :aria-activedescendant="focused['sourceList'] ? focusedOptionId : undefined"
+                :aria-label="ariaLabel"
+                :aria-labelledby="ariaLabelledby"
                 :tabindex="tabindexSource"
                 @focus="onListFocus($event, 'sourceList')"
-                @blur="onListBlur"
+                @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
             >
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
@@ -63,7 +65,10 @@
                 class="p-picklist-list p-picklist-target"
                 :style="listStyle"
                 role="listbox"
-                aria-multiselectable="multiple"
+                aria-multiselectable="true"
+                :aria-activedescendant="focused['targetList'] ? focusedOptionId : undefined"
+                :aria-label="ariaLabel"
+                :aria-labelledby="ariaLabelledby"
                 :tabindex="tabindexTarget"
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
@@ -185,7 +190,10 @@ export default {
     data() {
         return {
             d_selection: this.selection,
-            focused: false,
+            focused: {
+                sourceList: false,
+                targetList: false
+            },
             focusedOptionIndex: -1
         };
     },
@@ -217,12 +225,13 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection[listIndex]) != -1;
         },
         onListFocus(event, listType) {
-            this.focused = true;
+            this.focused[listType] = true;
+
             this.changeFocusedOptionIndex(0, listType);
             this.$emit('focus', event);
         },
-        onListBlur(event) {
-            this.focused = false;
+        onListBlur(event, listType) {
+            this.focused[listType] = false;
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
         },
@@ -528,8 +537,6 @@ export default {
             this.itemTouched = true;
         },
         onItemKeyDown(event, listType) {
-            console.log(event.code);
-
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event, listType);
@@ -599,7 +606,6 @@ export default {
         },
         onSpaceKey(event, listType) {
             event.preventDefault();
-            debugger;
 
             if (event.shiftKey) {
                 const listId = listType === 'sourceList' ? 0 : 1;
@@ -634,7 +640,6 @@ export default {
 
             if (event.ctrlKey && event.shiftKey) {
                 const listId = listType === 'sourceList' ? 0 : 1;
-
                 const focusedItem = DomHandler.findSingle(this.$refs[listType].$el, `li.p-picklist-item[id=${this.focusedOptionIndex}]`);
                 const matchedOptionIndex = [...items].findIndex((item) => item === focusedItem);
 

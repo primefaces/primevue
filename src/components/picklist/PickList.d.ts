@@ -103,6 +103,38 @@ export interface PickListProps {
      * Whether to show buttons of target list.
      */
     showTargetControls?: boolean | undefined;
+    /**
+     * Index of the source list element in tabbing order.
+     */
+    tabindexSource?: number | string | undefined;
+    /**
+     * Index of the target list element in tabbing order.
+     */
+    tabindexTarget?: number | string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.
+     */
+    moveUpButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.
+     */
+    moveTopButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.
+     */
+    moveDownButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
+     */
+    moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Defines a string value that labels an interactive list element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying list element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface PickListSlots {
