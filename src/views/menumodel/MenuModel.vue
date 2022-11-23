@@ -13,7 +13,9 @@
 const items: [
     {
         label: 'Options',
-        items: [{label: 'New', icon: 'pi pi-fw pi-plus', command:() => {} },
+        badge: 2,
+        badgeSeverity: 'danger',
+        items: [{label: 'New', badge: () => 3, icon: 'pi pi-fw pi-plus', command:() => {} },
                 {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
     },
     {
@@ -67,6 +69,18 @@ const items: [
                             <td>string</td>
                             <td>null</td>
                             <td>External link to navigate when item is clicked.</td>
+                        </tr>
+                        <tr>
+                            <td>badge</td>
+                            <td>number | function</td>
+                            <td>null</td>
+                            <td>A badge value to be shown.</td>
+                        </tr>
+                        <tr>
+                            <td>badgeSeverity</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Severity type of the badge.</td>
                         </tr>
                         <tr>
                             <td>items</td>
