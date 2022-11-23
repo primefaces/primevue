@@ -1,6 +1,6 @@
 import { Plugin } from 'vue';
 
-interface PrimeVueConfiguration {
+export interface PrimeVueConfiguration {
     ripple?: boolean;
     inputStyle?: string;
     locale?: PrimeVueLocaleOptions;
@@ -8,14 +8,14 @@ interface PrimeVueConfiguration {
     zIndex?: PrimeVueZIndexOptions;
 }
 
-interface PrimeVueZIndexOptions {
+export interface PrimeVueZIndexOptions {
     modal?: number;
     overlay?: number;
     menu?: number;
     tooltip?: number;
 }
 
-interface PrimeVueLocaleAriaOptions {
+export interface PrimeVueLocaleAriaOptions {
     trueLabel?: string;
     falseLabel?: string;
     nullLabel?: string;
@@ -43,7 +43,7 @@ interface PrimeVueLocaleAriaOptions {
     jumpToPageInputLabel?: string;
 }
 
-interface PrimeVueLocaleOptions {
+export interface PrimeVueLocaleOptions {
     startsWith?: string;
     contains?: string;
     notContains?: string;
