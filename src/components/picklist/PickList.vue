@@ -28,6 +28,7 @@
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
+                v-bind="sourceListProps"
             >
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li
@@ -47,10 +48,10 @@
         </div>
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
             <slot name="movecontrolsstart"></slot>
-            <PLButton type="button" icon="pi pi-angle-right" @click="moveToTarget"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-left" @click="moveToSource"></PLButton>
-            <PLButton type="button" icon="pi pi-angle-double-left" @click="moveAllToSource"></PLButton>
+            <PLButton :aria-label="moveToTargetAriaLabel" type="button" icon="pi pi-angle-right" @click="moveToTarget" :disabled="moveDisabled(0)"></PLButton>
+            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')"></PLButton>
+            <PLButton :aria-label="moveToSourceAriaLabel" type="button" icon="pi pi-angle-left" @click="moveToSource" :disabled="moveDisabled(1)"></PLButton>
+            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" icon="pi pi-angle-double-left" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')"></PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
@@ -73,6 +74,7 @@
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
                 @keydown="onItemKeyDown($event, 'targetList')"
+                v-bind="targetListProps"
             >
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li
@@ -150,6 +152,14 @@ export default {
         showTargetControls: {
             type: Boolean,
             default: true
+        },
+        targetListProps: {
+            type: null,
+            default: null
+        },
+        sourceListProps: {
+            type: null,
+            default: null
         },
         moveUpButtonProps: {
             type: null,
@@ -764,6 +774,12 @@ export default {
                 return true;
             }
         },
+        moveAllDisabled(list) {
+            return ObjectUtils.isEmpty(this[list]);
+        },
+        moveSourceDisabled() {
+            return ObjectUtils.isEmpty(this.targetList);
+        },
         itemClass(item, id, listIndex) {
             return ['p-picklist-item', { 'p-highlight': this.isSelected(item, listIndex), 'p-focus': id === this.focusedOptionId }];
         }
@@ -806,6 +822,18 @@ export default {
         },
         moveBottomAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveBottom : undefined;
+        },
+        moveToTargetAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveToTarget : undefined;
+        },
+        moveAllToTargetAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveAllToTarget : undefined;
+        },
+        moveToSourceAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveToSource : undefined;
+        },
+        moveAllToSourceAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveAllToSource : undefined;
         }
     },
     components: {

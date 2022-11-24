@@ -112,6 +112,14 @@ export interface PickListProps {
      */
     tabindexTarget?: number | string | undefined;
     /**
+     *  Uses to pass all properties of the HTMLAttributes to the target list element.
+     */
+    targetListProps?: HTMLAttributes | undefined;
+    /**
+     *  Uses to pass all properties of the HTMLAttributes to the source list element.
+     */
+    sourceListProps?: HTMLAttributes | undefined;
+    /**
      * Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.
      */
     moveUpButtonProps?: ButtonHTMLAttributes | undefined;

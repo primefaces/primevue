@@ -55,6 +55,12 @@ const OrderListProps = [
         description: 'Index of the element in tabbing order.'
     },
     {
+        name: 'listProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLAttributes to the list element.'
+    },
+    {
         name: 'moveUpButtonProps',
         type: 'object',
         default: 'null',

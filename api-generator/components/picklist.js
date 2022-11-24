@@ -73,6 +73,18 @@ const PickListProps = [
         description: 'Index of the source list element in tabbing order.'
     },
     {
+        name: 'targetListProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLAttributes to the target list element.'
+    },
+    {
+        name: 'sourceListProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLAttributes to the source list element.'
+    },
+    {
         name: 'moveUpButtonProps',
         type: 'object',
         default: 'null',
