@@ -100,9 +100,8 @@ export default {
         },
         onKeydown(event) {
             if (event.code === 'Enter' || event.code === 'Space') {
-                event.preventDefault();
-
                 this.toggleNode();
+                event.preventDefault();
             }
         }
     },
