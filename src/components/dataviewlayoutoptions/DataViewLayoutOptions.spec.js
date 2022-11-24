@@ -1,4 +1,4 @@
-import { mount,config } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import DataViewLayoutOptions from './DataViewLayoutOptions.vue';
 config.global.mocks = {
     $primevue: {
@@ -6,7 +6,7 @@ config.global.mocks = {
             locale: {
                 aria: {
                     listView: 'listView',
-                    gridView: 'gridView',
+                    gridView: 'gridView'
                 }
             }
         }
