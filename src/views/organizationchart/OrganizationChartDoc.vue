@@ -16,7 +16,7 @@ import OrganizationChart from 'primevue/organizationchart';
         <h5>Getting Started</h5>
         <p>OrganizationChart requires an OrganizationChartNode instance as its root value and at least one template to display node content where node instance is passed via slotProps.</p>
         <pre v-code><code><template v-pre>
- &lt;OrganizationChart :value="data"&gt;
+&lt;OrganizationChart :value="data"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
     &lt;/template&gt;
@@ -134,7 +134,7 @@ export default {
         </p>
         <p>Example below displays the root of chart in previous example as collapsed. Notice that the collapsedKeys is a map whose key is the key of the node and value is true.</p>
         <pre v-code><code><template v-pre>
- &lt;OrganizationChart :value="data" :collapsible="true" :collapsedKeys="collapsedKeys"&gt;
+&lt;OrganizationChart :value="data" :collapsible="true" :collapsedKeys="collapsedKeys"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
     &lt;/template&gt;
@@ -195,7 +195,7 @@ export default {
             <i>selectable</i> is false on the node instance.
         </p>
         <pre v-code><code><template v-pre>
- &lt;OrganizationChart :value="data" selecionMode="single" v-model:selectionKeys="selectionKeys"&gt;
+&lt;OrganizationChart :value="data" selecionMode="single" v-model:selectionKeys="selectionKeys"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;span&gt;&#123;&#123;slotProps.node.data.label&#125;&#125;&lt;/span&gt;
     &lt;/template&gt;
@@ -483,7 +483,6 @@ export default {
         </div>
 
         <h5>Accessibility</h5>
-
         <h6>Screen Reader</h6>
         <p>
             Component currently uses a table based implementation and does not provide high level of screen reader support, a nested list implementation replacement is planned with aria roles and attributes aligned to a tree widget for high level of
@@ -491,8 +490,8 @@ export default {
         </p>
 
         <h6>Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -751,7 +750,7 @@ export default {
                     tabName: 'Composition API Source',
                     content: `
 <template>
-   <div>
+    <div>
         <Toast />
 
         <div class="card">
