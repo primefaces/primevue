@@ -97,8 +97,10 @@ export default {
             this.$emit('column-click', { originalEvent: event, column: this.column });
         },
         onKeyDown(event) {
-            if (event.which === 13 && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
                 this.$emit('column-click', { originalEvent: event, column: this.column });
+
+                event.preventDefault();
             }
         },
         onResizeStart(event) {

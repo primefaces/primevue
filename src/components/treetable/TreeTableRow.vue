@@ -120,15 +120,11 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
+            this.setTabIndexForSelectionMode(event);
+
             if (DomHandler.isClickable(event.target) || DomHandler.hasClass(event.target, 'p-treetable-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-treetable-toggler')) {
                 return;
             }
-
-            this.$emit('node-click', {
-                originalEvent: event,
-                nodeTouched: this.nodeTouched,
-                node: this.node
-            });
 
             this.nodeTouched = false;
         },
@@ -238,6 +234,7 @@ export default {
         },
         onEnterKey(event) {
             event.preventDefault();
+            this.setTabIndexForSelectionMode(event);
 
             if (this.selectionMode === 'checkbox') {
                 this.toggleCheckbox();
@@ -345,6 +342,17 @@ export default {
                 check: event.check,
                 selectionKeys: _selectionKeys
             });
+        },
+        setTabIndexForSelectionMode(event) {
+            if (this.selectionMode !== null && this.level === 0) {
+                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, 'tr')];
+
+                elements.forEach((element) => {
+                    element.tabIndex = -1;
+                });
+
+                event.currentTarget.tabIndex = 0;
+            }
         }
     },
     computed: {
