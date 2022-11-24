@@ -149,6 +149,12 @@ options: {
                         <td>150</td>
                         <td>Height of the chart in non-responsive mode.</td>
                     </tr>
+                    <tr>
+                        <td>canvasProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the CanvasHTMLAttributes to canvas element inside the component.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -231,5 +237,16 @@ options: {
                 </tbody>
             </table>
         </div>
+
+        <h5>Accessibility</h5>
+        <p>
+            Chart components internally use <i>canvas</i> element, refer to the <a href="https://www.chartjs.org/docs/latest/general/accessibility.html">Chart.js accessibility</a> guide for more information. The canvas element can be customized with
+            <i>canvasProps</i> property to define aria roles and properties, in addition any content inside the component is directly passed as a child of the canvas to be able to provide fallback content like a table.
+        </p>
+
+        <pre v-code><code>
+&lt;Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" /&gt;
+
+</code></pre>
     </div>
 </template>

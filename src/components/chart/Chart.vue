@@ -1,6 +1,6 @@
 <template>
     <div class="p-chart">
-        <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)"></canvas>
+        <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)" v-bind="canvasProps"></canvas>
     </div>
 </template>
 
@@ -20,6 +20,10 @@ export default {
         height: {
             type: Number,
             default: 150
+        },
+        canvasProps: {
+            type: null,
+            default: null
         }
     },
     chart: null,
