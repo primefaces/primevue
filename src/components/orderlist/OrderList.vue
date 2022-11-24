@@ -147,8 +147,11 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;
         },
         onListFocus(event) {
+            const selectedFirstItem = DomHandler.findSingle(this.list, 'li.p-orderlist-item.p-highlight');
+            const index = selectedFirstItem ? ObjectUtils.findIndexInList(selectedFirstItem, this.list.children) : '0';
+
             this.focused = true;
-            this.changeFocusedOptionIndex(0);
+            this.changeFocusedOptionIndex(index);
             this.$emit('focus', event);
         },
         onListBlur(event) {
