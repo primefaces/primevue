@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <PickList v-model="products" listStyle="height:342px" dataKey="id" aria-label="deneme">
+                <PickList v-model="products" listStyle="height:342px" dataKey="id">
                     <template #sourceheader> Available </template>
                     <template #targetheader> Selected </template>
                     <template #item="slotProps">
