@@ -1,6 +1,6 @@
-import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
+import { nextTick } from 'vue';
 import AutoComplete from './AutoComplete.vue';
 
 describe('AutoComplete.vue', () => {

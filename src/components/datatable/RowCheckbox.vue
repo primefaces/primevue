@@ -1,15 +1,9 @@
 <template>
-    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused }]" @click.stop.prevent="onClick">
-        <div
-            ref="box"
-            :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]"
-            role="checkbox"
-            :aria-checked="checked"
-            :tabindex="$attrs.disabled ? null : '0'"
-            @keydown.space.prevent="onClick"
-            @focus="onFocus($event)"
-            @blur="onBlur($event)"
-        >
+    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused }]" @click="onClick">
+        <div class="p-hidden-accessible">
+            <input ref="input" type="checkbox" :checked="checked" :disabled="$attrs.disabled" :tabindex="$attrs.disabled ? null : '0'" :aria-label="checkboxAriaLabel" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeydown" />
+        </div>
+        <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]">
             <span :class="['p-checkbox-icon', { 'pi pi-check': checked }]"></span>
         </div>
     </div>
@@ -18,7 +12,6 @@
 <script>
 export default {
     name: 'RowCheckbox',
-    inheritAttrs: false,
     emits: ['change'],
     props: {
         value: null,
@@ -38,12 +31,32 @@ export default {
                     data: this.value
                 });
             }
+
+            event.preventDefault();
+            event.stopPropagation();
         },
         onFocus() {
             this.focused = true;
         },
         onBlur() {
             this.focused = false;
+        },
+        onKeydown(event) {
+            switch (event.code) {
+                case 'Space': {
+                    this.onClick(event);
+
+                    break;
+                }
+
+                default:
+                    break;
+            }
+        }
+    },
+    computed: {
+        checkboxAriaLabel() {
+            return this.$primevue.config.locale.aria ? (this.checked ? this.$primevue.config.locale.aria.selectRow : this.$primevue.config.locale.aria.unselectRow) : undefined;
         }
     }
 };

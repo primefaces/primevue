@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <div v-if="display === 'row'" class="p-fluid p-column-filter-element">
+        <div v-if="display === 'row'" class="p-fluid p-column-filter-element" v-bind="filterInputProps">
             <component :is="filterElement" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
         </div>
         <button
@@ -8,8 +8,10 @@
             ref="icon"
             type="button"
             class="p-column-filter-menu-button p-link"
+            :aria-label="filterMenuButtonAriaLabel"
             aria-haspopup="true"
             :aria-expanded="overlayVisible"
+            :aria-controls="overlayId"
             :class="{ 'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter() }"
             @click="toggleMenu()"
             @keydown="onToggleButtonKeyDown($event)"
@@ -19,7 +21,7 @@
         <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <Portal>
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :class="overlayClass" @keydown.escape="onEscape" @click="onContentClick" @mousedown="onContentMouseDown">
+                <div v-if="overlayVisible" :ref="overlayRef" :id="overlayId" :aria-modal="overlayVisible" role="dialog" :class="overlayClass" @keydown.escape="hideKeydown" @click="onContentClick" @mousedown="onContentMouseDown">
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
                         <ul class="p-column-filter-row-items">
@@ -41,7 +43,15 @@
                     </template>
                     <template v-else>
                         <div v-if="isShowOperator" class="p-column-filter-operator">
-                            <CFDropdown :options="operatorOptions" :modelValue="operator" @update:modelValue="onOperatorChange($event)" class="p-column-filter-operator-dropdown" optionLabel="label" optionValue="value"></CFDropdown>
+                            <CFDropdown
+                                :options="operatorOptions"
+                                :modelValue="operator"
+                                :aria-label="filterOperatorAriaLabel"
+                                class="p-column-filter-operator-dropdown"
+                                optionLabel="label"
+                                optionValue="value"
+                                @update:modelValue="onOperatorChange($event)"
+                            ></CFDropdown>
                         </div>
                         <div class="p-column-filter-constraints">
                             <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" class="p-column-filter-constraint">
@@ -49,10 +59,11 @@
                                     v-if="isShowMatchModes"
                                     :options="matchModes"
                                     :modelValue="fieldConstraint.matchMode"
+                                    class="p-column-filter-matchmode-dropdown"
                                     optionLabel="label"
                                     optionValue="value"
+                                    :aria-label="filterConstraintAriaLabel"
                                     @update:modelValue="onMenuMatchModeChange($event, i)"
-                                    class="p-column-filter-matchmode-dropdown"
                                 ></CFDropdown>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
                                 <div>
@@ -71,10 +82,10 @@
                             <CFButton type="button" :label="addRuleButtonLabel" icon="pi pi-plus" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
                         </div>
                         <div class="p-column-filter-buttonbar">
-                            <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" @click="clearFilter()" :label="clearButtonLabel"></CFButton>
+                            <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" :label="clearButtonLabel" @click="clearFilter" @keydown="hideKeydown"></CFButton>
                             <component v-else :is="filterClearTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
                             <template v-if="showApplyButton">
-                                <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" @click="applyFilter()" :label="applyButtonLabel"></CFButton>
+                                <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" :label="applyButtonLabel" @click="applyFilter()"></CFButton>
                                 <component v-else :is="filterApplyTemplate" :field="field" :filterModel="filters[field]" :filterCallback="applyFilter" />
                             </template>
                         </div>
@@ -87,12 +98,12 @@
 </template>
 
 <script>
-import { DomHandler, ConnectedOverlayScrollHandler, ZIndexUtils } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import { FilterOperator } from 'primevue/api';
-import Dropdown from 'primevue/dropdown';
 import Button from 'primevue/button';
+import Dropdown from 'primevue/dropdown';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'ColumnFilter',
@@ -164,6 +175,10 @@ export default {
             default: null
         },
         filterMenuStyle: {
+            type: null,
+            default: null
+        },
+        filterInputProps: {
             type: null,
             default: null
         }
@@ -251,12 +266,17 @@ export default {
             this.overlayVisible = !this.overlayVisible;
         },
         onToggleButtonKeyDown(event) {
-            switch (event.key) {
+            switch (event.code) {
+                case 'Enter':
+                case 'Space':
+                    this.toggleMenu();
+                    break;
+
                 case 'Escape':
-                case 'Tab':
                     this.overlayVisible = false;
                     break;
 
+                case 'Tab':
                 case 'ArrowDown':
                     if (this.overlayVisible) {
                         let focusable = DomHandler.getFocusableElements(this.overlay);
@@ -274,11 +294,16 @@ export default {
                     break;
             }
         },
-        onEscape() {
+        hideKeydown() {
             this.overlayVisible = false;
 
             if (this.$refs.icon) {
                 this.$refs.icon.focus();
+            }
+        },
+        clearKeydown(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                this.hideKeydown();
             }
         },
         onRowMatchModeChange(matchMode) {
@@ -516,6 +541,9 @@ export default {
         showMenuButton() {
             return this.showMenu && (this.display === 'row' ? this.type !== 'boolean' : true);
         },
+        overlayId() {
+            return UniqueComponentId();
+        },
         matchModes() {
             return (
                 this.matchModeOptions ||
@@ -534,7 +562,7 @@ export default {
             ];
         },
         noFilterLabel() {
-            return this.$primevue.config.locale.noFilter;
+            return this.$primevue.config.locale ? this.$primevue.config.locale.noFilter : undefined;
         },
         isShowOperator() {
             return this.showOperator && this.filters[this.field].operator;
@@ -549,19 +577,28 @@ export default {
             return this.fieldConstraints.length > 1;
         },
         removeRuleButtonLabel() {
-            return this.$primevue.config.locale.removeRule;
+            return this.$primevue.config.locale ? this.$primevue.config.locale.removeRule : undefined;
         },
         addRuleButtonLabel() {
-            return this.$primevue.config.locale.addRule;
+            return this.$primevue.config.locale ? this.$primevue.config.locale.addRule : undefined;
         },
         isShowAddConstraint() {
             return this.showAddButton && this.filters[this.field].operator && this.fieldConstraints && this.fieldConstraints.length < this.maxConstraints;
         },
         clearButtonLabel() {
-            return this.$primevue.config.locale.clear;
+            return this.$primevue.config.locale ? this.$primevue.config.locale.clear : undefined;
         },
         applyButtonLabel() {
-            return this.$primevue.config.locale.apply;
+            return this.$primevue.config.locale ? this.$primevue.config.locale.apply : undefined;
+        },
+        filterMenuButtonAriaLabel() {
+            return this.$primevue.config.locale ? (this.overlayVisible ? this.$primevue.config.locale.showFilterMenu : this.$primevue.config.locale.hideFilterMenu) : undefined;
+        },
+        filterOperatorAriaLabel() {
+            return this.$primevue.config.locale ? this.$primevue.config.locale.filterOperator : undefined;
+        },
+        filterConstraintAriaLabel() {
+            return this.$primevue.config.locale ? this.$primevue.config.locale.filterConstraint : undefined;
         }
     },
     components: {
