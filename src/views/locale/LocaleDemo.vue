@@ -166,7 +166,9 @@ locale: {
         filterConstraint: 'Filter Constraint',
         editRow: 'Row Edit',
         saveEdit: 'Save Edit',
-        cancelEdit: 'Cancel Edit'
+        cancelEdit: 'Cancel Edit',
+        listView: 'List View',
+        gridView: 'Grid View'
     }
 }
 
