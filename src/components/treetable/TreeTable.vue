@@ -72,7 +72,7 @@
                             :aria-label="getItemLabel(node)"
                             :ariaPosInset="index + 1"
                             :ariaSetSize="dataToRender.length"
-                            :tabindex="0"
+                            :tabindex="index === 0 ? 0 : -1"
                         ></TTRow>
                     </template>
                     <tr v-else class="p-treetable-emptymessage">

@@ -1761,7 +1761,7 @@ export default {
 
         <p>Editable cells use custom templating so you need to manage aria roles and attributes manually if required.</p>
 
-        <p>Paginator is a standalone component used inside the DataTable, refer to the <Link href="/paginator">paginator</Link> for more information about the accessibility features.</p>
+        <p>Paginator is a standalone component used inside the DataTable, refer to the <router-link to="/paginator">paginator</router-link> for more information about the accessibility features.</p>
 
         <h6>Sortable Headers Keyboard Support</h6>
         <div className="doc-tablewrapper">
