@@ -22,7 +22,7 @@ export default {
                 'p-tag p-component',
                 {
                     'p-tag-info': this.severity === 'info',
-                    'p-tag-success': this.severity === 'success',
+                    'p-tag-success': this.severity === 'success',     
                     'p-tag-warning': this.severity === 'warning',
                     'p-tag-danger': this.severity === 'danger',
                     'p-tag-rounded': this.rounded
