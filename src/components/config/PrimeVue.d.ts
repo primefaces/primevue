@@ -28,6 +28,30 @@ interface PrimeVueLocaleAriaOptions {
     next?: string;
     navigation?: string;
     scrollTop?: string;
+    moveUp?: string;
+    moveTop?: string;
+    moveDown?: string;
+    moveBottom?: string;
+    pageLabel?: string;
+    firstPageLabel?: string;
+    lastPageLabel?: string;
+    nextPageLabel?: string;
+    prevPageLabel?: string;
+    rowsPerPageLabel?: string;
+    previousPageLabel?: string;
+    jumpToPageDropdownLabel?: string;
+    jumpToPageInputLabel?: string;
+    selectRow?: string;
+    unselectRow?: string;
+    expandRow?: string;
+    collapseRow?: string;
+    showFilterMenu?: string;
+    hideFilterMenu?: string;
+    filterOperator?: string;
+    filterConstraint?: string;
+    editRow?: string;
+    saveEdit?: string;
+    cancelEdit?: string;
 }
 
 interface PrimeVueLocaleOptions {

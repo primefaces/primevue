@@ -7,7 +7,6 @@ import Dropdown from 'primevue/dropdown';
 
 export default {
     name: 'JumpToPageDropdown',
-    inheritAttrs: false,
     emits: ['page-change'],
     props: {
         page: Number,
