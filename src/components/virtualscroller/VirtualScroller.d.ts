@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type VirtualScrollerItemsType = any[] | any[][] | undefined | null;
@@ -163,6 +163,10 @@ export interface VirtualScrollerProps {
      * Default value is 0.
      */
     tabindex?: number | string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to the component.
+     */
+    panelProps?: HTMLAttributes | undefined;
 }
 
 export interface VirtualScrollerSlots {

@@ -101,6 +101,12 @@ const VirtualScrollerProps = [
         type: 'number|string',
         default: '0',
         description: 'Index of the element in tabbing order.'
+    },
+    {
+        name: 'virtualscrollerProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLDivElement to the component.'
     }
 ];
 

@@ -1,6 +1,6 @@
 <template>
     <template v-if="!disabled">
-        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll">
+        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="virtualscrollerProps">
             <slot
                 name="content"
                 :styleClass="contentClass"
@@ -105,6 +105,10 @@ export default {
         tabindex: {
             type: Number,
             default: 0
+        },
+        virtualscrollerProps: {
+            type: null,
+            default: null
         }
     },
     data() {

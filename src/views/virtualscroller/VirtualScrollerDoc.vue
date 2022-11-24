@@ -229,6 +229,12 @@ export default {
                         <td>0</td>
                         <td>Index of the element in tabbing order.</td>
                     </tr>
+                    <tr>
+                        <td>virtualscrollerProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLDivElement to the component.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -385,6 +391,16 @@ export default {
                 </tbody>
             </table>
         </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            VirtualScroller has no specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the container element. Container element can be also customized for accessibility using
+            <i>virtualscrollerProps</i> property.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <p>Component does not include any built-in interactive elements.</p>
 
         <h5>Dependencies</h5>
         <p>None.</p>
