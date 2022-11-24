@@ -1,6 +1,9 @@
 <template>
-    <div :class="['p-radiobutton p-component', { 'p-radiobutton-focused': focused }]" @click="onClick" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick">
-        <div ref="box" :class="['p-radiobutton-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]" role="radio" :aria-checked="checked">
+    <div :class="['p-radiobutton p-component', { 'p-radiobutton-focused': focused }]">
+        <div class="p-hidden-accessible">
+            <input ref="input" type="radio" :checked="checked" :disabled="$attrs.disabled" @click="onClick" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick" />
+        </div>
+        <div ref="box" :class="['p-radiobutton-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]">
             <div class="p-radiobutton-icon"></div>
         </div>
     </div>

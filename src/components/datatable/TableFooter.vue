@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import FooterCell from './FooterCell.vue';
 import { ObjectUtils } from 'primevue/utils';
+import FooterCell from './FooterCell.vue';
 
 export default {
     name: 'TableFooter',
