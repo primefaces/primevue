@@ -295,7 +295,7 @@ export default {
         <h6>Screen Reader</h6>
         <p>Timeline uses a semantic ordered list element to list the events. No specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the list element.</p>
 
-        <h5>Keyboard Support</h5>
+        <h6>Keyboard Support</h6>
         <p>Component does not include any interactive elements.</p>
 
         <h5>Dependencies</h5>
