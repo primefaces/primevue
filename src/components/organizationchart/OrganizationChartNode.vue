@@ -5,7 +5,7 @@
                 <td :colspan="colspan">
                     <div :class="nodeContentClass" @click="onNodeClick">
                         <component :is="templates[node.type] || templates['default']" :node="node" />
-                        <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown.enter="toggleNode">
+                        <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown="onKeydown">
                             <i class="p-node-toggler-icon pi" :class="{ 'pi-chevron-down': expanded, 'pi-chevron-up': !expanded }"></i>
                         </a>
                     </div>
@@ -97,6 +97,12 @@ export default {
         },
         onChildNodeToggle(node) {
             this.$emit('node-toggle', node);
+        },
+        onKeydown(event) {
+            if (event.code === 'Enter' || event.code === 'Space') {
+                this.toggleNode();
+                event.preventDefault();
+            }
         }
     },
     computed: {
