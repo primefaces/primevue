@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <PickList v-model="products" listStyle="height:342px" dataKey="id">
+                <PickList v-model="products" listStyle="height:342px" dataKey="id" aria-label="deneme">
                     <template #sourceheader> Available </template>
                     <template #targetheader> Selected </template>
                     <template #item="slotProps">
@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import PickListDoc from './PickListDoc';
 import ProductService from '../../service/ProductService';
+import PickListDoc from './PickListDoc';
 
 export default {
     data() {

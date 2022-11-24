@@ -24,7 +24,7 @@
                 :aria-activedescendant="focused['sourceList'] ? focusedOptionId : undefined"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-                :tabindex="tabindexSource"
+                :tabindex="sourceList && sourceList.length > 0 ? tabindexSource : -1"
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
@@ -70,7 +70,7 @@
                 :aria-activedescendant="focused['targetList'] ? focusedOptionId : undefined"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-                :tabindex="tabindexTarget"
+                :tabindex="targetList && targetList.length > 0 ? tabindexTarget : -1"
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
                 @keydown="onItemKeyDown($event, 'targetList')"
@@ -235,9 +235,11 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection[listIndex]) != -1;
         },
         onListFocus(event, listType) {
-            this.focused[listType] = true;
+            const selectedFirstItem = DomHandler.findSingle(this.$refs[listType].$el, 'li.p-picklist-item.p-highlight');
+            const index = selectedFirstItem ? ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children) : '0';
 
-            this.changeFocusedOptionIndex(0, listType);
+            this.focused[listType] = true;
+            this.changeFocusedOptionIndex(index, listType);
             this.$emit('focus', event);
         },
         onListBlur(event, listType) {

@@ -32,6 +32,10 @@ interface PrimeVueLocaleAriaOptions {
     moveTop?: string;
     moveDown?: string;
     moveBottom?: string;
+    moveToTarget?: string;
+    moveToSource?: string;
+    moveAllToTarget?: string;
+    moveAllToSource?: string;
     pageLabel?: string;
     firstPageLabel?: string;
     lastPageLabel?: string;
