@@ -469,7 +469,6 @@ export default {
         </div>
 
         <h5>Accessibility</h5>
-
         <h6>Screen Reader</h6>
         <p>
             The container element that wraps the layout options buttons has a <i>group</i> role whereas each button element uses <i>button</i> role and <i>aria-pressed</i> is updated depending on selection state. Values to describe the buttons are
@@ -479,8 +478,8 @@ export default {
         <p>Refer to <router-link to="/paginator">paginator</router-link> accessibility documentation for the paginator of the component.</p>
 
         <h6>Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
