@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" :aria-label="getAriaLabel">
+    <div :class="containerClass">
         <div v-if="$slots.header" class="p-dataview-header">
             <slot name="header"></slot>
         </div>
@@ -235,17 +235,6 @@ export default {
             } else {
                 return null;
             }
-        },
-        getAriaLabel() {
-            const ariaLabels = this.$primevue.config.locale.aria;
-
-            if (this.layout === 'list') {
-                return ariaLabels ? ariaLabels.listView : undefined;
-            } else if (this.layout === 'grid') {
-                return ariaLabels ? ariaLabels.gridView : undefined;
-            }
-
-            return null;
         }
     },
     components: {

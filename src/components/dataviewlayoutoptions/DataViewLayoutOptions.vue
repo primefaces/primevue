@@ -1,9 +1,9 @@
 <template>
     <div class="p-dataview-layout-options p-selectbutton p-buttonset">
-        <button :class="buttonListClass" @click="changeLayout('list')" type="button">
+        <button role="group" :aria-label="listViewAriaLabel" :class="buttonListClass" @click="changeLayout('list')" type="button">
             <i class="pi pi-bars"></i>
         </button>
-        <button :class="buttonGridClass" @click="changeLayout('grid')" type="button">
+        <button role="group" :aria-label="gridViewAriaLabel" :class="buttonGridClass" @click="changeLayout('grid')" type="button">
             <i class="pi pi-th-large"></i>
         </button>
     </div>
@@ -27,6 +27,12 @@ export default {
         },
         buttonGridClass() {
             return ['p-button p-button-icon-only', { 'p-highlight': this.modelValue === 'grid' }];
+        },
+        listViewAriaLabel() {
+            return this.$primevue.config.locale.aria.listView;
+        },
+        gridViewAriaLabel() {
+            return this.$primevue.config.locale.aria.gridView;
         }
     }
 };

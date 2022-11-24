@@ -473,10 +473,10 @@ export default {
         <h6>Screen Reader</h6>
         <p>
             The container element that wraps the layout options buttons has a <i>group</i> role whereas each button element uses <i>button</i> role and <i>aria-pressed</i> is updated depending on selection state. Values to describe the buttons are
-            derived from the <i>aria.listView</i> and <i>aria.gridView</i> properties of the <Link href="/locale">locale</Link> API respectively.
+            derived from the <i>aria.listView</i> and <i>aria.gridView</i> properties of the <router-link to="/locale">locale</router-link> API respectively.
         </p>
 
-        <p>Refer to <Link href="/paginator">paginator</Link> accessibility documentation for the paginator of the component.</p>
+        <p>Refer to <router-link to="/paginator">paginator</router-link> accessibility documentation for the paginator of the component.</p>
 
         <h6>Keyboard Support</h6>
         <div className="doc-tablewrapper">

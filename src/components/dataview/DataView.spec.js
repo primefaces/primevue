@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import DataView from './DataView.vue';
-import PrimeVue from 'primevue/config';
+
+
 describe('DataView.vue', () => {
     it('should exist', () => {
         const wrapper = mount(DataView, {
