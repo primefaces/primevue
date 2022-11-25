@@ -1863,6 +1863,18 @@ export default {
                         </td>
                         <td>If node is open, closes the node otherwise moves focus to the parent node.</td>
                     </tr>
+                    <tr>
+                        <td>
+                            <i>home</i>
+                        </td>
+                        <td>Moves focus to the first same-level node.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>end</i>
+                        </td>
+                        <td>Moves focus to the last same-level node.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -13,6 +13,8 @@
         :aria-setsize="ariaSetSize"
         :aria-posinset="ariaPosInset"
         :aria-label="ariaLabel"
+        :aria-selected="getAriaSelected"
+        :aria-checked="getAriaChecked"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
             <TTBodyCell
@@ -349,7 +351,7 @@ export default {
             });
         },
         setTabIndexForSelectionMode(event) {
-            if (this.selectionMode !== null && this.level === 0) {
+            if (this.selectionMode !== null) {
                 const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, 'tr')];
 
                 elements.forEach((element) => {
@@ -390,6 +392,12 @@ export default {
         },
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
+        },
+        getAriaChecked() {
+            return this.selectionMode === 'checkbox' ? this.checked : null;
+        },
+        getAriaSelected() {
+            return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : null;
         }
     },
     components: {
