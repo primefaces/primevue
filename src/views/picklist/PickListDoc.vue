@@ -235,7 +235,6 @@ import PickList from 'primevue/picklist';
                         <td>null</td>
                         <td>Identifier of the underlying menu element.</td>
                     </tr>
-
                 </tbody>
             </table>
         </div>

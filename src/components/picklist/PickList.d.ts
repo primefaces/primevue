@@ -106,7 +106,7 @@ export interface PickListProps {
     /**
      * Index of the list element in tabbing order.
      */
-     tabindex?: number | string | undefined;
+    tabindex?: number | string | undefined;
     /**
      *  Uses to pass all properties of the HTMLAttributes to the target list element.
      */
