@@ -190,7 +190,7 @@ export default {
             });
 
             if (hasSelectedNode) {
-                const selectedNodes = arrayNodes.filter((node) => DomHandler.hasClass(node, 'p-highlight')|| node.getAttribute('aria-checked') === 'true');
+                const selectedNodes = arrayNodes.filter((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
 
                 selectedNodes[selectedNodes.length - 1].tabIndex = 0;
 
