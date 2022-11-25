@@ -48,10 +48,10 @@
         </div>
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
             <slot name="movecontrolsstart"></slot>
-            <PLButton :aria-label="moveToTargetAriaLabel" type="button" icon="pi pi-angle-right" @click="moveToTarget" :disabled="moveDisabled(0)"></PLButton>
-            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')"></PLButton>
-            <PLButton :aria-label="moveToSourceAriaLabel" type="button" icon="pi pi-angle-left" @click="moveToSource" :disabled="moveDisabled(1)"></PLButton>
-            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" icon="pi pi-angle-double-left" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')"></PLButton>
+            <PLButton :aria-label="moveToTargetAriaLabel" type="button" icon="pi pi-angle-right" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps"></PLButton>
+            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps"></PLButton>
+            <PLButton :aria-label="moveToSourceAriaLabel" type="button" icon="pi pi-angle-left" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps"></PLButton>
+            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" icon="pi pi-angle-double-left" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps"></PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
@@ -174,6 +174,22 @@ export default {
             default: null
         },
         moveBottomButtonProps: {
+            type: null,
+            default: null
+        },
+        moveToTargetProps: {
+            type: null,
+            default: null
+        },
+        moveAllToTargetProps: {
+            type: null,
+            default: null
+        },
+        moveToSourceProps: {
+            type: null,
+            default: null
+        },
+        moveAllToSourceProps: {
             type: null,
             default: null
         },

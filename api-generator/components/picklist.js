@@ -109,6 +109,30 @@ const PickListProps = [
         description: 'Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.'
     },
     {
+        name: 'moveToTargetProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move to target button inside the component.'
+    },
+    {
+        name: 'moveAllToTargetProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move all to target button inside the component.'
+    },
+    {
+        name: 'moveToSourceProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move to source button inside the component.'
+    },
+    {
+        name: 'moveAllToSourceProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.'
+    },
+    {
         name: 'aria-label',
         type: 'string',
         default: 'null',

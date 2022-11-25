@@ -157,6 +157,91 @@ import PickList from 'primevue/picklist';
                         <td>true</td>
                         <td>Whether to show buttons of target list.</td>
                     </tr>
+                    <tr>
+                        <td>tabindexTarget</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the target list element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindexSource</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the source list element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>targetListProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLAttributes to the target list element.</td>
+                    </tr>
+                    <tr>
+                        <td>sourceListProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLAttributes to the source list element.</td>
+                    </tr>
+                    <tr>
+                        <td>moveUpButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveTopButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveDownButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveBottomButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveToTargetProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move to target button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveAllToTargetProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move all to target button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveToSourceProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move to source button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveAllToSourceProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying menu element.</td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
