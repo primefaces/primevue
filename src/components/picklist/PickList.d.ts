@@ -104,13 +104,9 @@ export interface PickListProps {
      */
     showTargetControls?: boolean | undefined;
     /**
-     * Index of the source list element in tabbing order.
+     * Index of the list element in tabbing order.
      */
-    tabindexSource?: number | string | undefined;
-    /**
-     * Index of the target list element in tabbing order.
-     */
-    tabindexTarget?: number | string | undefined;
+     tabindex?: number | string | undefined;
     /**
      *  Uses to pass all properties of the HTMLAttributes to the target list element.
      */

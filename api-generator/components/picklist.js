@@ -61,16 +61,10 @@ const PickListProps = [
         description: 'Whether to show buttons of target list.'
     },
     {
-        name: 'tabindexTarget',
+        name: 'tabindex',
         type: 'number',
         default: '0',
-        description: 'Index of the target list element in tabbing order.'
-    },
-    {
-        name: 'tabindexSource',
-        type: 'number',
-        default: '0',
-        description: 'Index of the source list element in tabbing order.'
+        description: 'Index of the list element in tabbing order.'
     },
     {
         name: 'targetListProps',

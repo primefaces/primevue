@@ -24,7 +24,7 @@
                 :aria-activedescendant="focused['sourceList'] ? focusedOptionId : undefined"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-                :tabindex="sourceList && sourceList.length > 0 ? tabindexSource : -1"
+                :tabindex="sourceList && sourceList.length > 0 ? tabindex : -1"
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
@@ -70,7 +70,7 @@
                 :aria-activedescendant="focused['targetList'] ? focusedOptionId : undefined"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-                :tabindex="targetList && targetList.length > 0 ? tabindexTarget : -1"
+                :tabindex="targetList && targetList.length > 0 ? tabindex : -1"
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
                 @keydown="onItemKeyDown($event, 'targetList')"
@@ -193,11 +193,7 @@ export default {
             type: null,
             default: null
         },
-        tabindexSource: {
-            type: Number,
-            default: 0
-        },
-        tabindexTarget: {
+        tabindex: {
             type: Number,
             default: 0
         },

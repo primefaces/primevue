@@ -158,16 +158,10 @@ import PickList from 'primevue/picklist';
                         <td>Whether to show buttons of target list.</td>
                     </tr>
                     <tr>
-                        <td>tabindexTarget</td>
+                        <td>tabindex</td>
                         <td>number</td>
                         <td>0</td>
-                        <td>Index of the target list element in tabbing order.</td>
-                    </tr>
-                    <tr>
-                        <td>tabindexSource</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Index of the source list element in tabbing order.</td>
+                        <td>Index of the list element in tabbing order.</td>
                     </tr>
                     <tr>
                         <td>targetListProps</td>
