@@ -1,5 +1,5 @@
 <template>
-    <th :style="[containerStyle]" :class="containerClass" @click="onClick" @keydown="onKeyDown" :tabindex="columnProp('sortable') ? '0' : null" :aria-sort="ariaSort" role="cell">
+    <th :style="[containerStyle]" :class="containerClass" @click="onClick" @keydown="onKeyDown" :tabindex="columnProp('sortable') ? '0' : null" :aria-sort="ariaSort" role="rowgroup">
         <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart"></span>
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
         <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>

@@ -1,5 +1,5 @@
 <template>
-    <td :style="containerStyle" :class="containerClass">
+    <td :style="containerStyle" :class="containerClass" role="rowgroup">
         <button v-if="columnProp('expander')" v-ripple type="button" class="p-treetable-toggler p-link" @click="toggle" :style="togglerStyle" tabindex="-1">
             <i :class="togglerIcon"></i>
         </button>

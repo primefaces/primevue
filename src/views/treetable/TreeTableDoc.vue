@@ -1550,6 +1550,12 @@ export default {
                         <td>stack</td>
                         <td>Defines the responsive mode, currently only option is scroll..</td>
                     </tr>
+                    <tr>
+                        <td>tableProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Props to pass to the table element.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -29,9 +29,9 @@
             </template>
         </TTPaginator>
         <div class="p-treetable-wrapper" :style="{ maxHeight: scrollHeight }">
-            <table ref="table">
+            <table ref="table" v-bind="tableProps">
                 <thead class="p-treetable-thead">
-                    <tr>
+                    <tr role="columnheader">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTHeaderCell
                                 v-if="!columnProp(col, 'hidden')"
@@ -291,6 +291,10 @@ export default {
         },
         responsiveLayout: {
             type: String,
+            default: null
+        },
+        tableProps: {
+            type: Object,
             default: null
         }
     },

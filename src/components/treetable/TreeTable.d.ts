@@ -340,6 +340,10 @@ export interface TreeTableProps {
      * Default value is 'stack'.
      */
     responsiveLayout?: TreeTableResponsiveLayoutType;
+    /**
+     * Props to pass to the table element.
+     */
+    tableProps?: any | undefined;
 }
 
 export interface TreeTableSlots {

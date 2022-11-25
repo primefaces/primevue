@@ -120,12 +120,17 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            this.setTabIndexForSelectionMode(event);
-
             if (DomHandler.isClickable(event.target) || DomHandler.hasClass(event.target, 'p-treetable-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-treetable-toggler')) {
                 return;
             }
 
+            this.setTabIndexForSelectionMode(event);
+
+            this.$emit('node-click', {
+                originalEvent: event,
+                nodeTouched: this.nodeTouched,
+                node: this.node
+            });
             this.nodeTouched = false;
         },
         onTouchEnd() {
