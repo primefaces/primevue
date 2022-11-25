@@ -126,7 +126,7 @@ export default {
                 return;
             }
 
-            this.setTabIndexForSelectionMode(event);
+            this.setTabIndexForSelectionMode(event, this.nodeTouched);
 
             this.$emit('node-click', {
                 originalEvent: event,
@@ -140,6 +140,13 @@ export default {
         },
         onKeyDown(event, item) {
             switch (event.code) {
+                case 'Tab':
+                    setTimeout(() => {
+                        this.onTabKey(event);
+                    }, 1);
+
+                    break;
+
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
                     break;
@@ -173,17 +180,46 @@ export default {
                     break;
             }
         },
+        onTabKey() {
+            const nodes = this.$refs.currentNode.parentElement.querySelectorAll('tr');
+            const arrayNodes = [...nodes];
+            const hasSelectedNode = arrayNodes.some((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
+
+            arrayNodes.forEach((node) => {
+                node.tabIndex = -1;
+            });
+
+            if (hasSelectedNode) {
+                const selectedNodes = arrayNodes.filter((node) => DomHandler.hasClass(node, 'p-highlight')|| node.getAttribute('aria-checked') === 'true');
+
+                selectedNodes[selectedNodes.length - 1].tabIndex = 0;
+
+                return;
+            }
+
+            nodes[0].tabIndex = 0;
+        },
         onArrowDownKey(event) {
             const nextElementSibling = event.currentTarget.nextElementSibling;
 
-            nextElementSibling && DomHandler.focus(nextElementSibling);
+            if (nextElementSibling) {
+                event.currentTarget.tabIndex = -1;
+                nextElementSibling.tabIndex = 0;
+
+                DomHandler.focus(nextElementSibling);
+            }
 
             event.preventDefault();
         },
         onArrowUpKey(event) {
             const previousElementSibling = event.currentTarget.previousElementSibling;
 
-            previousElementSibling && DomHandler.focus(previousElementSibling);
+            if (previousElementSibling) {
+                event.currentTarget.tabIndex = -1;
+                previousElementSibling.tabIndex = 0;
+
+                DomHandler.focus(previousElementSibling);
+            }
 
             event.preventDefault();
         },
@@ -221,7 +257,12 @@ export default {
 
             const target = this.findBeforeClickableNode(event.currentTarget);
 
-            DomHandler.focus(target);
+            if (target) {
+                event.currentTarget.tabIndex = -1;
+                target.tabIndex = 0;
+
+                DomHandler.focus(target);
+            }
         },
         onHomeKey(event) {
             const findFirstElement = event.currentTarget.parentElement.querySelectorAll(`.p-treetable-node-${this.level}`)[0];
@@ -241,7 +282,7 @@ export default {
         },
         onEnterKey(event) {
             event.preventDefault();
-            this.setTabIndexForSelectionMode(event);
+            this.setTabIndexForSelectionMode(event, this.nodeTouched);
 
             if (this.selectionMode === 'checkbox') {
                 this.toggleCheckbox();
@@ -350,15 +391,15 @@ export default {
                 selectionKeys: _selectionKeys
             });
         },
-        setTabIndexForSelectionMode(event) {
+        setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
                 const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, 'tr')];
 
-                elements.forEach((element) => {
-                    element.tabIndex = -1;
-                });
+                event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 
-                event.currentTarget.tabIndex = 0;
+                if (elements.every((element) => element.tabIndex === -1)) {
+                    elements[0].tabIndex = 0;
+                }
             }
         }
     },
