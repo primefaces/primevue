@@ -75,7 +75,7 @@ describe('Menubar.vue', () => {
         expect(wrapper.findAll('ul.p-submenu-list').length).toBe(2);
         expect(wrapper.findAll('ul.p-submenu-list')[0].findAll('li.p-menuitem')[0].find('.p-menuitem-text').text()).toBe('New');
         expect(wrapper.findAll('li.p-menuitem').length).toBe(7);
-        expect(wrapper.findAll('li.p-menu-separator').length).toBe(1);
+        expect(wrapper.findAll('li.p-menuitem-separator').length).toBe(1);
     });
 
     it('should slot visible', () => {

@@ -229,6 +229,14 @@ import SplitterPanel from 'primevue/splitterpanel';
                 </thead>
                 <tbody>
                     <tr>
+                        <td>resizestart</td>
+                        <td>
+                            event.originalEvent: Original event <br />
+                            event.sizes: Sizes of the panels as an array
+                        </td>
+                        <td>Callback to invoke when resize starts.</td>
+                    </tr>
+                    <tr>
                         <td>resizeend</td>
                         <td>
                             event.originalEvent: Original event <br />
@@ -277,7 +285,7 @@ import SplitterPanel from 'primevue/splitterpanel';
                     </tr>
                     <tr>
                         <td>p-splitter-gutter-handle</td>
-                        <td>Handl element of the gutter.</td>
+                        <td>Handle element of the gutter.</td>
                     </tr>
                 </tbody>
             </table>

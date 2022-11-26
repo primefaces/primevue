@@ -19,24 +19,24 @@
         <component v-else-if="column.children && column.children.body && !column.children.editor && d_editing" :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" />
-            <DTCheckbox v-else-if="columnProp('selectionMode') === 'multiple'" :value="rowData" :checked="selected" @change="toggleRowWithCheckbox($event, rowIndex)" />
+            <DTCheckbox v-else-if="columnProp('selectionMode') === 'multiple'" :value="rowData" :checked="selected" :aria-selected="selected ? true : undefined" @change="toggleRowWithCheckbox($event, rowIndex)" />
         </template>
         <template v-else-if="columnProp('rowReorder')">
             <i :class="['p-datatable-reorderablerow-handle', columnProp('rowReorderIcon') || 'pi pi-bars']"></i>
         </template>
         <template v-else-if="columnProp('expander')">
-            <button v-ripple class="p-row-toggler p-link" @click="toggleRow" type="button">
+            <button v-ripple class="p-row-toggler p-link" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow">
                 <span :class="rowTogglerIcon"></span>
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
-            <button v-if="!d_editing" v-ripple class="p-row-editor-init p-link" @click="onRowEditInit" type="button">
+            <button v-if="!d_editing" v-ripple class="p-row-editor-init p-link" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit">
                 <span class="p-row-editor-init-icon pi pi-fw pi-pencil"></span>
             </button>
-            <button v-if="d_editing" v-ripple class="p-row-editor-save p-link" @click="onRowEditSave" type="button">
+            <button v-if="d_editing" v-ripple class="p-row-editor-save p-link" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave">
                 <span class="p-row-editor-save-icon pi pi-fw pi-check"></span>
             </button>
-            <button v-if="d_editing" v-ripple class="p-row-editor-cancel p-link" @click="onRowEditCancel" type="button">
+            <button v-if="d_editing" v-ripple class="p-row-editor-cancel p-link" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel">
                 <span class="p-row-editor-cancel-icon pi pi-fw pi-times"></span>
             </button>
         </template>
@@ -45,11 +45,11 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import RowRadioButton from './RowRadioButton.vue';
-import RowCheckbox from './RowCheckbox.vue';
 import Ripple from 'primevue/ripple';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
+import RowCheckbox from './RowCheckbox.vue';
+import RowRadioButton from './RowRadioButton.vue';
 
 export default {
     name: 'BodyCell',
@@ -102,6 +102,10 @@ export default {
         virtualScrollerContentProps: {
             type: Object,
             default: null
+        },
+        ariaControls: {
+            type: String,
+            default: null
         }
     },
     documentEditListener: null,
@@ -110,7 +114,8 @@ export default {
     data() {
         return {
             d_editing: this.editing,
-            styleObject: {}
+            styleObject: {},
+            isRowExpanded: false
         };
     },
     watch: {
@@ -151,6 +156,7 @@ export default {
             return ObjectUtils.resolveFieldData(this.rowData, this.field);
         },
         toggleRow(event) {
+            this.isRowExpanded = !this.isRowExpanded;
             this.$emit('row-toggle', {
                 originalEvent: event,
                 data: this.rowData
@@ -422,6 +428,18 @@ export default {
                     field: this.field
                 })
             );
+        },
+        expandButtonAriaLabel() {
+            return this.$primevue.config.locale.aria ? (this.isRowExpanded ? this.$primevue.config.locale.aria.expandRow : this.$primevue.config.locale.aria.collapseRow) : undefined;
+        },
+        initButtonAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.editRow : undefined;
+        },
+        saveButtonAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.saveEdit : undefined;
+        },
+        cancelButtonAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.cancelEdit : undefined;
         }
     },
     components: {

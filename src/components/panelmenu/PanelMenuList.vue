@@ -19,8 +19,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from 'primevue/utils';
-import DomHandler from '../utils/DomHandler';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 import PanelMenuSub from './PanelMenuSub.vue';
 
 export default {

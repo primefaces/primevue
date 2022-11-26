@@ -1618,6 +1618,10 @@ export default {
             setTimeout(() => (this.timePickerChange = false), 0);
         },
         toggleAMPM(event) {
+            const validHour = this.validateTime(this.currentHour, this.currentMinute, this.currentSecond, !this.pm);
+
+            if (!validHour && (this.maxDate || this.minDate)) return;
+
             this.pm = !this.pm;
             this.updateModelTime();
             event.preventDefault();
@@ -2698,7 +2702,7 @@ export default {
 
             if (propValue && Array.isArray(propValue)) {
                 if (this.isRangeSelection()) {
-                    propValue = propValue[1] || propValue[0];
+                    propValue = this.inline ? propValue[0] : propValue[1] || propValue[0];
                 } else if (this.isMultipleSelection()) {
                     propValue = propValue[propValue.length - 1];
                 }

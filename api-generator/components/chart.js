@@ -34,6 +34,12 @@ const ChartProps = [
         type: 'number',
         default: '150',
         description: 'Height of the chart in non-responsive mode.'
+    },
+    {
+        name: 'canvasProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the CanvasHTMLAttributes to canvas element inside the component.'
     }
 ];
 

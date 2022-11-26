@@ -1,0 +1,71 @@
+name: Pr Checker
+
+on:
+  pull_request:
+    types: [edited, synchronize, opened, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr-open-check:
+    permissions:
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Verify Linked Issue
+        uses: hattan/verify-linked-issue-action@v1.1.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: 'Thanks a lot for your contribution! But, PR does not seem to be linked to any issues. Please [manually link to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-or-branch-to-an-issue-using-the-issue-sidebar) or mention it in the description using #<issue_id>.'
+
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Install packages
+        run: |
+          npm install
+
+      - name: Code Format
+        id: codeFormat
+        run: |
+          npm run format:check
+
+      - name: Unit Test
+        id: unitTest
+        run: |
+          npm run test:unit
+
+      - name: Add Code Format Fail Comment
+        if: always() && steps.codeFormat.outcome == 'failure'
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            Thanks a lot for your contribution! But, PR does not seem to fit our code format standards. Please run the 'npm run format' command and commit the changes.
+
+      - name: Add Unit Test Fail Comment
+        if: always() && steps.unitTest.outcome == 'failure'
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            Thanks a lot for your contribution! But, Unit tests failed. You can check the unit tests with the command 'npm run test:unit' and commit the changes.
+
+      - name: Add Label
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: 'Resolution: Needs Revision'
+
+      - name: Remove Label
+        uses: actions-ecosystem/action-remove-labels@v1
+        if: ${{ success() }}
+        with:
+          labels: 'Resolution: Needs Revision'

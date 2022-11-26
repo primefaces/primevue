@@ -33,7 +33,7 @@ import Chip from 'primevue/chip';
         <p>Content can easily be customized with the default slot instead of using the built-in modes.</p>
         <pre v-code><code>
 &lt;Chip&gt;
-   Content
+    Content
 &lt;/Chip&gt;
 
 </code></pre>
@@ -76,7 +76,7 @@ import Chip from 'primevue/chip';
                         <td>Whether to display a remove icon.</td>
                     </tr>
                     <tr>
-                        <td>removeIconClass</td>
+                        <td>removeIcon</td>
                         <td>string</td>
                         <td>pi pi-times-circle</td>
                         <td>Icon of the remove element.</td>
@@ -131,6 +131,39 @@ import Chip from 'primevue/chip';
                     <tr>
                         <td>p-chip-remove-icon</td>
                         <td>Remove icon.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Chip uses the <i>label</i> property as the default <i>aria-label</i>, since any attribute is passed to the root element <i>aria-labelledby</i> or <i>aria-label</i> can be used to override the default behavior. Removable chips have a
+            <i>tabindex</i> and focusable with the tab key.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>backspace</i>
+                        </td>
+                        <td>Hides removable.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Hides removable.</td>
                     </tr>
                 </tbody>
             </table>

@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface PanelToggleEvent {
@@ -28,7 +28,7 @@ export interface PanelProps {
     /**
      * Uses to pass the custom value to read for the button inside the component.
      */
-    toggleButtonProps?: string | undefined;
+    toggleButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface PanelSlots {

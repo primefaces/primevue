@@ -4,7 +4,7 @@
 
         <pre v-code.script><code>
 import DataView from 'primevue/dataview';
-				
+
 </code></pre>
 
         <h5>Import via CDN</h5>
@@ -463,6 +463,41 @@ export default {
                     <tr>
                         <td>p-dataview-emptymessage</td>
                         <td>Empty message element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            The container element that wraps the layout options buttons has a <i>group</i> role whereas each button element uses <i>button</i> role and <i>aria-pressed</i> is updated depending on selection state. Values to describe the buttons are
+            derived from the <i>aria.listView</i> and <i>aria.gridView</i> properties of the <router-link to="/locale">locale</router-link> API respectively.
+        </p>
+
+        <p>Refer to <router-link to="/paginator">paginator</router-link> accessibility documentation for the paginator of the component.</p>
+
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the buttons.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Toggles the checked state of a button.</td>
                     </tr>
                 </tbody>
             </table>

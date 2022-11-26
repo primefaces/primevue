@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import RadarChartDoc from './RadarChartDoc';
 import EventBus from '@/AppEventBus';
+import RadarChartDoc from './RadarChartDoc';
 
 export default {
     themeChangeListener: null,

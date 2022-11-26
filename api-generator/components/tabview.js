@@ -31,13 +31,13 @@ const TabViewProps = [
     },
     {
         name: 'previousButtonProps',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLButtonElement to the previous button.'
     },
     {
         name: 'nextButtonProps',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLButtonElement to the next button.'
     },

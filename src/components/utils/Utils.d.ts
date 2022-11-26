@@ -48,6 +48,7 @@ export declare class DomHandler {
     static focus(el: HTMLElement, options?: FocusOptions): void;
     static getFocusableElements(el: HTMLElement, selector?: string): any[];
     static getFirstFocusableElement(el: HTMLElement, selector?: string): any;
+    static getLastFocusableElement(el: HTMLElement, selector?: string): any;
     static isClickable(el: HTMLElement): boolean;
     static applyStyle(el: HTMLElement, style: any): void;
     static isIOS(): boolean;

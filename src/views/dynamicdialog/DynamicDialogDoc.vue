@@ -308,6 +308,12 @@ export default {
                 </tbody>
             </table>
         </div>
+
+        <h5>Accessibility</h5>
+        <p>DynamicDialog uses the Dialog component internally, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
     </AppDoc>
 </template>
 

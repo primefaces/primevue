@@ -4,7 +4,19 @@
             <slot v-if="!toggleable" name="legend">
                 <span :id="ariaId + '_header'" class="p-fieldset-legend-text">{{ legend }}</span>
             </slot>
-            <a v-if="toggleable" :id="ariaId + '_header'" v-ripple tabindex="0" role="button" :aria-controls="ariaId + '_content'" :aria-expanded="!d_collapsed" :aria-label="toggleButtonProps || legend" @click="toggle" @keydown="onKeyDown">
+            <a
+                v-if="toggleable"
+                :id="ariaId + '_header'"
+                v-ripple
+                tabindex="0"
+                role="button"
+                :aria-controls="ariaId + '_content'"
+                :aria-expanded="!d_collapsed"
+                :aria-label="buttonAriaLabel"
+                @click="toggle"
+                @keydown="onKeyDown"
+                v-bind="toggleButtonProps"
+            >
                 <span :class="iconClass"></span>
                 <slot name="legend">
                     <span class="p-fieldset-legend-text">{{ legend }}</span>
@@ -32,7 +44,10 @@ export default {
         legend: String,
         toggleable: Boolean,
         collapsed: Boolean,
-        toggleButtonProps: String
+        toggleButtonProps: {
+            type: null,
+            default: null
+        }
     },
     data() {
         return {
@@ -72,6 +87,9 @@ export default {
         },
         ariaId() {
             return UniqueComponentId();
+        },
+        buttonAriaLabel() {
+            return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.legend;
         }
     },
     directives: {

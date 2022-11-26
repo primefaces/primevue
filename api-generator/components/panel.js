@@ -19,7 +19,7 @@ const PanelProps = [
     },
     {
         name: 'toggleButtonProps',
-        type: 'string',
+        type: 'object',
         default: 'null',
         description: 'Uses to pass the custom value to read for the anchor inside the component.'
     }

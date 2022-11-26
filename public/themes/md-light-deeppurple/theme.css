@@ -3273,14 +3273,16 @@
   background: rgba(0, 0, 0, 0.04);
   color: rgba(0, 0, 0, 0.87);
 }
-.p-orderlist .p-orderlist-list .p-orderlist-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: none;
+.p-orderlist .p-orderlist-list .p-orderlist-item.p-focus {
+  color: rgba(0, 0, 0, 0.87);
+  background: rgba(0, 0, 0, 0.12);
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
-  color: #673AB7;
-  background: rgba(103, 58, 183, 0.12);
+  color: rgba(0, 0, 0, 0.87);
+  background: rgba(0, 0, 0, 0.04);
+}
+.p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight.p-focus {
+  background: rgba(0, 0, 0, 0.04);
 }
 .p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {
   background: rgba(0, 0, 0, 0.02);

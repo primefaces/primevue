@@ -67,9 +67,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-                },
-                onHide: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Hide', detail: 'You have hidden', life: 3000 });
                 }
             });
         },
@@ -84,9 +81,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-                },
-                onHide: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Hide', detail: 'You have hidden', life: 3000 });
                 }
             });
         },
@@ -102,9 +96,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-                },
-                onHide: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Hide', detail: 'You have hidden', life: 3000 });
                 }
             });
         },
@@ -121,9 +112,6 @@ export default {
                 },
                 reject: () => {
                     this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-                },
-                onHide: () => {
-                    this.$toast.add({ severity: 'error', summary: 'Hide', detail: 'You have hidden', life: 3000 });
                 }
             });
         }

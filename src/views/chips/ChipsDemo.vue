@@ -16,8 +16,11 @@
                 <h5>Comma Separator</h5>
                 <Chips v-model="value2" separator="," />
 
+                <h5>RegExp Separator</h5>
+                <Chips v-model="value3" :separator="separatorExp" />
+
                 <h5>Template</h5>
-                <Chips v-model="value3">
+                <Chips v-model="value4">
                     <template #chip="slotProps">
                         <div>
                             <span>{{ slotProps.value }} - (active) </span>
@@ -40,7 +43,9 @@ export default {
         return {
             value1: null,
             value2: null,
-            value3: null
+            value3: null,
+            value4: null,
+            separatorExp: /,| /
         };
     },
     components: {

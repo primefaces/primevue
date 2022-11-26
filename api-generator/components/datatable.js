@@ -377,6 +377,18 @@ const DataTableProps = [
         type: 'string',
         default: 'null',
         description: 'Style class of the table element.'
+    },
+    {
+        name: 'tableProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the TableHTMLAttributes to table element inside the component.'
+    },
+    {
+        name: 'filterInputProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.'
     }
 ];
 

@@ -105,8 +105,14 @@ export default {
             type: String,
             default: 'pi pi-chevron-right'
         },
-        previousButtonProps: null,
-        nextButtonProps: null
+        previousButtonProps: {
+            type: null,
+            default: null
+        },
+        nextButtonProps: {
+            type: null,
+            default: null
+        }
     },
     data() {
         return {

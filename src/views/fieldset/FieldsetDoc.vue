@@ -99,7 +99,7 @@ import Fieldset from 'primevue/fieldset';
                     </tr>
                     <tr>
                         <td>toggleButtonProps</td>
-                        <td>string</td>
+                        <td>object</td>
                         <td>null</td>
                         <td>Uses to pass the custom value to read for the anchor inside the component.</td>
                     </tr>
