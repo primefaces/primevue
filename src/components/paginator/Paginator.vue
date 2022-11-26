@@ -5,7 +5,7 @@
                 <slot name="start" :state="currentState"></slot>
             </div>
             <template v-for="item in value" :key="item">
-                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" @click="changePageToFirst($event)" :disabled="isFirstPage || empty"  :icon="firstPageIcon" />
+                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" :icon="firstPageIcon" />
                 <PrevPageLink v-else-if="item === 'PrevPageLink'" :aria-label="getAriaLabel('prevPageLabel')" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" :icon="previousPageIcon" />
                 <NextPageLink v-else-if="item === 'NextPageLink'" :aria-label="getAriaLabel('nextPageLabel')" @click="changePageToNext($event)" :disabled="isLastPage || empty" :icon="nextPageIcon" />
                 <LastPageLink v-else-if="item === 'LastPageLink'" :aria-label="getAriaLabel('lastPageLabel')" @click="changePageToLast($event)" :disabled="isLastPage || empty" :icon="lastPageIcon" />
@@ -21,8 +21,24 @@
                     :rows="d_rows"
                     :totalRecords="totalRecords"
                 />
-                <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :aria-label="getAriaLabel('rowsPerPageLabel')" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" :dropdownIcon="dropdownIcon" />
-                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :aria-label="getAriaLabel('jumpToPageDropdownLabel')" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" :dropdownIcon="dropdownIcon" />
+                <RowsPerPageDropdown
+                    v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions"
+                    :aria-label="getAriaLabel('rowsPerPageLabel')"
+                    :rows="d_rows"
+                    :options="rowsPerPageOptions"
+                    @rows-change="onRowChange($event)"
+                    :disabled="empty"
+                    :dropdownIcon="dropdownIcon"
+                />
+                <JumpToPageDropdown
+                    v-else-if="item === 'JumpToPageDropdown'"
+                    :aria-label="getAriaLabel('jumpToPageDropdownLabel')"
+                    :page="page"
+                    :pageCount="pageCount"
+                    @page-change="changePage($event)"
+                    :disabled="empty"
+                    :dropdownIcon="dropdownIcon"
+                />
                 <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
             </template>
             <div v-if="$slots.end" class="p-paginator-right-content">
