@@ -1,11 +1,11 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
-                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" v-bind="$attrs">
+                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown">
                     <slot></slot>
                 </div>
-                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" @click="hide" :aria-label="ariaCloseLabel" type="button">
+                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown">
                     <span class="p-overlaypanel-close-icon pi pi-times"></span>
                 </button>
             </div>
@@ -14,10 +14,11 @@
 </template>
 
 <script>
-import { UniqueComponentId, DomHandler, ConnectedOverlayScrollHandler, ZIndexUtils } from 'primevue/utils';
+import FocusTrap from 'primevue/focustrap';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Ripple from 'primevue/ripple';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'OverlayPanel',
@@ -43,10 +44,6 @@ export default {
         autoZIndex: {
             type: Boolean,
             default: true
-        },
-        ariaCloseLabel: {
-            type: String,
-            default: 'close'
         },
         breakpoints: {
             type: Object,
@@ -121,6 +118,7 @@ export default {
         },
         hide() {
             this.visible = false;
+            DomHandler.focus(this.target);
         },
         onContentClick() {
             this.selfClick = true;
@@ -146,6 +144,7 @@ export default {
                 }
             };
 
+            this.focus();
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
             this.$emit('show');
         },
@@ -177,6 +176,28 @@ export default {
 
             if (containerOffset.top < targetOffset.top) {
                 DomHandler.addClass(this.container, 'p-overlaypanel-flipped');
+            }
+        },
+        onContentKeydown(event) {
+            event.code === 'Escape' && this.hide();
+        },
+        onButtonKeydown(event) {
+            switch (event.code) {
+                case 'ArrowDown':
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                case 'ArrowRight':
+                    event.preventDefault();
+
+                default:
+                    break;
+            }
+        },
+        focus() {
+            let focusTarget = this.container.querySelector('[autofocus]');
+
+            if (focusTarget) {
+                focusTarget.focus();
             }
         },
         bindOutsideClickListener() {
@@ -284,9 +305,13 @@ export default {
         },
         attributeSelector() {
             return UniqueComponentId();
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     directives: {
+        focustrap: FocusTrap,
         ripple: Ripple
     },
     components: {

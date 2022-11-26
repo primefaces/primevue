@@ -30,12 +30,6 @@ const OverlayPanelProps = [
         description: 'Whether to automatically manage layering.'
     },
     {
-        name: 'ariaCloseLabel',
-        type: 'string',
-        default: 'close',
-        description: 'Aria label of the close icon.'
-    },
-    {
         name: 'breakpoints',
         type: 'object',
         default: 'null',

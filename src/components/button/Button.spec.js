@@ -1,6 +1,6 @@
-import { h } from 'vue';
-import { mount } from '@vue/test-utils';
 import Button from '@/components/button/Button.vue';
+import { mount } from '@vue/test-utils';
+import { h } from 'vue';
 
 describe('Button.vue', () => {
     it('is Button element exist', () => {

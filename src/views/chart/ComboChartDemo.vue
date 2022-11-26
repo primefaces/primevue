@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import ComboChartDoc from './ComboChartDoc';
 import EventBus from '@/AppEventBus';
+import ComboChartDoc from './ComboChartDoc';
 
 export default {
     themeChangeListener: null,

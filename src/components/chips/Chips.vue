@@ -67,7 +67,7 @@ export default {
             default: null
         },
         separator: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         addOnBlur: {
@@ -179,7 +179,7 @@ export default {
 
                 default:
                     if (this.separator) {
-                        if (this.separator === ',' && event.key === ',') {
+                        if (this.separator === event.key || event.key.match(this.separator)) {
                             this.addItem(event, inputValue, true);
                         }
                     }
@@ -255,6 +255,10 @@ export default {
             });
             this.$refs.input.value = '';
             this.inputValue = '';
+
+            setTimeout(() => {
+                this.maxedOut && (this.focused = false);
+            }, 0);
 
             if (preventDefault) {
                 event.preventDefault();

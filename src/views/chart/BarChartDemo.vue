@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import BarChartDoc from './BarChartDoc';
 import EventBus from '@/AppEventBus';
+import BarChartDoc from './BarChartDoc';
 
 export default {
     themeChangeListener: null,

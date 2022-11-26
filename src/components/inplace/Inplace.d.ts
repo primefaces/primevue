@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { HTMLAttributes, ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface InplaceProps {
@@ -19,6 +19,14 @@ export interface InplaceProps {
      * Default value is 'pi pi-times'.
      */
     closeIcon?: string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to display container.
+     */
+    displayProps?: HTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     */
+    closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface InplaceSlots {

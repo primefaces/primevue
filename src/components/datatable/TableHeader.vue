@@ -27,6 +27,7 @@
                         :filters="filters"
                         :filterDisplay="filterDisplay"
                         :filtersStore="filtersStore"
+                        :filterInputProps="filterInputProps"
                         @filter-change="$emit('filter-change', $event)"
                         @filter-apply="$emit('filter-apply')"
                         @operator-change="$emit('operator-change', $event)"
@@ -40,7 +41,7 @@
             <tr v-if="filterDisplay === 'row'" role="row">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                     <th v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))" :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)">
-                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" @change="$emit('checkbox-change', $event)" :disabled="empty" />
+                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" :disabled="empty" @change="$emit('checkbox-change', $event)" />
                         <DTColumnFilter
                             v-if="col.children && col.children.filter"
                             :field="columnProp(col, 'filterField') || columnProp(col, 'field')"
@@ -54,6 +55,7 @@
                             :filterApplyTemplate="col.children && col.children.filterapply"
                             :filters="filters"
                             :filtersStore="filtersStore"
+                            :filterInputProps="filterInputProps"
                             @filter-change="$emit('filter-change', $event)"
                             @filter-apply="$emit('filter-apply')"
                             :filterMenuStyle="columnProp(col, 'filterMenuStyle')"
@@ -110,10 +112,10 @@
 </template>
 
 <script>
+import { ObjectUtils } from 'primevue/utils';
+import ColumnFilter from './ColumnFilter.vue';
 import HeaderCell from './HeaderCell.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
-import ColumnFilter from './ColumnFilter.vue';
-import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'TableHeader',
@@ -149,7 +151,7 @@ export default {
             default: null
         },
         groupRowsBy: {
-            type: [Array, String],
+            type: [Array, String, Function],
             default: null
         },
         resizableColumns: {
@@ -199,6 +201,10 @@ export default {
         reorderableColumns: {
             type: Boolean,
             default: false
+        },
+        filterInputProps: {
+            type: null,
+            default: null
         }
     },
     methods: {

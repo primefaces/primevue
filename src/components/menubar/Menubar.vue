@@ -4,6 +4,7 @@
             <slot name="start"></slot>
         </div>
         <a
+            v-if="model.length > 0"
             ref="menubutton"
             role="button"
             tabindex="0"
@@ -24,6 +25,7 @@
             class="p-menubar-root-list"
             role="menubar"
             :items="processedItems"
+            :template="$slots.item"
             :root="true"
             :mobileActive="mobileActive"
             tabindex="0"
@@ -76,9 +78,6 @@ export default {
             default: null
         }
     },
-    outsideClickListener: null,
-    container: null,
-    menubar: null,
     data() {
         return {
             mobileActive: false,
@@ -99,6 +98,9 @@ export default {
             }
         }
     },
+    outsideClickListener: null,
+    container: null,
+    menubar: null,
     beforeUnmount() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();

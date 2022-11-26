@@ -1,7 +1,7 @@
 <template>
     <Portal>
         <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="$attrs">
                 <template v-if="!$slots.message">
                     <div class="p-confirm-popup-content">
                         <i :class="iconClass" />
@@ -10,8 +10,8 @@
                 </template>
                 <component v-else :is="$slots.message" :message="confirmation"></component>
                 <div class="p-confirm-popup-footer">
-                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" />
-                    <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" autofocus />
+                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" />
+                    <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" />
                 </div>
             </div>
         </transition>
@@ -19,11 +19,12 @@
 </template>
 
 <script>
-import ConfirmationEventBus from 'primevue/confirmationeventbus';
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
+import ConfirmationEventBus from 'primevue/confirmationeventbus';
+import FocusTrap from 'primevue/focustrap';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'ConfirmPopup',
@@ -53,6 +54,11 @@ export default {
             if (options.group === this.group) {
                 this.confirmation = options;
                 this.target = options.target;
+
+                if (this.confirmation.onShow) {
+                    this.confirmation.onShow();
+                }
+
                 this.visible = true;
             }
         };
@@ -101,7 +107,29 @@ export default {
 
             this.visible = false;
         },
+        onHide() {
+            if (this.confirmation.onHide) {
+                this.confirmation.onHide();
+            }
+
+            this.visible = false;
+        },
+        onAcceptKeydown(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                this.accept();
+                DomHandler.focus(this.target);
+                event.preventDefault();
+            }
+        },
+        onRejectKeydown(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                this.reject();
+                DomHandler.focus(this.target);
+                event.preventDefault();
+            }
+        },
         onEnter(el) {
+            this.focus();
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -137,6 +165,10 @@ export default {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
                     if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                        if (this.confirmation.onHide) {
+                            this.confirmation.onHide();
+                        }
+
                         this.visible = false;
                     } else {
                         this.alignOverlay();
@@ -185,6 +217,13 @@ export default {
                 this.resizeListener = null;
             }
         },
+        focus() {
+            let focusTarget = this.container.querySelector('[autofocus]');
+
+            if (focusTarget) {
+                focusTarget.focus();
+            }
+        },
         isTargetClicked(event) {
             return this.target && (this.target === event.target || this.target.contains(event.target));
         },
@@ -196,6 +235,12 @@ export default {
                 originalEvent: event,
                 target: this.target
             });
+        },
+        onOverlayKeydown(event) {
+            if (event.code === 'Escape') {
+                ConfirmationEventBus.emit('close', this.closeListener);
+                DomHandler.focus(this.target);
+            }
         }
     },
     computed: {
@@ -231,11 +276,20 @@ export default {
         },
         rejectClass() {
             return ['p-confirm-popup-reject p-button-sm', this.confirmation ? this.confirmation.rejectClass || 'p-button-text' : null];
+        },
+        autoFocusAccept() {
+            return this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
+        },
+        autoFocusReject() {
+            return this.confirmation.defaultFocus === 'reject' ? true : false;
         }
     },
     components: {
         CPButton: Button,
         Portal: Portal
+    },
+    directives: {
+        focustrap: FocusTrap
     }
 };
 </script>

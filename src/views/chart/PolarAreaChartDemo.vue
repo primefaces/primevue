@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import PolarAreaChartDoc from './PolarAreaChartDoc';
 import EventBus from '@/AppEventBus';
+import PolarAreaChartDoc from './PolarAreaChartDoc';
 
 export default {
     themeChangeListener: null,

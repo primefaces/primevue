@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import DoughnutChartDoc from './DoughnutChartDoc';
 import EventBus from '@/AppEventBus';
+import DoughnutChartDoc from './DoughnutChartDoc';
 
 export default {
     themeChangeListener: null,

@@ -1,5 +1,5 @@
 <template>
-    <div :style="containerStyle" :class="containerClass"></div>
+    <div :style="containerStyle" :class="containerClass" aria-hidden="true"></div>
 </template>
 
 <script>

@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { ObjectUtils, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'SelectButton',

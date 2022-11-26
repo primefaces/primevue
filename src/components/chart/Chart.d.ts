@@ -1,3 +1,4 @@
+import { CanvasHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface ChartSelectEvent {
@@ -42,6 +43,10 @@ export interface ChartProps {
      * Default value is 150.
      */
     height?: number | undefined;
+    /**
+     * Uses to pass all properties of the CanvasHTMLAttributes to canvas element inside the component.
+     */
+    canvasProps?: CanvasHTMLAttributes | undefined;
 }
 
 export interface ChartSlots {}

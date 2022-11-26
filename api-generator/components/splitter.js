@@ -33,6 +33,22 @@ const SplitterProps = [
 
 const SplitterEvents = [
     {
+        name: 'resizenstart',
+        description: 'Callback to invoke when resize starts.',
+        arguments: [
+            {
+                name: 'event.originalEvent',
+                type: 'object',
+                description: 'Browser event'
+            },
+            {
+                name: 'event.sizes',
+                type: 'array',
+                description: 'Sizes of the panels as an array'
+            }
+        ]
+    },
+    {
         name: 'resizened',
         description: 'Callback to invoke when resize ends.',
         arguments: [

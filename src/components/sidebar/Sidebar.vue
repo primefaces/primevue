@@ -1,16 +1,16 @@
 <template>
     <Portal>
         <transition name="p-sidebar" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
-            <div v-if="visible" :ref="containerRef" :class="containerClass" role="complementary" :aria-modal="modal" v-bind="$attrs">
-                <div class="p-sidebar-header">
+            <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
+                <div :ref="headerContainerRef" class="p-sidebar-header">
                     <div v-if="$slots.header" class="p-sidebar-header-content">
                         <slot name="header"></slot>
                     </div>
-                    <button v-if="showCloseIcon" v-ripple class="p-sidebar-close p-sidebar-icon p-link" @click="hide" :aria-label="ariaCloseLabel" type="button">
+                    <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
                         <span :class="['p-sidebar-close-icon', closeIcon]" />
                     </button>
                 </div>
-                <div class="p-sidebar-content">
+                <div :ref="contentRef" class="p-sidebar-content">
                     <slot></slot>
                 </div>
             </div>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
@@ -59,15 +60,14 @@ export default {
         modal: {
             type: Boolean,
             default: true
-        },
-        ariaCloseLabel: {
-            type: String,
-            default: 'close'
         }
     },
     mask: null,
     maskClickListener: null,
     container: null,
+    content: null,
+    headerContainer: null,
+    closeButton: null,
     beforeUnmount() {
         this.destroyModal();
 
@@ -107,11 +107,21 @@ export default {
             }
         },
         focus() {
-            let focusable = DomHandler.findSingle(this.container, 'input,button');
+            const findFocusableElement = (container) => {
+                return container.querySelector('[autofocus]');
+            };
 
-            if (focusable) {
-                focusable.focus();
+            let focusTarget = this.$slots.default && findFocusableElement(this.content);
+
+            if (!focusTarget) {
+                focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
+
+                if (!focusTarget) {
+                    focusTarget = findFocusableElement(this.container);
+                }
             }
+
+            focusTarget && focusTarget.focus();
         },
         enableModality() {
             if (!this.mask) {
@@ -144,6 +154,11 @@ export default {
                 this.mask.addEventListener('click', this.maskClickListener);
             }
         },
+        onKeydown(event) {
+            if (event.code === 'Escape') {
+                this.hide();
+            }
+        },
         unbindMaskClickListener() {
             if (this.maskClickListener) {
                 this.mask.removeEventListener('click', this.maskClickListener);
@@ -160,6 +175,15 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        contentRef(el) {
+            this.content = el;
+        },
+        headerContainerRef(el) {
+            this.headerContainer = el;
+        },
+        closeButtonRef(el) {
+            this.closeButton = el;
         }
     },
     computed: {
@@ -175,9 +199,13 @@ export default {
         },
         fullScreen() {
             return this.position === 'full';
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     directives: {
+        focustrap: FocusTrap,
         ripple: Ripple
     },
     components: {

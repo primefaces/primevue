@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type DialogPositionType = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
@@ -50,6 +50,10 @@ export interface DialogProps {
      */
     contentClass?: any;
     /**
+     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     */
+    contentProps?: HTMLAttributes | undefined;
+    /**
      * When enabled dialog is displayed in RTL direction.
      */
     rtl?: boolean | undefined;
@@ -82,11 +86,6 @@ export interface DialogProps {
      * Default value is true.
      */
     autoZIndex?: boolean | undefined;
-    /**
-     * Aria label of the close icon.
-     * Default value is 'close'.
-     */
-    ariaCloseLabel?: string | undefined;
     /**
      * Position of the dialog, options are 'center', 'top', 'bottom', 'left', 'right', 'topleft', 'topright', 'bottomleft' or 'bottomright'.
      * @see DialogPositionType
@@ -137,6 +136,16 @@ export interface DialogProps {
      * Default value is 'pi pi-times'.
      */
     closeIcon?: string | undefined;
+    /**
+     * Icon to display in the dialog maximize button when dialog is not maximized.
+     * Default value is 'pi pi-window-maximize'.
+     */
+    maximizeIcon?: string | undefined;
+    /**
+     * Icon to display in the dialog maximize button when dialog is maximized.
+     * Default value is 'pi pi-window-minimize'.
+     */
+    minimizeIcon?: string | undefined;
 }
 
 export interface DialogSlots {

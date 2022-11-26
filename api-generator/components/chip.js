@@ -24,7 +24,7 @@ const ChipProps = [
         description: 'Whether to display a remove icon.'
     },
     {
-        name: 'removeIconClass',
+        name: 'removeIcon',
         type: 'string',
         default: 'pi pi-times-circle',
         description: 'Icon of the remove element.'

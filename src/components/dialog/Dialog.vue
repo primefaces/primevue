@@ -2,24 +2,24 @@
     <Portal :appendTo="appendTo">
         <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-                <div v-if="visible" :ref="containerRef" :class="dialogClass" v-bind="$attrs" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal">
-                    <div v-if="showHeader" class="p-dialog-header" @mousedown="initDrag">
+                <div v-if="visible" :ref="containerRef" v-focustrap="{ focusTrapDisabled: !modal }" :class="dialogClass" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="$attrs">
+                    <div v-if="showHeader" :ref="headerContainerRef" class="p-dialog-header" @mousedown="initDrag">
                         <slot name="header">
                             <span v-if="header" :id="ariaLabelledById" class="p-dialog-title">{{ header }}</span>
                         </slot>
                         <div class="p-dialog-header-icons">
-                            <button v-if="maximizable" v-ripple class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" tabindex="-1">
+                            <button v-if="maximizable" :ref="maximizableRef" v-ripple autofocus class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'">
                                 <span :class="maximizeIconClass"></span>
                             </button>
-                            <button v-if="closable" v-ripple class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="ariaCloseLabel" type="button">
+                            <button v-if="closable" :ref="closeButtonRef" v-ripple autofocus class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="closeAriaLabel" type="button" v-bind="closeButtonProps">
                                 <span :class="['p-dialog-header-close-icon', closeIcon]"></span>
                             </button>
                         </div>
                     </div>
-                    <div :class="contentStyleClass" :style="contentStyle">
+                    <div :ref="contentRef" :class="contentStyleClass" :style="contentStyle" v-bind="contentProps">
                         <slot></slot>
                     </div>
-                    <div v-if="footer || $slots.footer" class="p-dialog-footer">
+                    <div v-if="footer || $slots.footer" :ref="footerContainerRef" class="p-dialog-footer">
                         <slot name="footer">{{ footer }}</slot>
                     </div>
                 </div>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -39,15 +40,46 @@ export default {
     inheritAttrs: false,
     emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
     props: {
-        header: null,
-        footer: null,
-        visible: Boolean,
-        modal: Boolean,
-        contentStyle: null,
-        contentClass: String,
-        rtl: Boolean,
-        maximizable: Boolean,
-        dismissableMask: Boolean,
+        header: {
+            type: null,
+            default: null
+        },
+        footer: {
+            type: null,
+            default: null
+        },
+        visible: {
+            type: Boolean,
+            default: false
+        },
+        modal: {
+            type: Boolean,
+            default: null
+        },
+        contentStyle: {
+            type: null,
+            default: null
+        },
+        contentClass: {
+            type: String,
+            default: null
+        },
+        contentProps: {
+            type: null,
+            default: null
+        },
+        rtl: {
+            type: Boolean,
+            default: null
+        },
+        maximizable: {
+            type: Boolean,
+            default: false
+        },
+        dismissableMask: {
+            type: Boolean,
+            default: false
+        },
         closable: {
             type: Boolean,
             default: true
@@ -67,10 +99,6 @@ export default {
         autoZIndex: {
             type: Boolean,
             default: true
-        },
-        ariaCloseLabel: {
-            type: String,
-            default: 'close'
         },
         position: {
             type: String,
@@ -104,6 +132,18 @@ export default {
             type: String,
             default: 'pi pi-times'
         },
+        maximizeIcon: {
+            type: String,
+            default: 'pi pi-window-maximize'
+        },
+        minimizeIcon: {
+            type: String,
+            default: 'pi pi-window-minimize'
+        },
+        closeButtonProps: {
+            type: null,
+            default: null
+        },
         _instance: null
     },
     provide() {
@@ -120,6 +160,11 @@ export default {
     documentKeydownListener: null,
     container: null,
     mask: null,
+    content: null,
+    headerContainer: null,
+    footerContainer: null,
+    maximizableButton: null,
+    closeButton: null,
     styleElement: null,
     dragging: null,
     documentDragListener: null,
@@ -189,11 +234,25 @@ export default {
             }
         },
         focus() {
-            let focusTarget = this.container.querySelector('[autofocus]');
+            const findFocusableElement = (container) => {
+                return container.querySelector('[autofocus]');
+            };
 
-            if (focusTarget) {
-                focusTarget.focus();
+            let focusTarget = this.$slots.default && findFocusableElement(this.content);
+
+            if (!focusTarget) {
+                focusTarget = this.$slots.header && findFocusableElement(this.headerContainer);
+
+                if (!focusTarget) {
+                    focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
+
+                    if (!focusTarget) {
+                        focusTarget = findFocusableElement(this.container);
+                    }
+                }
             }
+
+            focusTarget && focusTarget.focus();
         },
         maximize(event) {
             if (this.maximized) {
@@ -220,26 +279,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.which === 9) {
-                event.preventDefault();
-                let focusableElements = DomHandler.getFocusableElements(this.container);
-
-                if (focusableElements && focusableElements.length > 0) {
-                    if (!document.activeElement) {
-                        focusableElements[0].focus();
-                    } else {
-                        let focusedIndex = focusableElements.indexOf(document.activeElement);
-
-                        if (event.shiftKey) {
-                            if (focusedIndex == -1 || focusedIndex === 0) focusableElements[focusableElements.length - 1].focus();
-                            else focusableElements[focusedIndex - 1].focus();
-                        } else {
-                            if (focusedIndex == -1 || focusedIndex === focusableElements.length - 1) focusableElements[0].focus();
-                            else focusableElements[focusedIndex + 1].focus();
-                        }
-                    }
-                }
-            } else if (event.which === 27 && this.closeOnEscape) {
+            if (event.code === 'Escape' && this.closeOnEscape) {
                 this.close();
             }
         },
@@ -266,6 +306,21 @@ export default {
         },
         maskRef(el) {
             this.mask = el;
+        },
+        contentRef(el) {
+            this.content = el;
+        },
+        headerContainerRef(el) {
+            this.headerContainer = el;
+        },
+        footerContainerRef(el) {
+            this.footerContainer = el;
+        },
+        maximizableRef(el) {
+            this.maximizableButton = el;
+        },
+        closeButtonRef(el) {
+            this.closeButton = el;
         },
         createStyle() {
             if (!this.styleElement) {
@@ -400,10 +455,10 @@ export default {
         },
         maximizeIconClass() {
             return [
-                'p-dialog-header-maximize-icon pi',
+                'p-dialog-header-maximize-icon',
                 {
-                    'pi-window-maximize': !this.maximized,
-                    'pi-window-minimize': this.maximized
+                    [this.maximizeIcon]: !this.maximized,
+                    [this.minimizeIcon]: this.maximized
                 }
             ];
         },
@@ -411,7 +466,10 @@ export default {
             return UniqueComponentId();
         },
         ariaLabelledById() {
-            return this.header != null ? this.ariaId + '_header' : null;
+            return this.header != null || this.$attrs['aria-labelledby'] !== null ? this.ariaId + '_header' : null;
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         },
         attributeSelector() {
             return UniqueComponentId();
@@ -421,7 +479,8 @@ export default {
         }
     },
     directives: {
-        ripple: Ripple
+        ripple: Ripple,
+        focustrap: FocusTrap
     },
     components: {
         Portal: Portal

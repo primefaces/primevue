@@ -1,11 +1,12 @@
-import { mount } from '@vue/test-utils';
-import DataTable from './DataTable.vue';
-import ColumnGroup from '@/components/columngroup/ColumnGroup.vue';
-import Row from '@/components/row/Row.vue';
-import Column from '@/components/column/Column.vue';
 import Button from '@/components/button/Button.vue';
+import Column from '@/components/column/Column.vue';
+import ColumnGroup from '@/components/columngroup/ColumnGroup.vue';
 import InputText from '@/components/inputtext/InputText.vue';
+import Row from '@/components/row/Row.vue';
+import { mount } from '@vue/test-utils';
 import { FilterMatchMode } from 'primevue/api';
+import PrimeVue from 'primevue/config';
+import DataTable from './DataTable.vue';
 
 window.URL.createObjectURL = function () {};
 
@@ -86,6 +87,7 @@ describe('DataTable.vue', () => {
     beforeEach(() => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column,
                     Button
@@ -284,6 +286,7 @@ describe('DataTable.vue', () => {
     it('should single sort', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -315,6 +318,7 @@ describe('DataTable.vue', () => {
     it('should multiple sort', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -355,6 +359,7 @@ describe('DataTable.vue', () => {
     it('should have presort', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -381,6 +386,7 @@ describe('DataTable.vue', () => {
     it('should remove sort', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -509,6 +515,7 @@ describe('DataTable.vue', () => {
     it('should select when radiobutton selection is enabled', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -544,6 +551,7 @@ describe('DataTable.vue', () => {
     it('should select when checkbox selection is enabled', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -577,6 +585,7 @@ describe('DataTable.vue', () => {
     it('should select all rows', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -603,6 +612,7 @@ describe('DataTable.vue', () => {
     it('should unselect all rows', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -663,6 +673,7 @@ describe('DataTable.vue', () => {
         wrapper = null;
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -719,6 +730,7 @@ describe('DataTable.vue', () => {
     it('should init row editing', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column,
                     InputText
@@ -759,6 +771,7 @@ describe('DataTable.vue', () => {
     it('should save row editing', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column,
                     InputText
@@ -795,6 +808,7 @@ describe('DataTable.vue', () => {
     it('should cancel row editing', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column,
                     InputText
@@ -832,6 +846,7 @@ describe('DataTable.vue', () => {
     it('should fit mode expanding exists', () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -857,6 +872,7 @@ describe('DataTable.vue', () => {
     it('should fit mode resize start', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -885,6 +901,7 @@ describe('DataTable.vue', () => {
     it('should fit mode resize', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -910,6 +927,7 @@ describe('DataTable.vue', () => {
     it('should fit mode column resize end', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -939,6 +957,7 @@ describe('DataTable.vue', () => {
     it('should expand mode resize start', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -967,6 +986,7 @@ describe('DataTable.vue', () => {
     it('should fit mode resize', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -992,6 +1012,7 @@ describe('DataTable.vue', () => {
     it('should fit mode column resize end', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -1030,6 +1051,7 @@ describe('DataTable.vue', () => {
     it('should exist', () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -1054,6 +1076,7 @@ describe('DataTable.vue', () => {
     it('should exist', () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -1085,6 +1108,7 @@ describe('DataTable.vue', () => {
     it('should have groupheader templating', () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -1115,6 +1139,7 @@ describe('DataTable.vue', () => {
     it('should have groupfooter templating', () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -1145,6 +1170,7 @@ describe('DataTable.vue', () => {
     it('should have expandable row groups and expand rows', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }
@@ -1270,6 +1296,7 @@ describe('DataTable.vue', () => {
     it('should have rowspan grouping', async () => {
         wrapper = mount(DataTable, {
             global: {
+                plugins: [PrimeVue],
                 components: {
                     Column
                 }

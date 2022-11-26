@@ -46,12 +46,6 @@ const SidebarProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to a modal layer behind the sidebar.'
-    },
-    {
-        name: 'ariaCloseLabel',
-        type: 'string',
-        default: 'close',
-        description: 'Aria label of the close icon.'
     }
 ];
 

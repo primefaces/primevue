@@ -5,7 +5,7 @@
             <div v-for="(command, i) of commands" :key="command.text + i.toString()">
                 <span class="p-terminal-prompt">{{ prompt }}</span>
                 <span class="p-terminal-command">{{ command.text }}</span>
-                <div class="p-terminal-response">{{ command.response }}</div>
+                <div class="p-terminal-response" aria-live="polite">{{ command.response }}</div>
             </div>
         </div>
         <div class="p-terminal-prompt-container">
@@ -51,7 +51,7 @@ export default {
             this.$refs.input.focus();
         },
         onKeydown(event) {
-            if (event.keyCode === 13 && this.commandText) {
+            if (event.code === 'Enter' && this.commandText) {
                 this.commands.push({ text: this.commandText });
                 TerminalService.emit('command', this.commandText);
                 this.commandText = '';

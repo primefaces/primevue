@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import LineChartDoc from './LineChartDoc';
 import EventBus from '@/AppEventBus';
+import LineChartDoc from './LineChartDoc';
 
 export default {
     themeChangeListener: null,

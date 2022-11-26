@@ -28,7 +28,7 @@ export interface FieldsetProps {
     /**
      * Uses to pass the custom value to read for the anchor inside the component.
      */
-    toggleButtonProps?: string | undefined;
+    toggleButtonProps?: object | undefined;
 }
 
 export interface FieldsetSlots {

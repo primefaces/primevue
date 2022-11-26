@@ -104,6 +104,17 @@ import ProgressSpinner from 'primevue/progressspinner';
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>ProgressSpinner components uses <i>progressbar</i> role. Value to describe the component can be defined using <i>aria-labelledby</i> and <i>aria-label</i> props.</p>
+        <pre v-code><code><template v-pre>
+&lt;ProgressSpinner aria-label="Loading" /&gt;
+
+</template></code></pre>
+
+        <h6>Keyboard Support</h6>
+        <p>Component does not include any interactive elements.</p>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
@@ -120,10 +131,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ProgressSpinner />
+        <ProgressSpinner aria-label="Basic ProgressSpinner" />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s" aria-label="Custom ProgressSpinner"/>
     </div>
 </template>
 
@@ -135,10 +146,10 @@ export default {
 <template>
     <div>
         <h5>Basic</h5>
-        <ProgressSpinner />
+        <ProgressSpinner aria-label="Basic ProgressSpinner" />
 
         <h5>Custom</h5>
-        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"/>
+        <ProgressSpinner style="width:50px;height:50px" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s" aria-label="Custom ProgressSpinner"/>
     </div>
 </template>
 
@@ -149,10 +160,10 @@ export default {
                     imports: `<script src="https://unpkg.com/primevue@^3/progressspinner/progressspinner.min.js"><\\/script>`,
                     content: `<div id="app">
             <h5>Basic</h5>
-            <p-progressspinner></p-progressspinner>
+            <p-progressspinner aria-label="Basic ProgressSpinner"></p-progressspinner>
 
             <h5>Custom</h5>
-            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="var(--surface-ground)" animation-duration=".5s"></p-progressspinner>
+            <p-progressspinner style="width:50px;height:50px" stroke-width="8" fill="var(--surface-ground)" animation-duration=".5s" aria-label="Custom ProgressSpinner"></p-progressspinner>
         </div>
 
         <script type="module">

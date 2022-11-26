@@ -31,7 +31,7 @@
         <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
             <DTVirtualScroller ref="virtualScroller" v-bind="virtualScrollerOptions" :items="processedData" :columns="columns" :style="{ height: scrollHeight }" :disabled="virtualScrollerDisabled" loaderDisabled :showSpacer="false">
                 <template #content="slotProps">
-                    <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]">
+                    <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]" v-bind="tableProps">
                         <DTTableHeader
                             :columnGroup="headerColumnGroup"
                             :columns="slotProps.columns"
@@ -49,6 +49,7 @@
                             :filters="d_filters"
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
+                            :filterInputProps="filterInputProps"
                             @column-click="onColumnHeaderClick($event)"
                             @column-mousedown="onColumnHeaderMouseDown($event)"
                             @filter-change="onFilterChange"
@@ -90,6 +91,7 @@
                             :editingRowKeys="d_editingRowKeys"
                             :templates="$slots"
                             :responsiveLayout="responsiveLayout"
+                            :isVirtualScrollerDisabled="true"
                             @rowgroup-toggle="toggleRowGroup"
                             @row-click="onRowClick($event)"
                             @row-dblclick="onRowDblClick($event)"
@@ -113,7 +115,6 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
-                            :isVirtualScrollerDisabled="true"
                         />
                         <DTTableBody
                             ref="bodyRef"
@@ -144,12 +145,14 @@
                             :editingRowKeys="d_editingRowKeys"
                             :templates="$slots"
                             :responsiveLayout="responsiveLayout"
+                            :virtualScrollerContentProps="slotProps"
+                            :isVirtualScrollerDisabled="virtualScrollerDisabled"
                             @rowgroup-toggle="toggleRowGroup"
                             @row-click="onRowClick($event)"
                             @row-dblclick="onRowDblClick($event)"
                             @row-rightclick="onRowRightClick($event)"
                             @row-touchend="onRowTouchEnd"
-                            @row-keydown="onRowKeyDown"
+                            @row-keydown="onRowKeyDown($event, slotProps)"
                             @row-mousedown="onRowMouseDown"
                             @row-dragstart="onRowDragStart($event)"
                             @row-dragover="onRowDragOver($event)"
@@ -167,8 +170,6 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
-                            :virtualScrollerContentProps="slotProps"
-                            :isVirtualScrollerDisabled="virtualScrollerDisabled"
                         />
                         <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" />
                     </table>
@@ -433,7 +434,7 @@ export default {
             default: null
         },
         groupRowsBy: {
-            type: [Array, String],
+            type: [Array, String, Function],
             default: null
         },
         expandableRowGroups: {
@@ -510,6 +511,14 @@ export default {
         },
         tableClass: {
             type: String,
+            default: null
+        },
+        tableProps: {
+            type: null,
+            default: null
+        },
+        filterInputProps: {
+            type: null,
             default: null
         }
     },
@@ -960,46 +969,130 @@ export default {
         onRowTouchEnd() {
             this.rowTouched = true;
         },
-        onRowKeyDown(e) {
+        onRowKeyDown(e, slotProps) {
             const event = e.originalEvent;
             const rowData = e.data;
             const rowIndex = e.index;
+            const metaKey = event.metaKey || event.ctrlKey;
 
             if (this.selectionMode) {
                 const row = event.target;
 
-                switch (event.which) {
-                    //down arrow
-                    case 40:
-                        var nextRow = this.findNextSelectableRow(row);
-
-                        if (nextRow) {
-                            nextRow.focus();
-                        }
-
-                        event.preventDefault();
+                switch (event.code) {
+                    case 'ArrowDown':
+                        this.onArrowDownKey(event, row, rowIndex, slotProps);
                         break;
 
-                    //up arrow
-                    case 38:
-                        var prevRow = this.findPrevSelectableRow(row);
-
-                        if (prevRow) {
-                            prevRow.focus();
-                        }
-
-                        event.preventDefault();
+                    case 'ArrowUp':
+                        this.onArrowUpKey(event, row, rowIndex, slotProps);
                         break;
 
-                    //enter
-                    case 13:
-                        this.onRowClick({ originalEvent: event, data: rowData, index: rowIndex });
+                    case 'Home':
+                        this.onHomeKey(event, row, rowIndex, slotProps);
+                        break;
+
+                    case 'End':
+                        this.onEndKey(event, row, rowIndex, slotProps);
+                        break;
+
+                    case 'Enter':
+                        this.onEnterKey(event, rowData, rowIndex);
+                        break;
+
+                    case 'Space':
+                        this.onSpaceKey(event, rowData, rowIndex, slotProps);
                         break;
 
                     default:
-                        //no op
+                        if (event.code === 'KeyA' && metaKey) {
+                            const data = this.dataToRender(slotProps.rows);
+
+                            this.$emit('update:selection', data);
+                        }
+
                         break;
                 }
+            }
+        },
+        onArrowDownKey(event, row, rowIndex, slotProps) {
+            const nextRow = this.findNextSelectableRow(row);
+
+            nextRow && this.focusRowChange(row, nextRow);
+
+            if (event.shiftKey) {
+                const data = this.dataToRender(slotProps.rows);
+                const nextRowIndex = rowIndex + 1 >= data.length ? data.length - 1 : rowIndex + 1;
+
+                this.onRowClick({ originalEvent: event, data: data[nextRowIndex], index: nextRowIndex });
+            }
+
+            event.preventDefault();
+        },
+        onArrowUpKey(event, row, rowIndex, slotProps) {
+            const prevRow = this.findPrevSelectableRow(row);
+
+            prevRow && this.focusRowChange(row, prevRow);
+
+            if (event.shiftKey) {
+                const data = this.dataToRender(slotProps.rows);
+                const prevRowIndex = rowIndex - 1 <= 0 ? 0 : rowIndex - 1;
+
+                this.onRowClick({ originalEvent: event, data: data[prevRowIndex], index: prevRowIndex });
+            }
+
+            event.preventDefault();
+        },
+        onHomeKey(event, row, rowIndex, slotProps) {
+            const firstRow = this.findFirstSelectableRow();
+
+            firstRow && this.focusRowChange(row, firstRow);
+
+            if (event.ctrlKey && event.shiftKey) {
+                const data = this.dataToRender(slotProps.rows);
+
+                this.$emit('update:selection', data.slice(0, rowIndex + 1));
+            }
+
+            event.preventDefault();
+        },
+        onEndKey(event, row, rowIndex, slotProps) {
+            const lastRow = this.findLastSelectableRow();
+
+            lastRow && this.focusRowChange(row, lastRow);
+
+            if (event.ctrlKey && event.shiftKey) {
+                const data = this.dataToRender(slotProps.rows);
+
+                this.$emit('update:selection', data.slice(rowIndex, data.length));
+            }
+
+            event.preventDefault();
+        },
+        onEnterKey(event, rowData, rowIndex) {
+            this.onRowClick({ originalEvent: event, data: rowData, index: rowIndex });
+            event.preventDefault();
+        },
+        onSpaceKey(event, rowData, rowIndex, slotProps) {
+            this.onEnterKey(event, rowData, rowIndex);
+
+            if (event.shiftKey && this.selection !== null) {
+                const data = this.dataToRender(slotProps.rows);
+                let index;
+
+                if (this.selection.length > 0) {
+                    let firstSelectedRowIndex, lastSelectedRowIndex;
+
+                    firstSelectedRowIndex = ObjectUtils.findIndexInList(this.selection[0], data);
+                    lastSelectedRowIndex = ObjectUtils.findIndexInList(this.selection[this.selection.length - 1], data);
+
+                    index = rowIndex <= firstSelectedRowIndex ? lastSelectedRowIndex : firstSelectedRowIndex;
+                } else {
+                    index = ObjectUtils.findIndexInList(this.selection, data);
+                }
+
+                const _selection = index !== rowIndex ? data.slice(Math.min(index, rowIndex), Math.max(index, rowIndex) + 1) : rowData;
+
+                this.$emit('update:selection', _selection);
             }
         },
         findNextSelectableRow(row) {
@@ -1021,6 +1114,21 @@ export default {
             } else {
                 return null;
             }
+        },
+        findFirstSelectableRow() {
+            const firstRow = DomHandler.findSingle(this.$refs.table, '.p-selectable-row');
+
+            return firstRow;
+        },
+        findLastSelectableRow() {
+            const rows = DomHandler.find(this.$refs.table, '.p-selectable-row');
+
+            return rows ? rows[rows.length - 1] : null;
+        },
+        focusRowChange(firstFocusableRow, currentFocusedRow) {
+            firstFocusableRow.tabIndex = '-1';
+            currentFocusedRow.tabIndex = '0';
+            DomHandler.focus(currentFocusedRow);
         },
         toggleRowWithRadio(event) {
             const rowData = event.data;

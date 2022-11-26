@@ -44,11 +44,6 @@ export interface SidebarProps {
      * Default value is true.
      */
     modal?: boolean | undefined;
-    /**
-     * Aria label of the close icon.
-     * Default value is 'close'.
-     */
-    ariaCloseLabel?: string | undefined;
 }
 
 export interface SidebarSlots {

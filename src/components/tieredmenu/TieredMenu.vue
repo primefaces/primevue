@@ -404,9 +404,8 @@ export default {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
 
-            DomHandler.focus(this.menubar);
-
             this.alignOverlay();
+            DomHandler.focus(this.menubar);
             this.scrollInView();
         },
         onAfterEnter() {

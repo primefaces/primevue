@@ -135,7 +135,7 @@ import AccordionTab from 'primevue/accordiontab';
 &lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
 &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
 
-&lt;Accordion :multiple="true" :activeIdex="active"&gt;
+&lt;Accordion :multiple="true" :activeIndex="active"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
 	&lt;/AccordionTab&gt;
@@ -411,8 +411,8 @@ export default {
         <p>The content uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.</p>
 
         <h6>Header Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
