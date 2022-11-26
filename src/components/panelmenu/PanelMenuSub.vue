@@ -42,6 +42,8 @@
                             :template="template"
                             :activeItemPath="activeItemPath"
                             :exact="exact"
+                            :collapse-icon="collapseIcon"
+                            :expand-icon="expandIcon"
                             @item-toggle="onItemToggle"
                         />
                     </div>
@@ -87,6 +89,14 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        collapseIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
+        expandIcon: {
+            type: String,
+            default: 'pi pi-chevron-right'
         }
     },
     methods: {
@@ -158,7 +168,7 @@ export default {
             return ['p-menuitem-icon', this.getItemProp(processedItem, 'icon')];
         },
         getItemToggleIconClass(processedItem) {
-            return ['p-submenu-icon', this.isItemActive(processedItem) ? 'pi pi-fw pi-chevron-down' : 'pi pi-fw pi-chevron-right'];
+            return ['p-submenu-icon', 'pi-fw', this.isItemActive(processedItem) ? this.collapseIcon : this.expandIcon];
         },
         getSeparatorItemClass(processedItem) {
             return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
