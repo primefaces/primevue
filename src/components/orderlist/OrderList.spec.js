@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import OrderList from './OrderList.vue';
 
 describe('OrderList.vue', () => {
@@ -6,6 +7,9 @@ describe('OrderList.vue', () => {
 
     beforeEach(() => {
         wrapper = mount(OrderList, {
+            global: {
+                plugins: [PrimeVue]
+            },
             props: {
                 modelValue: [
                     {

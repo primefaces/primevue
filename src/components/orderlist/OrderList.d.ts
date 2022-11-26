@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface OrderListReorderEvent {
@@ -66,6 +66,14 @@ export interface OrderListProps {
      */
     stripedRows?: boolean | undefined;
     /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     *  Uses to pass all properties of the HTMLAttributes to the list element.
+     */
+    listProps?: HTMLAttributes | undefined;
+    /**
      * Icon to display in the move up button.
      * Default value is "pi pi-angle-up".
      */
@@ -85,6 +93,30 @@ export interface OrderListProps {
      * Default value is "pi pi-angle-double-down".
      */
     moveBottomIcon?: string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.
+     */
+    moveUpButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.
+     */
+    moveTopButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.
+     */
+    moveDownButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
+     */
+    moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Defines a string value that labels an interactive list element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying list element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface OrderListSlots {

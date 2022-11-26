@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import PieChartDoc from './PieChartDoc';
 import EventBus from '@/AppEventBus';
+import PieChartDoc from './PieChartDoc';
 
 export default {
     themeChangeListener: null,

@@ -49,6 +49,12 @@ const OrderListProps = [
         description: 'Whether to displays rows with alternating colors.'
     },
     {
+        name: 'tabindex',
+        type: 'number',
+        default: '0',
+        description: 'Index of the element in tabbing order.'
+    },
+    {
         name: 'moveUpIcon',
         type: 'string',
         default: 'pi pi-angle-up',
@@ -71,6 +77,42 @@ const OrderListProps = [
         type: 'string',
         default: 'pi pi-angle-double-down',
         description: 'Icon to display in the move bottom button.'
+    },
+    {
+        name: 'moveUpButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.'
+    },
+    {
+        name: 'moveTopButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.'
+    },
+    {
+        name: 'moveDownButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.'
+    },
+    {
+        name: 'moveBottomButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying menu element.'
     }
 ];
 

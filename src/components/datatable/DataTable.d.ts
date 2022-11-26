@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 import { VirtualScrollerProps } from '../virtualscroller';
 
@@ -775,6 +775,14 @@ export interface DataTableProps {
      * Style class of the table element.
      */
     tableClass?: any;
+    /**
+     * Uses to pass all properties of the TableHTMLAttributes to table element inside the component.
+     */
+    tableProps?: TableHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
+     */
+    filterInputProps?: InputHTMLAttributes | undefined;
 }
 
 export interface DataTableSlots {
