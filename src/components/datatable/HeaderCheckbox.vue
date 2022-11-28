@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { DomHandler } from 'primevue/utils';
+
 export default {
     name: 'HeaderCheckbox',
     emits: ['change'],
@@ -25,11 +27,12 @@ export default {
     methods: {
         onClick(event) {
             if (!this.disabled) {
-                this.focused = true;
                 this.$emit('change', {
                     originalEvent: event,
                     checked: !this.checked
                 });
+
+                DomHandler.focus(this.$refs.input);
             }
         },
         onFocus() {

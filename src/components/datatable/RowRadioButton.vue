@@ -1,7 +1,7 @@
 <template>
-    <div :class="['p-radiobutton p-component', { 'p-radiobutton-focused': focused }]">
+    <div :class="['p-radiobutton p-component', { 'p-radiobutton-focused': focused }]" @click="onClick">
         <div class="p-hidden-accessible">
-            <input ref="input" type="radio" :checked="checked" :disabled="$attrs.disabled" @click="onClick" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick" />
+            <input ref="input" type="radio" :checked="checked" :disabled="$attrs.disabled" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick" />
         </div>
         <div ref="box" :class="['p-radiobutton-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]">
             <div class="p-radiobutton-icon"></div>
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { DomHandler } from 'primevue/utils';
+
 export default {
     name: 'RowRadioButton',
     inheritAttrs: false,
@@ -31,6 +33,8 @@ export default {
                         originalEvent: event,
                         data: this.value
                     });
+
+                    DomHandler.focus(this.$refs.input);
                 }
             }
         },

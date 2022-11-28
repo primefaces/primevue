@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { DomHandler } from 'primevue/utils';
+
 export default {
     name: 'RowCheckbox',
     emits: ['change'],
@@ -25,15 +27,15 @@ export default {
     methods: {
         onClick(event) {
             if (!this.$attrs.disabled) {
-                this.focused = true;
                 this.$emit('change', {
                     originalEvent: event,
                     data: this.value
                 });
+
+                DomHandler.focus(this.$refs.input);
             }
 
             event.preventDefault();
-            event.stopPropagation();
         },
         onFocus() {
             this.focused = true;
