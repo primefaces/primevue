@@ -1003,6 +1003,10 @@ export default {
                         this.onSpaceKey(event, rowData, rowIndex, slotProps);
                         break;
 
+                    case 'Tab':
+                        !event.shiftKey && this.onTabKey(rowIndex);
+                        break;
+
                     default:
                         if (event.code === 'KeyA' && metaKey) {
                             const data = this.dataToRender(slotProps.rows);
@@ -1094,6 +1098,14 @@ export default {
 
                 this.$emit('update:selection', _selection);
             }
+        },
+        onTabKey(rowIndex) {
+            const rows = DomHandler.find(this.$refs.table, '.p-selectable-row');
+            const firstSelectedRow = DomHandler.findSingle(this.$refs.table, '.p-highlight');
+            const firstRow = this.findFirstSelectableRow();
+
+            firstSelectedRow ? (firstSelectedRow.tabIndex = '0') : (firstRow.tabIndex = '0');
+            firstRow !== rows[rowIndex] && (rows[rowIndex].tabIndex = '-1');
         },
         findNextSelectableRow(row) {
             let nextRow = row.nextElementSibling;
