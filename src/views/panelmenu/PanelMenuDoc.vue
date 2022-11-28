@@ -650,6 +650,10 @@ export default {
                         </td>
                         <td>If node is open, closes the node otherwise moves focus to the parent node.</td>
                     </tr>
+                    <tr>
+                        <td><i>any printable character</i></td>
+                        <td>Moves focus to the visible option whose label starts with the characters being typed.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
