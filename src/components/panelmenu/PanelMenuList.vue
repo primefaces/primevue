@@ -47,6 +47,8 @@ export default {
             default: true
         }
     },
+    searchTimeout: null,
+    searchValue: null,
     data() {
         return {
             focused: false,
@@ -65,6 +67,9 @@ export default {
     methods: {
         getItemProp(processedItem, name) {
             return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
+        },
+        getItemLabel(processedItem) {
+            return this.getItemProp(processedItem, 'label');
         },
         isItemVisible(processedItem) {
             return this.getItemProp(processedItem, 'visible') !== false;
@@ -85,8 +90,11 @@ export default {
         onBlur() {
             this.focused = false;
             this.focusedItem = null;
+            this.searchValue = '';
         },
         onKeyDown(event) {
+            const metaKey = event.metaKey || event.ctrlKey;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -131,6 +139,10 @@ export default {
                     break;
 
                 default:
+                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
+                        this.searchItems(event, event.key);
+                    }
+
                     break;
             }
         },
@@ -216,6 +228,9 @@ export default {
 
             return panel && panel.contains(element);
         },
+        isItemMatched(processedItem) {
+            return this.isValidItem(processedItem) && this.getItemLabel(processedItem).toLocaleLowerCase(this.searchLocale).startsWith(this.searchValue.toLocaleLowerCase(this.searchLocale));
+        },
         isVisibleItem(processedItem) {
             return !!processedItem && (processedItem.level === 0 || this.isItemActive(processedItem)) && this.isItemVisible(processedItem);
         },
@@ -239,6 +254,48 @@ export default {
             const matchedItem = index > 0 ? ObjectUtils.findLast(this.visibleItems.slice(0, index), (pItem) => this.isValidItem(pItem)) : undefined;
 
             return matchedItem || processedItem;
+        },
+        searchItems(event, char) {
+            this.searchValue = (this.searchValue || '') + char;
+
+            let matchedItem = null;
+            let matched = false;
+
+            if (ObjectUtils.isNotEmpty(this.focusedItem)) {
+                const focusedItemIndex = this.visibleItems.findIndex((processedItem) => processedItem.key === this.focusedItem.key);
+
+                matchedItem = this.visibleItems.slice(focusedItemIndex).find((processedItem) => this.isItemMatched(processedItem));
+                matchedItem = ObjectUtils.isEmpty(matchedItem) ? this.visibleItems.slice(0, focusedItemIndex).find((processedItem) => this.isItemMatched(processedItem)) : matchedItem;
+            } else {
+                matchedItem = this.visibleItems.find((processedItem) => this.isItemMatched(processedItem));
+            }
+
+            if (ObjectUtils.isNotEmpty(matchedItem)) {
+                matched = true;
+            }
+
+            if (ObjectUtils.isEmpty(matchedItem) && ObjectUtils.isEmpty(this.focusedItem)) {
+                matchedItem = this.findFirstItem();
+            }
+
+            if (ObjectUtils.isNotEmpty(matchedItem)) {
+                this.changeFocusedItem({
+                    originalEvent: event,
+                    processedItem: matchedItem,
+                    allowHeaderFocus: false
+                });
+            }
+
+            if (this.searchTimeout) {
+                clearTimeout(this.searchTimeout);
+            }
+
+            this.searchTimeout = setTimeout(() => {
+                this.searchValue = '';
+                this.searchTimeout = null;
+            }, 500);
+
+            return matched;
         },
         changeFocusedItem(event) {
             const { originalEvent, processedItem, focusOnNext, selfCheck, allowHeaderFocus = true } = event;
