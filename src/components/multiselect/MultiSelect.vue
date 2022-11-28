@@ -947,9 +947,7 @@ export default {
             }
 
             if (optionIndex === -1 && this.focusedOptionIndex === -1) {
-                const selectedIndex = this.findSelectedOptionIndex();
-
-                optionIndex = selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
+                optionIndex = this.findFirstFocusedOptionIndex();
             }
 
             if (optionIndex !== -1) {
