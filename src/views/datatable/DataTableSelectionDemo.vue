@@ -46,7 +46,7 @@
             <div class="card">
                 <h5>Events</h5>
                 <p>row-select and row-unselects are available as selection events.</p>
-                <DataTable v-model:selection="selectedProduct2" :value="products" selectionMode="single" dataKey="id" @row-select="onRowSelect" @row-unselect="onRowUnselect" responsiveLayout="scroll">
+                <DataTable v-model:selection="selectedProduct2" :value="products" selectionMode="single" dataKey="id" :metaKeySelection="false" @row-select="onRowSelect" @row-unselect="onRowUnselect" responsiveLayout="scroll">
                     <Column field="code" header="Code"></Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="category" header="Category"></Column>
@@ -139,7 +139,7 @@ export default {
 
         <div class="card">
             <h5>Events</h5>
-            <DataTable :value="products" v-model:selection="selectedProduct2" selectionMode="single" dataKey="id"
+            <DataTable :value="products" v-model:selection="selectedProduct2" selectionMode="single" dataKey="id" :metaKeySelection="false"
                 @rowSelect="onRowSelect" @rowUnselect="onRowUnselect" responsiveLayout="scroll">
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
@@ -249,7 +249,7 @@ export default {
 
         <div class="card">
             <h5>Events</h5>
-            <DataTable :value="products" v-model:selection="selectedProduct2" selectionMode="single" dataKey="id"
+            <DataTable :value="products" v-model:selection="selectedProduct2" selectionMode="single" dataKey="id" :metaKeySelection="false"
                 @rowSelect="onRowSelect" @rowUnselect="onRowUnselect" responsiveLayout="scroll">
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
@@ -363,7 +363,7 @@ export default {
 
             <div class="card">
                 <h5>Events</h5>
-                <p-datatable :value="products" v-model:selection="selectedProduct2" selection-mode="single" dataKey="id"
+                <p-datatable :value="products" v-model:selection="selectedProduct2" selection-mode="single" data-key="id" :meta-key-selection="false"
                     @row-select="onRowSelect" @row-unselect="onRowUnselect" responsive-layout="scroll">
                     <p-column field="code" header="Code"></p-column>
                     <p-column field="name" header="Name"></p-column>
