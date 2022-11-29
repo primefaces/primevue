@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import DomHandler from '@/components/utils/DomHandler';
-import AppTopBar from '@/AppTopBar.vue';
-import AppMenu from '@/AppMenu.vue';
-import AppFooter from '@/AppFooter.vue';
 import AppConfigurator from '@/AppConfigurator.vue';
+import AppFooter from '@/AppFooter.vue';
+import AppMenu from '@/AppMenu.vue';
 import AppNews from '@/AppNews.vue';
+import AppTopBar from '@/AppTopBar.vue';
+import DomHandler from '@/components/utils/DomHandler';
 
 export default {
     data() {

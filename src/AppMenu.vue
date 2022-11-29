@@ -66,8 +66,8 @@
 </template>
 
 <script>
-import { FilterService, FilterMatchMode } from 'primevue/api';
 import menudata from '@/assets/menu/menu.json';
+import { FilterMatchMode, FilterService } from 'primevue/api';
 
 export default {
     props: {

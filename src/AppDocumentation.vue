@@ -1,7 +1,7 @@
 <script>
 import EventBus from '@/AppEventBus';
 import LiveEditor from './views/liveeditor/LiveEditor';
-import { services, data } from './views/liveeditor/LiveEditorData';
+import { data, services } from './views/liveeditor/LiveEditorData';
 
 export default {
     name: 'appdoc',
