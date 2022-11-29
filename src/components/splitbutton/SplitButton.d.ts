@@ -1,6 +1,6 @@
-import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type SplitButtonAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
 
@@ -34,13 +34,25 @@ export interface SplitButtonProps {
      */
     appendTo?: SplitButtonAppendToType;
     /**
+     * When present, it specifies that the element should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
      * Style class of the component.
      */
-    class?: any;
+    class?: any | undefined;
     /**
      * Inline style of the component.
      */
-    style?: any;
+    style?: any | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the default button.
+     */
+    buttonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the menu button.
+     */
+    menuButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface SplitButtonSlots {
