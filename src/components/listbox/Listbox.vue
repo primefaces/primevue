@@ -93,9 +93,9 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import { FilterService } from 'primevue/api';
 import Ripple from 'primevue/ripple';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
 
 export default {

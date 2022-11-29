@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import { UniqueComponentId } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Panel',
