@@ -7,7 +7,7 @@
             :class="['p-paginator-page p-paginator-element p-link', { 'p-highlight': pageLink - 1 === page }]"
             type="button"
             :aria-label="ariaPageLabel(pageLink)"
-            :aria-current="pageLink - 1 === page ? page : undefined"
+            :aria-current="pageLink - 1 === page ? 'page' : undefined"
             @click="onPageLinkClick($event, pageLink)"
         >
             {{ pageLink }}
