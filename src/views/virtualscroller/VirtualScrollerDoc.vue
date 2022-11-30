@@ -386,6 +386,13 @@ export default {
             </table>
         </div>
 
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>VirtualScroller has no specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the container element.</p>
+
+        <h6>Keyboard Support</h6>
+        <p>Component does not include any built-in interactive elements.</p>
+
         <h5>Dependencies</h5>
         <p>None.</p>
     </AppDoc>
