@@ -500,18 +500,14 @@ export default {
             this.updateModel(event, null);
         },
         onFirstHiddenFocus(event) {
-            const relatedTarget = event.relatedTarget;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
 
-            if (relatedTarget === this.$refs.focusInput) {
-                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
-
-                DomHandler.focus(firstFocusableEl);
-            } else {
-                DomHandler.focus(this.$refs.focusInput);
-            }
+            DomHandler.focus(focusableEl);
         },
-        onLastHiddenFocus() {
-            DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
+        onLastHiddenFocus(event) {
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
+
+            DomHandler.focus(focusableEl);
         },
         onOptionSelect(event, option, isHide = true) {
             const value = this.getOptionValue(option);

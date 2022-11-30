@@ -397,13 +397,19 @@ export default {
             isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
-            this.$emit('before-hide');
-            this.overlayVisible = false;
-            this.focusedOptionIndex = -1;
-            this.searchValue = '';
+            const _hide = () => {
+                this.$emit('before-hide');
+                this.overlayVisible = false;
+                this.focusedOptionIndex = -1;
+                this.searchValue = '';
 
-            this.resetFilterOnHide && (this.filterValue = null);
-            isFocus && DomHandler.focus(this.$refs.focusInput);
+                this.resetFilterOnHide && (this.filterValue = null);
+                isFocus && DomHandler.focus(this.$refs.focusInput);
+            };
+
+            setTimeout(() => {
+                _hide();
+            }, 0); // For ScreenReaders
         },
         onFocus(event) {
             this.focused = true;
@@ -492,18 +498,14 @@ export default {
             }
         },
         onFirstHiddenFocus(event) {
-            const relatedTarget = event.relatedTarget;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
 
-            if (relatedTarget === this.$refs.focusInput) {
-                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
-
-                DomHandler.focus(firstFocusableEl);
-            } else {
-                DomHandler.focus(this.$refs.focusInput);
-            }
+            DomHandler.focus(focusableEl);
         },
-        onLastHiddenFocus() {
-            DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
+        onLastHiddenFocus(event) {
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
+
+            DomHandler.focus(focusableEl);
         },
         onCloseClick() {
             this.hide(true);
@@ -725,7 +727,7 @@ export default {
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
                 if (this.overlayVisible && this.hasFocusableElements()) {
-                    DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
+                    DomHandler.focus(event.shiftKey ? this.$refs.lastHiddenFocusableElementOnOverlay : this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
                 } else {
