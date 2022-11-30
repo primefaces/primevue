@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 import GalleriaContent from './GalleriaContent.vue';
@@ -206,6 +207,9 @@ export default {
     components: {
         GalleriaContent: GalleriaContent,
         Portal: Portal
+    },
+    directives: {
+        focustrap: FocusTrap
     }
 };
 </script>
