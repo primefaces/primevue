@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type CarouselOrientationType = 'horizontal' | 'vertical' | undefined;
@@ -85,6 +85,14 @@ export interface CarouselProps {
      * Default value is true.
      */
     showIndicators?: boolean | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the previous navigation button.
+     */
+    prevButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the next navigation button.
+     */
+    nextButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface CarouselSlots {

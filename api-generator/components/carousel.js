@@ -82,6 +82,18 @@ const CarouselProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to display indicator container.'
+    },
+    {
+        name: 'prevButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the previous navigation button.'
+    },
+    {
+        name: 'nextButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the next navigation button.'
     }
 ];
 
