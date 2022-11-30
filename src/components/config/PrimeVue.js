@@ -107,7 +107,9 @@ const defaultOptions = {
             saveEdit: 'Save Edit',
             cancelEdit: 'Cancel Edit',
             listView: 'List View',
-            gridView: 'Grid View'
+            gridView: 'Grid View',
+            slide: 'Slide',
+            slideNumber: '{slideNumber}'
         }
     },
     filterMatchModeOptions: {

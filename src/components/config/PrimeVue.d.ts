@@ -52,6 +52,10 @@ interface PrimeVueLocaleAriaOptions {
     editRow?: string;
     saveEdit?: string;
     cancelEdit?: string;
+    listView?: string;
+    gridView?: string;
+    slide?: string;
+    slideNumber?: string;
 }
 
 interface PrimeVueLocaleOptions {
