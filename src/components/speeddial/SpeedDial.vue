@@ -523,10 +523,6 @@ export default {
 </script>
 
 <style>
-.p-focus .p-speeddial-action {
-    background: #022354;
-    color: #fff;
-}
 .p-speeddial {
     position: absolute;
     display: flex;
