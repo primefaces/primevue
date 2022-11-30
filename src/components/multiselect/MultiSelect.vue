@@ -845,7 +845,7 @@ export default {
             if (this.selectAll !== null) {
                 this.$emit('selectall-change', { originalEvent: event, checked: !this.allSelected });
             } else {
-                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => !this.isOptionDisabled(option) && !this.isOptionGroup(option)).map((option) => this.getOptionValue(option));
+                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
 
                 this.updateModel(event, value);
             }
@@ -1107,9 +1107,7 @@ export default {
             return label;
         },
         allSelected() {
-            return this.selectAll !== null
-                ? this.selectAll
-                : ObjectUtils.isNotEmpty(this.visibleOptions) && this.visibleOptions.filter((option) => !this.isOptionDisabled(option)).every((option) => this.isOptionGroup(option) || this.isValidSelectedOption(option));
+            return this.selectAll !== null ? this.selectAll : ObjectUtils.isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isOptionDisabled(option) || this.isSelected(option));
         },
         hasSelectedOption() {
             return ObjectUtils.isNotEmpty(this.modelValue);
