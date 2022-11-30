@@ -170,7 +170,12 @@ locale: {
         listView: 'List View',
         gridView: 'Grid View',
         slide: 'Slide',
-        slideNumber: '{slideNumber}'
+        slideNumber: '{slideNumber}',
+        zoomImage: 'Zoom Image',
+        zoomIn: 'Zoom In',
+        zoomOut: 'Zoom Out',
+        rotateRight: 'Rotate Right',
+        rotateLeft: 'Rotate Left'
     }
 }
 

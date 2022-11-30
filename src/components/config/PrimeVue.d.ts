@@ -56,6 +56,11 @@ interface PrimeVueLocaleAriaOptions {
     gridView?: string;
     slide?: string;
     slideNumber?: string;
+    zoomImage?: string;
+    zoomIn?: string;
+    zoomOut?: string;
+    rotateRight?: string;
+    rotateLeft?: string;
 }
 
 interface PrimeVueLocaleOptions {
