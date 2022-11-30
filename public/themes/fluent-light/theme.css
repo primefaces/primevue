@@ -3424,14 +3424,16 @@
   background: #f3f2f1;
   color: #323130;
 }
-.p-picklist .p-picklist-list .p-picklist-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.15rem #605e5c;
+.p-picklist .p-picklist-list .p-picklist-item.p-focus {
+  color: #323130;
+  background: #e1dfdd;
 }
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
   color: #323130;
   background: #edebe9;
+}
+.p-picklist .p-picklist-list .p-picklist-item.p-highlight.p-focus {
+  background: #e1dfdd;
 }
 .p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
   background: #faf9f8;

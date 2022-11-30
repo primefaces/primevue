@@ -3289,11 +3289,11 @@
   background: #e5e7eb;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
-  color: #3f3f46;
-  background: #f4f4f5;
+  color: #312E81;
+  background: #EEF2FF;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight.p-focus {
-  background: #f4f4f5;
+  background: #E0E7FF;
 }
 .p-orderlist.p-orderlist-striped .p-orderlist-list .p-orderlist-item:nth-child(even) {
   background: #fcfcfc;
@@ -3459,14 +3459,16 @@
   background: #f4f4f5;
   color: #18181B;
 }
-.p-picklist .p-picklist-list .p-picklist-item:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: inset 0 0 0 0.15rem #6366F1;
+.p-picklist .p-picklist-list .p-picklist-item.p-focus {
+  color: #18181B;
+  background: #e5e7eb;
 }
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
   color: #312E81;
   background: #EEF2FF;
+}
+.p-picklist .p-picklist-list .p-picklist-item.p-highlight.p-focus {
+  background: #E0E7FF;
 }
 .p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
   background: #fcfcfc;
