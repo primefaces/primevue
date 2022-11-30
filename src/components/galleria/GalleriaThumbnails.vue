@@ -1,11 +1,11 @@
 <template>
     <div class="p-galleria-thumbnail-wrapper">
         <div class="p-galleria-thumbnail-container">
-            <button v-if="showThumbnailNavigators" v-ripple :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" type="button">
+            <button v-if="showThumbnailNavigators" v-ripple :class="navBackwardClass" :disabled="isNavBackwardDisabled()" type="button" :aria-label="ariaPrevButtonLabel" @click="navBackward($event)" v-bind="prevButtonProps">
                 <span :class="navBackwardIconClass"></span>
             </button>
             <div class="p-galleria-thumbnail-items-container" :style="{ height: isVertical ? contentHeight : '' }">
-                <div ref="itemsContainer" class="p-galleria-thumbnail-items" @transitionend="onTransitionEnd" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)">
+                <div ref="itemsContainer" class="p-galleria-thumbnail-items" role="tablist" @transitionend="onTransitionEnd" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)">
                     <div
                         v-for="(item, index) of value"
                         :key="`p-galleria-thumbnail-item-${index}`"
@@ -18,14 +18,18 @@
                                 'p-galleria-thumbnail-item-end': lastItemActiveIndex() === index
                             }
                         ]"
+                        role="tab"
+                        :aria-selected="activeIndex === index"
+                        :aria-controls="containerId + '_item_' + index"
+                        @keydown="onThumbnailKeydown($event, index)"
                     >
-                        <div class="p-galleria-thumbnail-item-content" :tabindex="isItemActive(index) ? 0 : null" @click="onItemClick(index)" @keydown.enter="onItemClick(index)">
+                        <div class="p-galleria-thumbnail-item-content" :tabindex="activeIndex === index ? '0' : '-1'" :aria-label="ariaPageLabel(index + 1)" :aria-current="activeIndex === index ? 'page' : undefined" @click="onItemClick(index)">
                             <component v-if="templates.thumbnail" :is="templates.thumbnail" :item="item" />
                         </div>
                     </div>
                 </div>
             </div>
-            <button v-if="showThumbnailNavigators" v-ripple :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" type="button">
+            <button v-if="showThumbnailNavigators" v-ripple :class="navForwardClass" :disabled="isNavForwardDisabled()" type="button" :aria-label="ariaNextButtonLabel" @click="navForward($event)" v-bind="nextButtonProps">
                 <span :class="navForwardIconClass"></span>
             </button>
         </div>
@@ -81,6 +85,14 @@ export default {
             default: true
         },
         templates: {
+            type: null,
+            default: null
+        },
+        prevButtonProps: {
+            type: null,
+            default: null
+        },
+        nextButtonProps: {
             type: null,
             default: null
         }
@@ -251,6 +263,89 @@ export default {
                 this.$emit('update:activeIndex', selectedItemIndex);
             }
         },
+        onThumbnailKeydown(event, index) {
+            if (event.code === 'Enter' || event.code === 'Space') {
+                this.onItemClick(index);
+                event.preventDefault();
+            }
+
+            switch (event.code) {
+                case 'ArrowRight':
+                    this.onRightKey();
+                    break;
+
+                case 'ArrowLeft':
+                    this.onLeftKey();
+                    break;
+
+                case 'Home':
+                    this.onHomeKey();
+                    event.preventDefault();
+                    break;
+
+                case 'End':
+                    this.onEndKey();
+                    event.preventDefault();
+                    break;
+
+                case 'ArrowUp':
+                case 'ArrowDown':
+                    event.preventDefault();
+                    break;
+
+                case 'Tab':
+                    this.onTabKey();
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onRightKey() {
+            const indicators = DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item');
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, activeIndex + 1 === indicators.length ? indicators.length - 1 : activeIndex + 1);
+        },
+        onLeftKey() {
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, activeIndex - 1 <= 0 ? 0 : activeIndex - 1);
+        },
+        onHomeKey() {
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, 0);
+        },
+        onEndKey() {
+            const indicators = DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item');
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, indicators.length - 1);
+        },
+        onTabKey() {
+            const indicators = [...DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item')];
+            const highlightedIndex = indicators.findIndex((ind) => DomHandler.hasClass(ind, 'p-galleria-thumbnail-item-current'));
+
+            const activeIndicator = DomHandler.findSingle(this.$refs.itemsContainer, '.p-galleria-thumbnail-item > [tabindex="0"');
+            const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);
+
+            indicators[activeIndex].children[0].tabIndex = '-1';
+            indicators[highlightedIndex].children[0].tabIndex = '0';
+        },
+        findFocusedIndicatorIndex() {
+            const indicators = [...DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item')];
+            const activeIndicator = DomHandler.findSingle(this.$refs.itemsContainer, '.p-galleria-thumbnail-item > [tabindex="0"]');
+
+            return indicators.findIndex((ind) => ind === activeIndicator.parentElement);
+        },
+        changedFocusedIndicator(prevInd, nextInd) {
+            const indicators = DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item');
+
+            indicators[prevInd].children[0].tabIndex = '-1';
+            indicators[nextInd].children[0].tabIndex = '0';
+            indicators[nextInd].children[0].focus();
+        },
         onTransitionEnd() {
             if (this.$refs.itemsContainer) {
                 DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
@@ -384,6 +479,9 @@ export default {
         },
         isItemActive(index) {
             return this.firstItemAciveIndex() <= index && this.lastItemActiveIndex() >= index;
+        },
+        ariaPageLabel(value) {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.pageLabel.replace(/{page}/g, value) : undefined;
         }
     },
     computed: {
@@ -420,6 +518,12 @@ export default {
                     'pi-chevron-down': this.isVertical
                 }
             ];
+        },
+        ariaPrevButtonLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.prevPageLabel : undefined;
+        },
+        ariaNextButtonLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;
         }
     },
     directives: {

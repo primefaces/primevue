@@ -142,6 +142,24 @@ const GalleriaProps = [
         type: 'any',
         default: 'null',
         description: "Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used."
+    },
+    {
+        name: 'containerProps',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLDivElement to the container element on fullscreen mode.'
+    },
+    {
+        name: 'prevButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the previous navigation button.'
+    },
+    {
+        name: 'nextButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the next navigation button.'
     }
 ];
 
