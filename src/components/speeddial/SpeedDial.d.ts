@@ -111,6 +111,18 @@ export interface SpeedDialProps {
      * @see SpeedDialTooltipOptions
      */
     tooltipOptions?: SpeedDialTooltipOptions;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     * Defines a string value that labels an interactive list element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying list element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface SpeedDialSlots {
