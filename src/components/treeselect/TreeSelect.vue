@@ -44,7 +44,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps" @keydown="onOverlayKeydown">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
                         <TSTree
@@ -74,11 +74,11 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Tree from 'primevue/tree';
-import Ripple from 'primevue/ripple';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import Tree from 'primevue/tree';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'TreeSelect',
@@ -370,6 +370,9 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
+        },
+        onOverlayKeydown(event) {
+            if (event.code === 'Escape') this.hide();
         },
         findSelectedNodes(node, keys, selectedNodes) {
             if (node) {
