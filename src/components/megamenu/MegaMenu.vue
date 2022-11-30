@@ -243,7 +243,16 @@ export default {
                 this.dirty = !root;
                 DomHandler.focus(this.menubar);
             } else {
-                grouped ? this.onItemChange(event) : this.hide(originalEvent, !root);
+                if (grouped) {
+                    this.onItemChange(event);
+                } else {
+                    const rootProcessedItem = root ? processedItem : this.activeItem;
+
+                    this.hide(originalEvent);
+                    this.changeFocusedItemInfo(originalEvent, rootProcessedItem ? rootProcessedItem.index : -1);
+
+                    DomHandler.focus(this.menubar);
+                }
             }
         },
         onItemMouseEnter(event) {

@@ -275,8 +275,13 @@ export default {
                 if (grouped) {
                     this.onItemChange(event);
                 } else {
-                    this.hide(originalEvent, true);
+                    const rootProcessedItem = root ? processedItem : this.activeItemPath.find((p) => p.parentKey === '');
+
+                    this.hide(originalEvent);
+                    this.changeFocusedItemIndex(originalEvent, rootProcessedItem ? rootProcessedItem.index : -1);
+
                     this.mobileActive = false;
+                    DomHandler.focus(this.menubar);
                 }
             }
         },
