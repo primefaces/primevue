@@ -407,12 +407,12 @@ import PickList from 'primevue/picklist';
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
         <p>
-            Value to describe the source listbox and target listbox can be provided with <i>sourceListProps</i> and <i>targetListProps</i> by passing <i>aria-labelledby</i> or <i>aria-label</i> props. The list elements has a <i>listbox</i> role with
-            the <i>aria-multiselectable</i> attribute. Each list item has an <i>option</i> role with <i>aria-selected</i> and <i>aria-disabled</i> as their attributes.
+            Value to describe the source listbox and target listbox can be provided with <i>sourceListProps</i> and <i>targetListProps</i> by passing <i>aria-labelledby</i> or <i>aria-label</i> props. The list elements has a{' '} <i>listbox</i> role
+            with the <i>aria-multiselectable</i> attribute. Each list item has an <i>option</i> role with <i>aria-selected</i> and <i>aria-disabled</i> as their attributes.
         </p>
         <p>
-            Controls buttons are <i>button</i> elements with an <i>aria-label</i> that refers to the <i>aria.moveTop</i>, <i>aria.moveUp</i>, <i>aria.moveDown</i>, <i>aria.moveBottom</i>,<i>aria.moveTo</i>, <i>aria.moveAllTo</i>,
-            <i>aria.moveFrom</i> and <i>aria.moveAllFrom</i> properties of the <router-link to="/locale">locale</router-link> API by default, alternatively you may use <i>moveTopButtonProps</i>, <i>moveUpButtonProps</i>, <i>moveDownButtonProps</i>,
+            Controls buttons are <i>button</i> elements with an <i>aria-label</i> that refers to the <i>aria.moveTop</i>, <i>aria.moveUp</i>, <i>aria.moveDown</i>, <i>aria.moveBottom</i>,<i>aria.moveTo</i>, <i>aria.moveAllTo</i>,{' '}
+            <i>aria.moveFrom</i> and <i>aria.moveAllFrom</i> properties of the <Link href="/locale">locale</Link> API by default, alternatively you may use <i>moveTopButtonProps</i>, <i>moveUpButtonProps</i>, <i>moveDownButtonProps</i>,
             <i>moveToButtonProps</i>, <i>moveAllToButtonProps</i>, <i>moveFromButtonProps</i>, <i>moveFromButtonProps</i> and{' '} <i>moveAllFromButtonProps</i> to customize the buttons like overriding the default <i>aria-label</i> attributes.
         </p>
         <pre v-code><code><template v-pre>

@@ -106,8 +106,8 @@
 
 <script>
 import Button from 'primevue/button';
+import { ObjectUtils, UniqueComponentId, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
-import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'PickList',
@@ -881,7 +881,6 @@ export default {
     overflow: auto;
     min-height: 12rem;
     max-height: 24rem;
-    outline: none;
 }
 
 .p-picklist-item {

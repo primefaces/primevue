@@ -3424,16 +3424,14 @@
   background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.87);
 }
-.p-picklist .p-picklist-list .p-picklist-item.p-focus {
-  color: rgba(255, 255, 255, 0.87);
-  background: #0b213f;
+.p-picklist .p-picklist-list .p-picklist-item:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 0.15rem rgba(147, 197, 253, 0.5);
 }
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
   color: rgba(255, 255, 255, 0.87);
   background: rgba(147, 197, 253, 0.16);
-}
-.p-picklist .p-picklist-list .p-picklist-item.p-highlight.p-focus {
-  background: rgba(147, 197, 253, 0.24);
 }
 .p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
   background: rgba(255, 255, 255, 0.01);

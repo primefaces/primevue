@@ -3448,16 +3448,14 @@
   background: rgba(255, 255, 255, 0.04);
   color: rgba(255, 255, 255, 0.87);
 }
-.p-picklist .p-picklist-list .p-picklist-item.p-focus {
-  color: rgba(255, 255, 255, 0.87);
-  background: rgba(255, 255, 255, 0.12);
+.p-picklist .p-picklist-list .p-picklist-item:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
 }
 .p-picklist .p-picklist-list .p-picklist-item.p-highlight {
-  color: rgba(255, 255, 255, 0.87);
-  background: rgba(255, 255, 255, 0.04);
-}
-.p-picklist .p-picklist-list .p-picklist-item.p-highlight.p-focus {
-  background: rgba(255, 255, 255, 0.04);
+  color: #CE93D8;
+  background: rgba(206, 147, 216, 0.16);
 }
 .p-picklist.p-picklist-striped .p-picklist-list .p-picklist-item:nth-child(even) {
   background: rgba(255, 255, 255, 0.02);
