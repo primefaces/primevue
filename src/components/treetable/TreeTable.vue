@@ -857,8 +857,8 @@ export default {
 
             if (this.selectionMode) {
                 if (!this.isNodeSelected(node) && index === 0 && !this.hasASelectedNode) return 0;
-            } else {
-                if (index === 0) return 0;
+            } else if (!this.selectionMode && index === 0) {
+                return 0;
             }
 
             return -1;
