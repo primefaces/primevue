@@ -125,18 +125,6 @@ const PickListProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.'
-    },
-    {
-        name: 'aria-label',
-        type: 'string',
-        default: 'null',
-        description: 'Defines a string value that labels an interactive element.'
-    },
-    {
-        name: 'aria-labelledby',
-        type: 'string',
-        default: 'null',
-        description: 'Identifier of the underlying menu element.'
     }
 ];
 

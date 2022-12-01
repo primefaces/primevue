@@ -147,14 +147,6 @@ export interface PickListProps {
      * Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.
      */
     moveAllToSourceProps?: ButtonHTMLAttributes | undefined;
-    /**
-     * Defines a string value that labels an interactive list element.
-     */
-    'aria-label'?: string | undefined;
-    /**
-     * Identifier of the underlying list element.
-     */
-    'aria-labelledby'?: string | undefined;
 }
 
 export interface PickListSlots {

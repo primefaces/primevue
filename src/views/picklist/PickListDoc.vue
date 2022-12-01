@@ -223,18 +223,6 @@ import PickList from 'primevue/picklist';
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.</td>
                     </tr>
-                    <tr>
-                        <td>aria-label</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Defines a string value that labels an interactive element.</td>
-                    </tr>
-                    <tr>
-                        <td>aria-labelledby</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Identifier of the underlying menu element.</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -408,7 +396,7 @@ import PickList from 'primevue/picklist';
         <h6>Screen Reader</h6>
         <p>
             Value to describe the source listbox and target listbox can be provided with <i>sourceListProps</i> and <i>targetListProps</i> by passing <i>aria-labelledby</i> or <i>aria-label</i> props. The list elements has a <i>listbox</i> role with
-            the <i>aria-multiselectable</i> attribute. Each list item has an <i>option</i> role with <i>aria-selected</i> and <i>aria-disabled</i> as their attributes.
+            the <i>aria-multiselectable</i> attribute. Each list item has an <i>option</i> role with <i>aria-selected</i> as their attributes.
         </p>
         <p>
             Controls buttons are <i>button</i> elements with an <i>aria-label</i> that refers to the <i>aria.moveTop</i>, <i>aria.moveUp</i>, <i>aria.moveDown</i>, <i>aria.moveBottom</i>,<i>aria.moveToTarget</i>, <i>aria.moveAllToTarget</i>,

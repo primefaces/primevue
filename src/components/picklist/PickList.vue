@@ -22,8 +22,6 @@
                 role="listbox"
                 aria-multiselectable="true"
                 :aria-activedescendant="focused['sourceList'] ? focusedOptionId : undefined"
-                :aria-label="ariaLabel"
-                :aria-labelledby="ariaLabelledby"
                 :tabindex="sourceList && sourceList.length > 0 ? tabindex : -1"
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
@@ -68,8 +66,6 @@
                 role="listbox"
                 aria-multiselectable="true"
                 :aria-activedescendant="focused['targetList'] ? focusedOptionId : undefined"
-                :aria-label="ariaLabel"
-                :aria-labelledby="ariaLabelledby"
                 :tabindex="targetList && targetList.length > 0 ? tabindex : -1"
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
@@ -106,8 +102,8 @@
 
 <script>
 import Button from 'primevue/button';
-import { ObjectUtils, UniqueComponentId, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'PickList',
@@ -196,14 +192,6 @@ export default {
         tabindex: {
             type: Number,
             default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
         }
     },
     itemTouched: false,
@@ -881,6 +869,7 @@ export default {
     overflow: auto;
     min-height: 12rem;
     max-height: 24rem;
+    outline: none;
 }
 
 .p-picklist-item {
