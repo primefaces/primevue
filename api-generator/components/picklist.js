@@ -59,6 +59,84 @@ const PickListProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show buttons of target list.'
+    },
+    {
+        name: 'tabindex',
+        type: 'number',
+        default: '0',
+        description: 'Index of the list element in tabbing order.'
+    },
+    {
+        name: 'targetListProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLAttributes to the target list element.'
+    },
+    {
+        name: 'sourceListProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLAttributes to the source list element.'
+    },
+    {
+        name: 'moveUpButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.'
+    },
+    {
+        name: 'moveTopButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.'
+    },
+    {
+        name: 'moveDownButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.'
+    },
+    {
+        name: 'moveBottomButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.'
+    },
+    {
+        name: 'moveToTargetProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move to target button inside the component.'
+    },
+    {
+        name: 'moveAllToTargetProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move all to target button inside the component.'
+    },
+    {
+        name: 'moveToSourceProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move to source button inside the component.'
+    },
+    {
+        name: 'moveAllToSourceProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying menu element.'
     }
 ];
 

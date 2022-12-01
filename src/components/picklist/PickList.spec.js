@@ -1,12 +1,27 @@
-import { mount } from '@vue/test-utils';
+import { mount, config } from '@vue/test-utils';
 import PickList from './PickList.vue';
 
+config.global.mocks = {
+    $primevue: {
+        config: {
+            locale: {
+                aria: {
+                    moveUp: 'Move Up',
+                    moveDown: 'Move Down',
+                    moveTop: 'Move Top',
+                    moveBottom: 'Move Bottom'
+                }
+            }
+        }
+    }
+};
 describe('PickList.vue', () => {
     let wrapper;
 
     beforeEach(() => {
         wrapper = mount(PickList, {
             props: {
+                responsive: false,
                 modelValue: [
                     [
                         {
@@ -94,7 +109,7 @@ describe('PickList.vue', () => {
     });
 
     it('should select an item from source list', async () => {
-        await wrapper.vm.onItemClick({}, wrapper.vm.modelValue[0][0], 0);
+        await wrapper.vm.onItemClick({}, wrapper.vm.modelValue[0][0], 0, 0);
 
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual([[wrapper.vm.modelValue[0][0]], []]);
     });

@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import PickListDoc from './PickListDoc';
 import ProductService from '../../service/ProductService';
+import PickListDoc from './PickListDoc';
 
 export default {
     data() {
