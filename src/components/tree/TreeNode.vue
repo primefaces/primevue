@@ -127,9 +127,7 @@ export default {
         onKeyDown(event) {
             switch (event.code) {
                 case 'Tab':
-                    setTimeout(() => {
-                        this.onTabKey(event);
-                    }, 150);
+                    this.onTabKey(event);
 
                     break;
 
@@ -198,8 +196,9 @@ export default {
         onArrowRight(event) {
             if (this.leaf || this.expanded) return;
 
-            this.$emit('node-toggle', this.node);
+            event.currentTarget.tabIndex = -1;
 
+            this.$emit('node-toggle', this.node);
             this.$nextTick(() => {
                 this.onArrowDown(event);
             });
