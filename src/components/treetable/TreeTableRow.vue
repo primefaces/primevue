@@ -1,10 +1,7 @@
 <template>
     <tr
-        ref="currentNode"
+        ref="node"
         :class="containerClass"
-        @click="onClick"
-        @keydown="onKeyDown"
-        @touchend="onTouchEnd"
         :style="node.style"
         :tabindex="tabindex"
         role="row"
@@ -12,9 +9,11 @@
         :aria-level="level + 1"
         :aria-setsize="ariaSetSize"
         :aria-posinset="ariaPosInset"
-        :aria-label="ariaLabel"
         :aria-selected="getAriaSelected"
-        :aria-checked="getAriaChecked"
+        :aria-checked="checked || undefined"
+        @click="onClick"
+        @keydown="onKeyDown"
+        @touchend="onTouchEnd"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
             <TTBodyCell
@@ -41,16 +40,15 @@
             :node="childNode"
             :parentNode="node"
             :level="level + 1"
-            :tabindex="-1"
             :expandedKeys="expandedKeys"
             :selectionMode="selectionMode"
             :selectionKeys="selectionKeys"
             :indentation="indentation"
+            :ariaPosInset="node.children.indexOf(childNode) + 1"
+            :ariaSetSize="node.children.length"
             @node-toggle="$emit('node-toggle', $event)"
             @node-click="$emit('node-click', $event)"
             @checkbox-change="onCheckboxChange"
-            :ariaPosInset="node.children.indexOf(childNode) + 1"
-            :ariaSetSize="node.children.length"
         />
     </template>
 </template>
@@ -97,7 +95,7 @@ export default {
         },
         tabindex: {
             type: Number,
-            default: 0
+            default: -1
         },
         ariaSetSize: {
             type: Number,
@@ -106,14 +104,9 @@ export default {
         ariaPosInset: {
             type: Number,
             default: null
-        },
-        ariaLabel: {
-            type: String,
-            default: null
         }
     },
     nodeTouched: false,
-
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
@@ -140,13 +133,6 @@ export default {
         },
         onKeyDown(event, item) {
             switch (event.code) {
-                case 'Tab':
-                    setTimeout(() => {
-                        this.onTabKey(event);
-                    }, 1);
-
-                    break;
-
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
                     break;
@@ -176,64 +162,35 @@ export default {
                     this.onEnterKey(event, item);
                     break;
 
+                case 'Tab':
+                    this.onTabKey(event);
+                    break;
+
                 default:
                     break;
             }
         },
-        onTabKey() {
-            const nodes = this.$refs.currentNode.parentElement.querySelectorAll('tr');
-            const arrayNodes = [...nodes];
-            const hasSelectedNode = arrayNodes.some((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
-
-            arrayNodes.forEach((node) => {
-                node.tabIndex = -1;
-            });
-
-            if (hasSelectedNode) {
-                const selectedNodes = arrayNodes.filter((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
-
-                selectedNodes[selectedNodes.length - 1].tabIndex = 0;
-
-                return;
-            }
-
-            nodes[0].tabIndex = 0;
-        },
         onArrowDownKey(event) {
             const nextElementSibling = event.currentTarget.nextElementSibling;
 
-            if (nextElementSibling) {
-                event.currentTarget.tabIndex = -1;
-                nextElementSibling.tabIndex = 0;
-
-                DomHandler.focus(nextElementSibling);
-            }
+            nextElementSibling && this.focusRowChange(event.currentTarget, nextElementSibling);
 
             event.preventDefault();
         },
         onArrowUpKey(event) {
             const previousElementSibling = event.currentTarget.previousElementSibling;
 
-            if (previousElementSibling) {
-                event.currentTarget.tabIndex = -1;
-                previousElementSibling.tabIndex = 0;
-
-                DomHandler.focus(previousElementSibling);
-            }
+            previousElementSibling && this.focusRowChange(event.currentTarget, previousElementSibling);
 
             event.preventDefault();
         },
         onArrowRightKey(event) {
-            const ishiddenIcon = event.currentTarget.querySelector('button').style.visibility === 'hidden';
-            const togglerElement = this.$refs.currentNode.querySelector('.p-treetable-toggler');
+            const ishiddenIcon = DomHandler.findSingle(event.currentTarget, 'button').style.visibility === 'hidden';
+            const togglerElement = DomHandler.findSingle(this.$refs.node, '.p-treetable-toggler');
 
-            if (ishiddenIcon) {
-                return false;
-            }
+            if (ishiddenIcon) return;
 
-            if (!this.expanded) {
-                togglerElement.click();
-            }
+            !this.expanded && togglerElement.click();
 
             this.$nextTick(() => {
                 this.onArrowDownKey(event);
@@ -242,38 +199,33 @@ export default {
             event.preventDefault();
         },
         onArrowLeftKey(event) {
-            const ishiddenIcon = event.currentTarget?.querySelector('button').style.visibility === 'hidden';
-            const togglerElement = this.$refs.currentNode.querySelector('.p-treetable-toggler');
-
             if (this.level === 0 && !this.expanded) {
-                return false;
+                return;
             }
+
+            const currentTarget = event.currentTarget;
+            const ishiddenIcon = DomHandler.findSingle(currentTarget, 'button').style.visibility === 'hidden';
+            const togglerElement = DomHandler.findSingle(currentTarget, '.p-treetable-toggler');
 
             if (this.expanded && !ishiddenIcon) {
                 togglerElement.click();
 
-                return false;
+                return;
             }
 
-            const target = this.findBeforeClickableNode(event.currentTarget);
+            const target = this.findBeforeClickableNode(currentTarget);
 
-            if (target) {
-                event.currentTarget.tabIndex = -1;
-                target.tabIndex = 0;
-
-                DomHandler.focus(target);
-            }
+            target && this.focusRowChange(currentTarget, target);
         },
         onHomeKey(event) {
-            const findFirstElement = event.currentTarget.parentElement.querySelectorAll(`.p-treetable-node-${this.level}`)[0];
+            const findFirstElement = DomHandler.findSingle(event.currentTarget.parentElement, `tr[aria-level="${this.level + 1}"]`);
 
-            DomHandler.focus(findFirstElement);
+            findFirstElement && DomHandler.focus(findFirstElement);
 
             event.preventDefault();
         },
         onEndKey(event) {
-            const nodes = event.currentTarget.parentElement.querySelectorAll(`.p-treetable-node-${this.level}`);
-
+            const nodes = DomHandler.find(event.currentTarget.parentElement, `tr[aria-level="${this.level + 1}"]`);
             const findFirstElement = nodes[nodes.length - 1];
 
             DomHandler.focus(findFirstElement);
@@ -297,6 +249,29 @@ export default {
             });
 
             this.nodeTouched = false;
+        },
+        onTabKey() {
+            const rows = [...DomHandler.find(this.$refs.node.parentElement, 'tr')];
+            const hasSelectedRow = rows.some((row) => DomHandler.hasClass(row, 'p-highlight') || row.getAttribute('aria-checked') === 'true');
+
+            rows.forEach((row) => {
+                row.tabIndex = -1;
+            });
+
+            if (hasSelectedRow) {
+                const selectedNodes = rows.filter((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
+
+                selectedNodes[0].tabIndex = 0;
+
+                return;
+            }
+
+            rows[0].tabIndex = 0;
+        },
+        focusRowChange(firstFocusableRow, currentFocusedRow) {
+            firstFocusableRow.tabIndex = '-1';
+            currentFocusedRow.tabIndex = '0';
+            DomHandler.focus(currentFocusedRow);
         },
         findBeforeClickableNode(node) {
             const prevNode = node.previousElementSibling;
@@ -393,7 +368,7 @@ export default {
         },
         setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
-                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, 'tr')];
+                const elements = [...DomHandler.find(this.$refs.node.parentElement, 'tr')];
 
                 event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 
@@ -407,14 +382,10 @@ export default {
         containerClass() {
             return [
                 this.node.styleClass,
-                `p-treetable-node-${this.level}`,
                 {
                     'p-highlight': this.selected
                 }
             ];
-        },
-        hasChildren() {
-            return this.node.children && this.node.children.length > 0;
         },
         expanded() {
             return this.expandedKeys && this.expandedKeys[this.node.key] === true;
@@ -425,17 +396,11 @@ export default {
         selected() {
             return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.node.key] === true : false;
         },
-        childLevel() {
-            return this.level + 1;
-        },
         checked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].checked : false;
         },
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
-        },
-        getAriaChecked() {
-            return this.selectionMode === 'checkbox' ? this.checked : null;
         },
         getAriaSelected() {
             return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : null;

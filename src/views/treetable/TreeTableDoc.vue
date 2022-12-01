@@ -1763,7 +1763,7 @@ export default {
 
         <p>Row elements manage <i>aria-expanded</i> for state along with <i>aria-posinset</i>, <i>aria-setsize</i> and <i>aria-level</i> attribute to define the hierachy.</p>
 
-        <p>When selection is enabled, <i>aria-selected</i> is set to true on a row. In checkbox mode, the built-in checkbox component use <i>checkbox</i> role with <i>aria-checked</i> state attribute.</p>
+        <p>When selection is enabled, <i>aria-selected</i> is set to true on a row. In checkbox mode, TreeTable component uses a hidden native checkbox element.</p>
 
         <p>Editable cells use custom templating so you need to manage aria roles and attributes manually if required.</p>
 
