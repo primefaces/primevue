@@ -270,6 +270,7 @@ export default {
                 case 'Enter':
                 case 'Space':
                     this.toggleMenu();
+                    event.preventDefault();
                     break;
 
                 case 'Escape':
