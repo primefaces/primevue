@@ -1,11 +1,11 @@
 <template>
-    <td :style="containerStyle" :class="containerClass">
+    <td :style="containerStyle" :class="containerClass" role="cell">
         <button v-if="columnProp('expander')" v-ripple type="button" class="p-treetable-toggler p-link" @click="toggle" :style="togglerStyle" tabindex="-1">
             <i :class="togglerIcon"></i>
         </button>
-        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox" role="checkbox" :aria-checked="checked">
+        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox">
             <div class="p-hidden-accessible">
-                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" />
+                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" />
             </div>
             <div ref="checkboxEl" :class="checkboxClass">
                 <span :class="checkboxIcon"></span>
@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'BodyCell',
