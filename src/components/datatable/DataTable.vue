@@ -1004,7 +1004,7 @@ export default {
                         break;
 
                     case 'Tab':
-                        !event.shiftKey && this.onTabKey(rowIndex);
+                        this.onTabKey(rowIndex);
                         break;
 
                     default:
