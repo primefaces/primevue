@@ -355,6 +355,18 @@ items: [
                         </td>
                         <td>Opens the menu and moves focus to the last item.</td>
                     </tr>
+                    <tr>
+                        <td>
+                            <i>right arrow</i>
+                        </td>
+                        <td>Opens the menu and moves focus to the last item.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>left arrow</i>
+                        </td>
+                        <td>Opens the menu and moves focus to the first item.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

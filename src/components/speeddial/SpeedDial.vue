@@ -1,21 +1,21 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="style">
         <slot name="button" :toggle="onClick">
-            <SDButton type="button" :class="buttonClassName" :icon="iconClassName" @click="onClick($event)" :disabled="disabled" @keydown="onTogglerKeydown" :aria-expanded="d_visible" :aria-haspopup="true" />
+            <SDButton
+                type="button"
+                :class="buttonClassName"
+                :icon="iconClassName"
+                @click="onClick($event)"
+                :disabled="disabled"
+                @keydown="onTogglerKeydown"
+                :aria-expanded="d_visible"
+                :aria-haspopup="true"
+                :aria-controls="id + '_list'"
+                :aria-label="ariaLabel"
+                :aria-labelledby="ariaLabelledby"
+            />
         </slot>
-        <ul
-            :ref="listRef"
-            :id="id + 'list'"
-            class="p-speeddial-list"
-            role="menu"
-            @focus="onFocus"
-            @blur="onBlur"
-            @keydown="onKeyDown"
-            :aria-activedescendant="focused ? focusedOptionId : undefined"
-            :tabindex="d_visible ? tabindex : -1"
-            :aria-label="ariaLabel"
-            :aria-labelledby="ariaLabelledby"
-        >
+        <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" :tabindex="d_visible ? tabindex : -1">
             <template v-for="(item, index) of model" :key="index">
                 <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" class="p-speeddial-item" :class="itemClass(`${id}_${index}`)" :style="getItemStyle(index)" role="menuitem">
                     <template v-if="!$slots.item">
@@ -197,11 +197,13 @@ export default {
         onTogglerKeydown(event) {
             switch (event.code) {
                 case 'ArrowDown':
+                case 'ArrowLeft':
                     this.onTogglerArrowDown(event);
 
                     break;
 
                 case 'ArrowUp':
+                case 'ArrowRight':
                     this.onTogglerArrowUp(event);
 
                     break;
@@ -292,7 +294,7 @@ export default {
             } else if (this.direction === 'down') {
                 this.navigateNextItem(event);
             } else {
-                this.navigateNextItem(event);
+                this.navigatePrevItem(event);
             }
         },
 
