@@ -168,6 +168,12 @@ const AutoCompleteProps = [
         description: 'Icon to display in dropdown'
     },
     {
+        name: 'dropdownClass',
+        type: 'string',
+        default: 'null',
+        description: 'Style class of the dropdown button.'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
         default: 'pi pi-spinner',

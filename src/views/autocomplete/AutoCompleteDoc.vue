@@ -322,6 +322,12 @@ export default {
                         <td>Icon to display in dropdown</td>
                     </tr>
                     <tr>
+                        <td>dropdownClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the dropdown button.</td>
+                    </tr>
+                    <tr>
                         <td>loadingIcon</td>
                         <td>string</td>
                         <td>pi pi-spinner</td>

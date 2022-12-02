@@ -84,7 +84,7 @@
             </li>
         </ul>
         <i v-if="searching" :class="loadingIconClass" aria-hidden="true"></i>
-        <Button v-if="dropdown" ref="dropdownButton" type="button" :icon="dropdownIcon" class="p-autocomplete-dropdown" tabindex="-1" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" />
+        <Button v-if="dropdown" ref="dropdownButton" type="button" :icon="dropdownIcon" :class="['p-autocomplete-dropdown', dropdownClass]" tabindex="-1" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" />
         <span role="status" aria-live="polite" class="p-hidden-accessible">
             {{ searchResultMessageText }}
         </span>
@@ -245,6 +245,10 @@ export default {
         dropdownIcon: {
             type: String,
             default: 'pi pi-chevron-down'
+        },
+        dropdownClass: {
+            type: String,
+            default: null
         },
         loadingIcon: {
             type: String,
