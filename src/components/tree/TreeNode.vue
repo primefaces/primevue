@@ -4,15 +4,17 @@
         :class="containerClass"
         role="treeitem"
         :aria-label="label(node)"
-        :aria-selected="selected"
+        :aria-selected="ariaSelected"
         :aria-expanded="expanded"
         :aria-setsize="node.children ? node.children.length : 0"
         :aria-posinset="index + 1"
         :aria-level="level"
-        :aria-checked="checked"
+        :aria-checked="ariaChecked"
+        :tabindex="index === 0 ? 0 : -1"
+        @keydown="onKeyDown"
     >
-        <div :class="contentClass" role="treeitem" :aria-expanded="expanded" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" :tabindex="index === 0 ? 0 : -1">
-            <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1">
+        <div :class="contentClass" @click="onClick" @touchend="onTouchEnd" :style="node.style">
+            <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" aria-hidden="true">
                 <span :class="toggleIcon"></span>
             </button>
             <div v-if="checkboxMode" class="p-checkbox p-component">
@@ -39,7 +41,6 @@
                 :selectionMode="selectionMode"
                 :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"
-                tabindex="-1"
             />
         </ul>
     </li>
@@ -117,6 +118,8 @@ export default {
             this.nodeTouched = true;
         },
         onKeyDown(event) {
+            if (!this.isSameNode(event)) return;
+
             switch (event.code) {
                 case 'Tab':
                     this.onTabKey(event);
@@ -135,15 +138,18 @@ export default {
 
                 case 'ArrowRight':
                     this.onArrowRight(event);
+
                     break;
 
                 case 'ArrowLeft':
                     this.onArrowLeft(event);
+
                     break;
 
                 case 'Enter':
                 case 'Space':
                     this.onEnterKey(event);
+
                     break;
 
                 default:
@@ -151,7 +157,7 @@ export default {
             }
         },
         onArrowDown(event) {
-            const nodeElement = event.target.parentElement;
+            const nodeElement = event.target;
             const listElement = nodeElement.children[1];
 
             if (listElement) {
@@ -171,7 +177,7 @@ export default {
             event.preventDefault();
         },
         onArrowUp(event) {
-            const nodeElement = event.target.parentElement;
+            const nodeElement = event.target;
 
             if (nodeElement.previousElementSibling) {
                 this.focusRowChange(nodeElement, nodeElement.previousElementSibling, this.findLastVisibleDescendant(nodeElement.previousElementSibling));
@@ -196,7 +202,7 @@ export default {
             });
         },
         onArrowLeft(event) {
-            const togglerElement = DomHandler.findSingle(this.$refs.currentNode, '.p-tree-toggler');
+            const togglerElement = DomHandler.findSingle(event.currentTarget, '.p-tree-toggler');
 
             if (this.level === 0 && !this.expanded) {
                 return false;
@@ -211,28 +217,26 @@ export default {
             const target = this.findBeforeClickableNode(event.currentTarget);
 
             if (target) {
-                event.currentTarget.tabIndex = -1;
-                target.tabIndex = 0;
-                DomHandler.focus(target);
+                this.focusRowChange(event.currentTarget, target);
             }
         },
         onEnterKey(event) {
-            event.preventDefault();
-
             this.setTabIndexForSelectionMode(event, this.nodeTouched);
             this.onClick(event);
+
+            event.preventDefault();
         },
         onTabKey() {
-            const nodes = DomHandler.find(this.$refs.currentNode.closest('.p-tree-container'), '.p-treenode-content');
+            const nodes = DomHandler.find(this.$refs.currentNode.closest('.p-tree-container'), '.p-treenode');
 
-            const hasSelectedNode = [...nodes].some((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
+            const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
 
             [...nodes].forEach((node) => {
                 node.tabIndex = -1;
             });
 
             if (hasSelectedNode) {
-                const selectedNodes = [...nodes].filter((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
+                const selectedNodes = [...nodes].filter((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
 
                 selectedNodes[0].tabIndex = 0;
 
@@ -243,7 +247,7 @@ export default {
         },
         setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
-                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '.p-treenode-content')];
+                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '.p-treenode')];
 
                 event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 
@@ -253,8 +257,8 @@ export default {
             }
         },
         focusRowChange(firstFocusableRow, currentFocusedRow, lastVisibleDescendant) {
-            DomHandler.findSingle(firstFocusableRow, `.p-treenode-content`).tabIndex = '-1';
-            DomHandler.findSingle(currentFocusedRow, `.p-treenode-content`).tabIndex = '0';
+            firstFocusableRow.tabIndex = '-1';
+            currentFocusedRow.tabIndex = '0';
 
             this.focusNode(lastVisibleDescendant || currentFocusedRow);
         },
@@ -265,7 +269,7 @@ export default {
                 const prevNodeButton = DomHandler.findSingle(parentListElement, 'button');
 
                 if (prevNodeButton && prevNodeButton.style.visibility !== 'hidden') {
-                    return DomHandler.findSingle(parentListElement, '.p-treenode-content');
+                    return parentListElement;
                 }
 
                 return this.findBeforeClickableNode(node.previousElementSibling);
@@ -353,10 +357,13 @@ export default {
             return DomHandler.hasClass(parentNodeElement, 'p-treenode') ? parentNodeElement : null;
         },
         focusNode(element) {
-            element.children[0].focus();
+            element.focus();
         },
         isCheckboxSelectionMode() {
             return this.selectionMode === 'checkbox';
+        },
+        isSameNode(event) {
+            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('.p-treenode')));
         }
     },
     computed: {
@@ -408,7 +415,13 @@ export default {
         },
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
-        }
+        },
+        ariaSelected() {
+            return this.selectionMode  === 'single' || this.selectionMode === 'multiple' ? this.selected: undefined;
+        },
+        ariaChecked() {
+            return this.checkboxMode ? this.checked : undefined;
+        },
     },
     directives: {
         ripple: Ripple
