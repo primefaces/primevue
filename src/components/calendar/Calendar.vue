@@ -9,6 +9,7 @@
             :class="['p-inputtext p-component', inputClass]"
             :style="inputStyle"
             :placeholder="placeholder"
+            autocomplete="off"
             aria-autocomplete="none"
             aria-haspopup="dialog"
             :aria-expanded="overlayVisible"
