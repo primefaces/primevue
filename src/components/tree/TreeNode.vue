@@ -80,7 +80,7 @@ export default {
         index: {
             type: Number,
             default: null
-        },
+        }
     },
     nodeTouched: false,
     methods: {
