@@ -480,46 +480,40 @@ export default {
                 event.preventDefault();
             }
 
-            switch (event.which) {
-                //up
-                case 38:
+            switch (event.code) {
+                case 'ArrowUp':
                     this.spin(event, 1);
                     event.preventDefault();
                     break;
 
-                //down
-                case 40:
+                case 'ArrowDown':
                     this.spin(event, -1);
                     event.preventDefault();
                     break;
 
-                //left
-                case 37:
+                case 'ArrowLeft':
                     if (!this.isNumeralChar(inputValue.charAt(selectionStart - 1))) {
                         event.preventDefault();
                     }
 
                     break;
 
-                //right
-                case 39:
+                case 'ArrowRight':
                     if (!this.isNumeralChar(inputValue.charAt(selectionStart))) {
                         event.preventDefault();
                     }
 
                     break;
 
-                //tab and enter
-                case 9:
-                case 13:
+                case 'Tab':
+                case 'Enter':
                     newValueStr = this.validateValue(this.parseValue(inputValue));
                     this.$refs.input.$el.value = this.formatValue(newValueStr);
                     this.$refs.input.$el.setAttribute('aria-valuenow', newValueStr);
                     this.updateModel(event, newValueStr);
                     break;
 
-                //backspace
-                case 8: {
+                case 'Backspace': {
                     event.preventDefault();
 
                     if (selectionStart === selectionEnd) {
@@ -561,8 +555,7 @@ export default {
                     break;
                 }
 
-                // del
-                case 46:
+                case 'Delete':
                     event.preventDefault();
 
                     if (selectionStart === selectionEnd) {
@@ -603,8 +596,7 @@ export default {
 
                     break;
 
-                //home
-                case 36:
+                case 'Home':
                     if (this.min) {
                         this.updateModel(event, this.min);
                         event.preventDefault();
@@ -612,8 +604,7 @@ export default {
 
                     break;
 
-                //end
-                case 35:
+                case 'End':
                     if (this.max) {
                         this.updateModel(event, this.max);
                         event.preventDefault();

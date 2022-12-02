@@ -821,7 +821,7 @@ export default {
             }
         },
         onColumnKeyDown(event, col) {
-            if (event.which === 13 && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+            if (event.code === 'Enter' && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
                 this.onColumnHeaderClick(event, col);
             }
         },

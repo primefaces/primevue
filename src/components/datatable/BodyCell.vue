@@ -240,17 +240,17 @@ export default {
         },
         onKeyDown(event) {
             if (this.editMode === 'cell') {
-                switch (event.which) {
-                    case 13:
+                switch (event.code) {
+                    case 'Enter':
                         this.completeEdit(event, 'enter');
                         break;
 
-                    case 27:
+                    case 'Escape':
                         this.switchCellToViewMode();
                         this.$emit('cell-edit-cancel', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
                         break;
 
-                    case 9:
+                    case 'Tab':
                         this.completeEdit(event, 'tab');
 
                         if (event.shiftKey) this.moveToPreviousCell(event);
