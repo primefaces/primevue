@@ -24,21 +24,9 @@
                         <component v-else :is="$slots.item" :item="item"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation">
+                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)">
                     <template v-if="!$slots.item">
-                        <a
-                            ref="tabLink"
-                            v-ripple
-                            role="menuitem"
-                            :href="item.url"
-                            class="p-menuitem-link"
-                            :target="item.target"
-                            :aria-label="label(item)"
-                            :aria-disabled="disabled(item)"
-                            :tabindex="setTabIndex(i)"
-                            @click="onItemClick($event, item, i)"
-                            @keydown="onKeydownItem($event, item, i)"
-                        >
+                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)">
                             <span v-if="item.icon" :class="getItemIcon(item)"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
