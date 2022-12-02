@@ -11,7 +11,7 @@
         :aria-level="level"
         :aria-checked="checked"
     >
-        <div :class="contentClass" role="treeitem" :aria-expanded="expanded" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" :tabindex="index === 0 ? 0 : tabIndex">
+        <div :class="contentClass" role="treeitem" :aria-expanded="expanded" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style" :tabindex="index === 0 ? 0 : -1">
             <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1">
                 <span :class="toggleIcon"></span>
             </button>
@@ -39,7 +39,7 @@
                 :selectionMode="selectionMode"
                 :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"
-                :tabindex="tabIndex"
+                tabindex="-1"
             />
         </ul>
     </li>
@@ -81,14 +81,6 @@ export default {
             type: Number,
             default: null
         },
-        tabIndex: {
-            type: Number,
-            default: -1
-        },
-        treeList: {
-            type: null,
-            default: null
-        }
     },
     nodeTouched: false,
     methods: {
@@ -269,7 +261,7 @@ export default {
         findBeforeClickableNode(node) {
             const parentListElement = node.closest('ul').closest('li');
 
-            if (node) {
+            if (parentListElement) {
                 const prevNodeButton = DomHandler.findSingle(parentListElement, 'button');
 
                 if (prevNodeButton && prevNodeButton.style.visibility !== 'hidden') {
