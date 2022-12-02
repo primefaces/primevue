@@ -18,24 +18,24 @@ describe('InputNumber.vue', () => {
     });
 
     it('is keydown called when down and up keys pressed', async () => {
-        await wrapper.vm.onInputKeyDown({ which: 38, target: { value: 1 }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'ArrowUp', target: { value: 1 }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([2]);
 
-        await wrapper.vm.onInputKeyDown({ which: 40, target: { value: 2 }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'ArrowDown', target: { value: 2 }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][1]).toEqual([1]);
     });
 
     it('is keydown called when tab key pressed', async () => {
-        await wrapper.vm.onInputKeyDown({ which: 9, target: { value: '12' }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'Tab', target: { value: '12' }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([12]);
         expect(wrapper.find('input.p-inputnumber-input').attributes()['aria-valuenow']).toBe('12');
     });
 
     it('is keydown called when enter key pressed', async () => {
-        await wrapper.vm.onInputKeyDown({ which: 13, target: { value: '12' }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'Enter', target: { value: '12' }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([12]);
         expect(wrapper.find('input.p-inputnumber-input').attributes()['aria-valuenow']).toBe('12');
@@ -60,11 +60,11 @@ describe('InputNumber.vue', () => {
     it('should have min boundary', async () => {
         await wrapper.setProps({ modelValue: 95, min: 95 });
 
-        await wrapper.vm.onInputKeyDown({ which: 40, target: { value: 96 }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'ArrowDown', target: { value: 96 }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([95]);
 
-        await wrapper.vm.onInputKeyDown({ which: 40, target: { value: 95 }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'ArrowDown', target: { value: 95 }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][1]).toEqual([95]);
     });
@@ -72,11 +72,11 @@ describe('InputNumber.vue', () => {
     it('should have max boundary', async () => {
         await wrapper.setProps({ modelValue: 99, max: 100 });
 
-        await wrapper.vm.onInputKeyDown({ which: 38, target: { value: 99 }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'ArrowUp', target: { value: 99 }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([100]);
 
-        await wrapper.vm.onInputKeyDown({ which: 38, target: { value: 100 }, preventDefault: () => {} });
+        await wrapper.vm.onInputKeyDown({ code: 'ArrowUp', target: { value: 100 }, preventDefault: () => {} });
 
         expect(wrapper.emitted()['update:modelValue'][1]).toEqual([100]);
     });
