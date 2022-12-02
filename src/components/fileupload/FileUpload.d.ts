@@ -213,9 +213,59 @@ export interface FileUploadProps {
 
 export interface FileUploadSlots {
     /**
+     * Custom header content template.
+     */
+    header: (scope: {
+        /**
+         * Files to upload.
+         */
+        files: File[];
+        /**
+         * Uploaded files.
+         */
+        uploadedFiles: File[];
+        /**
+         * Choose function
+         */
+        chooseCallback: () => void;
+        /**
+         * Upload function
+         */
+        uploadCallback: () => void;
+        /**
+         *  Clear function
+         */
+        clearCallback: () => void;
+    }) => VNode[];
+    /**
      * Custom uploaded content template.
      */
-    content: () => VNode[];
+    content: (scope: {
+        /**
+         * Files to upload.
+         */
+        files: File[];
+        /**
+         * Uploaded files.
+         */
+        uploadedFiles: File[];
+        /**
+         * Function to remove an uploaded file.
+         */
+        removeUploadedFileCallback: () => void;
+        /**
+         * Function to remove a file.
+         */
+        removeFileCallback: () => void;
+        /**
+         *  Uploaded progress as number.
+         */
+        progress: number;
+        /**
+         * Status messages about upload process.
+         */
+        messages: string | undefined;
+    }) => VNode[];
     /**
      * Custom content when there is no selected file.
      */
