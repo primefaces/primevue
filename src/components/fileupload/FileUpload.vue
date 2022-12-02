@@ -43,7 +43,7 @@ import FileContent from './FileContent.vue';
 
 export default {
     name: 'FileUpload',
-    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove', 'removeUploadedFile'],
+    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove', 'remove-uploaded-file'],
     props: {
         name: {
             type: String,
@@ -380,7 +380,7 @@ export default {
             let removedFile = this.uploadedFiles.splice(index, 1)[0];
 
             this.uploadedFiles = [...this.uploadedFiles];
-            this.$emit('removeUploadedFile', {
+            this.$emit('remove-uploaded-file', {
                 file: removedFile,
                 files: this.uploadedFiles
             });
