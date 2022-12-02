@@ -869,7 +869,6 @@ export default {
     overflow: auto;
     min-height: 12rem;
     max-height: 24rem;
-    outline: none;
 }
 
 .p-picklist-item {

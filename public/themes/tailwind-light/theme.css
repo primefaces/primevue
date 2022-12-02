@@ -3271,6 +3271,7 @@
   padding: 0.25rem 0;
   border-bottom-right-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
+  outline: 0 none;
 }
 .p-orderlist .p-orderlist-list .p-orderlist-item {
   padding: 0.75rem 1rem;
@@ -3446,6 +3447,7 @@
   padding: 0.25rem 0;
   border-bottom-right-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
+  outline: 0 none;
 }
 .p-picklist .p-picklist-list .p-picklist-item {
   padding: 0.75rem 1rem;
