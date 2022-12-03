@@ -11,6 +11,11 @@
                 {
                     "name": "Locale",
                     "to": "/locale"
+                },
+                {
+                    "name": "Roadmap",
+                    "to": "/roadmap",
+                    "badge": "NEW"
                 }
             ]
         },

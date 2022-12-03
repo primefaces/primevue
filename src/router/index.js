@@ -20,6 +20,11 @@ const routes = [
                 component: () => import('../views/setup/Setup.vue')
             },
             {
+                path: '/roadmap',
+                name: 'roadmap',
+                component: () => import('../views/roadmap/Roadmap.vue')
+            },
+            {
                 path: '/accessibility',
                 name: 'accessibility',
                 component: () => import('../views/accessibility/AccessibilityDemo.vue')
