@@ -4084,6 +4084,7 @@
   border: 1px solid #e0e0e0;
   padding: 1rem;
   border-radius: 4px;
+  gap: 0.5rem;
 }
 .p-toolbar .p-toolbar-separator {
   margin: 0 0.5rem;

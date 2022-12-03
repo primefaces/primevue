@@ -14,7 +14,7 @@ import Toolbar from 'primevue/toolbar';
 </code></pre>
 
         <h5>Getting Started</h5>
-        <p>Toolbar provides <i>start</i> and <i>end</i> templates to place content at these sections.</p>
+        <p>Toolbar provides <i>start</i>, <i>center</i> and <i>end</i> templates to place content at these sections.</p>
         <pre v-code><code>
 &lt;Toolbar&gt;
     &lt;template #start&gt;
@@ -71,12 +71,16 @@ import Toolbar from 'primevue/toolbar';
                         <td>Main container element.</td>
                     </tr>
                     <tr>
-                        <td>p-toolbar-group-left</td>
-                        <td>Left content container.</td>
+                        <td>p-toolbar-group-start</td>
+                        <td>Start content container.</td>
                     </tr>
                     <tr>
-                        <td>p-toolbar-group-right</td>
-                        <td>Right content container.</td>
+                        <td>p-toolbar-group-center</td>
+                        <td>Center content container.</td>
+                    </tr>
+                    <tr>
+                        <td>p-toolbar-group-end</td>
+                        <td>End content container.</td>
                     </tr>
                 </tbody>
             </table>

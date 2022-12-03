@@ -10,11 +10,15 @@ const ToolbarProps = [
 const ToolbarSlots = [
     {
         name: 'start',
-        description: "Custom content for the component's left side"
+        description: "Custom content for the beginning"
     },
     {
+        name: 'center',
+        description: "Custom content for the center"
+    }
+    {
         name: 'end',
-        description: "Custom content for the component's right side"
+        description: "Custom content for the end"
     }
 ];
 
