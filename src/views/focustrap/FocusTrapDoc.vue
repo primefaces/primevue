@@ -74,7 +74,7 @@ export default {
         <div class="flex justify-content-center p-fluid">
             <div v-focustrap class="card">
                 <div class="field">
-                    <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                    <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
                 </div>
                 <div class="field">
                     <div class="p-input-icon-right">
@@ -133,7 +133,7 @@ export default {
         <div class="flex justify-content-center p-fluid">
             <div v-focustrap class="card">
                 <div class="field">
-                    <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                    <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
                 </div>
                 <div class="field">
                     <div class="p-input-icon-right">
@@ -196,7 +196,7 @@ export default {
         <div class="flex justify-content-center p-fluid">
             <div v-focustrap class="card">
                 <div class="field">
-                    <p-inputtext id="input" v-model="name" type="text" placeholder="Name"></p-inputtext>
+                    <p-inputtext id="input" v-model="name" type="text" placeholder="Name" autofocus></p-inputtext>
                 </div>
                 <div class="field">
                     <div class="p-input-icon-right">

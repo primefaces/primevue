@@ -11,7 +11,7 @@
         <div class="flex justify-content-center p-fluid">
             <div v-focustrap class="card">
                 <div class="field">
-                    <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                    <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
                 </div>
                 <div class="field">
                     <div class="p-input-icon-right">
