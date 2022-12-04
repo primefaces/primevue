@@ -21,7 +21,18 @@
         <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
         <Portal>
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :id="overlayId" :aria-modal="overlayVisible" role="dialog" :class="overlayClass" @keydown.escape="hideKeydown" @click="onContentClick" @mousedown="onContentMouseDown">
+                <div
+                    v-if="overlayVisible"
+                    :ref="overlayRef"
+                    :id="overlayId"
+                    v-focustrap="{ autoFocus: true }"
+                    :aria-modal="overlayVisible"
+                    role="dialog"
+                    :class="overlayClass"
+                    @keydown.escape="hide"
+                    @click="onContentClick"
+                    @mousedown="onContentMouseDown"
+                >
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
                         <ul class="p-column-filter-row-items">
@@ -82,7 +93,7 @@
                             <CFButton type="button" :label="addRuleButtonLabel" icon="pi pi-plus" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
                         </div>
                         <div class="p-column-filter-buttonbar">
-                            <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" :label="clearButtonLabel" @click="clearFilter" @keydown="hideKeydown"></CFButton>
+                            <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" :label="clearButtonLabel" @click="clearFilter"></CFButton>
                             <component v-else :is="filterClearTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
                             <template v-if="showApplyButton">
                                 <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" :label="applyButtonLabel" @click="applyFilter()"></CFButton>
@@ -101,6 +112,7 @@
 import { FilterOperator } from 'primevue/api';
 import Button from 'primevue/button';
 import Dropdown from 'primevue/dropdown';
+import FocusTrap from 'primevue/focustrap';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -276,35 +288,6 @@ export default {
                 case 'Escape':
                     this.overlayVisible = false;
                     break;
-
-                case 'Tab':
-                case 'ArrowDown':
-                    if (this.overlayVisible) {
-                        let focusable = DomHandler.getFocusableElements(this.overlay);
-
-                        if (focusable) {
-                            focusable[0].focus();
-                        }
-
-                        event.preventDefault();
-                    } else if (event.altKey) {
-                        this.overlayVisible = true;
-                        event.preventDefault();
-                    }
-
-                    break;
-            }
-        },
-        hideKeydown() {
-            this.overlayVisible = false;
-
-            if (this.$refs.icon) {
-                this.$refs.icon.focus();
-            }
-        },
-        clearKeydown(event) {
-            if (event.code === 'Space' || event.code === 'Enter') {
-                this.hideKeydown();
             }
         },
         onRowMatchModeChange(matchMode) {
@@ -319,7 +302,7 @@ export default {
         onRowMatchModeKeyDown(event) {
             let item = event.target;
 
-            switch (event.key) {
+            switch (event.code) {
                 case 'ArrowDown':
                     var nextItem = this.findNextItem(item);
 
@@ -405,11 +388,13 @@ export default {
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem) DomHandler.hasClass(prevItem, 'p-column-filter-separator') ? this.findPrevItem(prevItem) : prevItem;
+            if (prevItem) return DomHandler.hasClass(prevItem, 'p-column-filter-separator') ? this.findPrevItem(prevItem) : prevItem;
             else return item.parentElement.lastElementChild;
         },
         hide() {
             this.overlayVisible = false;
+
+            DomHandler.focus(this.$refs.icon);
         },
         onContentClick(event) {
             this.selfClick = true;
@@ -606,6 +591,9 @@ export default {
         CFDropdown: Dropdown,
         CFButton: Button,
         Portal: Portal
+    },
+    directives: {
+        focustrap: FocusTrap
     }
 };
 </script>
