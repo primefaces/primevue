@@ -15,7 +15,7 @@ const ToolbarSlots = [
     {
         name: 'center',
         description: "Custom content for the center"
-    }
+    },
     {
         name: 'end',
         description: "Custom content for the end"
