@@ -44,7 +44,7 @@ directives: {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>focusTrapDisabled</td>
+                        <td>disabled</td>
                         <td>boolean</td>
                         <td>false</td>
                         <td>When set as true, focus wouldn't be managed.</td>
@@ -237,7 +237,7 @@ export default {
 <script type="module">
     const { createApp, ref } = Vue;
     const FocusTrap = primevue.focustrap;
-    
+
     const App = {
         setup() {
             const name = ref(null),

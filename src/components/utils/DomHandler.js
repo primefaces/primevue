@@ -168,15 +168,11 @@ export default {
     },
 
     find(element, selector) {
-        return element ? element.querySelectorAll(selector) : [];
+        return this.isElement(element) ? element.querySelectorAll(selector) : [];
     },
 
     findSingle(element, selector) {
-        if (element) {
-            return element.querySelector(selector);
-        }
-
-        return null;
+        return this.isElement(element) ? element.querySelector(selector) : null;
     },
 
     getHeight(el) {
@@ -413,6 +409,10 @@ export default {
         else throw new Error('Cannot append ' + target + ' to ' + element);
     },
 
+    isElement(obj) {
+        return typeof HTMLElement === 'object' ? obj instanceof HTMLElement : obj && typeof obj === 'object' && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === 'string';
+    },
+
     scrollInView(container, item) {
         let borderTopValue = getComputedStyle(container).getPropertyValue('borderTopWidth');
         let borderTop = borderTopValue ? parseFloat(borderTopValue) : 0;
@@ -524,6 +524,18 @@ export default {
         el && document.activeElement !== el && el.focus(options);
     },
 
+    isFocusableElement(element, selector = '') {
+        return this.isElement(element)
+            ? element.matches(`button:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
+                [href][clientHeight][clientWidth]:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
+                input:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
+                select:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
+                textarea:not([tabindex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
+                [tabIndex]:not([tabIndex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector},
+                [contenteditable]:not([tabIndex = "-1"]):not([disabled]):not([style*="display:none"]):not([hidden])${selector}`)
+            : false;
+    },
+
     getFocusableElements(element, selector = '') {
         let focusableElements = this.find(
             element,
@@ -555,6 +567,14 @@ export default {
         const focusableElements = this.getFocusableElements(element, selector);
 
         return focusableElements.length > 0 ? focusableElements[focusableElements.length - 1] : null;
+    },
+
+    getNextFocusableElement(container, element, selector) {
+        const focusableElements = this.getFocusableElements(container, selector);
+        const index = focusableElements.length > 0 ? focusableElements.findIndex((el) => el === element) : -1;
+        const nextIndex = index > -1 && focusableElements.length >= index + 1 ? index + 1 : -1;
+
+        return nextIndex > -1 ? focusableElements[nextIndex] : null;
     },
 
     isClickable(element) {
