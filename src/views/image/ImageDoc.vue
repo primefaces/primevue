@@ -168,13 +168,13 @@ import Image from 'primevue/image';
         <h5>Accessibility</h5>
         <h6>Screen Reader</h6>
         <p>
-            The preview button is a native <i>button</i> element with an <i>aria-label</i> that refers to the <i>aria.zoomImage</i> property of the <Link href="/locale">locale</Link> API by default, with <i>previewButtonProps</i>
+            The preview button is a native <i>button</i> element with an <i>aria-label</i> that refers to the <i>aria.zoomImage</i> property of the <router-link to="/locale">locale</router-link> API by default, with <i>previewButtonProps</i>
             you may use your own aria roles and attributes as any valid attribute is passed to the button element implicitly.
         </p>
 
         <p>When preview is active, <i>dialog</i> role with <i>aria-modal</i> is applied to the overlay image container.</p>
 
-        <p>Button controls use <i>aria.rotateRight</i>, <i>aria.rotateLeft</i>, <i>aria.zoomIn</i>, <i>aria.zoomOut</i> and <i>aria.close</i> from the <Link href="/locale">locale</Link> API as <i>aria-label</i>.</p>
+        <p>Button controls use <i>aria.rotateRight</i>, <i>aria.rotateLeft</i>, <i>aria.zoomIn</i>, <i>aria.zoomOut</i> and <i>aria.close</i> from the <router-link to="/locale">locale</router-link> API as <i>aria-label</i>.</p>
 
         <h6>ButtonBar Keyboard Support</h6>
         <p>When preview is activated, close button receives the initial focus.</p>

@@ -219,8 +219,8 @@ export default {
             overriding the default role.
         </p>
         <p>
-            Closable inplace components displays a button with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <Link href="/locale">locale</Link> API by default, you may use <i>closeButtonProps</i> to customize the element
-            and override the default <i>aria-label</i>.
+            Closable inplace components displays a button with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <router-link to="/locale">locale</router-link> API by default, you may use <i>closeButtonProps</i> to customize
+            the element and override the default <i>aria-label</i>.
         </p>
 
         <h6>View Mode Keyboard Support</h6>
