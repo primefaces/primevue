@@ -3,15 +3,16 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Roadmap</h1>
-                <p>At <a href="https://www.primetek.com.tr/">PrimeTek</a>, we are passionate about improving PrimeVue and would like to share our ideas for 2023 with the community. These are planned to be implemented 
-                    in parellel to the regular maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support. This page is updated on changes so please
-                    visit it to learn more about what is coming up next.</p>
+                <p>
+                    At <a href="https://www.primetek.com.tr/">PrimeTek</a>, we are passionate about improving PrimeVue and would like to share our ideas for 2023 with the community. These are planned to be implemented in parellel to the regular
+                    maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support. This page is updated on changes so please visit it to learn more about what is coming up next.
+                </p>
             </div>
         </div>
 
         <div class="content-section">
             <div class="overflow-auto">
-                <div style="min-width:1200px">
+                <div style="min-width: 1200px">
                     <div class="flex gap-3 mb-3">
                         <div class="flex-shrink-0 w-14rem"></div>
                         <div class="flex-1 bg-bluegray-500 text-white font-bold text-center p-3 text-xl border-round">Q1</div>
