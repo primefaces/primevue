@@ -267,17 +267,18 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
-            const items = this.container.querySelectorAll('.p-speeddial-item');
+            const items = DomHandler.find(this.container,'.p-speeddial-item');
             const itemIndex = [...items].findIndex((item) => item.id === this.focusedOptionIndex);
 
             this.onItemClick(event, this.model[itemIndex]);
             this.onBlur(event);
-            this.container.querySelector('button').focus();
+
+            DomHandler.findSingle(this.container, 'button').focus();
         },
         onEscapeKey(event) {
             this.hide();
             this.onBlur(event);
-            this.container.querySelector('button').focus();
+            DomHandler.findSingle(this.container, 'button').focus();
         },
         onArrowUp(event) {
             if (this.direction === 'up') {
@@ -350,16 +351,16 @@ export default {
             event.preventDefault();
         },
         changeFocusedOptionIndex(index) {
-            const items = this.container.querySelectorAll('.p-speeddial-item');
-            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(item.querySelector('a'), 'p-disabled'));
+            const items = DomHandler.find(this.container,'.p-speeddial-item');
+            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
 
             if (filteredItems[index]) {
                 this.focusedOptionIndex = filteredItems[index].getAttribute('id');
             }
         },
         findPrevOptionIndex(index) {
-            const items = this.container.querySelectorAll('.p-speeddial-item');
-            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(item.querySelector('a'), 'p-disabled'));
+            const items = DomHandler.find(this.container,'.p-speeddial-item');
+            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[filteredItems.length - 1].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
 
@@ -368,8 +369,8 @@ export default {
             return matchedOptionIndex;
         },
         findNextOptionIndex(index) {
-            const items = this.container.querySelectorAll('.p-speeddial-item');
-            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(item.querySelector('a'), 'p-disabled'));
+            const items = DomHandler.find(this.container,'.p-speeddial-item');
+            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[0].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
 

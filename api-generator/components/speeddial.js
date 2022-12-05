@@ -110,7 +110,7 @@ const SpeedDialProps = [
     {
         name: 'tabindex',
         type: 'number',
-        default: '-1',
+        default: '0',
         description: 'Index of the element in tabbing order.'
     },
     {
