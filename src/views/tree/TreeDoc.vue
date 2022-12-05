@@ -691,6 +691,18 @@ export default {
                         <td>null</td>
                         <td>Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.</td>
                     </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -785,7 +797,6 @@ export default {
             </table>
         </div>
         <h5>Accessibility</h5>
-
         <h6>Screen Reader</h6>
         <p>
             Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The root list element has a <i>tree</i> role whereas each list item has a <i>treeitem</i> role along with <i>aria-label</i>,
@@ -795,8 +806,8 @@ export default {
         </p>
 
         <h6>Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>

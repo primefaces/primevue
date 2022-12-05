@@ -77,6 +77,18 @@ const TreeProps = [
         type: 'string',
         default: 'null',
         description: 'Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.'
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying menu element.'
     }
 ];
 

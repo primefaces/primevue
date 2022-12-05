@@ -136,6 +136,14 @@ export interface TreeProps {
      * @see TreeScrollHeightType
      */
     scrollHeight?: TreeScrollHeightType;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying menu element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface TreeSlots {
