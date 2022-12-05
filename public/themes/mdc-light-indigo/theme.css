@@ -3502,6 +3502,12 @@
 }
 .p-tree .p-tree-container .p-treenode {
   padding: 0.25rem;
+  outline: 0 none;
+}
+.p-tree .p-tree-container .p-treenode:focus > .p-treenode-content {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content {
   border-radius: 4px;
@@ -3537,11 +3543,6 @@
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-checkbox .p-indeterminate .p-checkbox-icon {
   color: rgba(0, 0, 0, 0.87);
-}
-.p-tree .p-tree-container .p-treenode .p-treenode-content:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: none;
 }
 .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
   background: rgba(63, 81, 181, 0.12);
@@ -7225,10 +7226,13 @@
   display: none;
 }
 
-.p-tree .p-tree-container .p-treenode .p-treenode-content:focus {
+.p-tree .p-tree-container .p-treenode {
+  outline: 0 none;
+}
+.p-tree .p-tree-container .p-treenode:focus > .p-treenode-content {
   background: rgba(0, 0, 0, 0.12);
 }
-.p-tree .p-tree-container .p-treenode .p-treenode-content:focus.p-highlight {
+.p-tree .p-tree-container .p-treenode:focus > .p-treenode-content.p-highlight {
   background: rgba(63, 81, 181, 0.24);
 }
 
