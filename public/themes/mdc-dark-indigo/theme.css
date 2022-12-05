@@ -6122,17 +6122,28 @@
   margin: 0 auto 0 0;
   order: 1;
 }
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year:focus,
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month:focus {
+  background: rgba(255, 255, 255, 0.12);
+}
 .p-datepicker .p-datepicker-header .p-datepicker-prev {
   order: 2;
 }
 .p-datepicker .p-datepicker-header .p-datepicker-next {
   order: 3;
 }
+.p-datepicker .p-datepicker-header .p-datepicker-prev:focus,
+.p-datepicker .p-datepicker-header .p-datepicker-next:focus {
+  background: rgba(255, 255, 255, 0.12);
+}
 .p-datepicker table th {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.38);
   font-weight: 400;
   font-size: 0.875rem;
+}
+.p-datepicker table td > span:focus {
+  background: rgba(255, 255, 255, 0.12);
 }
 .p-datepicker table td.p-datepicker-today > span {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.38);
