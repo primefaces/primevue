@@ -267,7 +267,7 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
-            const items = DomHandler.find(this.container,'.p-speeddial-item');
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
             const itemIndex = [...items].findIndex((item) => item.id === this.focusedOptionIndex);
 
             this.onItemClick(event, this.model[itemIndex]);
@@ -351,7 +351,7 @@ export default {
             event.preventDefault();
         },
         changeFocusedOptionIndex(index) {
-            const items = DomHandler.find(this.container,'.p-speeddial-item');
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
 
             if (filteredItems[index]) {
@@ -359,7 +359,7 @@ export default {
             }
         },
         findPrevOptionIndex(index) {
-            const items = DomHandler.find(this.container,'.p-speeddial-item');
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[filteredItems.length - 1].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
@@ -369,7 +369,7 @@ export default {
             return matchedOptionIndex;
         },
         findNextOptionIndex(index) {
-            const items = DomHandler.find(this.container,'.p-speeddial-item');
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[0].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
