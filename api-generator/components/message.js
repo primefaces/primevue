@@ -34,6 +34,12 @@ const MessageProps = [
         type: 'string',
         default: 'pi pi-times',
         description: 'Icon to display in the message close button.'
+    },
+    {
+        name: 'closeButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the close button.'
     }
 ];
 

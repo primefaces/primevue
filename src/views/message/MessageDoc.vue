@@ -127,6 +127,12 @@ import InlineMessage from 'primevue/inlinemessage';
                         <td>pi pi-times</td>
                         <td>Icon to display in the message close button.</td>
                     </tr>
+                    <tr>
+                        <td>closeButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the close button.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -259,6 +265,44 @@ import InlineMessage from 'primevue/inlinemessage';
                     <tr>
                         <td>p-inline-message-text</td>
                         <td>Content of a message.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Message components use <i>alert</i> role that implicitly defines <i>aria-live</i> as "assertive" and <i>aria-atomic</i> as "true". Since any attribute is passed to the root element, attributes like <i>aria-labelledby</i> and
+            <i>aria-label</i> can optionally be used as well.
+        </p>
+
+        <p>
+            Close element is a <i>button</i> with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <router-link to="/locale">locale</router-link> API by default, you may use <i>closeButtonProps</i> to customize the element
+            and override the default <i>aria-label</i>.
+        </p>
+
+        <h6>Close Button Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Closes the message.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Closes the message.</td>
                     </tr>
                 </tbody>
             </table>
