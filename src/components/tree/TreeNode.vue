@@ -17,7 +17,7 @@
             <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" aria-hidden="true">
                 <span :class="toggleIcon"></span>
             </button>
-            <div v-if="checkboxMode" class="p-checkbox p-component">
+            <div v-if="checkboxMode" class="p-checkbox p-component" aria-hidden="true">
                 <div :class="checkboxClass" role="checkbox">
                     <span :class="checkboxIcon"></span>
                 </div>
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'TreeNode',
@@ -416,10 +416,10 @@ export default {
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
         },
-        ariaSelected() {
+        ariaChecked() {
             return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : undefined;
         },
-        ariaChecked() {
+        ariaSelected() {
             return this.checkboxMode ? this.checked : undefined;
         }
     },
