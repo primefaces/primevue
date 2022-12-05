@@ -417,11 +417,11 @@ export default {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
         },
         ariaSelected() {
-            return this.selectionMode  === 'single' || this.selectionMode === 'multiple' ? this.selected: undefined;
+            return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : undefined;
         },
         ariaChecked() {
             return this.checkboxMode ? this.checked : undefined;
-        },
+        }
     },
     directives: {
         ripple: Ripple
