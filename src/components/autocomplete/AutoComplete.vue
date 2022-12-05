@@ -510,7 +510,7 @@ export default {
                 let valid = false;
 
                 if (this.visibleOptions) {
-                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, event.target.value));
+                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, this.$refs.focusInput.value || ''));
 
                     if (matchedValue !== undefined) {
                         valid = true;
