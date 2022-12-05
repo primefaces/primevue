@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type ToastPositionType = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center' | undefined;
@@ -107,6 +107,10 @@ export interface ToastProps {
      * Default value is 'pi pi-check'.
      */
     successIcon?: string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     */
+    closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface ToastSlots {

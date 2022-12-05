@@ -58,6 +58,12 @@ const ToastProps = [
         type: 'string',
         default: 'pi pi-check',
         description: 'Icon to display in the toast with success severity.'
+    },
+    {
+        name: 'closeButtonProps',
+        type: 'object',
+        default: 'null',
+        description: 'Uses to pass all properties of the HTMLButtonElement to the close button.'
     }
 ];
 

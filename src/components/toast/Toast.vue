@@ -12,6 +12,7 @@
                     :warnIcon="warnIcon"
                     :errorIcon="errorIcon"
                     :successIcon="successIcon"
+                    :closeButtonProps="closeButtonProps"
                     @close="remove($event)"
                 />
             </transition-group>
@@ -70,6 +71,10 @@ export default {
         successIcon: {
             type: String,
             default: 'pi pi-check'
+        },
+        closeButtonProps: {
+            type: null,
+            default: null
         }
     },
     data() {
