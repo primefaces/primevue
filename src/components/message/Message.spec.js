@@ -1,5 +1,18 @@
-import { mount } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import Message from './Message.vue';
+
+config.global.mocks = {
+    $primevue: {
+        config: {
+            locale: {
+                aria: {
+                    close: 'Close'
+                }
+            }
+        }
+    }
+};
 
 describe('Message.vue', () => {
     let wrapper;
@@ -41,6 +54,7 @@ describe('Message.vue', () => {
 
     beforeEach(() => {
         wrapper = mount(Message, {
+            plugins: [PrimeVue],
             props: {
                 severity: 'error',
                 life: 3000,

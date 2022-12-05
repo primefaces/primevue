@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import Toast from './Toast.vue';
 
 describe('Toast.vue', () => {
@@ -7,13 +8,7 @@ describe('Toast.vue', () => {
     beforeEach(() => {
         wrapper = mount(Toast, {
             global: {
-                mocks: {
-                    $primevue: {
-                        config: {
-                            ripple: true
-                        }
-                    }
-                },
+                plugins: [PrimeVue],
                 stubs: {
                     teleport: true,
                     transition: true

@@ -11,6 +11,7 @@ config.global.mocks = {
         }
     }
 };
+
 describe('Password.vue', () => {
     let wrapper;
     const event = { target: { value: 'P' } };

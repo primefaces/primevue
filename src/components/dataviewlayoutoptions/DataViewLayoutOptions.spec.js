@@ -1,5 +1,6 @@
-import { mount, config } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import DataViewLayoutOptions from './DataViewLayoutOptions.vue';
+
 config.global.mocks = {
     $primevue: {
         config: {
@@ -12,6 +13,7 @@ config.global.mocks = {
         }
     }
 };
+
 describe('DataViewLayoutOptions.vue', () => {
     it('should exist', async () => {
         const wrapper = mount(DataViewLayoutOptions, {
