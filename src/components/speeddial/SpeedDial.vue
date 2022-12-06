@@ -534,9 +534,6 @@ export default {
 </script>
 
 <style>
-.p-focus {
-    background: red;
-}
 .p-speeddial {
     position: absolute;
     display: flex;
@@ -544,7 +541,6 @@ export default {
 }
 
 .p-speeddial-list {
-    outline: none;
     margin: 0;
     padding: 0;
     list-style: none;
