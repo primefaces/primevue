@@ -4,7 +4,7 @@
             <slot name="start"></slot>
         </div>
         <a
-            v-if="model.length > 0"
+            v-if="model && model.length > 0"
             ref="menubutton"
             role="button"
             tabindex="0"
