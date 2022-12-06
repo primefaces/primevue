@@ -205,7 +205,7 @@ export default {
                     break;
 
                 case 'Escape':
-                    this.onEscapeKey()
+                    this.onEscapeKey();
 
                     break;
 
