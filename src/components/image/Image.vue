@@ -112,14 +112,19 @@ export default {
             this.previewClick = false;
         },
         onMaskKeydown(event) {
-            if (event.code === 'Escape') {
-                this.onMaskClick();
-                setTimeout(() => {
-                    DomHandler.focus(this.$refs.previewButton);
-                }, 25);
-            }
+            switch (event.code) {
+                case 'Escape':
+                    this.onMaskClick();
+                    setTimeout(() => {
+                        DomHandler.focus(this.$refs.previewButton);
+                    }, 25);
+                    event.preventDefault();
 
-            event.preventDefault();
+                    break;
+
+                default:
+                    break;
+            }
         },
         onError() {
             this.$emit('error');
