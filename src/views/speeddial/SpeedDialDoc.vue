@@ -199,12 +199,6 @@ items: [
                         <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                     </tr>
                     <tr>
-                        <td>tabindex</td>
-                        <td>number</td>
-                        <td>-1</td>
-                        <td>Index of the element in tabbing order.</td>
-                    </tr>
-                    <tr>
                         <td>aria-label</td>
                         <td>string</td>
                         <td>null</td>
@@ -245,6 +239,16 @@ items: [
                         <td>hide</td>
                         <td>-</td>
                         <td>Fired when the actions are hidden.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
                     </tr>
                 </tbody>
             </table>
@@ -367,6 +371,12 @@ items: [
                         </td>
                         <td>Opens the menu and moves focus to the first item.</td>
                     </tr>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the menu.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -384,6 +394,12 @@ items: [
                     <tr>
                         <td>
                             <i>enter</i>
+                        </td>
+                        <td>Actives the menuitem, closes the menu and sets focus on the menu button.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
                         </td>
                         <td>Actives the menuitem, closes the menu and sets focus on the menu button.</td>
                     </tr>

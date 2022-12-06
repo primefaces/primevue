@@ -254,7 +254,8 @@ export default {
         },
         onTogglerArrowUp(event) {
             this.focused = true;
-            this.list.focus();
+            DomHandler.focus(this.list);
+
             this.show();
             this.navigatePrevItem(event);
 
@@ -262,7 +263,8 @@ export default {
         },
         onTogglerArrowDown(event) {
             this.focused = true;
-            this.list.focus();
+            DomHandler.focus(this.list);
+
             this.show();
             this.navigateNextItem(event);
 
@@ -275,11 +277,16 @@ export default {
             this.onItemClick(event, this.model[itemIndex]);
             this.onBlur(event);
 
-            DomHandler.findSingle(this.container, 'button').focus();
+            const buttonEl = DomHandler.findSingle(this.container, 'button');
+
+            buttonEl && DomHandler.focus(buttonEl);
         },
         onEscapeKey() {
             this.hide();
-            DomHandler.findSingle(this.container, 'button').focus();
+
+            const buttonEl = DomHandler.findSingle(this.container, 'button');
+
+            buttonEl && DomHandler.focus(buttonEl);
         },
         onArrowUp(event) {
             if (this.direction === 'up') {
@@ -527,6 +534,9 @@ export default {
 </script>
 
 <style>
+.p-focus {
+    background: red;
+}
 .p-speeddial {
     position: absolute;
     display: flex;

@@ -158,6 +158,16 @@ export declare type SpeedDialEmits = {
      * Fired when the actions are hidden.
      */
     hide: () => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
 };
 
 declare class SpeedDial extends ClassComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits> {}
