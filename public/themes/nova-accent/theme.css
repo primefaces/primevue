@@ -2179,6 +2179,16 @@
   font-size: 1.3rem;
 }
 
+.p-speeddial-list {
+  outline: 0 none;
+}
+
+.p-speeddial-item.p-focus > .p-speeddial-action {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #8dcdff;
+}
+
 .p-speeddial-action {
   width: 3rem;
   height: 3rem;

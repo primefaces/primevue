@@ -2203,6 +2203,16 @@
   font-size: 2rem;
 }
 
+.p-speeddial-list {
+  outline: 0 none;
+}
+
+.p-speeddial-item.p-focus > .p-speeddial-action {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
 .p-speeddial-action {
   width: 3rem;
   height: 3rem;
@@ -7044,6 +7054,10 @@
 }
 .p-slider.p-slider-sliding .p-slider-handle {
   transform: scale(1);
+}
+
+.p-speeddial-item.p-focus > .p-speeddial-action {
+  background: rgba(255, 64, 129, 0.76);
 }
 
 .p-splitbutton.p-button-text > .p-button:enabled:focus, .p-splitbutton.p-button-text > .p-button:not(button):not(a):not(.p-disabled):focus, .p-splitbutton.p-button-outlined > .p-button:enabled:focus, .p-splitbutton.p-button-outlined > .p-button:not(button):not(a):not(.p-disabled):focus {
