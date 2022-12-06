@@ -24,7 +24,7 @@
                 </Dialog>
 
                 <Button label="Long Content" icon="pi pi-external-link" @click="openBasic2" />
-                <Dialog v-model:visible="displayBasic2" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw !important' }">
+                <Dialog v-model:visible="displayBasic2" header="Header" :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }">
                     <div v-for="i in 2" :key="i">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
