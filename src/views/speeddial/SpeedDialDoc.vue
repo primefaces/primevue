@@ -312,7 +312,7 @@ items: [
         </div>
 
         <h5>Accessibility</h5>
-        <h4>Screen Reader</h4>
+        <h6>Screen Reader</h6>
         <p>
             SpeedDial component renders a native button element that implicitly includes any passed prop. Text to describe the button can be defined with the <i>aria-labelledby</i> or <i>aria-label</i> props. Addititonally the button includes
             includes <i>aria-haspopup</i>, <i>aria-expanded</i> for states along with <i>aria-controls</i> to define the relation between the popup and the button.
@@ -325,9 +325,9 @@ items: [
 
 </template></code></pre>
 
-        <h4>Menu Button Keyboard Support</h4>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <h6>Menu Button Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -381,9 +381,9 @@ items: [
             </table>
         </div>
 
-        <h4>Menu Keyboard Support</h4>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <h6>Menu Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>

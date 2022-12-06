@@ -1,6 +1,6 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type SpeedDialDirectionType = 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | undefined;
 

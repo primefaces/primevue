@@ -117,7 +117,6 @@ export default {
         return {
             d_visible: this.visible,
             isItemClicked: false,
-            listItems: null,
             focused: false,
             focusedOptionIndex: -1
         };
