@@ -1,20 +1,34 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="style">
         <slot name="button" :toggle="onClick">
-            <SDButton type="button" :class="buttonClassName" :icon="iconClassName" @click="onClick($event)" :disabled="disabled" />
+            <SDButton
+                type="button"
+                :class="buttonClassName"
+                :icon="iconClassName"
+                @click="onClick($event)"
+                :disabled="disabled"
+                @keydown="onTogglerKeydown"
+                :aria-expanded="d_visible"
+                :aria-haspopup="true"
+                :aria-controls="id + '_list'"
+                :aria-label="ariaLabel"
+                :aria-labelledby="ariaLabelledby"
+            />
         </slot>
-        <ul :ref="listRef" class="p-speeddial-list" role="menu">
+        <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1">
             <template v-for="(item, index) of model" :key="index">
-                <li v-if="isItemVisible(item)" class="p-speeddial-item" :style="getItemStyle(index)" role="none">
+                <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" class="p-speeddial-item" :class="itemClass(`${id}_${index}`)" :style="getItemStyle(index)" role="menuitem">
                     <template v-if="!$slots.item">
                         <a
                             v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             v-ripple
+                            :tabindex="-1"
                             :href="item.url || '#'"
                             role="menuitem"
                             :class="['p-speeddial-action', { 'p-disabled': item.disabled }]"
                             :target="item.target"
                             @click="onItemClick($event, item)"
+                            :aria-label="item.label"
                         >
                             <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
                         </a>
@@ -33,11 +47,11 @@
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
-import { DomHandler } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'SpeedDial',
-    emits: ['click', 'show', 'hide'],
+    emits: ['click', 'show', 'hide', 'focus', 'blur'],
     props: {
         model: null,
         visible: {
@@ -86,7 +100,15 @@ export default {
         },
         tooltipOptions: null,
         style: null,
-        class: null
+        class: null,
+        'aria-labelledby': {
+            type: String,
+            default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
+        }
     },
     documentClickListener: null,
     container: null,
@@ -94,7 +116,10 @@ export default {
     data() {
         return {
             d_visible: this.visible,
-            isItemClicked: false
+            isItemClicked: false,
+            listItems: null,
+            focused: false,
+            focusedOptionIndex: -1
         };
     },
     watch: {
@@ -124,6 +149,16 @@ export default {
         this.unbindDocumentClickListener();
     },
     methods: {
+        onFocus(event) {
+            this.focused = true;
+
+            this.$emit('focus', event);
+        },
+        onBlur(event) {
+            this.focused = false;
+            this.focusedOptionIndex = -1;
+            this.$emit('blur', event);
+        },
         onItemClick(e, item) {
             if (item.command) {
                 item.command({ originalEvent: e, item });
@@ -154,6 +189,202 @@ export default {
             const visible = this.d_visible;
 
             return (visible ? index : length - index - 1) * this.transitionDelay;
+        },
+        onTogglerKeydown(event) {
+            switch (event.code) {
+                case 'ArrowDown':
+                case 'ArrowLeft':
+                    this.onTogglerArrowDown(event);
+
+                    break;
+
+                case 'ArrowUp':
+                case 'ArrowRight':
+                    this.onTogglerArrowUp(event);
+
+                    break;
+
+                case 'Escape':
+                    this.onEscapeKey();
+
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onKeyDown(event) {
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onArrowDown(event);
+                    break;
+
+                case 'ArrowUp':
+                    this.onArrowUp(event);
+                    break;
+
+                case 'ArrowLeft':
+                    this.onArrowLeft(event);
+                    break;
+
+                case 'ArrowRight':
+                    this.onArrowRight(event);
+                    break;
+
+                case 'Enter':
+                case 'Space':
+                    this.onEnterKey(event);
+                    break;
+
+                case 'Escape':
+                    this.onEscapeKey(event);
+                    break;
+
+                case 'Home':
+                    this.onHomeKey(event);
+                    break;
+
+                case 'End':
+                    this.onEndKey(event);
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onTogglerArrowUp(event) {
+            this.focused = true;
+            DomHandler.focus(this.list);
+
+            this.show();
+            this.navigatePrevItem(event);
+
+            event.preventDefault();
+        },
+        onTogglerArrowDown(event) {
+            this.focused = true;
+            DomHandler.focus(this.list);
+
+            this.show();
+            this.navigateNextItem(event);
+
+            event.preventDefault();
+        },
+        onEnterKey(event) {
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const itemIndex = [...items].findIndex((item) => item.id === this.focusedOptionIndex);
+
+            this.onItemClick(event, this.model[itemIndex]);
+            this.onBlur(event);
+
+            const buttonEl = DomHandler.findSingle(this.container, 'button');
+
+            buttonEl && DomHandler.focus(buttonEl);
+        },
+        onEscapeKey() {
+            this.hide();
+
+            const buttonEl = DomHandler.findSingle(this.container, 'button');
+
+            buttonEl && DomHandler.focus(buttonEl);
+        },
+        onArrowUp(event) {
+            if (this.direction === 'up') {
+                this.navigateNextItem(event);
+            } else if (this.direction === 'down') {
+                this.navigatePrevItem(event);
+            } else {
+                this.navigateNextItem(event);
+            }
+        },
+        onArrowDown(event) {
+            if (this.direction === 'up') {
+                this.navigatePrevItem(event);
+            } else if (this.direction === 'down') {
+                this.navigateNextItem(event);
+            } else {
+                this.navigatePrevItem(event);
+            }
+        },
+
+        onArrowLeft(event) {
+            const leftValidDirections = ['left', 'up-right', 'down-left'];
+            const rightValidDirections = ['right', 'up-left', 'down-right'];
+
+            if (leftValidDirections.includes(this.direction)) {
+                this.navigateNextItem(event);
+            } else if (rightValidDirections.includes(this.direction)) {
+                this.navigatePrevItem(event);
+            } else {
+                this.navigatePrevItem(event);
+            }
+        },
+
+        onArrowRight(event) {
+            const leftValidDirections = ['left', 'up-right', 'down-left'];
+            const rightValidDirections = ['right', 'up-left', 'down-right'];
+
+            if (leftValidDirections.includes(this.direction)) {
+                this.navigatePrevItem(event);
+            } else if (rightValidDirections.includes(this.direction)) {
+                this.navigateNextItem(event);
+            } else {
+                this.navigateNextItem(event);
+            }
+        },
+        onEndKey(event) {
+            event.preventDefault();
+
+            this.focusedOptionIndex = -1;
+            this.navigatePrevItem(event);
+        },
+        onHomeKey(event) {
+            event.preventDefault();
+
+            this.focusedOptionIndex = -1;
+            this.navigateNextItem(event);
+        },
+        navigateNextItem(event) {
+            const optionIndex = this.findNextOptionIndex(this.focusedOptionIndex);
+
+            this.changeFocusedOptionIndex(optionIndex);
+
+            event.preventDefault();
+        },
+        navigatePrevItem(event) {
+            const optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
+
+            this.changeFocusedOptionIndex(optionIndex);
+
+            event.preventDefault();
+        },
+        changeFocusedOptionIndex(index) {
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
+
+            if (filteredItems[index]) {
+                this.focusedOptionIndex = filteredItems[index].getAttribute('id');
+            }
+        },
+        findPrevOptionIndex(index) {
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
+            const newIndex = index === -1 ? filteredItems[filteredItems.length - 1].id : index;
+            let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
+
+            matchedOptionIndex = index === -1 ? filteredItems.length - 1 : matchedOptionIndex - 1;
+
+            return matchedOptionIndex;
+        },
+        findNextOptionIndex(index) {
+            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
+            const newIndex = index === -1 ? filteredItems[0].id : index;
+            let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
+
+            matchedOptionIndex = index === -1 ? 0 : matchedOptionIndex + 1;
+
+            return matchedOptionIndex;
         },
         calculatePointStyle(index) {
             const type = this.type;
@@ -243,6 +474,13 @@ export default {
         },
         listRef(el) {
             this.list = el;
+        },
+        itemClass(id) {
+            return [
+                {
+                    'p-focus': id === this.focusedOptionId
+                }
+            ];
         }
     },
     computed: {
@@ -277,6 +515,12 @@ export default {
                 },
                 this.maskClass
             ];
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
+        },
+        focusedOptionId() {
+            return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
         }
     },
     components: {

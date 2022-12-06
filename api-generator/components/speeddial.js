@@ -106,6 +106,18 @@ const SpeedDialProps = [
         type: 'object',
         default: 'null',
         description: "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
+    },
+    {
+        name: 'aria-label',
+        type: 'string',
+        default: 'null',
+        description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'aria-labelledby',
+        type: 'string',
+        default: 'null',
+        description: 'Identifier of the underlying component.'
     }
 ];
 
@@ -128,6 +140,28 @@ const SpeedDialEvents = [
     {
         name: 'hide',
         description: 'Fired when the actions are hidden.'
+    },
+    {
+        name: 'focus',
+        description: 'Callback to invoke when component receives focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
+    },
+    {
+        name: 'blur',
+        description: 'Callback to invoke when component loses focus.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
     }
 ];
 

@@ -111,6 +111,14 @@ export interface SpeedDialProps {
      * @see SpeedDialTooltipOptions
      */
     tooltipOptions?: SpeedDialTooltipOptions;
+    /**
+     * Defines a string value that labels an interactive list element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying list element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface SpeedDialSlots {
@@ -150,6 +158,16 @@ export declare type SpeedDialEmits = {
      * Fired when the actions are hidden.
      */
     hide: () => void;
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
 };
 
 declare class SpeedDial extends ClassComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits> {}

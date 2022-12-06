@@ -198,6 +198,18 @@ items: [
                         <td>null</td>
                         <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
                     </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive list element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying list element.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -227,6 +239,16 @@ items: [
                         <td>hide</td>
                         <td>-</td>
                         <td>Fired when the actions are hidden.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
                     </tr>
                 </tbody>
             </table>
@@ -284,6 +306,126 @@ items: [
                     <tr>
                         <td>p-speeddial-item</td>
                         <td>Each action item of list.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h4>Screen Reader</h4>
+        <p>
+            SpeedDial component renders a native button element that implicitly includes any passed prop. Text to describe the button can be defined with the <i>aria-labelledby</i> or <i>aria-label</i> props. Addititonally the button includes
+            includes <i>aria-haspopup</i>, <i>aria-expanded</i> for states along with <i>aria-controls</i> to define the relation between the popup and the button.
+        </p>
+
+        <p>The popup overlay uses <i>menu</i> role on the list and each action item has a <i>menuitem</i> role with an <i>aria-label</i> as the menuitem label. The id of the menu refers to the <i>aria-controls</i> of the button.</p>
+
+        <pre v-code><code><template v-pre>
+&lt;SpeedDial aria-label="Options" /&gt;
+
+</template></code></pre>
+
+        <h4>Menu Button Keyboard Support</h4>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Toggles the visibility of the menu.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Toggles the visibility of the menu.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>down arrow</i>
+                        </td>
+                        <td>Opens the menu and moves focus to the first item.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>up arrow</i>
+                        </td>
+                        <td>Opens the menu and moves focus to the last item.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>right arrow</i>
+                        </td>
+                        <td>Opens the menu and moves focus to the last item.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>left arrow</i>
+                        </td>
+                        <td>Opens the menu and moves focus to the first item.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the menu.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Menu Keyboard Support</h4>
+        <div className="doc-tablewrapper">
+            <table className="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Actives the menuitem, closes the menu and sets focus on the menu button.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Actives the menuitem, closes the menu and sets focus on the menu button.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>escape</i>
+                        </td>
+                        <td>Closes the menu and sets focus on the menu button.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>arrow keys</i>
+                        </td>
+                        <td>Navigates between the menu items.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>home</i>
+                        </td>
+                        <td>Moves focus to the first item.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>end</i>
+                        </td>
+                        <td>Moves focus to the last item.</td>
                     </tr>
                 </tbody>
             </table>
@@ -912,7 +1054,7 @@ export default {
                 bottom: 0;
             }
 
-        
+
             .speeddial-delay-demo .p-speeddial-direction-up {
                 left: calc(50% - 2rem);
                 bottom: 0;
