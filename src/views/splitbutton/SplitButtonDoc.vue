@@ -292,7 +292,7 @@ export default {
                             <span class="inline-flex flex-column">
                                 <i class="mb-1">enter</i>
                                 <i class="mb-1">space</i>
-                                <i class="mb-1">right arrow</i>
+                                <i class="mb-1">down arrow</i>
                                 <i>up arrow</i>
                             </span>
                         </td>
