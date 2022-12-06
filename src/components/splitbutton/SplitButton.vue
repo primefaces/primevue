@@ -90,7 +90,7 @@ export default {
             }
         },
         onDefaultButtonClick(event) {
-            this.$refs.menu.hide(event, true);
+            this.$refs.menu.hide(event);
         }
     },
     computed: {
