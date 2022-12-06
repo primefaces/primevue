@@ -184,6 +184,12 @@ export default {
                     this.onSpaceKey(event);
                     break;
 
+                case 'Escape':
+                    if (this.popup) {
+                        DomHandler.focus(this.target);
+                        this.hide();
+                    }
+
                 case 'Tab':
                     this.overlayVisible && this.hide();
                     break;
@@ -244,9 +250,9 @@ export default {
         },
         changeFocusedOptionIndex(index) {
             const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
-            let order = index > links.length ? links.length - 1 : index < 0 ? 0 : index;
+            let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
 
-            order > -1 && links.length > 0 && (this.focusedOptionIndex = links[order].getAttribute('id'));
+            this.focusedOptionIndex = links[order].getAttribute('id');
         },
         toggle(event) {
             if (this.overlayVisible) this.hide();
