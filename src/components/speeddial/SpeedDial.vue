@@ -15,7 +15,7 @@
                 :aria-labelledby="ariaLabelledby"
             />
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" :tabindex="d_visible ? tabindex : -1">
+        <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1">
             <template v-for="(item, index) of model" :key="index">
                 <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" class="p-speeddial-item" :class="itemClass(`${id}_${index}`)" :style="getItemStyle(index)" role="menuitem">
                     <template v-if="!$slots.item">
@@ -101,10 +101,6 @@ export default {
         tooltipOptions: null,
         style: null,
         class: null,
-        tabindex: {
-            type: Number,
-            default: 0
-        },
         'aria-labelledby': {
             type: String,
             default: null
@@ -208,6 +204,11 @@ export default {
 
                     break;
 
+                case 'Escape':
+                    this.onEscapeKey()
+
+                    break;
+
                 default:
                     break;
             }
@@ -231,6 +232,7 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'Space':
                     this.onEnterKey(event);
                     break;
 
@@ -275,9 +277,8 @@ export default {
 
             DomHandler.findSingle(this.container, 'button').focus();
         },
-        onEscapeKey(event) {
+        onEscapeKey() {
             this.hide();
-            this.onBlur(event);
             DomHandler.findSingle(this.container, 'button').focus();
         },
         onArrowUp(event) {

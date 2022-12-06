@@ -108,12 +108,6 @@ const SpeedDialProps = [
         description: "Whether to display the tooltip on items. The modifiers of tooltip can be used like an object in it. Valid keys are 'event' and 'position'."
     },
     {
-        name: 'tabindex',
-        type: 'number',
-        default: '0',
-        description: 'Index of the element in tabbing order.'
-    },
-    {
         name: 'aria-label',
         type: 'string',
         default: 'null',
@@ -123,7 +117,7 @@ const SpeedDialProps = [
         name: 'aria-labelledby',
         type: 'string',
         default: 'null',
-        description: 'Identifier of the underlying menu element.'
+        description: 'Identifier of the underlying component.'
     }
 ];
 
