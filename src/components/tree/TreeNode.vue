@@ -84,6 +84,9 @@ export default {
         }
     },
     nodeTouched: false,
+    mounted() {
+        this.setAllNodesTabIndexes();
+    },
     methods: {
         toggle() {
             this.$emit('node-toggle', this.node);
@@ -227,6 +230,9 @@ export default {
             event.preventDefault();
         },
         onTabKey() {
+            this.setAllNodesTabIndexes();
+        },
+        setAllNodesTabIndexes() {
             const nodes = DomHandler.find(this.$refs.currentNode.closest('.p-tree-container'), '.p-treenode');
 
             const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
