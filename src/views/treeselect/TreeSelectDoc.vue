@@ -576,11 +576,11 @@ data() {
                 <tbody>
                     <tr>
                         <td><i>tab</i></td>
-                        <td>Moves focus to the next focusable element in the popup, if there is none then first focusable element receives the focus.</td>
+                        <td>Moves focus to the next focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
                         <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous focusable element in the popup, if there is none then last focusable element receives the focus.</td>
+                        <td>Moves focus to the previous focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
                         <td><i>enter</i></td>

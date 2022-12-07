@@ -424,11 +424,11 @@ export default {
                         <td>
                             <i>tab</i>
                         </td>
-                        <td>Moves focus to the next the focusable element in the page tab sequence.</td>
+                        <td>Moves focus to the next focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
                         <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
+                        <td>Moves focus to the previous focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
                         <td>
