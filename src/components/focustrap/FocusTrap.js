@@ -1,6 +1,8 @@
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
-function bind(el) {
+function bind(el, binding) {
+    const { onFocusIn, onFocusOut } = binding.value || {};
+
     el.$_pfocustrap_mutationobserver = new MutationObserver((mutationList) => {
         mutationList.forEach((mutation) => {
             if (mutation.type === 'childList' && !el.contains(document.activeElement)) {
@@ -19,10 +21,18 @@ function bind(el) {
     el.$_pfocustrap_mutationobserver.observe(el, {
         childList: true
     });
+
+    el.$_pfocustrap_focusinlistener = (event) => onFocusIn && onFocusIn(event);
+    el.$_pfocustrap_focusoutlistener = (event) => onFocusOut && onFocusOut(event);
+
+    el.addEventListener('focusin', el.$_pfocustrap_focusinlistener);
+    el.addEventListener('focusout', el.$_pfocustrap_focusoutlistener);
 }
 
 function unbind(el) {
     el.$_pfocustrap_mutationobserver && el.$_pfocustrap_mutationobserver.disconnect();
+    el.$_pfocustrap_focusinlistener && el.removeEventListener('focusin', el.$_pfocustrap_focusinlistener) && (el.$_pfocustrap_focusinlistener = null);
+    el.$_pfocustrap_focusoutlistener && el.removeEventListener('focusout', el.$_pfocustrap_focusoutlistener) && (el.$_pfocustrap_focusoutlistener = null);
 }
 
 function autoFocus(el, binding) {
