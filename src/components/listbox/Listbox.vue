@@ -75,12 +75,6 @@
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </li>
                     </ul>
-                    <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible">
-                        {{ emptyMessageText }}
-                    </span>
-                    <span role="status" aria-live="polite" class="p-hidden-accessible">
-                        {{ selectedMessageText }}
-                    </span>
                 </template>
                 <template v-if="$slots.loader" v-slot:loader="{ options }">
                     <slot name="loader" :options="options"></slot>
@@ -88,6 +82,12 @@
             </VirtualScroller>
         </div>
         <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
+        <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible">
+            {{ emptyMessageText }}
+        </span>
+        <span role="status" aria-live="polite" class="p-hidden-accessible">
+            {{ selectedMessageText }}
+        </span>
         <span ref="lastHiddenFocusableElement" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="!disabled ? tabindex : -1" @focus="onLastHiddenFocus"></span>
     </div>
 </template>

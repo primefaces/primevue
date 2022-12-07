@@ -120,15 +120,15 @@
                                     </li>
                                 </template>
                             </ul>
-                            <span role="status" aria-live="polite" class="p-hidden-accessible">
-                                {{ selectedMessageText }}
-                            </span>
                         </template>
                         <template v-if="$slots.loader" v-slot:loader="{ options }">
                             <slot name="loader" :options="options"></slot>
                         </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
+                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                        {{ selectedMessageText }}
+                    </span>
                 </div>
             </transition>
         </Portal>

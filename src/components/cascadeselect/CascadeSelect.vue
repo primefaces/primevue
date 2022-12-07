@@ -59,11 +59,11 @@
                             :optionGroupChildren="optionGroupChildren"
                             @option-change="onOptionChange"
                         />
-
-                        <span role="status" aria-live="polite" class="p-hidden-accessible">
-                            {{ selectedMessageText }}
-                        </span>
                     </div>
+
+                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                        {{ selectedMessageText }}
+                    </span>
                 </div>
             </transition>
         </Portal>
