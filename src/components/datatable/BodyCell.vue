@@ -18,7 +18,7 @@
         />
         <component v-else-if="column.children && column.children.body && !column.children.editor && d_editing" :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" />
+            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" />
             <DTCheckbox v-else-if="columnProp('selectionMode') === 'multiple'" :value="rowData" :checked="selected" :aria-selected="selected ? true : undefined" @change="toggleRowWithCheckbox($event, rowIndex)" />
         </template>
         <template v-else-if="columnProp('rowReorder')">
@@ -104,6 +104,10 @@ export default {
             default: null
         },
         ariaControls: {
+            type: String,
+            default: null
+        },
+        name: {
             type: String,
             default: null
         }
@@ -255,6 +259,9 @@ export default {
 
                         if (event.shiftKey) this.moveToPreviousCell(event);
                         else this.moveToNextCell(event);
+                        break;
+
+                    default:
                         break;
                 }
             }

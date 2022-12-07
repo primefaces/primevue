@@ -873,6 +873,9 @@ export default {
         },
         onRowClick(e) {
             const event = e.originalEvent;
+            const index = e.index;
+            const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
+            const focusedItem = DomHandler.findSingle(body, 'tr.p-selectable-row[tabindex="0"]');
 
             if (DomHandler.isClickable(event.target)) {
                 return;
@@ -949,6 +952,11 @@ export default {
             }
 
             this.rowTouched = false;
+
+            if (focusedItem) {
+                focusedItem.tabIndex = '-1';
+                DomHandler.find(body, 'tr.p-selectable-row')[index].tabIndex = '0';
+            }
         },
         onRowDblClick(e) {
             const event = e.originalEvent;
@@ -1004,7 +1012,7 @@ export default {
                         break;
 
                     case 'Tab':
-                        this.onTabKey(rowIndex);
+                        this.onTabKey(event, rowIndex);
                         break;
 
                     default:
@@ -1099,13 +1107,22 @@ export default {
                 this.$emit('update:selection', _selection);
             }
         },
-        onTabKey(rowIndex) {
-            const rows = DomHandler.find(this.$refs.table, '.p-selectable-row');
-            const firstSelectedRow = DomHandler.findSingle(this.$refs.table, '.p-highlight');
-            const firstRow = this.findFirstSelectableRow();
+        onTabKey(event, rowIndex) {
+            const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
+            const rows = DomHandler.find(body, 'tr.p-selectable-row');
 
-            firstSelectedRow ? (firstSelectedRow.tabIndex = '0') : (firstRow.tabIndex = '0');
-            firstRow !== rows[rowIndex] && (rows[rowIndex].tabIndex = '-1');
+            if (event.code === 'Tab' && rows && rows.length > 0) {
+                const firstSelectedRow = DomHandler.findSingle(body, 'tr.p-highlight');
+                const focusedItem = DomHandler.findSingle(body, 'tr.p-selectable-row[tabindex="0"]');
+
+                if (firstSelectedRow) {
+                    firstSelectedRow.tabIndex = '0';
+                    focusedItem !== firstSelectedRow && (focusedItem.tabIndex = '-1');
+                } else {
+                    rows[0].tabIndex = '0';
+                    focusedItem !== rows[0] && (rows[rowIndex].tabIndex = '-1');
+                }
+            }
         },
         findNextSelectableRow(row) {
             let nextRow = row.nextElementSibling;

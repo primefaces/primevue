@@ -13,9 +13,9 @@
                 <tr
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData) : true"
                     :key="getRowKey(rowData, getRowIndex(index))"
-                    :class="getRowClass(rowData, index)"
+                    :class="getRowClass(rowData)"
                     :style="rowStyle"
-                    :tabindex="selectionMode ? (!isARowSelected && index === 0 ? '0' : tabindexArray[index] === true ? '0' : '-1') : null"
+                    :tabindex="setRowTabindex(index)"
                     role="row"
                     :aria-selected="selectionMode ? isSelected(rowData) : null"
                     @click="onRowClick($event, rowData, getRowIndex(index))"
@@ -47,6 +47,7 @@
                             :responsiveLayout="responsiveLayout"
                             :virtualScrollerContentProps="virtualScrollerContentProps"
                             :ariaControls="expandedRowId + '_' + index + '_expansion'"
+                            :name="nameAttributeSelector"
                             @radio-change="onRadioChange($event)"
                             @checkbox-change="onCheckboxChange($event)"
                             @row-toggle="onRowToggle($event)"
@@ -290,7 +291,7 @@ export default {
 
             return getItemOptions ? getItemOptions(index).index : index;
         },
-        getRowClass(rowData, index) {
+        getRowClass(rowData) {
             let rowStyleClass = [];
 
             if (this.selectionMode) {
@@ -298,8 +299,6 @@ export default {
             }
 
             if (this.selection) {
-                this.setRowTabindex(rowData, index);
-
                 rowStyleClass.push({
                     'p-highlight': this.isSelected(rowData)
                 });
@@ -555,12 +554,12 @@ export default {
 
             contentRef && contentRef(el);
         },
-        setRowTabindex(rowData, index) {
-            const isRowSelected = this.isSelected(rowData);
+        setRowTabindex(index) {
+            if (this.selection === null && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {
+                return index === 0 ? 0 : -1;
+            }
 
-            this.tabindexArray[index] = isRowSelected ? true : false;
-
-            isRowSelected && (this.isARowSelected = true);
+            return -1;
         }
     },
     computed: {
@@ -584,6 +583,9 @@ export default {
             return this.getVirtualScrollerProp('contentStyle');
         },
         expandedRowId() {
+            return UniqueComponentId();
+        },
+        nameAttributeSelector() {
             return UniqueComponentId();
         }
     },
