@@ -85,7 +85,11 @@ export default {
     },
     nodeTouched: false,
     mounted() {
-        this.setAllNodesTabIndexes();
+        const hasTreeSelectParent = this.$refs.currentNode.closest('.p-treeselect-items-wrapper');
+
+        if (hasTreeSelectParent) {
+            this.setAllNodesTabIndexes();
+        }
     },
     methods: {
         toggle() {
@@ -164,7 +168,7 @@ export default {
             const listElement = nodeElement.children[1];
 
             if (listElement) {
-                this.focusNode(listElement.children[0]);
+                this.focusRowChange(nodeElement, listElement.children[0]);
             } else {
                 if (nodeElement.nextElementSibling) {
                     this.focusRowChange(nodeElement, nodeElement.nextElementSibling);
