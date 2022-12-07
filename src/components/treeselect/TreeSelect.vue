@@ -48,6 +48,7 @@
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
                         <TSTree
+                            ref="tree"
                             :id="listId"
                             :value="options"
                             :selectionMode="selectionMode"
@@ -245,41 +246,51 @@ export default {
         },
         onKeyDown(event) {
             switch (event.code) {
-                case 'Down':
                 case 'ArrowDown':
-                    if (this.overlayVisible) {
-                        if (DomHandler.findSingle(this.overlay, '.p-highlight')) {
-                            DomHandler.findSingle(this.overlay, '.p-highlight').focus();
-                        } else DomHandler.findSingle(this.overlay, '.p-treenode').children[0].focus();
-                    } else {
-                        this.show();
-                    }
-
-                    event.preventDefault();
+                    this.onArrowDownKey(event);
                     break;
 
                 case 'Space':
                 case 'Enter':
-                    if (this.overlayVisible) {
-                        this.hide();
-                    } else {
-                        this.show();
-                    }
-
-                    event.preventDefault();
+                    this.onEnterKey(event);
                     break;
 
                 case 'Escape':
-                case 'Tab':
-                    if (this.overlayVisible) {
-                        this.hide();
-                        event.preventDefault();
-                    }
+                    this.onEscapeKey(event);
 
                     break;
 
                 default:
                     break;
+            }
+        },
+        onArrowDownKey(event) {
+            if (this.overlayVisible) return;
+
+            this.show();
+
+            this.$nextTick(() => {
+                const treeNodeEl = DomHandler.find(this.$refs.tree.$el, '.p-treenode');
+                const focusedElement = [...treeNodeEl].find((item) => item.getAttribute('tabindex') === '0');
+
+                DomHandler.focus(focusedElement);
+            });
+
+            event.preventDefault();
+        },
+        onEnterKey(event) {
+            if (this.overlayVisible) {
+                this.hide();
+            } else {
+                this.onArrowDownKey(event);
+            }
+
+            event.preventDefault();
+        },
+        onEscapeKey(event) {
+            if (this.overlayVisible) {
+                this.hide();
+                event.preventDefault();
             }
         },
         onOverlayEnter(el) {
