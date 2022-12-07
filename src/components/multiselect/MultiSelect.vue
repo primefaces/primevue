@@ -29,11 +29,11 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="item of modelValue" :key="getLabelByValue(item)" class="p-multiselect-token">
+                        <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" class="p-multiselect-token">
                             <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <span v-if="!disabled" :class="['p-multiselect-token-icon', removeTokenIcon]" @click="removeOption($event, item)"></span>
+                            <span v-if="!disabled" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)"></span>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
@@ -1107,6 +1107,9 @@ export default {
             }
 
             return label;
+        },
+        chipSelectedItems() {
+            return ObjectUtils.isNotEmpty(this.maxSelectedLabels) && this.modelValue && this.modelValue.length > this.maxSelectedLabels ? this.modelValue.slice(0, this.maxSelectedLabels) : this.modelValue;
         },
         allSelected() {
             return this.selectAll !== null ? this.selectAll : ObjectUtils.isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isOptionDisabled(option) || this.isSelected(option));
