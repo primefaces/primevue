@@ -1770,8 +1770,8 @@ export default {
         <p>Paginator is a standalone component used inside the DataTable, refer to the <router-link to="/paginator">paginator</router-link> for more information about the accessibility features.</p>
 
         <h6>Sortable Headers Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
@@ -1802,8 +1802,8 @@ export default {
         </div>
 
         <h6>Keyboard Support</h6>
-        <div className="doc-tablewrapper">
-            <table className="doc-table">
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
                 <thead>
                     <tr>
                         <th>Key</th>
