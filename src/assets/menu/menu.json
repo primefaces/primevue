@@ -103,7 +103,8 @@
             "children": [
                 {
                     "name": "Overview",
-                    "to": "/accessibility"
+                    "to": "/accessibility",
+                    "badge": "NEW"
                 }
             ]
         },
