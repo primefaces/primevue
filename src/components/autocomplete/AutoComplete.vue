@@ -519,6 +519,7 @@ export default {
                 }
 
                 if (!valid) {
+                    this.searching = false;
                     this.$refs.focusInput.value = '';
                     this.$emit('clear');
                     !this.multiple && this.updateModel(event, null);
@@ -936,6 +937,7 @@ export default {
             }
         },
         updateModel(event, value) {
+            this.searching = false;
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
         },
