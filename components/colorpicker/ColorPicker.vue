@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'ColorPicker',
@@ -411,16 +411,14 @@ export default {
             this.overlayVisible = !this.overlayVisible;
         },
         onInputKeydown(event) {
-            switch (event.which) {
-                //space
-                case 32:
+            switch (event.code) {
+                case 'Space':
                     this.overlayVisible = !this.overlayVisible;
                     event.preventDefault();
                     break;
 
-                //escape and tab
-                case 27:
-                case 9:
+                case 'Escape':
+                case 'Tab':
                     this.overlayVisible = false;
                     break;
 

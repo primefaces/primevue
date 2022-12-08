@@ -1,11 +1,20 @@
 <template>
-    <div :id="id" :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]">
+    <div :id="id" :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]" role="region">
         <div v-if="$slots.header" class="p-carousel-header">
             <slot name="header"></slot>
         </div>
         <div :class="contentClasses">
-            <div :class="containerClasses">
-                <button v-if="showNavigators" v-ripple :class="['p-carousel-prev p-link', { 'p-disabled': backwardIsDisabled }]" :disabled="backwardIsDisabled" @click="navBackward" type="button">
+            <div :class="containerClasses" :aria-live="allowAutoplay ? 'polite' : 'off'">
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="['p-carousel-prev p-link', { 'p-disabled': backwardIsDisabled }]"
+                    :disabled="backwardIsDisabled"
+                    :aria-label="ariaPrevButtonLabel"
+                    @click="navBackward"
+                    v-bind="prevButtonProps"
+                >
                     <span :class="['p-carousel-prev-icon pi', { 'pi-chevron-left': !isVertical(), 'pi-chevron-up': isVertical() }]"></span>
                 </button>
 
@@ -27,6 +36,10 @@
                             v-for="(item, index) of value"
                             :key="index"
                             :class="['p-carousel-item', { 'p-carousel-item-active': firstIndex() <= index && lastIndex() >= index, 'p-carousel-item-start': firstIndex() === index, 'p-carousel-item-end': lastIndex() === index }]"
+                            role="group"
+                            :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
+                            :aria-label="ariaSlideNumber(index)"
+                            :aria-roledescription="ariaSlideLabel"
                         >
                             <slot name="item" :data="item" :index="index"></slot>
                         </div>
@@ -42,13 +55,22 @@
                     </div>
                 </div>
 
-                <button v-if="showNavigators" v-ripple :class="['p-carousel-next p-link', { 'p-disabled': forwardIsDisabled }]" :disabled="forwardIsDisabled" @click="navForward" type="button">
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="['p-carousel-next p-link', { 'p-disabled': forwardIsDisabled }]"
+                    :disabled="forwardIsDisabled"
+                    :aria-label="ariaNextButtonLabel"
+                    @click="navForward"
+                    v-bind="nextButtonProps"
+                >
                     <span :class="['p-carousel-prev-icon pi', { 'pi-chevron-right': !isVertical(), 'pi-chevron-down': isVertical() }]"></span>
                 </button>
             </div>
-            <ul v-if="totalIndicators >= 0 && showIndicators" :class="indicatorsContentClasses">
+            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="indicatorsContentClasses" @keydown="onIndicatorKeydown">
                 <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', { 'p-highlight': d_page === i }]">
-                    <button class="p-link" @click="onIndicatorClick($event, i)" type="button" />
+                    <button class="p-link" type="button" :tabindex="d_page === i ? '0' : '-1'" :aria-label="ariaPageLabel(i + 1)" :aria-current="d_page === i ? 'page' : undefined" @click="onIndicatorClick($event, i)" />
                 </li>
             </ul>
         </div>
@@ -59,9 +81,8 @@
 </template>
 
 <script>
-import { UniqueComponentId } from 'primevue/utils';
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Carousel',
@@ -107,8 +128,17 @@ export default {
         showIndicators: {
             type: Boolean,
             default: true
+        },
+        prevButtonProps: {
+            type: null,
+            default: null
+        },
+        nextButtonProps: {
+            type: null,
+            default: null
         }
     },
+    isRemainingItemsAdded: false,
     data() {
         return {
             id: UniqueComponentId(),
@@ -125,7 +155,6 @@ export default {
             swipeThreshold: 20
         };
     },
-    isRemainingItemsAdded: false,
     watch: {
         page(newValue) {
             this.d_page = newValue;
@@ -419,6 +448,84 @@ export default {
                 }
             }
         },
+        onIndicatorKeydown(event) {
+            switch (event.code) {
+                case 'ArrowRight':
+                    this.onRightKey();
+                    break;
+
+                case 'ArrowLeft':
+                    this.onLeftKey();
+                    break;
+
+                case 'Home':
+                    this.onHomeKey();
+                    event.preventDefault();
+                    break;
+
+                case 'End':
+                    this.onEndKey();
+                    event.preventDefault();
+                    break;
+
+                case 'ArrowUp':
+                case 'ArrowDown':
+                    event.preventDefault();
+                    break;
+
+                case 'Tab':
+                    this.onTabKey();
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onRightKey() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, activeIndex + 1 === indicators.length ? indicators.length - 1 : activeIndex + 1);
+        },
+        onLeftKey() {
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, activeIndex - 1 <= 0 ? 0 : activeIndex - 1);
+        },
+        onHomeKey() {
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, 0);
+        },
+        onEndKey() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+            const activeIndex = this.findFocusedIndicatorIndex();
+
+            this.changedFocusedIndicator(activeIndex, indicators.length - 1);
+        },
+        onTabKey() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+            const highlightedIndex = indicators.findIndex((ind) => DomHandler.hasClass(ind, 'p-highlight'));
+
+            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '.p-carousel-indicator > button[tabindex="0"]');
+            const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);
+
+            indicators[activeIndex].children[0].tabIndex = '-1';
+            indicators[highlightedIndex].children[0].tabIndex = '0';
+        },
+        findFocusedIndicatorIndex() {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '.p-carousel-indicator > button[tabindex="0"]');
+
+            return indicators.findIndex((ind) => ind === activeIndicator.parentElement);
+        },
+        changedFocusedIndicator(prevInd, nextInd) {
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+
+            indicators[prevInd].children[0].tabIndex = '-1';
+            indicators[nextInd].children[0].tabIndex = '0';
+            indicators[nextInd].children[0].focus();
+        },
         bindDocumentListeners() {
             if (!this.documentResizeListener) {
                 this.documentResizeListener = (e) => {
@@ -507,6 +614,12 @@ export default {
         },
         lastIndex() {
             return this.firstIndex() + this.d_numVisible - 1;
+        },
+        ariaSlideNumber(value) {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slideNumber.replace(/{slideNumber}/g, value) : undefined;
+        },
+        ariaPageLabel(value) {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.pageLabel.replace(/{page}/g, value) : undefined;
         }
     },
     computed: {
@@ -527,6 +640,15 @@ export default {
         },
         indicatorsContentClasses() {
             return ['p-carousel-indicators p-reset', this.indicatorsContentClass];
+        },
+        ariaSlideLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slide : undefined;
+        },
+        ariaPrevButtonLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.prevPageLabel : undefined;
+        },
+        ariaNextButtonLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;
         }
     },
     directives: {

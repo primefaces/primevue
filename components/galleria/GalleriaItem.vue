@@ -4,7 +4,7 @@
             <button v-if="showItemNavigators" v-ripple type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
                 <span class="p-galleria-item-prev-icon pi pi-chevron-left"></span>
             </button>
-            <div class="p-galleria-item">
+            <div :id="id + '_item_' + activeIndex" class="p-galleria-item" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel">
                 <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
             <button v-if="showItemNavigators" v-ripple type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
@@ -18,11 +18,14 @@
             <li
                 v-for="(item, index) of value"
                 :key="`p-galleria-indicator-${index}`"
+                :class="['p-galleria-indicator', { 'p-highlight': isIndicatorItemActive(index) }]"
                 tabindex="0"
+                :aria-label="ariaPageLabel(index + 1)"
+                :aria-selected="activeIndex === index"
+                :aria-controls="id + '_item_' + index"
                 @click="onIndicatorClick(index)"
                 @mouseenter="onIndicatorMouseEnter(index)"
-                @keydown.enter="onIndicatorKeyDown(index)"
-                :class="['p-galleria-indicator', { 'p-highlight': isIndicatorItemActive(index) }]"
+                @keydown="onIndicatorKeyDown($event, index)"
             >
                 <button v-if="!templates['indicator']" type="button" tabindex="-1" class="p-link"></button>
                 <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
@@ -72,6 +75,10 @@ export default {
         },
         templates: {
             type: null,
+            default: null
+        },
+        id: {
+            type: String,
             default: null
         }
     },
@@ -125,10 +132,24 @@ export default {
                 this.$emit('update:activeIndex', index);
             }
         },
-        onIndicatorKeyDown(index) {
-            this.stopSlideShow();
+        onIndicatorKeyDown(event, index) {
+            switch (event.code) {
+                case 'Enter':
+                case 'Space':
+                    this.stopSlideShow();
 
-            this.$emit('update:activeIndex', index);
+                    this.$emit('update:activeIndex', index);
+                    event.preventDefault();
+                    break;
+
+                case 'ArrowDown':
+                case 'ArrowUp':
+                    event.preventDefault();
+                    break;
+
+                default:
+                    break;
+            }
         },
         isIndicatorItemActive(index) {
             return this.activeIndex === index;
@@ -138,6 +159,12 @@ export default {
         },
         isNavForwardDisabled() {
             return !this.circular && this.activeIndex === this.value.length - 1;
+        },
+        ariaSlideNumber(value) {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slideNumber.replace(/{slideNumber}/g, value) : undefined;
+        },
+        ariaPageLabel(value) {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.pageLabel.replace(/{page}/g, value) : undefined;
         }
     },
     computed: {
@@ -159,6 +186,9 @@ export default {
                     'p-disabled': this.isNavForwardDisabled()
                 }
             ];
+        },
+        ariaSlideLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slide : undefined;
         }
     },
     directives: {

@@ -3,27 +3,19 @@
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
-                :class="[
-                    'p-cascadeselect-item',
-                    {
-                        'p-cascadeselect-item-group': isOptionGroup(processedOption),
-                        'p-cascadeselect-item-active p-highlight': isOptionActive(processedOption),
-                        'p-focus': isOptionFocused(processedOption),
-                        'p-disabled': isOptionDisabled(processedOption)
-                    }
-                ]"
+                :class="getOptionClass(processedOption)"
                 role="treeitem"
                 :aria-label="getOptionLabelToRender(processedOption)"
                 :aria-selected="isOptionGroup(processedOption) ? undefined : isOptionSelected(processedOption)"
                 :aria-expanded="isOptionGroup(processedOption) ? isOptionActive(processedOption) : undefined"
-                :aria-setsize="processedOption.length"
-                :aria-posinset="index + 1"
                 :aria-level="level + 1"
+                :aria-setsize="options.length"
+                :aria-posinset="index + 1"
             >
                 <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
                     <span v-else class="p-cascadeselect-item-text">{{ getOptionLabelToRender(processedOption) }}</span>
-                    <span v-if="isOptionGroup(processedOption)" class="p-cascadeselect-group-icon pi pi-angle-right" aria-hidden="true"></span>
+                    <span v-if="isOptionGroup(processedOption)" :class="['p-cascadeselect-group-icon', optionGroupIcon]" aria-hidden="true"></span>
                 </div>
                 <CascadeSelectSub
                     v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)"
@@ -38,6 +30,7 @@
                     :optionLabel="optionLabel"
                     :optionValue="optionValue"
                     :optionDisabled="optionDisabled"
+                    :optionGroupIcon="optionGroupIcon"
                     :optionGroupLabel="optionGroupLabel"
                     :optionGroupChildren="optionGroupChildren"
                     @option-change="onOptionChange"
@@ -48,8 +41,8 @@
 </template>
 
 <script>
-import { ObjectUtils, DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'CascadeSelectSub',
@@ -61,6 +54,7 @@ export default {
         optionLabel: String,
         optionValue: String,
         optionDisabled: null,
+        optionGroupIcon: String,
         optionGroupLabel: String,
         optionGroupChildren: Array,
         activeOptionPath: Array,
@@ -122,6 +116,17 @@ export default {
             if (parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth > viewport.width - DomHandler.calculateScrollbarWidth()) {
                 this.$el.style.left = '-100%';
             }
+        },
+        getOptionClass(processedOption) {
+            return [
+                'p-cascadeselect-item',
+                {
+                    'p-cascadeselect-item-group': this.isOptionGroup(processedOption),
+                    'p-cascadeselect-item-active p-highlight': this.isOptionActive(processedOption),
+                    'p-focus': this.isOptionFocused(processedOption),
+                    'p-disabled': this.isOptionDisabled(processedOption)
+                }
+            ];
         }
     },
     directives: {

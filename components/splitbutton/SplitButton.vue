@@ -1,9 +1,21 @@
 <template>
     <div :class="containerClass" :style="style">
         <slot>
-            <PVSButton type="button" class="p-splitbutton-defaultbutton" v-bind="$attrs" :icon="icon" :label="label" @click="onDefaultButtonClick" />
+            <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="buttonProps" />
         </slot>
-        <PVSButton type="button" class="p-splitbutton-menubutton" icon="pi pi-chevron-down" @click="onDropdownButtonClick" :disabled="$attrs.disabled" aria-haspopup="true" :aria-controls="ariaId + '_overlay'" />
+        <PVSButton
+            ref="button"
+            type="button"
+            class="p-splitbutton-menubutton"
+            icon="pi pi-chevron-down"
+            :disabled="disabled"
+            aria-haspopup="true"
+            :aria-expanded="isExpanded"
+            :aria-controls="ariaId + '_overlay'"
+            @click="onDropdownButtonClick"
+            @keydown="onDropdownKeydown"
+            v-bind="menuButtonProps"
+        />
         <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
     </div>
 </template>
@@ -15,7 +27,6 @@ import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'SplitButton',
-    inheritAttrs: false,
     props: {
         label: {
             type: String,
@@ -41,15 +52,45 @@ export default {
             type: String,
             default: 'body'
         },
-        class: null,
-        style: null
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        class: {
+            type: null,
+            default: null
+        },
+        style: {
+            type: null,
+            default: null
+        },
+        buttonProps: {
+            type: null,
+            default: null
+        },
+        menuButtonProps: {
+            type: null,
+            default: null
+        }
+    },
+    data() {
+        return {
+            isExpanded: false
+        };
     },
     methods: {
         onDropdownButtonClick() {
-            this.$refs.menu.toggle({ currentTarget: this.$el });
+            this.$refs.menu.toggle({ currentTarget: this.$el, relatedTarget: this.$refs.button.$el });
+            this.isExpanded = !this.$refs.menu.visible;
         },
-        onDefaultButtonClick() {
-            this.$refs.menu.hide();
+        onDropdownKeydown(event) {
+            if (event.code === 'ArrowDown' || event.code === 'ArrowUp') {
+                this.onDropdownButtonClick();
+                event.preventDefault();
+            }
+        },
+        onDefaultButtonClick(event) {
+            this.$refs.menu.hide(event);
         }
     },
     computed: {

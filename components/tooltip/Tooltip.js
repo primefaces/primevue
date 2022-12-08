@@ -1,4 +1,4 @@
-import { UniqueComponentId, DomHandler, ObjectUtils, ConnectedOverlayScrollHandler, ZIndexUtils } from 'primevue/utils';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
@@ -11,6 +11,8 @@ function bindEvents(el) {
         el.addEventListener('mouseleave', onMouseLeave);
         el.addEventListener('click', onClick);
     }
+
+    el.addEventListener('keydown', onKeydown);
 }
 
 function unbindEvents(el) {
@@ -24,6 +26,8 @@ function unbindEvents(el) {
         el.removeEventListener('mouseleave', onMouseLeave);
         el.removeEventListener('click', onClick);
     }
+
+    el.removeEventListener('keydown', onKeydown);
 }
 
 function bindScrollListener(el) {
@@ -62,6 +66,10 @@ function onClick(event) {
     hide(event.currentTarget);
 }
 
+function onKeydown(event) {
+    event.code === 'Escape' && hide(event.currentTarget);
+}
+
 function show(el) {
     if (el.$_ptooltipDisabled) {
         return;
@@ -94,7 +102,7 @@ function getTooltipElement(el) {
 }
 
 function create(el) {
-    const id = UniqueComponentId() + '_tooltip';
+    const id = el.$_ptooltipIdAttr !== '' ? el.$_ptooltipIdAttr : UniqueComponentId() + '_tooltip';
 
     el.$_ptooltipId = id;
 
@@ -118,6 +126,7 @@ function create(el) {
         tooltipText.appendChild(document.createTextNode(el.$_ptooltipValue));
     }
 
+    container.setAttribute('role', 'tooltip');
     container.appendChild(tooltipText);
     document.body.appendChild(container);
 
@@ -312,8 +321,9 @@ const Tooltip = {
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
+            target.$_ptooltipIdAttr = '';
         } else if (typeof options.value === 'object' && options.value) {
-            if (ObjectUtils.isEmpty(options.value.value)) return;
+            if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') return;
             else {
                 /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
@@ -321,6 +331,7 @@ const Tooltip = {
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
                 target.$_ptooltipClass = options.value.class;
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
+                target.$_ptooltipIdAttr = options.value.id || '';
             }
         }
 
@@ -343,21 +354,33 @@ const Tooltip = {
         let target = getTarget(el);
         target.$_ptooltipModifiers = getModifiers(options);
 
-        if (!options.value) return;
+        if (!options.value) {
+            unbindEvents(target);
+            return;
+        }
+
         if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
             target.$_ptooltipDisabled = false;
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
+            target.$_ptooltipIdAttr = '';
+
+            bindEvents(target);
         } else if (typeof options.value === 'object' && options.value) {
-            if (ObjectUtils.isEmpty(options.value.value)) return;
-            else {
+            if (ObjectUtils.isEmpty(options.value.value || options.value.value.trim() === '')) {
+                unbindEvents(target);
+                return;
+            } else {
                 /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
                 target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
                 target.$_ptooltipClass = options.value.class;
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
+                target.$_ptooltipIdAttr = options.value.id || '';
+
+                bindEvents(target);
             }
         }
     }

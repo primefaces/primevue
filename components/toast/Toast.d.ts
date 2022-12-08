@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type ToastPositionType = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center' | undefined;
@@ -82,6 +82,35 @@ export interface ToastProps {
      * @see ToastBreakpointsType
      */
     breakpoints?: ToastBreakpointsType;
+    /**
+     * Icon to display in the toast close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with info severity.
+     * Default value is 'pi pi-info-circle'.
+     */
+    infoIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with warn severity.
+     * Default value is 'pi pi-exclamation-triangle'.
+     */
+    warnIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with error severity.
+     * Default value is 'pi pi-times'.
+     */
+    errorIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with success severity.
+     * Default value is 'pi pi-check'.
+     */
+    successIcon?: string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     */
+    closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface ToastSlots {

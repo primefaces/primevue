@@ -152,21 +152,27 @@ export default {
                 modelValue = this.modelValue ? [...this.modelValue] : [];
 
                 if (this.handleIndex == 0) {
-                    let maxValue = this.modelValue ? this.modelValue[1] : this.max;
-
                     if (newValue < this.min) newValue = this.min;
-                    else if (newValue >= maxValue) newValue = maxValue;
+                    else if (newValue >= this.max) newValue = this.max;
 
-                    modelValue[0] = newValue;
-                    modelValue[1] = modelValue[1] || this.max;
+                    if (newValue > modelValue[1]) {
+                        modelValue[1] = newValue;
+
+                        this.handleIndex = 1;
+                    } else {
+                        modelValue[0] = newValue;
+                    }
                 } else {
-                    let minValue = this.modelValue ? this.modelValue[0] : this.min;
-
                     if (newValue > this.max) newValue = this.max;
-                    else if (newValue <= minValue) newValue = minValue;
+                    else if (newValue <= this.min) newValue = this.min;
 
-                    modelValue[0] = modelValue[0] || this.min;
-                    modelValue[1] = newValue;
+                    if (newValue < modelValue[0]) {
+                        modelValue[0] = newValue;
+
+                        this.handleIndex = 0;
+                    } else {
+                        modelValue[1] = newValue;
+                    }
                 }
             } else {
                 if (newValue < this.min) newValue = this.min;
@@ -334,8 +340,11 @@ export default {
         },
         rangeStyle() {
             if (this.range) {
-                if (this.horizontal) return { left: this.rangeStartPosition + '%', width: this.rangeEndPosition - this.rangeStartPosition + '%' };
-                else return { bottom: this.rangeStartPosition + '%', height: this.rangeEndPosition - this.rangeStartHandlePosition + '%' };
+                const rangeSliderWidth = this.rangeEndPosition > this.rangeStartPosition ? this.rangeEndPosition - this.rangeStartPosition : this.rangeStartPosition - this.rangeEndPosition;
+                const rangeSliderPosition = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
+
+                if (this.horizontal) return { left: rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
+                else return { bottom: rangeSliderPosition + '%', height: rangeSliderWidth + '%' };
             } else {
                 if (this.horizontal) return { width: this.handlePosition + '%' };
                 else return { height: this.handlePosition + '%' };

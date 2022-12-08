@@ -3,7 +3,10 @@
         :style="containerStyle"
         :class="containerClass"
         :tabindex="columnProp('sortable') ? '0' : null"
-        role="cell"
+        role="columnheader"
+        :colspan="columnProp('colspan')"
+        :rowspan="columnProp('rowspan')"
+        :aria-sort="ariaSort"
         @click="onClick"
         @keydown="onKeyDown"
         @mousedown="onMouseDown"
@@ -11,9 +14,6 @@
         @dragover="onDragOver"
         @dragleave="onDragLeave"
         @drop="onDrop"
-        :colspan="columnProp('colspan')"
-        :rowspan="columnProp('rowspan')"
-        :aria-sort="ariaSort"
     >
         <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart"></span>
         <div class="p-column-header-content">
@@ -35,6 +35,7 @@
                 :filterApplyTemplate="column.children && column.children.filterapply"
                 :filters="filters"
                 :filtersStore="filtersStore"
+                :filterInputProps="filterInputProps"
                 @filter-change="$emit('filter-change', $event)"
                 @filter-apply="$emit('filter-apply')"
                 :filterMenuStyle="columnProp('filterMenuStyle')"
@@ -58,8 +59,8 @@
 
 <script>
 import { DomHandler, ObjectUtils } from 'primevue/utils';
-import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
+import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {
     name: 'HeaderCell',
@@ -91,7 +92,7 @@ export default {
             default: false
         },
         groupRowsBy: {
-            type: [Array, String],
+            type: [Array, String, Function],
             default: null
         },
         sortMode: {
@@ -141,6 +142,10 @@ export default {
         reorderableColumns: {
             type: Boolean,
             default: false
+        },
+        filterInputProps: {
+            type: null,
+            default: null
         }
     },
     data() {
@@ -166,8 +171,9 @@ export default {
             this.$emit('column-click', { originalEvent: event, column: this.column });
         },
         onKeyDown(event) {
-            if (event.which === 13 && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
                 this.$emit('column-click', { originalEvent: event, column: this.column });
+                event.preventDefault();
             }
         },
         onMouseDown(event) {

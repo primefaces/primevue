@@ -49,11 +49,6 @@ export interface OverlayPanelProps {
      */
     autoZIndex?: boolean;
     /**
-     * Aria label of the close icon.
-     * Default value is 'close'.
-     */
-    ariaCloseLabel?: string;
-    /**
      * Object literal to define widths per screen size.
      * @see OverlayPanelBreakpoints
      */
@@ -82,10 +77,11 @@ declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPane
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.
+     * @param {*} [target] - Optional target if event.currentTarget should not be used.
      *
      * @memberof OverlayPanel
      */
-    toggle: (event: Event) => void;
+    toggle: (event: Event, target?: any) => void;
     /**
      * Shows the overlay.
      * @param {Event} event - Browser event.

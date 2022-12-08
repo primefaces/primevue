@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Splitter from './Splitter.vue';
-import SplitterPanel from '../splitterpanel/SplitterPanel.vue';
+import SplitterPanel from '@/components/splitterpanel/SplitterPanel.vue';
 
 describe('Splitter.vue', () => {
     let wrapper;

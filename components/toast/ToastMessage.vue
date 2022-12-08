@@ -9,9 +9,11 @@
                 </div>
             </template>
             <component v-else :is="template" :message="message"></component>
-            <button v-if="message.closable !== false" v-ripple class="p-toast-icon-close p-link" @click="onCloseClick" type="button">
-                <span class="p-toast-icon-close-icon pi pi-times"></span>
-            </button>
+            <div v-if="message.closable !== false">
+                <button v-ripple class="p-toast-icon-close p-link" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="closeButtonProps">
+                    <span :class="['p-toast-icon-close-icon', closeIcon]" />
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -23,8 +25,38 @@ export default {
     name: 'ToastMessage',
     emits: ['close'],
     props: {
-        message: null,
-        template: null
+        message: {
+            type: null,
+            default: null
+        },
+        template: {
+            type: null,
+            default: null
+        },
+        closeIcon: {
+            type: String,
+            default: null
+        },
+        infoIcon: {
+            type: String,
+            default: null
+        },
+        warnIcon: {
+            type: String,
+            default: null
+        },
+        errorIcon: {
+            type: String,
+            default: null
+        },
+        successIcon: {
+            type: String,
+            default: null
+        },
+        closeButtonProps: {
+            type: null,
+            default: null
+        }
     },
     closeTimeout: null,
     mounted() {
@@ -67,14 +99,17 @@ export default {
         },
         iconClass() {
             return [
-                'p-toast-message-icon pi',
+                'p-toast-message-icon',
                 {
-                    'pi-info-circle': this.message.severity === 'info',
-                    'pi-exclamation-triangle': this.message.severity === 'warn',
-                    'pi-times': this.message.severity === 'error',
-                    'pi-check': this.message.severity === 'success'
+                    [this.infoIcon]: this.message.severity === 'info',
+                    [this.warnIcon]: this.message.severity === 'warn',
+                    [this.errorIcon]: this.message.severity === 'error',
+                    [this.successIcon]: this.message.severity === 'success'
                 }
             ];
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     directives: {

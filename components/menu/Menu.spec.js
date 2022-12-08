@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from '../config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import Menu from './Menu.vue';
 
 describe('Menu.vue', () => {

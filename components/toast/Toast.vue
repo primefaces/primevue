@@ -2,17 +2,29 @@
     <Portal>
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
-                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" @close="remove($event)" :template="$slots.message" />
+                <ToastMessage
+                    v-for="msg of messages"
+                    :key="msg.id"
+                    :message="msg"
+                    :template="$slots.message"
+                    :closeIcon="closeIcon"
+                    :infoIcon="infoIcon"
+                    :warnIcon="warnIcon"
+                    :errorIcon="errorIcon"
+                    :successIcon="successIcon"
+                    :closeButtonProps="closeButtonProps"
+                    @close="remove($event)"
+                />
             </transition-group>
         </div>
     </Portal>
 </template>
 
 <script>
-import ToastEventBus from 'primevue/toasteventbus';
-import ToastMessage from './ToastMessage.vue';
-import { ZIndexUtils, UniqueComponentId, ObjectUtils } from 'primevue/utils';
 import Portal from 'primevue/portal';
+import ToastEventBus from 'primevue/toasteventbus';
+import { ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import ToastMessage from './ToastMessage.vue';
 
 var messageIdx = 0;
 
@@ -38,6 +50,30 @@ export default {
         },
         breakpoints: {
             type: Object,
+            default: null
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        infoIcon: {
+            type: String,
+            default: 'pi pi-info-circle'
+        },
+        warnIcon: {
+            type: String,
+            default: 'pi pi-exclamation-triangle'
+        },
+        errorIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        successIcon: {
+            type: String,
+            default: 'pi pi-check'
+        },
+        closeButtonProps: {
+            type: null,
             default: null
         }
     },
@@ -109,7 +145,9 @@ export default {
         },
         onLeave() {
             if (this.$refs.container && this.autoZIndex && ObjectUtils.isEmpty(this.messages)) {
-                ZIndexUtils.clear(this.$refs.container);
+                setTimeout(() => {
+                    ZIndexUtils.clear(this.$refs.container);
+                }, 200);
             }
         },
         createStyle() {

@@ -10,7 +10,7 @@
             <span class="p-tree-filter-icon pi pi-search"></span>
         </div>
         <div class="p-tree-wrapper" :style="{ maxHeight: scrollHeight }">
-            <ul class="p-tree-container" role="tree">
+            <ul class="p-tree-container" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
                 <TreeNode
                     v-for="(node, index) of valueToRender"
                     :key="node.key"
@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import TreeNode from './TreeNode.vue';
 import { ObjectUtils } from 'primevue/utils';
+import TreeNode from './TreeNode.vue';
 
 export default {
     name: 'Tree',
@@ -93,6 +93,14 @@ export default {
         level: {
             type: Number,
             default: 0
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     data() {

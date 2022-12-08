@@ -29,11 +29,11 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="item of modelValue" :key="getLabelByValue(item)" class="p-multiselect-token">
+                        <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" class="p-multiselect-token">
                             <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <span v-if="!disabled" class="p-multiselect-token-icon pi pi-times-circle" @click="removeOption($event, item)"></span>
+                            <span v-if="!disabled" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)"></span>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
@@ -56,7 +56,7 @@
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" />
                             </div>
                             <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]">
-                                <span :class="['p-checkbox-icon', { 'pi pi-check': allSelected }]"></span>
+                                <span :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]"></span>
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
@@ -76,13 +76,13 @@
                                 @input="onFilterChange"
                                 v-bind="filterInputProps"
                             />
-                            <span class="p-multiselect-filter-icon pi pi-search"></span>
+                            <span :class="['p-multiselect-filter-icon', filterIcon]" />
                         </div>
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
                         </span>
                         <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
-                            <span class="p-multiselect-close-icon pi pi-times" />
+                            <span :class="['p-multiselect-close-icon', closeIcon]" />
                         </button>
                     </div>
                     <div class="p-multiselect-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }">
@@ -110,7 +110,7 @@
                                         >
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]">
-                                                    <span :class="['p-checkbox-icon', { 'pi pi-check': isSelected(option) }]"></span>
+                                                    <span :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]"></span>
                                                 </div>
                                             </div>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
@@ -125,12 +125,6 @@
                                         <slot name="empty">{{ emptyMessageText }}</slot>
                                     </li>
                                 </ul>
-                                <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible">
-                                    {{ emptyMessageText }}
-                                </span>
-                                <span role="status" aria-live="polite" class="p-hidden-accessible">
-                                    {{ selectedMessageText }}
-                                </span>
                             </template>
                             <template v-if="$slots.loader" v-slot:loader="{ options }">
                                 <slot name="loader" :options="options"></slot>
@@ -138,6 +132,12 @@
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
+                    <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible">
+                        {{ emptyMessageText }}
+                    </span>
+                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                        {{ selectedMessageText }}
+                    </span>
                     <span ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus"></span>
                 </div>
             </transition>
@@ -146,12 +146,12 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId, ObjectUtils, DomHandler, ZIndexUtils } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import { FilterService } from 'primevue/api';
-import Ripple from 'primevue/ripple';
-import VirtualScroller from 'primevue/virtualscroller';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'MultiSelect',
@@ -238,9 +238,29 @@ export default {
             type: Boolean,
             default: false
         },
+        checkboxIcon: {
+            type: String,
+            default: 'pi pi-check'
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
+        filterIcon: {
+            type: String,
+            default: 'pi pi-search'
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        removeTokenIcon: {
+            type: String,
+            default: 'pi pi-times-circle'
         },
         selectAll: {
             type: Boolean,
@@ -377,17 +397,23 @@ export default {
             isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         hide(isFocus) {
-            this.$emit('before-hide');
-            this.overlayVisible = false;
-            this.focusedOptionIndex = -1;
-            this.searchValue = '';
+            const _hide = () => {
+                this.$emit('before-hide');
+                this.overlayVisible = false;
+                this.focusedOptionIndex = -1;
+                this.searchValue = '';
 
-            this.resetFilterOnHide && (this.filterValue = null);
-            isFocus && DomHandler.focus(this.$refs.focusInput);
+                this.resetFilterOnHide && (this.filterValue = null);
+                isFocus && DomHandler.focus(this.$refs.focusInput);
+            };
+
+            setTimeout(() => {
+                _hide();
+            }, 0); // For ScreenReaders
         },
         onFocus(event) {
             this.focused = true;
-            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
@@ -472,18 +498,14 @@ export default {
             }
         },
         onFirstHiddenFocus(event) {
-            const relatedTarget = event.relatedTarget;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
 
-            if (relatedTarget === this.$refs.focusInput) {
-                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)');
-
-                DomHandler.focus(firstFocusableEl);
-            } else {
-                DomHandler.focus(this.$refs.focusInput);
-            }
+            DomHandler.focus(focusableEl);
         },
-        onLastHiddenFocus() {
-            DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
+        onLastHiddenFocus(event) {
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
+
+            DomHandler.focus(focusableEl);
         },
         onCloseClick() {
             this.hide(true);
@@ -506,8 +528,8 @@ export default {
             else value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
-            isFocus && DomHandler.focus(this.$refs.focusInput);
             index !== -1 && (this.focusedOptionIndex = index);
+            isFocus && DomHandler.focus(this.$refs.focusInput);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
@@ -705,7 +727,7 @@ export default {
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
                 if (this.overlayVisible && this.hasFocusableElements()) {
-                    DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
+                    DomHandler.focus(event.shiftKey ? this.$refs.lastHiddenFocusableElementOnOverlay : this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
                 } else {
@@ -825,7 +847,7 @@ export default {
             if (this.selectAll !== null) {
                 this.$emit('selectall-change', { originalEvent: event, checked: !this.allSelected });
             } else {
-                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => !this.isOptionGroup(option)).map((option) => this.getOptionValue(option));
+                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
 
                 this.updateModel(event, value);
             }
@@ -927,9 +949,7 @@ export default {
             }
 
             if (optionIndex === -1 && this.focusedOptionIndex === -1) {
-                const selectedIndex = this.findSelectedOptionIndex();
-
-                optionIndex = selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
+                optionIndex = this.findFirstFocusedOptionIndex();
             }
 
             if (optionIndex !== -1) {
@@ -1019,7 +1039,7 @@ export default {
             ];
         },
         dropdownIconClass() {
-            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : 'pi pi-chevron-down'];
+            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
         },
         panelStyleClass() {
             return [
@@ -1043,7 +1063,26 @@ export default {
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
-            return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
+            if (this.filterValue) {
+                const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
+
+                if (this.optionGroupLabel) {
+                    const optionGroups = this.options || [];
+                    const filtered = [];
+
+                    optionGroups.forEach((group) => {
+                        const filteredItems = group.items.filter((item) => filteredOptions.includes(item));
+
+                        if (filteredItems.length > 0) filtered.push({ ...group, items: [...filteredItems] });
+                    });
+
+                    return this.flatOptions(filtered);
+                }
+
+                return filteredOptions;
+            }
+
+            return options;
         },
         label() {
             // TODO: Refactor
@@ -1069,8 +1108,11 @@ export default {
 
             return label;
         },
+        chipSelectedItems() {
+            return ObjectUtils.isNotEmpty(this.maxSelectedLabels) && this.modelValue && this.modelValue.length > this.maxSelectedLabels ? this.modelValue.slice(0, this.maxSelectedLabels) : this.modelValue;
+        },
         allSelected() {
-            return this.selectAll !== null ? this.selectAll : ObjectUtils.isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isValidSelectedOption(option));
+            return this.selectAll !== null ? this.selectAll : ObjectUtils.isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isOptionDisabled(option) || this.isSelected(option));
         },
         hasSelectedOption() {
             return ObjectUtils.isNotEmpty(this.modelValue);

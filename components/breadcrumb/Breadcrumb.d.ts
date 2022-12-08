@@ -1,6 +1,6 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface BreadcrumbProps {
     /**
@@ -16,6 +16,14 @@ export interface BreadcrumbProps {
      * Default value is true.
      */
     exact?: boolean;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying menu element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface BreadcrumbSlots {

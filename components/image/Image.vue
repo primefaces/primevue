@@ -1,27 +1,27 @@
 <template>
     <span :class="containerClass" :style="style">
         <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
-        <div v-if="preview" class="p-image-preview-indicator" @click="onImageClick">
+        <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="previewButtonProps">
             <slot name="indicator">
                 <i class="p-image-preview-icon pi pi-eye"></i>
             </slot>
-        </div>
+        </button>
         <Portal>
-            <div v-if="maskVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick">
+            <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="maskClass" :aria-modal="maskVisible" @click="onMaskClick" @keydown="onMaskKeydown">
                 <div class="p-image-toolbar">
-                    <button class="p-image-action p-link" @click="rotateRight" type="button">
+                    <button class="p-image-action p-link" @click="rotateRight" type="button" :aria-label="rightAriaLabel">
                         <i class="pi pi-refresh"></i>
                     </button>
-                    <button class="p-image-action p-link" @click="rotateLeft" type="button">
+                    <button class="p-image-action p-link" @click="rotateLeft" type="button" :aria-label="leftAriaLabel">
                         <i class="pi pi-undo"></i>
                     </button>
-                    <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="zoomDisabled">
+                    <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="zoomDisabled" :aria-label="zoomOutAriaLabel">
                         <i class="pi pi-search-minus"></i>
                     </button>
-                    <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="zoomDisabled">
+                    <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="zoomDisabled" :aria-label="zoomInAriaLabel">
                         <i class="pi pi-search-plus"></i>
                     </button>
-                    <button class="p-image-action p-link" type="button" @click="hidePreview">
+                    <button class="p-image-action p-link" type="button" @click="hidePreview" :aria-label="closeAriaLabel" autofocus>
                         <i class="pi pi-times"></i>
                     </button>
                 </div>
@@ -36,8 +36,9 @@
 </template>
 
 <script>
-import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Image',
@@ -48,10 +49,26 @@ export default {
             type: Boolean,
             default: false
         },
-        class: null,
-        style: null,
-        imageStyle: null,
-        imageClass: null
+        class: {
+            type: null,
+            default: null
+        },
+        style: {
+            type: null,
+            default: null
+        },
+        imageStyle: {
+            type: null,
+            default: null
+        },
+        imageClass: {
+            type: null,
+            default: null
+        },
+        previewButtonProps: {
+            type: null,
+            default: null
+        }
     },
     mask: null,
     data() {
@@ -94,6 +111,21 @@ export default {
 
             this.previewClick = false;
         },
+        onMaskKeydown(event) {
+            switch (event.code) {
+                case 'Escape':
+                    this.onMaskClick();
+                    setTimeout(() => {
+                        DomHandler.focus(this.$refs.previewButton);
+                    }, 25);
+                    event.preventDefault();
+
+                    break;
+
+                default:
+                    break;
+            }
+        },
         onError() {
             this.$emit('error');
         },
@@ -117,6 +149,7 @@ export default {
             ZIndexUtils.set('modal', this.mask, this.$primevue.config.zIndex.modal);
         },
         onEnter() {
+            this.focus();
             this.$emit('show');
         },
         onBeforeLeave() {
@@ -128,6 +161,13 @@ export default {
         onAfterLeave(el) {
             ZIndexUtils.clear(el);
             this.maskVisible = false;
+        },
+        focus() {
+            let focusTarget = this.mask.querySelector('[autofocus]');
+
+            if (focusTarget) {
+                focusTarget.focus();
+            }
         }
     },
     computed: {
@@ -151,10 +191,28 @@ export default {
         },
         zoomDisabled() {
             return this.scale <= 0.5 || this.scale >= 1.5;
+        },
+        rightAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.rotateRight : undefined;
+        },
+        leftAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.rotateLeft : undefined;
+        },
+        zoomInAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.zoomIn : undefined;
+        },
+        zoomOutAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.zoomOut : undefined;
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     components: {
         Portal: Portal
+    },
+    directives: {
+        focustrap: FocusTrap
     }
 };
 </script>

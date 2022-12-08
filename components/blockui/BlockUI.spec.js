@@ -1,8 +1,7 @@
 import { config, mount } from '@vue/test-utils';
-
 import BlockUI from './BlockUI.vue';
-import Panel from '../panel/Panel.vue';
-import Button from '../button/Button.vue';
+import Panel from '@/components/panel/Panel.vue';
+import Button from '@/components/button/Button.vue';
 
 config.global.mocks = {
     $primevue: {
@@ -10,17 +9,10 @@ config.global.mocks = {
             zIndex: {
                 modal: 1100
             }
-        },
-        DomHandler: {
-            addClass: vi.fn(),
-            removeClass: vi.fn()
-        },
-        ZIndexUtils: {
-            set: vi.fn(),
-            clear: vi.fn()
         }
     }
 };
+
 describe('BlockUI.vue', () => {
     it('should blocked and unblocked the panel', async () => {
         const wrapper = mount({

@@ -1,37 +1,40 @@
 <template>
-    <div class="p-panelmenu p-component">
-        <template v-for="(item, index) of model" :key="label(item) + '_' + index">
-            <div v-if="visible(item)" :class="getPanelClass(item)" :style="item.style">
-                <div :class="getHeaderClass(item)" :style="item.style">
-                    <template v-if="!$slots.item">
-                        <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                            <a :href="href" :class="getHeaderLinkClass(item, { isActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="treeitem">
-                                <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                                <span class="p-menuitem-text">{{ label(item) }}</span>
+    <div :id="id" class="p-panelmenu p-component">
+        <template v-for="(item, index) of model" :key="getPanelKey(index)">
+            <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="getPanelClass(item)">
+                <div
+                    :id="getHeaderId(index)"
+                    :class="getHeaderClass(item)"
+                    :tabindex="isItemDisabled(item) ? -1 : tabindex"
+                    role="button"
+                    :aria-label="getItemLabel(item)"
+                    :aria-expanded="isItemActive(item)"
+                    :aria-controls="getContentId(index)"
+                    :aria-disabled="isItemDisabled(item)"
+                    @click="onHeaderClick($event, item)"
+                    @keydown="onHeaderKeyDown($event, item)"
+                >
+                    <div class="p-panelmenu-header-content">
+                        <template v-if="!$slots.item">
+                            <router-link v-if="getItemProp(item, 'to') && !isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(item, 'to')" custom>
+                                <a :href="href" :class="getHeaderActionClass(item, { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)">
+                                    <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
+                                    <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
+                                </a>
+                            </router-link>
+                            <a v-else :href="getItemProp(item, 'url')" :class="getHeaderActionClass(item)" :tabindex="-1">
+                                <span v-if="getItemProp(item, 'items')" :class="getHeaderToggleIconClass(item)"></span>
+                                <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
+                                <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
                             </a>
-                        </router-link>
-                        <a
-                            v-else
-                            :id="ariaId + '_header_' + index"
-                            :href="item.url"
-                            :class="getHeaderLinkClass(item)"
-                            @click="onItemClick($event, item)"
-                            @keydown="onItemKeydown($event, item)"
-                            :tabindex="disabled(item) ? null : '0'"
-                            :aria-expanded="isActive(item)"
-                            :aria-controls="ariaId + '_content_' + index"
-                        >
-                            <span v-if="item.items" :class="getPanelToggleIcon(item)"></span>
-                            <span v-if="item.icon" :class="getPanelIcon(item)"></span>
-                            <span class="p-menuitem-text">{{ label(item) }}</span>
-                        </a>
-                    </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                        </template>
+                        <component v-else :is="$slots.item" :item="item"></component>
+                    </div>
                 </div>
                 <transition name="p-toggleable-content">
-                    <div v-show="isActive(item)" :id="ariaId + '_content_' + index" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header_' + index">
-                        <div v-if="item.items" class="p-panelmenu-content">
-                            <PanelMenuSub :model="item.items" class="p-panelmenu-root-submenu" :template="$slots.item" :expandedKeys="expandedKeys" @item-toggle="updateExpandedKeys" :exact="exact" />
+                    <div v-show="isItemActive(item)" :id="getContentId(index)" class="p-toggleable-content" role="region" :aria-labelledby="getHeaderId(index)">
+                        <div v-if="getItemProp(item, 'items')" class="p-panelmenu-content">
+                            <PanelMenuList :panelId="getPanelId(index)" :items="getItemProp(item, 'items')" :template="$slots.item" :expandedKeys="expandedKeys" @item-toggle="changeExpandedKeys" @header-focus="updateFocusedHeader" :exact="exact" />
                         </div>
                     </div>
                 </transition>
@@ -41,24 +44,28 @@
 </template>
 
 <script>
-import PanelMenuSub from './PanelMenuSub.vue';
-import { UniqueComponentId } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import PanelMenuList from './PanelMenuList.vue';
 
 export default {
     name: 'PanelMenu',
-    emits: ['update:expandedKeys'],
+    emits: ['update:expandedKeys', 'panel-open', 'panel-close'],
     props: {
         model: {
             type: Array,
             default: null
         },
         expandedKeys: {
-            type: null,
+            type: Object,
             default: null
         },
         exact: {
             type: Boolean,
             default: true
+        },
+        tabindex: {
+            type: Number,
+            default: 0
         }
     },
     data() {
@@ -67,98 +74,195 @@ export default {
         };
     },
     methods: {
-        onItemClick(event, item, navigate) {
-            if (this.isActive(item) && this.activeItem === null) {
-                this.activeItem = item;
-            }
-
-            if (this.disabled(item)) {
+        getItemProp(item, name) {
+            return item ? ObjectUtils.getItemValue(item[name]) : undefined;
+        },
+        getItemLabel(item) {
+            return this.getItemProp(item, 'label');
+        },
+        isItemActive(item) {
+            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : item === this.activeItem;
+        },
+        isItemVisible(item) {
+            return this.getItemProp(item, 'visible') !== false;
+        },
+        isItemDisabled(item) {
+            return this.getItemProp(item, 'disabled');
+        },
+        getPanelId(index) {
+            return `${this.id}_${index}`;
+        },
+        getPanelKey(index) {
+            return this.getPanelId(index);
+        },
+        getHeaderId(index) {
+            return `${this.getPanelId(index)}_header`;
+        },
+        getContentId(index) {
+            return `${this.getPanelId(index)}_content`;
+        },
+        onHeaderClick(event, item) {
+            if (this.isItemDisabled(item)) {
                 event.preventDefault();
 
                 return;
             }
 
             if (item.command) {
-                item.command({
-                    originalEvent: event,
-                    item: item
-                });
+                item.command({ originalEvent: event, item });
             }
 
-            if (this.activeItem && this.activeItem === item) this.activeItem = null;
-            else this.activeItem = item;
+            this.changeActiveItem(event, item);
+            DomHandler.focus(event.currentTarget);
+        },
+        onHeaderKeyDown(event, item) {
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onHeaderArrowDownKey(event);
+                    break;
 
-            this.updateExpandedKeys({ item: item, expanded: this.activeItem != null });
+                case 'ArrowUp':
+                    this.onHeaderArrowUpKey(event);
+                    break;
 
-            if (item.to && navigate) {
-                navigate(event);
+                case 'Home':
+                    this.onHeaderHomeKey(event);
+                    break;
+
+                case 'End':
+                    this.onHeaderEndKey(event);
+                    break;
+
+                case 'Enter':
+                case 'Space':
+                    this.onHeaderEnterKey(event, item);
+                    break;
+
+                default:
+                    break;
             }
         },
-        onItemKeydown(event, item) {
-            if (event.which === 13) {
-                this.onItemClick(event, item);
+        onHeaderArrowDownKey(event) {
+            const rootList = DomHandler.hasClass(event.currentTarget, 'p-highlight') ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '.p-panelmenu-root-list') : null;
+
+            rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: true });
+            event.preventDefault();
+        },
+        onHeaderArrowUpKey(event) {
+            const prevHeader = this.findPrevHeader(event.currentTarget.parentElement) || this.findLastHeader();
+            const rootList = DomHandler.hasClass(prevHeader, 'p-highlight') ? DomHandler.findSingle(prevHeader.nextElementSibling, '.p-panelmenu-root-list') : null;
+
+            rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: false });
+            event.preventDefault();
+        },
+        onHeaderHomeKey(event) {
+            this.changeFocusedHeader(event, this.findFirstHeader());
+            event.preventDefault();
+        },
+        onHeaderEndKey(event) {
+            this.changeFocusedHeader(event, this.findLastHeader());
+            event.preventDefault();
+        },
+        onHeaderEnterKey(event, item) {
+            const headerAction = DomHandler.findSingle(event.currentTarget, '.p-panelmenu-header-action');
+
+            headerAction ? headerAction.click() : this.onHeaderClick(event, item);
+            event.preventDefault();
+        },
+        onHeaderActionClick(event, navigate) {
+            navigate && navigate(event);
+        },
+        findNextHeader(panelElement, selfCheck = false) {
+            const nextPanelElement = selfCheck ? panelElement : panelElement.nextElementSibling;
+            const headerElement = DomHandler.findSingle(nextPanelElement, '.p-panelmenu-header');
+
+            return headerElement ? (DomHandler.hasClass(headerElement, 'p-disabled') ? this.findNextHeader(headerElement.parentElement) : headerElement) : null;
+        },
+        findPrevHeader(panelElement, selfCheck = false) {
+            const prevPanelElement = selfCheck ? panelElement : panelElement.previousElementSibling;
+            const headerElement = DomHandler.findSingle(prevPanelElement, '.p-panelmenu-header');
+
+            return headerElement ? (DomHandler.hasClass(headerElement, 'p-disabled') ? this.findPrevHeader(headerElement.parentElement) : headerElement) : null;
+        },
+        findFirstHeader() {
+            return this.findNextHeader(this.$el.firstElementChild, true);
+        },
+        findLastHeader() {
+            return this.findPrevHeader(this.$el.lastElementChild, true);
+        },
+        updateFocusedHeader(event) {
+            const { originalEvent, focusOnNext, selfCheck } = event;
+            const panelElement = originalEvent.currentTarget.closest('.p-panelmenu-panel');
+            const header = selfCheck ? DomHandler.findSingle(panelElement, '.p-panelmenu-header') : focusOnNext ? this.findNextHeader(panelElement) : this.findPrevHeader(panelElement);
+
+            header ? this.changeFocusedHeader(originalEvent, header) : focusOnNext ? this.onHeaderHomeKey(originalEvent) : this.onHeaderEndKey(originalEvent);
+        },
+        changeActiveItem(event, item, selfActive = false) {
+            if (!this.isItemDisabled(item)) {
+                this.activeItem = selfActive ? item : this.activeItem && this.activeItem === item ? null : item;
+
+                const active = this.isItemActive(item);
+                const eventName = active ? 'panel-open' : 'panel-close';
+
+                this.changeExpandedKeys({ item, expanded: !active });
+                this.$emit(eventName, { originalEvent: event, item });
             }
         },
-        updateExpandedKeys(event) {
+        changeExpandedKeys({ item, expanded = false }) {
             if (this.expandedKeys) {
-                let item = event.item;
                 let _keys = { ...this.expandedKeys };
 
-                if (event.expanded) _keys[item.key] = true;
+                if (expanded) _keys[item.key] = true;
                 else delete _keys[item.key];
 
                 this.$emit('update:expandedKeys', _keys);
             }
         },
+        changeFocusedHeader(event, element) {
+            element && DomHandler.focus(element);
+        },
         getPanelClass(item) {
-            return ['p-panelmenu-panel', item.class];
+            return ['p-panelmenu-panel', this.getItemProp(item, 'class')];
         },
-        getPanelToggleIcon(item) {
-            const active = this.isActive(item);
-
-            return ['p-panelmenu-icon pi', { 'pi-chevron-right': !active, ' pi-chevron-down': active }];
-        },
-        getPanelIcon(item) {
-            return ['p-menuitem-icon', item.icon];
-        },
-        getHeaderLinkClass(item, routerProps) {
+        getHeaderClass(item) {
             return [
-                'p-panelmenu-header-link',
+                'p-panelmenu-header',
+                this.getItemProp(item, 'headerClass'),
+                {
+                    'p-highlight': this.isItemActive(item),
+                    'p-disabled': this.isItemDisabled(item)
+                }
+            ];
+        },
+        getHeaderActionClass(item, routerProps) {
+            return [
+                'p-panelmenu-header-action',
                 {
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
                 }
             ];
         },
-        isActive(item) {
-            return this.expandedKeys ? this.expandedKeys[item.key] : item === this.activeItem;
+        getHeaderIconClass(item) {
+            return ['p-menuitem-icon', this.getItemProp(item, 'icon')];
         },
-        getHeaderClass(item) {
-            return ['p-component p-panelmenu-header', { 'p-highlight': this.isActive(item), 'p-disabled': this.disabled(item) }];
-        },
-        visible(item) {
-            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
-        },
-        disabled(item) {
-            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
-        },
-        label(item) {
-            return typeof item.label === 'function' ? item.label() : item.label;
+        getHeaderToggleIconClass(item) {
+            return ['p-submenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right'];
         }
     },
     computed: {
-        ariaId() {
-            return UniqueComponentId();
+        id() {
+            return this.$attrs.id || UniqueComponentId();
         }
     },
     components: {
-        PanelMenuSub: PanelMenuSub
+        PanelMenuList: PanelMenuList
     }
 };
 </script>
 
 <style>
-.p-panelmenu .p-panelmenu-header-link {
+.p-panelmenu .p-panelmenu-header-action {
     display: flex;
     align-items: center;
     user-select: none;
@@ -167,7 +271,7 @@ export default {
     text-decoration: none;
 }
 
-.p-panelmenu .p-panelmenu-header-link:focus {
+.p-panelmenu .p-panelmenu-header-action:focus {
     z-index: 1;
 }
 
@@ -183,6 +287,8 @@ export default {
     user-select: none;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .p-panelmenu .p-menuitem-text {

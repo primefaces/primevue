@@ -1,5 +1,18 @@
-import { mount } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import Message from './Message.vue';
+
+config.global.mocks = {
+    $primevue: {
+        config: {
+            locale: {
+                aria: {
+                    close: 'Close'
+                }
+            }
+        }
+    }
+};
 
 describe('Message.vue', () => {
     let wrapper;
@@ -27,6 +40,13 @@ describe('Message.vue', () => {
         expect(wrapper.vm.visible).toBe(false);
         expect(wrapper.emitted().close[0]).toEqual([{}]);
     });
+
+    it('should have custom close icon if provided', async () => {
+        await wrapper.setProps({ closeIcon: 'pi pi-discord' });
+        const icon = wrapper.find('.p-message-close-icon');
+
+        expect(icon.classes()).toContain('pi-discord');
+    });
 });
 
 describe('Message.vue', () => {
@@ -34,6 +54,7 @@ describe('Message.vue', () => {
 
     beforeEach(() => {
         wrapper = mount(Message, {
+            plugins: [PrimeVue],
             props: {
                 severity: 'error',
                 life: 3000,
@@ -46,8 +67,7 @@ describe('Message.vue', () => {
     });
 
     it('should sticky and life works', async () => {
-        setTimeout(() => {
-            expect(wrapper.vm.visible).toBe(false);
-        }, 3000);
+        jest.runTimersToTime(3001);
+        expect(wrapper.vm.visible).toBe(false);
     });
 });

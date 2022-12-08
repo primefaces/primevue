@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import AccordionTab from '../accordiontab/AccordionTab.vue';
+import AccordionTab from '@/components/accordiontab/AccordionTab.vue';
 
 describe('AccordionTab.vue', () => {
     it('should exists', () => {

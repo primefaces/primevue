@@ -16,10 +16,12 @@ export default {
     name: 'Button',
     props: {
         label: {
-            type: String
+            type: String,
+            default: null
         },
         icon: {
-            type: String
+            type: String,
+            default: null
         },
         iconPos: {
             type: String,
@@ -30,7 +32,8 @@ export default {
             default: null
         },
         badge: {
-            type: String
+            type: String,
+            default: null
         },
         badgeClass: {
             type: String,

@@ -1,11 +1,22 @@
 <template>
     <div class="p-tabmenu p-component">
-        <ul ref="nav" class="p-tabmenu-nav p-reset" role="tablist">
+        <ul ref="nav" class="p-tabmenu-nav p-reset" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <li v-if="visible(item)" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="tab">
+                    <li v-if="visible(item)" ref="tab" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation">
                         <template v-if="!$slots.item">
-                            <a v-ripple :href="href" class="p-menuitem-link" @click="onItemClick($event, item, i, navigate)" role="presentation">
+                            <a
+                                ref="tabLink"
+                                v-ripple
+                                role="menuitem"
+                                :href="href"
+                                class="p-menuitem-link"
+                                :aria-label="label(item)"
+                                :aria-disabled="disabled(item)"
+                                :tabindex="isExactActive ? '0' : '-1'"
+                                @click="onItemClick($event, item, i, navigate)"
+                                @keydown="onKeydownItem($event, item, i, navigate)"
+                            >
                                 <span v-if="item.icon" :class="getItemIcon(item)"></span>
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
                             </a>
@@ -13,9 +24,9 @@
                         <component v-else :is="$slots.item" :item="item"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" :class="getItemClass(item, i)" role="tab">
+                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)">
                     <template v-if="!$slots.item">
-                        <a v-ripple :href="item.url" class="p-menuitem-link" :target="item.target" @click="onItemClick($event, item, i)" role="presentation" :tabindex="disabled(item) ? null : '0'">
+                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)">
                             <span v-if="item.icon" :class="getItemIcon(item)"></span>
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
@@ -29,8 +40,8 @@
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'TabMenu',
@@ -47,6 +58,14 @@ export default {
         activeIndex: {
             type: Number,
             default: 0
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     timeout: null,
@@ -101,6 +120,94 @@ export default {
                 index: index
             });
         },
+        onKeydownItem(event, item, index) {
+            let i = index;
+
+            let foundElement = {};
+            const tabLinkRef = this.$refs.tabLink;
+
+            switch (event.code) {
+                case 'ArrowRight': {
+                    foundElement = this.findNextItem(this.$refs.tab, i);
+                    i = foundElement.i;
+
+                    break;
+                }
+
+                case 'ArrowLeft': {
+                    foundElement = this.findPrevItem(this.$refs.tab, i);
+                    i = foundElement.i;
+
+                    break;
+                }
+
+                case 'End': {
+                    foundElement = this.findPrevItem(this.$refs.tab, this.model.length);
+                    i = foundElement.i;
+
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'Home': {
+                    foundElement = this.findNextItem(this.$refs.tab, -1);
+                    i = foundElement.i;
+
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'Space':
+
+                case 'Enter': {
+                    if (event.currentTarget) {
+                        event.currentTarget.click();
+                    }
+
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'Tab': {
+                    this.setDefaultTabIndexes(tabLinkRef);
+
+                    break;
+                }
+
+                default:
+                    break;
+            }
+
+            if (tabLinkRef[i] && tabLinkRef[index]) {
+                tabLinkRef[index].tabIndex = '-1';
+                tabLinkRef[i].tabIndex = '0';
+                tabLinkRef[i].focus();
+            }
+        },
+        findNextItem(items, index) {
+            let i = index + 1;
+
+            if (i >= items.length) {
+                return { nextItem: items[items.length], i: items.length };
+            }
+
+            let nextItem = items[i];
+
+            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') ? this.findNextItem(items, i) : { nextItem, i };
+            else return null;
+        },
+        findPrevItem(items, index) {
+            let i = index - 1;
+
+            if (i < 0) {
+                return { nextItem: items[0], i: 0 };
+            }
+
+            let prevItem = items[i];
+
+            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') ? this.findPrevItem(items, i) : { prevItem, i };
+            else return null;
+        },
         getItemClass(item, index) {
             return [
                 'p-tabmenuitem',
@@ -132,6 +239,16 @@ export default {
         },
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
+        },
+        setDefaultTabIndexes(tabLinkRef) {
+            setTimeout(() => {
+                tabLinkRef.forEach((item) => {
+                    item.tabIndex = DomHandler.hasClass(item.parentElement, 'p-highlight') ? '0' : '-1';
+                });
+            }, 300);
+        },
+        setTabIndex(index) {
+            return this.d_activeIndex === index ? '0' : '-1';
         },
         updateInkBar() {
             let tabs = this.$refs.nav.children;

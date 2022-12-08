@@ -1,10 +1,12 @@
 import { mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import Image from './Image.vue';
 
 describe('Image.vue', () => {
     it('should exist', () => {
         const wrapper = mount(Image, {
             global: {
+                plugins: [PrimeVue],
                 stubs: {
                     teleport: true
                 }
@@ -21,6 +23,7 @@ describe('Image.vue', () => {
     it('should preview', async () => {
         const wrapper = mount(Image, {
             global: {
+                plugins: [PrimeVue],
                 stubs: {
                     teleport: true
                 }
@@ -42,6 +45,8 @@ describe('Image.vue', () => {
 
         await wrapper.setData({ maskVisible: false });
 
-        expect(wrapper.find('.p-image-mask').exists()).toBe(false);
+        setTimeout(() => {
+            expect(wrapper.find('.p-image-mask').exists()).toBe(false);
+        }, 25);
     });
 });

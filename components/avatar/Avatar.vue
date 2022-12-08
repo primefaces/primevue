@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
         <slot>
             <span v-if="label" class="p-avatar-text">{{ label }}</span>
             <span v-else-if="icon" :class="iconClass"></span>
@@ -32,6 +32,14 @@ export default {
         shape: {
             type: String,
             default: 'square'
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
+        },
+        'aria-label': {
+            type: String,
+            default: null
         }
     },
     methods: {

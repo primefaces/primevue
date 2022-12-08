@@ -1,7 +1,7 @@
 import { h } from 'vue';
 import { mount } from '@vue/test-utils';
-import PrimeVue from '../config/PrimeVue';
-import Dropdown from '../dropdown/Dropdown.vue';
+import PrimeVue from 'primevue/config';
+import Dropdown from '@/components/dropdown/Dropdown.vue';
 
 describe('Dropdown.vue', () => {
     let wrapper;
@@ -22,10 +22,9 @@ describe('Dropdown.vue', () => {
     it('should Dropdown exist', () => {
         expect(wrapper.find('.p-dropdown.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-dropdown-panel').exists()).toBe(true);
-
-        expect(wrapper.find('.p-focus').exists()).toBe(false);
+        expect(wrapper.find('.p-dropdown-empty-message').exists()).toBe(true);
+        expect(wrapper.find('.p-focus').exists()).toBe(true);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
-
         expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
     });
 });
@@ -64,6 +63,32 @@ describe('option checks', () => {
         expect(wrapper.find('.p-dropdown-item').exists()).toBe(true);
         expect(wrapper.findAll('.p-dropdown-item').length).toBe(5);
         expect(wrapper.findAll('.p-dropdown-item')[0].text()).toBe('New York');
+    });
+});
+
+describe('clear checks', () => {
+    let wrapper;
+
+    beforeEach(async () => {
+        wrapper = mount(Dropdown, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                clearIcon: 'pi pi-discord',
+                modelValue: 'value',
+                showClear: true
+            }
+        });
+
+        await wrapper.trigger('click');
+    });
+
+    it('should have correct icon', () => {
+        expect(wrapper.find('.p-dropdown-clear-icon').classes()).toContain('pi-discord');
     });
 });
 
@@ -295,6 +320,7 @@ describe('filter checks', () => {
             },
             props: {
                 filter: true,
+                filterIcon: 'pi pi-discord',
                 options: [
                     { name: 'Australia', code: 'AU' },
                     { name: 'Brazil', code: 'BR' },
@@ -316,11 +342,13 @@ describe('filter checks', () => {
 
     it('should make filtering', async () => {
         const filterInput = wrapper.find('.p-dropdown-filter');
+        const filterIcon = wrapper.find('.p-dropdown-filter-icon');
 
         expect(filterInput.exists()).toBe(true);
+        expect(filterIcon.classes()).toContain('pi-discord');
 
         const event = { target: { value: 'c' } };
-        const onFilterChange = vi.spyOn(wrapper.vm, 'onFilterChange');
+        const onFilterChange = jest.spyOn(wrapper.vm, 'onFilterChange');
 
         wrapper.vm.onFilterChange(event);
         await wrapper.vm.$nextTick();

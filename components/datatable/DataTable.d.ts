@@ -1,6 +1,5 @@
-import { VNode } from 'vue';
+import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
-import Column from '../column';
 import { VirtualScrollerProps } from '../virtualscroller';
 
 type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
@@ -511,7 +510,7 @@ export interface DataTableProps {
      * - JumpToPageInput
      * - CurrentPageReport
      */
-    paginatorTemplate?: string | undefined;
+    paginatorTemplate?: any | string;
     /**
      * Number of page links to display.
      * Default value is 5.
@@ -685,7 +684,7 @@ export interface DataTableProps {
     /**
      * One or more field names to use in row grouping.
      */
-    groupRowsBy?: string[] | string | undefined;
+    groupRowsBy?: (field: string) => object | string[] | string | undefined;
     /**
      * Whether the row groups can be expandable.
      */
@@ -776,6 +775,14 @@ export interface DataTableProps {
      * Style class of the table element.
      */
     tableClass?: any;
+    /**
+     * Uses to pass all properties of the TableHTMLAttributes to table element inside the component.
+     */
+    tableProps?: TableHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
+     */
+    filterInputProps?: InputHTMLAttributes | undefined;
 }
 
 export interface DataTableSlots {

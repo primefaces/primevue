@@ -1,6 +1,6 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type ContextMenuAppendTo = 'body' | 'self' | string | undefined | HTMLElement;
 
@@ -34,6 +34,18 @@ export interface ContextMenuProps {
      * Default value is true.
      */
     exact?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying menu element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface ContextMenuSlots {
@@ -49,7 +61,34 @@ export interface ContextMenuSlots {
     }) => VNode[];
 }
 
-export declare type ContextMenuEmits = {};
+export declare type ContextMenuEmits = {
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
+    /**
+     * Callback to invoke before the popup is shown.
+     */
+    'before-show': () => void;
+    /**
+     * Callback to invoke before the popup is hidden.
+     */
+    'before-hide': () => void;
+    /**
+     * Callback to invoke when the popup is shown.
+     */
+    show: () => void;
+    /**
+     * Callback to invoke when the popup is hidden.
+     */
+    hide: () => void;
+};
 
 declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits> {
     /**

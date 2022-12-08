@@ -5,7 +5,16 @@ describe('Breadcrumb', () => {
     it('should exist', () => {
         const wrapper = mount(Breadcrumb, {
             global: {
-                stubs: ['router-link']
+                stubs: {
+                    'router-link': true
+                },
+                mocks: {
+                    $router: {
+                        currentRoute: {
+                            path: jest.fn()
+                        }
+                    }
+                }
             },
             props: {
                 home: { icon: 'pi pi-home', to: '/' },
@@ -14,7 +23,7 @@ describe('Breadcrumb', () => {
         });
 
         expect(wrapper.find('.p-breadcrumb.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('.p-breadcrumb-chevron').length).toBe(5);
+        expect(wrapper.findAll('.p-menuitem-separator').length).toBe(5);
         expect(wrapper.findAll('.p-menuitem-text').length).toBe(5);
     });
 });

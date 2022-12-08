@@ -112,10 +112,20 @@ export interface CascadeSelectProps {
      */
     loading?: boolean | undefined;
     /**
+     * Icon to display in the dropdown.
+     * Default value is 'pi pi-chevron-down'.
+     */
+    dropdownIcon?: string | undefined;
+    /**
      * Icon to display in loading state.
      * Default value is 'pi pi-spinner pi-spin'.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Icon to display in the option group.
+     * Default value is 'pi pi-angle-right'.
+     */
+    optionGroupIcon?: string | undefined;
     /**
      * Whether to focus on the first visible or selected element when the overlay panel is shown.
      * Default value is true.

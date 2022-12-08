@@ -53,7 +53,7 @@
                 <slot name="chip" :value="option">
                     <span class="p-autocomplete-token-label">{{ getOptionLabel(option) }}</span>
                 </slot>
-                <span class="p-autocomplete-token-icon pi pi-times-circle" @click="removeOption($event, i)" aria-hidden="true"></span>
+                <span :class="['p-autocomplete-token-icon', removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true"></span>
             </li>
             <li class="p-autocomplete-input-token" role="option">
                 <input
@@ -84,7 +84,7 @@
             </li>
         </ul>
         <i v-if="searching" :class="loadingIconClass" aria-hidden="true"></i>
-        <Button v-if="dropdown" ref="dropdownButton" type="button" icon="pi pi-chevron-down" class="p-autocomplete-dropdown" tabindex="-1" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" />
+        <Button v-if="dropdown" ref="dropdownButton" type="button" :icon="dropdownIcon" :class="['p-autocomplete-dropdown', dropdownClass]" tabindex="-1" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" />
         <span role="status" aria-live="polite" class="p-hidden-accessible">
             {{ searchResultMessageText }}
         </span>
@@ -120,15 +120,15 @@
                                     </li>
                                 </template>
                             </ul>
-                            <span role="status" aria-live="polite" class="p-hidden-accessible">
-                                {{ selectedMessageText }}
-                            </span>
                         </template>
                         <template v-if="$slots.loader" v-slot:loader="{ options }">
                             <slot name="loader" :options="options"></slot>
                         </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
+                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                        {{ selectedMessageText }}
+                    </span>
                 </div>
             </transition>
         </Portal>
@@ -136,12 +136,12 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId, ObjectUtils, DomHandler, ZIndexUtils } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
-import Ripple from 'primevue/ripple';
-import VirtualScroller from 'primevue/virtualscroller';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'AutoComplete',
@@ -242,9 +242,21 @@ export default {
             type: null,
             default: null
         },
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
+        dropdownClass: {
+            type: String,
+            default: null
+        },
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner'
+        },
+        removeTokenIcon: {
+            type: String,
+            default: 'pi pi-times-circle'
         },
         virtualScrollerOptions: {
             type: Object,
@@ -398,7 +410,7 @@ export default {
 
             this.dirty = true;
             this.focused = true;
-            this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
@@ -498,7 +510,7 @@ export default {
                 let valid = false;
 
                 if (this.visibleOptions) {
-                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, event.target.value));
+                    const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, this.$refs.focusInput.value || ''));
 
                     if (matchedValue !== undefined) {
                         valid = true;
@@ -651,7 +663,15 @@ export default {
             this.multiple && event.stopPropagation(); // To prevent onArrowRightKeyOnMultiple method
         },
         onHomeKey(event) {
-            event.currentTarget.setSelectionRange(0, 0);
+            const target = event.currentTarget;
+            const len = target.value.length;
+
+            if (event.shiftKey) {
+                event.currentTarget.setSelectionRange(0, len);
+            } else {
+                event.currentTarget.setSelectionRange(0, 0);
+            }
+
             this.focusedOptionIndex = -1;
 
             event.preventDefault();
@@ -660,7 +680,12 @@ export default {
             const target = event.currentTarget;
             const len = target.value.length;
 
-            target.setSelectionRange(len, len);
+            if (event.shiftKey) {
+                event.currentTarget.setSelectionRange(0, len);
+            } else {
+                target.setSelectionRange(len, len);
+            }
+
             this.focusedOptionIndex = -1;
 
             event.preventDefault();

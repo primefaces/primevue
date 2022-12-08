@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type GalleriaThumbnailsPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
@@ -119,11 +119,23 @@ export interface GalleriaProps {
     /**
      * Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used.
      */
-    containerStyle?: any;
+    containerStyle?: any | undefined;
     /**
      * Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used.
      */
-    containerClass?: any;
+    containerClass?: any | undefined;
+    /**
+     * Uses to pass all properties of the HTMLDivElement to the container element on fullscreen mode.
+     */
+    containerProps?: HTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the previous navigation button.
+     */
+    prevButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the next navigation button.
+     */
+    nextButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface GalleriaSlots {

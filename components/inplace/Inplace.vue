@@ -1,11 +1,11 @@
 <template>
-    <div :class="containerClass">
-        <div v-if="!d_active" :class="displayClass" :tabindex="$attrs.tabindex || '0'" @click="open" @keydown.enter="open">
+    <div :class="containerClass" aria-live="polite">
+        <div v-if="!d_active" ref="display" :class="displayClass" :tabindex="$attrs.tabindex || '0'" role="button" @click="open" @keydown.enter="open" v-bind="displayProps">
             <slot name="display"></slot>
         </div>
         <div v-else class="p-inplace-content">
             <slot name="content"></slot>
-            <IPButton v-if="closable" icon="pi pi-times" @click="close"></IPButton>
+            <IPButton v-if="closable" :icon="closeIcon" :aria-label="closeAriaLabel" @click="close" v-bind="closeButtonProps" />
         </div>
     </div>
 </template>
@@ -28,6 +28,18 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        displayProps: {
+            type: null,
+            default: null
+        },
+        closeButtonProps: {
+            type: null,
+            default: null
         }
     },
     data() {
@@ -54,6 +66,9 @@ export default {
             this.$emit('close', event);
             this.d_active = false;
             this.$emit('update:active', false);
+            setTimeout(() => {
+                this.$refs.display.focus();
+            }, 0);
         }
     },
     computed: {
@@ -62,6 +77,9 @@ export default {
         },
         displayClass() {
             return ['p-inplace-display', { 'p-disabled': this.disabled }];
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     components: {

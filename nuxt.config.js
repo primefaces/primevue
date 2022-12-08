@@ -31,6 +31,7 @@ export default defineNuxtConfig({
             alias: {
                 'primevue/ripple': path.resolve(__dirname, '/components/ripple/Ripple.js'),
                 'primevue/tooltip': path.resolve(__dirname, '/components/tooltip/Tooltip.js'),
+                'primevue/focustrap': path.resolve(__dirname, '/components/focustrap/FocusTrap.js'),
                 'primevue/useconfirm': path.resolve(__dirname, '/components/useconfirm/UseConfirm.js'),
                 'primevue/usetoast': path.resolve(__dirname, '/components/usetoast/UseToast.js'),
                 'primevue/usedialog': path.resolve(__dirname, '/components/usedialog/UseDialog.js'),
@@ -48,6 +49,7 @@ export default defineNuxtConfig({
                 'primevue/progressbar': path.resolve(__dirname, '/components/progressbar/ProgressBar.vue'),
                 'primevue/message': path.resolve(__dirname, '/components/message/Message.vue'),
                 'primevue/tree': path.resolve(__dirname, '/components/tree/Tree.vue'),
+                'primevue/badge': path.resolve(__dirname, '/components/badge/Badge.vue'),
                 'primevue/confirmationeventbus': path.resolve(__dirname, '/components/confirmationeventbus/ConfirmationEventBus.js'),
                 'primevue/toasteventbus': path.resolve(__dirname, '/components/toasteventbus/ToastEventBus.js'),
                 'primevue/overlayeventbus': path.resolve(__dirname, '/components/overlayeventbus/OverlayEventBus.js'),

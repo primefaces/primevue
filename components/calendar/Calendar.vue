@@ -9,6 +9,7 @@
             :class="['p-inputtext p-component', inputClass]"
             :style="inputStyle"
             :placeholder="placeholder"
+            autocomplete="off"
             aria-autocomplete="none"
             aria-haspopup="dialog"
             :aria-expanded="overlayVisible"
@@ -17,9 +18,10 @@
             :aria-label="ariaLabel"
             inputmode="none"
             :disabled="disabled"
-            :readonly="!manualInput"
+            :readonly="!manualInput || readonly"
             :tabindex="0"
             @input="onInput"
+            @click="onInputClick"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
@@ -68,7 +70,7 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                     >
-                                        <span class="p-datepicker-prev-icon pi pi-chevron-left"></span>
+                                        <span :class="['p-datepicker-prev-icon', previousIcon]" />
                                     </button>
                                     <div class="p-datepicker-title">
                                         <button
@@ -107,7 +109,7 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.nextDecade : currentView === 'month' ? $primevue.config.locale.nextYear : $primevue.config.locale.nextMonth"
                                     >
-                                        <span class="p-datepicker-next-icon pi pi-chevron-right"></span>
+                                        <span :class="['p-datepicker-next-icon', nextIcon]" />
                                     </button>
                                 </div>
                                 <div v-if="currentView === 'date'" class="p-datepicker-calendar-container">
@@ -184,7 +186,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ formattedCurrentHour }}</span>
                             <button
@@ -201,7 +203,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                         <div class="p-separator">
@@ -223,7 +225,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ formattedCurrentMinute }}</span>
                             <button
@@ -241,7 +243,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                         <div v-if="showSeconds" class="p-separator">
@@ -263,7 +265,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
                             <span>{{ formattedCurrentSecond }}</span>
                             <button
@@ -281,7 +283,7 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                         <div v-if="hourFormat == '12'" class="p-separator">
@@ -289,11 +291,11 @@
                         </div>
                         <div v-if="hourFormat == '12'" class="p-ampm-picker">
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled">
-                                <span class="pi pi-chevron-up"></span>
+                                <span :class="incrementIcon" />
                             </button>
-                            <span>{{ pm ? 'PM' : 'AM' }}</span>
+                            <span>{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled">
-                                <span class="pi pi-chevron-down"></span>
+                                <span :class="decrementIcon" />
                             </button>
                         </div>
                     </div>
@@ -309,11 +311,11 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
 import Button from 'primevue/button';
-import Ripple from 'primevue/ripple';
+import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Calendar',
@@ -347,6 +349,22 @@ export default {
         icon: {
             type: String,
             default: 'pi pi-calendar'
+        },
+        previousIcon: {
+            type: String,
+            default: 'pi pi-chevron-left'
+        },
+        nextIcon: {
+            type: String,
+            default: 'pi pi-chevron-right'
+        },
+        incrementIcon: {
+            type: String,
+            default: 'pi pi-chevron-up'
+        },
+        decrementIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
         },
         numberOfMonths: {
             type: Number,
@@ -1094,7 +1112,10 @@ export default {
 
             if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
                 setTimeout(() => {
-                    this.input.focus();
+                    if (this.input) {
+                        this.input.focus();
+                    }
+
                     this.overlayVisible = false;
                 }, 150);
             }
@@ -1347,7 +1368,7 @@ export default {
             }
 
             if (this.hourFormat === '12') {
-                output += date.getHours() > 11 ? ' PM' : ' AM';
+                output += date.getHours() > 11 ? ` ${this.$primevue.config.locale.pm}` : ` ${this.$primevue.config.locale.am}`;
             }
 
             return output;
@@ -1598,6 +1619,10 @@ export default {
             setTimeout(() => (this.timePickerChange = false), 0);
         },
         toggleAMPM(event) {
+            const validHour = this.validateTime(this.currentHour, this.currentMinute, this.currentSecond, !this.pm);
+
+            if (!validHour && (this.maxDate || this.minDate)) return;
+
             this.pm = !this.pm;
             this.updateModelTime();
             event.preventDefault();
@@ -1758,7 +1783,7 @@ export default {
                 throw 'Invalid Time';
             }
 
-            this.pm = ampm === 'PM' || ampm === 'pm';
+            this.pm = ampm === this.$primevue.config.locale.am || ampm === this.$primevue.config.locale.am.toLowerCase();
             let time = this.parseTime(timeString);
 
             value.setHours(time.hour);
@@ -1982,21 +2007,33 @@ export default {
             const cellContent = event.currentTarget;
             const cell = cellContent.parentElement;
 
+            const cellIndex = DomHandler.index(cell);
+
             switch (event.code) {
                 case 'ArrowDown': {
                     cellContent.tabIndex = '-1';
-                    let cellIndex = DomHandler.index(cell);
+
                     let nextRow = cell.parentElement.nextElementSibling;
 
                     if (nextRow) {
-                        let focusCell = nextRow.children[cellIndex].children[0];
+                        let tableRowIndex = DomHandler.index(cell.parentElement);
+                        const tableRows = Array.from(cell.parentElement.parentElement.children);
+                        const nextTableRows = tableRows.slice(tableRowIndex + 1);
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                        let hasNextFocusableDate = nextTableRows.find((el) => {
+                            let focusCell = el.children[cellIndex].children[0];
+
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                        });
+
+                        if (hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
+
+                            focusCell.tabIndex = '0';
+                            focusCell.focus();
+                        } else {
                             this.navigationState = { backward: false };
                             this.navForward(event);
-                        } else {
-                            nextRow.children[cellIndex].children[0].tabIndex = '0';
-                            nextRow.children[cellIndex].children[0].focus();
                         }
                     } else {
                         this.navigationState = { backward: false };
@@ -2009,18 +2046,27 @@ export default {
 
                 case 'ArrowUp': {
                     cellContent.tabIndex = '-1';
-                    let cellIndex = DomHandler.index(cell);
                     let prevRow = cell.parentElement.previousElementSibling;
 
                     if (prevRow) {
-                        let focusCell = prevRow.children[cellIndex].children[0];
+                        let tableRowIndex = DomHandler.index(cell.parentElement);
+                        const tableRows = Array.from(cell.parentElement.parentElement.children);
+                        const prevTableRows = tableRows.slice(0, tableRowIndex).reverse();
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigationState = { backward: true };
-                            this.navBackward(event);
-                        } else {
+                        let hasNextFocusableDate = prevTableRows.find((el) => {
+                            let focusCell = el.children[cellIndex].children[0];
+
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                        });
+
+                        if (hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[cellIndex].children[0];
+
                             focusCell.tabIndex = '0';
                             focusCell.focus();
+                        } else {
+                            this.navigationState = { backward: true };
+                            this.navBackward(event);
                         }
                     } else {
                         this.navigationState = { backward: true };
@@ -2036,13 +2082,22 @@ export default {
                     let prevCell = cell.previousElementSibling;
 
                     if (prevCell) {
-                        let focusCell = prevCell.children[0];
+                        const cells = Array.from(cell.parentElement.children);
+                        const prevCells = cells.slice(0, cellIndex).reverse();
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigateToMonth(event, true, groupIndex);
-                        } else {
+                        let hasNextFocusableDate = prevCells.find((el) => {
+                            let focusCell = el.children[0];
+
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                        });
+
+                        if (hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[0];
+
                             focusCell.tabIndex = '0';
                             focusCell.focus();
+                        } else {
+                            this.navigateToMonth(event, true, groupIndex);
                         }
                     } else {
                         this.navigateToMonth(event, true, groupIndex);
@@ -2057,13 +2112,21 @@ export default {
                     let nextCell = cell.nextElementSibling;
 
                     if (nextCell) {
-                        let focusCell = nextCell.children[0];
+                        const cells = Array.from(cell.parentElement.children);
+                        const nextCells = cells.slice(cellIndex + 1);
+                        let hasNextFocusableDate = nextCells.find((el) => {
+                            let focusCell = el.children[0];
 
-                        if (DomHandler.hasClass(focusCell, 'p-disabled')) {
-                            this.navigateToMonth(event, false, groupIndex);
-                        } else {
+                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                        });
+
+                        if (hasNextFocusableDate) {
+                            let focusCell = hasNextFocusableDate.children[0];
+
                             focusCell.tabIndex = '0';
                             focusCell.focus();
+                        } else {
+                            this.navigateToMonth(event, false, groupIndex);
                         }
                     } else {
                         this.navigateToMonth(event, false, groupIndex);
@@ -2514,6 +2577,11 @@ export default {
 
             this.$emit('input', event);
         },
+        onInputClick() {
+            if (this.showOnFocus && this.isEnabled() && !this.overlayVisible) {
+                this.overlayVisible = true;
+            }
+        },
         onFocus(event) {
             if (this.showOnFocus && this.isEnabled()) {
                 this.overlayVisible = true;
@@ -2635,7 +2703,7 @@ export default {
 
             if (propValue && Array.isArray(propValue)) {
                 if (this.isRangeSelection()) {
-                    propValue = propValue[1] || propValue[0];
+                    propValue = this.inline ? propValue[0] : propValue[1] || propValue[0];
                 } else if (this.isMultipleSelection()) {
                     propValue = propValue[propValue.length - 1];
                 }

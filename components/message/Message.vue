@@ -1,13 +1,13 @@
 <template>
     <transition name="p-message" appear>
-        <div v-show="visible" :class="containerClass" role="alert">
+        <div v-show="visible" :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="p-message-wrapper">
                 <span :class="iconClass"></span>
                 <div class="p-message-text">
                     <slot></slot>
                 </div>
-                <button v-if="closable" v-ripple class="p-message-close p-link" @click="close($event)" type="button">
-                    <i class="p-message-close-icon pi pi-times"></i>
+                <button v-if="closable" v-ripple class="p-message-close p-link" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="closeButtonProps">
+                    <i :class="['p-message-close-icon', closeIcon]" />
                 </button>
             </div>
         </div>
@@ -39,6 +39,14 @@ export default {
         },
         icon: {
             type: String,
+            default: null
+        },
+        closeIcon: {
+            type: String,
+            default: 'pi pi-times'
+        },
+        closeButtonProps: {
+            type: null,
             default: null
         }
     },
@@ -77,6 +85,9 @@ export default {
                           'pi-times-circle': this.severity === 'error'
                       }
             ];
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     directives: {

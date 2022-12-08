@@ -1,6 +1,18 @@
-import { mount } from '@vue/test-utils';
+import { config, mount } from '@vue/test-utils';
 import Inplace from './Inplace.vue';
-import InputText from '../inputtext/InputText.vue';
+import InputText from '@/components/inputtext/InputText.vue';
+
+config.global.mocks = {
+    $primevue: {
+        config: {
+            locale: {
+                aria: {
+                    close: 'Close'
+                }
+            }
+        }
+    }
+};
 
 describe('Inplace.vue', () => {
     it('should exist', () => {
@@ -63,5 +75,27 @@ describe('Inplace.vue', () => {
         await wrapper.vm.close({});
 
         expect(wrapper.find('.pi.pi-times').exists()).toBe(false);
+    });
+
+    it('should have custom close icon', async () => {
+        const wrapper = mount(Inplace, {
+            global: {
+                components: {
+                    InputText
+                }
+            },
+            props: {
+                closable: true,
+                closeIcon: 'pi pi-discord'
+            },
+            slots: {
+                display: `{{'Click to Edit'}}`,
+                content: `<InputText autoFocus />`
+            }
+        });
+
+        await wrapper.vm.open({});
+
+        expect(wrapper.find('.pi.pi-discord').exists()).toBe(true);
     });
 });

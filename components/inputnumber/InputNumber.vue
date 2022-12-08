@@ -35,8 +35,9 @@
 </template>
 
 <script>
-import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'InputNumber',
@@ -129,6 +130,10 @@ export default {
         allowEmpty: {
             type: Boolean,
             default: true
+        },
+        highlightOnFocus: {
+            type: Boolean,
+            default: false
         },
         readonly: {
             type: Boolean,
@@ -475,46 +480,40 @@ export default {
                 event.preventDefault();
             }
 
-            switch (event.which) {
-                //up
-                case 38:
+            switch (event.code) {
+                case 'ArrowUp':
                     this.spin(event, 1);
                     event.preventDefault();
                     break;
 
-                //down
-                case 40:
+                case 'ArrowDown':
                     this.spin(event, -1);
                     event.preventDefault();
                     break;
 
-                //left
-                case 37:
+                case 'ArrowLeft':
                     if (!this.isNumeralChar(inputValue.charAt(selectionStart - 1))) {
                         event.preventDefault();
                     }
 
                     break;
 
-                //right
-                case 39:
+                case 'ArrowRight':
                     if (!this.isNumeralChar(inputValue.charAt(selectionStart))) {
                         event.preventDefault();
                     }
 
                     break;
 
-                //tab and enter
-                case 9:
-                case 13:
+                case 'Tab':
+                case 'Enter':
                     newValueStr = this.validateValue(this.parseValue(inputValue));
                     this.$refs.input.$el.value = this.formatValue(newValueStr);
                     this.$refs.input.$el.setAttribute('aria-valuenow', newValueStr);
                     this.updateModel(event, newValueStr);
                     break;
 
-                //backspace
-                case 8: {
+                case 'Backspace': {
                     event.preventDefault();
 
                     if (selectionStart === selectionEnd) {
@@ -556,8 +555,7 @@ export default {
                     break;
                 }
 
-                // del
-                case 46:
+                case 'Delete':
                     event.preventDefault();
 
                     if (selectionStart === selectionEnd) {
@@ -598,8 +596,7 @@ export default {
 
                     break;
 
-                //home
-                case 36:
+                case 'Home':
                     if (this.min) {
                         this.updateModel(event, this.min);
                         event.preventDefault();
@@ -607,8 +604,7 @@ export default {
 
                     break;
 
-                //end
-                case 35:
+                case 'End':
                     if (this.max) {
                         this.updateModel(event, this.max);
                         event.preventDefault();
@@ -836,7 +832,9 @@ export default {
             return index || 0;
         },
         onInputClick() {
-            if (!this.readonly) {
+            const currentValue = this.$refs.input.$el.value;
+
+            if (!this.readonly && currentValue !== DomHandler.getSelection()) {
                 this.initCursor();
             }
         },
@@ -869,7 +867,7 @@ export default {
         },
         handleOnInput(event, currentValue, newValue) {
             if (this.isValueChanged(currentValue, newValue)) {
-                this.$emit('input', { originalEvent: event, value: newValue });
+                this.$emit('input', { originalEvent: event, value: newValue, formattedValue: currentValue });
             }
         },
         isValueChanged(currentValue, newValue) {
@@ -978,7 +976,11 @@ export default {
 
                 this._decimal.lastIndex = 0;
 
-                return decimalCharIndex !== -1 ? val1.split(this._decimal)[0] + val2.slice(decimalCharIndex) : val1;
+                if (this.suffixChar) {
+                    return val1.replace(this.suffixChar, '').split(this._decimal)[0] + val2.replace(this.suffixChar, '').slice(decimalCharIndex) + this.suffixChar;
+                } else {
+                    return decimalCharIndex !== -1 ? val1.split(this._decimal)[0] + val2.slice(decimalCharIndex) : val1;
+                }
             }
 
             return val1;
@@ -1000,6 +1002,11 @@ export default {
         },
         onInputFocus(event) {
             this.focused = true;
+
+            if (!this.disabled && !this.readonly && this.$refs.input.$el.value !== DomHandler.getSelection() && this.highlightOnFocus) {
+                event.target.select();
+            }
+
             this.$emit('focus', event);
         },
         onInputBlur(event) {

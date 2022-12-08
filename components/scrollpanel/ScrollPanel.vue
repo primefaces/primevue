@@ -365,6 +365,11 @@ export default {
     position: relative;
     overflow: scroll;
     box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+.p-scrollpanel-content::-webkit-scrollbar {
+    display: none;
 }
 
 .p-scrollpanel-bar {

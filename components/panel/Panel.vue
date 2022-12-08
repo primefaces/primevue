@@ -13,11 +13,12 @@
                     type="button"
                     role="button"
                     class="p-panel-header-icon p-panel-toggler p-link"
-                    :aria-label="toggleButtonProps || header"
+                    :aria-label="buttonAriaLabel"
                     :aria-controls="ariaId + '_content'"
                     :aria-expanded="!d_collapsed"
                     @click="toggle"
                     @keydown="onKeyDown"
+                    v-bind="toggleButtonProps"
                 >
                     <span :class="{ 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }"></span>
                 </button>
@@ -34,8 +35,8 @@
 </template>
 
 <script>
-import { UniqueComponentId } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Panel',
@@ -44,7 +45,10 @@ export default {
         header: String,
         toggleable: Boolean,
         collapsed: Boolean,
-        toggleButtonProps: String
+        toggleButtonProps: {
+            type: null,
+            defaault: null
+        }
     },
     data() {
         return {
@@ -78,6 +82,9 @@ export default {
         },
         containerClass() {
             return ['p-panel p-component', { 'p-panel-toggleable': this.toggleable }];
+        },
+        buttonAriaLabel() {
+            return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.header;
         }
     },
     directives: {

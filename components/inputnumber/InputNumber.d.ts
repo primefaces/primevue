@@ -135,6 +135,11 @@ export interface InputNumberProps {
      */
     allowEmpty?: boolean | undefined;
     /**
+     * Highlights automatically the input value.
+     * Default value is false.
+     */
+    highlightOnFocus?: boolean | undefined;
+    /**
      * When present, it specifies that the component should be disabled.
      */
     disabled?: boolean | undefined;

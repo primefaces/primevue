@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from '../config/PrimeVue';
+import PrimeVue from 'primevue/config';
+import { nextTick } from 'vue';
 import AutoComplete from './AutoComplete.vue';
 
 describe('AutoComplete.vue', () => {
@@ -37,7 +38,7 @@ describe('AutoComplete.vue', () => {
         expect(wrapper.find('.p-autocomplete-input').exists()).toBe(true);
     });
 
-    it('search copmlete', async () => {
+    it('search complete', async () => {
         const event = { target: { value: 'b' } };
 
         wrapper.vm.onInput(event);
@@ -52,5 +53,36 @@ describe('AutoComplete.vue', () => {
 
         expect(wrapper.find('.p-autocomplete-items').exists()).toBe(true);
         expect(wrapper.findAll('.p-autocomplete-item').length).toBe(1);
+    });
+
+    describe('dropdown', () => {
+        it('should have correct custom icon', async () => {
+            wrapper.setProps({
+                dropdown: true,
+                dropdownIcon: 'pi pi-discord'
+            });
+
+            await nextTick();
+
+            const token = wrapper.find('.p-button-icon');
+
+            expect(token.classes()).toContain('pi-discord');
+        });
+    });
+
+    describe('multiple', () => {
+        it('should have correct custom icon', async () => {
+            wrapper.setProps({
+                multiple: true,
+                removeTokenIcon: 'pi pi-discord',
+                modelValue: ['foo', 'bar']
+            });
+
+            await nextTick();
+
+            wrapper.findAll('.p-autocomplete-token-icon').forEach((tokenIcon) => {
+                expect(tokenIcon.classes()).toContain('pi-discord');
+            });
+        });
     });
 });

@@ -44,10 +44,11 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps" @keydown="onOverlayKeydown">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
                         <TSTree
+                            ref="tree"
                             :id="listId"
                             :value="options"
                             :selectionMode="selectionMode"
@@ -74,11 +75,11 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils, UniqueComponentId } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Tree from 'primevue/tree';
-import Ripple from 'primevue/ripple';
 import Portal from 'primevue/portal';
+import Ripple from 'primevue/ripple';
+import Tree from 'primevue/tree';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'TreeSelect',
@@ -245,41 +246,51 @@ export default {
         },
         onKeyDown(event) {
             switch (event.code) {
-                case 'Down':
                 case 'ArrowDown':
-                    if (this.overlayVisible) {
-                        if (DomHandler.findSingle(this.overlay, '.p-highlight')) {
-                            DomHandler.findSingle(this.overlay, '.p-highlight').focus();
-                        } else DomHandler.findSingle(this.overlay, '.p-treenode').children[0].focus();
-                    } else {
-                        this.show();
-                    }
-
-                    event.preventDefault();
+                    this.onArrowDownKey(event);
                     break;
 
                 case 'Space':
                 case 'Enter':
-                    if (this.overlayVisible) {
-                        this.hide();
-                    } else {
-                        this.show();
-                    }
-
-                    event.preventDefault();
+                    this.onEnterKey(event);
                     break;
 
                 case 'Escape':
-                case 'Tab':
-                    if (this.overlayVisible) {
-                        this.hide();
-                        event.preventDefault();
-                    }
+                    this.onEscapeKey(event);
 
                     break;
 
                 default:
                     break;
+            }
+        },
+        onArrowDownKey(event) {
+            if (this.overlayVisible) return;
+
+            this.show();
+
+            this.$nextTick(() => {
+                const treeNodeEl = DomHandler.find(this.$refs.tree.$el, '.p-treenode');
+                const focusedElement = [...treeNodeEl].find((item) => item.getAttribute('tabindex') === '0');
+
+                DomHandler.focus(focusedElement);
+            });
+
+            event.preventDefault();
+        },
+        onEnterKey(event) {
+            if (this.overlayVisible) {
+                this.hide();
+            } else {
+                this.onArrowDownKey(event);
+            }
+
+            event.preventDefault();
+        },
+        onEscapeKey(event) {
+            if (this.overlayVisible) {
+                this.hide();
+                event.preventDefault();
             }
         },
         onOverlayEnter(el) {
@@ -370,6 +381,9 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
+        },
+        onOverlayKeydown(event) {
+            if (event.code === 'Escape') this.hide();
         },
         findSelectedNodes(node, keys, selectedNodes) {
             if (node) {

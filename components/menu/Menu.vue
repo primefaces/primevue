@@ -1,20 +1,32 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
-                <ul class="p-menu-list p-reset" role="menu">
+            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
+                <ul
+                    :ref="listRef"
+                    :id="id + '_list'"
+                    class="p-menu-list p-reset"
+                    role="menu"
+                    :tabindex="tabindex"
+                    :aria-activedescendant="focused ? focusedOptionId : undefined"
+                    :aria-label="ariaLabel"
+                    :aria-labelledby="ariaLabelledby"
+                    @focus="onListFocus"
+                    @blur="onListBlur"
+                    @keydown="onListKeyDown"
+                >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" class="p-submenu-header">
+                            <li v-if="item.items" :id="id + '_' + i" class="p-submenu-header" role="none">
                                 <slot name="item" :item="item">{{ label(item) }}</slot>
                             </li>
-                            <template v-for="(child, j) of item.items" :key="child.label + i + j">
-                                <Menuitem v-if="visible(child) && !child.separator" :item="child" @click="itemClick" :template="$slots.item" :exact="exact" />
-                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="['p-menu-separator', child.class]" :style="child.style" role="separator"></li>
+                            <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
+                                <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
+                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="separatorClass(item)" :style="child.style" role="separator"></li>
                             </template>
                         </template>
-                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
-                        <Menuitem v-else :key="label(item) + i.toString()" :item="item" @click="itemClick" :template="$slots.item" :exact="exact" />
+                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="separatorClass(item)" :style="item.style" role="separator"></li>
+                        <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
                     </template>
                 </ul>
             </div>
@@ -23,15 +35,15 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
-import Menuitem from './Menuitem.vue';
 import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import Menuitem from './Menuitem.vue';
 
 export default {
     name: 'Menu',
     inheritAttrs: false,
-    emits: ['show', 'hide'],
+    emits: ['show', 'hide', 'focus', 'blur'],
     props: {
         popup: {
             type: Boolean,
@@ -56,11 +68,26 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        tabindex: {
+            type: Number,
+            default: 0
+        },
+        'aria-label': {
+            type: String,
+            default: null
+        },
+        'aria-labelledby': {
+            type: String,
+            default: null
         }
     },
     data() {
         return {
-            overlayVisible: false
+            overlayVisible: false,
+            focused: false,
+            focusedOptionIndex: -1,
+            selectedOptionIndex: -1
         };
     },
     target: null,
@@ -68,6 +95,13 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     container: null,
+    list: null,
+    mounted() {
+        if (!this.popup) {
+            this.bindResizeListener();
+            this.bindOutsideClickListener();
+        }
+    },
     beforeUnmount() {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
@@ -101,7 +135,124 @@ export default {
                 event.navigate(event.originalEvent);
             }
 
-            this.hide();
+            if (this.overlayVisible) this.hide();
+
+            if (!this.popup && this.focusedOptionIndex !== event.id) {
+                this.focusedOptionIndex = event.id;
+            }
+        },
+        onListFocus(event) {
+            this.focused = true;
+
+            if (!this.popup) {
+                if (this.selectedOptionIndex !== -1) {
+                    this.changeFocusedOptionIndex(this.selectedOptionIndex);
+                    this.selectedOptionIndex = -1;
+                } else this.changeFocusedOptionIndex(0);
+            }
+
+            this.$emit('focus', event);
+        },
+        onListBlur(event) {
+            this.focused = false;
+            this.focusedOptionIndex = -1;
+            this.$emit('blur', event);
+        },
+        onListKeyDown(event) {
+            switch (event.code) {
+                case 'ArrowDown':
+                    this.onArrowDownKey(event);
+                    break;
+
+                case 'ArrowUp':
+                    this.onArrowUpKey(event);
+                    break;
+
+                case 'Home':
+                    this.onHomeKey(event);
+                    break;
+
+                case 'End':
+                    this.onEndKey(event);
+                    break;
+
+                case 'Enter':
+                    this.onEnterKey(event);
+                    break;
+
+                case 'Space':
+                    this.onSpaceKey(event);
+                    break;
+
+                case 'Escape':
+                    if (this.popup) {
+                        DomHandler.focus(this.target);
+                        this.hide();
+                    }
+
+                case 'Tab':
+                    this.overlayVisible && this.hide();
+                    break;
+
+                default:
+                    break;
+            }
+        },
+        onArrowDownKey(event) {
+            const optionIndex = this.findNextOptionIndex(this.focusedOptionIndex);
+
+            this.changeFocusedOptionIndex(optionIndex);
+            event.preventDefault();
+        },
+        onArrowUpKey(event) {
+            if (event.altKey && this.popup) {
+                DomHandler.focus(this.target);
+                this.hide();
+                event.preventDefault();
+            } else {
+                const optionIndex = this.findPrevOptionIndex(this.focusedOptionIndex);
+
+                this.changeFocusedOptionIndex(optionIndex);
+                event.preventDefault();
+            }
+        },
+        onHomeKey(event) {
+            this.changeFocusedOptionIndex(0);
+            event.preventDefault();
+        },
+        onEndKey(event) {
+            this.changeFocusedOptionIndex(DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)').length - 1);
+            event.preventDefault();
+        },
+        onEnterKey(event) {
+            const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
+            const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
+
+            this.popup && DomHandler.focus(this.target);
+            anchorElement ? anchorElement.click() : element && element.click();
+
+            event.preventDefault();
+        },
+        onSpaceKey(event) {
+            this.onEnterKey(event);
+        },
+        findNextOptionIndex(index) {
+            const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
+            const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
+
+            return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
+        },
+        findPrevOptionIndex(index) {
+            const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
+            const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
+
+            return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
+        },
+        changeFocusedOptionIndex(index) {
+            const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
+            let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
+
+            this.focusedOptionIndex = links[order].getAttribute('id');
         },
         toggle(event) {
             if (this.overlayVisible) this.hide();
@@ -125,6 +276,11 @@ export default {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
 
+            if (this.popup) {
+                DomHandler.focus(this.list);
+                this.changeFocusedOptionIndex(0);
+            }
+
             this.$emit('show');
         },
         onLeave() {
@@ -145,8 +301,13 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    const isOutsideContainer = this.container && !this.container.contains(event.target);
+                    const isOutsideTarget = !(this.target && (this.target === event.target || this.target.contains(event.target)));
+
+                    if (this.overlayVisible && isOutsideContainer && isOutsideTarget) {
                         this.hide();
+                    } else if (!this.popup && isOutsideContainer && isOutsideTarget) {
+                        this.focusedOptionIndex = -1;
                     }
                 };
 
@@ -192,9 +353,6 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isTargetClicked(event) {
-            return this.target && (this.target === event.target || this.target.contains(event.target));
-        },
         visible(item) {
             return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
@@ -204,14 +362,20 @@ export default {
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
         },
-        containerRef(el) {
-            this.container = el;
+        separatorClass(item) {
+            return ['p-menuitem-separator', item.class];
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
                 target: this.target
             });
+        },
+        containerRef(el) {
+            this.container = el;
+        },
+        listRef(el) {
+            this.list = el;
         }
     },
     computed: {
@@ -224,10 +388,16 @@ export default {
                     'p-ripple-disabled': this.$primevue.config.ripple === false
                 }
             ];
+        },
+        id() {
+            return this.$attrs.id || UniqueComponentId();
+        },
+        focusedOptionId() {
+            return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
         }
     },
     components: {
-        Menuitem: Menuitem,
+        PVMenuitem: Menuitem,
         Portal: Portal
     }
 };

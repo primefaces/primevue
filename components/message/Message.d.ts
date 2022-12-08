@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type MessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefined;
@@ -28,6 +28,15 @@ export interface MessageProps {
      * Display a custom icon for the message.
      */
     icon?: string | undefined;
+    /**
+     * Icon to display in the message close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     */
+    closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface MessageSlots {

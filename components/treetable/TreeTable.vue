@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body">
+    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body" role="table">
         <div v-if="loading" class="p-treetable-loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
                 <i :class="loadingIconClass"></i>
@@ -29,9 +29,9 @@
             </template>
         </TTPaginator>
         <div class="p-treetable-wrapper" :style="{ maxHeight: scrollHeight }">
-            <table ref="table">
-                <thead class="p-treetable-thead">
-                    <tr>
+            <table ref="table" role="table" v-bind="tableProps">
+                <thead class="p-treetable-thead" role="rowgroup">
+                    <tr role="row">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTHeaderCell
                                 v-if="!columnProp(col, 'hidden')"
@@ -54,19 +54,22 @@
                         </template>
                     </tr>
                 </thead>
-                <tbody class="p-treetable-tbody">
+                <tbody class="p-treetable-tbody" role="rowgroup">
                     <template v-if="!empty">
                         <TTRow
-                            v-for="node of dataToRender"
+                            v-for="(node, index) of dataToRender"
                             :key="node.key"
                             :columns="columns"
                             :node="node"
                             :level="0"
                             :expandedKeys="d_expandedKeys"
-                            @node-toggle="onNodeToggle"
                             :indentation="indentation"
                             :selectionMode="selectionMode"
                             :selectionKeys="selectionKeys"
+                            :ariaSetSize="dataToRender.length"
+                            :ariaPosInset="index + 1"
+                            :tabindex="setTabindex(node, index)"
+                            @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
                         ></TTRow>
@@ -77,8 +80,8 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot v-if="hasFooter" class="p-treetable-tfoot">
-                    <tr>
+                <tfoot v-if="hasFooter" class="p-treetable-tfoot" role="rowgroup">
+                    <tr role="row">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col"></TTFooterCell>
                         </template>
@@ -114,12 +117,12 @@
 </template>
 
 <script>
-import { ObjectUtils, DomHandler } from 'primevue/utils';
 import { FilterService } from 'primevue/api';
-import TreeTableRow from './TreeTableRow.vue';
-import HeaderCell from './HeaderCell.vue';
-import FooterCell from './FooterCell.vue';
 import Paginator from 'primevue/paginator';
+import { DomHandler, ObjectUtils } from 'primevue/utils';
+import FooterCell from './FooterCell.vue';
+import HeaderCell from './HeaderCell.vue';
+import TreeTableRow from './TreeTableRow.vue';
 
 export default {
     name: 'TreeTable',
@@ -288,6 +291,10 @@ export default {
         responsiveLayout: {
             type: String,
             default: null
+        },
+        tableProps: {
+            type: Object,
+            default: null
         }
     },
     documentColumnResizeListener: null,
@@ -301,7 +308,8 @@ export default {
             d_rows: this.rows,
             d_sortField: this.sortField,
             d_sortOrder: this.sortOrder,
-            d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : []
+            d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
+            hasASelectedNode: false
         };
     },
     watch: {
@@ -710,7 +718,7 @@ export default {
             this.columnResizing = true;
             this.lastResizeHelperX = event.pageX - containerLeft + this.$el.scrollLeft;
 
-            this.bindColumnResizeEvents();
+            this.bindColumnResizeEvents(event);
         },
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
@@ -783,7 +791,7 @@ export default {
                 }
             }
         },
-        bindColumnResizeEvents() {
+        bindColumnResizeEvents(event) {
             if (!this.documentColumnResizeListener) {
                 this.documentColumnResizeListener = document.addEventListener('mousemove', () => {
                     if (this.columnResizing) {
@@ -813,7 +821,7 @@ export default {
             }
         },
         onColumnKeyDown(event, col) {
-            if (event.which === 13 && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+            if (event.code === 'Enter' && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
                 this.onColumnHeaderClick(event, col);
             }
         },
@@ -836,6 +844,24 @@ export default {
         },
         updateScrollWidth() {
             this.$refs.table.style.width = this.$refs.table.scrollWidth + 'px';
+        },
+        getItemLabel(node) {
+            return node.data.name;
+        },
+        setTabindex(node, index) {
+            if (this.isNodeSelected(node)) {
+                this.hasASelectedNode = true;
+
+                return 0;
+            }
+
+            if (this.selectionMode) {
+                if (!this.isNodeSelected(node) && index === 0 && !this.hasASelectedNode) return 0;
+            } else if (!this.selectionMode && index === 0) {
+                return 0;
+            }
+
+            return -1;
         }
     },
     computed: {

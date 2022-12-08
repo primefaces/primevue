@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from '../config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import ContextMenu from './ContextMenu.vue';
 
 describe('ContextMenu.vue', () => {
@@ -147,7 +147,7 @@ describe('ContextMenu.vue', () => {
 
     it('should exist', async () => {
         const event = { pageX: 100, pageY: 120, preventDefault: () => {}, stopPropagation: () => {} };
-        const show = vi.spyOn(wrapper.vm, 'show');
+        const show = jest.spyOn(wrapper.vm, 'show');
 
         wrapper.vm.show(event);
         await wrapper.setData({ visible: true });
@@ -159,7 +159,7 @@ describe('ContextMenu.vue', () => {
     });
 
     it('should hide menu', async () => {
-        const hide = vi.spyOn(wrapper.vm, 'hide');
+        const hide = jest.spyOn(wrapper.vm, 'hide');
 
         await wrapper.setData({ visible: true });
 

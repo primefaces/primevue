@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface PickListReorderEvent {
@@ -103,6 +103,50 @@ export interface PickListProps {
      * Whether to show buttons of target list.
      */
     showTargetControls?: boolean | undefined;
+    /**
+     * Index of the list element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     *  Uses to pass all properties of the HTMLAttributes to the target list element.
+     */
+    targetListProps?: HTMLAttributes | undefined;
+    /**
+     *  Uses to pass all properties of the HTMLAttributes to the source list element.
+     */
+    sourceListProps?: HTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.
+     */
+    moveUpButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.
+     */
+    moveTopButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.
+     */
+    moveDownButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
+     */
+    moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move to target button inside the component.
+     */
+    moveToTargetProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move all to target button inside the component.
+     */
+    moveAllToTargetProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move to source button inside the component.
+     */
+    moveToSourceProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.
+     */
+    moveAllToSourceProps?: ButtonHTMLAttributes | undefined;
 }
 
 export interface PickListSlots {

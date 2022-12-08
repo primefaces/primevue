@@ -87,6 +87,17 @@ export interface FileUploadRemoveEvent {
     files: File[];
 }
 
+export interface FileUploadRemoveUploadedFile {
+    /**
+     * Removed file.
+     */
+    file: File;
+    /**
+     * Remaining files to be uploaded.
+     */
+    files: File[];
+}
+
 export interface FileUploadProps {
     /**
      * Name of the request parameter to identify the files at backend.
@@ -202,7 +213,61 @@ export interface FileUploadProps {
 
 export interface FileUploadSlots {
     /**
-     * Custom empty template.
+     * Custom header content template.
+     */
+    header: (scope: {
+        /**
+         * Files to upload.
+         */
+        files: File[];
+        /**
+         * Uploaded files.
+         */
+        uploadedFiles: File[];
+        /**
+         * Choose function
+         */
+        chooseCallback: () => void;
+        /**
+         * Upload function
+         */
+        uploadCallback: () => void;
+        /**
+         *  Clear function
+         */
+        clearCallback: () => void;
+    }) => VNode[];
+    /**
+     * Custom uploaded content template.
+     */
+    content: (scope: {
+        /**
+         * Files to upload.
+         */
+        files: File[];
+        /**
+         * Uploaded files.
+         */
+        uploadedFiles: File[];
+        /**
+         * Function to remove an uploaded file.
+         */
+        removeUploadedFileCallback: () => void;
+        /**
+         * Function to remove a file.
+         */
+        removeFileCallback: () => void;
+        /**
+         *  Uploaded progress as number.
+         */
+        progress: number;
+        /**
+         * Status messages about upload process.
+         */
+        messages: string | undefined;
+    }) => VNode[];
+    /**
+     * Custom content when there is no selected file.
      */
     empty: () => VNode[];
 }
@@ -252,6 +317,11 @@ export declare type FileUploadEmits = {
      * @param {FileUploadRemoveEvent} event - Custom remove event.
      */
     remove: (event: FileUploadRemoveEvent) => void;
+    /**
+     * Callback to invoke when a single uploaded file is removed from the uploaded file list.
+     * @param {FileUploadRemoveUploadedFile} event - Custom uploaded file remove event.
+     */
+    removeUploadedFile: (event: FileUploadRemoveUploadedFile) => void;
 };
 
 declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {}

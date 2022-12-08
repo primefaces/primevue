@@ -46,6 +46,14 @@ export interface TreeNode {
      * Optional
      */
     [key: string]: any;
+    /**
+     * Icon to use in expanded state.
+     */
+    expandedIcon?: string;
+    /**
+     * Icon to use in collapsed state.
+     */
+    collapsedIcon?: string;
 }
 
 type TreeSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
@@ -128,6 +136,14 @@ export interface TreeProps {
      * @see TreeScrollHeightType
      */
     scrollHeight?: TreeScrollHeightType;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying menu element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface TreeSlots {

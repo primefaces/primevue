@@ -19,7 +19,7 @@ describe('Chips.vue', () => {
     });
 
     it('should add item', async () => {
-        const addItem = vi.spyOn(wrapper.vm, 'addItem');
+        const addItem = jest.spyOn(wrapper.vm, 'addItem');
 
         await wrapper.vm.addItem({}, 'PrimeVue', false);
 
@@ -29,5 +29,16 @@ describe('Chips.vue', () => {
         expect(wrapper.findAll('.p-chips-token').length).toBe(1);
         expect(wrapper.find('.p-chips-token-label').exists()).toBe(true);
         expect(wrapper.find('.p-chips-token-label').text()).toBe('PrimeVue');
+    });
+
+    it('should have correct custom chip removal icon', async () => {
+        await wrapper.setProps({
+            modelValue: ['foo', 'bar'],
+            removeTokenIcon: 'pi pi-discord'
+        });
+
+        const icon = wrapper.find('.p-chips-token-icon');
+
+        expect(icon.classes()).toContain('pi-discord');
     });
 });

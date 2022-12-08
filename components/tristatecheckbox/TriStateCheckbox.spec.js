@@ -53,7 +53,7 @@ describe('TriStateCheckbox.vue', () => {
             });
         });
     it('When onClick method triggered some methods effect', () => {
-        const mockUpdateModel = vi.fn();
+        const mockUpdateModel = jest.fn();
 
         wrapper.vm.updateModel = mockUpdateModel;
 
@@ -71,7 +71,7 @@ describe('TriStateCheckbox.vue', () => {
     });
 
     it('When event.code is equal Enter some methods should be triggered', async () => {
-        const mockUpdateModel = vi.fn();
+        const mockUpdateModel = jest.fn();
 
         wrapper.vm.updateModel = mockUpdateModel;
 

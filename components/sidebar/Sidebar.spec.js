@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from '../config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import Sidebar from './Sidebar.vue';
 
 describe('Sidebar.vue', () => {
@@ -50,5 +50,12 @@ describe('Sidebar.vue', () => {
 
         expect(wrapper.vm.fullScreen).toBe(true);
         expect(wrapper.find('.p-sidebar').classes()).toContain('p-sidebar-full');
+    });
+
+    it('should have custom close icon when provided', async () => {
+        await wrapper.setProps({ closeIcon: 'pi pi-discord' });
+        const icon = wrapper.find('.p-sidebar-close-icon');
+
+        expect(icon.classes()).toContain('pi-discord');
     });
 });

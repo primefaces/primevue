@@ -180,10 +180,35 @@ export interface MultiSelectProps {
      */
     loading?: boolean | undefined;
     /**
+     * Icon to display in the checkboxes.
+     * Default value is 'pi pi-check'.
+     */
+    checkboxIcon?: string | undefined;
+    /**
+     * Icon to display in the dropdown close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
+     * Icon to display in the dropdown.
+     * Default value is 'pi pi-chevron-down'.
+     */
+    dropdownIcon?: string | undefined;
+    /**
+     * Icon to display in filter input.
+     * Default value is 'pi pi-search'.
+     */
+    filterIcon?: string | undefined;
+    /**
      * Icon to display in loading state.
      * Default value is 'pi pi-spinner pi-spin'.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Icon to display in chip remove action.
+     * Default value is 'pi pi-times-circle'.
+     */
+    removeTokenIcon?: string | undefined;
     /**
      * Whether all data is selected.
      */

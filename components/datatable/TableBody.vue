@@ -15,19 +15,20 @@
                     :key="getRowKey(rowData, getRowIndex(index))"
                     :class="getRowClass(rowData)"
                     :style="rowStyle"
+                    :tabindex="setRowTabindex(index)"
+                    role="row"
+                    :aria-selected="selectionMode ? isSelected(rowData) : null"
                     @click="onRowClick($event, rowData, getRowIndex(index))"
                     @dblclick="onRowDblClick($event, rowData, getRowIndex(index))"
                     @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))"
                     @touchend="onRowTouchEnd($event)"
                     @keydown="onRowKeyDown($event, rowData, getRowIndex(index))"
-                    :tabindex="selectionMode || contextMenu ? '0' : null"
                     @mousedown="onRowMouseDown($event)"
                     @dragstart="onRowDragStart($event, getRowIndex(index))"
                     @dragover="onRowDragOver($event, getRowIndex(index))"
                     @dragleave="onRowDragLeave($event)"
                     @dragend="onRowDragEnd($event)"
                     @drop="onRowDrop($event)"
-                    role="row"
                 >
                     <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                         <DTBodyCell
@@ -42,7 +43,11 @@
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, getRowIndex(index)) : null"
                             :editMode="editMode"
                             :editing="editMode === 'row' && isRowEditing(rowData)"
+                            :editingMeta="editingMeta"
                             :responsiveLayout="responsiveLayout"
+                            :virtualScrollerContentProps="virtualScrollerContentProps"
+                            :ariaControls="expandedRowId + '_' + index + '_expansion'"
+                            :name="nameAttributeSelector"
                             @radio-change="onRadioChange($event)"
                             @checkbox-change="onCheckboxChange($event)"
                             @row-toggle="onRowToggle($event)"
@@ -52,13 +57,11 @@
                             @row-edit-init="onRowEditInit($event)"
                             @row-edit-save="onRowEditSave($event)"
                             @row-edit-cancel="onRowEditCancel($event)"
-                            :editingMeta="editingMeta"
                             @editing-meta-change="onEditingMetaChange"
-                            :virtualScrollerContentProps="virtualScrollerContentProps"
                         />
                     </template>
                 </tr>
-                <tr v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" class="p-datatable-row-expansion" role="row">
+                <tr v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" :id="expandedRowId + '_' + index + '_expansion'" class="p-datatable-row-expansion" role="row">
                     <td :colspan="columnsLength">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
@@ -77,7 +80,7 @@
 </template>
 
 <script>
-import { ObjectUtils, DomHandler } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
 export default {
@@ -128,7 +131,7 @@ export default {
             default: null
         },
         groupRowsBy: {
-            type: [Array, String],
+            type: [Array, String, Function],
             default: null
         },
         expandableRowGroups: {
@@ -230,7 +233,9 @@ export default {
     },
     data() {
         return {
-            rowGroupHeaderStyleObject: {}
+            rowGroupHeaderStyleObject: {},
+            tabindexArray: [],
+            isARowSelected: false
         };
     },
     watch: {
@@ -548,6 +553,13 @@ export default {
             const contentRef = this.getVirtualScrollerProp('contentRef');
 
             contentRef && contentRef(el);
+        },
+        setRowTabindex(index) {
+            if (this.selection === null && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {
+                return index === 0 ? 0 : -1;
+            }
+
+            return -1;
         }
     },
     computed: {
@@ -569,6 +581,12 @@ export default {
         },
         bodyStyle() {
             return this.getVirtualScrollerProp('contentStyle');
+        },
+        expandedRowId() {
+            return UniqueComponentId();
+        },
+        nameAttributeSelector() {
+            return UniqueComponentId();
         }
     },
     components: {

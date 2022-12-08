@@ -1,4 +1,4 @@
-import Vue, { Plugin } from 'vue';
+import { Plugin } from 'vue';
 
 interface PrimeVueConfiguration {
     ripple?: boolean;
@@ -26,6 +26,45 @@ interface PrimeVueLocaleAriaOptions {
     close?: string;
     previous?: string;
     next?: string;
+    navigation?: string;
+    scrollTop?: string;
+    moveUp?: string;
+    moveTop?: string;
+    moveDown?: string;
+    moveBottom?: string;
+    moveToTarget?: string;
+    moveToSource?: string;
+    moveAllToTarget?: string;
+    moveAllToSource?: string;
+    pageLabel?: string;
+    firstPageLabel?: string;
+    lastPageLabel?: string;
+    nextPageLabel?: string;
+    prevPageLabel?: string;
+    rowsPerPageLabel?: string;
+    previousPageLabel?: string;
+    jumpToPageDropdownLabel?: string;
+    jumpToPageInputLabel?: string;
+    selectRow?: string;
+    unselectRow?: string;
+    expandRow?: string;
+    collapseRow?: string;
+    showFilterMenu?: string;
+    hideFilterMenu?: string;
+    filterOperator?: string;
+    filterConstraint?: string;
+    editRow?: string;
+    saveEdit?: string;
+    cancelEdit?: string;
+    listView?: string;
+    gridView?: string;
+    slide?: string;
+    slideNumber?: string;
+    zoomImage?: string;
+    zoomIn?: string;
+    zoomOut?: string;
+    rotateRight?: string;
+    rotateLeft?: string;
 }
 
 interface PrimeVueLocaleOptions {
@@ -55,6 +94,8 @@ interface PrimeVueLocaleOptions {
     choose?: string;
     upload?: string;
     cancel?: string;
+    completed?: string;
+    pending?: string;
     dayNames: string[];
     dayNamesShort: string[];
     dayNamesMin: string[];

@@ -1,13 +1,14 @@
 <template>
-    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="galleriaClass" :style="$attrs.containerStyle">
-        <button v-if="$attrs.fullScreen" v-ripple type="button" class="p-galleria-close p-link" @click="$emit('mask-hide')">
+    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="galleriaClass" :style="$attrs.containerStyle" v-bind="$attrs.containerProps">
+        <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" class="p-galleria-close p-link" :aria-label="closeAriaLabel" @click="$emit('mask-hide')">
             <span class="p-galleria-close-icon pi pi-times"></span>
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
             <component :is="$attrs.templates['header']" />
         </div>
-        <div class="p-galleria-content">
+        <div class="p-galleria-content" :aria-live="$attrs.autoPlay ? 'polite' : 'off'">
             <GalleriaItem
+                :id="id"
                 v-model:activeIndex="activeIndex"
                 v-model:slideShowActive="slideShowActive"
                 :value="$attrs.value"
@@ -34,6 +35,8 @@
                 :isVertical="isVertical()"
                 :contentHeight="$attrs.verticalThumbnailViewPortHeight"
                 :showThumbnailNavigators="$attrs.showThumbnailNavigators"
+                :prevButtonProps="$attrs.prevButtonProps"
+                :nextButtonProps="$attrs.nextButtonProps"
                 @stop-slideshow="stopSlideShow"
             />
         </div>
@@ -44,11 +47,10 @@
 </template>
 
 <script>
+import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 import GalleriaItem from './GalleriaItem.vue';
 import GalleriaThumbnails from './GalleriaThumbnails.vue';
-import GalleriaItemSlot from './GalleriaItemSlot.vue';
-import Ripple from 'primevue/ripple';
 
 export default {
     name: 'GalleriaContent',
@@ -130,12 +132,14 @@ export default {
                 indicatorPosClass,
                 this.$attrs.containerClass
             ];
+        },
+        closeAriaLabel() {
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     components: {
         GalleriaItem: GalleriaItem,
-        GalleriaThumbnails: GalleriaThumbnails,
-        GalleriaItemSlot: GalleriaItemSlot
+        GalleriaThumbnails: GalleriaThumbnails
     },
     directives: {
         ripple: Ripple

@@ -1,16 +1,23 @@
 <template>
-    <div :id="id" :class="containerClass">
-        <ul role="tablist">
+    <nav :id="id" :class="containerClass">
+        <ol ref="list" class="p-steps-list">
             <template v-for="(item, index) of model" :key="item.to">
-                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style" role="tab" :aria-selected="isActive(item)" :aria-expanded="isActive(item)">
+                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style">
                     <template v-if="!$slots.item">
                         <router-link v-if="!isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                            <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onItemClick($event, item, navigate)" role="presentation">
+                            <a
+                                :href="href"
+                                :class="linkClass({ isActive, isExactActive })"
+                                :tabindex="-1"
+                                :aria-current="isExactActive ? 'step' : undefined"
+                                @click="onItemClick($event, item, navigate)"
+                                @keydown="onItemKeydown($event, item, navigate)"
+                            >
                                 <span class="p-steps-number">{{ index + 1 }}</span>
                                 <span class="p-steps-title">{{ label(item) }}</span>
                             </a>
                         </router-link>
-                        <span v-else :class="linkClass()" role="presentation">
+                        <span v-else :class="linkClass()" @keydown="onItemKeydown($event, item)">
                             <span class="p-steps-number">{{ index + 1 }}</span>
                             <span class="p-steps-title">{{ label(item) }}</span>
                         </span>
@@ -18,12 +25,12 @@
                     <component v-else :is="$slots.item" :item="item"></component>
                 </li>
             </template>
-        </ul>
-    </div>
+        </ol>
+    </nav>
 </template>
 
 <script>
-import { UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Steps',
@@ -45,6 +52,11 @@ export default {
             default: true
         }
     },
+    mounted() {
+        const firstItem = this.findFirstItem();
+
+        firstItem.tabIndex = '0';
+    },
     methods: {
         onItemClick(event, item, navigate) {
             if (this.disabled(item) || this.readonly) {
@@ -63,6 +75,93 @@ export default {
             if (item.to && navigate) {
                 navigate(event);
             }
+        },
+        onItemKeydown(event, item, navigate) {
+            switch (event.code) {
+                case 'ArrowRight': {
+                    this.navigateToNextItem(event.target);
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'ArrowLeft': {
+                    this.navigateToPrevItem(event.target);
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'Home': {
+                    this.navigateToFirstItem(event.target);
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'End': {
+                    this.navigateToLastItem(event.target);
+                    event.preventDefault();
+                    break;
+                }
+
+                case 'Tab':
+                    //no op
+                    break;
+
+                case 'Enter':
+
+                case 'Space': {
+                    this.onItemClick(event, item, navigate);
+                    event.preventDefault();
+                    break;
+                }
+
+                default:
+                    break;
+            }
+        },
+        navigateToNextItem(target) {
+            const nextItem = this.findNextItem(target);
+
+            nextItem && this.setFocusToMenuitem(target, nextItem);
+        },
+        navigateToPrevItem(target) {
+            const prevItem = this.findPrevItem(target);
+
+            prevItem && this.setFocusToMenuitem(target, prevItem);
+        },
+        navigateToFirstItem(target) {
+            const firstItem = this.findFirstItem(target);
+
+            firstItem && this.setFocusToMenuitem(target, firstItem);
+        },
+        navigateToLastItem(target) {
+            const lastItem = this.findLastItem(target);
+
+            lastItem && this.setFocusToMenuitem(target, lastItem);
+        },
+        findNextItem(item) {
+            const nextItem = item.parentElement.nextElementSibling;
+
+            return nextItem ? nextItem.children[0] : null;
+        },
+        findPrevItem(item) {
+            const prevItem = item.parentElement.previousElementSibling;
+
+            return prevItem ? prevItem.children[0] : null;
+        },
+        findFirstItem() {
+            const firstSibling = DomHandler.findSingle(this.$refs.list, '.p-steps-item');
+
+            return firstSibling ? firstSibling.children[0] : null;
+        },
+        findLastItem() {
+            const siblings = DomHandler.find(this.$refs.list, '.p-steps-item');
+
+            return siblings ? siblings[siblings.length - 1].children[0] : null;
+        },
+        setFocusToMenuitem(target, focusableItem) {
+            target.tabIndex = '-1';
+            focusableItem.tabIndex = '0';
+            focusableItem.focus();
         },
         isActive(item) {
             return item.to ? this.$router.resolve(item.to).path === this.$route.path : false;
@@ -112,7 +211,7 @@ export default {
     position: relative;
 }
 
-.p-steps ul {
+.p-steps .p-steps-list {
     padding: 0;
     margin: 0;
     list-style-type: none;

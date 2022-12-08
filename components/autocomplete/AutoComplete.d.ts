@@ -1,6 +1,6 @@
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
+import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
 
 type AutoCompleteFieldType = string | ((data: any) => string) | undefined;
 
@@ -188,10 +188,24 @@ export interface AutoCompleteProps {
      */
     panelProps?: HTMLAttributes | undefined;
     /**
+     * Icon to display in the dropdown.
+     * Default value is 'pi pi-chevron-down'.
+     */
+    dropdownIcon?: string | undefined;
+    /**
+     * Style class of the dropdown button.
+     */
+    dropdownClass?: string | undefined;
+    /**
      * Icon to display in loading state.
      * Default value is 'pi pi-spinner pi-spin'.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Icon to display in chip remove action.
+     * Default value is 'pi pi-times-circle'.
+     */
+    removeTokenIcon?: string | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @see VirtualScroller.VirtualScrollerProps

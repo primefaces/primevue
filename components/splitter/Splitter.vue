@@ -23,7 +23,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Splitter',
-    emits: ['resizeend'],
+    emits: ['resizestart', 'resizeend'],
     props: {
         layout: {
             type: String,
@@ -120,6 +120,7 @@ export default {
             }
 
             this.prevPanelIndex = index;
+            this.$emit('resizestart', { originalEvent: event, sizes: this.panelSizes });
             DomHandler.addClass(this.gutterElement, 'p-splitter-gutter-resizing');
             DomHandler.addClass(this.$el, 'p-splitter-resizing');
         },

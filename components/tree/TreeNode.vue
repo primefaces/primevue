@@ -1,11 +1,24 @@
 <template>
-    <li :class="containerClass" role="treeitem" :aria-label="label(node)" :aria-selected="selected" :aria-expanded="expanded" :aria-setsize="node.children ? node.children.length : 0" :aria-posinset="index + 1" :aria-level="level">
-        <div :class="contentClass" tabindex="0" role="treeitem" :aria-expanded="expanded" @click="onClick" @keydown="onKeyDown" @touchend="onTouchEnd" :style="node.style">
-            <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1">
+    <li
+        ref="currentNode"
+        :class="containerClass"
+        role="treeitem"
+        :aria-label="label(node)"
+        :aria-selected="ariaSelected"
+        :aria-expanded="expanded"
+        :aria-setsize="node.children ? node.children.length : 0"
+        :aria-posinset="index + 1"
+        :aria-level="level"
+        :aria-checked="ariaChecked"
+        :tabindex="index === 0 ? 0 : -1"
+        @keydown="onKeyDown"
+    >
+        <div :class="contentClass" @click="onClick" @touchend="onTouchEnd" :style="node.style">
+            <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" aria-hidden="true">
                 <span :class="toggleIcon"></span>
             </button>
-            <div v-if="checkboxMode" class="p-checkbox p-component">
-                <div :class="checkboxClass" role="checkbox" :aria-checked="checked">
+            <div v-if="checkboxMode" class="p-checkbox p-component" aria-hidden="true">
+                <div :class="checkboxClass" role="checkbox">
                     <span :class="checkboxIcon"></span>
                 </div>
             </div>
@@ -34,8 +47,8 @@
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'TreeNode',
@@ -71,6 +84,13 @@ export default {
         }
     },
     nodeTouched: false,
+    mounted() {
+        const hasTreeSelectParent = this.$refs.currentNode.closest('.p-treeselect-items-wrapper');
+
+        if (hasTreeSelectParent) {
+            this.setAllNodesTabIndexes();
+        }
+    },
     methods: {
         toggle() {
             this.$emit('node-toggle', this.node);
@@ -105,59 +125,167 @@ export default {
             this.nodeTouched = true;
         },
         onKeyDown(event) {
-            const nodeElement = event.target.parentElement;
+            if (!this.isSameNode(event)) return;
 
             switch (event.code) {
+                case 'Tab':
+                    this.onTabKey(event);
+
+                    break;
+
                 case 'ArrowDown':
-                    var listElement = nodeElement.children[1];
-
-                    if (listElement) {
-                        this.focusNode(listElement.children[0]);
-                    } else {
-                        const nextNodeElement = nodeElement.nextElementSibling;
-
-                        if (nextNodeElement) {
-                            this.focusNode(nextNodeElement);
-                        } else {
-                            let nextSiblingAncestor = this.findNextSiblingOfAncestor(nodeElement);
-
-                            if (nextSiblingAncestor) {
-                                this.focusNode(nextSiblingAncestor);
-                            }
-                        }
-                    }
+                    this.onArrowDown(event);
 
                     break;
 
                 case 'ArrowUp':
-                    if (nodeElement.previousElementSibling) {
-                        this.focusNode(this.findLastVisibleDescendant(nodeElement.previousElementSibling));
-                    } else {
-                        let parentNodeElement = this.getParentNodeElement(nodeElement);
-
-                        if (parentNodeElement) {
-                            this.focusNode(parentNodeElement);
-                        }
-                    }
+                    this.onArrowUp(event);
 
                     break;
 
                 case 'ArrowRight':
+                    this.onArrowRight(event);
+
+                    break;
+
                 case 'ArrowLeft':
-                    this.$emit('node-toggle', this.node);
+                    this.onArrowLeft(event);
+
                     break;
 
                 case 'Enter':
                 case 'Space':
-                    this.onClick(event);
+                    this.onEnterKey(event);
+
                     break;
 
                 default:
-                    //no op
                     break;
+            }
+        },
+        onArrowDown(event) {
+            const nodeElement = event.target;
+            const listElement = nodeElement.children[1];
+
+            if (listElement) {
+                this.focusRowChange(nodeElement, listElement.children[0]);
+            } else {
+                if (nodeElement.nextElementSibling) {
+                    this.focusRowChange(nodeElement, nodeElement.nextElementSibling);
+                } else {
+                    let nextSiblingAncestor = this.findNextSiblingOfAncestor(nodeElement);
+
+                    if (nextSiblingAncestor) {
+                        this.focusRowChange(nodeElement, nextSiblingAncestor);
+                    }
+                }
             }
 
             event.preventDefault();
+        },
+        onArrowUp(event) {
+            const nodeElement = event.target;
+
+            if (nodeElement.previousElementSibling) {
+                this.focusRowChange(nodeElement, nodeElement.previousElementSibling, this.findLastVisibleDescendant(nodeElement.previousElementSibling));
+            } else {
+                let parentNodeElement = this.getParentNodeElement(nodeElement);
+
+                if (parentNodeElement) {
+                    this.focusRowChange(nodeElement, parentNodeElement);
+                }
+            }
+
+            event.preventDefault();
+        },
+        onArrowRight(event) {
+            if (this.leaf || this.expanded) return;
+
+            event.currentTarget.tabIndex = -1;
+
+            this.$emit('node-toggle', this.node);
+            this.$nextTick(() => {
+                this.onArrowDown(event);
+            });
+        },
+        onArrowLeft(event) {
+            const togglerElement = DomHandler.findSingle(event.currentTarget, '.p-tree-toggler');
+
+            if (this.level === 0 && !this.expanded) {
+                return false;
+            }
+
+            if (this.expanded && !this.leaf) {
+                togglerElement.click();
+
+                return false;
+            }
+
+            const target = this.findBeforeClickableNode(event.currentTarget);
+
+            if (target) {
+                this.focusRowChange(event.currentTarget, target);
+            }
+        },
+        onEnterKey(event) {
+            this.setTabIndexForSelectionMode(event, this.nodeTouched);
+            this.onClick(event);
+
+            event.preventDefault();
+        },
+        onTabKey() {
+            this.setAllNodesTabIndexes();
+        },
+        setAllNodesTabIndexes() {
+            const nodes = DomHandler.find(this.$refs.currentNode.closest('.p-tree-container'), '.p-treenode');
+
+            const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
+
+            [...nodes].forEach((node) => {
+                node.tabIndex = -1;
+            });
+
+            if (hasSelectedNode) {
+                const selectedNodes = [...nodes].filter((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
+
+                selectedNodes[0].tabIndex = 0;
+
+                return;
+            }
+
+            [...nodes][0].tabIndex = 0;
+        },
+        setTabIndexForSelectionMode(event, nodeTouched) {
+            if (this.selectionMode !== null) {
+                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '.p-treenode')];
+
+                event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
+
+                if (elements.every((element) => element.tabIndex === -1)) {
+                    elements[0].tabIndex = 0;
+                }
+            }
+        },
+        focusRowChange(firstFocusableRow, currentFocusedRow, lastVisibleDescendant) {
+            firstFocusableRow.tabIndex = '-1';
+            currentFocusedRow.tabIndex = '0';
+
+            this.focusNode(lastVisibleDescendant || currentFocusedRow);
+        },
+        findBeforeClickableNode(node) {
+            const parentListElement = node.closest('ul').closest('li');
+
+            if (parentListElement) {
+                const prevNodeButton = DomHandler.findSingle(parentListElement, 'button');
+
+                if (prevNodeButton && prevNodeButton.style.visibility !== 'hidden') {
+                    return parentListElement;
+                }
+
+                return this.findBeforeClickableNode(node.previousElementSibling);
+            }
+
+            return null;
         },
         toggleCheckbox() {
             let _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
@@ -239,10 +367,13 @@ export default {
             return DomHandler.hasClass(parentNodeElement, 'p-treenode') ? parentNodeElement : null;
         },
         focusNode(element) {
-            element.children[0].focus();
+            element.focus();
         },
         isCheckboxSelectionMode() {
             return this.selectionMode === 'checkbox';
+        },
+        isSameNode(event) {
+            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('.p-treenode')));
         }
     },
     computed: {
@@ -294,6 +425,12 @@ export default {
         },
         partialChecked() {
             return this.selectionKeys ? this.selectionKeys[this.node.key] && this.selectionKeys[this.node.key].partialChecked : false;
+        },
+        ariaChecked() {
+            return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : undefined;
+        },
+        ariaSelected() {
+            return this.checkboxMode ? this.checked : undefined;
         }
     },
     directives: {

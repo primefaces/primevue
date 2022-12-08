@@ -1,8 +1,8 @@
 <template>
     <Portal v-if="fullScreen">
-        <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass">
+        <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass" :role="fullScreen ? 'dialog' : 'region'" :aria-modal="fullScreen ? 'true' : undefined">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
-                <GalleriaContent v-if="visible" :ref="containerRef" v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
+                <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
             </transition>
         </div>
     </Portal>
@@ -10,9 +10,10 @@
 </template>
 
 <script>
-import GalleriaContent from './GalleriaContent.vue';
-import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
+import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import GalleriaContent from './GalleriaContent.vue';
 
 export default {
     name: 'Galleria',
@@ -107,8 +108,26 @@ export default {
             type: String,
             default: null
         },
-        containerStyle: null,
-        containerClass: null
+        containerStyle: {
+            type: null,
+            default: null
+        },
+        containerClass: {
+            type: null,
+            default: null
+        },
+        containerProps: {
+            type: null,
+            default: null
+        },
+        prevButtonProps: {
+            type: null,
+            default: null
+        },
+        nextButtonProps: {
+            type: null,
+            default: null
+        }
     },
     container: null,
     mask: null,
@@ -141,6 +160,7 @@ export default {
         onEnter(el) {
             this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
             DomHandler.addClass(document.body, 'p-overflow-hidden');
+            this.focus();
         },
         onBeforeLeave() {
             DomHandler.addClass(this.mask, 'p-component-overlay-leave');
@@ -163,6 +183,13 @@ export default {
         },
         maskRef(el) {
             this.mask = el;
+        },
+        focus() {
+            let focusTarget = this.container.$el.querySelector('[autofocus]');
+
+            if (focusTarget) {
+                focusTarget.focus();
+            }
         }
     },
     computed: {
@@ -180,6 +207,9 @@ export default {
     components: {
         GalleriaContent: GalleriaContent,
         Portal: Portal
+    },
+    directives: {
+        focustrap: FocusTrap
     }
 };
 </script>

@@ -1,13 +1,13 @@
 <template>
-    <li v-if="visible()" :class="containerClass(item)">
+    <li v-if="visible()" :class="containerClass()">
         <template v-if="!template">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                <a :href="href" :class="linkClass({ isActive, isExactActive })" @click="onClick($event, navigate)">
+                <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)">
                     <span v-if="item.icon" :class="iconClass"></span>
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
                 </a>
             </router-link>
-            <a v-else :href="item.url || '#'" :class="linkClass()" @click="onClick" :target="item.target">
+            <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick">
                 <span v-if="item.icon" :class="iconClass"></span>
                 <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
             </a>
@@ -37,8 +37,8 @@ export default {
                 navigate(event);
             }
         },
-        containerClass(item) {
-            return [{ 'p-disabled': this.disabled(item) }, this.item.class];
+        containerClass() {
+            return ['p-menuitem', { 'p-disabled': this.disabled() }, this.item.class];
         },
         linkClass(routerProps) {
             return [
@@ -52,11 +52,17 @@ export default {
         visible() {
             return typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false;
         },
-        disabled(item) {
-            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
+        disabled() {
+            return typeof this.item.disabled === 'function' ? this.item.disabled() : this.item.disabled;
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
+        },
+        isCurrentUrl() {
+            const { to, url } = this.item;
+            let lastPath = this.$router ? this.$router.currentRoute.path : '';
+
+            return to === lastPath || url === lastPath ? 'page' : undefined;
         }
     },
     computed: {

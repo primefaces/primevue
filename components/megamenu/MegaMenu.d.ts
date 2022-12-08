@@ -1,6 +1,6 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 type MegaMenuOrientationType = 'horizontal' | 'vertical' | undefined;
 
@@ -20,6 +20,22 @@ export interface MegaMenuProps {
      * Default value is true.
      */
     exact?: boolean | undefined;
+    /**
+     * When present, it specifies that the component should be disabled.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: number | string | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    'aria-label'?: string | undefined;
+    /**
+     * Identifier of the underlying menu element.
+     */
+    'aria-labelledby'?: string | undefined;
 }
 
 export interface MegaMenuSlots {
@@ -43,7 +59,18 @@ export interface MegaMenuSlots {
     }) => VNode[];
 }
 
-export declare type MegaMenuEmits = {};
+export declare type MegaMenuEmits = {
+    /**
+     * Callback to invoke when the component receives focus.
+     * @param {Event} event - Browser event.
+     */
+    focus: (event: Event) => void;
+    /**
+     * Callback to invoke when the component loses focus.
+     * @param {Event} event - Browser event.
+     */
+    blur: (event: Event) => void;
+};
 
 declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> {}
 

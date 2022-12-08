@@ -1,30 +1,24 @@
 <template>
     <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component">
+        <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
         <div class="p-fileupload-buttonbar">
-            <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
-                <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-                <span :class="advancedChooseIconClass"></span>
-                <span class="p-button-label">{{ chooseButtonLabel }}</span>
-            </span>
-            <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
-            <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
+            <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
+                <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
+                    <span :class="advancedChooseIconClass"></span>
+                    <span class="p-button-label">{{ chooseButtonLabel }}</span>
+                </span>
+                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
+                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
+            </slot>
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
-            <FileUploadProgressBar v-if="hasFiles" :value="progress" />
-            <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-            <div v-if="hasFiles" class="p-fileupload-files">
-                <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-row">
-                    <div>
-                        <img v-if="isImage(file)" role="presentation" :alt="file.name" :src="file.objectURL" :width="previewWidth" />
-                    </div>
-                    <div class="p-fileupload-filename">{{ file.name }}</div>
-                    <div>{{ formatSize(file.size) }}</div>
-                    <div>
-                        <FileUploadButton type="button" icon="pi pi-times" @click="remove(index)" />
-                    </div>
-                </div>
-            </div>
-            <div v-if="$slots.empty && !hasFiles" class="p-fileupload-empty">
+            <slot name="content" :files="files" :uploadedFiles="uploadedFiles" :removeUploadedFileCallback="removeUploadedFile" :removeFileCallback="remove" :progress="progress" :messages="messages">
+                <FileUploadProgressBar v-if="hasFiles" :value="progress" :showValue="false" />
+                <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
+                <FileContent v-if="hasFiles" :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" />
+                <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" />
+            </slot>
+            <div v-if="$slots.empty && !hasFiles && !hasUploadedFiles" class="p-fileupload-empty">
                 <slot name="empty"></slot>
             </div>
         </div>
@@ -41,14 +35,15 @@
 
 <script>
 import Button from 'primevue/button';
-import ProgressBar from 'primevue/progressbar';
 import Message from 'primevue/message';
-import { DomHandler } from 'primevue/utils';
+import ProgressBar from 'primevue/progressbar';
 import Ripple from 'primevue/ripple';
+import { DomHandler } from 'primevue/utils';
+import FileContent from './FileContent.vue';
 
 export default {
     name: 'FileUpload',
-    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove'],
+    emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove', 'remove-uploaded-file'],
     props: {
         name: {
             type: String,
@@ -152,7 +147,8 @@ export default {
             files: [],
             messages: [],
             focused: false,
-            progress: null
+            progress: null,
+            uploadedFiles: []
         };
     },
     methods: {
@@ -250,6 +246,7 @@ export default {
                             });
                         }
 
+                        this.uploadedFiles.push(...this.files);
                         this.clear();
                     }
                 };
@@ -379,6 +376,15 @@ export default {
                 files: this.files
             });
         },
+        removeUploadedFile(index) {
+            let removedFile = this.uploadedFiles.splice(index, 1)[0];
+
+            this.uploadedFiles = [...this.uploadedFiles];
+            this.$emit('remove-uploaded-file', {
+                file: removedFile,
+                files: this.uploadedFiles
+            });
+        },
         clearInputElement() {
             this.$refs.fileInput.value = '';
         },
@@ -456,6 +462,9 @@ export default {
         hasFiles() {
             return this.files && this.files.length > 0;
         },
+        hasUploadedFiles() {
+            return this.uploadedFiles && this.uploadedFiles.length > 0;
+        },
         chooseDisabled() {
             return this.disabled || (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount);
         },
@@ -473,12 +482,19 @@ export default {
         },
         cancelButtonLabel() {
             return this.cancelLabel || this.$primevue.config.locale.cancel;
+        },
+        completedLabel() {
+            return this.$primevue.config.locale.completed;
+        },
+        pendingLabel() {
+            return this.$primevue.config.locale.pending;
         }
     },
     components: {
         FileUploadButton: Button,
         FileUploadProgressBar: ProgressBar,
-        FileUploadMessage: Message
+        FileUploadMessage: Message,
+        FileContent
     },
     directives: {
         ripple: Ripple
@@ -489,20 +505,6 @@ export default {
 <style>
 .p-fileupload-content {
     position: relative;
-}
-
-.p-fileupload-row {
-    display: flex;
-    align-items: center;
-}
-
-.p-fileupload-row > div {
-    flex: 1 1 auto;
-    width: 25%;
-}
-
-.p-fileupload-row > div:last-child {
-    text-align: right;
 }
 
 .p-fileupload-content .p-progressbar {
@@ -517,19 +519,31 @@ export default {
     overflow: hidden;
 }
 
-.p-button.p-fileupload-choose input[type='file'] {
-    display: none;
+.p-fileupload-buttonbar {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.p-fileupload-choose.p-fileupload-choose-selected input[type='file'] {
+.p-fileupload > input[type='file'],
+.p-fileupload-basic input[type='file'] {
     display: none;
-}
-
-.p-fileupload-filename {
-    word-break: break-all;
 }
 
 .p-fluid .p-fileupload .p-button {
     width: auto;
+}
+
+.p-fileupload-file {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.p-fileupload-file-thumbnail {
+    flex-shrink: 0;
+}
+
+.p-fileupload-file-actions {
+    margin-left: auto;
 }
 </style>

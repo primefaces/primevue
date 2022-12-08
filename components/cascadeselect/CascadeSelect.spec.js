@@ -1,5 +1,6 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import PrimeVue from '../config/PrimeVue';
+import PrimeVue from 'primevue/config';
 import CascadeSelect from './CascadeSelect.vue';
 
 describe('CascadeSelect.vue', () => {
@@ -96,7 +97,7 @@ describe('CascadeSelect.vue', () => {
         });
     });
 
-    it('should exist', async () => {
+    it('should exist', () => {
         expect(wrapper.find('.p-cascadeselect.p-component').exists()).toBe(true);
     });
 
@@ -119,5 +120,20 @@ describe('CascadeSelect.vue', () => {
 
         expect(sublist.findAll('.p-cascadeselect-item.p-cascadeselect-item-group').length).toBe(2);
         expect(sublist.findAll('.p-cascadeselect-item-text')[0].text()).toBe('New South Wales');
+    });
+
+    it('should accept custom icons', async () => {
+        wrapper.setProps({
+            dropdownIcon: 'pi pi-discord',
+            optionGroupIcon: 'pi pi-bell'
+        });
+
+        await nextTick();
+
+        expect(wrapper.find('.p-cascadeselect-trigger-icon').classes()).toContain('pi-discord');
+
+        await wrapper.trigger('click');
+
+        expect(wrapper.find('.p-cascadeselect-group-icon').classes()).toContain('pi-bell');
     });
 });

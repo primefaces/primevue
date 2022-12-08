@@ -37,6 +37,7 @@ export declare class DomHandler {
     static appendChild(el: HTMLElement, target: HTMLElement): void;
     static scrollInView(container: HTMLElement, item: HTMLElement): void;
     static clearSelection(): void;
+    static getSelection(): string | null;
     static calculateScrollbarWidth(): number;
     static getBrowser(): object;
     static resolveUserAgent(): { browser: string; version: string };
@@ -47,6 +48,7 @@ export declare class DomHandler {
     static focus(el: HTMLElement, options?: FocusOptions): void;
     static getFocusableElements(el: HTMLElement, selector?: string): any[];
     static getFirstFocusableElement(el: HTMLElement, selector?: string): any;
+    static getLastFocusableElement(el: HTMLElement, selector?: string): any;
     static isClickable(el: HTMLElement): boolean;
     static applyStyle(el: HTMLElement, style: any): void;
     static isIOS(): boolean;
@@ -69,6 +71,8 @@ export declare class ObjectUtils {
     static isEmpty(value: any): boolean;
     static isNotEmpty(value: any): boolean;
     static isPrintableCharacter(char: string): boolean;
+    static findLast(value: any[], callback: () => any): any;
+    static findLastIndex(value: any[], callback: () => any): number;
 }
 
 export declare namespace ZIndexUtils {

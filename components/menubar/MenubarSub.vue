@@ -1,59 +1,66 @@
 <template>
-    <ul :class="containerClass" :role="root ? 'menubar' : 'menu'">
-        <template v-for="(item, i) of model" :key="label(item) + i.toString()">
-            <li v-if="visible(item) && !item.separator" role="none" :class="getItemClass(item)" :style="item.style" @mouseenter="onItemMouseEnter($event, item)">
-                <template v-if="!template">
-                    <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                        <a v-ripple :href="href" @click="onItemClick($event, item, navigate)" :class="linkClass(item, { isActive, isExactActive })" @keydown="onItemKeyDown($event, item)" role="menuitem">
-                            <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
-                            <span class="p-menuitem-text">{{ label(item) }}</span>
+    <ul>
+        <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
+            <li
+                v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
+                :id="getItemId(processedItem)"
+                :style="getItemProp(processedItem, 'style')"
+                :class="getItemClass(processedItem)"
+                role="menuitem"
+                :aria-label="getItemLabel(processedItem)"
+                :aria-disabled="isItemDisabled(processedItem) || undefined"
+                :aria-expanded="isItemGroup(processedItem) ? isItemActive(processedItem) : undefined"
+                :aria-haspopup="isItemGroup(processedItem) && !getItemProp(processedItem, 'to') ? 'menu' : undefined"
+                :aria-level="level + 1"
+                :aria-setsize="getAriaSetSize()"
+                :aria-posinset="getAriaPosInset(index)"
+            >
+                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)">
+                    <template v-if="!template">
+                        <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
+                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
+                                <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
+                                <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                            </a>
+                        </router-link>
+                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
+                            <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
+                            <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                            <span v-if="getItemProp(processedItem, 'items')" :class="getSubmenuIcon()"></span>
                         </a>
-                    </router-link>
-                    <a
-                        v-else
-                        v-ripple
-                        :href="item.url"
-                        :class="linkClass(item)"
-                        :target="item.target"
-                        :aria-haspopup="item.items != null"
-                        :aria-expanded="item === activeItem"
-                        @click="onItemClick($event, item)"
-                        @keydown="onItemKeyDown($event, item)"
-                        role="menuitem"
-                        :tabindex="disabled(item) ? null : '0'"
-                    >
-                        <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
-                        <span class="p-menuitem-text">{{ label(item) }}</span>
-                        <span v-if="item.items" :class="getSubmenuIcon()"></span>
-                    </a>
-                </template>
-                <component v-else :is="template" :item="item"></component>
+                    </template>
+                    <component v-else :is="template" :item="processedItem.item"></component>
+                </div>
                 <MenubarSub
-                    v-if="visible(item) && item.items"
-                    :key="label(item) + '_sub_'"
-                    :model="item.items"
+                    v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
+                    :menuId="menuId"
+                    role="menu"
+                    class="p-submenu-list"
+                    :focusedItemId="focusedItemId"
+                    :items="processedItem.items"
                     :mobileActive="mobileActive"
-                    @leaf-click="onLeafClick"
-                    @keydown-item="onChildItemKeyDown"
-                    :parentActive="item === activeItem"
+                    :activeItemPath="activeItemPath"
                     :template="template"
                     :exact="exact"
+                    :level="level + 1"
+                    @item-click="$emit('item-click', $event)"
+                    @item-mouseenter="$emit('item-mouseenter', $event)"
                 />
             </li>
-            <li v-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="['p-menu-separator', item.class]" :style="item.style" role="separator"></li>
+            <li v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')" :id="getItemId(processedItem)" :style="getItemProp(processedItem, 'style')" :class="getSeparatorItemClass(processedItem)" role="separator"></li>
         </template>
     </ul>
 </template>
 
 <script>
-import { DomHandler } from 'primevue/utils';
 import Ripple from 'primevue/ripple';
+import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'MenubarSub',
-    emits: ['keydown-item', 'leaf-click'],
+    emits: ['item-mouseenter', 'item-click'],
     props: {
-        model: {
+        items: {
             type: Array,
             default: null
         },
@@ -62,10 +69,6 @@ export default {
             default: false
         },
         popup: {
-            type: Boolean,
-            default: false
-        },
-        parentActive: {
             type: Boolean,
             default: false
         },
@@ -80,235 +83,99 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        level: {
+            type: Number,
+            default: 0
+        },
+        menuId: {
+            type: String,
+            default: null
+        },
+        focusedItemId: {
+            type: String,
+            default: null
+        },
+        activeItemPath: {
+            type: Object,
+            default: null
         }
     },
-    documentClickListener: null,
-    data() {
-        return {
-            activeItem: null
-        };
-    },
-    watch: {
-        parentActive(newValue) {
-            if (!newValue) {
-                this.activeItem = null;
-            }
-        }
-    },
-    updated() {
-        if (this.root && this.activeItem) {
-            this.bindDocumentClickListener();
-        }
-    },
-    beforeUnmount() {
-        this.unbindDocumentClickListener();
-    },
+    list: null,
     methods: {
-        onItemMouseEnter(event, item) {
-            if (this.disabled(item) || this.mobileActive) {
-                event.preventDefault();
-
-                return;
-            }
-
-            if (this.root) {
-                if (this.activeItem || this.popup) {
-                    this.activeItem = item;
-                }
-            } else {
-                this.activeItem = item;
-            }
+        getItemId(processedItem) {
+            return `${this.menuId}_${processedItem.key}`;
         },
-        onItemClick(event, item, navigate) {
-            if (this.disabled(item)) {
-                event.preventDefault();
-
-                return;
-            }
-
-            if (item.command) {
-                item.command({
-                    originalEvent: event,
-                    item: item
-                });
-            }
-
-            if (item.items) {
-                if (this.activeItem && item === this.activeItem) this.activeItem = null;
-                else this.activeItem = item;
-            }
-
-            if (!item.items) {
-                this.onLeafClick();
-            }
-
-            if (item.to && navigate) {
-                navigate(event);
-            }
+        getItemKey(processedItem) {
+            return this.getItemId(processedItem);
         },
-        onLeafClick() {
-            this.activeItem = null;
-            this.$emit('leaf-click');
+        getItemProp(processedItem, name) {
+            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
         },
-        onItemKeyDown(event, item) {
-            let listItem = event.currentTarget.parentElement;
-
-            switch (event.which) {
-                //down
-                case 40:
-                    if (this.root) {
-                        if (item.items) {
-                            this.expandSubmenu(item, listItem);
-                        }
-                    } else {
-                        this.navigateToNextItem(listItem);
-                    }
-
-                    event.preventDefault();
-                    break;
-
-                //up
-                case 38:
-                    if (!this.root) {
-                        this.navigateToPrevItem(listItem);
-                    }
-
-                    event.preventDefault();
-                    break;
-
-                //right
-                case 39:
-                    if (this.root) {
-                        var nextItem = this.findNextItem(listItem);
-
-                        if (nextItem) {
-                            nextItem.children[0].focus();
-                        }
-                    } else {
-                        if (item.items) {
-                            this.expandSubmenu(item, listItem);
-                        }
-                    }
-
-                    event.preventDefault();
-                    break;
-
-                //left
-                case 37:
-                    if (this.root) {
-                        this.navigateToPrevItem(listItem);
-                    }
-
-                    event.preventDefault();
-                    break;
-
-                default:
-                    break;
-            }
-
-            this.$emit('keydown-item', {
-                originalEvent: event,
-                element: listItem
-            });
+        getItemLabel(processedItem) {
+            return this.getItemProp(processedItem, 'label');
         },
-        onChildItemKeyDown(event) {
-            if (this.root) {
-                //up
-                if (event.originalEvent.which === 38 && event.element.previousElementSibling == null) {
-                    this.collapseMenu(event.element);
-                }
-            } else {
-                //left
-                if (event.originalEvent.which === 37) {
-                    this.collapseMenu(event.element);
-                }
-            }
+        isItemActive(processedItem) {
+            return this.activeItemPath.some((path) => path.key === processedItem.key);
         },
-        findNextItem(item) {
-            let nextItem = item.nextElementSibling;
+        isItemVisible(processedItem) {
+            return this.getItemProp(processedItem, 'visible') !== false;
+        },
+        isItemDisabled(processedItem) {
+            return this.getItemProp(processedItem, 'disabled');
+        },
+        isItemFocused(processedItem) {
+            return this.focusedItemId === this.getItemId(processedItem);
+        },
+        isItemGroup(processedItem) {
+            return ObjectUtils.isNotEmpty(processedItem.items);
+        },
+        onItemClick(event, processedItem) {
+            const command = this.getItemProp(processedItem, 'command');
 
-            if (nextItem) return DomHandler.hasClass(nextItem, 'p-disabled') || !DomHandler.hasClass(nextItem, 'p-menuitem') ? this.findNextItem(nextItem) : nextItem;
-            else return null;
+            command && command({ originalEvent: event, item: processedItem.item });
+            this.$emit('item-click', { originalEvent: event, processedItem, isFocus: true });
         },
-        findPrevItem(item) {
-            let prevItem = item.previousElementSibling;
-
-            if (prevItem) return DomHandler.hasClass(prevItem, 'p-disabled') || !DomHandler.hasClass(prevItem, 'p-menuitem') ? this.findPrevItem(prevItem) : prevItem;
-            else return null;
+        onItemMouseEnter(event, processedItem) {
+            this.$emit('item-mouseenter', { originalEvent: event, processedItem });
         },
-        expandSubmenu(item, listItem) {
-            this.activeItem = item;
-
-            setTimeout(() => {
-                listItem.children[1].children[0].children[0].focus();
-            }, 50);
+        onItemActionClick(event, navigate) {
+            navigate && navigate(event);
         },
-        collapseMenu(listItem) {
-            this.activeItem = null;
-            listItem.parentElement.previousElementSibling.focus();
+        getAriaSetSize() {
+            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
         },
-        navigateToNextItem(listItem) {
-            var nextItem = this.findNextItem(listItem);
-
-            if (nextItem) {
-                nextItem.children[0].focus();
-            }
+        getAriaPosInset(index) {
+            return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
         },
-        navigateToPrevItem(listItem) {
-            var prevItem = this.findPrevItem(listItem);
-
-            if (prevItem) {
-                prevItem.children[0].focus();
-            }
-        },
-        getItemClass(item) {
+        getItemClass(processedItem) {
             return [
                 'p-menuitem',
-                item.class,
+                this.getItemProp(processedItem, 'class'),
                 {
-                    'p-menuitem-active': this.activeItem === item
+                    'p-menuitem-active p-highlight': this.isItemActive(processedItem),
+                    'p-focus': this.isItemFocused(processedItem),
+                    'p-disabled': this.isItemDisabled(processedItem)
                 }
             ];
         },
-        linkClass(item, routerProps) {
+        getItemActionClass(processedItem, routerProps) {
             return [
                 'p-menuitem-link',
                 {
-                    'p-disabled': this.disabled(item),
                     'router-link-active': routerProps && routerProps.isActive,
                     'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
                 }
             ];
         },
-        bindDocumentClickListener() {
-            if (!this.documentClickListener) {
-                this.documentClickListener = (event) => {
-                    if (this.$el && !this.$el.contains(event.target)) {
-                        this.activeItem = null;
-                        this.unbindDocumentClickListener();
-                    }
-                };
-
-                document.addEventListener('click', this.documentClickListener);
-            }
+        getItemIconClass(processedItem) {
+            return ['p-menuitem-icon', this.getItemProp(processedItem, 'icon')];
         },
-        unbindDocumentClickListener() {
-            if (this.documentClickListener) {
-                document.removeEventListener('click', this.documentClickListener);
-                this.documentClickListener = null;
-            }
+        getSeparatorItemClass(processedItem) {
+            return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
         },
         getSubmenuIcon() {
             return ['p-submenu-icon pi', { 'pi-angle-right': !this.root, 'pi-angle-down': this.root }];
-        },
-        visible(item) {
-            return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
-        },
-        disabled(item) {
-            return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
-        },
-        label(item) {
-            return typeof item.label === 'function' ? item.label() : item.label;
         }
     },
     computed: {

@@ -13,6 +13,12 @@ export interface ToolbarSlots {
      * Custom start template.
      */
     start: () => VNode[];
+
+    /**
+     * Custom center template.
+     */
+    center: () => VNode[];
+
     /**
      * Custom end template.
      */

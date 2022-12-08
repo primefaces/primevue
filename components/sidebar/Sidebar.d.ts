@@ -35,15 +35,15 @@ export interface SidebarProps {
      */
     showCloseIcon?: boolean | undefined;
     /**
+     * Icon to display in the sidebar close button.
+     * Default value is 'pi pi-times'.
+     */
+    closeIcon?: string | undefined;
+    /**
      * Whether to a modal layer behind the sidebar.
      * Default value is true.
      */
     modal?: boolean | undefined;
-    /**
-     * Aria label of the close icon.
-     * Default value is 'close'.
-     */
-    ariaCloseLabel?: string | undefined;
 }
 
 export interface SidebarSlots {

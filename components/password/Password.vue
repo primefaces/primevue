@@ -107,7 +107,7 @@ export default {
         },
         required: {
             type: Boolean,
-            required: false
+            default: false
         },
         inputId: {
             type: String,
@@ -446,5 +446,10 @@ export default {
 
 .p-fluid .p-password {
     display: flex;
+}
+
+.p-password-input::-ms-reveal,
+.p-password-input::-ms-clear {
+    display: none;
 }
 </style>
