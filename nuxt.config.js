@@ -1,5 +1,4 @@
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import { defineNuxtConfig } from 'nuxt';
 const path = require('path');
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
@@ -12,14 +11,14 @@ export default defineNuxtConfig({
         head: {
             link: [
                 {
-                    id: 'theme-link',
-                    rel: 'stylesheet',
-                    href: `/themes/lara-light-blue/theme.css`
-                },
-                {
                     id: 'home-table-link',
                     rel: 'stylesheet',
-                    href: '/styles/landing/themes/lara-light-blue/theme.css'
+                    href: 'styles/landing/themes/lara-light-blue/theme.css'
+                },
+                {
+                    id: 'theme-link',
+                    rel: 'stylesheet',
+                    href: `themes/lara-light-blue/theme.css`
                 }
             ]
         }
