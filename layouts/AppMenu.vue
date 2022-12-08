@@ -1,8 +1,8 @@
 <template>
     <div :class="['layout-sidebar', { active: active }]">
-        <nuxt-link to="/" class="logo">
-            <img :src="'/demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
-        </nuxt-link>
+        <router-link to="/" class="logo">
+            <img :src="'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
+        </router-link>
         <div class="layout-sidebar-filter p-fluid">
             <AutoComplete
                 v-model="selectedRoute"
@@ -24,34 +24,34 @@
                     {{ item.name }}
                     <Tag v-if="item.badge" :value="item.badge"></Tag>
                 </div>
-                <div class="menu-items" v-if="item.children && item.children.length">
+                <div v-if="item.children && item.children.length" class="menu-items">
                     <template v-for="child of item.children" :key="child.name">
                         <a v-if="child.href" :href="child.href" target="_blank">{{ child.name }}</a>
-                        <nuxt-link v-if="child.to" :to="child.to">
+                        <router-link v-if="child.to" :to="child.to">
                             {{ child.name }}
                             <Tag v-if="child.badge" :value="child.badge"></Tag>
-                        </nuxt-link>
+                        </router-link>
                         <template v-if="child.children">
-                            <nuxt-link :to="child.children[0].to" v-slot="{ isActive }" custom>
+                            <router-link v-slot="{ isActive }" :to="child.children[0].to" custom>
                                 <div>
                                     <a tabindex="0" @click="toggleSubmenu($event, child.meta[0])">
                                         {{ child.name }}
                                         <Tag v-if="child.badge" :value="child.badge"></Tag>
                                     </a>
                                     <transition name="p-toggleable-content">
-                                        <div class="p-toggleable-content" v-show="isSubmenuActive(child.meta[0], isActive)">
+                                        <div v-show="isSubmenuActive(child.meta[0], isActive)" class="p-toggleable-content">
                                             <ul>
                                                 <li v-for="(submenuitem, i) of child.children" :key="i">
-                                                    <nuxt-link :to="submenuitem.to">
+                                                    <router-link :to="submenuitem.to">
                                                         {{ submenuitem.name }}
                                                         <Tag v-if="submenuitem.badge" :value="submenuitem.badge"></Tag>
-                                                    </nuxt-link>
+                                                    </router-link>
                                                 </li>
                                             </ul>
                                         </div>
                                     </transition>
                                 </div>
-                            </nuxt-link>
+                            </router-link>
                         </template>
                     </template>
                 </div>
@@ -85,6 +85,7 @@ export default {
     mounted() {
         this.menu.forEach((route) => {
             let childRoute = { ...route };
+
             childRoute.children = childRoute.children.filter((child) => {
                 if (child.meta) {
                     this.routes.push(child);
@@ -107,8 +108,10 @@ export default {
                 return true;
             } else if (routerIsActive) {
                 this.activeSubmenus[name] = true;
+
                 return true;
             }
+
             return false;
         },
         searchRoute(event) {
@@ -117,6 +120,7 @@ export default {
 
             for (let route of this.routes) {
                 let filteredItems = FilterService.filter(route.children, ['to', 'href'], query, FilterMatchMode.CONTAINS);
+
                 if (filteredItems && filteredItems.length) {
                     filteredRoutes.push({ name: route.name, children: filteredItems });
                 }

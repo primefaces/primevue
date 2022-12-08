@@ -3,9 +3,9 @@
         <a class="menu-button" @click="$emit('menubutton-click')">
             <i class="pi pi-bars"></i>
         </a>
-        <!-- <div class="app-theme" v-tooltip.bottom="$appState.theme">
-            <img :src="'/demo/images/themes/' + logoMap[$appState.theme]" />
-        </div> -->
+        <div v-tooltip.bottom="$appState.theme" class="app-theme">
+            <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
+        </div>
         <ul ref="topbarMenu" class="topbar-menu">
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 0)">
@@ -15,155 +15,155 @@
                     <ul v-show="activeMenuIndex === 0">
                         <li class="topbar-submenu-header">THEMING</li>
                         <li>
-                            <nuxt-link to="/theming"><i class="pi pi-fw pi-file" /><span>Guide</span></nuxt-link>
+                            <router-link to="/theming"><i class="pi pi-fw pi-file" /><span>Guide</span></router-link>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></nuxt-link>
+                            <a href="https://www.primefaces.org/designer/primevue"><i class="pi pi-fw pi-palette" /><span>Designer</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/designer-vue"><i class="pi pi-fw pi-desktop" /><span>Visual Editor</span></nuxt-link>
+                            <a href="https://www.primefaces.org/designer-vue"><i class="pi pi-fw pi-desktop" /><span>Visual Editor</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="/icons"><i class="pi pi-fw pi-info-circle" /><span>Icons</span></nuxt-link>
+                            <router-link to="/icons"><i class="pi pi-fw pi-info-circle" /><span>Icons</span></router-link>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.figma.com/community/file/890589747170608208/PrimeOne-Design-Library"><i class="pi pi-fw pi-pencil" /><span>Figma UI Kit</span></nuxt-link>
+                            <a href="https://www.figma.com/community/file/890589747170608208/PrimeOne-Design-Library"><i class="pi pi-fw pi-pencil" /><span>Figma UI Kit</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-light-blue')"><img src="/demo/images/themes/bootstrap4-light-blue.svg" alt="Blue Light" /><span>Blue Light</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-light-blue')"><img src="demo/images/themes/bootstrap4-light-blue.svg" alt="Blue Light" /><span>Blue Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-light-purple')"><img src="/demo/images/themes/bootstrap4-light-purple.svg" alt="Purple Light" /><span>Purple Light</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-light-purple')"><img src="demo/images/themes/bootstrap4-light-purple.svg" alt="Purple Light" /><span>Purple Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-dark-blue', true)"><img src="/demo/images/themes/bootstrap4-dark-blue.svg" alt="Blue Dark" /><span>Blue Dark</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-dark-blue', true)"><img src="demo/images/themes/bootstrap4-dark-blue.svg" alt="Blue Dark" /><span>Blue Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-dark-purple', true)"><img src="/demo/images/themes/bootstrap4-dark-purple.svg" alt="Purple Dark" /><span>Purple Dark</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-dark-purple', true)"><img src="demo/images/themes/bootstrap4-dark-purple.svg" alt="Purple Dark" /><span>Purple Dark</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">MATERIAL DESIGN</li>
                         <li>
-                            <a @click="changeTheme($event, 'md-light-indigo')"><img src="/demo/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a>
+                            <a @click="changeTheme($event, 'md-light-indigo')"><img src="demo/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'md-light-deeppurple')"><img src="/demo/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
+                            <a @click="changeTheme($event, 'md-light-deeppurple')"><img src="demo/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'md-dark-indigo', true)"><img src="/demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a>
+                            <a @click="changeTheme($event, 'md-dark-indigo', true)"><img src="demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'md-dark-deeppurple', true)"><img src="/demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
+                            <a @click="changeTheme($event, 'md-dark-deeppurple', true)"><img src="demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">MATERIAL DESIGN COMPACT</li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-light-indigo')"><img src="/demo/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a>
+                            <a @click="changeTheme($event, 'mdc-light-indigo')"><img src="demo/images/themes/md-light-indigo.svg" alt="Indigo Light" /><span>Indigo Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-light-deeppurple')"><img src="/demo/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
+                            <a @click="changeTheme($event, 'mdc-light-deeppurple')"><img src="demo/images/themes/md-light-deeppurple.svg" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-dark-indigo', true)"><img src="/demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a>
+                            <a @click="changeTheme($event, 'mdc-dark-indigo', true)"><img src="demo/images/themes/md-dark-indigo.svg" alt="Indigo Dark" /><span>Indigo Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-dark-deeppurple', true)"><img src="/demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
+                            <a @click="changeTheme($event, 'mdc-dark-deeppurple', true)"><img src="demo/images/themes/md-dark-deeppurple.svg" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">TAILWIND</li>
                         <li>
-                            <a @click="changeTheme($event, 'tailwind-light')"><img src="/demo/images/themes/tailwind-light.png" alt="Tailwind Light" /><span>Tailwind Light</span></a>
+                            <a @click="changeTheme($event, 'tailwind-light')"><img src="demo/images/themes/tailwind-light.png" alt="Tailwind Light" /><span>Tailwind Light</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li>
-                            <a @click="changeTheme($event, 'fluent-light')"><img src="/demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a>
+                            <a @click="changeTheme($event, 'fluent-light')"><img src="demo/images/themes/fluent-light.png" alt="Fluent Light" /><span>Fluent Light</span></a>
                         </li>
 
                         <li class="topbar-submenu-header flex align-items-center">PRIMEONE 2022 <Tag class="ml-3" value="NEW" rounded severity="success"></Tag></li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-indigo')"><img src="/demo/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a>
+                            <a @click="changeTheme($event, 'lara-light-indigo')"><img src="demo/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-blue')"><img src="/demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" /><span>Lara Light Blue</span></a>
+                            <a @click="changeTheme($event, 'lara-light-blue')"><img src="demo/images/themes/lara-light-blue.png" alt="Lara Light Blue" /><span>Lara Light Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-purple')"><img src="/demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" /><span>Lara Light Purple</span></a>
+                            <a @click="changeTheme($event, 'lara-light-purple')"><img src="demo/images/themes/lara-light-purple.png" alt="Lara Light Purple" /><span>Lara Light Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-teal')"><img src="/demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" /><span>Lara Light Teal</span></a>
+                            <a @click="changeTheme($event, 'lara-light-teal')"><img src="demo/images/themes/lara-light-teal.png" alt="Lara Light Teal" /><span>Lara Light Teal</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-blue')"><img src="/demo/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-blue')"><img src="demo/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-indigo')"><img src="/demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-indigo')"><img src="demo/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-purple')"><img src="/demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-purple')"><img src="demo/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-teal')"><img src="/demo/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-teal')"><img src="demo/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">PRIMEONE 2021</li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-blue')"><img src="/demo/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a>
+                            <a @click="changeTheme($event, 'saga-blue')"><img src="demo/images/themes/saga-blue.png" alt="Saga Blue" /><span>Saga Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-green')"><img src="/demo/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a>
+                            <a @click="changeTheme($event, 'saga-green')"><img src="demo/images/themes/saga-green.png" alt="Saga Green" /><span>Saga Green</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-orange')"><img src="/demo/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a>
+                            <a @click="changeTheme($event, 'saga-orange')"><img src="demo/images/themes/saga-orange.png" alt="Saga Orange" /><span>Saga Orange</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-purple')"><img src="/demo/images/themes/saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a>
+                            <a @click="changeTheme($event, 'saga-purple')"><img src="demo/images/themes/saga-purple.png" alt="Saga Purple" /><span>Saga Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-blue', true)"><img src="/demo/images/themes/vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a>
+                            <a @click="changeTheme($event, 'vela-blue', true)"><img src="demo/images/themes/vela-blue.png" alt="Vela Blue" /><span>Vela Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-green', true)"><img src="/demo/images/themes/vela-green.png" alt="Vela Green" /><span>Vela Green</span></a>
+                            <a @click="changeTheme($event, 'vela-green', true)"><img src="demo/images/themes/vela-green.png" alt="Vela Green" /><span>Vela Green</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-orange', true)"><img src="/demo/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a>
+                            <a @click="changeTheme($event, 'vela-orange', true)"><img src="demo/images/themes/vela-orange.png" alt="Vela Orange" /><span>Vela Orange</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-purple', true)"><img src="/demo/images/themes/vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a>
+                            <a @click="changeTheme($event, 'vela-purple', true)"><img src="demo/images/themes/vela-purple.png" alt="Vela Purple" /><span>Vela Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-blue', true)"><img src="/demo/images/themes/arya-blue.png" alt="Arya Blue" /><span>Arya Blue</span></a>
+                            <a @click="changeTheme($event, 'arya-blue', true)"><img src="demo/images/themes/arya-blue.png" alt="Arya Blue" /><span>Arya Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-green', true)"><img src="/demo/images/themes/arya-green.png" alt="Arya Green" /><span>Arya Green</span></a>
+                            <a @click="changeTheme($event, 'arya-green', true)"><img src="demo/images/themes/arya-green.png" alt="Arya Green" /><span>Arya Green</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-orange', true)"><img src="/demo/images/themes/arya-orange.png" alt="Arya Orange" /><span>Arya Orange</span></a>
+                            <a @click="changeTheme($event, 'arya-orange', true)"><img src="demo/images/themes/arya-orange.png" alt="Arya Orange" /><span>Arya Orange</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-purple', true)"><img src="/demo/images/themes/arya-purple.png" alt="Arya Purple" /><span>Arya Purple</span></a>
+                            <a @click="changeTheme($event, 'arya-purple', true)"><img src="demo/images/themes/arya-purple.png" alt="Arya Purple" /><span>Arya Purple</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">PREMIUM</li>
                         <li>
-                            <a @click="changeTheme($event, 'soho-light')"><img src="/demo/images/themes/soho-light.png" alt="Soho Light" /><span>Soho Light</span></a>
+                            <a @click="changeTheme($event, 'soho-light')"><img src="demo/images/themes/soho-light.png" alt="Soho Light" /><span>Soho Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'soho-dark', true)"><img src="/demo/images/themes/soho-dark.png" alt="Soho Dark" /><span>Soho Dark</span></a>
+                            <a @click="changeTheme($event, 'soho-dark', true)"><img src="demo/images/themes/soho-dark.png" alt="Soho Dark" /><span>Soho Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'viva-light')"><img src="/demo/images/themes/viva-light.svg" alt="Viva Light" /><span>Viva Light</span></a>
+                            <a @click="changeTheme($event, 'viva-light')"><img src="demo/images/themes/viva-light.svg" alt="Viva Light" /><span>Viva Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'viva-dark', true)"><img src="/demo/images/themes/viva-dark.svg" alt="Viva Dark" /><span>Viva Dark</span></a>
+                            <a @click="changeTheme($event, 'viva-dark', true)"><img src="demo/images/themes/viva-dark.svg" alt="Viva Dark" /><span>Viva Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mira')"><img src="/demo/images/themes/mira.jpg" alt="Mira" /><span>Mira</span></a>
+                            <a @click="changeTheme($event, 'mira')"><img src="demo/images/themes/mira.jpg" alt="Mira" /><span>Mira</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'nano')"><img src="/demo/images/themes/nano.jpg" alt="Nano" /><span>Nano</span></a>
+                            <a @click="changeTheme($event, 'nano')"><img src="demo/images/themes/nano.jpg" alt="Nano" /><span>Nano</span></a>
                         </li>
                     </ul>
                 </transition>
@@ -174,67 +174,63 @@
                     <ul v-show="activeMenuIndex === 1">
                         <li class="topbar-submenu-header">FREE ADMIN TEMPLATE</li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/sakai-vue"><img src="@/assets/images/layouts/themeswitcher-sakai.svg" alt="Sakai" /><span>Sakai</span></nuxt-link>
+                            <a href="https://www.primefaces.org/sakai-vue"><img src="./assets/images/layouts/themeswitcher-sakai.svg" alt="Sakai" /><span>Sakai</span></a>
                         </li>
                         <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/atlantis-vue"><img src="@/assets/images/layouts/themeswitcher-atlantis.svg" alt="Atlantis" /><span>Atlantis</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/atlantis-vue"><img src="./assets/images/layouts/themeswitcher-atlantis.svg" alt="Atlantis" /><span>Atlantis</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/freya-vue"><img src="@/assets/images/layouts/themeswitcher-freya.png" alt="Freya" /><span>Freya</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/freya-vue"><img src="./assets/images/layouts/themeswitcher-freya.png" alt="Freya" /><span>Freya</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/diamond-vue"><img src="@/assets/images/layouts/themeswitcher-diamond.png" alt="Diamond" /><span>Diamond</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/diamond-vue"><img src="./assets/images/layouts/themeswitcher-diamond.png" alt="Diamond" /><span>Diamond</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/verona-vue"><img src="@/assets/images/layouts/themeswitcher-verona.png" alt="Verona" /><span>Verona</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/verona-vue"><img src="./assets/images/layouts/themeswitcher-verona.png" alt="Verona" /><span>Verona</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/poseidon-vue"><img src="@/assets/images/layouts/themeswitcher-poseidon.svg" alt="Poseidon" /><span>Poseidon</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/poseidon-vue"><img src="./assets/images/layouts/themeswitcher-poseidon.svg" alt="Poseidon" /><span>Poseidon</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/sapphire-vue"
-                                ><img src="@/assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></nuxt-link
-                            >
+                            <a href="https://www.primefaces.org/layouts/sapphire-vue"><img src="./assets/images/layouts/themeswitcher-sapphire.png" alt="Sapphire" /><span>Sapphire</span><span class="theme-badge material">material</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/serenity-vue"
-                                ><img src="@/assets/images/layouts/themeswitcher-serenity.png" alt="Serenity" /><span>Serenity</span><span class="theme-badge material">material</span></nuxt-link
-                            >
+                            <a href="https://www.primefaces.org/layouts/serenity-vue"><img src="./assets/images/layouts/themeswitcher-serenity.png" alt="Serenity" /><span>Serenity</span><span class="theme-badge material">material</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/ultima-vue"><img src="@/assets/images/layouts/themeswitcher-ultima.png" alt="Ultima" /><span>Ultima</span><span class="theme-badge material">material</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/ultima-vue"><img src="./assets/images/layouts/themeswitcher-ultima.png" alt="Ultima" /><span>Ultima</span><span class="theme-badge material">material</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/avalon-vue"><img src="@/assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/avalon-vue"><img src="./assets/images/layouts/themeswitcher-avalon.png" alt="Avalon" /><span>Avalon</span><span class="theme-badge bootstrap">bootstrap</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/babylon-vue"><img src="@/assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/babylon-vue"><img src="./assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/apollo-vue"><img src="@/assets/images/layouts/themeswitcher-apollo.png" alt="Apollo" /><span>Apollo</span><span class="theme-badge darkmode">dark mode</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/apollo-vue"><img src="./assets/images/layouts/themeswitcher-apollo.png" alt="Apollo" /><span>Apollo</span><span class="theme-badge darkmode">dark mode</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/roma-vue"><img src="@/assets/images/layouts/themeswitcher-roma.jpg" alt="Roma" /><span>Roma</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/roma-vue"><img src="./assets/images/layouts/themeswitcher-roma.jpg" alt="Roma" /><span>Roma</span></a>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/layouts/prestige-vue"><img src="@/assets/images/layouts/themeswitcher-prestige.png" alt="Prestige" /><span>Prestige</span></nuxt-link>
+                            <a href="https://www.primefaces.org/layouts/prestige-vue"><img src="./assets/images/layouts/themeswitcher-prestige.png" alt="Prestige" /><span>Prestige</span></a>
                         </li>
                     </ul>
                 </transition>
             </li>
             <li class="topbar-submenu topbar-resources-submenu">
-                <nuxt-link to="https://www.primefaces.org/primeblocks-vue/#/" target="_blank"><span>Blocks</span></nuxt-link>
+                <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank"><span>Blocks</span></a>
             </li>
             <li class="topbar-submenu">
-                <a tabindex="0" @click="toggleMenu($event, 3)">v3.16.2</a>
+                <a tabindex="0" @click="toggleMenu($event, 3)">v3.21.0</a>
                 <transition name="p-connected-overlay" @enter="onMenuEnter">
                     <ul v-show="activeMenuIndex === 3" style="width: 100%">
                         <li>
-                            <nuxt-link to="/"><span class="m-0">v3.16.2</span></nuxt-link>
+                            <router-link to="/"><span class="m-0">v3.21.0</span></router-link>
                         </li>
                         <li>
-                            <nuxt-link to="https://www.primefaces.org/primevue-v2"><span class="m-0">v2.10.0</span></nuxt-link>
+                            <a href="https://www.primefaces.org/primevue-v2"><span class="m-0">v2.10.1</span></a>
                         </li>
                     </ul>
                 </transition>
@@ -244,16 +240,12 @@
 </template>
 
 <script>
-import EventBus from './AppEventBus';
+import EventBus from '@/layouts/AppEventBus';
 
 export default {
+    emits: ['menubutton-click'],
     outsideClickListener: null,
     darkDemoStyle: null,
-    watch: {
-        $route() {
-            this.activeMenuIndex = null;
-        }
-    },
     data() {
         return {
             activeMenuIndex: null,
@@ -310,6 +302,11 @@ export default {
             }
         };
     },
+    watch: {
+        $route() {
+            this.activeMenuIndex = null;
+        }
+    },
     scrollListener: null,
     container: null,
     mounted() {
@@ -342,6 +339,7 @@ export default {
                     };
                 }
             }
+
             window.addEventListener('scroll', this.scrollListener);
         },
         unbindScrollListener() {
@@ -358,6 +356,7 @@ export default {
                         this.unbindOutsideClickListener();
                     }
                 };
+
                 document.addEventListener('click', this.outsideClickListener);
             }
         },
