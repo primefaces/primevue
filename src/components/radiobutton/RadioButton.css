@@ -3,7 +3,6 @@
     cursor: pointer;
     user-select: none;
     vertical-align: bottom;
-    position: relative;
 }
 
 .p-radiobutton.p-radiobutton-disabled {
@@ -19,12 +18,12 @@
 .p-radiobutton-icon {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    transform: translateZ(0) scale(0.1);
+    transform: translateZ(0) scale(.1);
     border-radius: 50%;
     visibility: hidden;
 }
 
 .p-radiobutton-box.p-highlight .p-radiobutton-icon {
-    transform: translateZ(0) scale(1, 1);
+    transform: translateZ(0) scale(1.0, 1.0);
     visibility: visible;
 }
