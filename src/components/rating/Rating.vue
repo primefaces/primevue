@@ -145,7 +145,6 @@ export default {
 .p-rating {
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 .p-rating-item {
