@@ -1,5 +1,49 @@
 # Changelog
 
+## [3.21.0](https://github.com/primefaces/primevue/tree/3.21.0) (2022-12-08)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.20.0...3.21.0)
+
+**Implemented New Features and Enhancements:**
+
+- MultiSelect: Very long selection time due to Chips [\#3380](https://github.com/primefaces/primevue/issues/3380)
+- Improve Message Implementation for Accessibility [\#3370](https://github.com/primefaces/primevue/issues/3370)
+- Improve Toast Implementation for Accessibility [\#3369](https://github.com/primefaces/primevue/issues/3369)
+- Add gap when Toolbar wraps [\#3366](https://github.com/primefaces/primevue/issues/3366)
+- Center content to Toolbar [\#3365](https://github.com/primefaces/primevue/issues/3365)
+- Deprecate Toolbar CSS classes [\#3364](https://github.com/primefaces/primevue/issues/3364)
+- Improve Tree Implementation for Accessibility [\#3360](https://github.com/primefaces/primevue/issues/3360)
+- Calendar: Chrome autocomplete list is overlaying the data picker model [\#3355](https://github.com/primefaces/primevue/issues/3355)
+- Improve SpeedDial Implementation for Accessibility [\#3353](https://github.com/primefaces/primevue/issues/3353)
+- When clicking any menuitem in the Menu components, it always focuses on the first menuitem [\#3352](https://github.com/primefaces/primevue/issues/3352)
+- Improve Image Implementation for Accessibility [\#3351](https://github.com/primefaces/primevue/issues/3351)
+- AutoComplete: new `dropdownClass` prop [\#3350](https://github.com/primefaces/primevue/issues/3350)
+- Improve Galleria Implementation for Accessibility  [\#3349](https://github.com/primefaces/primevue/issues/3349)
+- Improve Carousel Implementation for Accessibility  [\#3348](https://github.com/primefaces/primevue/issues/3348)
+- Improve SplitButton Implementation for Accessibility [\#3344](https://github.com/primefaces/primevue/issues/3344)
+- Improve search operation on PanelMenu [\#3342](https://github.com/primefaces/primevue/issues/3342)
+- Improve Chart Component Implementation for Accessibility [\#3333](https://github.com/primefaces/primevue/issues/3333)
+- Improve DataTable Implementation for Accessibility [\#3330](https://github.com/primefaces/primevue/issues/3330)
+- Improve PickList Implementation for Accessibility  [\#3323](https://github.com/primefaces/primevue/issues/3323)
+- Improve OrderList Implementation for Accessibility [\#3321](https://github.com/primefaces/primevue/issues/3321)
+- Improve TreeTable Implementation for Accessibility [\#3319](https://github.com/primefaces/primevue/issues/3319)
+- Improve DataView Implementation for Accessibility  [\#3310](https://github.com/primefaces/primevue/issues/3310)
+- Improve Paginator Implementation for Accessibility [\#3304](https://github.com/primefaces/primevue/issues/3304)
+- Improve OrganizationChart Implementation for Accessibility [\#3302](https://github.com/primefaces/primevue/issues/3302)
+- Improve Timeline Implementation for Accessibility [\#3296](https://github.com/primefaces/primevue/issues/3296)
+- Dropdown: add keyboard support for Numpad Enter [\#3257](https://github.com/primefaces/primevue/issues/3257)
+- Calendar: Accessibility for Material themes [\#2900](https://github.com/primefaces/primevue/issues/2900)
+
+**Fixed bugs:**
+
+- Password: Eye icon problem in MS Edge and IE [\#3372](https://github.com/primefaces/primevue/issues/3372)
+- Menubar: No items property fails to compile [\#3359](https://github.com/primefaces/primevue/issues/3359)
+- TabMenu: we can not use tab-change event with menuitem templating [\#3357](https://github.com/primefaces/primevue/issues/3357)
+- FileUpload Missing TypeDefinitions for Slots [\#3335](https://github.com/primefaces/primevue/issues/3335)
+- Multiselect Uncaught TypeError [\#3329](https://github.com/primefaces/primevue/issues/3329)
+- AutoComplete: the forceSelection property causes inconsistent behavior when the value is removed [\#3161](https://github.com/primefaces/primevue/issues/3161)
+- Dropdown: Long list causes the page to have a long scroll bar [\#3031](https://github.com/primefaces/primevue/issues/3031)
+
 ## [3.20.0](https://github.com/primefaces/primevue/tree/3.20.0) (2022-11-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.19.0...3.20.0)
