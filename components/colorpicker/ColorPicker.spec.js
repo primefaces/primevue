@@ -26,7 +26,7 @@ describe('ColorPicker.vue', () => {
 
     it('should input click triggered', async () => {
         const input = wrapper.find('.p-colorpicker-preview.p-inputtext');
-        const onInputClick = jest.spyOn(wrapper.vm, 'onInputClick');
+        const onInputClick = vi.spyOn(wrapper.vm, 'onInputClick');
 
         await input.trigger('click');
 
@@ -41,8 +41,8 @@ describe('ColorPicker.vue', () => {
 
         await input.trigger('click');
 
-        const onColorMousedown = jest.spyOn(wrapper.vm, 'onColorMousedown');
-        const onHueMousedown = jest.spyOn(wrapper.vm, 'onHueMousedown');
+        const onColorMousedown = vi.spyOn(wrapper.vm, 'onColorMousedown');
+        const onHueMousedown = vi.spyOn(wrapper.vm, 'onHueMousedown');
         const event = { pageX: 100, pageY: 120, preventDefault: () => {} };
         const event2 = { pageX: 70, pageY: 20, preventDefault: () => {} };
 

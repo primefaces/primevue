@@ -1,6 +1,6 @@
 import { config, mount } from '@vue/test-utils';
+import InputText from 'primevue/inputtext';
 import Inplace from './Inplace.vue';
-import InputText from '@/components/inputtext/InputText.vue';
 
 config.global.mocks = {
     $primevue: {

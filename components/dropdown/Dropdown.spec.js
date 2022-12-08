@@ -1,7 +1,7 @@
-import { h } from 'vue';
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
-import Dropdown from '@/components/dropdown/Dropdown.vue';
+import { h } from 'vue';
+import Dropdown from './Dropdown.vue';
 
 describe('Dropdown.vue', () => {
     let wrapper;
@@ -23,7 +23,6 @@ describe('Dropdown.vue', () => {
         expect(wrapper.find('.p-dropdown.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-dropdown-panel').exists()).toBe(true);
         expect(wrapper.find('.p-dropdown-empty-message').exists()).toBe(true);
-        expect(wrapper.find('.p-focus').exists()).toBe(true);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
         expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
     });
@@ -348,7 +347,7 @@ describe('filter checks', () => {
         expect(filterIcon.classes()).toContain('pi-discord');
 
         const event = { target: { value: 'c' } };
-        const onFilterChange = jest.spyOn(wrapper.vm, 'onFilterChange');
+        const onFilterChange = vi.spyOn(wrapper.vm, 'onFilterChange');
 
         wrapper.vm.onFilterChange(event);
         await wrapper.vm.$nextTick();

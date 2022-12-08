@@ -11,7 +11,7 @@ describe('Breadcrumb', () => {
                 mocks: {
                     $router: {
                         currentRoute: {
-                            path: jest.fn()
+                            path: vi.fn()
                         }
                     }
                 }

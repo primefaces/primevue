@@ -19,7 +19,7 @@ describe('Chips.vue', () => {
     });
 
     it('should add item', async () => {
-        const addItem = jest.spyOn(wrapper.vm, 'addItem');
+        const addItem = vi.spyOn(wrapper.vm, 'addItem');
 
         await wrapper.vm.addItem({}, 'PrimeVue', false);
 

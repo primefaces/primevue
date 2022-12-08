@@ -58,15 +58,19 @@ export default {
     },
     mounted() {
         if (!this.sticky) {
-            setTimeout(() => {
-                this.visible = false;
-            }, this.life);
+            this.x();
         }
     },
     methods: {
         close(event) {
             this.visible = false;
             this.$emit('close', event);
+        },
+        x() {
+            setTimeout(() => {
+                console.log('kfbjhrbfj');
+                this.visible = false;
+            }, this.life);
         }
     },
     computed: {

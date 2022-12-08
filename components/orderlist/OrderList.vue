@@ -407,6 +407,8 @@ export default {
             const selectedIndex = ObjectUtils.findIndexInList(item, this.d_selection);
             const selected = selectedIndex != -1;
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
+            console.log(DomHandler.find(this.list, '.p-orderlist-item'));
+            console.log(index);
             const selectedId = DomHandler.find(this.list, '.p-orderlist-item')[index].getAttribute('id');
 
             this.focusedOptionIndex = selectedId;

@@ -1,5 +1,5 @@
-import PrimeVue from 'primevue/config';
 import { mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import ConfirmDialog from './ConfirmDialog.vue';
 
 describe('ConfirmDialog', () => {
@@ -66,7 +66,7 @@ describe('ConfirmDialog', () => {
 
         await wrapper.vm.$nextTick();
 
-        const acceptTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'accept');
+        const acceptTriggered = vi.spyOn(wrapper.componentVM.confirmation, 'accept');
         const CDAcceptBtn = wrapper.find('.p-confirm-dialog-accept');
 
         await CDAcceptBtn.trigger('click');
@@ -105,7 +105,7 @@ describe('ConfirmDialog', () => {
 
         await wrapper.vm.$nextTick();
 
-        const rejectTriggered = jest.spyOn(wrapper.componentVM.confirmation, 'reject');
+        const rejectTriggered = vi.spyOn(wrapper.componentVM.confirmation, 'reject');
         const CDRejectBtn = wrapper.find('.p-confirm-dialog-reject');
 
         await CDRejectBtn.trigger('click');

@@ -1,5 +1,5 @@
-import TabPanel from '@/components/tabpanel/TabPanel.vue';
 import { mount } from '@vue/test-utils';
+import TabPanel from '../tabpanel/TabPanel.vue';
 import TabView from './TabView.vue';
 
 describe('TabPanel.vue', () => {

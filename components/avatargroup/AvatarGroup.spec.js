@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
+import Avatar from '../avatar/Avatar.vue';
 import AvatarGroup from './AvatarGroup.vue';
-import Avatar from '@/components/avatar/Avatar.vue';
 
 describe('AvatarGroup.vue', () => {
     it('should exist', () => {

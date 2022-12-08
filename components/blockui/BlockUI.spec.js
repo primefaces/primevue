@@ -1,7 +1,7 @@
 import { config, mount } from '@vue/test-utils';
+import Button from 'primevue/button';
+import Panel from '../panel/Panel.vue';
 import BlockUI from './BlockUI.vue';
-import Panel from '@/components/panel/Panel.vue';
-import Button from '@/components/button/Button.vue';
 
 config.global.mocks = {
     $primevue: {

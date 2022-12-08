@@ -9,8 +9,10 @@ export default {
     },
     resolve: {
         alias: {
+            'primevue/config': path.resolve(__dirname, '/components/config/PrimeVue.js'),
             'primevue/ripple': path.resolve(__dirname, '/components/ripple/Ripple.js'),
             'primevue/tooltip': path.resolve(__dirname, '/components/tooltip/Tooltip.js'),
+            'primevue/focustrap': path.resolve(__dirname, '/components/focustrap/FocusTrap.js'),
             'primevue/useconfirm': path.resolve(__dirname, '/components/useconfirm/UseConfirm.js'),
             'primevue/usetoast': path.resolve(__dirname, '/components/usetoast/UseToast.js'),
             'primevue/usedialog': path.resolve(__dirname, '/components/usedialog/UseDialog.js'),

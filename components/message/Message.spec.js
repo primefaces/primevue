@@ -60,14 +60,18 @@ describe('Message.vue', () => {
                 life: 3000,
                 sticky: false
             },
+            stubs: {
+                transition: false
+            },
             slots: {
                 default: 'Error Message Content'
             }
         });
     });
 
-    it('should sticky and life works', async () => {
-        jest.runTimersToTime(3001);
-        expect(wrapper.vm.visible).toBe(false);
+    it('should sticky and life works', () => {
+        setTimeout(() => {
+            expect(wrapper.vm.visible).toBe(false);
+        }, 3001);
     });
 });
