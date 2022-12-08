@@ -23,7 +23,7 @@
                     <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
                 </div>
 
-                <TabMenu :model="items2" v-model:activeIndex="active" />
+                <TabMenu v-model:activeIndex="active" :model="items2" />
             </div>
         </div>
 

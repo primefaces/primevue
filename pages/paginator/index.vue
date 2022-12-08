@@ -13,6 +13,18 @@
                 <h5>Basic</h5>
                 <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
 
+                <h5>Responsive</h5>
+                <Paginator
+                    :template="{
+                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput'
+                    }"
+                    :rows="10"
+                    :totalRecords="totalRecords"
+                ></Paginator>
+
                 <h5>Custom</h5>
                 <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
                     <template #start>
@@ -24,7 +36,7 @@
                 </Paginator>
 
                 <div class="image-gallery">
-                    <img :src="'/demo/images/nature/' + image + '.jpg'" />
+                    <img :src="'demo/images/nature/' + image + '.jpg'" />
                 </div>
             </div>
         </div>

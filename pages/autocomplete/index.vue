@@ -38,7 +38,7 @@
 
                 <h5>Multiple</h5>
                 <span class="p-fluid">
-                    <AutoComplete :multiple="true" v-model="selectedCountries" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
+                    <AutoComplete v-model="selectedCountries" :multiple="true" :suggestions="filteredCountries" @complete="searchCountry($event)" optionLabel="name" />
                 </span>
             </div>
         </div>
@@ -48,9 +48,9 @@
 </template>
 
 <script>
+import { FilterMatchMode, FilterService } from 'primevue/api';
 import CountryService from '../../service/CountryService';
 import AutoCompleteDoc from './AutoCompleteDoc';
-import { FilterService, FilterMatchMode } from 'primevue/api';
 
 export default {
     data() {
@@ -124,6 +124,7 @@ export default {
 
             for (let country of this.groupedCities) {
                 let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
+
                 if (filteredItems && filteredItems.length) {
                     filteredCities.push({ ...country, ...{ items: filteredItems } });
                 }
@@ -138,6 +139,7 @@ export default {
 
             for (let i = 0; i < this.items.length; i++) {
                 let item = this.items[i];
+
                 if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
                     filteredItems.push(item);
                 }

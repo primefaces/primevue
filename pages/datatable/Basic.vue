@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import ProductService from '@/service/ProductService';
+import ProductService from '../../service/ProductService';
 import DataTableBasicDoc from './DataTableBasicDoc';
 
 export default {

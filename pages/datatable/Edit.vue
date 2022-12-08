@@ -13,7 +13,7 @@
                 <h5>Cell Editing</h5>
                 <p>Validations, dynamic columns and reverting values with the escape key.</p>
                 <DataTable :value="products1" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" responsiveLayout="scroll">
-                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width: 25%">
+                    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
                         <template #editor="{ data, field }">
                             <InputText v-model="data[field]" autofocus />
                         </template>
@@ -23,7 +23,7 @@
 
             <div class="card">
                 <h5>Row Editing</h5>
-                <DataTable :value="products2" editMode="row" dataKey="id" v-model:editingRows="editingRows" @row-edit-save="onRowEditSave" responsiveLayout="scroll">
+                <DataTable v-model:editingRows="editingRows" :value="products2" editMode="row" dataKey="id" @row-edit-save="onRowEditSave" responsiveLayout="scroll">
                     <Column field="code" header="Code" style="width: 20%">
                         <template #editor="{ data, field }">
                             <InputText v-model="data[field]" autofocus />
@@ -57,10 +57,10 @@
 
             <div class="card">
                 <h5>Cell Editing with Sorting and Filter</h5>
-                <DataTable :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" v-model:filters="filters" responsiveLayout="scroll">
-                    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" style="width: 25%" sortable filter>
+                <DataTable v-model:filters="filters" :value="products3" editMode="cell" @cell-edit-complete="onCellEditComplete" class="editable-cells-table" filterDisplay="row" responsiveLayout="scroll">
+                    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" v-tooltip.top.focus="'Hit enter key to filter'" />
+                            <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
                         </template>
                         <template #editor="{ data, field }">
                             <InputText v-model="data[field]" autofocus />
@@ -70,15 +70,13 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableEditDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableEditDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableEditDemo.vue" />
     </div>
 </template>
 
 <script>
-import ProductService from '../../service/ProductService';
 import { FilterMatchMode } from 'primevue/api';
+import ProductService from '../../service/ProductService';
 
 export default {
     data() {
@@ -628,6 +626,11 @@ export default {
             { field: 'price', header: 'Price' }
         ];
     },
+    mounted() {
+        this.productService.getProductsSmall().then((data) => (this.products1 = data));
+        this.productService.getProductsSmall().then((data) => (this.products2 = data));
+        this.productService.getProductsSmall().then((data) => (this.products3 = data));
+    },
     methods: {
         onCellEditComplete(event) {
             let { data, newValue, field } = event;
@@ -647,12 +650,16 @@ export default {
         },
         isPositiveInteger(val) {
             let str = String(val);
+
             str = str.trim();
+
             if (!str) {
                 return false;
             }
+
             str = str.replace(/^0+/, '') || '0';
             var n = Math.floor(Number(str));
+
             return n !== Infinity && String(n) === str && n >= 0;
         },
         onRowEditSave(event) {
@@ -675,11 +682,6 @@ export default {
                     return 'NA';
             }
         }
-    },
-    mounted() {
-        this.productService.getProductsSmall().then((data) => (this.products1 = data));
-        this.productService.getProductsSmall().then((data) => (this.products2 = data));
-        this.productService.getProductsSmall().then((data) => (this.products3 = data));
     }
 };
 </script>

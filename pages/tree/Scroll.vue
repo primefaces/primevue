@@ -21,7 +21,7 @@
                 </p>
                 <Button type="button" icon="pi pi-external-link" label="View" @click="dialogVisible = true"></Button>
 
-                <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{ width: '50vw' }" maximizable :contentStyle="{ height: '300px' }" class="p-fluid">
+                <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '50vw' }" maximizable :contentStyle="{ height: '300px' }" class="p-fluid">
                     <Tree :value="nodes2" scrollHeight="flex"></Tree>
                     <template #footer>
                         <Button type="button" icon="pi pi-check" @click="dialogVisible = false" class="p-button-text"></Button>
@@ -30,9 +30,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="TreeScrollDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeScrollDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="TreeScrollDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeScrollDemo.vue" />
     </div>
 </template>
 

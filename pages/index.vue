@@ -20,17 +20,17 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
-import HeaderSection from './landing/HeaderSection';
-import HeroSection from './landing/HeroSection';
-import ComponentSection from './landing/ComponentSection';
-import ThemeSection from './landing/ThemeSection';
+import AppNews from '@/layouts/AppNews';
 import BlockSection from './landing/BlockSection';
+import ComponentSection from './landing/ComponentSection';
 import DesignerSection from './landing/DesignerSection';
-import TemplateSection from './landing/TemplateSection';
-import UsersSection from './landing/UsersSection';
 import FeaturesSection from './landing/FeaturesSection';
 import FooterSection from './landing/FooterSection';
-import AppNews from '@/layouts/AppNews';
+import HeaderSection from './landing/HeaderSection';
+import HeroSection from './landing/HeroSection';
+import TemplateSection from './landing/TemplateSection';
+import ThemeSection from './landing/ThemeSection';
+import UsersSection from './landing/UsersSection';
 
 export default {
     props: {

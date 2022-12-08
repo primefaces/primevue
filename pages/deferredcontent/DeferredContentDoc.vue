@@ -1,22 +1,21 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="DeferredContentDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="deferredcontent/DeferredContentDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="DeferredContentDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="deferredcontent/DeferredContentDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import DeferredContent from 'primevue/deferredcontent';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/deferredcontent/deferredcontent.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>DeferredContent is used as a wrapper element of its content..</p>
-            <pre v-code><code><template v-pre>
+        <h5>Getting Started</h5>
+        <p>DeferredContent is used as a wrapper element of its content..</p>
+        <pre v-code><code><template v-pre>
 &lt;DeferredContent&gt;
     &lt;DataTable :value="cars"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -28,9 +27,9 @@ import DeferredContent from 'primevue/deferredcontent';
 </template>
 </code></pre>
 
-            <h5>Load Event</h5>
-            <p>onLoad callback is useful to initialize the content when it becomes visible on scroll such as loading data.</p>
-            <pre v-code><code><template v-pre>
+        <h5>Load Event</h5>
+        <p>onLoad callback is useful to initialize the content when it becomes visible on scroll such as loading data.</p>
+        <pre v-code><code><template v-pre>
 &lt;DeferredContent @load="onDataLoad"&gt;
     &lt;DataTable :value="cars"&gt;
         &lt;Column field="vin" header="Vin"&gt;&lt;/Column&gt;
@@ -42,55 +41,52 @@ import DeferredContent from 'primevue/deferredcontent';
 </template>
 </code></pre>
 
-            <h5>Properties</h5>
-            <p>Component has no properties.</p>
+        <h5>Properties</h5>
+        <p>Component has no properties.</p>
 
-            <h5>Events</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>load</td>
-                            <td>event: Event object</td>
-                            <td>Callback to invoke when deferred content is loaded..</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>load</td>
+                        <td>event: Event object</td>
+                        <td>Callback to invoke when deferred content is loaded..</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Component does not apply any styling.</p>
+        <h5>Styling</h5>
+        <p>Component does not apply any styling.</p>
 
-            <h5>Accessibility</h5>
-            <DevelopmentSection>
-                <h6>Screen Reader</h6>
-                <p>
-                    DeferredContent can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so
-                    you have full control over the roles like <a href="https://www.w3.org/TR/wai-aria/#landmark" alt="Landmark Roles">landmark</a> and attributes like <i>aria-live</i>.
-                </p>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            DeferredContent can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so you
+            have full control over the roles like <a href="https://www.w3.org/TR/wai-aria/#landmark" alt="Landmark Roles">landmark</a> and attributes like <i>aria-live</i>.
+        </p>
 
-                <pre v-code><code>
+        <pre v-code><code>
 &lt;DeferredContent role="region" aria-live="polite" aria-label="Content loaded after page scrolled down"&gt;
     Content
 &lt;/DeferredContent&gt;
 
 </code></pre>
 
-                <h5>Keyboard Support</h5>
-                <p>Component does not include any interactive elements.</p>
-            </DevelopmentSection>
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

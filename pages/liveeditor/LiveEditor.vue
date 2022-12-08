@@ -1,44 +1,16 @@
 <template>
-    <div>
-        <span v-if="showEditor" class="flex justify-content-end">
-            <SplitButton :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" v-show="false" />
-        </span>
-    </div>
+    <span v-if="showEditor" class="flex justify-content-end">
+        <SplitButton v-show="false" :model="items" label="Edit in CodeSandbox" class="liveEditorSplitButton" @click="openDefaultCSB" />
+    </span>
 </template>
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
-import { services, data } from './LiveEditorData';
-import packageJson from '@/package.json';
+import { data, services } from './LiveEditorData';
+
 const sourceTypes = ['options-api', 'composition-api', 'browser-source'];
 
 export default {
-    data() {
-        return {
-            sandbox_id: null,
-            showCodeHighlight: false,
-            items: [
-                {
-                    label: 'Options API',
-                    command: () => {
-                        this.postSandboxParameters('options-api');
-                    }
-                },
-                {
-                    label: 'Composition API',
-                    command: () => {
-                        this.postSandboxParameters('composition-api');
-                    }
-                },
-                {
-                    label: 'Browser Source',
-                    command: () => {
-                        this.postSandboxParameters('browser-source');
-                    }
-                }
-            ]
-        };
-    },
     props: {
         name: {
             type: String,
@@ -73,11 +45,38 @@ export default {
             default: null
         }
     },
+    data() {
+        return {
+            sandbox_id: null,
+            showCodeHighlight: false,
+            items: [
+                {
+                    label: 'Options API',
+                    command: () => {
+                        this.postSandboxParameters('options-api');
+                    }
+                },
+                {
+                    label: 'Composition API',
+                    command: () => {
+                        this.postSandboxParameters('composition-api');
+                    }
+                },
+                {
+                    label: 'Browser Source',
+                    command: () => {
+                        this.postSandboxParameters('browser-source');
+                    }
+                }
+            ]
+        };
+    },
     runDemoListener: null,
     mounted() {
         this.runDemoListener = (type) => {
             this.postSandboxParameters(type);
         };
+
         EventBus.on('run-demo', this.runDemoListener);
     },
     beforeUnmount() {
@@ -112,7 +111,7 @@ export default {
             let extIndexCSS = extFiles['index.css'] || '';
             delete extFiles['index.css'];
 
-            const dependencies = packageJson ? packageJson.devDependencies : {};
+            const dependencies = require('../../../package.json') ? require('../../../package.json').devDependencies : {};
 
             let defaultCss = {
                 content: `html {
@@ -339,20 +338,21 @@ export default {
                             main: `src/demo/${nameWithExt}`,
                             dependencies: {
                                 ...extDependencies,
-                                vue: '3.2.31',
-                                primevue: '^3.16.2',
+                                vue: dependencies['vue'],
+                                primevue: '^3.21.0',
                                 primeflex: dependencies['primeflex'],
                                 primeicons: dependencies['primeicons'],
-                                '@babel/cli': '^7.4.4',
-                                'core-js': '^3.6.5',
-                                'vue-router': '^4.0.0-0'
+                                '@babel/cli': dependencies['@babel/cli'],
+                                'core-js': dependencies['core-js'],
+                                'vue-router': dependencies['vue-router']
                             },
                             devDependencies: {
-                                '@vue/cli-plugin-babel': '~4.5.0',
-                                '@vue/cli-plugin-eslint': '~4.5.0',
-                                '@vue/cli-service': '~4.5.0',
-                                eslint: '^6.0.0',
-                                'eslint-plugin-vue': '^7.0.0'
+                                '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
+                                '@vue/cli-plugin-eslint': dependencies['@vue/cli-plugin-eslint'],
+                                '@vue/cli-service': dependencies['@vue/cli-service'],
+                                '@vue/compiler-sfc': dependencies['@vue/compiler-sfc'],
+                                eslint: dependencies['eslint'],
+                                'eslint-plugin-vue': dependencies['eslint-plugin-vue']
                             }
                         }
                     },
@@ -523,8 +523,7 @@ export const router = createRouter({
                 }
 
                 _files['src/main.js'] = {
-                    content: `
-import "primeflex/primeflex.css";
+                    content: `import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
@@ -570,6 +569,7 @@ import Dropdown from 'primevue/dropdown';
 import DynamicDialog from 'primevue/dynamicdialog';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
+import FocusTrap from 'primevue/focustrap';
 import Galleria from 'primevue/galleria';
 import Image from 'primevue/image';
 import InlineMessage from 'primevue/inlinemessage';
@@ -643,6 +643,7 @@ app.directive('tooltip', Tooltip);
 app.directive('badge', BadgeDirective);
 app.directive('ripple', Ripple);
 app.directive('styleclass', StyleClass);
+app.directive('focustrap', FocusTrap);
 
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);

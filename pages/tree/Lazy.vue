@@ -14,9 +14,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="TreeLazyDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeLazyDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="TreeLazyDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeLazyDemo.vue" />
     </div>
 </template>
 
@@ -282,6 +280,7 @@ export default {
 
                 setTimeout(() => {
                     let _node = { ...node };
+
                     _node.children = [];
 
                     for (let i = 0; i < 3; i++) {
@@ -292,6 +291,7 @@ export default {
                     }
 
                     let _nodes = { ...this.nodes };
+
                     _nodes[parseInt(node.key, 10)] = _node;
 
                     this.nodes = _nodes;

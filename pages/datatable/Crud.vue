@@ -24,8 +24,8 @@
 
                 <DataTable
                     ref="dt"
-                    :value="products"
                     v-model:selection="selectedProducts"
+                    :value="products"
                     dataKey="id"
                     :paginator="true"
                     :rows="10"
@@ -50,7 +50,7 @@
                     <Column field="name" header="Name" :sortable="true" style="min-width: 16rem"></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="'/demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price" :sortable="true" style="min-width: 8rem">
@@ -79,11 +79,11 @@
             </div>
 
             <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true" class="p-fluid">
-                <img :src="'/demo/images/product/' + product.image" :alt="product.image" class="product-image" v-if="product.image" />
+                <img v-if="product.image" :src="'demo/images/product/' + product.image" :alt="product.image" class="product-image" />
                 <div class="field">
                     <label for="name">Name</label>
                     <InputText id="name" v-model.trim="product.name" required="true" autofocus :class="{ 'p-invalid': submitted && !product.name }" />
-                    <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
+                    <small v-if="submitted && !product.name" class="p-error">Name is required.</small>
                 </div>
                 <div class="field">
                     <label for="description">Description</label>
@@ -111,19 +111,19 @@
                     <label class="mb-3">Category</label>
                     <div class="formgrid grid">
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category1" name="category" value="Accessories" v-model="product.category" />
+                            <RadioButton id="category1" v-model="product.category" name="category" value="Accessories" />
                             <label for="category1">Accessories</label>
                         </div>
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category2" name="category" value="Clothing" v-model="product.category" />
+                            <RadioButton id="category2" v-model="product.category" name="category" value="Clothing" />
                             <label for="category2">Clothing</label>
                         </div>
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category3" name="category" value="Electronics" v-model="product.category" />
+                            <RadioButton id="category3" v-model="product.category" name="category" value="Electronics" />
                             <label for="category3">Electronics</label>
                         </div>
                         <div class="field-radiobutton col-6">
-                            <RadioButton id="category4" name="category" value="Fitness" v-model="product.category" />
+                            <RadioButton id="category4" v-model="product.category" name="category" value="Fitness" />
                             <label for="category4">Fitness</label>
                         </div>
                     </div>
@@ -171,9 +171,7 @@
             </Dialog>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
     </div>
 </template>
 
@@ -1186,6 +1184,7 @@ export default {
     methods: {
         formatCurrency(value) {
             if (value) return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
             return;
         },
         openNew() {
@@ -1234,6 +1233,7 @@ export default {
         },
         findIndexById(id) {
             let index = -1;
+
             for (let i = 0; i < this.products.length; i++) {
                 if (this.products[i].id === id) {
                     index = i;
@@ -1246,9 +1246,11 @@ export default {
         createId() {
             let id = '';
             var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
             for (var i = 0; i < 5; i++) {
                 id += chars.charAt(Math.floor(Math.random() * chars.length));
             }
+
             return id;
         },
         exportCSV() {

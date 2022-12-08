@@ -29,7 +29,7 @@
                 <Button label="Show" icon="pi pi-external-link" @click="openDialog" />
             </div>
 
-            <Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{ width: '75vw' }" :maximizable="true" :modal="true" :contentStyle="{ height: '300px' }">
+            <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" :maximizable="true" :modal="true" :contentStyle="{ height: '300px' }">
                 <DataTable :value="customers1" :scrollable="true" scrollHeight="flex">
                     <Column field="name" header="Name" style="min-width: 200px"></Column>
                     <Column field="country.name" header="Country" style="min-width: 200px"></Column>
@@ -116,7 +116,7 @@
                     </Column>
                     <Column field="date" header="Date" style="min-width: 200px"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="'/demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -126,9 +126,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" github="datatable/DataTableScrollDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" github="datatable/DataTableScrollDemo.vue" />
     </div>
 </template>
 

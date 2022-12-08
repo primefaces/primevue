@@ -20,7 +20,7 @@
                     <Column field="name" header="Name"></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="'/demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price">
@@ -43,9 +43,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableTemplatingDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableTemplatingDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableTemplatingDemo.vue" />
     </div>
 </template>
 

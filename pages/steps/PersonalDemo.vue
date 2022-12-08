@@ -33,6 +33,7 @@
 
 <script>
 export default {
+    emits: ['next-page'],
     data() {
         return {
             firstname: '',
@@ -45,6 +46,7 @@ export default {
     methods: {
         nextPage() {
             this.submitted = true;
+
             if (this.validateForm()) {
                 this.$emit('next-page', { formData: { firstname: this.firstname, lastname: this.lastname, age: this.age }, pageIndex: 0 });
             }

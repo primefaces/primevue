@@ -11,22 +11,22 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="minwidth: 14rem" placeholder="Select a City" />
+                <CascadeSelect v-model="selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
 
                 <h5>Templating</h5>
-                <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="minwidth: 14rem" placeholder="Select a City">
+                <CascadeSelect v-model="selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" />
-                            <i class="pi pi-compass mr-2" v-if="slotProps.option.cities"></i>
-                            <i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"></i>
+                            <img v-if="slotProps.option.states" src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                            <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
+                            <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
                             <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
                         </div>
                     </template>
                 </CascadeSelect>
 
                 <h5>Loading State</h5>
-                <CascadeSelect placeholder="Loading..." loading style="minwidth: 14rem"></CascadeSelect>
+                <CascadeSelect placeholder="Loading..." loading style="min-width: 14rem"></CascadeSelect>
             </div>
         </div>
 

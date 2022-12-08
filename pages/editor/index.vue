@@ -14,22 +14,19 @@
                 <Editor v-model="value1" editorStyle="height: 320px" />
 
                 <h5>Customized</h5>
-                <ClientOnly>
-                    <Editor v-model="value2" editorStyle="height: 320px">
-                        <template v-slot:toolbar>
-                            <span class="ql-formats">
-                                <button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
-                                <button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
-                                <button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
-                            </span>
-                        </template>
-                    </Editor>
-                </ClientOnly>
+                <Editor v-model="value2" editorStyle="height: 320px">
+                    <template v-slot:toolbar>
+                        <span class="ql-formats">
+                            <button v-tooltip.bottom="'Bold'" class="ql-bold"></button>
+                            <button v-tooltip.bottom="'Italic'" class="ql-italic"></button>
+                            <button v-tooltip.bottom="'Underline'" class="ql-underline"></button>
+                        </span>
+                    </template>
+                </Editor>
             </div>
         </div>
-        <ClientOnly>
-            <EditorDoc />
-        </ClientOnly>
+
+        <EditorDoc />
     </div>
 </template>
 

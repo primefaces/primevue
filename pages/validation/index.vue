@@ -42,7 +42,7 @@
                                 <label for="email" :class="{ 'p-error': v$.email.$invalid && submitted }">Email*</label>
                             </div>
                             <span v-if="v$.email.$error && submitted">
-                                <span id="email-error" v-for="(error, index) of v$.email.$errors" :key="index">
+                                <span v-for="(error, index) of v$.email.$errors" :key="index" id="email-error">
                                     <small class="p-error">{{ error.$message }}</small>
                                 </span>
                             </span>
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="field-checkbox">
-                            <Checkbox id="accept" name="accept" value="Accept" v-model="v$.accept.$model" :class="{ 'p-invalid': v$.accept.$invalid && submitted }" />
+                            <Checkbox id="accept" v-model="v$.accept.$model" name="accept" value="Accept" :class="{ 'p-invalid': v$.accept.$invalid && submitted }" />
                             <label for="accept" :class="{ 'p-error': v$.accept.$invalid && submitted }">I agree to the terms and conditions*</label>
                         </div>
                         <Button type="submit" label="Submit" class="mt-2" />
@@ -92,22 +92,20 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc
-                name="VuelidateFormDemo"
-                :sources="sources"
-                :service="['CountryService']"
-                :data="['countries']"
-                github="validation/VuelidateFormDemo.vue"
-                :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }"
-            />
-        </ClientOnly>
+        <AppDoc
+            name="VuelidateFormDemo"
+            :sources="sources"
+            :service="['CountryService']"
+            :data="['countries']"
+            github="validation/VuelidateFormDemo.vue"
+            :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }"
+        />
     </div>
 </template>
 
 <script>
-import { email, required } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
+import { email, required } from '@vuelidate/validators';
 import CountryService from '../../service/CountryService';
 
 export default {

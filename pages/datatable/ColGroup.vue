@@ -1,63 +1,61 @@
 <template>
     <div>
-        <ClientOnly>
-            <div class="content-section introduction">
-                <div class="feature-intro">
-                    <h1>DataTable <span>ColumnGroup</span></h1>
-                    <p>Columns can be grouped at header and footer using headerColumnGroup and footerColumnGroup components.</p>
-                </div>
-                <AppDemoActions />
+        <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>DataTable <span>ColumnGroup</span></h1>
+                <p>Columns can be grouped at header and footer using headerColumnGroup and footerColumnGroup components.</p>
             </div>
+            <AppDemoActions />
+        </div>
 
-            <div class="content-section implementation">
-                <div class="card">
-                    <DataTable :value="sales" responsiveLayout="scroll">
-                        <ColumnGroup type="header">
-                            <Row>
-                                <Column header="Product" :rowspan="3" />
-                                <Column header="Sale Rate" :colspan="4" />
-                            </Row>
-                            <Row>
-                                <Column header="Sales" :colspan="2" />
-                                <Column header="Profits" :colspan="2" />
-                            </Row>
-                            <Row>
-                                <Column header="Last Year" :sortable="true" field="lastYearSale" />
-                                <Column header="This Year" :sortable="true" field="thisYearSale" />
-                                <Column header="Last Year" :sortable="true" field="lastYearProfit" />
-                                <Column header="This Year" :sortable="true" field="thisYearProfit" />
-                            </Row>
-                        </ColumnGroup>
-                        <Column field="product" />
-                        <Column field="lastYearSale">
-                            <template #body="slotProps"> {{ slotProps.data.lastYearSale }}% </template>
-                        </Column>
-                        <Column field="thisYearSale">
-                            <template #body="slotProps"> {{ slotProps.data.thisYearSale }}% </template>
-                        </Column>
-                        <Column field="lastYearProfit">
-                            <template #body="slotProps">
-                                {{ formatCurrency(slotProps.data.lastYearProfit) }}
-                            </template>
-                        </Column>
-                        <Column field="thisYearProfit">
-                            <template #body="slotProps">
-                                {{ formatCurrency(slotProps.data.thisYearProfit) }}
-                            </template>
-                        </Column>
-                        <ColumnGroup type="footer">
-                            <Row>
-                                <Column footer="Totals:" :colspan="3" footerStyle="text-align:right" />
-                                <Column :footer="lastYearTotal" />
-                                <Column :footer="thisYearTotal" />
-                            </Row>
-                        </ColumnGroup>
-                    </DataTable>
-                </div>
+        <div class="content-section implementation">
+            <div class="card">
+                <DataTable :value="sales" responsiveLayout="scroll">
+                    <ColumnGroup type="header">
+                        <Row>
+                            <Column header="Product" :rowspan="3" />
+                            <Column header="Sale Rate" :colspan="4" />
+                        </Row>
+                        <Row>
+                            <Column header="Sales" :colspan="2" />
+                            <Column header="Profits" :colspan="2" />
+                        </Row>
+                        <Row>
+                            <Column header="Last Year" :sortable="true" field="lastYearSale" />
+                            <Column header="This Year" :sortable="true" field="thisYearSale" />
+                            <Column header="Last Year" :sortable="true" field="lastYearProfit" />
+                            <Column header="This Year" :sortable="true" field="thisYearProfit" />
+                        </Row>
+                    </ColumnGroup>
+                    <Column field="product" />
+                    <Column field="lastYearSale">
+                        <template #body="slotProps"> {{ slotProps.data.lastYearSale }}% </template>
+                    </Column>
+                    <Column field="thisYearSale">
+                        <template #body="slotProps"> {{ slotProps.data.thisYearSale }}% </template>
+                    </Column>
+                    <Column field="lastYearProfit">
+                        <template #body="slotProps">
+                            {{ formatCurrency(slotProps.data.lastYearProfit) }}
+                        </template>
+                    </Column>
+                    <Column field="thisYearProfit">
+                        <template #body="slotProps">
+                            {{ formatCurrency(slotProps.data.thisYearProfit) }}
+                        </template>
+                    </Column>
+                    <ColumnGroup type="footer">
+                        <Row>
+                            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right" />
+                            <Column :footer="lastYearTotal" />
+                            <Column :footer="thisYearTotal" />
+                        </Row>
+                    </ColumnGroup>
+                </DataTable>
             </div>
+        </div>
 
-            <AppDoc name="DataTableColGroupDemo" :sources="sources" github="datatable/DataTableColGroupDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableColGroupDemo" :sources="sources" github="datatable/DataTableColGroupDemo.vue" />
     </div>
 </template>
 
@@ -401,6 +399,7 @@ export default {
     computed: {
         lastYearTotal() {
             let total = 0;
+
             for (let sale of this.sales) {
                 total += sale.lastYearProfit;
             }
@@ -409,6 +408,7 @@ export default {
         },
         thisYearTotal() {
             let total = 0;
+
             for (let sale of this.sales) {
                 total += sale.thisYearProfit;
             }

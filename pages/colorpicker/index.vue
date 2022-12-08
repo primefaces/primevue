@@ -22,7 +22,7 @@
                 <div class="flex flex-column align-items-center md:flex-row md:align-items-start">
                     <ColorPicker v-model="color3" :inline="true" />
                     <div :style="wallStyle" class="mt-5 md:mt-0 md:ml-5 inline-flex">
-                        <img alt="room" src="/demo/images/interior.png" class="w-full md:auto" />
+                        <img alt="room" src="demo/images/interior.png" class="w-full md:auto" />
                     </div>
                 </div>
             </div>

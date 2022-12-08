@@ -1,30 +1,29 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="OrderListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="orderlist/OrderListDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="OrderListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="orderlist/OrderListDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import OrderList from 'primevue/orderlist';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/orderlist/orderlist.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>OrderList requires an array as its value bound with the v-model directive and a template for its content.</p>
-            <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named template called "item" needs to be defined which gets the <i>item</i> and the <i>index</i> via slotProps.</p>
-            <pre v-code><code><template v-pre>
+        <h5>Getting Started</h5>
+        <p>OrderList requires an array as its value bound with the v-model directive and a template for its content.</p>
+        <p>Header of the component is defined with the "header" template and to define the content of an item in the list a named template called "item" needs to be defined which gets the <i>item</i> and the <i>index</i> via slotProps.</p>
+        <pre v-code><code><template v-pre>
 &lt;OrderList v-model="cars" listStyle="height:auto" dataKey="vin"&gt;
     &lt;template #header&gt;
         List of Cars
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
-            &lt;img :src="'/demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
             &lt;div&gt;
                 &lt;span class="p-caritem-vin"&gt;{{slotProps.item.vin}}&lt;/span&gt;
                 &lt;span&gt;{{slotProps.item.year}} - {{slotProps.item.color}}&lt;/span&gt;
@@ -35,22 +34,22 @@ import OrderList from 'primevue/orderlist';
 </template>
 </code></pre>
 
-            <h5>Selection</h5>
-            <p>
-                In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that it gets updated when the user makes a selection. Since it is two-way binding enabled,
-                your changes to the selection will be reflected as well. Note that this is optional and only necessary when you need to access the selection.
-            </p>
+        <h5>Selection</h5>
+        <p>
+            In case you'd need to access the selected items in the list, define a binding to the <i>selection</i> property with the v-model directive so that it gets updated when the user makes a selection. Since it is two-way binding enabled, your
+            changes to the selection will be reflected as well. Note that this is optional and only necessary when you need to access the selection.
+        </p>
 
-            <p>Use the v-model directive to enable two-way binding.</p>
+        <p>Use the v-model directive to enable two-way binding.</p>
 
-            <pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;OrderList v-model="cars" dataKey="vin" v-model:selection="selection"&gt;
     &lt;template #header&gt;
         List of Cars
     &lt;/template&gt;
     &lt;template #item="slotProps"&gt;
         &lt;div class="p-caritem"&gt;
-            &lt;img :src="'/demo/images/car/' + slotProps.item.brand + '.png'"&gt;
+            &lt;img :src="'demo/images/car/' + slotProps.item.brand + '.png'"&gt;
             &lt;div&gt;
                 &lt;span class="p-caritem-vin"&gt;{{slotProps.item.vin}}&lt;/span&gt;
                 &lt;span&gt;{{slotProps.item.year}} - {{slotProps.item.color}}&lt;/span&gt;
@@ -61,180 +60,346 @@ import OrderList from 'primevue/orderlist';
 </template>
 </code></pre>
 
-            <h5>DataKey</h5>
-            <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
+        <h5>DataKey</h5>
+        <p>It is recommended to provide the name of the field that uniquely identifies the a record in the data via the <i>dataKey</i> property for better performance.</p>
 
-            <h5>Templating</h5>
-            <p>
-                In addition to the <i>item</i> template, <i>header</i> is provided to place custom content at the list header. Controls section can also be customized to place content before and after the buttons with <i>controlsstart</i> and
-                <i>controlsend</i> slots respectively.
-            </p>
+        <h5>Templating</h5>
+        <p>
+            In addition to the <i>item</i> template, <i>header</i> is provided to place custom content at the list header. Controls section can also be customized to place content before and after the buttons with <i>controlsstart</i> and
+            <i>controlsend</i> slots respectively.
+        </p>
 
-            <h5>Properties</h5>
-            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>modelValue</td>
-                            <td>array</td>
-                            <td>null</td>
-                            <td>Value of the component.</td>
-                        </tr>
-                        <tr>
-                            <td>selection</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Selected items in the list.</td>
-                        </tr>
-                        <tr>
-                            <td>metaKeySelection</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>
-                                Defines whether metaKey is requred or not for the selection. <br />
-                                When true metaKey needs to be pressed to select or unselect an item and <br />
-                                when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>dataKey</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Name of the field that uniquely identifies the a record in the data.</td>
-                        </tr>
-                        <tr>
-                            <td>listStyle</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of the the list element.</td>
-                        </tr>
-                        <tr>
-                            <td>responsive</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Whether the list optimizes layout based on screen size.</td>
-                        </tr>
-                        <tr>
-                            <td>breakpoint</td>
-                            <td>string</td>
-                            <td>960px</td>
-                            <td>The breakpoint to define the maximum width boundary when responsiveness is enabled.</td>
-                        </tr>
-                        <tr>
-                            <td>stripedRows</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Whether to displays rows with alternating colors.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Properties</h5>
+        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>modelValue</td>
+                        <td>array</td>
+                        <td>null</td>
+                        <td>Value of the component.</td>
+                    </tr>
+                    <tr>
+                        <td>selection</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Selected items in the list.</td>
+                    </tr>
+                    <tr>
+                        <td>metaKeySelection</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>
+                            Defines whether metaKey is requred or not for the selection. <br />
+                            When true metaKey needs to be pressed to select or unselect an item and <br />
+                            when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>dataKey</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the field that uniquely identifies the a record in the data.</td>
+                    </tr>
+                    <tr>
+                        <td>listStyle</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Inline style of the the list element.</td>
+                    </tr>
+                    <tr>
+                        <td>responsive</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether the list optimizes layout based on screen size.</td>
+                    </tr>
+                    <tr>
+                        <td>breakpoint</td>
+                        <td>string</td>
+                        <td>960px</td>
+                        <td>The breakpoint to define the maximum width boundary when responsiveness is enabled.</td>
+                    </tr>
+                    <tr>
+                        <td>stripedRows</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to displays rows with alternating colors.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>moveUpButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveTopButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveDownButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>moveBottomButtonProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive list element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying list element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Events</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>reorder</td>
-                            <td>
-                                event.originalEvent: browser event <br />
-                                event.value: Ordered list <br />
-                                event.direction: Direction of the change; "up", "down", "bottom", "top"
-                            </td>
-                            <td>Callback to invoke when the list is reordered.</td>
-                        </tr>
-                        <tr>
-                            <td>selection-change</td>
-                            <td>
-                                event.originalEvent: browser event <br />
-                                event.value: Ordered list
-                            </td>
-                            <td>Callback to invoke when selection changes.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>reorder</td>
+                        <td>
+                            event.originalEvent: browser event <br />
+                            event.value: Ordered list <br />
+                            event.direction: Direction of the change; "up", "down", "bottom", "top"
+                        </td>
+                        <td>Callback to invoke when the list is reordered.</td>
+                    </tr>
+                    <tr>
+                        <td>selection-change</td>
+                        <td>
+                            event.originalEvent: browser event <br />
+                            event.value: Ordered list
+                        </td>
+                        <td>Callback to invoke when selection changes.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Slots</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>header</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>item</td>
-                            <td>
-                                item: Item of the component<br />
-                                index: Index of the item
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>controlsstart</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>controlsend</td>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>header</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>item</td>
+                        <td>
+                            item: Item of the component<br />
+                            index: Index of the item
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>controlsstart</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>controlsend</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-orderlist</td>
-                            <td>Container element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-orderlist-list</td>
-                            <td>List container.</td>
-                        </tr>
-                        <tr>
-                            <td>p-orderlist-item</td>
-                            <td>An item in the list</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-orderlist</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-orderlist-list</td>
+                        <td>List container.</td>
+                    </tr>
+                    <tr>
+                        <td>p-orderlist-item</td>
+                        <td>An item in the list</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Value to describe the listbox can be provided with <i>listProps</i> by passing <i>aria-labelledby</i> or <i>aria-label</i> props. The list element has a <i>listbox</i> role with the <i>aria-multiselectable</i> attribute. Each list item
+            has an <i>option</i> role with <i>aria-selected</i> and <i>aria-disabled</i> as their attributes.
+        </p>
+        <p>
+            Controls buttons are <i>button</i> elements with an <i>aria-label</i> that refers to the <i>aria.moveTop</i>, <i>aria.moveUp</i>, <i>aria.moveDown</i> and <i>aria.moveBottom</i> properties of the
+            <router-link to="/locale">locale</router-link> API by default, alternatively you may use <i>moveTopButtonProps</i>, <i>moveUpButtonProps</i>, <i>moveDownButtonProps</i> and <i>moveBottomButtonProps</i> to customize the buttons like
+            overriding the default <i>aria-label</i> attributes.
+        </p>
+        <pre v-code><code><template v-pre>
+&lt;span id="lb"&gt;Options&lt;/span&gt;
+&lt;OrderList aria-labelledby="lb" /&gt;
+
+&lt;OrderList aria-label="City" /&gt;
+
+</template></code></pre>
+
+        <h6>ListBox Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the first selected option, if there is none then first option receives the focus.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>up arrow</i>
+                        </td>
+                        <td>Moves focus to the previous option.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>down arrow</i>
+                        </td>
+                        <td>Moves focus to the next option.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Toggles the selected state of the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Toggles the selected state of the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>home</i>
+                        </td>
+                        <td>Moves focus to the first option.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>end</i>
+                        </td>
+                        <td>Moves focus to the last option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>down arrow</i></td>
+                        <td>Moves focus to the next option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>up arrow</i></td>
+                        <td>Moves focus to the previous option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>space</i></td>
+                        <td>Selects the items between the most recently selected option and the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>home</i></td>
+                        <td>Selects the focused options and all the options up to the first one.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>end</i></td>
+                        <td>Selects the focused options and all the options down to the first one.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>a</i></td>
+                        <td>Selects all options.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Buttons Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Executes button action.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Executes button action.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

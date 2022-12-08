@@ -13,21 +13,21 @@
                 <div class="p-fluid grid">
                     <div class="field col-12 md:col-4">
                         <span class="p-float-label">
-                            <InputText id="inputtext" type="text" v-model="value1" />
+                            <InputText id="inputtext" v-model="value1" type="text" />
                             <label for="inputtext">InputText</label>
                         </span>
                     </div>
                     <div class="field col-12 md:col-4">
                         <span class="p-float-label p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText id="inputtext-left" type="text" v-model="valueIconLeft" />
+                            <InputText id="inputtext-left" v-model="valueIconLeft" type="text" />
                             <label for="inputtext-left">Left Icon</label>
                         </span>
                     </div>
                     <div class="field col-12 md:col-4">
                         <span class="p-float-label p-input-icon-right">
                             <i class="pi pi-search" />
-                            <InputText id="inputtext-right" type="text" v-model="valueIconRight" />
+                            <InputText id="inputtext-right" v-model="valueIconRight" type="text" />
                             <label for="inputtext-right">Right Icon</label>
                         </span>
                     </div>
@@ -67,7 +67,7 @@
                                 <i class="pi pi-user"></i>
                             </span>
                             <span class="p-float-label">
-                                <InputText id="inputgroup" type="text" v-model="value7" />
+                                <InputText id="inputgroup" v-model="value7" type="text" />
                                 <label for="inputgroup">InputGroup</label>
                             </span>
                         </div>
@@ -112,9 +112,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService', 'NodeService']" :data="['countries', 'treenodes']" github="floatlabel/FloatLabelDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService', 'NodeService']" :data="['countries', 'treenodes']" github="floatlabel/FloatLabelDemo.vue" />
     </div>
 </template>
 

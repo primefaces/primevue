@@ -17,14 +17,12 @@
                         </div>
                     </template>
                     <Column field="code" header="Code" />
-                    <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
+                    <Column v-for="(col, index) of selectedColumns" :key="col.field + '_' + index" :field="col.field" :header="col.header"></Column>
                 </DataTable>
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableColToggleDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableColToggleDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableColToggleDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableColToggleDemo.vue" />
     </div>
 </template>
 

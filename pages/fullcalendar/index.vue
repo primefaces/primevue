@@ -20,6 +20,7 @@
 <script>
 import EventService from '../../service/EventService';
 import FullCalendarDoc from './FullCalendarDoc';
+
 export default {
     data() {
         return {

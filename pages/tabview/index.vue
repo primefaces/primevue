@@ -93,7 +93,7 @@
 
             <div class="card">
                 <h5>Custom Headers</h5>
-                <TabView class="tabview-custom" ref="tabview4">
+                <TabView ref="tabview4" class="tabview-custom">
                     <TabPanel>
                         <template #header>
                             <i class="pi pi-calendar"></i>
@@ -159,8 +159,8 @@
 </template>
 
 <script>
-import TabViewDoc from './TabViewDoc';
 import EventBus from '@/layouts/AppEventBus';
+import TabViewDoc from './TabViewDoc';
 
 export default {
     data() {
@@ -203,6 +203,7 @@ export default {
                 }
             }, 50);
         };
+
         EventBus.on('theme-change', this.themeChangeListener);
     },
     beforeUnmount() {

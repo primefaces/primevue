@@ -1,20 +1,18 @@
 <template>
-    <ClientOnly>
-        <div class="layout-news" :style="$appState?.announcement?.backgroundStyle">
-            <i></i>
-            <div class="layout-news-content">
-                <span class="layout-news-text" :style="$appState?.announcement?.textStyle">{{ $appState?.announcement?.content }}</span>
-                <a class="layout-news-link" :href="$appState?.announcement?.linkHref">{{ $appState?.announcement?.linkText }}</a>
-            </div>
-            <a class="layout-news-close" :style="$appState?.announcement?.textStyle" @click="onClose">
-                <span class="pi pi-times"></span>
-            </a>
+    <div class="layout-news" :style="$appState.announcement.backgroundStyle">
+        <i></i>
+        <div class="layout-news-content">
+            <span class="layout-news-text" :style="$appState.announcement.textStyle">{{ $appState.announcement.content }}</span>
+            <a class="layout-news-link" :href="$appState.announcement.linkHref">{{ $appState.announcement.linkText }}</a>
         </div>
-    </ClientOnly>
+        <a class="layout-news-close" :style="$appState.announcement.textStyle" @click="onClose">
+            <span class="pi pi-times"></span>
+        </a>
+    </div>
 </template>
 
 <script>
-import EventBus from './AppEventBus';
+import EventBus from '@/layouts/AppEventBus';
 
 export default {
     data() {
@@ -33,6 +31,7 @@ export default {
             const item = {
                 hiddenNews: this.$appState.announcement.id
             };
+
             localStorage.setItem(this.storageKey, JSON.stringify(item));
         }
     }

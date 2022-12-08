@@ -21,9 +21,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableGridLinesDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableGridLinesDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableGridLinesDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableGridLinesDemo.vue" />
     </div>
 </template>
 

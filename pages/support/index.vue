@@ -1,330 +1,217 @@
 <template>
     <div>
-        <div class="content-section header-support">
-            <div class="feature-intro">
-                <h1>Support</h1>
-                <p>Professional support for the open source innovation.</p>
-            </div>
-        </div>
+        <div class="content-section">
+            <img alt="PRO Support" src="demo/images/support/support-header.png" class="w-full block mb-5" style="border-radius: 20px" />
 
-        <div class="content-section options grid">
-            <div class="col-12 md:col-6 lg:col-6">
-                <div class="card support-box">
-                    <h5>Community Support</h5>
-                    <p>
-                        <a href="https://forum.primefaces.org/viewforum.php?f=35">Forum</a> and <a href="https://discord.gg/gzKFYnpmCY">Discord</a> are where the community users gather to seek support, post topics and discuss the technology. PrimeTek
-                        does not guarantee response at forum and discord although they are monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PrimeVue PRO support.
+            <div class="flex flex-column xl:flex-row mb-5 gap-5">
+                <div class="card xl:w-3 m-0 relative overflow-hidden">
+                    <i class="pi pi-github absolute text-200" style="bottom: -50px; right: -50px; font-size: 200px; transform: rotateX(45deg) rotateY(0deg) rotateZ(-45deg)"></i>
+                    <div class="text-xl text-900 font-semibold mb-3 relative">Community Support</div>
+                    <p class="m-0 line-height-3 relative">
+                        <a href="https://forum.primefaces.org/viewforum.php?f=110" class="font-bold hover:underline text-primary">Forum</a> and <a href="https://discord.gg/gzKFYnpmCY" class="font-bold hover:underline text-primary">Discord</a> are
+                        where the community users gather to seek support, post topics and discuss the technology. GitHub issue tracker is the channel where community users can create tickets however PrimeTek does not guarantee a response time
+                        although they are monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PRO support instead.
+                    </p>
+                </div>
+                <div class="card m-0 xl:w-9 text-white bg-cover" style="background-image: url('demo/images/support/card-pro.jpg')">
+                    <div class="text-xl font-semibold mb-3">PRO Support</div>
+                    <p class="m-0 line-height-3">
+                        With PRO support, it's easy to support, tune and add features to PrimeVue as if it were an in- house library. PRO is a term based commercial support service. With the exclusive services of PRO account, it is no longer needed
+                        to post questions in community forum and issue reports to community issue tracker at GitHub. A JIRA account will be created to the customer by PrimeTek, this account can be shared between any number of users within your
+                        organization.
                     </p>
                 </div>
             </div>
 
-            <div class="col-12 md:col-6 lg:col-6">
-                <div class="flex flex-column justify-content-center card support-box pro">
-                    <div>
-                        <h5>PrimeVue PRO Support</h5>
-                        <p>
-                            PrimeVue PRO is a term based commercial support service. With the exclusive services of Pro account, you no longer need to post your questions in the community forum and your issues to community issue tracker. With
-                            PrimeVue PRO, it's easy to support, tune and add features to PrimeVue as if it were an in-house framework.
-                        </p>
+            <div class="grid mb-5">
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card m-0 flex-1 h-full">
+                        <div class="text-xl text-900 font-semibold mb-3">Free</div>
+                        <p class="m-0 line-height-3 mb-3 text-secondary">Community Support</p>
+                        <a href="https://discord.com/invite/gzKFYnpmCY" class="flex align-items-center justify-content-center border-1 border-indigo-500 border-round block p-3 mb-4 text-indigo-500 font-medium hover:surface-hover">Join Now</a>
+                        <ul class="list-none p-0 m-0">
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>GitHub Issue Tracker</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Community Forum</span>
+                            </li>
+                            <li class="flex align-items-center">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>PrimeLand Discord Server</span>
+                            </li>
+                        </ul>
                     </div>
-                    <a class="action-button" href="mailto:PrimeVue@primetek.com.tr">GET A QUOTE</a>
+                </div>
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card m-0 flex-1 h-full">
+                        <div class="text-xl text-900 font-semibold mb-3">Standard</div>
+                        <p class="m-0 line-height-3 mb-3 text-secondary">1 Year Subscription</p>
+                        <a
+                            href="mailto:primevue@primetek.com.tr"
+                            class="flex align-items-center justify-content-center border-1 bg-indigo-500 border-round block p-3 mb-4 hover:bg-indigo-600 transition-all transition-duration-300 text-white font-medium"
+                            >Get a Quote</a
+                        >
+                        <ul class="list-none p-0 m-0">
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Access to Private JIRA</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Response within 1 business day</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span><strong>10</strong> Issue Tickets</span>
+                            </li>
+                            <li class="flex align-items-center">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Access to LTS Releases</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card m-0 flex-1 h-full">
+                        <div class="text-xl text-900 font-semibold mb-3">Premium</div>
+                        <p class="m-0 line-height-3 mb-3 text-secondary">1 Year Subscription</p>
+                        <a
+                            href="mailto:primevue@primetek.com.tr"
+                            class="flex align-items-center justify-content-center border-1 bg-indigo-500 border-round block p-3 mb-4 hover:bg-indigo-600 transition-all transition-duration-300 text-white font-medium"
+                            >Get a Quote</a
+                        >
+                        <ul class="list-none p-0 m-0">
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Access to Private JIRA</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Response within 1 business day</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span><strong>30</strong> Issue Tickets</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Access to LTS Releases</span>
+                            </li>
+                            <li class="flex align-items-center">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Theme Designer - Extended License</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card m-0 flex-1 border-2 border-indigo-500 h-full">
+                        <div class="text-xl text-900 font-semibold mb-3">Enterprise</div>
+                        <p class="m-0 line-height-3 mb-3 text-secondary">1 Year Subscription</p>
+                        <a
+                            href="mailto:primevue@primetek.com.tr"
+                            class="flex align-items-center justify-content-center border-1 bg-indigo-500 border-round block p-3 mb-4 hover:bg-indigo-600 transition-all transition-duration-300 text-white font-medium"
+                            >Get a Quote</a
+                        >
+                        <ul class="list-none p-0 m-0">
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Access to Private JIRA</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Response within 1 business day</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span><strong>Unlimited</strong> Issue Tickets</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Access to LTS Releases</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Theme Designer - Extended License</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>PrimeBlocks - Enterprise License</span>
+                            </li>
+                            <li class="flex align-items-center mb-3">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>PrimeBlocks - Enterprise License</span>
+                            </li>
+                            <li class="flex align-items-center">
+                                <i class="pi pi-check-circle mr-2 text-green-500"></i>
+                                <span>Figma UI Kit - Enterprise License</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="content-section section-moreaboutpro">
-            <h5 class="section-header">Included in PRO</h5>
-            <div class="grid">
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Access to pro.primefaces.org</h6>
-                            <p>PRO means high-touch support. Contact us directly from a private JIRA with unlimited support tickets!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-1">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Response within 1 Business Day</h6>
-                            <p>Once you create a case, your request will be routed to our PRO team and they will get in touch within 1 business day.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-7">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Unlimited Number of Cases</h6>
-                            <p>Take advantage of the unlimited number of cases. Our PRO team is at your side to solve all the problems you are experiencing.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-4">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Defect patches</h6>
-                            <p>We identify, prioritize, fix your defects and provide fix patches.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-3">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Theme Designer</h6>
-                            <p><a href="https://www.primefaces.org/designer-vue">Designer</a> is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-5">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Premium Template</h6>
-                            <p>Choose one premium template of your choice with an extended license.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-6">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>PrimeBlocks</h6>
-                            <p>An enterprise license for all of the ready to use <a href="https://www.primefaces.org/primeblocks-vue">UI blocks</a> to build spectacular applications in no time.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-8">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Remote Desktop Connection</h6>
-                            <p>Direct Access to your issues! Your problems are resolved faster with our instant remote connection.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-9">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Conference Calls</h6>
-                            <p>Our PRO Team helps resolve critical issues in conference calls and ensure high-value collaboration with your team.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-10">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>High Priority to Your Issues</h6>
-                            <p>PRO delivers the premium support and expertise you need. Resources are prioritized for an optimized response to critical issues.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Notifications About Security Updates</h6>
-                            <p>Be the first to be informed about critical security updates.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="card mb-5">
+                <div class="text-xl text-900 font-semibold mb-3">Enhancement Credits</div>
+                <p class="m-0 line-height-3 mb-5 text-secondary">
+                    New features and enhancement requests are not available in core services and provided via a credit based model instead named PrimeCredit. When you have a feature request, we offer an initial estimate in terms of credits and once
+                    this estimate is confirmed by you then implementation will be delivered by our team within an estimated timeframe.
+                </p>
 
-        <div class="content-section section-newfeatures">
-            <h5>Enhancement Credits</h5>
-            <div class="flex mb-4">
-                <p>
-                    New feature and enhancement requests are not available in core services and provided via a credit model instead. When you have a feature request we provide an estimate, if you confirm we deliver your request within an estimated
-                    timeframe and deduct the amount of work from your credits.
-                </p>
-            </div>
-            <div class="grid">
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-1">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>New Components</h6>
-                            <p>User needs are frequently changing. To meet your needs, we create new components.</p>
-                        </div>
+                <div class="flex flex-column md:flex-row gap-5">
+                    <div class="flex-1">
+                        <div class="text-900 font-semibold mb-2">New Components</div>
+                        <p class="m-0 line-height-3 mb-3 text-secondary">Brand new components you need that are not already available in the existing UI suite.</p>
                     </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-5">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>New Functionality to Existing Components</h6>
-                            <p>We add and configure new features to existing components to enhance the capabilities of your application.</p>
-                        </div>
+                    <div class="flex-1">
+                        <div class="text-900 font-semibold mb-2">New Features</div>
+                        <p class="m-0 line-height-3 mb-3 text-secondary">Enhancements to the components you need such as new properties, events and templating.</p>
                     </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-2">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Changing the Way a Certain Functionality is Implemented</h6>
-                            <p>A problem might have several different solutions. We offer alternative ways for existing implementations.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-7">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Accessibility Improvements</h6>
-                            <p>Our team makes accessibility improvements that allow your developers to create more accessible applications.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-4">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Proof of Concept Implementations of a Use Case</h6>
-                            <p>Your projects can move forward faster with our effort to create PoC.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 lg:col-3">
-                    <div class="flex">
-                        <div class="dot color-6">&nbsp;</div>
-                        <div class="flex flex-column pl-3">
-                            <h6>Code Reviews to Offer Best Practices</h6>
-                            <p>Our experienced team reviews your entire project and improves your code quality.</p>
-                        </div>
+                    <div class="flex-1">
+                        <div class="text-900 font-semibold mb-2">UX Customization</div>
+                        <p class="m-0 line-height-3 mb-3 text-secondary">Behavioral changes to the existing components.</p>
                     </div>
                 </div>
             </div>
-            <div class="flex mt-4">
-                <p>
-                    You can purchase additional credits along with the subscription and also anytime during your subscription period. If your subscription term ends with unused credits, they will be added to your new subscription term in case you
-                    extend.
-                </p>
+
+            <div class="card m-0">
+                <div class="text-xl text-900 font-semibold mb-3">Frequently Asked Questions</div>
+                <div class="grid">
+                    <div class="col-12 lg:col-4">
+                        <div class="text-900 line-height-3 mb-2 font-medium">What are the conditions for support service to end?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">Support service ends either after 1 year end for all plans or when all tickets are used in Standard or Premium plans.</p>
+
+                        <div class="text-900 line-height-3 mb-2 font-medium">Is there a plan with no ticket limit?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">Yes, Enterprise plan has no limitation on the number tickets.</p>
+
+                        <div class="text-900 line-height-3 mb-2 font-medium">What happens if we extend after 1 year and we have unused tickets?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">Unused tickets expire and cannot be transferred to the new subscription.</p>
+                    </div>
+                    <div class="col-12 lg:col-4">
+                        <div class="text-900 line-height-3 mb-2 font-medium">When can we purchase PrimeCredits for feature development?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">PrimeCredits can be purchased anytime during an active subscription.</p>
+
+                        <div class="text-900 line-height-3 mb-2 font-medium">Are all of our requests guaranteed to be implemented with PrimeCredits?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">No, PrimeTek does not guarantee the implementation so it is suggested to confirm with us before purchasing credits.</p>
+
+                        <div class="text-900 line-height-3 mb-2 font-medium">Can we get PrimeCredits without PRO support?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">No, feature development is exclusive to PRO members.</p>
+                    </div>
+                    <div class="col-12 lg:col-4">
+                        <div class="text-900 line-height-3 mb-2 font-medium">Is there a limit on developers in our organization who can use the service?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">PRO is per organization so there is no limit on the number of developers.</p>
+
+                        <div class="text-900 line-height-3 mb-2 font-medium">How many JIRA accounts do we get?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">We provide one shared account per organization that any number of members in your organization can use it.</p>
+
+                        <div class="text-900 line-height-3 mb-2 font-medium">What is not covered by PRO?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-secondary">As PRO support focuses on the library, application consulting and code reviews out of scope.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
-
-<style lang="scss" scoped>
-.header-support {
-    display: flex;
-    background-image: url('../../assets/images/support/header-pro.jpg');
-    background-size: cover;
-    height: 10rem;
-    color: white;
-}
-
-.options {
-    background-color: var(--surface-ground);
-}
-
-.support-box {
-    height: 20rem;
-
-    &.pro {
-        background-color: #303132;
-        background-image: url('../../assets/images/support/pro-effect.png');
-        background-size: cover;
-        color: white;
-    }
-
-    a {
-        color: #2196f3;
-        font-weight: 600;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-.action-button {
-    background-color: #d8692b;
-}
-
-.section-moreaboutpro {
-    background-color: #303132;
-    color: white;
-    margin-top: 1rem;
-
-    p {
-        color: #aaaaaa;
-    }
-
-    h6 {
-        margin-top: 0;
-    }
-
-    .section-header {
-        position: relative;
-        bottom: 3.5rem;
-        background-color: #303132;
-        padding: 1rem;
-        display: inline;
-        border-radius: 4px 4px 0 0;
-    }
-
-    a {
-        color: #2196f3;
-        font-weight: 600;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-.section-newfeatures {
-    margin-top: 2rem;
-
-    p {
-        color: var(--text-color-secondary);
-    }
-}
-
-.dot {
-    height: 1rem;
-    width: 1rem;
-    min-height: 1rem;
-    min-width: 1rem;
-    border-radius: 2px;
-    background-color: #da2f4f;
-
-    &.color-1 {
-        background-color: #2b76d8;
-    }
-    &.color-2 {
-        background-color: #d8692b;
-    }
-    &.color-3 {
-        background-color: #6ece65;
-    }
-    &.color-4 {
-        background-color: #e9dc68;
-    }
-    &.color-5 {
-        background-color: #c159a4;
-    }
-    &.color-6 {
-        background-color: #2bd8c3;
-    }
-    &.color-7 {
-        background-color: #2baed8;
-    }
-    &.color-8 {
-        background-color: #d8a82b;
-    }
-    &.color-9 {
-        background-color: #a7c553;
-    }
-    &.color-10 {
-        background-color: #a06fc7;
-    }
-}
-</style>

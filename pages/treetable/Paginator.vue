@@ -18,9 +18,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="TreeTablePaginatorDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTablePaginatorDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="TreeTablePaginatorDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTablePaginatorDemo.vue" />
     </div>
 </template>
 
@@ -194,6 +192,7 @@ export default {
     },
     created() {
         let files = [];
+
         for (let i = 0; i < 50; i++) {
             let node = {
                 key: i,

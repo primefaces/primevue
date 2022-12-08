@@ -1,10 +1,9 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="RippleDemo" :sources="sources" github="ripple/RippleDemo.vue">
-            <h5>Getting Started</h5>
-            <h5>Ripple</h5>
-            <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup.</p>
-            <pre v-code.script><code>
+    <AppDoc name="RippleDemo" :sources="sources" github="ripple/RippleDemo.vue">
+        <h5>Getting Started</h5>
+        <h5>Ripple</h5>
+        <p>Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup.</p>
+        <pre v-code.script><code>
 import {createApp} from 'vue';
 import PrimeVue from 'primevue/config';
 const app = createApp(App);
@@ -13,75 +12,81 @@ app.use(PrimeVue, {ripple: true});
 
 </code></pre>
 
-            <p><span class="font-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
+        <p><span class="font-bold">Note</span>: That would be it to enable ripple on PrimeVue components, next section describes how to use it with your own components and standard elements.</p>
 
-            <h5>Directive</h5>
-            <p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>app.directive</i> function.</p>
-            <pre v-code.script><code>
+        <h5>Directive</h5>
+        <p>Ripple is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>app.directive</i> function.</p>
+        <pre v-code.script><code>
 import Ripple from 'primevue/ripple';
 
 app.directive('ripple', Ripple);
 
 </code></pre>
 
-            <p>Ripple can also be configured locally using the directives property of your component.</p>
-            <pre v-code.script><code>
+        <p>Ripple can also be configured locally using the directives property of your component.</p>
+        <pre v-code.script><code>
 directives: {
     'ripple': Ripple
 }
 
 </code></pre>
 
-            <p>Once the ripple is configured, add <i>.p-ripple</i> class to the target and attach the directive with the v- prefix.</p>
-            <pre v-code><code><template v-pre>
+        <p>Once the ripple is configured, add <i>.p-ripple</i> class to the target and attach the directive with the v- prefix.</p>
+        <pre v-code><code><template v-pre>
 &lt;div class="p-ripple" v-ripple&gt;&lt;/div&gt;
 </template>
 </code></pre>
 
-            <h5>Styling</h5>
-            <p>Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of <i>.p-ink</i> element.</p>
-            <pre v-code><code><template v-pre>
+        <h5>Styling</h5>
+        <p>Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of <i>.p-ink</i> element.</p>
+        <pre v-code><code><template v-pre>
 &lt;div class="p-ripple purple" v-ripple&gt;&lt;/div&gt;
 </template>
 </code></pre>
 
-            <pre v-code.css><code>
+        <pre v-code.css><code>
 .p-ripple.purple .p-ink {
     background: rgba(256,39,176,.3);
 }
 
 </code></pre>
 
-            <h5>Styling</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-ripple</td>
-                            <td>Host element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-ink</td>
-                            <td>Ripple element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-ink-active</td>
-                            <td>Ripple element during animating.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-ripple</td>
+                        <td>Host element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-ink</td>
+                        <td>Ripple element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-ink-active</td>
+                        <td>Ripple element during animating.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>Ripple element has the <i>aria-hidden</i> attribute as true so that it gets ignored by the screen readers.</p>
+
+        <h6>Keyboard Support</h6>
+        <p>Component does not include any interactive elements.</p>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

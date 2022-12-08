@@ -29,7 +29,7 @@
                     </Column>
                     <Column field="date" header="Date" style="min-width: 200px"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="'/demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -45,6 +45,7 @@
                 <h5>Expandable Row Groups</h5>
                 <p>Group customers by their representative.</p>
                 <DataTable
+                    v-model:expandedRowGroups="expandedRowGroups"
                     :value="customers"
                     rowGroupMode="subheader"
                     groupRowsBy="representative.name"
@@ -53,7 +54,6 @@
                     :sortOrder="1"
                     responsiveLayout="scroll"
                     :expandableRowGroups="true"
-                    v-model:expandedRowGroups="expandedRowGroups"
                     @rowgroup-expand="onRowGroupExpand"
                     @rowgroup-collapse="onRowGroupCollapse"
                 >
@@ -73,7 +73,7 @@
                     </Column>
                     <Column field="date" header="Date"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="'/demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -93,7 +93,7 @@
                     </Column>
                     <Column field="representative.name" header="Representative">
                         <template #body="slotProps">
-                            <img :alt="slotProps.data.representative.name" :src="'/demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="slotProps.data.representative.name" :src="'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                     </Column>
@@ -115,9 +115,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableRowGroupDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableRowGroupDemo.vue" />
     </div>
 </template>
 

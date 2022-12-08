@@ -27,7 +27,7 @@
                         <span style="margin-left: 0.5rem; vertical-align: middle">View Picture</span>
                     </template>
                     <template #content>
-                        <img src="/demo/images/nature/nature1.jpg" />
+                        <img src="demo/images/nature/nature1.jpg" />
                     </template>
                 </Inplace>
 

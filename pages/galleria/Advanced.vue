@@ -11,8 +11,8 @@
             <div class="card">
                 <Galleria
                     ref="galleria"
-                    :value="images"
                     v-model:activeIndex="activeIndex"
+                    :value="images"
                     :numVisible="5"
                     containerStyle="max-width: 640px"
                     :containerClass="galleriaClass"
@@ -270,6 +270,7 @@ export default {
         },
         openFullScreen() {
             let elem = this.$refs.galleria.$el;
+
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
             } else if (elem.mozRequestFullScreen) {

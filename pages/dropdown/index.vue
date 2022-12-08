@@ -29,7 +29,7 @@
                 <h5>Advanced with Templating, Filtering and Clear Icon</h5>
                 <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
                     <template #value="slotProps">
-                        <div class="country-item country-item-value" v-if="slotProps.value">
+                        <div v-if="slotProps.value" class="country-item country-item-value">
                             <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.value.code.toLowerCase()" />
                             <div>{{ slotProps.value.name }}</div>
                         </div>

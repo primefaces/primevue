@@ -2,11 +2,11 @@
     <section class="landing-designer py-8">
         <div class="section-header">Theme Designer</div>
         <p class="section-detail">Designer is the ultimate tool to create your own PrimeVue experience powered by a SASS based theme engine with 500+ variables and a Visual Designer.</p>
-        <div class="designer-main mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('/demo/images/landing/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize: 'cover' }">
+        <div class="designer-main mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('demo/images/landing/wave-${$appState.darkTheme ? 'dark' : 'light'}.svg')`, backgroundSize: 'cover' }">
             <div class="box p-4 flex flex-column md:flex-row z-1 designer-editor">
                 <div class="mr-0 md:mr-4 p-4 designer-controls box border-bottom-1 border-left-none border-right-none border-top-none md:border-bottom-none md:border-right-1" style="border-radius: '10px'">
                     <div class="text-center mb-4">
-                        <img :src="'/demo/images/landing/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
+                        <img :src="'demo/images/landing/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
                     </div>
                     <div class="p-fluid">
                         <span class="font-semibold block mb-3">Primary</span>
@@ -23,15 +23,15 @@
                         <span class="font-semibold block mt-4 mb-3">Size</span>
                         <div class="flex align-items-center">
                             <div class="flex align-items-center">
-                                <RadioButton id="size-small" value="small" name="sizevalue" v-model="size" />
+                                <RadioButton id="size-small" v-model="size" value="small" name="sizevalue" />
                                 <label for="size-small" class="ml-2 font-medium">Small</label>
                             </div>
                             <div class="flex align-items-center ml-4">
-                                <RadioButton id="size-normal" value="normal" name="sizevalue" v-model="size" />
+                                <RadioButton id="size-normal" v-model="size" value="normal" name="sizevalue" />
                                 <label for="size-normal" class="ml-2 font-medium">Normal</label>
                             </div>
                             <div class="flex align-items-center ml-4">
-                                <RadioButton id="size-large" value="large" name="sizevalue" v-model="size" />
+                                <RadioButton id="size-large" v-model="size" value="large" name="sizevalue" />
                                 <label for="size-large" class="ml-2 font-medium">Large</label>
                             </div>
                         </div>
@@ -48,13 +48,13 @@
                             </div>
                         </div>
 
-                        <nuxt-link to="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+                        <a href="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
                             <span>View Full Version</span>
                             <i class="pi pi-arrow-right ml-auto"></i>
-                        </nuxt-link>
+                        </a>
                     </div>
                 </div>
-                <div :class="editorclass" style="border-radius: '10px'" :ref="editorRef">
+                <div :ref="editorRef" :class="editorclass" style="border-radius: '10px'">
                     <div class="p-fluid formgrid grid">
                         <div class="field col-12 xl:col-6">
                             <label for="username" class="font-semibold mb-3 p-component">Username</label>
@@ -92,11 +92,11 @@
                             <span class="font-semibold mb-2 block mb-3 mt-5 p-component">Checkboxes</span>
                             <div class="flex flex-column xl:flex-row xl:align-items-center">
                                 <div class="flex align-items-center">
-                                    <Checkbox id="cb1" :value="value1" name="cbvalue" v-model="values" />
+                                    <Checkbox id="cb1" v-model="values" :value="value1" name="cbvalue" />
                                     <label for="cb1" class="ml-2 font-medium p-component white-space-nowrap">Option 1</label>
                                 </div>
                                 <div class="flex align-items-center mt-3 xl:mt-0 xl:ml-4">
-                                    <Checkbox id="cb2" :value="value2" name="cbvalue" v-model="values" />
+                                    <Checkbox id="cb2" v-model="values" :value="value2" name="cbvalue" />
                                     <label for="cb2" class="ml-2 font-medium p-component white-space-nowrap">Option 2</label>
                                 </div>
                             </div>

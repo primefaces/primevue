@@ -1,47 +1,46 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="DockDemo" :sources="sources" github="dock/DockDemo.vue" :service="['NodeService', 'PhotoService']" :data="['treenodes', 'photos']">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Dock from 'primevue/dock';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/slider/slider.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>Dock is a navigation component consisting of menuitems. It has a collection of additional options defined by the <i>model</i> property.</p>
+        <h5>Getting Started</h5>
+        <p>Dock is a navigation component consisting of menuitems. It has a collection of additional options defined by the <i>model</i> property.</p>
 
-            <pre v-code><code>
+        <pre v-code><code>
 &lt;Dock :model="items" /&gt;
 
 </code></pre>
 
-            <pre v-code.script><code><template>
+        <pre v-code.script><code><template>
     export default {
         data() {
             return {
                 items: [
                     {
                         label: "Finder",
-                        icon: "/demo/images/dock/finder.svg"
+                        icon: "demo/images/dock/finder.svg"
                     },
                     {
                         label: "App Store",
-                        icon: "/demo/images/dock/appstore.svg"
+                        icon: "demo/images/dock/appstore.svg"
                     },
                     {
                         label: "Photos",
-                        icon: "/demo/images/dock/photos.svg"
+                        icon: "demo/images/dock/photos.svg"
                     },
                     {
                         label: "Trash",
-                        icon: "/demo/images/dock/trash.png"
+                        icon: "demo/images/dock/trash.png"
                     }
                 ]
             }
@@ -51,115 +50,245 @@ import Dock from 'primevue/dock';
 </template>
 </code></pre>
 
-            <h5>MenuModel API</h5>
-            <p>Dock uses the common MenuModel API to define the items, visit <nuxt-link to="/menumodel">MenuModel API</nuxt-link> for details.</p>
+        <h5>MenuModel API</h5>
+        <p>Dock uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-            <h5>Properties</h5>
-            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>model</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>MenuModel instance to define the action items.</td>
-                        </tr>
-                        <tr>
-                            <td>position</td>
-                            <td>string</td>
-                            <td>bottom</td>
-                            <td>Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.</td>
-                        </tr>
-                        <tr>
-                            <td>class</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of the element.</td>
-                        </tr>
-                        <tr>
-                            <td>style</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Inline style of the element.</td>
-                        </tr>
-                        <tr>
-                            <td>exact</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Whether to apply 'nuxt-link-active-exact' class if route exactly matches the item path.</td>
-                        </tr>
-                        <tr>
-                            <td>tooltipOptions</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Whether to display the tooltip on items. The modifiers of <nuxt-link to="/tooltip">Tooltip</nuxt-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Properties</h5>
+        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>model</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>MenuModel instance to define the action items.</td>
+                    </tr>
+                    <tr>
+                        <td>position</td>
+                        <td>string</td>
+                        <td>bottom</td>
+                        <td>Position of element. Valid values are 'bottom', 'top', 'left' and 'right'.</td>
+                    </tr>
+                    <tr>
+                        <td>class</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Inline style of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>exact</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                    </tr>
+                    <tr>
+                        <td>tooltipOptions</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Whether to display the tooltip on items. The modifiers of <router-link to="/tooltip">Tooltip</router-link> can be used like an object in it. Valid keys are 'event' and 'position'.</td>
+                    </tr>
+                    <tr>
+                        <td>menuId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Unique identifier of the menu.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-dock</td>
-                            <td>Container element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-dock-list</td>
-                            <td>List of items.</td>
-                        </tr>
-                        <tr>
-                            <td>p-dock-item</td>
-                            <td>Each items in list.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>focus</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component receives focus.</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>event</td>
+                        <td>Callback to invoke when the component loses focus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Slots</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>item</td>
-                            <td>item: Custom content for item</td>
-                        </tr>
-                        <tr>
-                            <td>icon</td>
-                            <td>item: Custom content for icon</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-dock</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-list-container</td>
+                        <td>Container of the list.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-list</td>
+                        <td>List of items.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-item</td>
+                        <td>Each items in list.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menuitem-content</td>
+                        <td>Content of menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-link</td>
+                        <td>Link of the menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>p-dock-icon</td>
+                        <td>Icon of a menuitem.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>item</td>
+                        <td>
+                            item: Custom content for menuitem<br />
+                            index: Index of the menuitem
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>icon</td>
+                        <td>item: Custom content for icon</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Dock component uses the <i>menu</i> role with the <i>aria-orientation</i> and the value to describe the menu can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. Each list item has a <i>menuitem</i> role with
+            <i>aria-label</i> referring to the label of the item and <i>aria-disabled</i> defined if the item is disabled.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus to the first menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Activates the focused menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Activates the focused menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>down arrow</i>
+                        </td>
+                        <td>Moves focus to the next menuitem in vertical layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>up arrow</i>
+                        </td>
+                        <td>Moves focus to the previous menuitem in vertical layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>right arrow</i>
+                        </td>
+                        <td>Moves focus to the next menuitem in horizontal layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>left arrow</i>
+                        </td>
+                        <td>Moves focus to the previous menuitem in horizontal layout.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>home</i>
+                        </td>
+                        <td>Moves focus to the first menuitem.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>end</i>
+                        </td>
+                        <td>Moves focus to the last menuitem.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>
@@ -178,22 +307,22 @@ export default {
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <Dock :model="dockBasicItems" position="bottom">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
                 <Dock :model="dockBasicItems" position="top">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="left">
+                <Dock :model="dockBasicItems" position="right">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="right">
+                <Dock :model="dockBasicItems" position="bottom">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
+                <Dock :model="dockBasicItems" position="left">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
@@ -218,7 +347,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%">
                         </a>
                     </template>
@@ -260,46 +389,46 @@ export default {
             dockItems: [
                 {
                     label: 'Finder',
-                    icon: "/demo/images/dock/finder.svg",
+                    icon: "demo/images/dock/finder.svg",
                     command: () => {
                         this.displayFinder = true;
                     }
                 },
                 {
                     label: 'Terminal',
-                    icon: "/demo/images/dock/terminal.svg",
+                    icon: "demo/images/dock/terminal.svg",
                     command: () => {
                         this.displayTerminal = true;
                     }
                 },
                 {
                     label: 'App Store',
-                    icon: "/demo/images/dock/appstore.svg",
+                    icon: "demo/images/dock/appstore.svg",
                     command: () => {
                         this.$toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
                     }
                 },
                 {
                     label: 'Safari',
-                    icon: "/demo/images/dock/safari.svg",
+                    icon: "demo/images/dock/safari.svg",
                     command: () => {
                         this.$toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
                     }
                 },
                 {
                     label: 'Photos',
-                    icon: "/demo/images/dock/photos.svg",
+                    icon: "demo/images/dock/photos.svg",
                     command: () => {
                         this.displayPhotos = true;
                     }
                 },
                 {
                     label: 'GitHub',
-                    icon: "/demo/images/dock/github.svg",
+                    icon: "demo/images/dock/github.svg",
                 },
                 {
                     label: 'Trash',
-                    icon: "/demo/images/dock/trash.png",
+                    icon: "demo/images/dock/trash.png",
                     command: () => {
                         this.$toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
                     }
@@ -308,19 +437,19 @@ export default {
             dockBasicItems: [
                 {
                     label: "Finder",
-                    icon: "/demo/images/dock/finder.svg"
+                    icon: "demo/images/dock/finder.svg"
                 },
                 {
                     label: "App Store",
-                    icon: "/demo/images/dock/appstore.svg"
+                    icon: "demo/images/dock/appstore.svg"
                 },
                 {
                     label: "Photos",
-                    icon: "/demo/images/dock/photos.svg"
+                    icon: "demo/images/dock/photos.svg"
                 },
                 {
                     label: "Trash",
-                    icon: "/demo/images/dock/trash.png"
+                    icon: "demo/images/dock/trash.png"
                 }
             ],
             menubarItems: [
@@ -546,7 +675,7 @@ export default {
             padding: 0.5rem .75rem;
         }
 
-        .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+        .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
             padding: 0.5rem .75rem;
 
             > .p-submenu-icon {
@@ -579,22 +708,22 @@ export default {
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <Dock :model="dockBasicItems" position="bottom">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
-                    </template>
-                </Dock>
                 <Dock :model="dockBasicItems" position="top">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="left">
+                <Dock :model="dockBasicItems" position="right">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
                 </Dock>
-                <Dock :model="dockBasicItems" position="right">
+                <Dock :model="dockBasicItems" position="bottom">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    </template>
+                </Dock>
+                <Dock :model="dockBasicItems" position="left">
                     <template #icon="{ item }">
                         <img :alt="item.label" :src="item.icon" style="width: 100%" />
                     </template>
@@ -619,7 +748,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <Dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                         </a>
                     </template>
@@ -676,46 +805,46 @@ export default {
         const dockItems = ref([
             {
                 label: 'Finder',
-                icon: "/demo/images/dock/finder.svg",
+                icon: "demo/images/dock/finder.svg",
                 command: () => {
                     displayFinder.value = true;
                 }
             },
             {
                 label: 'Terminal',
-                icon: "/demo/images/dock/terminal.svg",
+                icon: "demo/images/dock/terminal.svg",
                 command: () => {
                     displayTerminal.value = true;
                 }
             },
             {
                 label: 'App Store',
-                icon: "/demo/images/dock/appstore.svg",
+                icon: "demo/images/dock/appstore.svg",
                 command: () => {
                     toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
                 }
             },
             {
                 label: 'Safari',
-                icon: "/demo/images/dock/safari.svg",
+                icon: "demo/images/dock/safari.svg",
                 command: () => {
                     toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
                 }
             },
             {
                 label: 'Photos',
-                icon: "/demo/images/dock/photos.svg",
+                icon: "demo/images/dock/photos.svg",
                 command: () => {
                     displayPhotos.value = true;
                 }
             },
             {
                 label: 'GitHub',
-                icon: "/demo/images/dock/github.svg",
+                icon: "demo/images/dock/github.svg",
             },
             {
                 label: 'Trash',
-                icon: "/demo/images/dock/trash.png",
+                icon: "demo/images/dock/trash.png",
                 command: () => {
                     toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
                 }
@@ -724,19 +853,19 @@ export default {
         const dockBasicItems = ref([
             {
                 label: "Finder",
-                icon: "/demo/images/dock/finder.svg"
+                icon: "demo/images/dock/finder.svg"
             },
             {
                 label: "App Store",
-                icon: "/demo/images/dock/appstore.svg"
+                icon: "demo/images/dock/appstore.svg"
             },
             {
                 label: "Photos",
-                icon: "/demo/images/dock/photos.svg"
+                icon: "demo/images/dock/photos.svg"
             },
             {
                 label: "Trash",
-                icon: "/demo/images/dock/trash.png"
+                icon: "demo/images/dock/trash.png"
             }
         ]);
         const menubarItems = ref([
@@ -982,7 +1111,7 @@ export default {
             padding: 0.5rem .75rem;
         }
 
-        .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+        .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
             padding: 0.5rem .75rem;
 
             > .p-submenu-icon {
@@ -1021,22 +1150,22 @@ export default {
 
             <h5>Basic</h5>
             <div class="dock-window">
-                <p-dock :model="dockBasicItems" position="bottom">
-                    <template #icon="{ item }">
-                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
-                    </template>
-                </p-dock>
                 <p-dock :model="dockBasicItems" position="top">
                     <template #icon="{ item }">
                         <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
-                <p-dock :model="dockBasicItems" position="left">
+                <p-dock :model="dockBasicItems" position="right">
                     <template #icon="{ item }">
                         <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
                 </p-dock>
-                <p-dock :model="dockBasicItems" position="right">
+                <p-dock :model="dockBasicItems" position="bottom">
+                    <template #icon="{ item }">
+                        <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
+                    </template>
+                </p-dock>
+                <p-dock :model="dockBasicItems" position="left">
                     <template #icon="{ item }">
                         <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                     </template>
@@ -1061,7 +1190,7 @@ export default {
             <div class="dock-window dock-advanced">
                 <p-dock :model="dockItems">
                     <template #item="{ item }">
-                        <a href="#" class="p-dock-action" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
+                        <a href="#" class="p-dock-link" v-tooltip.top="item.label" @click="onDockItemClick($event, item)">
                             <img :alt="item.label" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" style="width: 100%" />
                         </a>
                     </template>
@@ -1115,46 +1244,46 @@ export default {
                 const dockItems = ref([
                     {
                         label: 'Finder',
-                        icon: "/demo/images/dock/finder.svg",
+                        icon: "demo/images/dock/finder.svg",
                         command: () => {
                             displayFinder.value = true;
                         }
                     },
                     {
                         label: 'Terminal',
-                        icon: "/demo/images/dock/terminal.svg",
+                        icon: "demo/images/dock/terminal.svg",
                         command: () => {
                             displayTerminal.value = true;
                         }
                     },
                     {
                         label: 'App Store',
-                        icon: "/demo/images/dock/appstore.svg",
+                        icon: "demo/images/dock/appstore.svg",
                         command: () => {
                             toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
                         }
                     },
                     {
                         label: 'Safari',
-                        icon: "/demo/images/dock/safari.svg",
+                        icon: "demo/images/dock/safari.svg",
                         command: () => {
                             toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
                         }
                     },
                     {
                         label: 'Photos',
-                        icon: "/demo/images/dock/photos.svg",
+                        icon: "demo/images/dock/photos.svg",
                         command: () => {
                             displayPhotos.value = true;
                         }
                     },
                     {
                         label: 'GitHub',
-                        icon: "/demo/images/dock/github.svg",
+                        icon: "demo/images/dock/github.svg",
                     },
                     {
                         label: 'Trash',
-                        icon: "/demo/images/dock/trash.png",
+                        icon: "demo/images/dock/trash.png",
                         command: () => {
                             toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
                         }
@@ -1163,19 +1292,19 @@ export default {
                 const dockBasicItems = ref([
                     {
                         label: "Finder",
-                        icon: "/demo/images/dock/finder.svg"
+                        icon: "demo/images/dock/finder.svg"
                     },
                     {
                         label: "App Store",
-                        icon: "/demo/images/dock/appstore.svg"
+                        icon: "demo/images/dock/appstore.svg"
                     },
                     {
                         label: "Photos",
-                        icon: "/demo/images/dock/photos.svg"
+                        icon: "demo/images/dock/photos.svg"
                     },
                     {
                         label: "Trash",
-                        icon: "/demo/images/dock/trash.png"
+                        icon: "demo/images/dock/trash.png"
                     }
                 ]);
                 const menubarItems = ref([
@@ -1444,11 +1573,11 @@ export default {
                 padding: 0.5rem .75rem;
             }
 
-            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
                 padding: 0.5rem .75rem;
             }
 
-            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
+            .dock-demo .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
                 display: none;
             }
 

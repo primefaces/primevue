@@ -18,9 +18,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="TreeFilterDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeFilterDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="TreeFilterDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeFilterDemo.vue" />
     </div>
 </template>
 
@@ -216,6 +214,7 @@ export default {
         },
         expandNode(node) {
             this.expandedKeys[node.key] = true;
+
             if (node.children && node.children.length) {
                 for (let child of node.children) {
                     this.expandNode(child);

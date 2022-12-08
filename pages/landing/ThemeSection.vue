@@ -6,18 +6,18 @@
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'blue')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
-            <nuxt-link type="button" class="font-medium p-link linkbox mt-4" to="https://www.primefaces.org/designer-vue">more...</nuxt-link>
+            <a type="button" class="font-medium p-link linkbox mt-4" href="https://www.primefaces.org/designer-vue">more...</a>
         </div>
-        <div class="themes-main flex mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('/demo/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
+        <div class="themes-main flex mt-7 justify-content-center pad-section" :style="{ backgroundImage: `url('demo/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
             <div class="box overflow-hidden z-1 p-5 table-container">
                 <DataTable
+                    v-model:selection="selectedCustomers"
+                    v-model:filters="filters"
                     :value="customers"
                     :paginator="true"
                     :rows="5"
                     dataKey="id"
                     :rowHover="true"
-                    v-model:selection="selectedCustomers"
-                    v-model:filters="filters"
                     filterDisplay="menu"
                     :loading="loading"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
@@ -50,7 +50,7 @@
                     </Column>
                     <Column header="Agent" sortable sortField="representative.name" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="'/demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                     </Column>
@@ -126,6 +126,7 @@ export default {
     methods: {
         changeTheme(name, color) {
             let newTheme = name + '-' + (this.$appState.darkTheme ? 'dark' : 'light') + '-' + color;
+
             this.$emit('table-theme-change', newTheme);
         },
         formatDate(value) {

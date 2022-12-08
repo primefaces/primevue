@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <Breadcrumb :home="home" :model="items" />
+                <Breadcrumb :home="home" :model="items" aria-label="breadcrumb" />
             </div>
         </div>
 
@@ -25,7 +25,7 @@ export default {
     data() {
         return {
             home: { icon: 'pi pi-home', to: '/' },
-            items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }]
+            items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item', to: '/breadcrumb' }]
         };
     },
     components: {

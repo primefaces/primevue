@@ -21,10 +21,9 @@
         </div>
 
         <div class="content-section documentation">
-            <ClientOnly>
-                <TabView>
-                    <TabPanel header="Source">
-                        <pre v-code><code><template v-pre>
+            <TabView>
+                <TabPanel header="Source">
+                    <pre v-code><code><template v-pre>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
     :circular="true" :autoPlay="true" :transitionInterval="2000"&gt;
     &lt;template #item="slotProps"&gt;
@@ -37,7 +36,7 @@
 </template>
 </code></pre>
 
-                        <pre v-code.script><code>
+                    <pre v-code.script><code>
 import PhotoService from '../../service/PhotoService';
 
 export default {
@@ -70,9 +69,8 @@ export default {
 }
 
 </code></pre>
-                    </TabPanel>
-                </TabView>
-            </ClientOnly>
+                </TabPanel>
+            </TabView>
         </div>
     </div>
 </template>

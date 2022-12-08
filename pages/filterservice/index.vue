@@ -13,7 +13,7 @@
                 <h5>Table Integration</h5>
                 <p>A custom equals filter that checks for exact case sensitive value is registered and defined as a match mode of a column filter.</p>
 
-                <DataTable :value="customers" :paginator="true" :rows="10" responsiveLayout="scroll" dataKey="id" v-model:filters="filters" filterDisplay="row" :loading="loading">
+                <DataTable v-model:filters="filters" :value="customers" :paginator="true" :rows="10" responsiveLayout="scroll" dataKey="id" filterDisplay="row" :loading="loading">
                     <template #empty> No customers found. </template>
                     <template #loading> Loading customers data. Please wait. </template>
                     <Column field="name" header="Name" :filterMatchModeOptions="matchModeOptions">
@@ -21,7 +21,7 @@
                             {{ data.name }}
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" />
+                            <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" />
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name" :filterMatchModeOptions="matchModeOptions">
@@ -30,7 +30,7 @@
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" :placeholder="`Search by country - ${filterModel.matchMode}`" />
+                            <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" :placeholder="`Search by country - ${filterModel.matchMode}`" />
                         </template>
                     </Column>
                 </DataTable>
@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import FilterServiceDoc from './FilterServiceDoc';
 import { FilterMatchMode, FilterService } from 'primevue/api';
 import CustomerService from '../../service/CustomerService';
+import FilterServiceDoc from './FilterServiceDoc';
 
 const YOUR_FILTER = 'YOUR FILTER';
 

@@ -12,34 +12,33 @@
             <div class="card">
                 <h5>Linear</h5>
                 <div class="speeddial-linear-demo" :style="{ position: 'relative', height: '500px' }">
-                    <SpeedDial :model="items" direction="up" />
                     <SpeedDial :model="items" direction="down" />
-                    <SpeedDial :model="items" direction="left" />
                     <SpeedDial :model="items" direction="right" />
+                    <SpeedDial :model="items" direction="left" />
+                    <SpeedDial :model="items" direction="up" />
                 </div>
             </div>
 
             <div class="card">
                 <h5>Circle, Semi-Circle and Quarter-Circle</h5>
                 <div class="speeddial-circle-demo" :style="{ position: 'relative', height: '500px' }">
-                    <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
-                    <SpeedDial :model="items" :radius="80" direction="up" type="semi-circle" />
-                    <SpeedDial :model="items" :radius="80" direction="down" type="semi-circle" />
-                    <SpeedDial :model="items" :radius="80" direction="left" type="semi-circle" />
-                    <SpeedDial :model="items" :radius="80" direction="right" type="semi-circle" />
-                    <SpeedDial :model="items" :radius="120" direction="up-left" type="quarter-circle" buttonClass="p-button-success" />
-                    <SpeedDial :model="items" :radius="120" direction="up-right" type="quarter-circle" buttonClass="p-button-success" />
-                    <SpeedDial :model="items" :radius="120" direction="down-left" type="quarter-circle" buttonClass="p-button-success" />
                     <SpeedDial :model="items" :radius="120" direction="down-right" type="quarter-circle" buttonClass="p-button-success" />
+                    <SpeedDial :model="items" :radius="80" direction="down" type="semi-circle" />
+                    <SpeedDial :model="items" :radius="120" direction="down-left" type="quarter-circle" buttonClass="p-button-success" />
+                    <SpeedDial :model="items" :radius="80" direction="right" type="semi-circle" />
+                    <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+                    <SpeedDial :model="items" :radius="80" direction="left" type="semi-circle" />
+                    <SpeedDial :model="items" :radius="120" direction="up-right" type="quarter-circle" buttonClass="p-button-success" />
+                    <SpeedDial :model="items" :radius="80" direction="up" type="semi-circle" />
+                    <SpeedDial :model="items" :radius="120" direction="up-left" type="quarter-circle" buttonClass="p-button-success" />
                 </div>
             </div>
 
             <div class="card">
                 <h5>Tooltip</h5>
                 <div class="speeddial-tooltip-demo" :style="{ position: 'relative', height: '350px' }">
-                    <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
-
                     <SpeedDial :model="items" direction="up" class="speeddial-left" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
+                    <SpeedDial :model="items" direction="up" class="speeddial-right" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
                 </div>
             </div>
 

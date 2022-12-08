@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id" @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll">
+                <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id" @row-expand="onRowExpand" @row-collapse="onRowCollapse" responsiveLayout="scroll">
                     <template #header>
                         <div class="table-header-container">
                             <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
@@ -21,7 +21,7 @@
                     <Column field="name" header="Name" sortable></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="'/demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price" sortable>
@@ -69,9 +69,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
     </div>
 </template>
 

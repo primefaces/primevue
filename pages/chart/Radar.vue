@@ -19,21 +19,11 @@
 </template>
 
 <script>
-import RadarChartDoc from './RadarChartDoc';
 import EventBus from '@/layouts/AppEventBus';
+import RadarChartDoc from './RadarChartDoc';
 
 export default {
     themeChangeListener: null,
-    mounted() {
-        this.themeChangeListener = (event) => {
-            if (event.dark) this.chartOptions = this.getDarkTheme();
-            else this.chartOptions = this.getLightTheme();
-        };
-        EventBus.on('theme-change', this.themeChangeListener);
-    },
-    beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener);
-    },
     data() {
         return {
             chartData: {
@@ -63,6 +53,17 @@ export default {
             },
             chartOptions: this.isDarkTheme() ? this.getDarkTheme() : this.getLightTheme()
         };
+    },
+    mounted() {
+        this.themeChangeListener = (event) => {
+            if (event.dark) this.chartOptions = this.getDarkTheme();
+            else this.chartOptions = this.getLightTheme();
+        };
+
+        EventBus.on('theme-change', this.themeChangeListener);
+    },
+    beforeUnmount() {
+        EventBus.off('change-theme', this.themeChangeListener);
     },
     methods: {
         isDarkTheme() {

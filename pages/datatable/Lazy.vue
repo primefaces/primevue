@@ -16,12 +16,13 @@
         <div class="content-section implementation">
             <div class="card">
                 <DataTable
+                    ref="dt"
+                    v-model:filters="filters"
+                    v-model:selection="selectedCustomers"
                     :value="customers"
                     :lazy="true"
                     :paginator="true"
                     :rows="10"
-                    v-model:filters="filters"
-                    ref="dt"
                     dataKey="id"
                     :totalRecords="totalRecords"
                     :loading="loading"
@@ -31,40 +32,37 @@
                     filterDisplay="row"
                     :globalFilterFields="['name', 'country.name', 'company', 'representative.name']"
                     responsiveLayout="scroll"
-                    v-model:selection="selectedCustomers"
                     :selectAll="selectAll"
                     @select-all-change="onSelectAllChange"
                     @row-select="onRowSelect"
                     @row-unselect="onRowUnselect"
                 >
                     <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
-                    <Column field="name" header="Name" filterMatchMode="startsWith" ref="name" :sortable="true">
+                    <Column ref="name" field="name" header="Name" filterMatchMode="startsWith" :sortable="true">
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name" />
+                            <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
-                    <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" ref="country.name" :sortable="true">
+                    <Column ref="country.name" field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" :sortable="true">
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country" />
+                            <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by country" />
                         </template>
                     </Column>
-                    <Column field="company" header="Company" filterMatchMode="contains" ref="company" :sortable="true">
+                    <Column ref="company" field="company" header="Company" filterMatchMode="contains" :sortable="true">
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by company" />
+                            <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by company" />
                         </template>
                     </Column>
-                    <Column field="representative.name" header="Representative" filterField="representative.name" ref="representative.name" :sortable="true">
+                    <Column ref="representative.name" field="representative.name" header="Representative" filterField="representative.name" :sortable="true">
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by representative" />
+                            <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search by representative" />
                         </template>
                     </Column>
                 </DataTable>
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" github="datatable/DataTableLazyDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" github="datatable/DataTableLazyDemo.vue" />
     </div>
 </template>
 

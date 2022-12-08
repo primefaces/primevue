@@ -10,7 +10,7 @@
 
         <div class="content-section implementation">
             <div class="card">
-                <DataTable :value="products" ref="dt" responsiveLayout="scroll">
+                <DataTable ref="dt" :value="products" responsiveLayout="scroll">
                     <template #header>
                         <div style="text-align: left">
                             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
@@ -24,9 +24,7 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableExportDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableExportDemo.vue" />
     </div>
 </template>
 

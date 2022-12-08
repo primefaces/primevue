@@ -1,139 +1,147 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="SkeletonDemo" :sources="sources" github="skeleton/SkeletonDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="SkeletonDemo" :sources="sources" github="skeleton/SkeletonDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Skeleton from 'primevue/skeleton';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/skeleton/skeleton.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>Skeleton displays a rectangle in its simplest form.</p>
-            <pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Skeleton displays a rectangle in its simplest form.</p>
+        <pre v-code><code>
 &lt;Skeleton /&gt;
 
 </code></pre>
 
-            <h5>Circle</h5>
-            <p>The other option is the circle by setting <i>shape</i> property as "circle".</p>
-            <pre v-code><code>
+        <h5>Circle</h5>
+        <p>The other option is the circle by setting <i>shape</i> property as "circle".</p>
+        <pre v-code><code>
 &lt;Skeleton shape="circle"/&gt;
 
 </code></pre>
 
-            <h5>Size</h5>
-            <p>In order to customize the size, use <i>width</i> and <i>height</i> properties for rectangles and <i>size</i> for Circle and Square shapes.</p>
-            <pre v-code><code>
+        <h5>Size</h5>
+        <p>In order to customize the size, use <i>width</i> and <i>height</i> properties for rectangles and <i>size</i> for Circle and Square shapes.</p>
+        <pre v-code><code>
 &lt;Skeleton width="100%" height="2rem" /&gt;
 &lt;Skeleton shape="circle" size="50px" /&gt;
 
 </code></pre>
 
-            <h5>Border Radius</h5>
-            <p>The default border radius of a rectangle is specified by the theme and can be overriden using the <i>borderRadius</i> property.</p>
-            <pre v-code><code>
+        <h5>Border Radius</h5>
+        <p>The default border radius of a rectangle is specified by the theme and can be overriden using the <i>borderRadius</i> property.</p>
+        <pre v-code><code>
 &lt;Skeleton borderRadius="16px" /&gt;
 
 </code></pre>
 
-            <h5>Animation</h5>
-            <p>Animation can be turned of by setting <i>animation</i> to "none".</p>
-            <pre v-code><code>
+        <h5>Animation</h5>
+        <p>Animation can be turned of by setting <i>animation</i> to "none".</p>
+        <pre v-code><code>
 &lt;Skeleton animation="none" /&gt;
 
 </code></pre>
 
-            <h5>Properties</h5>
-            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>shape</td>
-                            <td>string</td>
-                            <td>rectangle</td>
-                            <td>Shape of the element, options are "rectangle" and "circle".</td>
-                        </tr>
-                        <tr>
-                            <td>size</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Size of the Circle or Square.</td>
-                        </tr>
-                        <tr>
-                            <td>width</td>
-                            <td>string</td>
-                            <td>100%</td>
-                            <td>Width of the element.</td>
-                        </tr>
-                        <tr>
-                            <td>height</td>
-                            <td>string</td>
-                            <td>1rem</td>
-                            <td>Height of the element.</td>
-                        </tr>
-                        <tr>
-                            <td>borderRadius</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Border radius of the element, defaults to value from theme.</td>
-                        </tr>
-                        <tr>
-                            <td>animation</td>
-                            <td>string</td>
-                            <td>wave</td>
-                            <td>Type of the animation, valid options are "wave" and "none".</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Properties</h5>
+        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>shape</td>
+                        <td>string</td>
+                        <td>rectangle</td>
+                        <td>Shape of the element, options are "rectangle" and "circle".</td>
+                    </tr>
+                    <tr>
+                        <td>size</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Size of the Circle or Square.</td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>string</td>
+                        <td>100%</td>
+                        <td>Width of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>string</td>
+                        <td>1rem</td>
+                        <td>Height of the element.</td>
+                    </tr>
+                    <tr>
+                        <td>borderRadius</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Border radius of the element, defaults to value from theme.</td>
+                    </tr>
+                    <tr>
+                        <td>animation</td>
+                        <td>string</td>
+                        <td>wave</td>
+                        <td>Type of the animation, valid options are "wave" and "none".</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-skeleton</td>
-                            <td>Container element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-skeleton-circle</td>
-                            <td>Container element of a determinate progressbar.</td>
-                        </tr>
-                        <tr>
-                            <td>p-skeleton-animation-none</td>
-                            <td>Container element of an indeterminate progressbar.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-skeleton</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-skeleton-circle</td>
+                        <td>Container element of a determinate progressbar.</td>
+                    </tr>
+                    <tr>
+                        <td>p-skeleton-animation-none</td>
+                        <td>Container element of an indeterminate progressbar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Skeleton uses <i>aria-hidden</i> as "true" so that it gets ignored by screen readers, any valid attribute is passed to the root element so you may customize it further if required. If multiple skeletons are grouped inside a container, you
+            may use <i>aria-busy</i> on the container element as well to indicate the loading process.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <p>Component does not include any interactive elements.</p>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

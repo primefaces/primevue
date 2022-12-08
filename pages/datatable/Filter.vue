@@ -13,13 +13,13 @@
                 <h5>Filter Menu</h5>
                 <p>Filters are displayed in an overlay.</p>
                 <DataTable
+                    v-model:filters="filters1"
                     :value="customers1"
                     :paginator="true"
                     class="p-datatable-customers"
                     showGridlines
                     :rows="10"
                     dataKey="id"
-                    v-model:filters="filters1"
                     filterDisplay="menu"
                     :loading="loading1"
                     responsiveLayout="scroll"
@@ -41,7 +41,7 @@
                             {{ data.name }}
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name" />
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name" style="min-width: 12rem">
@@ -50,7 +50,7 @@
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country" />
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by country" />
                         </template>
                         <template #filterclear="{ filterCallback }">
                             <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
@@ -64,7 +64,7 @@
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="'/demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
@@ -72,7 +72,7 @@
                             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="'/demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -102,7 +102,7 @@
                         <template #filter="{ filterModel }">
                             <Dropdown v-model="filterModel.value" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #value="slotProps">
-                                    <span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value">{{ slotProps.value }}</span>
+                                    <span v-if="slotProps.value" :class="'customer-badge status-' + slotProps.value">{{ slotProps.value }}</span>
                                     <span v-else>{{ slotProps.placeholder }}</span>
                                 </template>
                                 <template #option="slotProps">
@@ -117,7 +117,7 @@
                         </template>
                         <template #filter="{ filterModel }">
                             <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                            <div class="flex align-items-center justify-content-center px-2">
+                            <div class="flex align-items-center justify-content-between px-2">
                                 <span>{{ filterModel.value ? filterModel.value[0] : 0 }}</span>
                                 <span>{{ filterModel.value ? filterModel.value[1] : 100 }}</span>
                             </div>
@@ -138,12 +138,12 @@
                 <h5>Filter Row</h5>
                 <p>Filters are displayed inline within a separate row.</p>
                 <DataTable
+                    v-model:filters="filters2"
                     :value="customers2"
                     :paginator="true"
                     class="p-datatable-customers"
                     :rows="10"
                     dataKey="id"
-                    v-model:filters="filters2"
                     filterDisplay="row"
                     :loading="loading2"
                     responsiveLayout="scroll"
@@ -164,7 +164,7 @@
                             {{ data.name }}
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" v-tooltip.top.focus="'Hit enter key to filter'" />
+                            <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - ${filterModel.matchMode}`" />
                         </template>
                     </Column>
                     <Column header="Country" filterField="country.name" style="min-width: 12rem">
@@ -173,19 +173,19 @@
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
-                            <InputText type="text" v-model="filterModel.value" @input="filterCallback()" class="p-column-filter" placeholder="Search by country" v-tooltip.top.focus="'Filter as you type'" />
+                            <InputText v-model="filterModel.value" v-tooltip.top.focus="'Filter as you type'" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Search by country" />
                         </template>
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMenu="false" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="'/demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
                             <MultiSelect v-model="filterModel.value" @change="filterCallback()" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="'/demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -199,7 +199,7 @@
                         <template #filter="{ filterModel, filterCallback }">
                             <Dropdown v-model="filterModel.value" @change="filterCallback()" :options="statuses" placeholder="Any" class="p-column-filter" :showClear="true">
                                 <template #value="slotProps">
-                                    <span :class="'customer-badge status-' + slotProps.value" v-if="slotProps.value">{{ slotProps.value }}</span>
+                                    <span v-if="slotProps.value" :class="'customer-badge status-' + slotProps.value">{{ slotProps.value }}</span>
                                     <span v-else>{{ slotProps.placeholder }}</span>
                                 </template>
                                 <template #option="slotProps">
@@ -220,15 +220,13 @@
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="DataTableFilterDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFilterDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="DataTableFilterDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFilterDemo.vue" />
     </div>
 </template>
 
 <script>
-import CustomerService from '../../service/CustomerService';
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
+import CustomerService from '../../service/CustomerService';
 
 export default {
     data() {
@@ -367,7 +365,7 @@ export default {
                     </template>
                     <template #filter={filterModel}>
                         <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                        <div class="flex align-items-center justify-content-center px-2">
+                        <div class="flex align-items-center justify-content-between px-2">
                             <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                             <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                         </div>
@@ -708,7 +706,7 @@ export default {
                     </template>
                     <template #filter={filterModel}>
                         <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                        <div class="flex align-items-center justify-content-center px-2">
+                        <div class="flex align-items-center justify-content-between px-2">
                             <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                             <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                         </div>
@@ -1063,7 +1061,7 @@ export default {
                         </template>
                         <template #filter={filterModel}>
                             <p-slider v-model="filterModel.value" range class="m-3"></p-slider>
-                            <div class="flex align-items-center justify-content-center px-2">
+                            <div class="flex align-items-center justify-content-between px-2">
                                 <span>{{filterModel.value ? filterModel.value[0] : 0}}</span>
                                 <span>{{filterModel.value ? filterModel.value[1] : 100}}</span>
                             </div>

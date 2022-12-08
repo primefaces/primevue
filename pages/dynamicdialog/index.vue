@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import { h } from 'vue';
 import Button from 'primevue/button';
-import ProductListDemo from './ProductListDemo';
+import { h } from 'vue';
 import DynamicDialogDoc from './DynamicDialogDoc.vue';
+import ProductListDemo from './ProductListDemo';
 
 export default {
     methods: {
@@ -51,6 +51,7 @@ export default {
                 },
                 onClose: (options) => {
                     const data = options.data;
+
                     if (data) {
                         const buttonType = data.buttonType;
                         const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data.name };

@@ -1,25 +1,24 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="BlockUIDemo" :sources="sources" github="blockui/BlockUIDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="BlockUIDemo" :sources="sources" github="blockui/BlockUIDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import BlockUI from 'primevue/blockui';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/blockui/blockui.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>
-                BlockUI is controlled using the <i>blocked</i> property, by default target element to block is the child component. In example below, panel gets blocked with a mask when blockedPanel is enabled and gets unblock when the bound variable
-                is set to false.
-            </p>
-            <pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>
+            BlockUI is controlled using the <i>blocked</i> property, by default target element to block is the child component. In example below, panel gets blocked with a mask when blockedPanel is enabled and gets unblock when the bound variable is
+            set to false.
+        </p>
+        <pre v-code><code>
 &lt;BlockUI :blocked="blockedPanel"&gt;
     &lt;Panel header="Header"&gt;
         Panel Content
@@ -28,7 +27,7 @@ import BlockUI from 'primevue/blockui';
 
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -47,107 +46,115 @@ export default {
 
 </code></pre>
 
-            <h5>Full Screen</h5>
-            <p>In full screen mode, instead of a particular element, the whole document gets blocked. Set <i>fullScreen</i> as true in order to enable this functionality.</p>
+        <h5>Full Screen</h5>
+        <p>In full screen mode, instead of a particular element, the whole document gets blocked. Set <i>fullScreen</i> as true in order to enable this functionality.</p>
 
-            <pre v-code><code>
+        <pre v-code><code>
 &lt;BlockUI :blocked="blockedDocument" :fullScreen="true"&gt;&lt;/BlockUI&gt;
 
 </code></pre>
 
-            <h5>Properties</h5>
-            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>blocked</td>
-                            <td>array</td>
-                            <td>null</td>
-                            <td>Controls the blocked state.</td>
-                        </tr>
-                        <tr>
-                            <td>fullscreen</td>
-                            <td>menuitem</td>
-                            <td>null</td>
-                            <td>When enabled, the whole document gets blocked.</td>
-                        </tr>
-                        <tr>
-                            <td>baseZIndex</td>
-                            <td>number</td>
-                            <td>0</td>
-                            <td>Base zIndex value to use in layering.</td>
-                        </tr>
-                        <tr>
-                            <td>autoZIndex</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Whether to automatically manage layering.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Properties</h5>
+        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>blocked</td>
+                        <td>array</td>
+                        <td>null</td>
+                        <td>Controls the blocked state.</td>
+                    </tr>
+                    <tr>
+                        <td>fullscreen</td>
+                        <td>menuitem</td>
+                        <td>null</td>
+                        <td>When enabled, the whole document gets blocked.</td>
+                    </tr>
+                    <tr>
+                        <td>baseZIndex</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Base zIndex value to use in layering.</td>
+                    </tr>
+                    <tr>
+                        <td>autoZIndex</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to automatically manage layering.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Events</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>block</td>
-                            <td>-</td>
-                            <td>Fired when the element gets blocked.</td>
-                        </tr>
-                        <tr>
-                            <td>unblock</td>
-                            <td>-</td>
-                            <td>Fired when the element gets unblocked.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>block</td>
+                        <td>-</td>
+                        <td>Fired when the element gets blocked.</td>
+                    </tr>
+                    <tr>
+                        <td>unblock</td>
+                        <td>-</td>
+                        <td>Fired when the element gets unblocked.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-blockui</td>
-                            <td>Mask element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-blockui-document</td>
-                            <td>Mask element in full screen mode.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-blockui</td>
+                        <td>Mask element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-blockui-document</td>
+                        <td>Mask element in full screen mode.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            BlockUI manages <i>aria-busy</i> state attribute when the UI gets blocked and unblocked. Any valid attribute is passed to the root element so additional attributes like <i>role</i> and <i>aria-live</i> can be used to define live regions.
+        </p>
+
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

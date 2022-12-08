@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-                <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" />
+                <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
             </div>
         </div>
 
@@ -20,10 +20,16 @@
 </template>
 
 <script>
-import TerminalDoc from './TerminalDoc';
 import TerminalService from 'primevue/terminalservice';
+import TerminalDoc from './TerminalDoc';
 
 export default {
+    mounted() {
+        TerminalService.on('command', this.commandHandler);
+    },
+    beforeUnmount() {
+        TerminalService.off('command', this.commandHandler);
+    },
     methods: {
         commandHandler(text) {
             let response;
@@ -49,12 +55,6 @@ export default {
 
             TerminalService.emit('response', response);
         }
-    },
-    mounted() {
-        TerminalService.on('command', this.commandHandler);
-    },
-    beforeUnmount() {
-        TerminalService.off('command', this.commandHandler);
     },
     components: {
         TerminalDoc: TerminalDoc

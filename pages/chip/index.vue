@@ -28,18 +28,18 @@
 
                 <h5>Image</h5>
                 <div class="flex align-items-center">
-                    <Chip label="Amy Elsner" image="/demo/images/avatar/amyelsner.png" class="mr-2" />
-                    <Chip label="Asiya Javayant" image="/demo/images/avatar/asiyajavayant.png" class="mr-2" />
-                    <Chip label="Onyama Limba" image="/demo/images/avatar/onyamalimba.png" class="mr-2" />
-                    <Chip label="Xuxue Feng" image="/demo/images/avatar/xuxuefeng.png" removable />
+                    <Chip label="Amy Elsner" image="demo/images/avatar/amyelsner.png" class="mr-2" />
+                    <Chip label="Asiya Javayant" image="demo/images/avatar/asiyajavayant.png" class="mr-2" />
+                    <Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2" />
+                    <Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" removable />
                 </div>
 
                 <h5>Styling</h5>
                 <div class="flex align-items-center">
                     <Chip label="Action" class="mr-2 custom-chip" />
                     <Chip label="Apple" icon="pi pi-apple" class="mr-2 custom-chip" />
-                    <Chip label="Onyama Limba" image="/demo/images/avatar/onyamalimba.png" class="mr-2 custom-chip" />
-                    <Chip label="Xuxue Feng" image="/demo/images/avatar/xuxuefeng.png" class="custom-chip" removable />
+                    <Chip label="Onyama Limba" image="demo/images/avatar/onyamalimba.png" class="mr-2 custom-chip" />
+                    <Chip label="Xuxue Feng" image="demo/images/avatar/xuxuefeng.png" class="custom-chip" removable />
                 </div>
             </div>
         </div>

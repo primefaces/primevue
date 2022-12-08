@@ -11,25 +11,23 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Single Selection</h5>
-                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"></Tree>
+                <Tree v-model:selectionKeys="selectedKey1" :value="nodes" selectionMode="single"></Tree>
 
                 <h5>Multiple Selection with MetaKey</h5>
-                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys1"></Tree>
+                <Tree v-model:selectionKeys="selectedKeys1" :value="nodes" selectionMode="multiple"></Tree>
 
                 <h5>Multiple Selection without MetaKey</h5>
-                <Tree :value="nodes" selectionMode="multiple" v-model:selectionKeys="selectedKeys2" :metaKeySelection="false"></Tree>
+                <Tree v-model:selectionKeys="selectedKeys2" :value="nodes" selectionMode="multiple" :metaKeySelection="false"></Tree>
 
                 <h5>Checkbox Selection</h5>
-                <Tree :value="nodes" selectionMode="checkbox" v-model:selectionKeys="selectedKeys3"></Tree>
+                <Tree v-model:selectionKeys="selectedKeys3" :value="nodes" selectionMode="checkbox"></Tree>
 
                 <h5>Events</h5>
-                <Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey2" :metaKeySelection="false" @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
+                <Tree v-model:selectionKeys="selectedKey2" :value="nodes" selectionMode="single" :metaKeySelection="false" @node-select="onNodeSelect" @node-unselect="onNodeUnselect"></Tree>
             </div>
         </div>
 
-        <ClientOnly>
-            <AppDoc name="TreeSelectionDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeSelectionDemo.vue" />
-        </ClientOnly>
+        <AppDoc name="TreeSelectionDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeSelectionDemo.vue" />
     </div>
 </template>
 

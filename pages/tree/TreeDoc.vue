@@ -1,116 +1,115 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Tree from 'primevue/tree';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
+        <h5>Getting Started</h5>
+        <p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
 
-            <h5>TreeNode API utilized by the Tree</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>key</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Mandatory unique key of the node.</td>
-                        </tr>
-                        <tr>
-                            <td>label</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Label of the node.</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Data represented by the node.</td>
-                        </tr>
-                        <tr>
-                            <td>type</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Type of the node to match a template.</td>
-                        </tr>
-                        <tr>
-                            <td>icon</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Icon of the node to display next to content.</td>
-                        </tr>
-                        <tr>
-                            <td>expandedIcon</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Icon to use in expanded state.</td>
-                        </tr>
-                        <tr>
-                            <td>collapsedIcon</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Icon to use in collapsed state.</td>
-                        </tr>
-                        <tr>
-                            <td>children</td>
-                            <td>TreeNode[]</td>
-                            <td>null</td>
-                            <td>An array of treenodes as children.</td>
-                        </tr>
-                        <tr>
-                            <td>style</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Inline style of the node.</td>
-                        </tr>
-                        <tr>
-                            <td>styleClass</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Style class of the node.</td>
-                        </tr>
-                        <tr>
-                            <td>selectable</td>
-                            <td>boolean</td>
-                            <td>null</td>
-                            <td>Whether the node is selectable when selection mode is enabled.</td>
-                        </tr>
-                        <tr>
-                            <td>leaf</td>
-                            <td>boolean</td>
-                            <td>null</td>
-                            <td>Specifies if the node has children. Used in lazy loading.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>TreeNode API utilized by the Tree</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>key</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Mandatory unique key of the node.</td>
+                    </tr>
+                    <tr>
+                        <td>label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Label of the node.</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Data represented by the node.</td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Type of the node to match a template.</td>
+                    </tr>
+                    <tr>
+                        <td>icon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Icon of the node to display next to content.</td>
+                    </tr>
+                    <tr>
+                        <td>expandedIcon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Icon to use in expanded state.</td>
+                    </tr>
+                    <tr>
+                        <td>collapsedIcon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Icon to use in collapsed state.</td>
+                    </tr>
+                    <tr>
+                        <td>children</td>
+                        <td>TreeNode[]</td>
+                        <td>null</td>
+                        <td>An array of treenodes as children.</td>
+                    </tr>
+                    <tr>
+                        <td>style</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Inline style of the node.</td>
+                    </tr>
+                    <tr>
+                        <td>styleClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the node.</td>
+                    </tr>
+                    <tr>
+                        <td>selectable</td>
+                        <td>boolean</td>
+                        <td>null</td>
+                        <td>Whether the node is selectable when selection mode is enabled.</td>
+                    </tr>
+                    <tr>
+                        <td>leaf</td>
+                        <td>boolean</td>
+                        <td>null</td>
+                        <td>Specifies if the node has children. Used in lazy loading.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <p>Example below loads the tree nodes from a remote datasource via a service called NodeService.</p>
-            <pre v-code><code><template v-pre>
+        <p>Example below loads the tree nodes from a remote datasource via a service called NodeService.</p>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -130,7 +129,7 @@ export default {
 
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 export default class NodeService {
 
     getTreeNodes() {
@@ -142,8 +141,8 @@ export default class NodeService {
 
 </code></pre>
 
-            <p>The json response sample would be as following.</p>
-            <pre v-code.script><code>
+        <p>The json response sample would be as following.</p>
+        <pre v-code.script><code>
 {
     "root": [
         {
@@ -201,14 +200,14 @@ export default class NodeService {
 
 </code></pre>
 
-            <h5>Programmatic Control</h5>
-            <p>
-                Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that
-                <i>expandedKeys</i> also supports two-way binding with the v-model directive.
-            </p>
+        <h5>Programmatic Control</h5>
+        <p>
+            Tree state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that
+            <i>expandedKeys</i> also supports two-way binding with the v-model directive.
+        </p>
 
-            <p>Example below expands and collapses all nodes with buttons.</p>
-            <pre v-code><code><template v-pre>
+        <p>Example below expands and collapses all nodes with buttons.</p>
+        <pre v-code><code><template v-pre>
 &lt;div&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
@@ -217,7 +216,7 @@ export default class NodeService {
 </template>
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -258,8 +257,8 @@ export default {
 
 </code></pre>
 
-            <p>To display some nodes as expanded by default, simply add their keys to the map.</p>
-            <pre v-code.script><code>
+        <p>To display some nodes as expanded by default, simply add their keys to the map.</p>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -284,18 +283,18 @@ export default {
 
 </code></pre>
 
-            <h5>Selection</h5>
-            <p>
-                Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the v-model directive and the <i>selectionMode</i> properties to enable the selection. By default in multiple
-                selection mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that in touch enabled devices, Tree does not require metaKey. In addition selection on a
-                particular node can be disabled if the <i>selectable</i> is false on the node instance.
-            </p>
+        <h5>Selection</h5>
+        <p>
+            Tree supports <b>single</b>, <b>multiple</b> and <b>checkbox</b> selection modes. Define the <i>selectionKeys</i> with the v-model directive and the <i>selectionMode</i> properties to enable the selection. By default in multiple selection
+            mode, metaKey is necessary to add to existing selections however this can be configured with <i>metaKeySelection</i> property. Note that in touch enabled devices, Tree does not require metaKey. In addition selection on a particular node
+            can be disabled if the <i>selectable</i> is false on the node instance.
+        </p>
 
-            <p>
-                Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand in "checkbox" mode, instead of a boolean, value
-                should be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.
-            </p>
-            <pre v-code><code><template v-pre>
+        <p>
+            Similarly to the <i>expandedKeys</i>, <i>selectionKeys</i> is a Map instance whose key is the key of a node and value is a boolean in "single" and "multiple" cases. On the other hand in "checkbox" mode, instead of a boolean, value should
+            be an object that has "checked" and "partialChecked" properties to represent the checked state of a node.
+        </p>
+        <pre v-code><code><template v-pre>
 &lt;h3&gt;Single Selection&lt;/h3&gt;
 &lt;Tree :value="nodes" selectionMode="single" v-model:selectionKeys="selectedKey1"&gt;&lt;/Tree&gt;
 
@@ -314,7 +313,7 @@ export default {
 </template>
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -347,8 +346,8 @@ export default {
 
 </code></pre>
 
-            <p>To display some nodes as selected by default, simply add their keys to the map.</p>
-            <pre v-code.script><code>
+        <p>To display some nodes as selected by default, simply add their keys to the map.</p>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -385,18 +384,18 @@ export default {
 
 </code></pre>
 
-            <h5>Lazy</h5>
-            <p>
-                Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand using expand expand. The important part is setting <i>leaf</i> to true on a node instance so that even without
-                children, tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
-            </p>
+        <h5>Lazy</h5>
+        <p>
+            Lazy Loading is handy to deal with huge datasets. Idea is instead of loading the whole tree, load child nodes on demand using expand expand. The important part is setting <i>leaf</i> to true on a node instance so that even without
+            children, tree would render an expand icon. Example below uses an in memory collection to mimic a lazy loading scenario with timeouts.
+        </p>
 
-            <pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -464,9 +463,9 @@ export default {
 
 </code></pre>
 
-            <h5>Templating</h5>
-            <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available, label of the node is used.</p>
-            <pre v-code><code><template v-pre>
+        <h5>Templating</h5>
+        <p>The <i>type</i> property of a TreeNode is used to map a template to a node to create the node label. If it is undefined and no default template is available, label of the node is used.</p>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes"&gt;
     &lt;template #default="slotProps"&gt;
         &lt;b&gt;&#123;&#123;slotProps.node.label&#125;&#125;&lt;/b&gt;
@@ -478,7 +477,7 @@ export default {
 </template>
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -510,20 +509,20 @@ export default {
 
 </code></pre>
 
-            <h5>Scrolling</h5>
-            <p>Scrolling is used to preserve space as content of the tree is dynamic and enabled by <i>scrollHeight</i> property.</p>
-            <pre v-code><code><template v-pre>
+        <h5>Scrolling</h5>
+        <p>Scrolling is used to preserve space as content of the tree is dynamic and enabled by <i>scrollHeight</i> property.</p>
+        <pre v-code><code><template v-pre>
 &lt;Tree :value="nodes1" scrollHeight="200px"&gt;&lt;/Tree&gt;
 </template>
 </code></pre>
 
-            <h5>Flex Scroll</h5>
-            <p>
-                In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set <i>scrollHeight</i> option as <b>flex</b>. In example below, table is inside a Dialog where viewport size
-                dynamically responds to the dialog size changes such as maximizing.
-            </p>
+        <h5>Flex Scroll</h5>
+        <p>
+            In cases where viewport should adjust itself according to the table parent's height instead of a fixed viewport height, set <i>scrollHeight</i> option as <b>flex</b>. In example below, table is inside a Dialog where viewport size
+            dynamically responds to the dialog size changes such as maximizing.
+        </p>
 
-            <pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;Button type="button" icon="pi pi-external-link" label="View" @click="dialogVisible = true"&gt;&lt;/Button&gt;
 
 &lt;Dialog header="Flex Scroll" v-model:visible="dialogVisible" :style="{width: '50vw'}" maximizable
@@ -536,18 +535,18 @@ export default {
 </template>
 </code></pre>
 
-            <h5>Filtering</h5>
-            <p>
-                Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define
-                the <i>filterBy</i> property as a comma separated list.
-            </p>
+        <h5>Filtering</h5>
+        <p>
+            Filtering is enabled by setting the <i>filter</i> property to true, by default label property of a node is used to compare against the value in the text field, in order to customize which field(s) should be used during search, define the
+            <i>filterBy</i> property as a comma separated list.
+        </p>
 
-            <p>
-                In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in
-                <b>strict</b> mode when the query matches a node, filtering continues on all descendants.
-            </p>
+        <p>
+            In addition <i>filterMode</i> specifies the filtering strategy. In <b>lenient</b> mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in
+            <b>strict</b> mode when the query matches a node, filtering continues on all descendants.
+        </p>
 
-            <pre v-code><code><template v-pre>
+        <pre v-code><code><template v-pre>
 &lt;h3&gt;Lenient Filter&lt;/h3&gt;
 &lt;Tree :value="nodes" :filter="true" filterMode="lenient"&gt;&lt;/Tree&gt;
 
@@ -556,7 +555,7 @@ export default {
 </template>
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 import NodeService from '../../service/NodeService';
 
 export default {
@@ -598,198 +597,283 @@ export default {
 
 </code></pre>
 
-            <h5>Properties</h5>
-            <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>value</td>
-                            <td>array</td>
-                            <td>null</td>
-                            <td>An array of treenodes.</td>
-                        </tr>
-                        <tr>
-                            <td>expandedKeys</td>
-                            <td>array</td>
-                            <td>null</td>
-                            <td>A map of keys to represent the expansion state in controlled mode.</td>
-                        </tr>
-                        <tr>
-                            <td>selectionMode</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Defines the selection mode, valid values "single", "multiple", and "checkbox".</td>
-                        </tr>
-                        <tr>
-                            <td>selectionKeys</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>A map of keys to control the selection state.</td>
-                        </tr>
-                        <tr>
-                            <td>metaKeySelection</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>
-                                Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
-                                metaKeySelection is turned off automatically.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>loading</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Whether to display loading indicator.</td>
-                        </tr>
-                        <tr>
-                            <td>loadingIcon</td>
-                            <td>string</td>
-                            <td>pi pi-spin</td>
-                            <td>Icon to display when tree is loading.</td>
-                        </tr>
-                        <tr>
-                            <td>filter</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>When specified, displays an input field to filter the items.</td>
-                        </tr>
-                        <tr>
-                            <td>filterBy</td>
-                            <td>string</td>
-                            <td>label</td>
-                            <td>When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.</td>
-                        </tr>
-                        <tr>
-                            <td>filterMode</td>
-                            <td>string</td>
-                            <td>lenient</td>
-                            <td>Mode for filtering valid values are "lenient" and "strict". Default is lenient.</td>
-                        </tr>
-                        <tr>
-                            <td>filterPlaceholder</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Placeholder text to show when filter input is empty.</td>
-                        </tr>
-                        <tr>
-                            <td>filterLocale</td>
-                            <td>string</td>
-                            <td>undefined</td>
-                            <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
-                        </tr>
-                        <tr>
-                            <td>scrollHeight</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Properties</h5>
+        <p>Any property such as style and class are passed to the underlying root element. Following is the additional property to configure the component.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>value</td>
+                        <td>array</td>
+                        <td>null</td>
+                        <td>An array of treenodes.</td>
+                    </tr>
+                    <tr>
+                        <td>expandedKeys</td>
+                        <td>array</td>
+                        <td>null</td>
+                        <td>A map of keys to represent the expansion state in controlled mode.</td>
+                    </tr>
+                    <tr>
+                        <td>selectionMode</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines the selection mode, valid values "single", "multiple", and "checkbox".</td>
+                    </tr>
+                    <tr>
+                        <td>selectionKeys</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>A map of keys to control the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td>metaKeySelection</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>
+                            Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices,
+                            metaKeySelection is turned off automatically.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>loading</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Whether to display loading indicator.</td>
+                    </tr>
+                    <tr>
+                        <td>loadingIcon</td>
+                        <td>string</td>
+                        <td>pi pi-spin</td>
+                        <td>Icon to display when tree is loading.</td>
+                    </tr>
+                    <tr>
+                        <td>filter</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When specified, displays an input field to filter the items.</td>
+                    </tr>
+                    <tr>
+                        <td>filterBy</td>
+                        <td>string</td>
+                        <td>label</td>
+                        <td>When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.</td>
+                    </tr>
+                    <tr>
+                        <td>filterMode</td>
+                        <td>string</td>
+                        <td>lenient</td>
+                        <td>Mode for filtering valid values are "lenient" and "strict". Default is lenient.</td>
+                    </tr>
+                    <tr>
+                        <td>filterPlaceholder</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Placeholder text to show when filter input is empty.</td>
+                    </tr>
+                    <tr>
+                        <td>filterLocale</td>
+                        <td>string</td>
+                        <td>undefined</td>
+                        <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
+                    </tr>
+                    <tr>
+                        <td>scrollHeight</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Height of the scroll viewport in fixed units or the "flex" keyword for a dynamic size.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Events</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>node-select</td>
-                            <td>node: Node instance</td>
-                            <td>Callback to invoke when a node is selected.</td>
-                        </tr>
-                        <tr>
-                            <td>node-unselect</td>
-                            <td>node: Node instance</td>
-                            <td>Callback to invoke when a node is unselected.</td>
-                        </tr>
-                        <tr>
-                            <td>node-expand</td>
-                            <td>node: Node instance</td>
-                            <td>Callback to invoke when a node is expanded.</td>
-                        </tr>
-                        <tr>
-                            <td>node-collapse</td>
-                            <td>node: Node instance</td>
-                            <td>Callback to invoke when a node is collapsed.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>node-select</td>
+                        <td>node: Node instance</td>
+                        <td>Callback to invoke when a node is selected.</td>
+                    </tr>
+                    <tr>
+                        <td>node-unselect</td>
+                        <td>node: Node instance</td>
+                        <td>Callback to invoke when a node is unselected.</td>
+                    </tr>
+                    <tr>
+                        <td>node-expand</td>
+                        <td>node: Node instance</td>
+                        <td>Callback to invoke when a node is expanded.</td>
+                    </tr>
+                    <tr>
+                        <td>node-collapse</td>
+                        <td>node: Node instance</td>
+                        <td>Callback to invoke when a node is collapsed.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-tree</td>
-                            <td>Main container element</td>
-                        </tr>
-                        <tr>
-                            <td>p-tree-horizontal</td>
-                            <td>Main container element in horizontal mode</td>
-                        </tr>
-                        <tr>
-                            <td>p-tree-container</td>
-                            <td>Container of nodes</td>
-                        </tr>
-                        <tr>
-                            <td>p-treenode</td>
-                            <td>A treenode element</td>
-                        </tr>
-                        <tr>
-                            <td>p-treenode-content</td>
-                            <td>Content of a treenode</td>
-                        </tr>
-                        <tr>
-                            <td>p-treenode-toggler</td>
-                            <td>Toggle element</td>
-                        </tr>
-                        <tr>
-                            <td>p-treenode-toggler-icon</td>
-                            <td>Toggle icon</td>
-                        </tr>
-                        <tr>
-                            <td>p-treenode-icon</td>
-                            <td>Icon of a treenode</td>
-                        </tr>
-                        <tr>
-                            <td>p-treenode-label</td>
-                            <td>Label of a treenode</td>
-                        </tr>
-                        <tr>
-                            <td>p-treenode-children</td>
-                            <td>Container element for node children</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-tree</td>
+                        <td>Main container element</td>
+                    </tr>
+                    <tr>
+                        <td>p-tree-horizontal</td>
+                        <td>Main container element in horizontal mode</td>
+                    </tr>
+                    <tr>
+                        <td>p-tree-container</td>
+                        <td>Container of nodes</td>
+                    </tr>
+                    <tr>
+                        <td>p-treenode</td>
+                        <td>A treenode element</td>
+                    </tr>
+                    <tr>
+                        <td>p-treenode-content</td>
+                        <td>Content of a treenode</td>
+                    </tr>
+                    <tr>
+                        <td>p-treenode-toggler</td>
+                        <td>Toggle element</td>
+                    </tr>
+                    <tr>
+                        <td>p-treenode-toggler-icon</td>
+                        <td>Toggle icon</td>
+                    </tr>
+                    <tr>
+                        <td>p-treenode-icon</td>
+                        <td>Icon of a treenode</td>
+                    </tr>
+                    <tr>
+                        <td>p-treenode-label</td>
+                        <td>Label of a treenode</td>
+                    </tr>
+                    <tr>
+                        <td>p-treenode-children</td>
+                        <td>Container element for node children</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Value to describe the component can either be provided with <i>aria-labelledby</i> or <i>aria-label</i> props. The root list element has a <i>tree</i> role whereas each list item has a <i>treeitem</i> role along with <i>aria-label</i>,
+            <i>aria-selected</i> and <i>aria-expanded</i> attributes. In checkbox selection, <i>aria-checked</i> is used instead of <i>aria-selected</i>. The container element of a treenode has the <i>group</i> role. Checkbox and toggle icons are
+            hidden from screen readers as their parent element with <i>treeitem</i> role and attributes are used instead for readers and keyboard support. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated
+            implicitly and added to each treeitem.
+        </p>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>
+                            Moves focus to the first selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the next focusable element in the
+                            page tab sequence.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>
+                            Moves focus to the last selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the previous focusable element in the
+                            page tab sequence.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Selects the focused treenode.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Selects the focused treenode.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>down arrow</i>
+                        </td>
+                        <td>Moves focus to the next treenode.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>up arrow</i>
+                        </td>
+                        <td>Moves focus to the previous treenode.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>right arrow</i>
+                        </td>
+                        <td>If node is closed, opens the node otherwise moves focus to the first child node.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>left arrow</i>
+                        </td>
+                        <td>If node is open, closes the node otherwise moves focus to the parent node.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

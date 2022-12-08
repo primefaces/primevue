@@ -1,85 +1,103 @@
 <template>
-    <ClientOnly>
-        <AppDoc name="PaginatorDemo" :sources="sources" github="paginator/PaginatorDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="PaginatorDemo" :sources="sources" github="paginator/PaginatorDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Paginator from 'primevue/paginator';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
-            <pre v-code><code>
+        <h5>Getting Started</h5>
+        <p><i>rows</i> and <i>totalRecords</i> are the required properties of the Paginator.</p>
+        <pre v-code><code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-            <h5>Start Index</h5>
-            <p><i>first</i> property defines the index of the first item displayed by the paginator.</p>
+        <h5>Start Index</h5>
+        <p><i>first</i> property defines the index of the first item displayed by the paginator.</p>
 
-            <pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator :first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-            <p>Use the v-model directive to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
-            <pre v-code><code>
+        <p>Use the v-model directive to enable two-way binding, this is useful in cases where you need to programmatically control the paginator.</p>
+        <pre v-code><code>
 &lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-            <h5>Rows Per Page</h5>
-            <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
-            <pre v-code><code>
+        <h5>Rows Per Page</h5>
+        <p>Number of items per page can be changed by the user using a dropdown with the <i>rowsPerPageOptions</i> property which accepts an array of possible values.</p>
+        <pre v-code><code>
 &lt;Paginator v-model:first="offset" :rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-            <p>As <i>rows</i> also change when the dropdown changes, use the optional v-model directive if you need two-way binding.</p>
+        <p>As <i>rows</i> also change when the dropdown changes, use the optional v-model directive if you need two-way binding.</p>
 
-            <pre v-code><code>
+        <pre v-code><code>
 &lt;Paginator v-model:first="offset" v-model:rows="rows" :totalRecords="totalItemsCount" :rowsPerPageOptions="[10,20,30]"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-            <h5>Template</h5>
-            <p>
-                Paginator elements can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
-                can be placed inside a paginator in any order.
-            </p>
+        <h5>Template</h5>
+        <p>
+            Paginator elements can be customized using the <i>template</i> property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
+            can be placed inside a paginator in any order.
+        </p>
 
-            <ul>
-                <li>FirstPageLink</li>
-                <li>PrevPageLink</li>
-                <li>PageLinks</li>
-                <li>NextPageLink</li>
-                <li>LastPageLink</li>
-                <li>RowsPerPageDropdown</li>
-                <li>JumpToPageDropdown</li>
-                <li>JumpToPageInput</li>
-                <li>CurrentPageReport</li>
-            </ul>
+        <ul>
+            <li>FirstPageLink</li>
+            <li>PrevPageLink</li>
+            <li>PageLinks</li>
+            <li>NextPageLink</li>
+            <li>LastPageLink</li>
+            <li>RowsPerPageDropdown</li>
+            <li>JumpToPageDropdown</li>
+            <li>JumpToPageInput</li>
+            <li>CurrentPageReport</li>
+        </ul>
 
-            <h5>CurrentPageReport</h5>
-            <p>Current page report item in the template displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;) whereas available placeholders are the following;</p>
-            <ul>
-                <li>&#123;currentPage&#125;</li>
-                <li>&#123;totalPages&#125;</li>
-                <li>&#123;rows&#125;</li>
-                <li>&#123;first&#125;</li>
-                <li>&#123;last&#125;</li>
-                <li>&#123;totalRecords&#125;</li>
-            </ul>
+        <h5>CurrentPageReport</h5>
+        <p>Current page report item in the template displays information about the pagination state. Default value is (&#123;currentPage&#125; of &#123;totalPages&#125;) whereas available placeholders are the following;</p>
+        <ul>
+            <li>&#123;currentPage&#125;</li>
+            <li>&#123;totalPages&#125;</li>
+            <li>&#123;rows&#125;</li>
+            <li>&#123;first&#125;</li>
+            <li>&#123;last&#125;</li>
+            <li>&#123;totalRecords&#125;</li>
+        </ul>
 
-            <h5>Custom Content</h5>
-            <p>There are two templates available named <i>start</i> and <i>end</i> to add custom content to these locations. Both templates get a state object as a slot property to provide the current page, first index and the rows.</p>
-            <pre v-code><code><template v-pre>
+        <h5>Responsive</h5>
+        <p>
+            Paginator elements can be customized per screen size by defining a template per breakpoint. Note that breakpoints are based on max-width setting, if <i>default</i> key is omitted then the default template would be used. Example below has
+            4 settings; up to 640px, between 641px-960px, between 961px-1300px and larger than 1301px which is the default.
+        </p>
+        <pre v-code><code><template v-pre>
+&lt;Paginator
+    :template="&#123;
+        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown'
+    &#125;"
+    :rows="10"
+    :totalRecords="totalRecords"&gt;
+&lt;/Paginator&gt;
+</template>
+</code></pre>
+
+        <h5>Custom Content</h5>
+        <p>There are two templates available named <i>start</i> and <i>end</i> to add custom content to these locations. Both templates get a state object as a slot property to provide the current page, first index and the rows.</p>
+        <pre v-code><code><template v-pre>
 &lt;Paginator v-model:first="offset" :rows="10" :totalRecords="totalItemsCount"&gt;
     &lt;template #start="slotProps"&gt;
         Page: &#123;&#123;slotProps.state.page&#125;&#125;
@@ -93,14 +111,14 @@ import Paginator from 'primevue/paginator';
 </template>
 </code></pre>
 
-            <h5>Page Change Event</h5>
-            <p>Paginator provides only one event called <i>page</i> that passes all the information about the change event.</p>
-            <pre v-code><code>
+        <h5>Page Change Event</h5>
+        <p>Paginator provides only one event called <i>page</i> that passes all the information about the change event.</p>
+        <pre v-code><code>
 &lt;Paginator :rows="10" :totalRecords="totalItemsCount" @page="onPage($event)"&gt;&lt;/Paginator&gt;
 
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 onPage(event) {
     //event.page: New page number
     //event.first: Index of first record
@@ -110,168 +128,228 @@ onPage(event) {
 
 </code></pre>
 
-            <h5>Properties</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>totalRecords</td>
-                            <td>number</td>
-                            <td>0</td>
-                            <td>Number of total records.</td>
-                        </tr>
-                        <tr>
-                            <td>rows</td>
-                            <td>number</td>
-                            <td>0</td>
-                            <td>Data count to display per page.</td>
-                        </tr>
-                        <tr>
-                            <td>first</td>
-                            <td>number</td>
-                            <td>0</td>
-                            <td>Zero-relative number of the first row to be displayed.</td>
-                        </tr>
-                        <tr>
-                            <td>pageLinkSize</td>
-                            <td>number</td>
-                            <td>5</td>
-                            <td>Number of page links to display.</td>
-                        </tr>
-                        <tr>
-                            <td>rowsPerPageOptions</td>
-                            <td>array</td>
-                            <td>null</td>
-                            <td>Array of integer values to display inside rows per page dropdown.</td>
-                        </tr>
-                        <tr>
-                            <td>template</td>
-                            <td>string</td>
-                            <td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
-                            <td>Template of the paginator.</td>
-                        </tr>
-                        <tr>
-                            <td>currentPageReportTemplate</td>
-                            <td>string</td>
-                            <td>(&#123;currentPage&#125; of &#123;totalPages&#125;)</td>
-                            <td>Template of the current page report element. Available placeholders are &#123;currentPage&#125;,&#123;totalPages&#125;,&#123;rows&#125;,&#123;first&#125;,&#123;last&#125; and &#123;totalRecords&#125;</td>
-                        </tr>
-                        <tr>
-                            <td>alwaysShow</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>Whether to show the paginator even there is only one page.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Properties</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>totalRecords</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Number of total records.</td>
+                    </tr>
+                    <tr>
+                        <td>rows</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Data count to display per page.</td>
+                    </tr>
+                    <tr>
+                        <td>first</td>
+                        <td>number</td>
+                        <td>0</td>
+                        <td>Zero-relative number of the first row to be displayed.</td>
+                    </tr>
+                    <tr>
+                        <td>pageLinkSize</td>
+                        <td>number</td>
+                        <td>5</td>
+                        <td>Number of page links to display.</td>
+                    </tr>
+                    <tr>
+                        <td>rowsPerPageOptions</td>
+                        <td>array</td>
+                        <td>null</td>
+                        <td>Array of integer values to display inside rows per page dropdown.</td>
+                    </tr>
+                    <tr>
+                        <td>template</td>
+                        <td>object, string</td>
+                        <td>FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown</td>
+                        <td>Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint.</td>
+                    </tr>
+                    <tr>
+                        <td>currentPageReportTemplate</td>
+                        <td>string</td>
+                        <td>(&#123;currentPage&#125; of &#123;totalPages&#125;)</td>
+                        <td>Template of the current page report element. Available placeholders are &#123;currentPage&#125;,&#123;totalPages&#125;,&#123;rows&#125;,&#123;first&#125;,&#123;last&#125; and &#123;totalRecords&#125;</td>
+                    </tr>
+                    <tr>
+                        <td>alwaysShow</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether to show the paginator even there is only one page.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Events</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>page</td>
-                            <td>
-                                event.page: New page number <br />
-                                event.first: Index of first record <br />
-                                event.rows: Number of rows to display in new page <br />
-                                event.pageCount: Total number of pages
-                            </td>
-                            <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Events</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>page</td>
+                        <td>
+                            event.page: New page number <br />
+                            event.first: Index of first record <br />
+                            event.rows: Number of rows to display in new page <br />
+                            event.pageCount: Total number of pages
+                        </td>
+                        <td>Callback to invoke when page changes, the event object contains information about the new state.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Slots</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>start</td>
-                            <td>state: State of the paginator</td>
-                        </tr>
-                        <tr>
-                            <td>end</td>
-                            <td>state: State of the paginator</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>start</td>
+                        <td>state: State of the paginator</td>
+                    </tr>
+                    <tr>
+                        <td>end</td>
+                        <td>state: State of the paginator</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <nuxt-link to="/theming">theming</nuxt-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-paginator</td>
-                            <td>Container element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-paginator-first</td>
-                            <td>First page element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-paginator-prev</td>
-                            <td>Previous page element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-paginator-pages</td>
-                            <td>Container of page links.</td>
-                        </tr>
-                        <tr>
-                            <td>p-paginator-page</td>
-                            <td>A page link.</td>
-                        </tr>
-                        <tr>
-                            <td>p-paginator-next</td>
-                            <td>Next pge element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-paginator-last</td>
-                            <td>Last page element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-paginator-rpp-options</td>
-                            <td>Rows per page dropdown.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-paginator</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-paginator-first</td>
+                        <td>First page element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-paginator-prev</td>
+                        <td>Previous page element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-paginator-pages</td>
+                        <td>Container of page links.</td>
+                    </tr>
+                    <tr>
+                        <td>p-paginator-page</td>
+                        <td>A page link.</td>
+                    </tr>
+                    <tr>
+                        <td>p-paginator-next</td>
+                        <td>Next pge element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-paginator-last</td>
+                        <td>Last page element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-paginator-rpp-options</td>
+                        <td>Rows per page dropdown.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc>
-    </ClientOnly>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>Paginator is placed inside a <i>nav</i> element to indicate a navigation section. All of the paginator elements can be customized using templating however the default behavious is listed below.</p>
+
+        <p>
+            First, previous, next and last page navigators elements with <i>aria-label</i> attributes referring to the <i>aria.firstPageLabel</i>, <i>aria.prevPageLabel</i>, <i>aria.nextPageLabel</i> and <i>aria.lastPageLabel</i> properties of the
+            <router-link to="/locale">locale</router-link> API respectively.
+        </p>
+
+        <p>
+            Page links are also button elements with an <i>aria-label</i> attribute derived from the <i>aria.pageLabel</i> of the <router-link to="/locale">locale</router-link> API. Current page is marked with <i>aria-current</i> set to "page" as
+            well.
+        </p>
+
+        <p>Current page report uses <i>aria-live="polite"</i> to instruct screen reader about the changes to the pagination state.</p>
+
+        <p>
+            Rows per page dropdown internally uses a dropdown component, refer to the <router-link to="/dropdown">dropdown</router-link> documentation for accessibility details. Additionally, the dropdown uses an <i>aria-label</i> from the
+            <i>aria.rowsPerPageLabel</i> property of the <router-link to="/locale">locale</router-link> API.
+        </p>
+
+        <p>
+            Jump to page input is an <i>input</i> element with an <i>aria-label</i> that refers to the <i>aria.jumpToPageInputLabel</i> property and jump to page dropdown internally uses a dropdown component, with an <i>aria-label</i> that refers to
+            the <i>aria.jumpToPageDropdownLabel</i> property of the <router-link to="/locale">locale</router-link> API.
+        </p>
+
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <i>tab</i>
+                        </td>
+                        <td>Moves focus through the paginator elements.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>enter</i>
+                        </td>
+                        <td>Executes the paginator element action.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>space</i>
+                        </td>
+                        <td>Executes the paginator element action.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h6>Rows Per Page Dropdown Keyboard Support</h6>
+        <p>Refer to the <router-link to="/dropdown">dropdown</router-link> documentation for more details about keyboard support.</p>
+
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>
@@ -286,6 +364,18 @@ export default {
     <div>
         <h5>Basic</h5>
         <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
+
+        <h5>Responsive Breakpoints</h5>
+        <Paginator
+            :template="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
+            }"
+            :rows="10"
+            :totalRecords="totalRecords">
+        </Paginator>
 
         <h5>Custom</h5>
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
@@ -322,10 +412,10 @@ export default {
 <\\/script>
 
 <style scoped>
-.image-gallery {
-    text-align: center;
-    padding: 1rem;
-}
+    .image-gallery {
+        text-align: center;
+        padding: 1rem;
+    }
 </style>`
                 },
                 'composition-api': {
@@ -335,6 +425,18 @@ export default {
     <div>
         <h5>Basic</h5>
         <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10,20,30]"></Paginator>
+
+        <h5>Responsive Breakpoints</h5>
+        <Paginator
+            :template="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
+            }"
+            :rows="10"
+            :totalRecords="totalRecords">
+        </Paginator>
 
         <h5>Custom</h5>
         <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2"
@@ -371,10 +473,10 @@ export default {
 <\\/script>
 
 <style scoped>
-.image-gallery {
-    text-align: center;
-    padding: 1rem;
-}
+    .image-gallery {
+        text-align: center;
+        padding: 1rem;
+    }
 </style>`
                 },
                 'browser-source': {
@@ -382,6 +484,18 @@ export default {
                     content: `<div id="app">
             <h5>Basic</h5>
             <p-paginator :rows="10" :total-records="totalRecords" :rows-per-page-options="[10,20,30]"></p-paginator>
+
+            <h5>Responsive Breakpoints</h5>
+            <p-paginator
+                :template="{
+                    '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                    '960px': 'FirstPageLink PrevPageLink CurrentPageReporNextPageLink LastPageLink',
+                    '1300px': 'FirstPageLink PrevPageLink PageLinkNextPageLink LastPageLink',
+                    default: 'FirstPageLink PrevPageLink PageLinks NextPageLinLastPageLink JumpToPageDropdown'
+                }"
+                :rows="10"
+                :total-records="totalRecords">
+            </p-paginator>
 
             <h5>Custom</h5>
             <p-paginator v-model:first="first" :rows="1" :total-records="totalRecords2"
@@ -425,10 +539,10 @@ export default {
         <\\/script>
 
         <style scoped>
-        .image-gallery {
-            text-align: center;
-            padding: 1rem;
-        }
+            .image-gallery {
+                text-align: center;
+                padding: 1rem;
+            }
         </style>`
                 }
             }

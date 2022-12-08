@@ -11,7 +11,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items"></SplitButton>
+                <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="items" :buttonProps="{ 'aria-label': 'Default Action' }" :menuButtonProps="{ 'aria-label': 'More Options' }"></SplitButton>
 
                 <h5>Nested</h5>
                 <SplitButton label="Save" icon="pi pi-plus" @click="save" :model="nestedItems"></SplitButton>
