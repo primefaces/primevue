@@ -3,9 +3,11 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Accessibility</h1>
-                <p class="mb-3">Accessibility is an important aspect of modern web design, ensuring that all users, regardless of ability, can use and interact with a website or application. 
-                    As a popular UI component library, it is our responsibility to ensure that our components are compliant with accessibility standards and guidelines. 
-                    This is why we are dedicated to incorporating accessibility into every aspect of our design and development process. By implementing these standards, we strive to create an inclusive and user-friendly experience for all of our users.</p>
+                <p class="mb-3">
+                    Accessibility is an important aspect of modern web design, ensuring that all users, regardless of ability, can use and interact with a website or application. As a popular UI component library, it is our responsibility to ensure
+                    that our components are compliant with accessibility standards and guidelines. This is why we are dedicated to incorporating accessibility into every aspect of our design and development process. By implementing these standards,
+                    we strive to create an inclusive and user-friendly experience for all of our users.
+                </p>
                 <p>PrimeVue UI components are <strong>WCAG level AA compliant</strong>. Each component has a dedicated accessibility section specifying the screen reader and keyboard support.</p>
             </div>
         </div>
