@@ -4,7 +4,7 @@
             <i class="pi pi-bars"></i>
         </a>
         <div v-tooltip.bottom="$appState.theme" class="app-theme">
-            <img :src="'demo/images/themes/' + logoMap[$appState.theme]" />
+            <img :src="'/demo/images/themes/' + logoMap[$appState.theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
             <li class="topbar-submenu">
