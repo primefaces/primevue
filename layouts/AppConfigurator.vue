@@ -303,72 +303,72 @@
                     <div class="grid premium-themes">
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/sakai-vue">
-                                <img alt="Ultima" src="./assets/images/layouts/sakai-vue.jpg" />
+                                <img alt="Ultima" src="../assets/images/layouts/sakai-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/atlantis-vue">
-                                <img alt="Atlantis" src="./assets/images/layouts/atlantis-vue.jpg" />
+                                <img alt="Atlantis" src="../assets/images/layouts/atlantis-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/freya-vue">
-                                <img alt="Freya" src="./assets/images/layouts/freya-vue.png" />
+                                <img alt="Freya" src="../assets/images/layouts/freya-vue.png" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/ultima-vue">
-                                <img alt="Ultima" src="./assets/images/layouts/ultima-vue.jpg" />
+                                <img alt="Ultima" src="../assets/images/layouts/ultima-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/diamond-vue">
-                                <img alt="Diamond" src="./assets/images/layouts/diamond-vue.jpg" />
+                                <img alt="Diamond" src="../assets/images/layouts/diamond-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/verona-vue">
-                                <img alt="Verona" src="./assets/images/layouts/verona-vue.jpg" />
+                                <img alt="Verona" src="../assets/images/layouts/verona-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/poseidon-vue">
-                                <img alt="Poseidon" src="./assets/images/layouts/poseidon-vue.jpg" />
+                                <img alt="Poseidon" src="../assets/images/layouts/poseidon-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/sapphire-vue">
-                                <img alt="Sapphire" src="./assets/images/layouts/sapphire-vue.jpg" />
+                                <img alt="Sapphire" src="../assets/images/layouts/sapphire-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/serenity-vue">
-                                <img alt="Serenity" src="./assets/images/layouts/serenity-vue.jpg" />
+                                <img alt="Serenity" src="../assets/images/layouts/serenity-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/babylon-vue">
-                                <img alt="Babylon" src="./assets/images/layouts/babylon-vue.jpg" />
+                                <img alt="Babylon" src="../assets/images/layouts/babylon-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/avalon-vue">
-                                <img alt="Avalon" src="./assets/images/layouts/avalon-vue.jpg" />
+                                <img alt="Avalon" src="../assets/images/layouts/avalon-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/apollo-vue">
-                                <img alt="Apollo" src="./assets/images/layouts/apollo-vue.jpg" />
+                                <img alt="Apollo" src="../assets/images/layouts/apollo-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/roma-vue">
-                                <img alt="Roma" src="./assets/images/layouts/roma-vue.jpg" />
+                                <img alt="Roma" src="../assets/images/layouts/roma-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/prestige-vue">
-                                <img alt="Prestige" src="./assets/images/layouts/prestige-vue.jpg" />
+                                <img alt="Prestige" src="../assets/images/layouts/prestige-vue.jpg" />
                             </a>
                         </div>
                     </div>
