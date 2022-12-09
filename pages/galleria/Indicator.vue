@@ -12,7 +12,7 @@
                 <h5>Indicators with Click Event</h5>
                 <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true">
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                 </Galleria>
             </div>
@@ -21,7 +21,7 @@
                 <h5>Indicators with Hover Event</h5>
                 <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true">
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                 </Galleria>
             </div>
@@ -30,7 +30,7 @@
                 <h5>Inside Content</h5>
                 <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px" :showThumbnails="false" :showIndicators="true" :changeItemOnIndicatorHover="true" :showIndicatorsOnItem="true">
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                 </Galleria>
             </div>
@@ -49,7 +49,7 @@
                     indicatorsPosition="top"
                 >
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                 </Galleria>
             </div>
@@ -68,7 +68,7 @@
                     indicatorsPosition="left"
                 >
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                 </Galleria>
             </div>
@@ -87,7 +87,7 @@
                     indicatorsPosition="right"
                 >
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                 </Galleria>
             </div>
@@ -107,7 +107,7 @@
                     indicatorsPosition="left"
                 >
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #indicator="{ index }">
                         <span class="indicator-text">
@@ -265,7 +265,8 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-            ]
+            ],
+            baseUrl: ''
         };
     },
     galleriaService: null,
@@ -277,6 +278,8 @@ export default {
             this.images = data;
             this.images2 = data.slice(0, 5);
         });
+
+        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     }
 };
 </script>

@@ -21,7 +21,7 @@
                     <Column field="name" header="Name" sortable></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="baseUrl + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price" sortable>
@@ -48,7 +48,7 @@
                                 <Column field="customer" header="Customer" sortable></Column>
                                 <Column field="date" header="Date" sortable></Column>
                                 <Column field="amount" header="Amount" sortable>
-                                    <template #body="slotProps" sortable>
+                                    <template #body="slotProps">
                                         {{ formatCurrency(slotProps.data.amount) }}
                                     </template>
                                 </Column>
@@ -97,10 +97,10 @@ export default {
                     <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
-             <Column :expander="true" headerStyle="width: 3rem" />
+            <Column :expander="true" headerStyle="width: 3rem" />
             <Column field="name" header="Name" sortable></Column>
             <Column header="Image">
-                 <template #body="slotProps">
+                <template #body="slotProps">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
                 </template>
             </Column>
@@ -112,7 +112,7 @@ export default {
             <Column field="category" header="Category" sortable></Column>
             <Column field="rating" header="Reviews" sortable>
                 <template #body="slotProps">
-                   <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                    <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                 </template>
             </Column>
             <Column field="inventoryStatus" header="Status" sortable>
@@ -215,10 +215,10 @@ export default {
                     <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
-             <Column :expander="true" headerStyle="width: 3rem" />
+            <Column :expander="true" headerStyle="width: 3rem" />
             <Column field="name" header="Name" sortable></Column>
             <Column header="Image">
-                 <template #body="slotProps">
+                <template #body="slotProps">
                     <img src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" :alt="slotProps.data.image" class="product-image" />
                 </template>
             </Column>
@@ -230,7 +230,7 @@ export default {
             <Column field="category" header="Category" sortable></Column>
             <Column field="rating" header="Reviews" sortable>
                 <template #body="slotProps">
-                   <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                    <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
                 </template>
             </Column>
             <Column field="inventoryStatus" header="Status" sortable>
@@ -450,7 +450,8 @@ export default {
         </style>                    
 `
                 }
-            }
+            },
+            baseUrl: '/'
         };
     },
     productService: null,
@@ -459,6 +460,7 @@ export default {
     },
     mounted() {
         this.productService.getProductsWithOrdersSmall().then((data) => (this.products = data));
+        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         onRowExpand(event) {

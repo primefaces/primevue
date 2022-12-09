@@ -64,7 +64,7 @@
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="baseUrl + 'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
@@ -72,7 +72,7 @@
                             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -178,14 +178,14 @@
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMenu="false" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="baseUrl + 'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
                             <MultiSelect v-model="filterModel.value" @change="filterCallback()" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -1315,7 +1315,8 @@ export default {
         </style>
 `
                 }
-            }
+            },
+            baseUrl: '/'
         };
     },
     created() {
@@ -1334,6 +1335,8 @@ export default {
             this.loading2 = false;
             this.customers2.forEach((customer) => (customer.date = new Date(customer.date)));
         });
+
+        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         formatDate(value) {

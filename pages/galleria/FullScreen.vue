@@ -12,10 +12,10 @@
                 <h5>With Thumbnails</h5>
                 <Galleria v-model:visible="displayBasic" :value="images" :responsiveOptions="responsiveOptions2" :numVisible="9" containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                        <img :src="baseUrl + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                     </template>
                 </Galleria>
 
@@ -26,10 +26,10 @@
                 <h5>Without Thumbnails</h5>
                 <Galleria v-model:visible="displayBasic2" :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px" :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                        <img :src="baseUrl + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                     </template>
                 </Galleria>
 
@@ -51,16 +51,16 @@
                     :showThumbnails="false"
                 >
                     <template #item="slotProps">
-                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                        <img :src="baseUrl + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                     </template>
                 </Galleria>
 
                 <div v-if="images" class="grid" style="max-width: 400px">
                     <div v-for="(image, index) of images" :key="index" class="col-3">
-                        <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
+                        <img :src="baseUrl + image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
                     </div>
                 </div>
             </div>
@@ -224,7 +224,8 @@ export default {
             ],
             displayBasic: false,
             displayBasic2: false,
-            displayCustom: false
+            displayCustom: false,
+            baseUrl: ''
         };
     },
     galleriaService: null,
@@ -233,6 +234,7 @@ export default {
     },
     mounted() {
         this.galleriaService.getImages().then((data) => (this.images = data));
+        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     },
     methods: {
         imageClick(index) {
