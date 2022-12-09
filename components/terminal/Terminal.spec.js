@@ -46,7 +46,7 @@ describe('Terminal.vue', () => {
 
         setTimeout(() => {
             expect(wrapper.find('.p-terminal-response').text()).toBe('Valid command');
-        }, 0);
+        }, 50);
     });
 
     it('should return invalid command', async () => {
@@ -92,6 +92,6 @@ describe('Terminal.vue', () => {
 
         setTimeout(() => {
             expect(wrapper.find('.p-terminal-response').text()).toBe('Unknown command: dd');
-        }, 0);
+        }, 50);
     });
 });
