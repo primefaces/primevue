@@ -4,7 +4,7 @@
             <i class="pi pi-bars"></i>
         </a>
         <div v-tooltip.bottom="$appState.theme" class="app-theme">
-            <img :src="'/demo/images/themes/' + logoMap[$appState.theme]" />
+            <img :src="baseUrl + 'demo/images/themes/' + logoMap[$appState.theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
             <li class="topbar-submenu">
@@ -299,7 +299,8 @@ export default {
                 'lara-light-purple': 'lara-light-purple.png',
                 'lara-light-teal': 'lara-light-teal.png',
                 'lara-light-blue': 'lara-light-blue.png'
-            }
+            },
+            baseUrl: '/'
         };
     },
     watch: {
@@ -311,6 +312,7 @@ export default {
     container: null,
     mounted() {
         this.bindScrollListener();
+        this.baseUrl = process.dev ? '/' : '/primevue/nuxt';
     },
     beforeUnmount() {
         if (this.scrollListener) {
