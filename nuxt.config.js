@@ -1,24 +1,25 @@
 import vueJsx from '@vitejs/plugin-vue-jsx';
 const path = require('path');
 
+const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     ssr: false,
     typescript: false,
     components: true,
     app: {
-        baseURL: process.env.NODE_ENV === 'production' ? '/primevue-nuxt' : '/',
+        baseURL: baseUrl,
         head: {
             link: [
                 {
                     id: 'home-table-link',
                     rel: 'stylesheet',
-                    href: '/styles/landing/themes/lara-light-blue/theme.css'
+                    href: baseUrl + '/styles/landing/themes/lara-light-blue/theme.css'
                 },
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: `/themes/lara-light-blue/theme.css`
+                    href: baseUrl + `/themes/lara-light-blue/theme.css`
                 }
             ]
         }
