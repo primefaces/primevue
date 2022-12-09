@@ -6,8 +6,8 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
+import packageJson from '@/package.json';
 import { data, services } from './LiveEditorData';
-
 const sourceTypes = ['options-api', 'composition-api', 'browser-source'];
 
 export default {
@@ -111,7 +111,7 @@ export default {
             let extIndexCSS = extFiles['index.css'] || '';
             delete extFiles['index.css'];
 
-            const dependencies = require('../../../package.json') ? require('../../../package.json').devDependencies : {};
+            const dependencies = packageJson || {};
 
             let defaultCss = {
                 content: `html {
@@ -338,21 +338,20 @@ export default {
                             main: `src/demo/${nameWithExt}`,
                             dependencies: {
                                 ...extDependencies,
-                                vue: dependencies['vue'],
+                                vue: '3.2.31',
                                 primevue: '^3.21.0',
-                                primeflex: dependencies['primeflex'],
-                                primeicons: dependencies['primeicons'],
-                                '@babel/cli': dependencies['@babel/cli'],
-                                'core-js': dependencies['core-js'],
-                                'vue-router': dependencies['vue-router']
+                                primeflex: dependencies.devDependencies['primeflex'],
+                                primeicons: dependencies.devDependencies['primeicons'],
+                                '@babel/cli': '^7.4.4',
+                                'vue-router': '^4.0.0-0'
                             },
                             devDependencies: {
-                                '@vue/cli-plugin-babel': dependencies['@vue/cli-plugin-babel'],
-                                '@vue/cli-plugin-eslint': dependencies['@vue/cli-plugin-eslint'],
-                                '@vue/cli-service': dependencies['@vue/cli-service'],
+                                '@vue/cli-plugin-babel': '~4.5.0',
+                                '@vue/cli-plugin-eslint': '~4.5.0',
+                                '@vue/cli-service': '~4.5.0',
                                 '@vue/compiler-sfc': dependencies['@vue/compiler-sfc'],
-                                eslint: dependencies['eslint'],
-                                'eslint-plugin-vue': dependencies['eslint-plugin-vue']
+                                eslint: '^6.0.0',
+                                'eslint-plugin-vue': '^7.0.0'
                             }
                         }
                     },
