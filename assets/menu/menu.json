@@ -13,8 +13,9 @@
                     "to": "/locale"
                 },
                 {
-                    "name": "Responsive Design",
-                    "to": "/responsive"
+                    "name": "Roadmap",
+                    "to": "/roadmap",
+                    "badge": "NEW"
                 }
             ]
         },
@@ -32,7 +33,8 @@
                 },
                 {
                     "name": "PRO Support",
-                    "to": "/support"
+                    "to": "/support",
+                    "badge": "NEW"
                 }
             ]
         },
@@ -101,7 +103,8 @@
             "children": [
                 {
                     "name": "Overview",
-                    "to": "/accessibility"
+                    "to": "/accessibility",
+                    "badge": "NEW"
                 }
             ]
         },
@@ -138,7 +141,7 @@
             "meta": ["primeicons"],
             "children": [
                 {
-                    "name": "Icons v5",
+                    "name": "Icons v6",
                     "to": "/icons"
                 }
             ]
@@ -281,7 +284,7 @@
             "children": [
                 {
                     "name": "Vuelidate",
-                    "to": "/validation"
+                    "to": "/vuelidate"
                 }
             ]
         },
@@ -593,8 +596,7 @@
                 },
                 {
                     "name": "DynamicDialog",
-                    "to": "/dynamicdialog",
-                    "badge": "NEW"
+                    "to": "/dynamicdialog"
                 },
                 {
                     "name": "OverlayPanel",
@@ -750,7 +752,6 @@
                             "name": "Thumbnail",
                             "to": "/galleria/thumbnail"
                         },
-
                         {
                             "name": "Navigator",
                             "to": "/galleria/navigator"
@@ -796,24 +797,20 @@
                     "to": "/badge"
                 },
                 {
-                    "name": "Chip",
-                    "to": "/chip"
-                },
-                {
                     "name": "BlockUI",
                     "to": "/blockui"
                 },
                 {
+                    "name": "Chip",
+                    "to": "/chip"
+                },
+                {
+                    "name": "FocusTrap",
+                    "to": "/focustrap"
+                },
+                {
                     "name": "Inplace",
                     "to": "/inplace"
-                },
-                {
-                    "name": "ScrollTop",
-                    "to": "/scrolltop"
-                },
-                {
-                    "name": "Skeleton",
-                    "to": "/skeleton"
                 },
                 {
                     "name": "ProgressBar",
@@ -826,6 +823,14 @@
                 {
                     "name": "Ripple",
                     "to": "/ripple"
+                },
+                {
+                    "name": "ScrollTop",
+                    "to": "/scrolltop"
+                },
+                {
+                    "name": "Skeleton",
+                    "to": "/skeleton"
                 },
                 {
                     "name": "StyleClass",
