@@ -68,7 +68,6 @@ export default {
         },
         x() {
             setTimeout(() => {
-                console.log('kfbjhrbfj');
                 this.visible = false;
             }, this.life);
         }

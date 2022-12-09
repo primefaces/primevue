@@ -251,9 +251,7 @@ export default {
         this.galleriaService = new PhotoService();
     },
     async mounted() {
-        console.log(this.galleriaService);
         await this.test();
-        console.log(this.images);
         this.bindDocumentListeners();
     },
     methods: {
