@@ -16,6 +16,7 @@ let coreDependencies = {
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
     'primevue/tooltip': 'primevue.tooltip',
+    'primevue/focustrap': 'primevue.focustrap',
     'primevue/virtualscroller': 'primevue.virtualscroller',
     'primevue/confirmationeventbus': 'primevue.confirmationeventbus',
     'primevue/toasteventbus': 'primevue.toasteventbus',
@@ -35,7 +36,8 @@ let coreDependencies = {
     'primevue/paginator': 'primevue.paginator',
     'primevue/tree': 'primevue.tree',
     'primevue/menu': 'primevue.menu',
-    'primevue/tieredmenu': 'primevue.tieredmenu'
+    'primevue/tieredmenu': 'primevue.tieredmenu',
+    'primevue/badge': 'primevue.badge'
 };
 
 let globalDependencies = {
@@ -153,6 +155,7 @@ function addDirectives() {
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
     addEntry('ripple', 'Ripple.js', 'ripple');
     addEntry('tooltip', 'Tooltip.js', 'tooltip');
+    addEntry('focustrap', 'FocusTrap.js', 'focustrap');
     addEntry('styleclass', 'StyleClass.js', 'styleclass');
 }
 
