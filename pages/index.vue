@@ -45,9 +45,11 @@ export default {
     themeChangeListener: null,
     mounted() {
         let afId = this.$route.query['af_id'];
+
         if (afId) {
             let today = new Date();
             let expire = new Date();
+
             expire.setTime(today.getTime() + 3600000 * 24 * 7);
             document.cookie = 'primeaffiliateid=' + afId + ';expires=' + expire.toUTCString() + ';path=/; domain:primefaces.org';
         }
@@ -75,6 +77,7 @@ export default {
                 const newThemeUrl = linkElement.getAttribute('href').replace(currentTableTheme, newTheme);
 
                 const cloneLinkElement = linkElement.cloneNode(true);
+
                 cloneLinkElement.setAttribute('id', elementId + '-clone');
                 cloneLinkElement.setAttribute('href', newThemeUrl);
                 cloneLinkElement.addEventListener('load', () => {
