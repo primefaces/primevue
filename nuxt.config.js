@@ -2,6 +2,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 const path = require('path');
 
 const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     ssr: false,
@@ -19,8 +20,9 @@ export default defineNuxtConfig({
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: baseUrl + `themes/lara-light-blue/theme.css`
-                }
+                    href: baseUrl + 'themes/lara-light-blue/theme.css'
+                },
+                { rel: 'icon', type: 'image/x-icon', href: baseUrl + 'favicon.ico' }
             ]
         }
     },
