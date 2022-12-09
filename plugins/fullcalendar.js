@@ -1,8 +1,8 @@
 import '@fullcalendar/core/vdom'; // solve problem with Vite
-import FullCalendar from '@fullcalendar/vue3';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import FullCalendar from '@fullcalendar/vue3';
 
 FullCalendar.options = {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin]
