@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="content-section">
-            <img alt="PRO Support" src="demo/images/support/support-header.png" class="w-full block mb-5" style="border-radius: 20px" />
+            <img alt="PRO Support" src="/demo/images/support/support-header.png" class="w-full block mb-5" style="border-radius: 20px" />
 
             <div class="flex flex-column xl:flex-row mb-5 gap-5">
                 <div class="card xl:w-3 m-0 relative overflow-hidden">

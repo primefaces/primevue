@@ -250,11 +250,17 @@ export default {
     created() {
         this.galleriaService = new PhotoService();
     },
-    mounted() {
-        this.galleriaService.getImages().then((data) => (this.images = data));
+    async mounted() {
+        console.log(this.galleriaService);
+        await this.test();
+        console.log(this.images);
         this.bindDocumentListeners();
     },
     methods: {
+        async test() {
+            const data = await this.galleriaService.getImages();
+            this.images = data;
+        },
         onThumbnailButtonClick() {
             this.showThumbnails = !this.showThumbnails;
         },

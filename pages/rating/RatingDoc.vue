@@ -39,13 +39,13 @@ import Rating from 'primevue/rating';
         <pre v-code><code><template v-pre>
 &lt;Rating :modelValue="3">
     &lt;template #cancelicon&gt;
-        &lt;img src="demo/images/rating/cancel.png" height="24" width="24"&gt;
+        &lt;img src="/demo/images/rating/cancel.png" height="24" width="24"&gt;
     &lt;/template&gt;
     &lt;template #onicon&gt;
-        &lt;img src="demo/images/rating/custom-onicon.png" height="24" width="24"&gt;
+        &lt;img src="/demo/images/rating/custom-onicon.png" height="24" width="24"&gt;
     &lt;/template&gt;
     &lt;template #officon&gt;
-        &lt;img src="demo/images/rating/custom-officon.png" height="24" width="24"&gt;
+        &lt;img src="/demo/images/rating/custom-officon.png" height="24" width="24"&gt;
     &lt;/template&gt;
 &lt;/Rating&gt;
 
@@ -288,13 +288,13 @@ export default {
         <h5>Templating</h5>
         <Rating v-model="val4">
             <template #cancelicon>
-                <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
+                <img src="/demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
             </template>
             <template #onicon>
-                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                <img src="/demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
             </template>
             <template #officon>
-                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                <img src="/demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
             </template>
         </Rating>
     </div>
@@ -338,13 +338,13 @@ export default {
         <h5>Templating</h5>
         <Rating v-model="val4">
             <template #cancelicon>
-                <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
+                <img src="/demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
             </template>
             <template #onicon>
-                <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                <img src="/demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
             </template>
             <template #officon>
-                <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                <img src="/demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
             </template>
         </Rating>
     </div>
@@ -389,13 +389,13 @@ export default {
             <h5>Templating</h5>
             <p-rating v-model="val4">
                 <template #cancelicon>
-                    <img src="demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
+                    <img src="/demo/images/rating/cancel.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"/>
                 </template>
                 <template #onicon>
-                    <img src="demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                    <img src="/demo/images/rating/custom-onicon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
                 </template>
                 <template #officon>
-                    <img src="demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
+                    <img src="/demo/images/rating/custom-officon.png" @error="(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'" height="24" width="24"  />
                 </template>
             </p-rating>
         </div>

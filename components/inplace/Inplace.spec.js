@@ -33,7 +33,7 @@ describe('Inplace.vue', () => {
                     <span class="pi pi-search" style="vertical-align: middle"></span>
                     <span style="margin-left:.5rem; vertical-align: middle">View Picture</span>
                 `,
-                content: `<img src="demo/images/nature/nature1.jpg" />`
+                content: `<img src="/demo/images/nature/nature1.jpg" />`
             }
         });
 
