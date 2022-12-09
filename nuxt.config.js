@@ -22,7 +22,7 @@ export default defineNuxtConfig({
                     rel: 'stylesheet',
                     href: baseUrl + 'themes/lara-light-blue/theme.css'
                 },
-                { rel: 'icon', type: 'image/x-icon', href: baseUrl + 'favicon.ico' }
+                { rel: 'icon', href: baseUrl + 'favicon.ico' }
             ]
         }
     },
