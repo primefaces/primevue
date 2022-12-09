@@ -3,18 +3,16 @@
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Accessibility</h1>
-                <p>An introduction to accessibility and how it translates to Vue UI Components.</p>
+                <p class="mb-3">
+                    Accessibility is an important aspect of modern web design, ensuring that all users, regardless of ability, can use and interact with a website or application. As a popular UI component library, it is our responsibility to ensure
+                    that our components are compliant with accessibility standards and guidelines. This is why we are dedicated to incorporating accessibility into every aspect of our design and development process. By implementing these standards,
+                    we strive to create an inclusive and user-friendly experience for all of our users.
+                </p>
+                <p>PrimeVue UI components are <strong>WCAG level AA compliant</strong>. Each component has a dedicated accessibility section specifying the screen reader and keyboard support.</p>
             </div>
         </div>
 
         <div class="content-section documentation">
-            <p class="line-height-3 bg-indigo-600 text-white p-3 text-lg" style="border-radius: 10px">
-                Accessibility is a major concern of the Prime UI libraries and PrimeVue is no exception. <a href="https://www.primetek.com.tr" class="text-white">PrimeTek</a> teams have initiated a significant process to review and enhance the
-                accessibility features of the components. This guide documents the foundation of the general guidelines that PrimeVue will follow and each component documentation will have a separate <b>Accessibility</b> section that states the
-                keyboard support, screen reader compatibility, the implementation details along with tips to achieve WCAG compliancy. This work has been initiated in Q2 2022 and planned to be completed by early Q3. PrimeVue will be the reference
-                implementation which then will be ported to PrimeFaces, PrimeNG and PrimeReact.
-            </p>
-
             <h3>Introduction</h3>
             <p>
                 According to the World Health Organization, 15% of the world population has a disability to some degree. As a result, accessibility features in any context such as a ramp for wheelchair users or a multimedia with captions are crucial
