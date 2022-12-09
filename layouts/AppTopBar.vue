@@ -312,7 +312,7 @@ export default {
     container: null,
     mounted() {
         this.bindScrollListener();
-        this.baseUrl = process.dev ? '/' : '/primevue/nuxt';
+        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     beforeUnmount() {
         if (this.scrollListener) {
