@@ -89,7 +89,7 @@ describe('UpdateModel method tests', () => {
         expect(wrapper.emitted()['update:modelValue']).toBeFalsy();
     });
 
-    it('When disable props false updateModal should triggered emit', async () => {
+    it('When disable props false updateModal should triggered emit', () => {
         wrapper.vm.updateModel();
 
         expect(wrapper.emitted()['update:modelValue']).toBeTruthy();
