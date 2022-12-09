@@ -79,3 +79,8 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/landing/landing.scss';
+@import '@/assets/styles/app/app.scss';
+</style>

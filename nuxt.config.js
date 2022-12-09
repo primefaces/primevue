@@ -13,12 +13,12 @@ export default defineNuxtConfig({
                 {
                     id: 'home-table-link',
                     rel: 'stylesheet',
-                    href: 'styles/landing/themes/lara-light-blue/theme.css'
+                    href: '/styles/landing/themes/lara-light-blue/theme.css'
                 },
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: `themes/lara-light-blue/theme.css`
+                    href: `/themes/lara-light-blue/theme.css`
                 }
             ]
         }
