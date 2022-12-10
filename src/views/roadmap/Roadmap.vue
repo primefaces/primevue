@@ -26,14 +26,14 @@
                             <div class="flex-1 flex gap-3 flex-column">
                                 <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
                                     <h2 class="text-lg font-bold mt-0 mb-2">Accessibility</h2>
-                                    <p class="mt-0 mb-3 line-height-3">Finalize WCAG Level AA compliance for all components with screen reader and keyboard support.</p>
+                                    <p class="mt-0 mb-3 line-height-3">Finalize WCAG Level AA compliance for all components with screen reader and keyboard support based on community feedback and audit tools.</p>
                                     <div class="surface-200 border-round">
-                                        <div class="bg-blue-500 border-round" style="width: 90%; height: 4px"></div>
+                                        <div class="bg-blue-500 border-round" style="width: 95%; height: 4px"></div>
                                     </div>
                                 </div>
                                 <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
-                                    <h2 class="text-lg font-bold mt-0 mb-2">Headless Mode</h2>
-                                    <p class="mt-0 mb-3 line-height-3">Design the implementation of Headless Mode to support libraries like Tailwind.</p>
+                                    <h2 class="text-lg font-bold mt-0 mb-2">Unstyled Mode</h2>
+                                    <p class="mt-0 mb-3 line-height-3">Initated the implementation of Unstyled Mode to support libraries like Tailwind.</p>
                                     <div class="surface-200 border-round">
                                         <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
                                     </div>
@@ -129,7 +129,7 @@
                             <div class="flex-shrink-0 p-3 bg-orange-500 text-white border-round font-bold text-lg flex align-items-center justify-content-center w-14rem">PrimeBlocks</div>
                             <div class="flex-1 flex gap-3 flex-column">
                                 <div class="p-3 surface-card border-round border-orange-500" style="border-left: 6px solid">
-                                    <h2 class="text-lg font-bold mt-0 mb-2">New Blocks</h2>
+                                    <h2 class="text-lg font-bold mt-0 mb-2">Blocks Update</h2>
                                     <p class="mt-0 mb-3 line-height-3">30+ new UI Blocks.</p>
                                     <div class="surface-200 border-round">
                                         <div class="bg-orange-500 border-round" style="width: 0%; height: 4px"></div>
@@ -139,7 +139,7 @@
                             <div class="flex-1 flex gap-3 flex-column">
                                 <div class="p-3 surface-card border-round border-orange-500" style="border-left: 6px solid">
                                     <h2 class="text-lg font-bold mt-0 mb-2">Blocks Update</h2>
-                                    <p class="mt-0 mb-3 line-height-3">More UI Blocks.</p>
+                                    <p class="mt-0 mb-3 line-height-3">New UI Blocks.</p>
                                     <div class="surface-200 border-round">
                                         <div class="bg-orange-500 border-round" style="width: 0%; height: 4px"></div>
                                     </div>
@@ -148,7 +148,7 @@
                             <div class="flex-1 flex gap-3 flex-column">
                                 <div class="p-3 surface-card border-round border-orange-500" style="border-left: 6px solid">
                                     <h2 class="text-lg font-bold mt-0 mb-2">Blocks Update</h2>
-                                    <p class="mt-0 mb-3 line-height-3">More UI Blocks.</p>
+                                    <p class="mt-0 mb-3 line-height-3">New UI Blocks.</p>
                                     <div class="surface-200 border-round">
                                         <div class="bg-orange-500 border-round" style="width: 0%; height: 4px"></div>
                                     </div>
@@ -157,7 +157,7 @@
                             <div class="flex-1 flex gap-3 flex-column">
                                 <div class="p-3 surface-card border-round border-orange-500" style="border-left: 6px solid">
                                     <h2 class="text-lg font-bold mt-0 mb-2">Blocks Update</h2>
-                                    <p class="mt-0 mb-3 line-height-3">More UI Blocks.</p>
+                                    <p class="mt-0 mb-3 line-height-3">New UI Blocks.</p>
                                     <div class="surface-200 border-round">
                                         <div class="bg-orange-500 border-round" style="width: 0%; height: 4px"></div>
                                     </div>
