@@ -1,29 +1,31 @@
 <template>
-    <AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="TerminalDemo" :sources="sources" github="terminal/TerminalDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Terminal from 'primevue/terminal';
 import TerminalService from 'primevue/terminalservice';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/terminal/terminal.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>
-            Commands are processed using an EventBus implementation called TerminalService. Import this service into your component and subscribe to the <i>command</i> event to process the commands by sending replies with the <i>response</i> event.
-        </p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>
+                Commands are processed using an EventBus implementation called TerminalService. Import this service into your component and subscribe to the <i>command</i> event to process the commands by sending replies with the
+                <i>response</i> event.
+            </p>
+            <pre v-code><code>
 &lt;Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 import TerminalService from 'primevue/terminalservice';
 
 export default {
@@ -63,103 +65,106 @@ export default {
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>welcomeMessage</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Initial text to display on terminal.</td>
-                    </tr>
-                    <tr>
-                        <td>prompt</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Prompt text for each command.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>welcomeMessage</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Initial text to display on terminal.</td>
+                        </tr>
+                        <tr>
+                            <td>prompt</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Prompt text for each command.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-terminal</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-terminal-content</td>
-                        <td>Content of terminal.</td>
-                    </tr>
-                    <tr>
-                        <td>p-terminal-prompt</td>
-                        <td>Prompt text.</td>
-                    </tr>
-                    <tr>
-                        <td>p-terminal-response</td>
-                        <td>Command response.</td>
-                    </tr>
-                    <tr>
-                        <td>p-terminal-input</td>
-                        <td>Input element to enter commands.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-terminal</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-terminal-content</td>
+                            <td>Content of terminal.</td>
+                        </tr>
+                        <tr>
+                            <td>p-terminal-prompt</td>
+                            <td>Prompt text.</td>
+                        </tr>
+                        <tr>
+                            <td>p-terminal-response</td>
+                            <td>Command response.</td>
+                        </tr>
+                        <tr>
+                            <td>p-terminal-input</td>
+                            <td>Input element to enter commands.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>Terminal component has an input element that can be described with <i>aria-label</i> or <i>aria-labelledby</i> props. The element that lists the previous commands has <i>aria-live</i> so that changes are received by the screen reader.</p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                Terminal component has an input element that can be described with <i>aria-label</i> or <i>aria-labelledby</i> props. The element that lists the previous commands has <i>aria-live</i> so that changes are received by the screen reader.
+            </p>
 
-        <h6>Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>tab</i>
-                        </td>
-                        <td>Moves focus through the input element.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>enter</i>
-                        </td>
-                        <td>Executes the command when focus in on the input element.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>tab</i>
+                            </td>
+                            <td>Moves focus through the input element.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Executes the command when focus in on the input element.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

@@ -1,43 +1,44 @@
 <template>
-    <AppDoc name="TooltipDemo" :sources="sources" github="tooltip/TooltipDemo.vue">
-        <h5>Getting Started</h5>
-        <p>Tooltip is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>app.directive</i> function.</p>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="TooltipDemo" :sources="sources" github="tooltip/TooltipDemo.vue">
+            <h5>Getting Started</h5>
+            <p>Tooltip is a directive that needs to be imported and configured with a name of your choice. Global configuration is done with the <i>app.directive</i> function.</p>
+            <pre v-code.script><code>
 import Tooltip from 'primevue/tooltip';
 
 app.directive('tooltip', Tooltip);
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <p>Tooltip can also be configured locally using the directives property of your component.</p>
-        <pre v-code.script><code>
+            <p>Tooltip can also be configured locally using the directives property of your component.</p>
+            <pre v-code.script><code>
 directives: {
     'tooltip': Tooltip
 }
 
 </code></pre>
 
-        <p>Once the tooltip is configured, it can be attached to a target using the v- prefix.</p>
-        <pre v-code><code><template v-pre>
+            <p>Once the tooltip is configured, it can be attached to a target using the v- prefix.</p>
+            <pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip="'Enter your username'" /&gt;
 </template>
 </code></pre>
 
-        <p>Also, more than one value can be used.</p>
-        <pre v-code><code><template v-pre>
+            <p>Also, more than one value can be used.</p>
+            <pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip="{ value: 'Enter your username', disabled: true }" /&gt;
 </template>
 </code></pre>
 
-        <h5>Positions</h5>
-        <p>There are four choices to position the tooltip, default value is "right" and alternatives are "top", "bottom", "left". Position is specified using a modifier.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Positions</h5>
+            <p>There are four choices to position the tooltip, default value is "right" and alternatives are "top", "bottom", "left". Position is specified using a modifier.</p>
+            <pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip.right="'Enter your username'" /&gt;
 &lt;InputText type="text" v-tooltip.top="'Enter your username'" /&gt;
 &lt;InputText type="text" v-tooltip.bottom="'Enter your username'" /&gt;
@@ -45,126 +46,127 @@ directives: {
 </template>
 </code></pre>
 
-        <h5>Events</h5>
-        <p>Tooltip gets displayed on hover event of its target by default, other option is the focus event to display and blur to hide.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Events</h5>
+            <p>Tooltip gets displayed on hover event of its target by default, other option is the focus event to display and blur to hide.</p>
+            <pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip.focus="'Enter your username'" /&gt;
 </template>
 </code></pre>
 
-        <h5>Modifiers</h5>
-        <p>As seen in positions and event sections, tooltip is configured via modifiers that can be chained. Tooltip below, gets displayed at the top of the input at focus event.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Modifiers</h5>
+            <p>As seen in positions and event sections, tooltip is configured via modifiers that can be chained. Tooltip below, gets displayed at the top of the input at focus event.</p>
+            <pre v-code><code><template v-pre>
 &lt;InputText type="text" v-tooltip.top.focus="'Enter your username'" /&gt;
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>value</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Text of the tooltip</td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When present, it specifies that the component should be disabled.</td>
-                    </tr>
-                    <tr>
-                        <td>id</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>When present, it adds a custom id to the tooltip.</td>
-                    </tr>
-                    <tr>
-                        <td>class</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>When present, it adds a custom class to the tooltip.</td>
-                    </tr>
-                    <tr>
-                        <td>escape</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>By default the tooltip contents are not rendered as text. Set to true to support html tags in the content.</td>
-                    </tr>
-                    <tr>
-                        <td>fitContent</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Automatically adjusts the element position when there is not enough space on the selected position.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Text of the tooltip</td>
+                        </tr>
+                        <tr>
+                            <td>disabled</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When present, it specifies that the component should be disabled.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>When present, it adds a custom id to the tooltip.</td>
+                        </tr>
+                        <tr>
+                            <td>class</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>When present, it adds a custom class to the tooltip.</td>
+                        </tr>
+                        <tr>
+                            <td>escape</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>By default the tooltip contents are not rendered as text. Set to true to support html tags in the content.</td>
+                        </tr>
+                        <tr>
+                            <td>fitContent</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Automatically adjusts the element position when there is not enough space on the selected position.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-tooltip</td>
-                        <td>Input element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-tooltip-arrow</td>
-                        <td>Arrow of the tooltip.</td>
-                    </tr>
-                    <tr>
-                        <td>p-tooltip-text</td>
-                        <td>Text of the tooltip</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-tooltip</td>
+                            <td>Input element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-tooltip-arrow</td>
+                            <td>Arrow of the tooltip.</td>
+                        </tr>
+                        <tr>
+                            <td>p-tooltip-text</td>
+                            <td>Text of the tooltip</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>Tooltip component uses <i>tooltip</i> role and when it becomes visible the generated id of the tooltip is defined as the <i>aria-describedby</i> of the target.</p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>Tooltip component uses <i>tooltip</i> role and when it becomes visible the generated id of the tooltip is defined as the <i>aria-describedby</i> of the target.</p>
 
-        <h6>Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>escape</i>
-                        </td>
-                        <td>Closes the tooltip when focus is on the target.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>escape</i>
+                            </td>
+                            <td>Closes the tooltip when focus is on the target.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

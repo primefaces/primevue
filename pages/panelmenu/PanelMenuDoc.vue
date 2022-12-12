@@ -1,30 +1,31 @@
 <template>
-    <AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="PanelMenuDemo" :sources="sources" github="panelmenu/PanelMenuDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import PanelMenu from 'primevue/panelmenu';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/panelmenu/panelmenu.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>MenuModel</h5>
-        <p>PanelMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+            <h5>MenuModel</h5>
+            <p>PanelMenu uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-        <h5>Getting Started</h5>
-        <p>PanelMenu requires a collection of menuitems as its model.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>PanelMenu requires a collection of menuitems as its model.</p>
+            <pre v-code><code>
 &lt;PanelMenu :model="items" /&gt;
 
 </code></pre>
 
-        <div style="height: 400px; overflow: auto">
-            <pre v-code.script><code>
+            <div style="height: 400px; overflow: auto">
+                <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -150,11 +151,11 @@ export default {
 }
 
 </code></pre>
-        </div>
+            </div>
 
-        <h5>Templating</h5>
-        <p>PanelMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>PanelMenu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+            <pre v-code><code><template v-pre>
 &lt;PanelMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -163,8 +164,8 @@ export default {
 </template>
 </code></pre>
 
-        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
-        <pre v-code><code><template v-pre>
+            <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+            <pre v-code><code><template v-pre>
 &lt;PanelMenu :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -175,14 +176,14 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Programmatic Control</h5>
-        <p>
-            If the menuitem has a <i>key</i> defined, PanelMenu state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and
-            value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
-        </p>
+            <h5>Programmatic Control</h5>
+            <p>
+                If the menuitem has a <i>key</i> defined, PanelMenu state can be controlled programmatically with the <i>expandedKeys</i> property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node
+                and value is a boolean. Note that <i>expandedKeys</i> also supports two-way binding with the v-model directive.
+            </p>
 
-        <p>Example below expands and collapses all nodes with buttons.</p>
-        <pre v-code><code><template v-pre>
+            <p>Example below expands and collapses all nodes with buttons.</p>
+            <pre v-code><code><template v-pre>
 &lt;div&gt;
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
@@ -191,8 +192,8 @@ export default {
 </template>
 </code></pre>
 
-        <div style="height: 400px; overflow: auto">
-            <pre v-code.script><code>
+            <div style="height: 400px; overflow: auto">
+                <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -354,10 +355,10 @@ export default {
 }
 
 </code></pre>
-        </div>
+            </div>
 
-        <p class="mt-3">In order to display some nodes as expanded by default, simply add their keys to the map.</p>
-        <pre v-code.script><code>
+            <p class="mt-3">In order to display some nodes as expanded by default, simply add their keys to the map.</p>
+            <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -372,295 +373,296 @@ export default {
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>model</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of menuitems.</td>
-                    </tr>
-                    <tr>
-                        <td>expandedKeys</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>A map of keys to represent the expansion state in controlled mode.</td>
-                    </tr>
-                    <tr>
-                        <td>exact</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
-                    </tr>
-                    <tr>
-                        <td>tabindex</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Index of the element in tabbing order.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>model</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of menuitems.</td>
+                        </tr>
+                        <tr>
+                            <td>expandedKeys</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>A map of keys to represent the expansion state in controlled mode.</td>
+                        </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                        </tr>
+                        <tr>
+                            <td>tabindex</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Index of the element in tabbing order.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>panel-open</td>
-                        <td>
-                            event.originalEvent: Browser event <br />
-                            event.item: Current item
-                        </td>
-                        <td>Callback to invoke when a panel gets expanded.</td>
-                    </tr>
-                    <tr>
-                        <td>panel-close</td>
-                        <td>
-                            event.originalEvent: Browser event <br />
-                            event.item: Current item
-                        </td>
-                        <td>Callback to invoke when an active panel is collapsed by clicking on the header.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>panel-open</td>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.item: Current item
+                            </td>
+                            <td>Callback to invoke when a panel gets expanded.</td>
+                        </tr>
+                        <tr>
+                            <td>panel-close</td>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.item: Current item
+                            </td>
+                            <td>Callback to invoke when an active panel is collapsed by clicking on the header.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>item: Menuitem instance</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>item: Menuitem instance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-panelmenu</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panelmenu-panel</td>
-                        <td>Submenu container.</td>
-                    </tr>
-                    <tr>
-                        <td>p-toggleable-content</td>
-                        <td>Accordion content of root submenu.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panelmenu-header</td>
-                        <td>Accordion header of root submenu.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panelmenu-header-content</td>
-                        <td>Content of accordion header.</td>
-                    </tr>
-                    <tr>
-                        <td>p-panelmenu-header-action</td>
-                        <td>Action of accordion header.</td>
-                    </tr>
-                    <tr>
-                        <td>p-submenu-list</td>
-                        <td>List element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem</td>
-                        <td>Menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-text</td>
-                        <td>Label of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-icon</td>
-                        <td>Icon of a menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-submenu-icon</td>
-                        <td>Arrow icon of an accordion header.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-panelmenu</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panelmenu-panel</td>
+                            <td>Submenu container.</td>
+                        </tr>
+                        <tr>
+                            <td>p-toggleable-content</td>
+                            <td>Accordion content of root submenu.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panelmenu-header</td>
+                            <td>Accordion header of root submenu.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panelmenu-header-content</td>
+                            <td>Content of accordion header.</td>
+                        </tr>
+                        <tr>
+                            <td>p-panelmenu-header-action</td>
+                            <td>Action of accordion header.</td>
+                        </tr>
+                        <tr>
+                            <td>p-submenu-list</td>
+                            <td>List element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem</td>
+                            <td>Menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-text</td>
+                            <td>Label of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-icon</td>
+                            <td>Icon of a menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-submenu-icon</td>
+                            <td>Arrow icon of an accordion header.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            Accordion header elements have a <i>button</i> role, an <i>aria-label</i> defined using the <i>label</i> property of the menuitem model and <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for
-            the visibility state.
-        </p>
-        <p>The content of an accordion panel uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.</p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                Accordion header elements have a <i>button</i> role, an <i>aria-label</i> defined using the <i>label</i> property of the menuitem model and <i>aria-controls</i> to define the id of the content section along with
+                <i>aria-expanded</i> for the visibility state.
+            </p>
+            <p>The content of an accordion panel uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.</p>
 
-        <p>
-            The tree elements has a <i>tree</i> as the role and each menu item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-expanded</i> attributes. The container element of a treenode has the
-            <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.
-        </p>
+            <p>
+                The tree elements has a <i>tree</i> as the role and each menu item has a <i>treeitem</i> role along with <i>aria-label</i>, <i>aria-selected</i> and <i>aria-expanded</i> attributes. The container element of a treenode has the
+                <i>group</i> role. The <i>aria-setsize</i>, <i>aria-posinset</i> and <i>aria-level</i> attributes are calculated implicitly and added to each treeitem.
+            </p>
 
-        <h6>Header Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>tab</i>
-                        </td>
-                        <td>Moves focus to the next the focusable element in the page tab sequence.</td>
-                    </tr>
-                    <tr>
-                        <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>enter</i>
-                        </td>
-                        <td>Toggles the visibility of the content.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>space</i>
-                        </td>
-                        <td>Toggles the visibility of the content.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>down arrow</i>
-                        </td>
-                        <td>Moves focus to the next header. If focus is on the last header, moves focus to the first header.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>up arrow</i>
-                        </td>
-                        <td>Moves focus to the previous header. If focus is on the first header, moves focus to the last header.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>home</i>
-                        </td>
-                        <td>Moves focus to the first header.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>end</i>
-                        </td>
-                        <td>Moves focus to the last header.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Header Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>tab</i>
+                            </td>
+                            <td>Moves focus to the next the focusable element in the page tab sequence.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>tab</i></td>
+                            <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Toggles the visibility of the content.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>space</i>
+                            </td>
+                            <td>Toggles the visibility of the content.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>down arrow</i>
+                            </td>
+                            <td>Moves focus to the next header. If focus is on the last header, moves focus to the first header.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>up arrow</i>
+                            </td>
+                            <td>Moves focus to the previous header. If focus is on the first header, moves focus to the last header.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>home</i>
+                            </td>
+                            <td>Moves focus to the first header.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>end</i>
+                            </td>
+                            <td>Moves focus to the last header.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h6>Tree Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>tab</i>
-                        </td>
-                        <td>Moves focus to the next focusable element in the page tab order.</td>
-                    </tr>
-                    <tr>
-                        <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous focusable element in the page tab order.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>enter</i>
-                        </td>
-                        <td>Activates the focused treenode.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>space</i>
-                        </td>
-                        <td>Activates the focused treenode.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>down arrow</i>
-                        </td>
-                        <td>Moves focus to the next treenode.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>up arrow</i>
-                        </td>
-                        <td>Moves focus to the previous treenode.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>right arrow</i>
-                        </td>
-                        <td>If node is closed, opens the node otherwise moves focus to the first child node.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>left arrow</i>
-                        </td>
-                        <td>If node is open, closes the node otherwise moves focus to the parent node.</td>
-                    </tr>
-                    <tr>
-                        <td><i>any printable character</i></td>
-                        <td>Moves focus to the visible option whose label starts with the characters being typed.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Tree Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>tab</i>
+                            </td>
+                            <td>Moves focus to the next focusable element in the page tab order.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>tab</i></td>
+                            <td>Moves focus to the previous focusable element in the page tab order.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Activates the focused treenode.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>space</i>
+                            </td>
+                            <td>Activates the focused treenode.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>down arrow</i>
+                            </td>
+                            <td>Moves focus to the next treenode.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>up arrow</i>
+                            </td>
+                            <td>Moves focus to the previous treenode.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>right arrow</i>
+                            </td>
+                            <td>If node is closed, opens the node otherwise moves focus to the first child node.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>left arrow</i>
+                            </td>
+                            <td>If node is open, closes the node otherwise moves focus to the parent node.</td>
+                        </tr>
+                        <tr>
+                            <td><i>any printable character</i></td>
+                            <td>Moves focus to the visible option whose label starts with the characters being typed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

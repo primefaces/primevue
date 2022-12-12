@@ -1,8 +1,9 @@
 <template>
-    <AppDoc name="ConfirmPopupDemo" :sources="sources" github="confirmpopup/ConfirmPopupDemo.vue">
-        <h5>ConfirmationService</h5>
-        <p>ConfirmPopup is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application instance is created.</p>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="ConfirmPopupDemo" :sources="sources" github="confirmpopup/ConfirmPopupDemo.vue">
+            <h5>ConfirmationService</h5>
+            <p>ConfirmPopup is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application instance is created.</p>
+            <pre v-code.script><code>
 import {createApp} from 'vue';
 import ConfirmationService from 'primevue/confirmationservice';
 
@@ -11,29 +12,29 @@ app.use(ConfirmationService);
 
 </code></pre>
 
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import ConfirmPopup from 'primevue/confirmpopup';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/confirmpopup/confirmpopup.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup. <i>target</i> attribute is mandatory to align the popup to its caller.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup. <i>target</i> attribute is mandatory to align the popup to its caller.</p>
+            <pre v-code><code>
 &lt;ConfirmPopup&gt;&lt;/ConfirmPopup&gt;
 
 &lt;Button @click="delete($event)" icon="pi pi-check" label="Confirm"&gt;&lt;/Button&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	methods: {
         delete(event) {
@@ -60,9 +61,9 @@ export default {
 
 </code></pre>
 
-        <h5>Composition API</h5>
-        <p>The service can be injected with the <i>useConfirm</i> function.</p>
-        <pre v-code.script><code>
+            <h5>Composition API</h5>
+            <p>The service can be injected with the <i>useConfirm</i> function.</p>
+            <pre v-code.script><code>
 import { defineComponent } from "vue";
 import { useConfirm } from "primevue/useconfirm";
 
@@ -95,9 +96,9 @@ export default defineComponent({
 
 </code></pre>
 
-        <h5>Close Confirmation</h5>
-        <p>The popup can also be hidden programmatically using the <i>close</i> method.</p>
-        <pre v-code.script><code>
+            <h5>Close Confirmation</h5>
+            <p>The popup can also be hidden programmatically using the <i>close</i> method.</p>
+            <pre v-code.script><code>
 export default {
 	methods: {
         discard() {
@@ -108,9 +109,9 @@ export default {
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>Templating allows customizing the content where the message instance is available as the implicit variable.</p>
+            <pre v-code><code><template v-pre>
 &lt;ConfirmPopup group="demo">
     &lt;template #message="slotProps"&gt;
         &lt;div class="flex p-4"&gt;
@@ -123,233 +124,233 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Confirmation Options</h5>
-        <p>ConfirmDialog can be customized with various options listed here.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>target</td>
-                        <td>DomElement</td>
-                        <td>null</td>
-                        <td>Element to align the overlay.</td>
-                    </tr>
-                    <tr>
-                        <td>message</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Message of the confirmation.</td>
-                    </tr>
-                    <tr>
-                        <td>group</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.</td>
-                    </tr>
-                    <tr>
-                        <td>icon</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Icon to display next to the message.</td>
-                    </tr>
-                    <tr>
-                        <td>accept</td>
-                        <td>Function</td>
-                        <td>null</td>
-                        <td>Callback to execute when action is confirmed.</td>
-                    </tr>
-                    <tr>
-                        <td>reject</td>
-                        <td>Function</td>
-                        <td>null</td>
-                        <td>Callback to execute when action is rejected.</td>
-                    </tr>
-                    <tr>
-                        <td>onShow</td>
-                        <td>Function</td>
-                        <td>null</td>
-                        <td>Callback to execute when popup is shown.</td>
-                    </tr>
-                    <tr>
-                        <td>onHide</td>
-                        <td>Function</td>
-                        <td>null</td>
-                        <td>Callback to execute when popup is hidden.</td>
-                    </tr>
-                    <tr>
-                        <td>acceptLabel</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Label of the accept button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
-                    </tr>
-                    <tr>
-                        <td>rejectLabel</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Label of the reject button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
-                    </tr>
-                    <tr>
-                        <td>acceptIcon</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Icon of the accept button.</td>
-                    </tr>
-                    <tr>
-                        <td>rejectIcon</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Icon of the reject button.</td>
-                    </tr>
-                    <tr>
-                        <td>acceptClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the accept button.</td>
-                    </tr>
-                    <tr>
-                        <td>rejectClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the reject button.</td>
-                    </tr>
-                    <tr>
-                        <td>defaultFocus</td>
-                        <td>string</td>
-                        <td>accept</td>
-                        <td>Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Confirmation Options</h5>
+            <p>ConfirmDialog can be customized with various options listed here.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>target</td>
+                            <td>DomElement</td>
+                            <td>null</td>
+                            <td>Element to align the overlay.</td>
+                        </tr>
+                        <tr>
+                            <td>message</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Message of the confirmation.</td>
+                        </tr>
+                        <tr>
+                            <td>group</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Icon to display next to the message.</td>
+                        </tr>
+                        <tr>
+                            <td>accept</td>
+                            <td>Function</td>
+                            <td>null</td>
+                            <td>Callback to execute when action is confirmed.</td>
+                        </tr>
+                        <tr>
+                            <td>reject</td>
+                            <td>Function</td>
+                            <td>null</td>
+                            <td>Callback to execute when action is rejected.</td>
+                        </tr>
+                        <tr>
+                            <td>onShow</td>
+                            <td>Function</td>
+                            <td>null</td>
+                            <td>Callback to execute when popup is shown.</td>
+                        </tr>
+                        <tr>
+                            <td>onHide</td>
+                            <td>Function</td>
+                            <td>null</td>
+                            <td>Callback to execute when popup is hidden.</td>
+                        </tr>
+                        <tr>
+                            <td>acceptLabel</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Label of the accept button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        </tr>
+                        <tr>
+                            <td>rejectLabel</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Label of the reject button. Defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.</td>
+                        </tr>
+                        <tr>
+                            <td>acceptIcon</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Icon of the accept button.</td>
+                        </tr>
+                        <tr>
+                            <td>rejectIcon</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Icon of the reject button.</td>
+                        </tr>
+                        <tr>
+                            <td>acceptClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the accept button.</td>
+                        </tr>
+                        <tr>
+                            <td>rejectClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the reject button.</td>
+                        </tr>
+                        <tr>
+                            <td>defaultFocus</td>
+                            <td>string</td>
+                            <td>accept</td>
+                            <td>Element to receive the focus when the dialog gets visible, valid values are "accept" and "reject".</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>ConfirmationService</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>require</td>
-                        <td>confirm: Confirmation Object</td>
-                        <td>Displays the dialog using the confirmation object options.</td>
-                    </tr>
-                    <tr>
-                        <td>close</td>
-                        <td>-</td>
-                        <td>Hides the dialog without invoking accept or reject callbacks.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>ConfirmationService</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>require</td>
+                            <td>confirm: Confirmation Object</td>
+                            <td>Displays the dialog using the confirmation object options.</td>
+                        </tr>
+                        <tr>
+                            <td>close</td>
+                            <td>-</td>
+                            <td>Hides the dialog without invoking accept or reject callbacks.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>group</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>group</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>message</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>message</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-confirm-popup</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-confirm-popup-content</td>
-                        <td>Content element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-confirm-popup-icon</td>
-                        <td>Message icon.</td>
-                    </tr>
-                    <tr>
-                        <td>p-confirm-popup-message</td>
-                        <td>Message text.</td>
-                    </tr>
-                    <tr>
-                        <td>p-confirm-popup-footer</td>
-                        <td>Footer element for buttons.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>ConfirmDialog inherits all the classes from the Dialog component, visit <router-link to="/dialog">dialog</router-link> for more information.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-confirm-popup</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-confirm-popup-content</td>
+                            <td>Content element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-confirm-popup-icon</td>
+                            <td>Message icon.</td>
+                        </tr>
+                        <tr>
+                            <td>p-confirm-popup-message</td>
+                            <td>Message text.</td>
+                        </tr>
+                        <tr>
+                            <td>p-confirm-popup-footer</td>
+                            <td>Footer element for buttons.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            ConfirmPopup component uses <i>alertdialog</i> role and since any attribute is passed to the root element you may define attributes like <i>aria-label</i> or <i>aria-labelledby</i> to describe the popup contents. In addition
-            <i>aria-modal</i> is added since focus is kept within the popup.
-        </p>
-        <p>
-            When <i>require</i> method of the <i>$confirm</i> instance is used and a trigger is passed as a parameter, ConfirmDialog adds <i>aria-expanded</i> state attribute and <i>aria-controls</i> to the trigger so that the relation between the
-            trigger and the dialog is defined.
-        </p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                ConfirmPopup component uses <i>alertdialog</i> role and since any attribute is passed to the root element you may define attributes like <i>aria-label</i> or <i>aria-labelledby</i> to describe the popup contents. In addition
+                <i>aria-modal</i> is added since focus is kept within the popup.
+            </p>
+            <p>
+                When <i>require</i> method of the <i>$confirm</i> instance is used and a trigger is passed as a parameter, ConfirmDialog adds <i>aria-expanded</i> state attribute and <i>aria-controls</i> to the trigger so that the relation between
+                the trigger and the dialog is defined.
+            </p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;ConfirmPopup id="confirm" aria-label="popup" /&gt;
 
 &lt;Button @click="openPopup($event)" label="Confirm" id="confirmButton" :aria-expanded="isVisible" :aria-controls="isVisible ? 'confirm' : null" /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 setup() {
     const confirm = useConfirm();
     const isVisible = ref(false);
@@ -373,65 +374,66 @@ setup() {
 
 </code></pre>
 
-        <h6>Overlay Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>tab</i>
-                        </td>
-                        <td>Moves focus to the next the focusable element within the popup.</td>
-                    </tr>
-                    <tr>
-                        <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous the focusable element within the popup.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>escape</i>
-                        </td>
-                        <td>Closes the popup and moves focus to the trigger.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Overlay Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>tab</i>
+                            </td>
+                            <td>Moves focus to the next the focusable element within the popup.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>tab</i></td>
+                            <td>Moves focus to the previous the focusable element within the popup.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>escape</i>
+                            </td>
+                            <td>Closes the popup and moves focus to the trigger.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h6>Buttons Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>enter</i>
-                        </td>
-                        <td>Triggers the action, closes the popup and moves focus to the trigger.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>space</i>
-                        </td>
-                        <td>Triggers the action, closes the popup and moves focus to the trigger.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Buttons Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Triggers the action, closes the popup and moves focus to the trigger.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>space</i>
+                            </td>
+                            <td>Triggers the action, closes the popup and moves focus to the trigger.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

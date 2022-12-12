@@ -1,15 +1,17 @@
 <template>
-    <AppDoc
-        name="FullCalendarDemo"
-        :sources="sources"
-        :service="['EventService']"
-        :data="['events']"
-        github="fullcalendar/FullCalendarDemo.vue"
-        :dependencies="{ '@fullcalendar/core': '^5.7.2', '@fullcalendar/vue3': '^5.7.2', '@fullcalendar/daygrid': '^5.7.2', '@fullcalendar/interaction': '^5.7.2', '@fullcalendar/timegrid': '^5.7.2' }"
-        component="FullCalendar"
+    <ClientOnly
+        ><AppDoc
+            name="FullCalendarDemo"
+            :sources="sources"
+            :service="['EventService']"
+            :data="['events']"
+            github="fullcalendar/FullCalendarDemo.vue"
+            :dependencies="{ '@fullcalendar/core': '^5.7.2', '@fullcalendar/vue3': '^5.7.2', '@fullcalendar/daygrid': '^5.7.2', '@fullcalendar/interaction': '^5.7.2', '@fullcalendar/timegrid': '^5.7.2' }"
+            component="FullCalendar"
+        >
+            <p>As it is not a component from PrimeVue, refer to the FullCalendar <a href="https://fullcalendar.io/docs/vue">documentation</a> for more information.</p>
+        </AppDoc></ClientOnly
     >
-        <p>As it is not a component from PrimeVue, refer to the FullCalendar <a href="https://fullcalendar.io/docs/vue">documentation</a> for more information.</p>
-    </AppDoc>
 </template>
 
 <script>

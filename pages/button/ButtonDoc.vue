@@ -1,57 +1,58 @@
 <template>
-    <AppDoc name="ButtonDemo" :sources="sources" github="button/ButtonDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="ButtonDemo" :sources="sources" github="button/ButtonDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Button from 'primevue/button';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>Button is created using the Button element.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>Button is created using the Button element.</p>
+            <pre v-code><code>
 &lt;Button /&gt;
 
 </code></pre>
 
-        <h5>Label</h5>
-        <p>Text of the button is defined using the <i>label</i> property.</p>
-        <pre v-code><code>
+            <h5>Label</h5>
+            <p>Text of the button is defined using the <i>label</i> property.</p>
+            <pre v-code><code>
 &lt;Button label="Submit" /&gt;
 
 </code></pre>
-        <h5>Icons</h5>
-        <p>Icon on a button is specified with <i>icon</i> property and position is configured using <i>iconPos</i> attribute. Default icon position is "left" and alternative is "right". To display only an icon, leave the label as undefined.</p>
-        <pre v-code><code>
+            <h5>Icons</h5>
+            <p>Icon on a button is specified with <i>icon</i> property and position is configured using <i>iconPos</i> attribute. Default icon position is "left" and alternative is "right". To display only an icon, leave the label as undefined.</p>
+            <pre v-code><code>
 &lt;Button label="Submit" icon="pi pi-check" iconPos="right" /&gt;
 
 </code></pre>
 
-        <h5>Events</h5>
-        <p>Events are defined with the standard notation.</p>
-        <pre v-code><code>
+            <h5>Events</h5>
+            <p>Events are defined with the standard notation.</p>
+            <pre v-code><code>
 &lt;Button label="Submit" @click="handleClick($event)"/&gt;
 
 </code></pre>
 
-        <h5>Severity</h5>
-        <p>Different options are available as severity levels.</p>
+            <h5>Severity</h5>
+            <p>Different options are available as severity levels.</p>
 
-        <ul>
-            <li>.p-button-secondary</li>
-            <li>.p-button-success</li>
-            <li>.p-button-info</li>
-            <li>.p-button-warning</li>
-            <li>.p-button-help</li>
-            <li>.p-button-danger</li>
-        </ul>
+            <ul>
+                <li>.p-button-secondary</li>
+                <li>.p-button-success</li>
+                <li>.p-button-info</li>
+                <li>.p-button-warning</li>
+                <li>.p-button-help</li>
+                <li>.p-button-danger</li>
+            </ul>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;Button label="Primary" /&gt;
 &lt;Button label="Secondary" class="p-button-secondary" /&gt;
 &lt;Button label="Success" class="p-button-success" /&gt;
@@ -62,9 +63,9 @@ import Button from 'primevue/button';
 
 </code></pre>
 
-        <h5>Text Buttons</h5>
-        <p>Text buttons have transparent background and borders, use <i>p-button-text</i> to apply text button styling. In addition when used with <i>.p-button-plain</i> text buttons ignore severity levels and displayed as a regular text.</p>
-        <pre v-code><code>
+            <h5>Text Buttons</h5>
+            <p>Text buttons have transparent background and borders, use <i>p-button-text</i> to apply text button styling. In addition when used with <i>.p-button-plain</i> text buttons ignore severity levels and displayed as a regular text.</p>
+            <pre v-code><code>
 &lt;Button label="Submit" class="p-button-text" /&gt;
 &lt;Button icon="pi pi-check" class="p-button-text" /&gt;
 &lt;Button label="Cancel" icon="pi pi-times" class="p-button-text" /&gt;
@@ -72,39 +73,39 @@ import Button from 'primevue/button';
 
 </code></pre>
 
-        <h5>Raised and Rounded Buttons</h5>
-        <p>A button can be raised by having "p-button-raised" style class and similarly borders can be made rounded using "p-button-rounded" class.</p>
-        <pre v-code><code>
+            <h5>Raised and Rounded Buttons</h5>
+            <p>A button can be raised by having "p-button-raised" style class and similarly borders can be made rounded using "p-button-rounded" class.</p>
+            <pre v-code><code>
 &lt;Button label="Primary" class="p-button-raised p-button-rounded" /&gt;
 
 </code></pre>
 
-        <h5>Outlined Buttons</h5>
-        <p>An alternate styling for a button is the outlined option where background becomes transparent. Apply "p-button-outlined" to style a button as outlined.</p>
-        <pre v-code><code>
+            <h5>Outlined Buttons</h5>
+            <p>An alternate styling for a button is the outlined option where background becomes transparent. Apply "p-button-outlined" to style a button as outlined.</p>
+            <pre v-code><code>
 &lt;Button label="Primary" class="p-button-outlined" /&gt;
 
 </code></pre>
 
-        <h5>Link Buttons</h5>
-        <p>Use "p-button-link" class to render the button as a link.</p>
-        <pre v-code><code>
+            <h5>Link Buttons</h5>
+            <p>Use "p-button-link" class to render the button as a link.</p>
+            <pre v-code><code>
 &lt;Button label="Link" class="p-button-link" /&gt;
 
 </code></pre>
 
-        <h5>Badges</h5>
-        <p>Badge is a small status indicator for a button. Refer to the <router-link to="/badge">badge</router-link> documentation for available styling options.</p>
+            <h5>Badges</h5>
+            <p>Badge is a small status indicator for a button. Refer to the <router-link to="/badge">badge</router-link> documentation for available styling options.</p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;Button type="button" label="Emails" badge="8" /&gt;
 &lt;Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-info" /&gt;
 
 </code></pre>
 
-        <h5>ButtonSet</h5>
-        <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
-        <pre v-code><code>
+            <h5>ButtonSet</h5>
+            <p>Wrapping the buttons in a container having a <i>.p-buttonset</i> class, groups the buttons side to side.</p>
+            <pre v-code><code>
 &lt;span class="p-buttonset"&gt;
     &lt;Button label="Save" icon="pi pi-check" /&gt;
     &lt;Button label="Delete" icon="pi pi-trash" /&gt;
@@ -113,28 +114,28 @@ import Button from 'primevue/button';
 
 </code></pre>
 
-        <h5>Sizes</h5>
-        <p>
-            2 more sizes are available in addition to a regular button, for a smaller input add <i>p-button-sm</i> and for a larger one, use <i>p-button-lg</i>. Note that these classes available to change the size of a particular button, for global
-            scaling see the <router-link to="/theming">theming</router-link> page.
-        </p>
-        <pre v-code><code>
+            <h5>Sizes</h5>
+            <p>
+                2 more sizes are available in addition to a regular button, for a smaller input add <i>p-button-sm</i> and for a larger one, use <i>p-button-lg</i>. Note that these classes available to change the size of a particular button, for
+                global scaling see the <router-link to="/theming">theming</router-link> page.
+            </p>
+            <pre v-code><code>
 &lt;Button label="Small" icon="pi pi-check" class="p-button-sm"  /&gt;
 &lt;Button label="Normal" icon="pi pi-check" class="p-button"  /&gt;
 &lt;Button label="Large" icon="pi pi-check" class="p-button-lg" /&gt;
 
 </code></pre>
 
-        <h5>Loading State</h5>
-        <p>Button displays a <i>loadingIcon</i> when <i>loading</i> property is enabled.</p>
-        <pre v-code><code>
+            <h5>Loading State</h5>
+            <p>Button displays a <i>loadingIcon</i> when <i>loading</i> property is enabled.</p>
+            <pre v-code><code>
 &lt;Button label="Save" icon="pi pi-check" :loading="isLoading" /&gt;
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
-        <pre v-code><code>
+            <h5>Templating</h5>
+            <p>Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
+            <pre v-code><code>
 &lt;Button type="button" class="px-3"&gt;
     &lt;img alt="logo" src="../../assets/images/logo.svg" style="width: 1.5rem"/&gt;
 &lt;/Button&gt;
@@ -146,114 +147,114 @@ import Button from 'primevue/button';
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>label</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Text of the button.</td>
-                    </tr>
-                    <tr>
-                        <td>icon</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Name of the icon.</td>
-                    </tr>
-                    <tr>
-                        <td>iconPos</td>
-                        <td>string</td>
-                        <td>left</td>
-                        <td>Position of the icon, valid values are "left", "right", "bottom" and "top".</td>
-                    </tr>
-                    <tr>
-                        <td>iconClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the icon.</td>
-                    </tr>
-                    <tr>
-                        <td>badge</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Value of the badge.</td>
-                    </tr>
-                    <tr>
-                        <td>badgeClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the badge.</td>
-                    </tr>
-                    <tr>
-                        <td>loading</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>Whether the button is in loading state.</td>
-                    </tr>
-                    <tr>
-                        <td>loadingIcon</td>
-                        <td>string</td>
-                        <td>pi pi-spinner pi-spin</td>
-                        <td>Icon to display in loading state.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property such as style and class are passed to the underlying button element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>label</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Text of the button.</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Name of the icon.</td>
+                        </tr>
+                        <tr>
+                            <td>iconPos</td>
+                            <td>string</td>
+                            <td>left</td>
+                            <td>Position of the icon, valid values are "left", "right", "bottom" and "top".</td>
+                        </tr>
+                        <tr>
+                            <td>iconClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the icon.</td>
+                        </tr>
+                        <tr>
+                            <td>badge</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Value of the badge.</td>
+                        </tr>
+                        <tr>
+                            <td>badgeClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the badge.</td>
+                        </tr>
+                        <tr>
+                            <td>loading</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether the button is in loading state.</td>
+                        </tr>
+                        <tr>
+                            <td>loadingIcon</td>
+                            <td>string</td>
+                            <td>pi pi-spinner pi-spin</td>
+                            <td>Icon to display in loading state.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-button</td>
-                        <td>Button element</td>
-                    </tr>
-                    <tr>
-                        <td>p-button-icon</td>
-                        <td>Icon element</td>
-                    </tr>
-                    <tr>
-                        <td>p-button-label</td>
-                        <td>Label element of the button</td>
-                    </tr>
-                    <tr>
-                        <td>p-button-sm</td>
-                        <td>Smaller button element</td>
-                    </tr>
-                    <tr>
-                        <td>p-button-lg</td>
-                        <td>Larger button element</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-button</td>
+                            <td>Button element</td>
+                        </tr>
+                        <tr>
+                            <td>p-button-icon</td>
+                            <td>Icon element</td>
+                        </tr>
+                        <tr>
+                            <td>p-button-label</td>
+                            <td>Label element of the button</td>
+                        </tr>
+                        <tr>
+                            <td>p-button-sm</td>
+                            <td>Smaller button element</td>
+                        </tr>
+                        <tr>
+                            <td>p-button-lg</td>
+                            <td>Larger button element</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            Button component renders a native button element that implicitly includes any passed prop. Text to describe the button is defined with the <i>aria-label</i> prop, if not present <i>label</i> prop is used as the value. If the button is
-            icon only or custom templating is used, it is recommended to use <i>aria-label</i> so that screen readers would be able to read the element properly.
-        </p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                Button component renders a native button element that implicitly includes any passed prop. Text to describe the button is defined with the <i>aria-label</i> prop, if not present <i>label</i> prop is used as the value. If the button is
+                icon only or custom templating is used, it is recommended to use <i>aria-label</i> so that screen readers would be able to read the element properly.
+            </p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;Button icon="pi pi-check" aria-label="Submit" /&gt;
 
 &lt;Button icon="pi pi-check" label="Submit" /&gt;
@@ -265,35 +266,36 @@ import Button from 'primevue/button';
 
 </code></pre>
 
-        <h6>Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i>tab</i></td>
-                        <td>Moves focus to the button.</td>
-                    </tr>
-                    <tr>
-                        <td><i>enter</i></td>
-                        <td>Activates the button.</td>
-                    </tr>
-                    <tr>
-                        <td><i>space</i></td>
-                        <td>Activates the button.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>tab</i></td>
+                            <td>Moves focus to the button.</td>
+                        </tr>
+                        <tr>
+                            <td><i>enter</i></td>
+                            <td>Activates the button.</td>
+                        </tr>
+                        <tr>
+                            <td><i>space</i></td>
+                            <td>Activates the button.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

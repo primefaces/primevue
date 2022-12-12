@@ -1,24 +1,25 @@
 <template>
-    <AppDoc name="TimelineDemo" :sources="sources" github="timeline/TimelineDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="TimelineDemo" :sources="sources" github="timeline/TimelineDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Timeline from 'primevue/timeline';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/timeline/timeline.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>
-            Timeline receives the events with the <i>value</i> property as a collection of arbitrary objects. In addition, <i>content</i> template is required to display the representation of an event. Example below is a sample events array that is
-            used throughout the documentation.
-        </p>
-        <pre v-code.script><code>
+            <h5>Getting Started</h5>
+            <p>
+                Timeline receives the events with the <i>value</i> property as a collection of arbitrary objects. In addition, <i>content</i> template is required to display the representation of an event. Example below is a sample events array that
+                is used throughout the documentation.
+            </p>
+            <pre v-code.script><code>
 export default {
     data() {
         return {
@@ -37,7 +38,7 @@ export default {
 
 </code></pre>
 
-        <pre v-code><code><template v-pre>
+            <pre v-code><code><template v-pre>
 &lt;Timeline :value="events"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -46,9 +47,9 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Layout</h5>
-        <p>Default layout of the timeline is vertical, setting <i>layout</i> to "horizontal" displays the items horizontally.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Layout</h5>
+            <p>Default layout of the timeline is vertical, setting <i>layout</i> to "horizontal" displays the items horizontally.</p>
+            <pre v-code><code><template v-pre>
 &lt;Timeline :value="events" layout="horizontal&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -57,9 +58,9 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Alignment</h5>
-        <p>Location of the timeline bar is defined using the <i>align</i> property.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Alignment</h5>
+            <p>Location of the timeline bar is defined using the <i>align</i> property.</p>
+            <pre v-code><code><template v-pre>
 &lt;Timeline :value="events" align="right"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -68,8 +69,8 @@ export default {
 </template>
 </code></pre>
 
-        <p>In addition, the "alternate" alignment option make the contents take turns around the timeline bar.</p>
-        <pre v-code><code><template v-pre>
+            <p>In addition, the "alternate" alignment option make the contents take turns around the timeline bar.</p>
+            <pre v-code><code><template v-pre>
 &lt;Timeline :value="events" align="alternate"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -78,9 +79,9 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Opposite</h5>
-        <p>Content to be placed at the other side of the bar is defined with the <i>opposite</i> template.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Opposite</h5>
+            <p>Content to be placed at the other side of the bar is defined with the <i>opposite</i> template.</p>
+            <pre v-code><code><template v-pre>
 &lt;Timeline :value="events"&gt;
 	&lt;template #opposite="slotProps"&gt;
 		&lt;small class="p-text-secondary"&gt;&#123;&#123;slotProps.item.date&#125;&#125;&lt;/small&gt;
@@ -92,9 +93,9 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Custom Markers</h5>
-        <p><i>marker</i> template allows placing a custom event marker instead of the default one. Below is an example with custom markers and content.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Custom Markers</h5>
+            <p><i>marker</i> template allows placing a custom event marker instead of the default one. Below is an example with custom markers and content.</p>
+            <pre v-code><code><template v-pre>
 &lt;Timeline :value="events" align="alternate" class="customized-timeline"&gt;
 	&lt;template #marker="slotProps"&gt;
 		&lt;span class="custom-marker shadow-2" :style="&#123;backgroundColor: slotProps.item.color&#125;"&gt;
@@ -121,12 +122,12 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Custom Connectors</h5>
-        <p>
-            Connector is an element that binds two events together, use the <i>connector</i> slot to use your own element instead of the default one. If you just require to customize simple properties like the color and width, apply the
-            "p-timeline-event-connector" class to your element to use the built-in positioning.
-        </p>
-        <pre v-code><code><template v-pre>
+            <h5>Custom Connectors</h5>
+            <p>
+                Connector is an element that binds two events together, use the <i>connector</i> slot to use your own element instead of the default one. If you just require to customize simple properties like the color and width, apply the
+                "p-timeline-event-connector" class to your element to use the built-in positioning.
+            </p>
+            <pre v-code><code><template v-pre>
 &lt;Timeline :value="events"&gt;
 	&lt;template #content="slotProps"&gt;
 		&#123;&#123;slotProps.item.status&#125;&#125;
@@ -138,169 +139,170 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>value</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of events to display.</td>
-                    </tr>
-                    <tr>
-                        <td>align</td>
-                        <td>string</td>
-                        <td>left</td>
-                        <td>Position of the timeline bar relative to the content. Valid values are "left", "right" and "alternate" for vertical layout and "top", "bottom" for horizontal layout.</td>
-                    </tr>
-                    <tr>
-                        <td>layout</td>
-                        <td>string</td>
-                        <td>vertical</td>
-                        <td>Orientation of the timeline, valid values are "vertical" and "horizontal".</td>
-                    </tr>
-                    <tr>
-                        <td>dataKey</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Name of the field that uniquely identifies the a record in the data.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of events to display.</td>
+                        </tr>
+                        <tr>
+                            <td>align</td>
+                            <td>string</td>
+                            <td>left</td>
+                            <td>Position of the timeline bar relative to the content. Valid values are "left", "right" and "alternate" for vertical layout and "top", "bottom" for horizontal layout.</td>
+                        </tr>
+                        <tr>
+                            <td>layout</td>
+                            <td>string</td>
+                            <td>vertical</td>
+                            <td>Orientation of the timeline, valid values are "vertical" and "horizontal".</td>
+                        </tr>
+                        <tr>
+                            <td>dataKey</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Name of the field that uniquely identifies the a record in the data.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>opposite</td>
-                        <td>
-                            item: Position of the event<br />
-                            index: Index of the event
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>marker</td>
-                        <td>
-                            item: Custom marker of the event<br />
-                            index: Index of the event
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>content</td>
-                        <td>
-                            item: Content of the event<br />
-                            index: Index of the event
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>connector</td>
-                        <td>
-                            item: Connector of the event<br />
-                            index: Index of the event
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>opposite</td>
+                            <td>
+                                item: Position of the event<br />
+                                index: Index of the event
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>marker</td>
+                            <td>
+                                item: Custom marker of the event<br />
+                                index: Index of the event
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>
+                                item: Content of the event<br />
+                                index: Index of the event
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>connector</td>
+                            <td>
+                                item: Connector of the event<br />
+                                index: Index of the event
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-timeline</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-left</td>
-                        <td>Container element when alignment is left.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-right</td>
-                        <td>Container element when alignment is right.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-top</td>
-                        <td>Container element when alignment is top.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-bottom</td>
-                        <td>Container element when alignment is bottom.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-alternate</td>
-                        <td>Container element when alignment is alternating.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-vertical</td>
-                        <td>Container element of a vertical timeline.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-horizontal</td>
-                        <td>Container element of a horizontal timeline.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-event</td>
-                        <td>Event element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-event-opposite</td>
-                        <td>Opposite of an event content.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-event-content</td>
-                        <td>Event content.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-event-separator</td>
-                        <td>Separator element of an event.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-event-marker</td>
-                        <td>Marker element of an event.</td>
-                    </tr>
-                    <tr>
-                        <td>p-timeline-event-connector</td>
-                        <td>Connector element of an event.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-timeline</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-left</td>
+                            <td>Container element when alignment is left.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-right</td>
+                            <td>Container element when alignment is right.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-top</td>
+                            <td>Container element when alignment is top.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-bottom</td>
+                            <td>Container element when alignment is bottom.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-alternate</td>
+                            <td>Container element when alignment is alternating.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-vertical</td>
+                            <td>Container element of a vertical timeline.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-horizontal</td>
+                            <td>Container element of a horizontal timeline.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-event</td>
+                            <td>Event element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-event-opposite</td>
+                            <td>Opposite of an event content.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-event-content</td>
+                            <td>Event content.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-event-separator</td>
+                            <td>Separator element of an event.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-event-marker</td>
+                            <td>Marker element of an event.</td>
+                        </tr>
+                        <tr>
+                            <td>p-timeline-event-connector</td>
+                            <td>Connector element of an event.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>Timeline uses a semantic ordered list element to list the events. No specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the list element.</p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>Timeline uses a semantic ordered list element to list the events. No specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the list element.</p>
 
-        <h6>Keyboard Support</h6>
-        <p>Component does not include any interactive elements.</p>
+            <h6>Keyboard Support</h6>
+            <p>Component does not include any interactive elements.</p>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

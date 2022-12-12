@@ -115,7 +115,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableRowGroupDemo.vue" />
+        <ClientOnly><AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableRowGroupDemo.vue" /></ClientOnly>
     </div>
 </template>
 

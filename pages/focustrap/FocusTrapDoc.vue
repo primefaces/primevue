@@ -1,64 +1,66 @@
 <template>
-    <AppDoc name="FocusTrapDemo" :sources="sources" github="focustrap/FocusTrapDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="FocusTrapDemo" :sources="sources" github="focustrap/FocusTrapDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import FocusTrap from 'primevue/focustrap';
 
 app.directive('focustrap', FocusTrap);
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/focustrap/focustrap.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 directives: {
     'focustrap': FocusTrap
 }
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>FocusTrap is applied to a container element with the v-focustrap directive.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Getting Started</h5>
+            <p>FocusTrap is applied to a container element with the v-focustrap directive.</p>
+            <pre v-code><code><template v-pre>
 &lt;div v-focustrap&gt;
     //content
 &lt;/div&gt;
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When set as true, focus wouldn't be managed.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>disabled</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When set as true, focus wouldn't be managed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <p>Directive has no events.</p>
+            <h5>Events</h5>
+            <p>Directive has no events.</p>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

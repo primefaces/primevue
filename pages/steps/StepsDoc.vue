@@ -1,30 +1,31 @@
 <template>
-    <AppDoc name="StepsDemo" :sources="sources" :extPages="pages" github="steps/StepsDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="StepsDemo" :sources="sources" :extPages="pages" github="steps/StepsDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Steps from 'primevue/steps';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/steps/steps.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>MenuModel</h5>
-        <p>Steps uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
+            <h5>MenuModel</h5>
+            <p>Steps uses the common MenuModel API to define the items, visit <router-link to="/menumodel">MenuModel API</router-link> for details.</p>
 
-        <h5>Getting Started</h5>
-        <p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>Steps is integrated with Vue Router and requires a collection of menuitems as its model.</p>
+            <pre v-code><code>
 &lt;Steps :model="items" /&gt;
 &lt;router-view /&gt;
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -50,17 +51,17 @@ export default {
 
 </code></pre>
 
-        <h5>Interactive</h5>
-        <p>Items are readonly by default, if you'd like to make them interactive then disable <i>readonly</i> property.</p>
-        <pre v-code><code>
+            <h5>Interactive</h5>
+            <p>Items are readonly by default, if you'd like to make them interactive then disable <i>readonly</i> property.</p>
+            <pre v-code><code>
 &lt;Steps :model="items" :readonly="false" /&gt;
 &lt;router-view /&gt;
 
 </code></pre>
 
-        <h5>Templating</h5>
-        <p>Steps offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Templating</h5>
+            <p>Steps offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+            <pre v-code><code><template v-pre>
 &lt;Steps :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;{{item.label}}&lt;/a&gt;
@@ -69,8 +70,8 @@ export default {
 </template>
 </code></pre>
 
-        <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
-        <pre v-code><code><template v-pre>
+            <p><i>router-link</i> with route configuration can also be used within templating for further customization.</p>
+            <pre v-code><code><template v-pre>
 &lt;Steps :model="items"&gt;
     &lt;template #item="{item}"&gt;
         &lt;router-link :to="item.to" custom v-slot="{href, route, navigate, isActive, isExactActive}"&gt;
@@ -81,174 +82,175 @@ export default {
 </template>
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>id</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Unique identifier of the element.</td>
-                    </tr>
-                    <tr>
-                        <td>model</td>
-                        <td>array</td>
-                        <td>null</td>
-                        <td>An array of menuitems.</td>
-                    </tr>
-                    <tr>
-                        <td>readonly</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether the items are clickable or not.</td>
-                    </tr>
-                    <tr>
-                        <td>exact</td>
-                        <td>boolean</td>
-                        <td>true</td>
-                        <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Unique identifier of the element.</td>
+                        </tr>
+                        <tr>
+                            <td>model</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of menuitems.</td>
+                        </tr>
+                        <tr>
+                            <td>readonly</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether the items are clickable or not.</td>
+                        </tr>
+                        <tr>
+                            <td>exact</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Slots</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>item</td>
-                        <td>item: Menuitem instance</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Slots</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>item: Menuitem instance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-steps</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-steps-list</td>
-                        <td>Root list element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-steps-current</td>
-                        <td>Current menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-menuitem-link</td>
-                        <td>Link element of the menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-steps-item</td>
-                        <td>Menuitem element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-steps-number</td>
-                        <td>Number of menuitem.</td>
-                    </tr>
-                    <tr>
-                        <td>p-steps-title</td>
-                        <td>Label of menuitem.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-steps</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-steps-list</td>
+                            <td>Root list element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-steps-current</td>
+                            <td>Current menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-menuitem-link</td>
+                            <td>Link element of the menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-steps-item</td>
+                            <td>Menuitem element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-steps-number</td>
+                            <td>Number of menuitem.</td>
+                        </tr>
+                        <tr>
+                            <td>p-steps-title</td>
+                            <td>Label of menuitem.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            Steps component uses the <i>nav</i> element and since any attribute is passed to the root implicitly <i>aria-labelledby</i> or <i>aria-label</i> can be used to describe the component. Inside an ordered list is used where the current step
-            item defines <i>aria-current</i> as "step".
-        </p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                Steps component uses the <i>nav</i> element and since any attribute is passed to the root implicitly <i>aria-labelledby</i> or <i>aria-label</i> can be used to describe the component. Inside an ordered list is used where the current
+                step item defines <i>aria-current</i> as "step".
+            </p>
 
-        <h6>Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>tab</i>
-                        </td>
-                        <td>Adds focus to the active step when focus moves in to the component, if there is already a focused tab header then moves the focus out of the component based on the page tab sequence.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>enter</i>
-                        </td>
-                        <td>Activates the focused step if readonly is not enabled.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>space</i>
-                        </td>
-                        <td>Activates the focused step if readonly is not enabled.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>right arrow</i>
-                        </td>
-                        <td>Moves focus to the next step if readonly is not enabled.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>left arrow</i>
-                        </td>
-                        <td>Moves focus to the previous step if readonly is not enabled.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>home</i>
-                        </td>
-                        <td>Moves focus to the first step if readonly is not enabled.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>end</i>
-                        </td>
-                        <td>Moves focus to the last step if readonly is not enabled.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>tab</i>
+                            </td>
+                            <td>Adds focus to the active step when focus moves in to the component, if there is already a focused tab header then moves the focus out of the component based on the page tab sequence.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Activates the focused step if readonly is not enabled.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>space</i>
+                            </td>
+                            <td>Activates the focused step if readonly is not enabled.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>right arrow</i>
+                            </td>
+                            <td>Moves focus to the next step if readonly is not enabled.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>left arrow</i>
+                            </td>
+                            <td>Moves focus to the previous step if readonly is not enabled.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>home</i>
+                            </td>
+                            <td>Moves focus to the first step if readonly is not enabled.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>end</i>
+                            </td>
+                            <td>Moves focus to the last step if readonly is not enabled.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

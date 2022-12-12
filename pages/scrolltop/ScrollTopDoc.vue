@@ -1,35 +1,36 @@
 <template>
-    <AppDoc name="ScrollTopDemo" :sources="sources" github="scrolltop/ScrollTopDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly
+        ><AppDoc name="ScrollTopDemo" :sources="sources" github="scrolltop/ScrollTopDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import ScrollTop from 'primevue/scrolltop';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/scrolltop/scrolltop.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>Without any configuration, ScrollTop listens window scroll.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>Without any configuration, ScrollTop listens window scroll.</p>
+            <pre v-code><code>
 &lt;ScrollTop /&gt;
 
 </code></pre>
 
-        <h5>Threshold</h5>
-        <p>When the vertical scroll position reaches a certain value, ScrollTop gets displayed. This value is defined with the <i>threshold</i> property that defaults to 400.</p>
-        <pre v-code><code>
+            <h5>Threshold</h5>
+            <p>When the vertical scroll position reaches a certain value, ScrollTop gets displayed. This value is defined with the <i>threshold</i> property that defaults to 400.</p>
+            <pre v-code><code>
 &lt;ScrollTop :threshold="200" /&gt;
 
 </code></pre>
 
-        <h5>Target Element</h5>
-        <p>ScrollTop can also be assigned to its parent element by setting <i>target</i> as "parent".</p>
-        <pre v-code><code>
+            <h5>Target Element</h5>
+            <p>ScrollTop can also be assigned to its parent element by setting <i>target</i> as "parent".</p>
+            <pre v-code><code>
 &lt;div style="height: 400px; overflow: auto"&gt;
 	Content that overflows to container
 	&lt;ScrollTop /&gt;
@@ -37,106 +38,107 @@ import ScrollTop from 'primevue/scrolltop';
 
 </code></pre>
 
-        <h5>Properties</h5>
-        <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>target</td>
-                        <td>string</td>
-                        <td>window</td>
-                        <td>Target of the ScrollTop, valid values are "window" and "parent".</td>
-                    </tr>
-                    <tr>
-                        <td>threshold</td>
-                        <td>number</td>
-                        <td>400</td>
-                        <td>Defines the threshold value of the vertical scroll position of the target to toggle the visibility.</td>
-                    </tr>
-                    <tr>
-                        <td>icon</td>
-                        <td>string</td>
-                        <td>pi pi-chevron-up</td>
-                        <td>Icon to display.</td>
-                    </tr>
-                    <tr>
-                        <td>behavior</td>
-                        <td>string</td>
-                        <td>smooth</td>
-                        <td>Defines the scrolling behavi, "smooth" adds an animation and "auto" scrolls with a jump.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties</h5>
+            <p>Any property as style and class are passed to the main container element. Following are the additional properties to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>target</td>
+                            <td>string</td>
+                            <td>window</td>
+                            <td>Target of the ScrollTop, valid values are "window" and "parent".</td>
+                        </tr>
+                        <tr>
+                            <td>threshold</td>
+                            <td>number</td>
+                            <td>400</td>
+                            <td>Defines the threshold value of the vertical scroll position of the target to toggle the visibility.</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>string</td>
+                            <td>pi pi-chevron-up</td>
+                            <td>Icon to display.</td>
+                        </tr>
+                        <tr>
+                            <td>behavior</td>
+                            <td>string</td>
+                            <td>smooth</td>
+                            <td>Defines the scrolling behavi, "smooth" adds an animation and "auto" scrolls with a jump.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-scrolltop</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-scrolltop-sticky</td>
-                        <td>Container element when attached to its parent.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-scrolltop</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-scrolltop-sticky</td>
+                            <td>Container element when attached to its parent.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            ScrollTop uses a button element with an <i>aria-label</i> that refers to the <i>aria.scrollTop</i> property of the <router-link to="/locale">locale</router-link> API by default, you may use your own aria roles and attributes as any valid
-            attribute is passed to the button element implicitly.
-        </p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                ScrollTop uses a button element with an <i>aria-label</i> that refers to the <i>aria.scrollTop</i> property of the <router-link to="/locale">locale</router-link> API by default, you may use your own aria roles and attributes as any
+                valid attribute is passed to the button element implicitly.
+            </p>
 
-        <h6>Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>enter</i>
-                        </td>
-                        <td>Scrolls to top.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>space</i>
-                        </td>
-                        <td>Scrolls to top.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Scrolls to top.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>space</i>
+                            </td>
+                            <td>Scrolls to top.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

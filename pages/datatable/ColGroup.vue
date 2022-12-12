@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableColGroupDemo" :sources="sources" github="datatable/DataTableColGroupDemo.vue" />
+        <ClientOnly><AppDoc name="DataTableColGroupDemo" :sources="sources" github="datatable/DataTableColGroupDemo.vue" /> </ClientOnly>
     </div>
 </template>
 

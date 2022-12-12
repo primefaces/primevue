@@ -1,23 +1,24 @@
 <template>
-    <AppDoc name="AccordionDemo" :sources="sources" github="accordion/AccordionDemo.vue">
-        <h5>Import via Module</h5>
-        <pre v-code.script><code>
+    <ClientOnly>
+        <AppDoc name="AccordionDemo" :sources="sources" github="accordion/AccordionDemo.vue">
+            <h5>Import via Module</h5>
+            <pre v-code.script><code>
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <h5>Import via CDN</h5>
-        <pre v-code><code>
+            <h5>Import via CDN</h5>
+            <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/accordion/accordion.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/accordiontab/accordiontab.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-        <h5>Getting Started</h5>
-        <p>Accordion element consists of one or more AccordionTab elements. Title of the tab is defined using header attribute.</p>
-        <pre v-code><code>
+            <h5>Getting Started</h5>
+            <p>Accordion element consists of one or more AccordionTab elements. Title of the tab is defined using header attribute.</p>
+            <pre v-code><code>
 &lt;Accordion&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -32,9 +33,9 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <h5>Active</h5>
-        <p>Visibility of the content is specified with the <i>activeIndex</i> property that supports one or two-way binding.</p>
-        <pre v-code><code>
+            <h5>Active</h5>
+            <p>Visibility of the content is specified with the <i>activeIndex</i> property that supports one or two-way binding.</p>
+            <pre v-code><code>
 &lt;Accordion :activeIndex="0"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -49,8 +50,8 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <p>Two-way binding requires v-model.</p>
-        <pre v-code><code>
+            <p>Two-way binding requires v-model.</p>
+            <pre v-code><code>
 &lt;Accordion v-model:activeIndex="activeIndex"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -65,9 +66,9 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <h5>Multiple</h5>
-        <p>By default only one tab at a time can be active, enabling multiple property changes this behavior to allow multiple tabs be active at the same time.</p>
-        <pre v-code><code>
+            <h5>Multiple</h5>
+            <p>By default only one tab at a time can be active, enabling multiple property changes this behavior to allow multiple tabs be active at the same time.</p>
+            <pre v-code><code>
 &lt;Accordion :multiple="true"&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -82,9 +83,9 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <h5>Disabled</h5>
-        <p>A tab can be disabled by setting the <i>disabled</i> property to true.</p>
-        <pre v-code><code>
+            <h5>Disabled</h5>
+            <p>A tab can be disabled by setting the <i>disabled</i> property to true.</p>
+            <pre v-code><code>
 &lt;Accordion&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -99,9 +100,9 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <h5>Custom Content at Headers</h5>
-        <p>Custom content for the title section of a panel is defined using the header template.</p>
-        <pre v-code><code>
+            <h5>Custom Content at Headers</h5>
+            <p>Custom content for the title section of a panel is defined using the header template.</p>
+            <pre v-code><code>
 &lt;Accordion&gt;
 	&lt;AccordionTab&gt;
 		&lt;template #header&gt;
@@ -128,9 +129,9 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <h5>Programmatic Control</h5>
-        <p>Tabs can be controlled programmatically using <i>activeIndex</i> property.</p>
-        <pre v-code><code>
+            <h5>Programmatic Control</h5>
+            <p>Tabs can be controlled programmatically using <i>activeIndex</i> property.</p>
+            <pre v-code><code>
 &lt;Button @click="active = 0" class="p-button-text" label="Activate 1st" /&gt;
 &lt;Button @click="active = 1" class="p-button-text" label="Activate 2nd" /&gt;
 &lt;Button @click="active = 2" class="p-button-text" label="Activate 3rd" /&gt;
@@ -149,7 +150,7 @@ import AccordionTab from 'primevue/accordiontab';
 
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -160,9 +161,9 @@ export default {
 
 </code></pre>
 
-        <h5>Dynamic Tabs</h5>
-        <p>Tabs can be generated dynamically using the standard <i>v-for</i> directive.</p>
-        <pre v-code><code><template v-pre>
+            <h5>Dynamic Tabs</h5>
+            <p>Tabs can be generated dynamically using the standard <i>v-for</i> directive.</p>
+            <pre v-code><code><template v-pre>
 &lt;Accordion&gt;
 	&lt;AccordionTab v-for="tab in tabs" :key="tab.title" :header="tab.title"&gt;
 		&lt;p&gt;{{tab.content}}&lt;/p&gt;
@@ -171,7 +172,7 @@ export default {
 </template>
 </code></pre>
 
-        <pre v-code.script><code>
+            <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -186,13 +187,13 @@ export default {
 
 </code></pre>
 
-        <h5>Lazy Rendering</h5>
-        <p>
-            All tabs are rendered when mounted and inactive tabs are hidden with CSS. Enabling <i>lazy</i> option activates the dynamic mode where a tab is only rendered at DOM when it is active. This option is useful to speed up the initial
-            rendering performance if there are many tabs.
-        </p>
+            <h5>Lazy Rendering</h5>
+            <p>
+                All tabs are rendered when mounted and inactive tabs are hidden with CSS. Enabling <i>lazy</i> option activates the dynamic mode where a tab is only rendered at DOM when it is active. This option is useful to speed up the initial
+                rendering performance if there are many tabs.
+            </p>
 
-        <pre v-code><code>
+            <pre v-code><code>
 &lt;Accordion lazy&gt;
 	&lt;AccordionTab header="Header I"&gt;
 		Content
@@ -207,272 +208,273 @@ export default {
 
 </code></pre>
 
-        <h5>Properties of AccordionTab</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>header</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Orientation of tab headers.</td>
-                    </tr>
-                    <tr>
-                        <td>headerStyle</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the tab header.</td>
-                    </tr>
-                    <tr>
-                        <td>headerClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the tab header.</td>
-                    </tr>
-                    <tr>
-                        <td>headerProps</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>Uses to pass all properties of the HTMLDivElement to the tab header.</td>
-                    </tr>
-                    <tr>
-                        <td>headerActionProps</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.</td>
-                    </tr>
-                    <tr>
-                        <td>contentStyle</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Inline style of the tab content.</td>
-                    </tr>
-                    <tr>
-                        <td>contentClass</td>
-                        <td>string</td>
-                        <td>null</td>
-                        <td>Style class of the tab content.</td>
-                    </tr>
-                    <tr>
-                        <td>contentProps</td>
-                        <td>object</td>
-                        <td>null</td>
-                        <td>Uses to pass all properties of the HTMLDivElement to the tab content.</td>
-                    </tr>
-                    <tr>
-                        <td>disabled</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>Whether the tab is disabled.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties of AccordionTab</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>header</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Orientation of tab headers.</td>
+                        </tr>
+                        <tr>
+                            <td>headerStyle</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Inline style of the tab header.</td>
+                        </tr>
+                        <tr>
+                            <td>headerClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the tab header.</td>
+                        </tr>
+                        <tr>
+                            <td>headerProps</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Uses to pass all properties of the HTMLDivElement to the tab header.</td>
+                        </tr>
+                        <tr>
+                            <td>headerActionProps</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.</td>
+                        </tr>
+                        <tr>
+                            <td>contentStyle</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Inline style of the tab content.</td>
+                        </tr>
+                        <tr>
+                            <td>contentClass</td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Style class of the tab content.</td>
+                        </tr>
+                        <tr>
+                            <td>contentProps</td>
+                            <td>object</td>
+                            <td>null</td>
+                            <td>Uses to pass all properties of the HTMLDivElement to the tab content.</td>
+                        </tr>
+                        <tr>
+                            <td>disabled</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Whether the tab is disabled.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Properties of Accordion</h5>
-        <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>multiple</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When enabled, multiple tabs can be activated at the same time.</td>
-                    </tr>
-                    <tr>
-                        <td>activeIndex</td>
-                        <td>number|array</td>
-                        <td>null</td>
-                        <td>Index of the active tab or an array of indexes in multiple mode.</td>
-                    </tr>
-                    <tr>
-                        <td>lazy</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.</td>
-                    </tr>
-                    <tr>
-                        <td>expandIcon</td>
-                        <td>string</td>
-                        <td>pi-chevron-right</td>
-                        <td>Icon of a collapsed tab.</td>
-                    </tr>
-                    <tr>
-                        <td>collapseIcon</td>
-                        <td>string</td>
-                        <td>pi-chevron-down</td>
-                        <td>Icon of an expanded tab.</td>
-                    </tr>
-                    <tr>
-                        <td>tabindex</td>
-                        <td>number</td>
-                        <td>0</td>
-                        <td>Index of the element in tabbing order.</td>
-                    </tr>
-                    <tr>
-                        <td>selectOnFocus</td>
-                        <td>boolean</td>
-                        <td>false</td>
-                        <td>When enabled, the focused tab is activated.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Properties of Accordion</h5>
+            <p>Any property as style and class are passed to the main container element. Following is the additional property to configure the component.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>multiple</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When enabled, multiple tabs can be activated at the same time.</td>
+                        </tr>
+                        <tr>
+                            <td>activeIndex</td>
+                            <td>number|array</td>
+                            <td>null</td>
+                            <td>Index of the active tab or an array of indexes in multiple mode.</td>
+                        </tr>
+                        <tr>
+                            <td>lazy</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.</td>
+                        </tr>
+                        <tr>
+                            <td>expandIcon</td>
+                            <td>string</td>
+                            <td>pi-chevron-right</td>
+                            <td>Icon of a collapsed tab.</td>
+                        </tr>
+                        <tr>
+                            <td>collapseIcon</td>
+                            <td>string</td>
+                            <td>pi-chevron-down</td>
+                            <td>Icon of an expanded tab.</td>
+                        </tr>
+                        <tr>
+                            <td>tabindex</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>Index of the element in tabbing order.</td>
+                        </tr>
+                        <tr>
+                            <td>selectOnFocus</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>When enabled, the focused tab is activated.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Events</h5>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Parameters</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>tab-open</td>
-                        <td>
-                            event.originalEvent: Browser event <br />
-                            event.index: Opened tab index
-                        </td>
-                        <td>Callback to invoke when a tab gets expanded.</td>
-                    </tr>
-                    <tr>
-                        <td>tab-close</td>
-                        <td>
-                            event.originalEvent: Browser event <br />
-                            event.index: Closed tab index
-                        </td>
-                        <td>Callback to invoke when an active tab is collapsed by clicking on the header.</td>
-                    </tr>
-                    <tr>
-                        <td>tab-click</td>
-                        <td>
-                            event.originalEvent: Browser event <br />
-                            event.index: Index of the clicked tab
-                        </td>
-                        <td>Callback to invoke when an active tab is clicked.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Events</h5>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>tab-open</td>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.index: Opened tab index
+                            </td>
+                            <td>Callback to invoke when a tab gets expanded.</td>
+                        </tr>
+                        <tr>
+                            <td>tab-close</td>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.index: Closed tab index
+                            </td>
+                            <td>Callback to invoke when an active tab is collapsed by clicking on the header.</td>
+                        </tr>
+                        <tr>
+                            <td>tab-click</td>
+                            <td>
+                                event.originalEvent: Browser event <br />
+                                event.index: Index of the clicked tab
+                            </td>
+                            <td>Callback to invoke when an active tab is clicked.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Styling</h5>
-        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Element</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>p-accordion</td>
-                        <td>Container element.</td>
-                    </tr>
-                    <tr>
-                        <td>p-accordion-header</td>
-                        <td>Header of a tab.</td>
-                    </tr>
-                    <tr>
-                        <td>p-accordion-content</td>
-                        <td>Container of a tab.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h5>Styling</h5>
+            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Element</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>p-accordion</td>
+                            <td>Container element.</td>
+                        </tr>
+                        <tr>
+                            <td>p-accordion-header</td>
+                            <td>Header of a tab.</td>
+                        </tr>
+                        <tr>
+                            <td>p-accordion-content</td>
+                            <td>Container of a tab.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Accessibility</h5>
-        <h6>Screen Reader</h6>
-        <p>
-            Accordion header elements have a <i>button</i> role and use <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read a header element defaults to the value of
-            the <i>header</i> property and can be customized by defining an <i>aria-label</i> or <i>aria-labelledby</i> via the <i>headerActionProps</i> property.
-        </p>
-        <p>The content uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.</p>
+            <h5>Accessibility</h5>
+            <h6>Screen Reader</h6>
+            <p>
+                Accordion header elements have a <i>button</i> role and use <i>aria-controls</i> to define the id of the content section along with <i>aria-expanded</i> for the visibility state. The value to read a header element defaults to the
+                value of the <i>header</i> property and can be customized by defining an <i>aria-label</i> or <i>aria-labelledby</i> via the <i>headerActionProps</i> property.
+            </p>
+            <p>The content uses <i>region</i> role, defines an id that matches the <i>aria-controls</i> of the header and <i>aria-labelledby</i> referring to the id of the header.</p>
 
-        <h6>Header Keyboard Support</h6>
-        <div class="doc-tablewrapper">
-            <table class="doc-table">
-                <thead>
-                    <tr>
-                        <th>Key</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i>tab</i>
-                        </td>
-                        <td>Moves focus to the next focusable element in the page tab sequence.</td>
-                    </tr>
-                    <tr>
-                        <td><i>shift</i> + <i>tab</i></td>
-                        <td>Moves focus to the previous focusable element in the page tab sequence.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>enter</i>
-                        </td>
-                        <td>Toggles the visibility of the content.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>space</i>
-                        </td>
-                        <td>Toggles the visibility of the content.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>down arrow</i>
-                        </td>
-                        <td>Moves focus to the next header. If focus is on the last header, moves focus to the first header.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>up arrow</i>
-                        </td>
-                        <td>Moves focus to the previous header. If focus is on the first header, moves focus to the last header.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>home</i>
-                        </td>
-                        <td>Moves focus to the first header.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i>end</i>
-                        </td>
-                        <td>Moves focus to the last header.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <h6>Header Keyboard Support</h6>
+            <div class="doc-tablewrapper">
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i>tab</i>
+                            </td>
+                            <td>Moves focus to the next focusable element in the page tab sequence.</td>
+                        </tr>
+                        <tr>
+                            <td><i>shift</i> + <i>tab</i></td>
+                            <td>Moves focus to the previous focusable element in the page tab sequence.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>enter</i>
+                            </td>
+                            <td>Toggles the visibility of the content.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>space</i>
+                            </td>
+                            <td>Toggles the visibility of the content.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>down arrow</i>
+                            </td>
+                            <td>Moves focus to the next header. If focus is on the last header, moves focus to the first header.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>up arrow</i>
+                            </td>
+                            <td>Moves focus to the previous header. If focus is on the first header, moves focus to the last header.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>home</i>
+                            </td>
+                            <td>Moves focus to the first header.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>end</i>
+                            </td>
+                            <td>Moves focus to the last header.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <h5>Dependencies</h5>
-        <p>None.</p>
-    </AppDoc>
+            <h5>Dependencies</h5>
+            <p>None.</p>
+        </AppDoc></ClientOnly
+    >
 </template>
 
 <script>

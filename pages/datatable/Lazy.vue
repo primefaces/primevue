@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" github="datatable/DataTableLazyDemo.vue" />
+        <ClientOnly><AppDoc name="DataTableLazyDemo" :sources="sources" :service="['CustomerService']" github="datatable/DataTableLazyDemo.vue" /></ClientOnly>
     </div>
 </template>
 
