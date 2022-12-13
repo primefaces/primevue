@@ -1,19 +1,21 @@
 <template>
-    <div :class="landingClass">
-        <div class="landing-intro">
-            <AppNews v-if="$appState.newsActive" />
-            <HeaderSection @theme-toggle="onThemeToggle" />
-            <HeroSection />
+    <ClientOnly>
+        <div :class="landingClass">
+            <div class="landing-intro">
+                <AppNews v-if="$appState.newsActive" />
+                <HeaderSection @theme-toggle="onThemeToggle" />
+                <HeroSection />
+            </div>
+            <ComponentSection />
+            <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
+            <BlockSection />
+            <DesignerSection />
+            <TemplateSection />
+            <UsersSection />
+            <FeaturesSection />
+            <FooterSection />
         </div>
-        <ComponentSection />
-        <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
-        <BlockSection />
-        <DesignerSection />
-        <TemplateSection />
-        <UsersSection />
-        <FeaturesSection />
-        <FooterSection />
-    </div>
+    </ClientOnly>
 </template>
 
 <script>
