@@ -252,11 +252,11 @@ export interface FileUploadSlots {
         /**
          * Function to remove an uploaded file.
          */
-        removeUploadedFileCallback: () => void;
+        removeUploadedFileCallback: (index: number) => void;
         /**
          * Function to remove a file.
          */
-        removeFileCallback: () => void;
+        removeFileCallback: (index: number) => void;
         /**
          *  Uploaded progress as number.
          */
