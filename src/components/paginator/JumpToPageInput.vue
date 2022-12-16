@@ -1,5 +1,5 @@
 <template>
-    <JTPInput :modelValue="page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled" @update:modelValue="onChange($event)"></JTPInput>
+    <JTPInput ref="jtpInput" v-model="modelValue" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled"></JTPInput>
 </template>
 
 <script>
@@ -14,14 +14,21 @@ export default {
         pageCount: Number,
         disabled: Boolean
     },
-    methods: {
-        onChange(value) {
-            this.$emit('page-change', value - 1);
-        }
-    },
     computed: {
         inputArialabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.jumpToPageInputLabel : undefined;
+        },
+        modelValue: {
+          get() {
+            return this.page;
+          },
+          set(value) {
+            if (this.$refs.jtpInput && !this.$refs.jtpInput.focused) {
+              return;
+            }
+
+            this.$emit('page-change', value - 1);
+          }
         }
     },
     components: {
