@@ -12,7 +12,7 @@
             aria-haspopup="true"
             :aria-expanded="isExpanded"
             :aria-controls="ariaId + '_overlay'"
-            @click="onDropdownButtonClick"
+            @click.stop="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
             v-bind="menuButtonProps"
         />
