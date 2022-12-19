@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Editor Component</Title>
+            <Meta name="description" content="Editor is rich text editor component based on Quill." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Editor</h1>

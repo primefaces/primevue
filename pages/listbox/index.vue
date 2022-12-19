@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ListBox Component</Title>
+            <Meta name="description" content="ListBox is used to select one or more values from a list of items." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Listbox</h1>

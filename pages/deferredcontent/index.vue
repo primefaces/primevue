@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Deferred Content Component</Title>
+            <Meta name="description" content="DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>DeferredContent</h1>

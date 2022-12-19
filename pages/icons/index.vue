@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Icon Library - PrimeVue</Title>
+            <Meta name="description" content="PrimeVue components internally use PrimeIcons library." />
+        </Head>
+
         <div class="content-section documentation">
             <h1>Icons</h1>
             <p>PrimeVue components internally use <a href="https://github.com/primefaces/primeicons">PrimeIcons</a> library, the official icons suite from <a href="https://www.primetek.com.tr">PrimeTek</a>.</p>

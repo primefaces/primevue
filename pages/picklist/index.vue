@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue PickList Component</Title>
+            <Meta name="description" content="PickList is used to reorder items between different lists." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>PickList</h1>

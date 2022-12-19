@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Navbar Component</Title>
+            <Meta name="description" content="Menubar is a horizontal menu component." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Menubar</h1>

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Badge Component</Title>
+            <Meta name="description" content="Badge is a small status indicator for another element." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Badge</h1>

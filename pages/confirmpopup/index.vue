@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Confirmation Popup Component</Title>
+            <Meta name="description" content="ConfirmPopup displays a confirmation overlay displayed relatively to its target." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ConfirmPopup</h1>

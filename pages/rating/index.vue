@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Rating Component</Title>
+            <Meta name="description" content="Rating component is a star based selection input." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Rating</h1>

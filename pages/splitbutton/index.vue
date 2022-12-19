@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue SplitButton Component</Title>
+            <Meta name="description" content="SplitButton groups a set of commands in an overlay with a default command." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>SplitButton</h1>

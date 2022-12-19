@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Divider Component</Title>
+            <Meta name="description" content="Divider is used to separate contents." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Divider</h1>

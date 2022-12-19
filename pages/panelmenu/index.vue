@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue PanelMenu Component</Title>
+            <Meta name="description" content="PanelMenu is a hybrid of accordion-tree components." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>PanelMenu</h1>

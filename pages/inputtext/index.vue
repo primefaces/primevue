@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue InputText Component</Title>
+            <Meta name="description" content="InputText is an extension to standard input element with theming and keyfiltering." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>InputText</h1>

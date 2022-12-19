@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue AutoComplete Component</Title>
+            <Meta name="description" content="AutoComplete is an input component that provides real-time suggestions when being typed." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>AutoComplete</h1>

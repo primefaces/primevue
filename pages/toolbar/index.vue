@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Toolbar Component</Title>
+            <Meta name="description" content="Toolbar is a grouping component for buttons and other content." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Toolbar</h1>

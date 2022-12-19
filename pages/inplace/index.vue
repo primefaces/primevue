@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Inplace Component</Title>
+            <Meta name="description" content="Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Inplace</h1>

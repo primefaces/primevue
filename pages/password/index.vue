@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Password Component</Title>
+            <Meta name="description" content="Password displays strength indicator for password fields." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Password</h1>

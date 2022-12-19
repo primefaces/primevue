@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ToggleButton Component</Title>
+            <Meta name="description" content="ToggleButton is used to select a boolean value using a button." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ToggleButton</h1>

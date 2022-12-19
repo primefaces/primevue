@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue VirtualScroller Component</Title>
+            <Meta name="description" content="VirtualScroller is a performant approach to handle huge data efficiently." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>VirtualScroller</h1>

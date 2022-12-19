@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue BlockUI Component</Title>
+            <Meta name="description" content="BlockUI can either block other components or the whole page." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>BlockUI</h1>

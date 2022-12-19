@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Calendar Component</Title>
+            <Meta name="description" content="Calendar also known as DatePicker, is a form component to work with dates." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Calendar</h1>

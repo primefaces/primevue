@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ScrollPanel Component</Title>
+            <Meta name="description" content="ScrollPanel is a cross browser, lightweight and skinnable alternative to native browser scrollbar." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ScrollPanel</h1>

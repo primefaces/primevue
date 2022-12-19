@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue TieredMenu Component</Title>
+            <Meta name="description" content="TieredMenu displays submenus in nested overlays." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TieredMenu</h1>

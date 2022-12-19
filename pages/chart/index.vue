@@ -1,5 +1,9 @@
 <template>
     <div>
+        <Head>
+            <title>Vue Chart</title>
+        </Head>
+
         <ChartDoc />
     </div>
 </template>

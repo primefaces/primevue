@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ColorPicker Component</Title>
+            <Meta name="description" content="ColorPicker is an input component to select a color." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ColorPicker</h1>

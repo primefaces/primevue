@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Button Component</Title>
+            <Meta name="description" content="Button is an extension to standard input element with icons and theming." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Button</h1>

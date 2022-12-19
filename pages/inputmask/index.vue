@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Mask Component</Title>
+            <Meta name="description" content="InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>InputMask</h1>

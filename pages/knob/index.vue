@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Knob Component</Title>
+            <Meta name="description" content="Knob is a form component to define number inputs with a dial." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Knob</h1>

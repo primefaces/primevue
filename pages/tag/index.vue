@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Tag Component</Title>
+            <Meta name="description" content="Tag component is used to categorize content." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Tag</h1>

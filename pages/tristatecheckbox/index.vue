@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue TriStateCheckbox Component</Title>
+            <Meta name="description" content="TriStateCheckbox is used to select either true, false or null as the value." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TriStateCheckbox</h1>

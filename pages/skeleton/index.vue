@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Skeleton Component</Title>
+            <Meta name="description" content="Skeleton is a placeholder to display instead of the actual content." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Skeleton</h1>

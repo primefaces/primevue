@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Chips Component</Title>
+            <Meta name="description" content="Chips is used to enter multiple values on an input field." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Chips</h1>

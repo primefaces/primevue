@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue DataView Component</Title>
+            <Meta name="description" content="DataView displays data in grid or list layout with pagination and sorting features." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>DataView</h1>

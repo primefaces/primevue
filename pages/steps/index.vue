@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Stepper Component</Title>
+            <Meta name="description" content="Steps also known as Stepper, is an indicator for the steps in a workflow. Layout of steps component is optimized for responsive design." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Steps</h1>

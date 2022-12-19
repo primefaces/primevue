@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Image Component</Title>
+            <Meta name="description" content="Displays an image with preview and tranformation options." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Image</h1>

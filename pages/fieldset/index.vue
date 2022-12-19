@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Fieldset Component</Title>
+            <Meta name="description" content="Fieldset is a grouping component with a content toggle feature." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Fieldset</h1>

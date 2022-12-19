@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue BreadCrumb Component</Title>
+            <Meta name="description" content="Breadcrumb provides contextual information about page hierarchy." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Breadcrumb</h1>

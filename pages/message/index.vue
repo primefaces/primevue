@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Messages Component</Title>
+            <Meta name="description" content="Messages is used to display inline messages with various severities." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Message</h1>

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>MenuModel - PrimeVue</Title>
+            <Meta name="description" content="PrimeVue menus components share a common api to specify the menuitems and submenus." />
+        </Head>
+
         <div class="content-section documentation">
             <h1>MenuModel</h1>
             <p>PrimeVue menu components share a common api to specify the menuitems and submenus.</p>

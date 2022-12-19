@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Terminal Component</Title>
+            <Meta name="description" content="Terminal is a text based user interface." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Terminal</h1>

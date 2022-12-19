@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Filter Service</Title>
+            <Meta name="description" content="PrimeVue Filter Service is a helper utility to filter." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>FilterService</h1>

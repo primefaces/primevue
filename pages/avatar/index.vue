@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Avatar Component</Title>
+            <Meta name="description" content="Avatar represents people using icons, labels and images." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Avatar</h1>

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue OrderList Component</Title>
+            <Meta name="description" content="OrderList is used to sort a collection." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>OrderList</h1>

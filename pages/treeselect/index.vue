@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue TreeSelect Component</Title>
+            <Meta name="description" content="TreeSelect is a form component to choose from hierarchical data." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeSelect</h1>

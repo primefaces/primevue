@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Textarea Component</Title>
+            <Meta name="description" content="Textarea adds styling, key filtering and autoResize functionality to standard textarea element." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Textarea</h1>

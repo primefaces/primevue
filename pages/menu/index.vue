@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Menu Component</Title>
+            <Meta name="description" content="Menu is a navigation/command component that supports dynamic and static positioning." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Menu</h1>

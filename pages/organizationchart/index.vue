@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue OrganizationChart Component</Title>
+            <Meta name="description" content="OrganizationChart visualizes hierarchical organization data." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>OrganizationChart</h1>

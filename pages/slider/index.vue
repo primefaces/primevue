@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Slider Component</Title>
+            <Meta name="description" content="Slider is a component to provide input with a drag handle." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Slider</h1>

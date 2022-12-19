@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Splitter Component</Title>
+            <Meta name="description" content="Splitter is utilized to separate and resize panels." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Splitter</h1>

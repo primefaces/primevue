@@ -1,5 +1,14 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Roadmap</Title>
+            <Meta
+                name="description"
+                content="These are planned to be implemented in parellel to the regular
+                    maintenance work of the PrimeVue library"
+            />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Roadmap</h1>

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Carousel Component</Title>
+            <Meta name="description" content="Carousel is a content slider featuring various customization options." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Carousel</h1>

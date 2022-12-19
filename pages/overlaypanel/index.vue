@@ -1,9 +1,14 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Popover Component</Title>
+            <Meta name="description" content="OverlayPanel also known as Popover, is a container component that can overlay other components on page." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>OverlayPanel</h1>
-                <p>OverlayPanel is a container component positioned as connected to its target.</p>
+                <p>OverlayPanel also known as Popover, is a container component that can overlay other components on page.</p>
             </div>
             <AppDemoActions />
         </div>

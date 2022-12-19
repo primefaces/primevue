@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Dynamic Dialog Component</Title>
+            <Meta name="description" content="Dynamic Dialog is a Dialog container to display content dynamicaly in an overlay window." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Dynamic Dialog</h1>

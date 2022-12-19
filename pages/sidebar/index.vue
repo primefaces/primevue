@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Sidebar Component</Title>
+            <Meta name="description" content="Sidebar is a panel component displayed as an overlay." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Sidebar</h1>

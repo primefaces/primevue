@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Toast Component</Title>
+            <Meta name="description" content="Toast is used to display messages in an overlay." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Toast</h1>

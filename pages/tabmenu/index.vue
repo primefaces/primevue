@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue TabMenu Component</Title>
+            <Meta name="description" content="TabMenu is a navigation/command component that displays items as tab headers." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TabMenu</h1>

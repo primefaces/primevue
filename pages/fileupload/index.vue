@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Upload Component</Title>
+            <Meta name="description" content="FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>FileUpload</h1>

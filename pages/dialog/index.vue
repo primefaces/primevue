@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Dialog Component</Title>
+            <Meta name="description" content="Dialog is a container to display content in an overlay window." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Dialog</h1>

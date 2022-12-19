@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue TreeTable Component</Title>
+            <Meta name="description" content="TreeTable is used to display hierarchical data in tabular format." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TreeTable</h1>

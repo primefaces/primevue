@@ -1,5 +1,9 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Tabs Component</Title>
+            <Meta name="description" content="TabView is a container component to group content with tabs." />
+        </Head>
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>TabView</h1>

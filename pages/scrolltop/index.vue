@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ScrollTop Component</Title>
+            <Meta name="description" content="ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ScrollTop</h1>

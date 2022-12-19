@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Dock Component</Title>
+            <Meta name="description" content="Dock is a navigation component consisting of menuitems." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Dock</h1>

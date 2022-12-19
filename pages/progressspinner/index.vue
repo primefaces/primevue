@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ProgressSpinner Component</Title>
+            <Meta name="description" content="ProgressSpinner is a process status indicator." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ProgressSpinner</h1>

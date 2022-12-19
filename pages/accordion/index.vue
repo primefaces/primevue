@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Accordion Component</Title>
+            <Meta name="description" content="Accordion groups a collection of contents in tabs." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Accordion</h1>

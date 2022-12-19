@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Checkbox Component</Title>
+            <Meta name="description" content="Checkbox is an extension to standard checkbox element with theming." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Checkbox</h1>

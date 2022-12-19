@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Color System - PrimeVue</Title>
+            <Meta name="description" content="Each PrimeVue theme exports its own color palette." />
+        </Head>
+
         <div class="content-section documentation">
             <h1>Colors</h1>
             <p>Each PrimeVue theme exports its own color palette.</p>

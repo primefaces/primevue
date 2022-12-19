@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Timeline Component</Title>
+            <Meta name="description" content="Timeline visualizes a series of chained events." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Timeline</h1>

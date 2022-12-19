@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Speed Dial Component</Title>
+            <Meta name="description" content="When pressed, a floating action button can display multiple primary actions that can be performed on a page." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Speed Dial</h1>

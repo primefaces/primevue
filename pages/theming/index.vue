@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Theming - PrimeVue</Title>
+            <Meta name="description" content="Choose from a variety of themes or develop your own theme easily." />
+        </Head>
+
         <div class="content-section documentation">
             <h1>Theming</h1>
             <p>Choose from a variety of themes or develop your own theme easily.</p>

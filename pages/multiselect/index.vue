@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue MultiSelect Component</Title>
+            <Meta name="description" content="MultiSelect is used to select multiple items from a collection." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>MultiSelect</h1>

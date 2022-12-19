@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Chip Component</Title>
+            <Meta name="description" content="Chip represents entities using icons, labels and images." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Chip</h1>

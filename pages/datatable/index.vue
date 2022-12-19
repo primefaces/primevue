@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Table Component</Title>
+            <Meta name="description" content="DataTable displays data in tabular format" />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>DataTable</h1>

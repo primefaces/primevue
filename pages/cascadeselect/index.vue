@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue CascadeSelect Component</Title>
+            <Meta name="description" content="CascadeSelect is a form component to select a value from a nested structure of options." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>CascadeSelect</h1>

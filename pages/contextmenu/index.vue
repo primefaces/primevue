@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ContextMenu Component</Title>
+            <Meta name="description" content="ContextMenu displays an overlay menu on right click of its target." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ContextMenu</h1>

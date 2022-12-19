@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Paginator Component</Title>
+            <Meta name="description" content="Paginator is a generic widget to display content in paged format." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Paginator</h1>

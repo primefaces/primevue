@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue RadioButton Component</Title>
+            <Meta name="description" content="RadioButton is an extension to standard radio button element with theming." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>RadioButton</h1>

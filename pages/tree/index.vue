@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Tree Component</Title>
+            <Meta name="description" content="Tree is used to display hierarchical data." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Tree</h1>

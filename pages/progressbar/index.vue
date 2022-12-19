@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue ProgressBar Component</Title>
+            <Meta name="description" content="ProgressBar is a process status indicator." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>ProgressBar</h1>

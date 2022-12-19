@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue InputGroup Component</Title>
+            <Meta name="description" content="Text, icon, buttons and other content can be grouped next to an input." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>InputGroup</h1>

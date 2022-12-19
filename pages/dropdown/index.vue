@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Select Component</Title>
+            <Meta name="description" content="Dropdown also known as Select, is used to choose an item from a collection of options." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Dropdown</h1>

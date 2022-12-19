@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue InputNumber Component</Title>
+            <Meta name="description" content="InputNumber is an input component to provide numerical input." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>InputNumber</h1>

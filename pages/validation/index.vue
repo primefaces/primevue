@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Form Integration - PrimeVue</Title>
+            <Meta name="description" content="PrimeVue components can be easily used/integrated with Vuelidate" />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Vuelidate</h1>

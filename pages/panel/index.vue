@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Panel Component</Title>
+            <Meta name="description" content="Panel is a grouping component providing with content toggle feature." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Panel</h1>

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Getting Started - PrimeVue</Title>
+            <Meta name="description" content="PrimeVue is a rich set of open source native components for Vue." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Setup</h1>

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Ripple Directive</Title>
+            <Meta name="description" content="Ripple component adds ripple effect to the host element." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Ripple</h1>

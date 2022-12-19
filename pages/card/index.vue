@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue Card Component</Title>
+            <Meta name="description" content="Card is a flexible container component." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>Card</h1>

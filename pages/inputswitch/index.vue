@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <Title>Vue InputSwitch Component</Title>
+            <Meta name="description" content="InputSwitch is used to select a boolean value." />
+        </Head>
+
         <div class="content-section introduction">
             <div class="feature-intro">
                 <h1>InputSwitch</h1>
