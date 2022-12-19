@@ -27,7 +27,7 @@
                             <router-link to="/icons"><i class="pi pi-fw pi-info-circle" /><span>Icons</span></router-link>
                         </li>
                         <li>
-                            <router-link to="/uikit"><i class="pi pi-fw pi-info-circle" /><span>Figma UI Kit</span></router-link>
+                            <router-link to="/uikit"><i class="pi pi-fw pi-pencil" /><span>Figma UI Kit</span></router-link>
                         </li>
 
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
