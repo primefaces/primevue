@@ -7,7 +7,7 @@
         </template>
         <div v-if="filter" class="p-tree-filter-container">
             <input v-model="filterValue" type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" />
-            <span class="p-tree-filter-icon pi pi-search"></span>
+            <span :class="['p-tree-filter-icon', filterIcon]" />
         </div>
         <div class="p-tree-wrapper" :style="{ maxHeight: scrollHeight }">
             <ul class="p-tree-container" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
@@ -19,6 +19,8 @@
                     :level="level + 1"
                     :index="index"
                     :expandedKeys="d_expandedKeys"
+                    :checked-icon="checkedIcon"
+                    :partially-checked-icon="partiallyCheckedIcon"
                     @node-toggle="onNodeToggle"
                     @node-click="onNodeClick"
                     :selectionMode="selectionMode"
@@ -66,6 +68,14 @@ export default {
             type: String,
             default: 'pi pi-spinner'
         },
+        checkedIcon: {
+            type: String,
+            default: 'pi pi-check'
+        },
+        partiallyCheckedIcon: {
+            type: String,
+            default: 'pi pi-minus'
+        },
         filter: {
             type: Boolean,
             default: false
@@ -85,6 +95,10 @@ export default {
         filterLocale: {
             type: String,
             default: undefined
+        },
+        filterIcon: {
+            type: String,
+            default: 'pi pi-search'
         },
         scrollHeight: {
             type: String,

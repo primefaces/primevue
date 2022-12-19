@@ -36,6 +36,8 @@
                 :templates="templates"
                 :level="level + 1"
                 :expandedKeys="expandedKeys"
+                :checked-icon="checkedIcon"
+                :partially-checked-icon="partiallyCheckedIcon"
                 @node-toggle="onChildNodeToggle"
                 @node-click="onChildNodeClick"
                 :selectionMode="selectionMode"
@@ -81,6 +83,14 @@ export default {
         index: {
             type: Number,
             default: null
+        },
+        checkedIcon: {
+            type: String,
+            default: 'pi pi-check'
+        },
+        partiallyCheckedIcon: {
+            type: String,
+            default: 'pi pi-minus'
         }
     },
     nodeTouched: false,
@@ -415,7 +425,7 @@ export default {
             return ['p-checkbox-box', { 'p-highlight': this.checked, 'p-indeterminate': this.partialChecked }];
         },
         checkboxIcon() {
-            return ['p-checkbox-icon', { 'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked }];
+            return ['p-checkbox-icon', { [this.checkedIcon]: this.checked, [this.partiallyCheckedIcon]: this.partialChecked }];
         },
         checkboxMode() {
             return this.selectionMode === 'checkbox' && this.node.selectable !== false;

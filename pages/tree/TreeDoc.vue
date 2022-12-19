@@ -657,6 +657,18 @@ export default {
                             <td>Icon to display when tree is loading.</td>
                         </tr>
                         <tr>
+                            <td>checkedIcon</td>
+                            <td>string</td>
+                            <td>pi pi-check</td>
+                            <td>Icon to display in checkbox.</td>
+                        </tr>
+                        <tr>
+                            <td>partiallyCheckedIcon</td>
+                            <td>string</td>
+                            <td>pi pi-minus</td>
+                            <td>Icon to display in partially checked checkbox.</td>
+                        </tr>
+                        <tr>
                             <td>filter</td>
                             <td>boolean</td>
                             <td>false</td>
@@ -685,6 +697,12 @@ export default {
                             <td>string</td>
                             <td>undefined</td>
                             <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
+                        </tr>
+                        <tr>
+                            <td>filterIcon</td>
+                            <td>string</td>
+                            <td>pi pi-search</td>
+                            <td>Icon to display in the filter input.</td>
                         </tr>
                         <tr>
                             <td>scrollHeight</td>

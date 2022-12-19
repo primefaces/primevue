@@ -109,6 +109,16 @@ export interface TreeProps {
      */
     loadingIcon?: string | undefined;
     /**
+     * Icon to display in checkbox.
+     * Default value is 'pi pi-check'.
+     */
+    checkedIcon?: string | undefined;
+    /**
+     * Icon to display in partially checked checkbox.
+     * Default value is 'pi pi-minus'.
+     */
+    partiallyCheckedIcon?: string | undefined;
+    /**
      * When specified, displays an input field to filter the items.
      */
     filter?: boolean | undefined;
@@ -131,6 +141,11 @@ export interface TreeProps {
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
     filterLocale?: string | undefined;
+    /**
+     * Icon to display in the filter input.
+     * Default value is 'pi pi-search'.
+     */
+    filterIcon?: string | undefined;
     /**
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      * @see TreeScrollHeightType
