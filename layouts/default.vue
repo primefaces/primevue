@@ -41,25 +41,20 @@ export default {
             });
         }
     },
-    /*   watch: {
-      $route: {
-          immediate: true,
-          handler(to) {
-               // Todo: Check this again
-              if(!process.client || typeof window === 'undefined') {
-                return 
-              }
+    watch: {
+        $route: {
+            immediate: true,
+            handler(to) {
+                if (!process.client || typeof window === 'undefined') {
+                    return;
+                }
 
-               window['gtag']('config', 'UA-93461466-1', {
-                      'page_path': '/primevue' + to.path
-              }); 
-
-              this.sidebarActive = false;
-              DomHandler.removeClass(document.body, 'blocked-scroll');
-              this.$toast.removeAllGroups();
-          }
-      }
-  },  */
+                this.sidebarActive = false;
+                DomHandler.removeClass(document.body, 'blocked-scroll');
+                this.$toast.removeAllGroups();
+            }
+        }
+    },
     methods: {
         onMenuButtonClick() {
             if (this.sidebarActive) {
