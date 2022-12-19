@@ -27,7 +27,7 @@
                             <router-link to="/icons"><i class="pi pi-fw pi-info-circle" /><span>Icons</span></router-link>
                         </li>
                         <li>
-                            <a href="https://www.figma.com/community/file/890589747170608208/PrimeOne-Design-Library"><i class="pi pi-fw pi-pencil" /><span>Figma UI Kit</span></a>
+                            <router-link to="/uikit"><i class="pi pi-fw pi-info-circle" /><span>Figma UI Kit</span></router-link>
                         </li>
 
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
