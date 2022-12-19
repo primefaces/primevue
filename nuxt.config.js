@@ -11,6 +11,23 @@ export default defineNuxtConfig({
     app: {
         baseURL: baseUrl,
         head: {
+            title: 'PrimeVue - Vue UI Component Library',
+            meta: [
+                { charset: 'utf-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                { name: 'description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
+                { name: 'robots', content: 'index,follow' },
+                { name: 'twitter:card', content: 'summary_large_image' },
+                { name: 'twitter:site', content: '@primevue' },
+                { name: 'twitter:title', content: 'PrimeVue | Vue UI Component Library' },
+                { name: 'twitter:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
+                { property: 'og:type', content: 'website' },
+                { property: 'og:title', content: 'PrimeVue | Vue UI Component Library' },
+                { property: 'og:url', content: 'https://www.primefaces.org/primevue' },
+                { property: 'og:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
+                { property: 'og:image', content: 'https://www.primefaces.org/static/social/primevue-preview.jpg' },
+                { property: 'og:ttl', content: '604800' }
+            ],
             link: [
                 {
                     id: 'home-table-link',
