@@ -8,6 +8,7 @@ coverage
 .env
 dist
 .DS_Store
+.vscode
 
 # Themes
 public/themes/soho-light/
