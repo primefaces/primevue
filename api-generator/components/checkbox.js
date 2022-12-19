@@ -42,6 +42,12 @@ const CheckboxProps = [
         description: 'Index of the element in tabbing order.'
     },
     {
+        name: 'icon',
+        type: 'string',
+        default: 'pi pi-check',
+        description: 'Icon to display in the checkbox.'
+    },
+    {
         name: 'trueValue',
         type: 'any',
         default: 'null',

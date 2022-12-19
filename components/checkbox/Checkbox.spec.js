@@ -25,4 +25,10 @@ describe('Checkbox.vue', () => {
         expect(wrapper.find('.p-checkbox-box.p-highlight').exists()).toBe(true);
         expect(wrapper.find('.p-checkbox-icon.pi.pi-check').exists()).toBe(true);
     });
+
+    it('should have custom icon when provided', async () => {
+        await wrapper.setProps({ icon: 'pi pi-discord', modelValue: true });
+
+        expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-discord');
+    });
 });
