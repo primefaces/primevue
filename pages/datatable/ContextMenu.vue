@@ -25,7 +25,7 @@
             <ContextMenu ref="cm" :model="menuModel" />
         </div>
 
-        <ClientOnly><AppDoc name="DataTableContextMenuDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableContextMenuDemo.vue" /></ClientOnly>
+        <AppDoc name="DataTableContextMenuDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableContextMenuDemo.vue" />
     </div>
 </template>
 

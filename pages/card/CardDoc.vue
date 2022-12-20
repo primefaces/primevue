@@ -1,22 +1,21 @@
 <template>
-    <ClientOnly
-        ><AppDoc name="CardDemo" :sources="sources" github="card/CardDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="CardDemo" :sources="sources" github="card/CardDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Card from 'primevue/card';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/card/card.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>Card provides <i>header</i>, <i>title</i>, <i>subtitle</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
-            <pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Card provides <i>header</i>, <i>title</i>, <i>subtitle</i>, <i>content</i> and <i>footer</i> as the named templates to place content.</p>
+        <pre v-code><code>
 &lt;Card&gt;
     &lt;template #header&gt;
         &lt;img alt="user header" src="/demo/images/usercard.png"&gt;
@@ -36,97 +35,96 @@ import Card from 'primevue/card';
 
 </code></pre>
 
-            <h5>Slots</h5>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>header</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>title</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>subtitle</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>footer</td>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Slots</h5>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>header</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>subtitle</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>content</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>footer</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-card</td>
-                            <td>Container element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-card-title</td>
-                            <td>Title element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-card-subtitle</td>
-                            <td>Subtitle element.</td>
-                        </tr>
-                        <tr>
-                            <td>p-card-content</td>
-                            <td>Content of the card.</td>
-                        </tr>
-                        <tr>
-                            <td>p-card-footer</td>
-                            <td>Footer of the card.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-card</td>
+                        <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-card-title</td>
+                        <td>Title element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-card-subtitle</td>
+                        <td>Subtitle element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-card-content</td>
+                        <td>Content of the card.</td>
+                    </tr>
+                    <tr>
+                        <td>p-card-footer</td>
+                        <td>Footer of the card.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Accessibility</h5>
+        <h5>Accessibility</h5>
 
-            <h6>Screen Reader</h6>
-            <p>
-                A card can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so if you
-                require to use one of the <a href="https://www.w3.org/TR/wai-aria/#landmark" alt="Landmark Roles">landmark</a> roles like <i>region</i>, you may use the <i>role</i> property.
-            </p>
+        <h6>Screen Reader</h6>
+        <p>
+            A card can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so if you require
+            to use one of the <a href="https://www.w3.org/TR/wai-aria/#landmark" alt="Landmark Roles">landmark</a> roles like <i>region</i>, you may use the <i>role</i> property.
+        </p>
 
-            <pre v-code><code>
+        <pre v-code><code>
 &lt;Card role="region"&gt;
     Content
 &lt;/Card&gt;
 
 </code></pre>
 
-            <h5>Keyboard Support</h5>
-            <p>Component does not include any interactive elements.</p>
+        <h5>Keyboard Support</h5>
+        <p>Component does not include any interactive elements.</p>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc></ClientOnly
-    >
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

@@ -121,7 +121,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-                    <pre v-code><code><template v-pre>
+                    <pre v-code><code>
 &lt;h3&gt;Indicators with Click Event&lt;/h3&gt;
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
     :showThumbnails="false" :showIndicators="true"&gt;
@@ -178,11 +178,11 @@
     &lt;/template&gt;
     &lt;template #indicator="{index}"&gt;
         &lt;span style="color: #e9ecef; cursor: pointer"&gt;
-            {{index + 1}}
+        &#123;&#123;index + 1&#125;&#125;
         &lt;/span&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-</template>
+
 </code></pre>
 
                     <pre v-code.script><code>

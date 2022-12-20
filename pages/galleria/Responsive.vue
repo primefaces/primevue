@@ -23,7 +23,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-                    <pre v-code><code><template v-pre>
+                    <pre v-code><code>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true" style="max-width: 800px"&gt;
     &lt;template #item="slotProps"&gt;
         &lt;img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" /&gt;
@@ -32,7 +32,7 @@
         &lt;img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block;" /&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-</template>
+
 </code></pre>
 
                     <pre v-code.script><code>
