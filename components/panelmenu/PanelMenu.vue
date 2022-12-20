@@ -209,6 +209,7 @@ export default {
             }
         },
         changeExpandedKeys({ item, expanded = false }) {
+            if (!item.items || (item.items && !item.items.length)) this.$emit("item-select", item);
             if (this.expandedKeys) {
                 let _keys = { ...this.expandedKeys };
 
