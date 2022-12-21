@@ -12,6 +12,7 @@ const $fullCalendar = {
         Vue.config.globalProperties.$fullCalendar = FullCalendar;
     }
 };
+
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use($fullCalendar);
 });

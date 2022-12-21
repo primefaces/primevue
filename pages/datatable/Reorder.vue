@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <ClientOnly><AppDoc name="DataTableReorderDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableReorderDemo.vue" /></ClientOnly>
+        <AppDoc name="DataTableReorderDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableReorderDemo.vue" />
     </div>
 </template>
 

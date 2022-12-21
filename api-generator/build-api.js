@@ -17,6 +17,7 @@ const fileModules = {},
     veturAttributes = {};
 
 const files = fs.readdirSync(componentPath);
+
 files.forEach((file) => {
     const { name } = path.parse(file);
 
@@ -123,11 +124,13 @@ const createWebTypes = (component) => {
 
 const createVeturTags = (component) => {
     const attributes = [];
+
     if (component.props) {
         component.props.forEach((comp) => {
             attributes.push(comp.name);
         });
     }
+
     if (attributes.length > 0) {
         veturTags[component.name] = {
             description: component.description,
@@ -154,10 +157,13 @@ Object.keys(fileModules).forEach((p) => {
 });
 
 const webTypesJson = JSON.stringify(webTypes, null, 2);
+
 fs.writeFileSync(path.resolve(distDir, 'web-types.json'), webTypesJson);
 
 const veturTagsJson = JSON.stringify(veturTags, null, 2);
+
 fs.writeFileSync(path.resolve(distDir, 'vetur-tags.json'), veturTagsJson);
 
 const veturAttributesJson = JSON.stringify(veturAttributes, null, 2);
+
 fs.writeFileSync(path.resolve(distDir, 'vetur-attributes.json'), veturAttributesJson);

@@ -112,7 +112,7 @@
             </div>
         </div>
 
-        <ClientOnly><AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService', 'NodeService']" :data="['countries', 'treenodes']" github="floatlabel/FloatLabelDemo.vue" /></ClientOnly>
+        <AppDoc name="FloatLabelDemo" :sources="sources" :service="['CountryService', 'NodeService']" :data="['countries', 'treenodes']" github="floatlabel/FloatLabelDemo.vue" />
     </div>
 </template>
 

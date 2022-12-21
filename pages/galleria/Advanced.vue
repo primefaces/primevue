@@ -49,7 +49,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-                    <pre v-code><code><template v-pre>
+                    <pre v-code><code>
 &lt;Galleria ref="galleria" :value="images" v-model:activeIndex="activeIndex" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true"
     :circular="true" :autoPlay="true" :transitionInterval="3000"&gt;
@@ -65,15 +65,15 @@
         &lt;div class="custom-galleria-footer"&gt;
             &lt;Button icon="pi pi-list" @click="onThumbnailButtonClick" /&gt;
             &lt;span v-if="images" class="title-container"&gt;
-                &lt;span&gt;{{activeIndex + 1}}/{{images.length}}&lt;/span&gt;
-                &lt;span class="title"&gt;{{images[activeIndex].title}}&lt;/span&gt;
-                &lt;span&gt;{{images[activeIndex].alt}}&lt;/span&gt;
+                &lt;span&gt;&#123;&#123;activeIndex + 1&#125;&#125;/&#123;&#123;images.length&#125;&#125;&lt;/span&gt;
+                &lt;span class="title"&gt;&#123;&#123;images[activeIndex].title&#125;&#125;&lt;/span&gt;
+                &lt;span&gt;&#123;&#123;images[activeIndex].alt&#125;&#125;&lt;/span&gt;
             &lt;/span&gt;
             &lt;Button :icon="fullScreenIcon" @click="toggleFullScreen" class="fullscreen-button" /&gt;
         &lt;/div&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-</template>
+
 </code></pre>
 
                     <pre v-code.script><code>
