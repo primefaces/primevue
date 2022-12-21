@@ -1,5 +1,4 @@
-import { DomHandler } from 'primevue/utils';
-import { UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 const BadgeDirective = {
     beforeMount(el, options) {
