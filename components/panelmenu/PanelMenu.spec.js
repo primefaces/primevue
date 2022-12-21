@@ -72,8 +72,9 @@ describe('PanelMenu', () => {
         await wrapper.vm.onHeaderClick({}, wrapper.vm.model[0]);
 
         expect(wrapper.find('.p-panelmenu-header-action > .p-submenu-icon').classes()).toContain('pi-chevron-down');
+
         setTimeout(() => {
-            expect(wrapper.findAll('.p-toggleable-content')[0].attributes().style).toBe(undefined);
+            expect(wrapper.findAll('.p-toggleable-content')[0].attributes().style).toBe('');
         }, 25);
     });
 

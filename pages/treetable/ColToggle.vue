@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <ClientOnly><AppDoc name="TreeTableColToggleDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableColToggleDemo.vue" /></ClientOnly>
+        <AppDoc name="TreeTableColToggleDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableColToggleDemo.vue" />
     </div>
 </template>
 

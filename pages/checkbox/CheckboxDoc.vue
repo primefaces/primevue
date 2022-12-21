@@ -1,29 +1,28 @@
 <template>
-    <ClientOnly
-        ><AppDoc name="CheckboxDemo" :sources="sources" github="checkbox/CheckboxDemo.vue">
-            <h5>Import via Module</h5>
-            <pre v-code.script><code>
+    <AppDoc name="CheckboxDemo" :sources="sources" github="checkbox/CheckboxDemo.vue">
+        <h5>Import via Module</h5>
+        <pre v-code.script><code>
 import Checkbox from 'primevue/checkbox';
 
 </code></pre>
 
-            <h5>Import via CDN</h5>
-            <pre v-code><code>
+        <h5>Import via CDN</h5>
+        <pre v-code><code>
 &lt;script src="https://unpkg.com/primevue@^3/core/core.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/primevue@^3/checkbox/checkbox.min.js"&gt;&lt;/script&gt;
 
 </code></pre>
 
-            <h5>Getting Started</h5>
-            <p>Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox to provide a boolean value.</p>
-            <pre v-code><code>
+        <h5>Getting Started</h5>
+        <p>Checkbox can either be used in multiple selection with other checkboxes or as a single checkbox to provide a boolean value.</p>
+        <pre v-code><code>
 &lt;Checkbox v-model="checked" :binary="true" /&gt;
 
 </code></pre>
 
-            <h5>Multiple Values</h5>
-            <p>Multiple mode is enabled by default, v-model property refers to an array to bind the selected values.</p>
-            <pre v-code><code>
+        <h5>Multiple Values</h5>
+        <p>Multiple mode is enabled by default, v-model property refers to an array to bind the selected values.</p>
+        <pre v-code><code>
 &lt;Checkbox name="city" value="Chicago" v-model="cities" /&gt;
 &lt;Checkbox name="city" value="Los Angeles" v-model="cities" /&gt;
 &lt;Checkbox name="city" value="New York" v-model="cities" /&gt;
@@ -31,7 +30,7 @@ import Checkbox from 'primevue/checkbox';
 
 </code></pre>
 
-            <pre v-code.script><code>
+        <pre v-code.script><code>
 export default {
 	data() {
 		return {
@@ -42,187 +41,187 @@ export default {
 
 </code></pre>
 
-            <p>As v-model is two-way binding enabled, prepopulating the model array with values is enough to display the related checkboxes as checked by default.</p>
+        <p>As v-model is two-way binding enabled, prepopulating the model array with values is enough to display the related checkboxes as checked by default.</p>
 
-            <h5>Properties</h5>
-            <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>value</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Value of the checkbox.</td>
-                        </tr>
-                        <tr>
-                            <td>modelValue</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Value binding of the checkbox.</td>
-                        </tr>
-                        <tr>
-                            <td>name</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Name of the input element.</td>
-                        </tr>
-                        <tr>
-                            <td>binary</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Allows to select a boolean value instead of multiple values.</td>
-                        </tr>
-                        <tr>
-                            <td>trueValue</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Value in checked state.</td>
-                        </tr>
-                        <tr>
-                            <td>falseValue</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Value in unchecked state.</td>
-                        </tr>
-                        <tr>
-                            <td>disabled</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>When present, it specifies that the element should be disabled.</td>
-                        </tr>
-                        <tr>
-                            <td>readonly</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>When present, it specifies that an input field is read-only.</td>
-                        </tr>
-                        <tr>
-                            <td>required</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>When present, it specifies that the element is required.</td>
-                        </tr>
-                        <tr>
-                            <td>tabindex</td>
-                            <td>number</td>
-                            <td>null</td>
-                            <td>Index of the element in tabbing order.</td>
-                        </tr>
-                        <tr>
-                            <td>inputId</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Identifier of the underlying input element.</td>
-                        </tr>
-                        <tr>
-                            <td>inputClass</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Style class of the input field.</td>
-                        </tr>
-                        <tr>
-                            <td>inputStyle</td>
-                            <td>any</td>
-                            <td>null</td>
-                            <td>Inline style of the input field.</td>
-                        </tr>
-                        <tr>
-                            <td>inputProps</td>
-                            <td>object</td>
-                            <td>null</td>
-                            <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
-                        </tr>
-                        <tr>
-                            <td>aria-label</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Defines a string value that labels an interactive element.</td>
-                        </tr>
-                        <tr>
-                            <td>aria-labelledby</td>
-                            <td>string</td>
-                            <td>null</td>
-                            <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Properties</h5>
+        <p>Any valid attribute is passed to the root element implicitly, extended properties are as follows;</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>value</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value of the checkbox.</td>
+                    </tr>
+                    <tr>
+                        <td>modelValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value binding of the checkbox.</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the input element.</td>
+                    </tr>
+                    <tr>
+                        <td>binary</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>Allows to select a boolean value instead of multiple values.</td>
+                    </tr>
+                    <tr>
+                        <td>trueValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in checked state.</td>
+                    </tr>
+                    <tr>
+                        <td>falseValue</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Value in unchecked state.</td>
+                    </tr>
+                    <tr>
+                        <td>disabled</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element should be disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>readonly</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that an input field is read-only.</td>
+                    </tr>
+                    <tr>
+                        <td>required</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>When present, it specifies that the element is required.</td>
+                    </tr>
+                    <tr>
+                        <td>tabindex</td>
+                        <td>number</td>
+                        <td>null</td>
+                        <td>Index of the element in tabbing order.</td>
+                    </tr>
+                    <tr>
+                        <td>inputId</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Identifier of the underlying input element.</td>
+                    </tr>
+                    <tr>
+                        <td>inputClass</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Style class of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the input field.</td>
+                    </tr>
+                    <tr>
+                        <td>inputProps</td>
+                        <td>object</td>
+                        <td>null</td>
+                        <td>Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-label</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Defines a string value that labels an interactive element.</td>
+                    </tr>
+                    <tr>
+                        <td>aria-labelledby</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Events</h5>
-            <p>In addition to the following events, any other valid events such as focus and blur are passed implicitly.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Parameters</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>click</td>
-                            <td>event: Browser event</td>
-                            <td>Callback to invoke on value click.</td>
-                        </tr>
-                        <tr>
-                            <td>change</td>
-                            <td>event: Browser event</td>
-                            <td>Callback to invoke on value change.</td>
-                        </tr>
-                        <tr>
-                            <td>input</td>
-                            <td>value: New value</td>
-                            <td>Callback to invoke on value change.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Events</h5>
+        <p>In addition to the following events, any other valid events such as focus and blur are passed implicitly.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>click</td>
+                        <td>event: Browser event</td>
+                        <td>Callback to invoke on value click.</td>
+                    </tr>
+                    <tr>
+                        <td>change</td>
+                        <td>event: Browser event</td>
+                        <td>Callback to invoke on value change.</td>
+                    </tr>
+                    <tr>
+                        <td>input</td>
+                        <td>value: New value</td>
+                        <td>Callback to invoke on value change.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Styling</h5>
-            <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Element</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>p-checkbox</td>
-                            <td>Container element</td>
-                        </tr>
-                        <tr>
-                            <td>p-checkbox-box</td>
-                            <td>Container of icon.</td>
-                        </tr>
-                        <tr>
-                            <td>p-checkbox-icon</td>
-                            <td>Icon element.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h5>Styling</h5>
+        <p>Following is the list of structural style classes, for theming classes visit <router-link to="/theming">theming</router-link> page.</p>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p-checkbox</td>
+                        <td>Container element</td>
+                    </tr>
+                    <tr>
+                        <td>p-checkbox-box</td>
+                        <td>Container of icon.</td>
+                    </tr>
+                    <tr>
+                        <td>p-checkbox-icon</td>
+                        <td>Icon element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Accessibility</h5>
-            <h6>Screen Reader</h6>
-            <p>
-                Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using
-                <i>aria-labelledby</i>, <i>aria-label</i> props.
-            </p>
+        <h5>Accessibility</h5>
+        <h6>Screen Reader</h6>
+        <p>
+            Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via <i>label</i> tag combined with <i>id</i> prop or using
+            <i>aria-labelledby</i>, <i>aria-label</i> props.
+        </p>
 
-            <pre v-code><code>
+        <pre v-code><code>
 &lt;label for="chkbox1"&gt;Remember Me&lt;/label&gt;
 &lt;Checkbox inputId="chkbox1" /&gt;
 
@@ -233,32 +232,31 @@ export default {
 
 </code></pre>
 
-            <h6>Keyboard Support</h6>
-            <div class="doc-tablewrapper">
-                <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Function</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><i>tab</i></td>
-                            <td>Moves focus to the checkbox.</td>
-                        </tr>
-                        <tr>
-                            <td><i>space</i></td>
-                            <td>Toggles the checked state.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h6>Keyboard Support</h6>
+        <div class="doc-tablewrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>tab</i></td>
+                        <td>Moves focus to the checkbox.</td>
+                    </tr>
+                    <tr>
+                        <td><i>space</i></td>
+                        <td>Toggles the checked state.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <h5>Dependencies</h5>
-            <p>None.</p>
-        </AppDoc></ClientOnly
-    >
+        <h5>Dependencies</h5>
+        <p>None.</p>
+    </AppDoc>
 </template>
 
 <script>

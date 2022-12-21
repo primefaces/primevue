@@ -1,0 +1,49 @@
+name: NodeJS CI
+
+on:
+    push:
+        branches: [master]
+
+permissions:
+    contents: read
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [16.x, 18.x]
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+
+            - name: Build
+              run: |
+                  npm install
+
+            - name: Lint Check
+              if: ${{ success() }}
+              run: |
+                  npm run format:check
+
+            - name: Code Format
+              if: ${{ success() }}
+              run: |
+                  npm run format:check
+
+            - name: Security Check
+              if: ${{ success() }}
+              run: |
+                  npm run security:check
+
+            - name: Test
+              if: ${{ success() }}
+              run: |
+                  npm run test:unit

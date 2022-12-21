@@ -1,8 +1,7 @@
-import { DomHandler } from 'primevue/utils';
-import { UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 const BadgeDirective = {
-    beforeMount(el, options) {
+    mounted(el, options) {
         const id = UniqueComponentId() + '_badge';
 
         el.$_pbadgeId = id;

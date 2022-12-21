@@ -29,7 +29,7 @@
         <div class="content-section documentation">
             <TabView>
                 <TabPanel header="Source">
-                    <pre v-code><code><template v-pre>
+                    <pre v-code><code>
 &lt;Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"&gt;
     &lt;template #item="{item}"&gt;
         &lt;img :src="item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block;" /&gt;
@@ -40,11 +40,11 @@
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;template #caption="{item}"&gt;
-        &lt;h4 style="margin-bottom: .5rem;"&gt;{{item.title}}&lt;/h4&gt;
-        &lt;p&gt;{{item.alt}}&lt;/p&gt;
+        &lt;h4 style="margin-bottom: .5rem;"&gt;&#123;&#123;item.title&#125;&#125;&lt;/h4&gt;
+        &lt;p&gt;&#123;&#123;item.alt&#125;&#125;&lt;/p&gt;
     &lt;/template&gt;
 &lt;/Galleria&gt;
-</template>
+
 </code></pre>
 
                     <pre v-code.script><code>

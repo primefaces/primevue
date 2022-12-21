@@ -1,7 +1,7 @@
-import Prism from 'prismjs';
+import { DomHandler } from 'primevue/utils';
 
 const CodeHighlight = {
-    beforeMount(el, binding) {
+    mounted(el, binding) {
         const modifiers = binding.modifiers;
         const value = binding.value;
 
@@ -9,7 +9,7 @@ const CodeHighlight = {
         else if (modifiers.css || value === 'css') el.className = 'language-css';
         else el.className = 'language-markup';
 
-        Prism.highlightElement(el.children[0]);
+        DomHandler.isClient() && window.Prism.highlightElement(el.children[0]);
     }
 };
 

@@ -144,6 +144,7 @@ function addSFC() {
         .forEach(({ name: folderName }) => {
             fs.readdirSync(path.resolve(__dirname, './components/' + folderName)).forEach((file) => {
                 let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+
                 if (/\.vue$/.test(file) && name === folderName) {
                     addEntry(folderName, file, name);
                 }
