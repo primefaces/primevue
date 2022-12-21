@@ -1,6 +1,5 @@
 import vueJsx from '@vitejs/plugin-vue-jsx';
 const path = require('path');
-
 const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
@@ -56,11 +55,15 @@ export default defineNuxtConfig({
 
                         gtag('config', 'UA-93461466-1');
                     `
+                },
+                {
+                    src: baseUrl + 'scripts/prism.js',
+                    'data-manual': true
                 }
             ]
         }
     },
-    css: ['@/assets/styles/primevue.css', '/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '/node_modules/prismjs/themes/prism-coy.css', '@/assets/styles/flags.css'],
+    css: ['@/assets/styles/primevue.css', '/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css'],
     vite: {
         plugins: [vueJsx()],
         resolve: {

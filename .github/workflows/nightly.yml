@@ -1,0 +1,32 @@
+name: Daily Build
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  nightly:
+    if: github.repository == 'primefaces/primevue' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    name: Node ${{ matrix.node-version }}
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Build
+      run: |
+        npm install
+        npm run build:lib

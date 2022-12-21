@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]" role="region">
+    <div :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]" role="region">
         <div v-if="$slots.header" class="p-carousel-header">
             <slot name="header"></slot>
         </div>
@@ -141,7 +141,6 @@ export default {
     isRemainingItemsAdded: false,
     data() {
         return {
-            id: UniqueComponentId(),
             remainingItems: 0,
             d_numVisible: this.numVisible,
             d_numScroll: this.numScroll,
@@ -177,6 +176,7 @@ export default {
     mounted() {
         let stateChanged = false;
 
+        this.$el.setAttribute(this.attributeSelector, '');
         this.createStyle();
         this.calculatePosition();
 
@@ -563,10 +563,10 @@ export default {
             }
 
             let innerHTML = `
-            #${this.id} .p-carousel-item {
-                flex: 1 0 ${100 / this.d_numVisible}%
-            }
-        `;
+                .p-carousel[${this.attributeSelector}] .p-carousel-item {
+                    flex: 1 0 ${100 / this.d_numVisible}%
+                }
+            `;
 
             if (this.responsiveOptions) {
                 let _responsiveOptions = [...this.responsiveOptions];
@@ -589,12 +589,12 @@ export default {
                     let res = _responsiveOptions[i];
 
                     innerHTML += `
-                    @media screen and (max-width: ${res.breakpoint}) {
-                        #${this.id} .p-carousel-item {
-                            flex: 1 0 ${100 / res.numVisible}%
+                        @media screen and (max-width: ${res.breakpoint}) {
+                            .p-carousel[${this.attributeSelector}] .p-carousel-item {
+                                flex: 1 0 ${100 / res.numVisible}%
+                            }
                         }
-                    }
-                `;
+                    `;
                 }
             }
 
@@ -649,6 +649,9 @@ export default {
         },
         ariaNextButtonLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;
+        },
+        attributeSelector() {
+            return UniqueComponentId();
         }
     },
     directives: {
