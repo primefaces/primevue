@@ -1,5 +1,6 @@
 import vueJsx from '@vitejs/plugin-vue-jsx';
-const path = require('path');
+
+import path from 'path';
 const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
