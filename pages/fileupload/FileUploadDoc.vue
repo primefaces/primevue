@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="FileUploadDemo" :sources="sources" github="fileupload/FileUploadDemo.vue">
+    <AppDoc name="FileUploadDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import FileUpload from 'primevue/fileupload';

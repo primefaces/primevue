@@ -220,7 +220,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableFilterDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFilterDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="Filter" />
     </div>
 </template>
 

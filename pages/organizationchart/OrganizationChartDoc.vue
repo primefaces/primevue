@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="OrganizationChartDemo" :sources="sources" github="organizationchart/OrganizationChartDemo.vue">
+    <AppDoc name="OrganizationChartDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import OrganizationChart from 'primevue/organizationchart';

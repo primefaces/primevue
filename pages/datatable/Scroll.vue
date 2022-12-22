@@ -126,7 +126,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" github="datatable/DataTableScrollDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" github="Scroll" />
     </div>
 </template>
 

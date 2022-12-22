@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableSelectionDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSelectionDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="Selection" />
     </div>
 </template>
 

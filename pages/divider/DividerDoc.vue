@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DividerDemo" :sources="sources" github="divider/DividerDemo.vue">
+    <AppDoc name="DividerDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Divider from 'primevue/divider';

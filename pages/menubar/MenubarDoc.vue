@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="MenubarDemo" :sources="sources" github="menubar/MenubarDemo.vue">
+    <AppDoc name="MenubarDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Menubar from 'primevue/menubar';

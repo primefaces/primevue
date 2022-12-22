@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ChartDemo" :sources="sources" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" github="chart/PolarAreaChartDemo.vue" />
+    <AppDoc name="ChartDemo" :sources="sources" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" github="PolarArea" />
 </template>
 
 <script>

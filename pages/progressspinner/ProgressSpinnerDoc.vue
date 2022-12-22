@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ProgressSpinnerDemo" :sources="sources" github="progressspinner/ProgressSpinnerDemo.vue">
+    <AppDoc name="ProgressSpinnerDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import ProgressSpinner from 'primevue/progressspinner';

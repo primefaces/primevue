@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeDemo.vue">
+    <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Tree from 'primevue/tree';

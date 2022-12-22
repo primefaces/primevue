@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableColResizeDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableColResizeDemo.vue" />
+        <AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="ColResize" />
     </div>
 </template>
 

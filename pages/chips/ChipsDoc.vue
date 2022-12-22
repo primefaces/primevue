@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ChipsDemo" :sources="sources" github="chips/ChipsDemo.vue">
+    <AppDoc name="ChipsDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Chips from 'primevue/chips';

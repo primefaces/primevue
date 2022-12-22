@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DataTableBasicDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableBasicDemo.vue" />
+    <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="Basic" />
 </template>
 
 <script>

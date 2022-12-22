@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableFilterDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableFilterDemo.vue" />
+        <AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="Filter" />
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="FocusTrapDemo" :sources="sources" github="focustrap/FocusTrapDemo.vue">
+    <AppDoc name="FocusTrapDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import FocusTrap from 'primevue/focustrap';

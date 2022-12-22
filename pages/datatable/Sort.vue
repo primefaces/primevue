@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableSortDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSortDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="Sort" />
     </div>
 </template>
 

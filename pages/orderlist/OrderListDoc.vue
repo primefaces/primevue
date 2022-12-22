@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="OrderListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="orderlist/OrderListDemo.vue">
+    <AppDoc name="OrderListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import OrderList from 'primevue/orderlist';

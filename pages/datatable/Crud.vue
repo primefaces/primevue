@@ -171,7 +171,7 @@
             </Dialog>
         </div>
 
-        <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="Crud" />
     </div>
 </template>
 

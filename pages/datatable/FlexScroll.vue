@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableFlexScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTableFlexScrollDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="FlexScroll" />
     </div>
 </template>
 

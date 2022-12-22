@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="VirtualScrollerDemo" :sources="sources" github="virtualscroller/VirtualScrollerDemo.vue">
+    <AppDoc name="VirtualScrollerDemo" :sources="sources">
         <h5>Imports</h5>
         <pre v-code.script><code>
 import VirtualScroller from 'primevue/virtualscroller';

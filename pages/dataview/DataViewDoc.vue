@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DataViewDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="dataview/DataViewDemo.vue">
+    <AppDoc name="DataViewDemo" :sources="sources" :service="['ProductService']" :data="['products']">
         <h5>Import via Module</h5>
 
         <pre v-code.script><code>

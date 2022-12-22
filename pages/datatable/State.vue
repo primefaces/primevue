@@ -142,7 +142,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableStateDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableStateDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="State" />
     </div>
 </template>
 

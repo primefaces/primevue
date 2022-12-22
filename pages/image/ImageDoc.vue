@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ImageDemo" :sources="sources" github="image/ImageDemo.vue">
+    <AppDoc name="ImageDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Image from 'primevue/image';

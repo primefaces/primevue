@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="TabViewDemo" :sources="sources" github="tabview/TabViewDemo.vue">
+    <AppDoc name="TabViewDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import TabView from 'primevue/tabview';

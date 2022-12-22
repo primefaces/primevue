@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="RowExpand" />
     </div>
 </template>
 
