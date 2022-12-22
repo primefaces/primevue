@@ -24,6 +24,7 @@ export default {
         this.viewGithubListener = () => {
             window.open('https://github.com/primefaces/primevue/blob/master/pages/' + this.name.toLowerCase().replaceAll('demo', '/') + this.github, '_blank');
         };
+
         EventBus.on('view-github', this.viewGithubListener);
     },
     beforeUnmount() {
