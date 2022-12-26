@@ -1,4 +1,5 @@
 import { config, mount } from '@vue/test-utils';
+import { expect } from 'vitest';
 import Rating from './Rating.vue';
 
 config.global.mocks = {
@@ -42,5 +43,33 @@ describe('Rating.vue', () => {
         await wrapper.setProps({ cancel: false });
 
         expect(wrapper.find('.p-rating-cancel').exists()).toBe(false);
+    });
+
+    it('When star is clicked, onOptionClick method should triggered', async () => {
+        await wrapper.find('.p-rating-item').trigger('click');
+
+        expect(wrapper.find('.p-focus').exists()).toBe(true);
+    });
+
+    it('When input focused, focusedOptionIndex value should changed', async () => {
+        await wrapper.vm.onFocus(true, 5);
+
+        expect(wrapper.vm.focusedOptionIndex).toEqual(5);
+        expect(wrapper.emitted().focus[0]).toEqual([true]);
+    });
+
+    it('When input changed, onOptionSelect method should triggered', async () => {
+        const onOptionSelectSpy = vi.spyOn(wrapper.vm, 'onOptionSelect');
+
+        await wrapper.vm.onChange();
+
+        expect(onOptionSelectSpy).toHaveBeenCalled();
+    });
+
+    it('When input changed, onOptionSelect method should triggered', async () => {
+        await wrapper.setProps({ onIcon: 'test-icon' });
+        await wrapper.setProps({ modelValue: 5 });
+
+        expect(wrapper.find('.test-icon').exists()).toBe(true);
     });
 });
