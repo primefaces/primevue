@@ -36,7 +36,7 @@
                     </Column>
                     <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                         <template #filter>
@@ -102,7 +102,7 @@
                     </Column>
                     <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                         <template #filter>

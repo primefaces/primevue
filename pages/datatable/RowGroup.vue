@@ -17,7 +17,7 @@
                     <Column field="name" header="Name" style="min-width: 200px"></Column>
                     <Column field="country" header="Country" style="min-width: 200px">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -61,7 +61,7 @@
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -100,7 +100,7 @@
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
