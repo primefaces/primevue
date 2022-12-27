@@ -21,7 +21,7 @@ import Dock from 'primevue/dock';
 
 </code></pre>
 
-        <pre v-code.script><code><template>
+        <pre v-code.script><code>
     export default {
         data() {
             return {
@@ -47,7 +47,6 @@ import Dock from 'primevue/dock';
         }
     }
 
-</template>
 </code></pre>
 
         <h5>MenuModel API</h5>
