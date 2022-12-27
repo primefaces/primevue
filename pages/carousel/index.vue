@@ -125,7 +125,7 @@ export default {
                     numScroll: 1
                 }
             ],
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     productService: null,
@@ -134,8 +134,6 @@ export default {
     },
     mounted() {
         this.productService.getProductsSmall().then((data) => (this.products = data.slice(0, 9)));
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     components: {
         CarouselDoc: CarouselDoc

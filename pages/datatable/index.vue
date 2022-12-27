@@ -169,7 +169,7 @@ export default {
                 { name: 'XuXue Feng', image: 'xuxuefeng.png' }
             ],
             statuses: ['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'],
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     created() {
@@ -181,8 +181,6 @@ export default {
             this.customers.forEach((customer) => (customer.date = new Date(customer.date)));
             this.loading = false;
         });
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         formatDate(value) {

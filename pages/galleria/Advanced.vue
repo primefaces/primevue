@@ -244,7 +244,7 @@ export default {
             activeIndex: 0,
             showThumbnails: false,
             fullScreen: false,
-            baseUrl: ''
+            baseUrl: process.dev ? '' : '/primevue-nuxt'
         };
     },
     galleriaService: null,
@@ -254,7 +254,6 @@ export default {
     mounted() {
         this.galleriaService.getImages().then((data) => (this.images = data));
         this.bindDocumentListeners();
-        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     },
     methods: {
         onThumbnailButtonClick() {

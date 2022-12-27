@@ -111,11 +111,8 @@ import AvatarDoc from './AvatarDoc';
 export default {
     data() {
         return {
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
-    },
-    mounted() {
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     components: {
         AvatarDoc: AvatarDoc

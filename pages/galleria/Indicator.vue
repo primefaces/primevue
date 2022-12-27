@@ -266,7 +266,7 @@ export default {
                     numVisible: 1
                 }
             ],
-            baseUrl: ''
+            baseUrl: process.dev ? '' : '/primevue-nuxt'
         };
     },
     galleriaService: null,
@@ -278,8 +278,6 @@ export default {
             this.images = data;
             this.images2 = data.slice(0, 5);
         });
-
-        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     }
 };
 </script>

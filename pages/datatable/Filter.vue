@@ -1316,7 +1316,7 @@ export default {
 `
                 }
             },
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     created() {
@@ -1335,8 +1335,6 @@ export default {
             this.loading2 = false;
             this.customers2.forEach((customer) => (customer.date = new Date(customer.date)));
         });
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         formatDate(value) {

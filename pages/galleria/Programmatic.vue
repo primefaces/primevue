@@ -115,7 +115,7 @@ export default {
                     numVisible: 1
                 }
             ],
-            baseUrl: ''
+            baseUrl: process.dev ? '' : '/primevue-nuxt'
         };
     },
     galleriaService: null,
@@ -124,7 +124,6 @@ export default {
     },
     mounted() {
         this.galleriaService.getImages().then((data) => (this.images = data));
-        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     },
     methods: {
         next() {

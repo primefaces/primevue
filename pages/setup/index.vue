@@ -332,7 +332,7 @@ app.use(PrimeVue, {
                         <tr>
                             <th>
                                 <div class="flex align-items-center">
-                                    <img src="@/assets/images//browsers/edge.svg" alt="edge" style="width: 1.5rem" class="mr-2" />
+                                    <img src="@/assets/images/browsers/edge.svg" alt="edge" style="width: 1.5rem" class="mr-2" />
                                     Edge
                                 </div>
                             </th>

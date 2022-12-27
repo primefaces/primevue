@@ -826,7 +826,7 @@ export default {
 `
                 }
             },
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     customerService: null,
@@ -862,8 +862,6 @@ export default {
                 }
             }
         ];
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         openDialog() {

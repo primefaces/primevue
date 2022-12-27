@@ -451,7 +451,7 @@ export default {
 `
                 }
             },
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     productService: null,
@@ -460,7 +460,6 @@ export default {
     },
     mounted() {
         this.productService.getProductsWithOrdersSmall().then((data) => (this.products = data));
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         onRowExpand(event) {

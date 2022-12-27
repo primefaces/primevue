@@ -90,11 +90,8 @@
 export default {
     data() {
         return {
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
-    },
-    mounted() {
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     }
 };
 </script>

@@ -225,7 +225,7 @@ export default {
             displayBasic: false,
             displayBasic2: false,
             displayCustom: false,
-            baseUrl: ''
+            baseUrl: process.dev ? '' : '/primevue-nuxt'
         };
     },
     galleriaService: null,
@@ -234,7 +234,6 @@ export default {
     },
     mounted() {
         this.galleriaService.getImages().then((data) => (this.images = data));
-        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     },
     methods: {
         imageClick(index) {

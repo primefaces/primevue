@@ -55,15 +55,11 @@ export default {
     data() {
         return {
             menuActive: false,
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     scrollListener: null,
     container: null,
-    mounted() {
-        this.bindScrollListener();
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
-    },
     beforeUnmount() {
         if (this.scrollListener) {
             this.unbindScrollListener();

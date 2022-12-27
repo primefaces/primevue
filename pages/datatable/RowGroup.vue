@@ -632,7 +632,7 @@ export default {
 `
                 }
             },
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     customerService: null,
@@ -641,7 +641,6 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersMedium().then((data) => (this.customers = data));
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         onRowGroupExpand(event) {

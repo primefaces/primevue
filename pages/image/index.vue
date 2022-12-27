@@ -33,12 +33,10 @@ import ImageDoc from './ImageDoc';
 export default {
     data() {
         return {
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
-    mounted() {
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
-    },
+
     components: {
         ImageDoc: ImageDoc
     }
