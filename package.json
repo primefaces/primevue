@@ -19,8 +19,8 @@
         "security:check": "npm audit --production --audit-level high",
         "format": "prettier --write \"**/*.{js,vue,d.ts}\"",
         "format:check": "prettier --check \"**/*.{js,vue,d.ts}\"",
-        "test:unit": "vitest run",
-        "test:coverage": "vitest run --coverage",
+        "test:unit": "vitest",
+        "test:coverage": "vitest --coverage",
         "lint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
         "lint:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore ."
     },
