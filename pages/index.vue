@@ -1,10 +1,6 @@
 <template>
     <div :class="landingClass">
-        <div class="landing-intro">
-            <AppNews v-if="$appState.newsActive" />
-            <HeaderSection @theme-toggle="onThemeToggle" />
-            <HeroSection />
-        </div>
+        <Intro></Intro>
         <ComponentSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
@@ -17,19 +13,15 @@
 </template>
 
 <script>
-import EventBus from '@/layouts/AppEventBus';
-import AppNews from '@/layouts/AppNews';
+import { defineAsyncComponent } from 'vue';
 import BlockSection from './landing/BlockSection';
 import ComponentSection from './landing/ComponentSection';
 import DesignerSection from './landing/DesignerSection';
 import FeaturesSection from './landing/FeaturesSection';
 import FooterSection from './landing/FooterSection';
-import HeaderSection from './landing/HeaderSection';
-import HeroSection from './landing/HeroSection';
 import TemplateSection from './landing/TemplateSection';
 import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
-
 export default {
     props: {
         theme: {
@@ -57,13 +49,6 @@ export default {
         this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-blue' : 'lara-light-blue');
     },
     methods: {
-        onThemeToggle() {
-            const newTheme = this.$appState.darkTheme ? 'lara-light-blue' : 'lara-dark-blue';
-            const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
-
-            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
-            this.replaceTableTheme(newTableTheme);
-        },
         onTableThemeChange(value) {
             this.replaceTableTheme(value);
         },
@@ -96,8 +81,7 @@ export default {
         }
     },
     components: {
-        HeaderSection,
-        HeroSection,
+        Intro: defineAsyncComponent(() => import('./Intro.vue')),
         ComponentSection,
         ThemeSection,
         BlockSection,
@@ -105,8 +89,7 @@ export default {
         TemplateSection,
         UsersSection,
         FeaturesSection,
-        FooterSection,
-        AppNews
+        FooterSection
     }
 };
 </script>
