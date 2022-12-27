@@ -72,9 +72,9 @@
                 <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Image</h5>
-                        <Avatar :image="baseUrl + 'demo/images/avatar/amyelsner.png'" class="mr-2" size="xlarge" shape="circle" />
-                        <Avatar :image="baseUrl + 'demo/images/avatar/asiyajavayant.png'" class="mr-2" size="large" shape="circle" />
-                        <Avatar :image="baseUrl + 'demo/images/avatar/onyamalimba.png'" class="mr-2" shape="circle" />
+                        <Avatar :image="$config.public.contextPath + 'demo/images/avatar/amyelsner.png'" class="mr-2" size="xlarge" shape="circle" />
+                        <Avatar :image="$config.public.contextPath + 'demo/images/avatar/asiyajavayant.png'" class="mr-2" size="large" shape="circle" />
+                        <Avatar :image="$config.public.contextPath + 'demo/images/avatar/onyamalimba.png'" class="mr-2" shape="circle" />
                     </div>
                 </div>
 
@@ -82,11 +82,11 @@
                     <div class="card">
                         <h5>Avatar Group</h5>
                         <AvatarGroup class="mb-3">
-                            <Avatar :image="baseUrl + 'demo/images/avatar/amyelsner.png'" size="large" shape="circle" />
-                            <Avatar :image="baseUrl + 'demo/images/avatar/asiyajavayant.png'" size="large" shape="circle" />
-                            <Avatar :image="baseUrl + 'demo/images/avatar/onyamalimba.png'" size="large" shape="circle" />
-                            <Avatar :image="baseUrl + 'demo/images/avatar/ionibowcher.png'" size="large" shape="circle" />
-                            <Avatar :image="baseUrl + 'demo/images/avatar/xuxuefeng.png'" size="large" shape="circle" />
+                            <Avatar :image="$config.public.contextPath + 'demo/images/avatar/amyelsner.png'" size="large" shape="circle" />
+                            <Avatar :image="$config.public.contextPath + 'demo/images/avatar/asiyajavayant.png'" size="large" shape="circle" />
+                            <Avatar :image="$config.public.contextPath + 'demo/images/avatar/onyamalimba.png'" size="large" shape="circle" />
+                            <Avatar :image="$config.public.contextPath + 'demo/images/avatar/ionibowcher.png'" size="large" shape="circle" />
+                            <Avatar :image="$config.public.contextPath + 'demo/images/avatar/xuxuefeng.png'" size="large" shape="circle" />
                             <Avatar label="+2" shape="circle" size="large" style="background-color: #9c27b0; color: #ffffff" />
                         </AvatarGroup>
                     </div>
@@ -95,7 +95,7 @@
                 <div class="col-12 md:col-4">
                     <div class="card">
                         <h5>Image - Badge</h5>
-                        <Avatar v-badge.danger="4" :image="baseUrl + 'demo/images/organization/walter.jpg'" size="xlarge" />
+                        <Avatar v-badge.danger="4" :image="$config.public.contextPath + 'demo/images/organization/walter.jpg'" size="xlarge" />
                     </div>
                 </div>
             </div>
@@ -109,11 +109,6 @@
 import AvatarDoc from './AvatarDoc';
 
 export default {
-    data() {
-        return {
-            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
-        };
-    },
     components: {
         AvatarDoc: AvatarDoc
     }

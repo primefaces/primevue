@@ -16,10 +16,10 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Basic</h5>
-                <Image :src="baseUrl + 'demo/images/galleria/galleria1.jpg'" alt="Image" width="250" />
+                <Image :src="$config.public.contextPath + 'demo/images/galleria/galleria1.jpg'" alt="Image" width="250" />
 
                 <h5>Preview</h5>
-                <Image :src="baseUrl + 'demo/images/galleria/galleria11.jpg'" alt="Image" width="250" preview />
+                <Image :src="$config.public.contextPath + 'demo/images/galleria/galleria11.jpg'" alt="Image" width="250" preview />
             </div>
         </div>
 
@@ -31,12 +31,6 @@
 import ImageDoc from './ImageDoc';
 
 export default {
-    data() {
-        return {
-            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
-        };
-    },
-
     components: {
         ImageDoc: ImageDoc
     }

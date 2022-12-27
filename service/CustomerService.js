@@ -1,26 +1,29 @@
-const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
-
 export default class CustomerService {
+    constructor() {
+        const runtimeConfig = useRuntimeConfig();
+        this.contextPath = runtimeConfig.public.contextPath;
+    }
+
     getCustomersSmall() {
-        return fetch(baseUrl + 'demo/data/customers-small.json')
+        return fetch(this.contextPath + 'demo/data/customers-small.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
 
     getCustomersMedium() {
-        return fetch(baseUrl + 'demo/data/customers-medium.json')
+        return fetch(this.contextPath + 'demo/data/customers-medium.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
 
     getCustomersLarge() {
-        return fetch(baseUrl + 'demo/data/customers-large.json')
+        return fetch(this.contextPath + 'demo/data/customers-large.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
 
     getCustomersXLarge() {
-        return fetch(baseUrl + 'demo/data/customers-xlarge.json')
+        return fetch(this.contextPath + 'demo/data/customers-xlarge.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
