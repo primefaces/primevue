@@ -300,7 +300,7 @@ export default {
                 'lara-light-teal': 'lara-light-teal.png',
                 'lara-light-blue': 'lara-light-blue.png'
             },
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     watch: {
@@ -312,7 +312,6 @@ export default {
     container: null,
     mounted() {
         this.bindScrollListener();
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     beforeUnmount() {
         if (this.scrollListener) {

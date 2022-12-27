@@ -80,7 +80,7 @@ export default {
             filteredRoutes: null,
             selectedRoute: null,
             routes: [],
-            baseUrl: '/'
+            baseUrl: process.dev ? '/' : '/primevue-nuxt/'
         };
     },
     mounted() {
@@ -97,8 +97,6 @@ export default {
 
             this.routes.push(childRoute);
         });
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         toggleSubmenu(event, name) {
