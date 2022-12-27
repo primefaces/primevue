@@ -1,9 +1,9 @@
 export default defineNuxtRouteMiddleware((to, from) => {
     useNuxtApp().hook('page:finish', () => {
-        if (history.state.scroll) {
-            setTimeout(() => window.scrollTo(history.state.scroll), 0);
+        if (to.path !== from.path && history.state) {
+            window.scrollTo(history.state.scroll);
         } else {
-            setTimeout(() => window.scrollTo(0, 0), 0);
+            window.scrollTo(0, 0);
         }
     });
 });
