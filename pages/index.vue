@@ -1,6 +1,6 @@
 <template>
     <div :class="landingClass">
-        <Intro></Intro>
+        <Intro @change:theme="onThemeToggle"></Intro>
         <ComponentSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import EventBus from '@/layouts/AppEventBus';
 import BlockSection from './landing/BlockSection';
 import ComponentSection from './landing/ComponentSection';
 import DesignerSection from './landing/DesignerSection';
@@ -50,6 +51,13 @@ export default {
         this.replaceTableTheme(this.$appState.darkTheme ? 'lara-dark-blue' : 'lara-light-blue');
     },
     methods: {
+        onThemeToggle() {
+            const newTheme = this.$appState.darkTheme ? 'lara-light-blue' : 'lara-dark-blue';
+            const newTableTheme = this.$appState.darkTheme ? this.tableTheme.replace('dark', 'light') : this.tableTheme.replace('light', 'dark');
+
+            EventBus.emit('theme-change', { theme: newTheme, dark: !this.$appState.darkTheme });
+            this.replaceTableTheme(newTableTheme);
+        },
         onTableThemeChange(value) {
             this.replaceTableTheme(value);
         },
