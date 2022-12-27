@@ -8,8 +8,8 @@
 
 <script>
 import AppNews from '@/layouts/AppNews';
-import HeaderSection from './landing/HeaderSection';
-import HeroSection from './landing/HeroSection';
+import HeaderSection from './HeaderSection';
+import HeroSection from './HeroSection';
 export default {
     methods: {
         onThemeToggle() {

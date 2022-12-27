@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue';
 import BlockSection from './landing/BlockSection';
 import ComponentSection from './landing/ComponentSection';
 import DesignerSection from './landing/DesignerSection';
@@ -22,6 +21,8 @@ import FooterSection from './landing/FooterSection';
 import TemplateSection from './landing/TemplateSection';
 import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
+const Intro = defineAsyncComponent(() => import('./landing/Intro.vue'));
+
 export default {
     props: {
         theme: {
@@ -81,7 +82,7 @@ export default {
         }
     },
     components: {
-        Intro: defineAsyncComponent(() => import('./Intro.vue')),
+        Intro,
         ComponentSection,
         ThemeSection,
         BlockSection,

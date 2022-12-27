@@ -7,7 +7,6 @@ const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
 export default defineNuxtConfig({
     typescript: false,
     components: true,
-    target: 'static',
     app: {
         baseURL: baseUrl,
         head: {
