@@ -1,7 +1,7 @@
-
 export default class ProductService {
     constructor() {
         const runtimeConfig = useRuntimeConfig();
+
         this.contextPath = runtimeConfig.public.contextPath;
     }
 

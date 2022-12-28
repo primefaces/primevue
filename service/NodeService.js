@@ -1,6 +1,7 @@
 export default class NodeService {
     constructor() {
         const runtimeConfig = useRuntimeConfig();
+
         this.contextPath = runtimeConfig.public.contextPath;
     }
 
