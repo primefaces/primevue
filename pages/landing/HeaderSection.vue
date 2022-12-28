@@ -59,6 +59,9 @@ export default {
     },
     scrollListener: null,
     container: null,
+    mounted() {
+        this.bindScrollListener();
+    },
     beforeUnmount() {
         if (this.scrollListener) {
             this.unbindScrollListener();
