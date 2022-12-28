@@ -240,8 +240,7 @@ export default {
 
 <script>
 import { ref, onMounted } from 'vue';
-import { FilterMatchMode } from 'primevue/api';
-import CustomerService from './service/CustomerService';
+import CarService from './service/CarService';
 
 export default {
     setup() {
