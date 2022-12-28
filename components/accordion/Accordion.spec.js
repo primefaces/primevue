@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
 import AccordionTab from '../accordiontab/AccordionTab.vue';
 import Accordion from './Accordion.vue';
-
+vi.mock('primevue/utils');
 describe('Accordion.vue', () => {
     let wrapper;
 
@@ -34,6 +34,10 @@ describe('Accordion.vue', () => {
         });
     });
 
+    afterEach(() => {
+        vi.clearAllMocks();
+    });
+
     it('should Accordion and AccordionTab component exist', () => {
         expect(wrapper.find('.p-accordion.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-accordion-tab').exists()).toBe(true);
@@ -58,32 +62,112 @@ describe('Accordion.vue', () => {
         expect(wrapper.emitted()['tab-click'][0][0].index).toEqual(0);
     });
 
-    it('should open tab with keydown', async () => {
+    it('When invalid key triggered OnTabKey should break', async () => {
+        const keydownOptions = ['onTabHomeKey', 'onTabEnterKey', 'onTabEndKey', 'onTabArrowDownKey', 'onTabArrowUpKey'];
         const firstHeader = wrapper.find('a.p-accordion-header-link');
+
+        await firstHeader.trigger('keydown', { code: 'ArrowRight' });
+
+        for (const keydownOption of keydownOptions) {
+            expect(vi.spyOn(wrapper.vm, keydownOption)).not.toHaveBeenCalled();
+        }
+    });
+
+    it('When keydown enter is triggered on component header changeActiveIndex should be triggered', async () => {
+        const firstHeader = wrapper.find('a.p-accordion-header-link');
+        const changeActiveIndexSpy = vi.spyOn(wrapper.vm, 'changeActiveIndex');
 
         await firstHeader.trigger('keydown', { code: 'Enter' });
 
-        expect(wrapper.emitted()['update:activeIndex'][0]).toEqual([0]);
-        expect(wrapper.emitted()['tab-open'][0][0].index).toEqual(0);
+        expect(changeActiveIndexSpy).toHaveBeenCalled();
     });
 
-    it('should close tab with keydown', async () => {
-        await wrapper.setProps({ activeIndex: 0 });
-
+    it('When keydown end is triggered on component header changeFocusedTab should be triggered', async () => {
         const firstHeader = wrapper.find('a.p-accordion-header-link');
+        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab');
+        const findLastHeaderActionSpy = vi.spyOn(wrapper.vm, 'findLastHeaderAction');
 
-        await firstHeader.trigger('keydown', { code: 'Enter' });
+        await firstHeader.trigger('keydown', { code: 'End' });
 
-        expect(wrapper.emitted()['update:activeIndex'][0]).toEqual([null]);
-        expect(wrapper.emitted()['tab-close'][0][0].index).toEqual(0);
+        expect(changeFocusedTabSpy).toHaveBeenCalled();
+        expect(findLastHeaderActionSpy).toHaveBeenCalled();
     });
 
-    it('should work multiple mode', async () => {
+    it('When keydown home is triggered on component header changeFocusedTab should be triggered', async () => {
+        const firstHeader = wrapper.find('a.p-accordion-header-link');
+        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab');
+        const findFirstHeaderActionSpy = vi.spyOn(wrapper.vm, 'findFirstHeaderAction');
+
+        await firstHeader.trigger('keydown', { code: 'Home' });
+
+        expect(changeFocusedTabSpy).toHaveBeenCalled();
+        expect(findFirstHeaderActionSpy).toHaveBeenCalled();
+    });
+
+    it('When keydown ArrowUp is triggered and findPrevHeaderAction is true changeFocusedTab should be triggered', async () => {
+        const findPrevHeaderActionSpy = vi.spyOn(wrapper.vm, 'findPrevHeaderAction').mockImplementation(() => true);
+        const onTabEndKeySpy = vi.spyOn(wrapper.vm, 'onTabEndKey');
+        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab').mockImplementation(() => true);
         const firstHeader = wrapper.find('a.p-accordion-header-link');
 
-        await wrapper.setProps({ activeIndex: [1], multiple: true });
-        await firstHeader.trigger('click');
+        await firstHeader.trigger('keydown', { code: 'ArrowUp' });
 
-        expect(wrapper.emitted()['update:activeIndex'][0]).toEqual([[1, 0]]);
+        expect(findPrevHeaderActionSpy).toHaveBeenCalled();
+        expect(changeFocusedTabSpy).toHaveBeenCalled();
+        expect(onTabEndKeySpy).toHaveBeenCalledTimes(0);
+    });
+
+    it('When keydown ArrowUp is triggered and findPrevHeaderAction is false onTabEndKey should be triggered', async () => {
+        const findPrevHeaderActionSpy = vi.spyOn(wrapper.vm, 'findPrevHeaderAction').mockImplementation(() => false);
+        const onTabEndKeySpy = vi.spyOn(wrapper.vm, 'onTabEndKey');
+        const firstHeader = wrapper.find('a.p-accordion-header-link');
+
+        await firstHeader.trigger('keydown', { code: 'ArrowUp' });
+
+        expect(findPrevHeaderActionSpy).toHaveBeenCalled();
+        expect(onTabEndKeySpy).toHaveBeenCalled();
+    });
+
+    it('When keydown ArrowDown is triggered and nextHeaderAction is true changeFocusedTab should be triggered', async () => {
+        const findNextHeaderActionSpy = vi.spyOn(wrapper.vm, 'findNextHeaderAction').mockImplementation(() => true);
+        const onTabHomeKeySpy = vi.spyOn(wrapper.vm, 'onTabHomeKey');
+        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab').mockImplementation(() => true);
+        const firstHeader = wrapper.find('a.p-accordion-header-link');
+
+        await firstHeader.trigger('keydown', { code: 'ArrowDown' });
+
+        expect(findNextHeaderActionSpy).toHaveBeenCalled();
+        expect(changeFocusedTabSpy).toHaveBeenCalled();
+        expect(onTabHomeKeySpy).toHaveBeenCalledTimes(0);
+    });
+
+    it('When keydown ArrowDown is triggered and nextHeaderAction is false onTabHomeKey should be triggered', async () => {
+        const findNextHeaderActionSpy = vi.spyOn(wrapper.vm, 'findNextHeaderAction').mockImplementation(() => false);
+        const onTabHomeKeySpy = vi.spyOn(wrapper.vm, 'onTabHomeKey');
+        const firstHeader = wrapper.find('a.p-accordion-header-link');
+
+        await firstHeader.trigger('keydown', { code: 'ArrowDown' });
+
+        expect(findNextHeaderActionSpy).toHaveBeenCalled();
+        expect(onTabHomeKeySpy).toHaveBeenCalled();
+    });
+
+    it('When changeFocusedTab triggered and selectOnFocus is true changeActiveIndex should be triggered with valid parameters', async () => {
+        await wrapper.setProps({ selectOnFocus: true });
+        const changeActiveIndexSpy = vi.spyOn(wrapper.vm, 'changeActiveIndex');
+        const event = {};
+        const element = {
+            parentElement: {
+                parentElement: {
+                    dataset: {
+                        index: 0
+                    }
+                }
+            }
+        };
+
+        await wrapper.vm.changeFocusedTab(event, element);
+
+        expect(changeActiveIndexSpy).toHaveBeenCalledWith({}, wrapper.vm.tabs[0], 0);
     });
 });
