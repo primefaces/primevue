@@ -684,7 +684,7 @@ export interface DataTableProps {
     /**
      * One or more field names to use in row grouping.
      */
-    groupRowsBy?: (field: string) => object | string[] | string | undefined;
+    groupRowsBy?: ((field: string) => object) | string[] | string | undefined;
     /**
      * Whether the row groups can be expandable.
      */
