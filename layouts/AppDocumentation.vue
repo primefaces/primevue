@@ -16,13 +16,13 @@ export default {
         component: null,
         github: {
             type: String,
-            default: 'index.vue'
+            default: 'index'
         }
     },
     viewGithubListener: null,
     mounted() {
         this.viewGithubListener = () => {
-            window.open('https://github.com/primefaces/primevue/blob/master/pages/' + this.name.toLowerCase().replaceAll('demo', '/') + this.github, '_blank');
+            window.open('https://github.com/primefaces/primevue/blob/master/pages/' + this.name.toLowerCase().replaceAll('demo', '/') + this.github + '.vue', '_blank');
         };
 
         EventBus.on('view-github', this.viewGithubListener);
