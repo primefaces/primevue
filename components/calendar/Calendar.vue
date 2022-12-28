@@ -2503,7 +2503,7 @@ export default {
             if (cell) {
                 cell.tabIndex = '0';
 
-                if (!this.preventFocus && (!this.navigationState || !this.navigationState.button) && !this.timePickerChange) {
+                if (!this.inline && (!this.navigationState || !this.navigationState.button) && !this.timePickerChange) {
                     cell.focus();
                 }
 
