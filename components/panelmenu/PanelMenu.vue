@@ -201,10 +201,12 @@ export default {
             if (!this.isItemDisabled(item)) {
                 this.activeItem = selfActive ? item : this.activeItem && this.activeItem === item ? null : item;
 
-                const active = this.isItemActive(item);
+                const active = this.expandedKeys ? !this.isItemActive(item) : this.isItemActive(item);
+
                 const eventName = active ? 'panel-open' : 'panel-close';
 
-                this.changeExpandedKeys({ item, expanded: !active });
+                this.changeExpandedKeys({ item, expanded: active });
+
                 this.$emit(eventName, { originalEvent: event, item });
             }
         },
