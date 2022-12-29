@@ -47,7 +47,7 @@ export default {
         collapsed: Boolean,
         toggleButtonProps: {
             type: null,
-            defaault: null
+            default: null
         }
     },
     data() {
