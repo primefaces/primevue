@@ -1,33 +1,35 @@
 import { mount } from '@vue/test-utils';
-import Button from 'primevue/button';
+import { expect } from 'vitest';
 import Badge from './Badge.vue';
 
+let wrapper = null;
+
 describe('Badge.vue', () => {
-    it('should exist', () => {
-        const wrapper = mount(Badge, {
+    beforeEach(() => {
+        wrapper = mount(Badge, {
             props: {
                 value: '29',
                 severity: 'warning',
                 size: 'large'
             }
         });
-
+    });
+    it('should exist', () => {
         expect(wrapper.find('.p-badge.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-badge-warning').exists()).toBe(true);
         expect(wrapper.find('.p-badge-lg').exists()).toBe(true);
         expect(wrapper.find('.p-badge-no-gutter').exists()).toBe(false);
+
+        expect(wrapper.vm.containerClass).not.toBe('p-overlay-badge');
     });
 
     it('badge classes should exist', () => {
-        const wrapper = mount({
-            template: '<Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />',
-            components: {
-                Button
+        wrapper = mount(Badge, {
+            slots: {
+                default: 'Main Content'
             }
         });
 
-        expect(wrapper.find('.p-badge.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-badge-danger').exists()).toBe(true);
-        expect(wrapper.find('.p-badge-no-gutter').exists()).toBe(true);
+        expect(wrapper.vm.containerClass).toBe('p-overlay-badge');
     });
 });
