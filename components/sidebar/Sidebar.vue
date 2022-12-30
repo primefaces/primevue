@@ -97,7 +97,7 @@ export default {
         onLeave() {
             this.$emit('hide');
 
-            if (this.modal && !this.fullScreen) {
+            if (this.modal) {
                 this.disableModality();
             }
         },
