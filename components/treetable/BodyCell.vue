@@ -147,7 +147,7 @@ export default {
             };
         },
         togglerIcon() {
-            return ['p-treetable-toggler-icon pi', { 'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded }];
+            return ['p-treetable-toggler-icon pi', this.expanded ? this.node.expandedIcon || 'pi-chevron-down' : this.node.collapsedIcon || 'pi-chevron-right'];
         },
         checkboxSelectionMode() {
             return this.selectionMode === 'checkbox';

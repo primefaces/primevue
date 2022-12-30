@@ -43,6 +43,18 @@ import Column from 'primevue/column';
                         <td>Data represented by the node.</td>
                     </tr>
                     <tr>
+                        <td>expandedIcon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Icon to use in expanded state.</td>
+                    </tr>
+                    <tr>
+                        <td>collapsedIcon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Icon to use in collapsed state.</td>
+                    </tr>
+                    <tr>
                         <td>children</td>
                         <td>TreeNode[]</td>
                         <td>null</td>
