@@ -1,6 +1,6 @@
 <template>
     <div :id="id" class="p-panelmenu p-component">
-        <template v-for="(item, index) of model" :key="getPanelKey(index)">
+        <template v-for="(item, index) of items" :key="getPanelKey(index)">
             <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="getPanelClass(item)">
                 <div
                     :id="getHeaderId(index)"
@@ -70,8 +70,17 @@ export default {
     },
     data() {
         return {
-            activeItem: null
+            activeItem: null,
+            items: null
         };
+    },
+    watch: {
+        model: {
+            immediate: true,
+            handler(newValue) {
+                this.items = reactive(newValue);
+            }
+        }
     },
     methods: {
         getItemProp(item, name) {
