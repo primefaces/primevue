@@ -196,7 +196,7 @@ export default {
         },
         minLength: {
             type: Number,
-            default: 1
+            default: 0
         },
         delay: {
             type: Number,
@@ -490,7 +490,7 @@ export default {
                 this.updateModel(event, query);
             }
 
-            if (query.length === 0) {
+            if (query === null && query === undefined) {
                 this.hide();
                 this.$emit('clear');
             } else {
@@ -892,6 +892,9 @@ export default {
 
             //do not search blank values on input change
             if (source === 'input' && query.trim().length === 0) {
+                this.hide();
+                this.$emit('complete', { originalEvent: event, query });
+
                 return;
             }
 

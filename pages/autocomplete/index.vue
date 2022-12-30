@@ -113,6 +113,8 @@ export default {
     },
     methods: {
         searchCountry(event) {
+            if (event.query === '') return [];
+
             setTimeout(() => {
                 if (!event.query.trim().length) {
                     this.filteredCountries = [...this.countries];
