@@ -235,17 +235,28 @@ export default {
             return ObjectUtils.findIndexInList(item, this.d_selection[listIndex]) != -1;
         },
         onListFocus(event, listType) {
+            const isMouseEvent = !event.target.matches(':focus-visible');
+
+            if (isMouseEvent) {
+                this.setFocusedList(event, listType);
+
+                return;
+            }
+
             const selectedFirstItem = DomHandler.findSingle(this.$refs[listType].$el, 'li.p-picklist-item.p-highlight');
             const index = selectedFirstItem ? ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children) : '0';
 
-            this.focused[listType] = true;
             this.changeFocusedOptionIndex(index, listType);
-            this.$emit('focus', event);
+            this.setFocusedList(event, listType);
         },
         onListBlur(event, listType) {
             this.focused[listType] = false;
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
+        },
+        setFocusedList(event, listType) {
+            this.focused[listType] = true;
+            this.$emit('focus', event);
         },
         moveUp(event, listIndex) {
             if (this.d_selection && this.d_selection[listIndex]) {
