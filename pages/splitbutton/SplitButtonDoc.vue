@@ -182,6 +182,36 @@ export default {
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLButtonElement to the menu button.</td>
                     </tr>
+                    <tr>
+                        <td>buttonClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the button.</td>
+                    </tr>
+                    <tr>
+                        <td>menuButtonIcon</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Name of the menu button icon.</td>
+                    </tr>
+                    <tr>
+                        <td>menuButtonClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the menu button.</td>
+                    </tr>
+                    <tr>
+                        <td>menuClass</td>
+                        <td>string</td>
+                        <td>null</td>
+                        <td>Style class of the menu.</td>
+                    </tr>
+                    <tr>
+                        <td>menuStyle</td>
+                        <td>any</td>
+                        <td>null</td>
+                        <td>Inline style of the menu.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

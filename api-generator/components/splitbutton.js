@@ -36,6 +36,12 @@ const SplitButtonProps = [
         description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached.'
     },
     {
+        name: 'disabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When present, it specifies that the element should be disabled.'
+    },
+    {
         name: 'class',
         type: 'string',
         default: 'null',
@@ -46,6 +52,36 @@ const SplitButtonProps = [
         type: 'any',
         default: 'null',
         description: 'Inline of the component.'
+    },
+    {
+        name: 'buttonClass',
+        type: 'string',
+        default: 'null',
+        description: 'Style class of the button.'
+    },
+    {
+        name: 'menuButtonIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Name of the menu button icon.'
+    },
+    {
+        name: 'menuButtonClass',
+        type: 'string',
+        default: 'null',
+        description: 'Style class of the menu button.'
+    },
+    {
+        name: 'menuClass',
+        type: 'string',
+        default: 'null',
+        description: 'Style class of the menu.'
+    },
+    {
+        name: 'menuStyle',
+        type: 'any',
+        default: 'null',
+        description: 'Inline style of the menu.'
     }
 ];
 
