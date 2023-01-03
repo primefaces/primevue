@@ -125,6 +125,10 @@ export default {
                         <td>item</td>
                         <td>item: Menuitem instance</td>
                     </tr>
+                    <tr>
+                        <td>separator</td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
