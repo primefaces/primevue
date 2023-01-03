@@ -30,4 +30,20 @@ describe('Panel.vue', () => {
 
         expect(wrapper.emitted().toggle[0]).toEqual([{ originalEvent: {}, value: true }]);
     });
+
+    it('should have custom icons when provided', async () => {
+        await wrapper.setProps({
+            toggleable: true,
+            collapseIcon: 'pi pi-discord',
+            expandIcon: 'pi pi-facebook'
+        });
+
+        const icon = wrapper.find('.p-panel-toggler span');
+
+        expect(icon.classes()).toContain('pi-discord');
+
+        await wrapper.vm.toggle({});
+
+        expect(icon.classes()).toContain('pi-facebook');
+    });
 });

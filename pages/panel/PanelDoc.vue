@@ -1,3 +1,15 @@
+<tr>
+<td>collapseIcon</td>
+<td>string</td>
+<td>pi pi-minus</td>
+<td>Icon to display when in toggle button when panel is expanded.</td>
+</tr>
+<tr>
+<td>expandIcon</td>
+<td>string</td>
+<td>pi pi-plus</td>
+<td>Icon to display when in toggle button when panel is collapsed.</td>
+</tr>
 <template>
     <AppDoc name="PanelDemo" :sources="sources">
         <h5>Import via Module</h5>
@@ -118,6 +130,18 @@ import Panel from 'primevue/panel';
                         <td>object</td>
                         <td>null</td>
                         <td>Uses to pass the custom value to read for the button inside the component.</td>
+                    </tr>
+                    <tr>
+                        <td>collapseIcon</td>
+                        <td>string</td>
+                        <td>pi pi-minus</td>
+                        <td>Icon to display when in toggle button when panel is expanded.</td>
+                    </tr>
+                    <tr>
+                        <td>expandIcon</td>
+                        <td>string</td>
+                        <td>pi pi-plus</td>
+                        <td>Icon to display when in toggle button when panel is collapsed.</td>
                     </tr>
                 </tbody>
             </table>

@@ -20,7 +20,7 @@
                     @keydown="onKeyDown"
                     v-bind="toggleButtonProps"
                 >
-                    <span :class="{ 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }"></span>
+                    <span :class="{ [collapseIcon]: !d_collapsed, [expandIcon]: d_collapsed }" />
                 </button>
             </div>
         </div>
@@ -47,7 +47,15 @@ export default {
         collapsed: Boolean,
         toggleButtonProps: {
             type: null,
-            defaault: null
+            default: null
+        },
+        collapseIcon: {
+            type: String,
+            default: 'pi pi-minus'
+        },
+        expandIcon: {
+            type: String,
+            default: 'pi pi-plus'
         }
     },
     data() {
