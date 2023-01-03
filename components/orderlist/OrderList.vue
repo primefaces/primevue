@@ -2,10 +2,10 @@
     <div :class="containerClass">
         <div class="p-orderlist-controls">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" icon="pi pi-angle-up" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-up" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-down" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps"></OLButton>
+            <OLButton type="button" :icon="moveUpIcon" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps"></OLButton>
+            <OLButton type="button" :icon="moveTopIcon" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps"></OLButton>
+            <OLButton type="button" :icon="moveDownIcon" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps"></OLButton>
+            <OLButton type="button" :icon="moveBottomIcon" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps"></OLButton>
             <slot name="controlsend"></slot>
         </div>
         <div class="p-orderlist-list-container">
@@ -80,6 +80,22 @@ export default {
         stripedRows: {
             type: Boolean,
             default: false
+        },
+        moveUpIcon: {
+            type: String,
+            default: 'pi pi-angle-up'
+        },
+        moveTopIcon: {
+            type: String,
+            default: 'pi pi-angle-double-up'
+        },
+        moveDownIcon: {
+            type: String,
+            default: 'pi pi-angle-down'
+        },
+        moveBottomIcon: {
+            type: String,
+            default: 'pi pi-angle-double-down'
         },
         tabindex: {
             type: Number,

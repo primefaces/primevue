@@ -47,6 +47,30 @@ const OrderListProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether to displays rows with alternating colors.'
+    },
+    {
+        name: 'moveUpIcon',
+        type: 'string',
+        default: 'pi pi-angle-up',
+        description: 'Icon to display in the move up button.'
+    },
+    {
+        name: 'moveTopIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-up',
+        description: 'Icon to display in the move top button.'
+    },
+    {
+        name: 'moveDownIcon',
+        type: 'string',
+        default: 'pi pi-angle-down',
+        description: 'Icon to display in the move down button.'
+    },
+    {
+        name: 'moveBottomIcon',
+        type: 'string',
+        default: 'pi pi-angle-double-down',
+        description: 'Icon to display in the move bottom button.'
     }
 ];
 
