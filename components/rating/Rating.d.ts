@@ -1,3 +1,4 @@
+import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface RatingChangeEvent {
