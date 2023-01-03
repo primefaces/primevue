@@ -54,7 +54,7 @@
                     </Column>
                     <Column field="country.name" header="Country" sortable filterMatchMode="contains" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
@@ -63,7 +63,7 @@
                     </Column>
                     <Column header="Agent" sortable filterField="representative" sortField="representative.name" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="baseUrl + 'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
@@ -71,7 +71,7 @@
                             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -168,8 +168,7 @@ export default {
                 { name: 'Stephen Shaw', image: 'stephenshaw.png' },
                 { name: 'XuXue Feng', image: 'xuxuefeng.png' }
             ],
-            statuses: ['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'],
-            baseUrl: '/'
+            statuses: ['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal']
         };
     },
     created() {
@@ -181,8 +180,6 @@ export default {
             this.customers.forEach((customer) => (customer.date = new Date(customer.date)));
             this.loading = false;
         });
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         formatDate(value) {

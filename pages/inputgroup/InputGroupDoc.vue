@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="InputGroupDemo" :sources="sources" github="inputgroup/InputGroupDemo.vue" />
+    <AppDoc name="InputGroupDemo" :sources="sources" />
 </template>
 
 <script>

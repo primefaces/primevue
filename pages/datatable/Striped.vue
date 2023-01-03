@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableStripedDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableStripedDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="Striped" />
     </div>
 </template>
 

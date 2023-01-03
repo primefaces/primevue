@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableVirtualScrollDemo" :sources="sources" :service="['CarService']" github="datatable/DataTableVirtualScrollDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CarService']" github="VirtualScroll" />
     </div>
 </template>
 
@@ -80,7 +80,7 @@ export default {
                     content: `
 <template>
 	<div>
-         <div class="card">
+        <div class="card">
             <h5>Preloaded Data (100000 Rows)</h5>
             <DataTable :value="cars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ itemSize: 46 }">
                 <Column field="id" header="Id" style="min-width: '200px'"></Column>
@@ -185,7 +185,7 @@ export default {
                     content: `
 <template>
 	<div>
-         <div class="card">
+        <div class="card">
             <h5>Preloaded Data (100000 Rows)</h5>
             <DataTable :value="cars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ itemSize: 46 }">
                 <Column field="id" header="Id" style="min-width: '200px'"></Column>
@@ -240,8 +240,7 @@ export default {
 
 <script>
 import { ref, onMounted } from 'vue';
-import { FilterMatchMode } from 'primevue/api';
-import CustomerService from './service/CustomerService';
+import CarService from './service/CarService';
 
 export default {
     setup() {

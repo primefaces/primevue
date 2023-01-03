@@ -1,20 +1,24 @@
-const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
-
 export default class ProductService {
+    constructor() {
+        const runtimeConfig = useRuntimeConfig();
+
+        this.contextPath = runtimeConfig.public.contextPath;
+    }
+
     getProductsSmall() {
-        return fetch(baseUrl + 'demo/data/products-small.json')
+        return fetch(this.contextPath + 'demo/data/products-small.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
 
     getProducts() {
-        return fetch(baseUrl + 'demo/data/products-small.json')
+        return fetch(this.contextPath + 'demo/data/products-small.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
 
     getProductsWithOrdersSmall() {
-        return fetch(baseUrl + 'demo/data/products-small.json')
+        return fetch(this.contextPath + 'demo/data/products-small.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }

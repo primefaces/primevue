@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeScrollDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeScrollDemo.vue" />
+        <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="Scroll" />
     </div>
 </template>
 

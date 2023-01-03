@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableExportDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableExportDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="Export" />
     </div>
 </template>
 

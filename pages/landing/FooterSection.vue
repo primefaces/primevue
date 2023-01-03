@@ -69,7 +69,7 @@
 
         <div class="flex justify-content-between py-6">
             <span>
-                <img :src="baseUrl + 'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
+                <img :src="$config.public.contextPath + 'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
             </span>
             <div class="flex align-items-center">
                 <a href="https://twitter.com/primevue" class="linkbox block w-3rem h-3rem flex align-items-center justify-content-center mr-3">
@@ -87,14 +87,5 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            baseUrl: '/'
-        };
-    },
-    mounted() {
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
-    }
-};
+export default {};
 </script>

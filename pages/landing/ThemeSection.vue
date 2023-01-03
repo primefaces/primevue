@@ -44,7 +44,7 @@
                     </Column>
                     <Column field="country.name" header="Country" sortable style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                     </Column>
@@ -86,8 +86,8 @@
 </template>
 
 <script>
-import CustomerService from '../../service/CustomerService';
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
+import CustomerService from '../../service/CustomerService';
 
 export default {
     emits: ['table-theme-change'],

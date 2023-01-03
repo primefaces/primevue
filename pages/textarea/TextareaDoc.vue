@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="TextareaDemo" :sources="sources" github="textarea/TextareaDemo.vue">
+    <AppDoc name="TextareaDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Textarea from 'primevue/textarea';

@@ -1,7 +1,7 @@
 <template>
     <section :ref="containerRef" :class="['landing-header pad-section', { 'landing-header-active': menuActive }]">
         <span>
-            <img :src="baseUrl + 'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo" />
+            <img :src="$config.public.contextPath + 'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo" />
         </span>
 
         <div class="flex align-items-center">
@@ -54,15 +54,13 @@ export default {
     emits: ['theme-toggle'],
     data() {
         return {
-            menuActive: false,
-            baseUrl: '/'
+            menuActive: false
         };
     },
     scrollListener: null,
     container: null,
     mounted() {
         this.bindScrollListener();
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     beforeUnmount() {
         if (this.scrollListener) {

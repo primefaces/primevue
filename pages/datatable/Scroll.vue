@@ -104,7 +104,7 @@
                     <Column field="name" header="Name" style="min-width: 200px"></Column>
                     <Column field="country" header="Country" style="min-width: 200px">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -116,7 +116,7 @@
                     </Column>
                     <Column field="date" header="Date" style="min-width: 200px"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -126,7 +126,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableScrollDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" github="datatable/DataTableScrollDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium', 'customers-large']" github="Scroll" />
     </div>
 </template>
 
@@ -825,8 +825,7 @@ export default {
         </style>
 `
                 }
-            },
-            baseUrl: '/'
+            }
         };
     },
     customerService: null,
@@ -862,8 +861,6 @@ export default {
                 }
             }
         ];
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         openDialog() {

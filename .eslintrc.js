@@ -4,17 +4,20 @@ module.exports = {
         node: true,
         jest: true
     },
-    extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'prettier'],
+    extends: ['plugin:nuxt/recommended', 'plugin:vue/vue3-essential', 'prettier'],
     parserOptions: {
         parser: '@babel/eslint-parser',
         requireConfigFile: false
     },
     plugins: ['prettier'],
+    ignorePatterns: ['**/public/**', '/layouts/AppDocumentation.vue'],
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-fallthrough': 'off',
         'vue/this-in-template': ['error', 'never'],
+        'vue/multi-word-component-names': 'off',
+        'vue/no-reserved-component-names': 'off',
         'vue/component-tags-order': [
             'error',
             {

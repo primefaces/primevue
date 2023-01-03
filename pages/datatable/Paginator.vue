@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTablePaginatorDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="datatable/DataTablePaginatorDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-large']" github="Paginator" />
     </div>
 </template>
 

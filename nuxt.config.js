@@ -1,12 +1,12 @@
 import vueJsx from '@vitejs/plugin-vue-jsx';
-const path = require('path');
-const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue-nuxt/' : '/';
+
+import path from 'path';
+const baseUrl = process.env.NODE_ENV === 'production' ? '/primevue/' : '/';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     typescript: false,
     components: true,
-    target: 'static',
     app: {
         baseURL: baseUrl,
         head: {
@@ -61,6 +61,11 @@ export default defineNuxtConfig({
                     'data-manual': true
                 }
             ]
+        }
+    },
+    runtimeConfig: {
+        public: {
+            contextPath: baseUrl
         }
     },
     css: ['@/assets/styles/primevue.css', '/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css'],

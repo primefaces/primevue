@@ -25,7 +25,7 @@
                 <Dropdown v-model="selectedGroupedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
                     <template #optiongroup="slotProps">
                         <div class="flex align-items-center country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" width="18" />
                             <div>{{ slotProps.option.label }}</div>
                         </div>
                     </template>
@@ -35,7 +35,7 @@
                 <Dropdown v-model="selectedCountry" :options="countries" optionLabel="name" :filter="true" placeholder="Select a Country" :showClear="true">
                     <template #value="slotProps">
                         <div v-if="slotProps.value" class="country-item country-item-value">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.value.code.toLowerCase()" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.value.code.toLowerCase()" />
                             <div>{{ slotProps.value.name }}</div>
                         </div>
                         <span v-else>
@@ -44,7 +44,7 @@
                     </template>
                     <template #option="slotProps">
                         <div class="country-item">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" />
                             <div>{{ slotProps.option.name }}</div>
                         </div>
                     </template>

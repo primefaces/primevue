@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DropdownDemo" :sources="sources" github="dropdown/DropdownDemo.vue">
+    <AppDoc name="DropdownDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Dropdown from 'primevue/dropdown';

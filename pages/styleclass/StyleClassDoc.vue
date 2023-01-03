@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="StyleClassDemo" :sources="sources" github="styleclass/StyleClassDemo.vue">
+    <AppDoc name="StyleClassDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import StyleClass from 'primevue/styleclass';

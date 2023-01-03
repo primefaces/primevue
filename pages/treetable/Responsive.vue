@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableResponsiveDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableResponsiveDemo.vue" />
+        <AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="Responsive" />
     </div>
 </template>
 
