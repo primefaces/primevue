@@ -1,7 +1,7 @@
 <template>
     <div :class="['layout-sidebar', { active: active }]">
         <router-link to="/" class="logo">
-            <img :src="baseUrl + 'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
+            <img :src="$config.public.contextPath + 'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
         </router-link>
         <div class="layout-sidebar-filter p-fluid">
             <AutoComplete
@@ -79,8 +79,7 @@ export default {
             menu: menudata.data,
             filteredRoutes: null,
             selectedRoute: null,
-            routes: [],
-            baseUrl: '/'
+            routes: []
         };
     },
     mounted() {
@@ -97,8 +96,6 @@ export default {
 
             this.routes.push(childRoute);
         });
-
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         toggleSubmenu(event, name) {

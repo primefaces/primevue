@@ -1,10 +1,6 @@
 <template>
     <div :class="landingClass">
-        <div class="landing-intro">
-            <AppNews v-if="$appState.newsActive" />
-            <HeaderSection @theme-toggle="onThemeToggle" />
-            <HeroSection />
-        </div>
+        <Intro @change:theme="onThemeToggle"></Intro>
         <ComponentSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
@@ -18,17 +14,15 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
-import AppNews from '@/layouts/AppNews';
 import BlockSection from './landing/BlockSection';
 import ComponentSection from './landing/ComponentSection';
 import DesignerSection from './landing/DesignerSection';
 import FeaturesSection from './landing/FeaturesSection';
 import FooterSection from './landing/FooterSection';
-import HeaderSection from './landing/HeaderSection';
-import HeroSection from './landing/HeroSection';
 import TemplateSection from './landing/TemplateSection';
 import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
+const Intro = defineAsyncComponent(() => import('./landing/Intro.vue'));
 
 export default {
     props: {
@@ -96,8 +90,7 @@ export default {
         }
     },
     components: {
-        HeaderSection,
-        HeroSection,
+        Intro,
         ComponentSection,
         ThemeSection,
         BlockSection,
@@ -105,8 +98,7 @@ export default {
         TemplateSection,
         UsersSection,
         FeaturesSection,
-        FooterSection,
-        AppNews
+        FooterSection
     }
 };
 </script>

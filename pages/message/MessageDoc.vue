@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="MessageDemo" :sources="sources" github="message/MessageDemo.vue">
+    <AppDoc name="MessageDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Message from 'primevue/message';

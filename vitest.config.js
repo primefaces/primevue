@@ -5,7 +5,11 @@ export default {
     plugins: [vue()],
     test: {
         globals: true,
-        environment: 'jsdom'
+        environment: 'jsdom',
+        coverage: {
+            provider: 'istanbul',
+            reporter: ['text', 'json', 'html']
+        }
     },
     resolve: {
         alias: {

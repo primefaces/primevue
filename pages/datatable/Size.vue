@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableSizeDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableSizeDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="Size" />
     </div>
 </template>
 

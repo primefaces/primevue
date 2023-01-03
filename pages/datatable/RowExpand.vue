@@ -21,7 +21,7 @@
                     <Column field="name" header="Name" sortable></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="baseUrl + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="$config.public.contextPath + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price" sortable>
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableRowExpandDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="datatable/DataTableRowExpandDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-orders-small']" github="RowExpand" />
     </div>
 </template>
 
@@ -450,8 +450,7 @@ export default {
         </style>                    
 `
                 }
-            },
-            baseUrl: '/'
+            }
         };
     },
     productService: null,
@@ -460,7 +459,6 @@ export default {
     },
     mounted() {
         this.productService.getProductsWithOrdersSmall().then((data) => (this.products = data));
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         onRowExpand(event) {

@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="SplitterDemo" :sources="sources" github="splitter/SplitterDemo.vue">
+    <AppDoc name="SplitterDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Splitter from 'primevue/splitter';

@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="InputTextDemo" :sources="sources" github="inputtext/InputTextDemo.vue">
+    <AppDoc name="InputTextDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import InputText from 'primevue/inputtext';

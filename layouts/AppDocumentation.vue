@@ -1,7 +1,7 @@
 <script lang="jsx">
-import EventBus from './AppEventBus';
 import LiveEditor from '@/pages/liveeditor/LiveEditor';
-import { services, data } from '@/pages/liveeditor/LiveEditorData';
+import { data, services } from '@/pages/liveeditor/LiveEditorData';
+import EventBus from './AppEventBus';
 
 export default {
     name: 'appdoc',
@@ -14,13 +14,17 @@ export default {
         extPages: null,
         extFiles: null,
         component: null,
-        github: null
+        github: {
+            type: String,
+            default: 'index'
+        }
     },
     viewGithubListener: null,
     mounted() {
         this.viewGithubListener = () => {
-            window.open('https://github.com/primefaces/primevue/blob/master/src/views/' + this.github, '_blank');
+            window.open('https://github.com/primefaces/primevue/blob/master/pages/' + this.name.toLowerCase().replaceAll('demo', '/') + this.github + '.vue', '_blank');
         };
+
         EventBus.on('view-github', this.viewGithubListener);
     },
     beforeUnmount() {

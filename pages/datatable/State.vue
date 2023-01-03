@@ -36,7 +36,7 @@
                     </Column>
                     <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                         <template #filter>
@@ -45,14 +45,14 @@
                     </Column>
                     <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width: 25%">
                         <template #body="slotProps">
-                            <img :alt="slotProps.data.representative.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                         <template #filter>
                             <MultiSelect v-model="filters1['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -102,7 +102,7 @@
                     </Column>
                     <Column header="Country" :sortable="true" sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                         <template #filter>
@@ -111,14 +111,14 @@
                     </Column>
                     <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width: 25%">
                         <template #body="slotProps">
-                            <img :alt="slotProps.data.representative.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                         <template #filter>
                             <MultiSelect v-model="filters2['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -142,7 +142,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableStateDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableStateDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="State" />
     </div>
 </template>
 
@@ -694,8 +694,7 @@ export default {
         <\\/script>                  
 `
                 }
-            },
-            baseUrl: '/'
+            }
         };
     },
     customerService: null,
@@ -706,7 +705,6 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersMedium().then((data) => (this.customers = data));
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         initFilters1() {

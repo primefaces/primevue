@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="SidebarDemo" :sources="sources" github="sidebar/SidebarDemo.vue">
+    <AppDoc name="SidebarDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Sidebar from 'primevue/sidebar';

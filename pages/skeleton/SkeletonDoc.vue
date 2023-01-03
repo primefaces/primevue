@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="SkeletonDemo" :sources="sources" github="skeleton/SkeletonDemo.vue">
+    <AppDoc name="SkeletonDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Skeleton from 'primevue/skeleton';

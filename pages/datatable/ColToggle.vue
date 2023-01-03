@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableColToggleDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableColToggleDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="ColToggle" />
     </div>
 </template>
 

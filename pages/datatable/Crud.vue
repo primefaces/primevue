@@ -50,7 +50,7 @@
                     <Column field="name" header="Name" :sortable="true" style="min-width: 16rem"></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="baseUrl + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="$config.public.contextPath + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price" :sortable="true" style="min-width: 8rem">
@@ -171,7 +171,7 @@
             </Dialog>
         </div>
 
-        <AppDoc name="DataTableCrudDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="datatable/DataTableCrudDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products']" github="Crud" />
     </div>
 </template>
 
@@ -1170,8 +1170,7 @@ export default {
         </style>
 `
                 }
-            },
-            baseUrl: '/'
+            }
         };
     },
     productService: null,
@@ -1181,7 +1180,6 @@ export default {
     },
     mounted() {
         this.productService.getProducts().then((data) => (this.products = data));
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         formatCurrency(value) {

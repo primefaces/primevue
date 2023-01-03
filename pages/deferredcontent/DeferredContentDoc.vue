@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="DeferredContentDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="deferredcontent/DeferredContentDemo.vue">
+    <AppDoc name="DeferredContentDemo" :sources="sources" :service="['ProductService']" :data="['products-small']">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import DeferredContent from 'primevue/deferredcontent';

@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <AppDoc name="InvalidDemo" :sources="sources" :service="['CountryService', 'NodeService']" :data="['countries', 'treenodes']" github="invalid/InvalidDemo.vue" />
+        <AppDoc name="InvalidDemo" :sources="sources" :service="['CountryService', 'NodeService']" :data="['countries', 'treenodes']" />
     </div>
 </template>
 

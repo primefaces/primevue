@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableColResizeDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableColResizeDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="ColResize" />
     </div>
 </template>
 

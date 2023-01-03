@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="TriStateCheckboxDemo" :sources="sources" github="tristatecheckbox/TriStateCheckboxDemo.vue">
+    <AppDoc name="TriStateCheckboxDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import TriStateCheckbox from 'primevue/tristatecheckbox';

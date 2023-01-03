@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="InputSwitchDemo" :sources="sources" github="inputswitch/InputSwitchDemo.vue">
+    <AppDoc name="InputSwitchDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import InputSwitch from 'primevue/inputswitch';

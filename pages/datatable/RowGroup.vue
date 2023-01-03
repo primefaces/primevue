@@ -17,7 +17,7 @@
                     <Column field="name" header="Name" style="min-width: 200px"></Column>
                     <Column field="country" header="Country" style="min-width: 200px">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -29,7 +29,7 @@
                     </Column>
                     <Column field="date" header="Date" style="min-width: 200px"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -61,7 +61,7 @@
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -73,7 +73,7 @@
                     </Column>
                     <Column field="date" header="Date"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -93,14 +93,14 @@
                     </Column>
                     <Column field="representative.name" header="Representative">
                         <template #body="slotProps">
-                            <img :alt="baseUrl + slotProps.data.representative.name" :src="baseUrl + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="$config.public.contextPath + slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                     </Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
-                            <img src="../../assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -115,7 +115,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableRowGroupDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="datatable/DataTableRowGroupDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-medium']" github="RowGroup" />
     </div>
 </template>
 
@@ -631,8 +631,7 @@ export default {
     </style>                    
 `
                 }
-            },
-            baseUrl: '/'
+            }
         };
     },
     customerService: null,
@@ -641,7 +640,6 @@ export default {
     },
     mounted() {
         this.customerService.getCustomersMedium().then((data) => (this.customers = data));
-        this.baseUrl = process.dev ? '/' : '/primevue-nuxt/';
     },
     methods: {
         onRowGroupExpand(event) {

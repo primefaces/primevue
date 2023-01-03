@@ -57,8 +57,8 @@
                                     </div>
                                 </div>
                                 <div class="p-3 surface-card border-round border-blue-500" style="border-left: 6px solid">
-                                    <h2 class="text-lg font-bold mt-0 mb-2">Headless Mode</h2>
-                                    <p class="mt-0 mb-3 line-height-3">Initate headless mode implementation for commonly used components.</p>
+                                    <h2 class="text-lg font-bold mt-0 mb-2">Unstyled Mode</h2>
+                                    <p class="mt-0 mb-3 line-height-3">Completed unstyled mode for all components.</p>
                                     <div class="surface-200 border-round">
                                         <div class="bg-blue-500 border-round" style="width: 0%; height: 4px"></div>
                                     </div>

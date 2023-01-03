@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeFilterDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="tree/TreeFilterDemo.vue" />
+        <AppDoc name="TreeDemo" :sources="sources" :service="['NodeService']" :data="['treenodes']" github="Filter" />
     </div>
 </template>
 
