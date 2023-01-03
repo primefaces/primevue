@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="RatingDemo" :sources="sources" github="rating/RatingDemo.vue">
+    <AppDoc name="RatingDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Rating from 'primevue/rating';

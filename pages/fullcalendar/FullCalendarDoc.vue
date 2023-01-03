@@ -4,7 +4,6 @@
         :sources="sources"
         :service="['EventService']"
         :data="['events']"
-        github="fullcalendar/FullCalendarDemo.vue"
         :dependencies="{ '@fullcalendar/core': '^5.7.2', '@fullcalendar/vue3': '^5.7.2', '@fullcalendar/daygrid': '^5.7.2', '@fullcalendar/interaction': '^5.7.2', '@fullcalendar/timegrid': '^5.7.2' }"
         component="FullCalendar"
     >

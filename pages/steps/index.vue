@@ -1,88 +1,65 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Stepper Component</Title>
-            <Meta name="description" content="Steps also known as Stepper, is an indicator for the steps in a workflow. Layout of steps component is optimized for responsive design." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Steps</h1>
-                <p>Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <Steps :model="items" aria-label="Form Steps" />
-            </div>
-
-            <router-view v-slot="{ Component }" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
-                <keep-alive>
-                    <component :is="Component" />
-                </keep-alive>
-            </router-view>
-        </div>
-
-        <StepsDoc />
+    <div class="stepsdemo-content">
+        <Card>
+            <template v-slot:title> Personal Information </template>
+            <template v-slot:subtitle> Enter your personal information </template>
+            <template v-slot:content>
+                <div class="p-fluid">
+                    <div class="field">
+                        <label for="firstname">Firstname</label>
+                        <InputText id="firstname" v-model="firstname" :class="{ 'p-invalid': validationErrors.firstname && submitted }" />
+                        <small v-show="validationErrors.firstname && submitted" class="p-error">Firstname is required.</small>
+                    </div>
+                    <div class="field">
+                        <label for="lastname">Lastname</label>
+                        <InputText id="lastname" v-model="lastname" :class="{ 'p-invalid': validationErrors.lastname && submitted }" />
+                        <small v-show="validationErrors.lastname && submitted" class="p-error">Lastname is required.</small>
+                    </div>
+                    <div class="field">
+                        <label for="age">Age</label>
+                        <InputNumber id="age" v-model="age" />
+                    </div>
+                </div>
+            </template>
+            <template v-slot:footer>
+                <div class="grid grid-nogutter justify-content-between">
+                    <i></i>
+                    <Button label="Next" @click="nextPage()" icon="pi pi-angle-right" iconPos="right" />
+                </div>
+            </template>
+        </Card>
     </div>
 </template>
 
 <script>
-import StepsDoc from './StepsDoc';
-
 export default {
+    emits: ['next-page'],
     data() {
         return {
-            items: [
-                {
-                    label: 'Personal',
-                    to: '/steps'
-                },
-                {
-                    label: 'Seat',
-                    to: '/steps/seat'
-                },
-                {
-                    label: 'Payment',
-                    to: '/steps/payment'
-                },
-                {
-                    label: 'Confirmation',
-                    to: '/steps/confirmation'
-                }
-            ],
-            formObject: {}
+            firstname: '',
+            lastname: '',
+            age: null,
+            submitted: false,
+            validationErrors: {}
         };
     },
     methods: {
-        nextPage(event) {
-            for (let field in event.formData) {
-                this.formObject[field] = event.formData[field];
-            }
+        nextPage() {
+            this.submitted = true;
 
-            this.$router.push(this.items[event.pageIndex + 1].to);
+            if (this.validateForm()) {
+                this.$emit('next-page', { formData: { firstname: this.firstname, lastname: this.lastname, age: this.age }, pageIndex: 0 });
+            }
         },
-        prevPage(event) {
-            this.$router.push(this.items[event.pageIndex - 1].to);
-        },
-        complete() {
-            this.$toast.add({ severity: 'success', summary: 'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.' });
+        validateForm() {
+            if (!this.firstname.trim()) this.validationErrors['firstname'] = true;
+            else delete this.validationErrors['firstname'];
+
+            if (!this.lastname.trim()) this.validationErrors['lastname'] = true;
+            else delete this.validationErrors['lastname'];
+
+            return !Object.keys(this.validationErrors).length;
         }
-    },
-    components: {
-        StepsDoc: StepsDoc
     }
 };
 </script>
-
-<style scoped lang="scss">
-::v-deep(b) {
-    display: block;
-}
-
-::v-deep(.p-card-body) {
-    padding: 2rem;
-}
-</style>

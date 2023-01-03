@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="CarouselDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="carousel/CarouselDemo.vue">
+    <AppDoc name="CarouselDemo" :sources="sources" :service="['ProductService']" :data="['products-small']">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Carousel from 'primevue/carousel';

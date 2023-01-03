@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ToolbarDemo" :sources="sources" github="toolbar/ToolbarDemo.vue">
+    <AppDoc name="ToolbarDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Toolbar from 'primevue/toolbar';

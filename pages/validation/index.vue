@@ -97,14 +97,7 @@
             </div>
         </div>
 
-        <AppDoc
-            name="VuelidateFormDemo"
-            :sources="sources"
-            :service="['CountryService']"
-            :data="['countries']"
-            github="validation/VuelidateFormDemo.vue"
-            :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }"
-        />
+        <AppDoc name="ValidationDemo" :sources="sources" :service="['CountryService']" :data="['countries']" :dependencies="{ '@vuelidate/core': '^2.0.0-alpha.14', '@vuelidate/validators': '^2.0.0-alpha.12' }" />
     </div>
 </template>
 

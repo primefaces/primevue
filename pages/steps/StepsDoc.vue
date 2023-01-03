@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="StepsDemo" :sources="sources" :extPages="pages" github="steps/StepsDemo.vue">
+    <AppDoc name="StepsDemo" :sources="sources" :extPages="pages">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Steps from 'primevue/steps';

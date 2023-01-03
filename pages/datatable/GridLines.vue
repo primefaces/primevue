@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableGridLinesDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableGridLinesDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="GridLines" />
     </div>
 </template>
 

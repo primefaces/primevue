@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="SelectButtonDemo" :sources="sources" github="selectbutton/SelectButtonDemo.vue">
+    <AppDoc name="SelectButtonDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import SelectButton from 'primevue/selectbutton';

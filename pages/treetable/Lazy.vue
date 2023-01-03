@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTableLazyDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTableLazyDemo.vue" />
+        <AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="Lazy" />
     </div>
 </template>
 

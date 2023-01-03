@@ -1,6 +1,5 @@
 import { config, mount } from '@vue/test-utils';
-import Button from 'primevue/button';
-import Panel from '../panel/Panel.vue';
+import { beforeEach, expect } from 'vitest';
 import BlockUI from './BlockUI.vue';
 
 config.global.mocks = {
@@ -12,52 +11,62 @@ config.global.mocks = {
         }
     }
 };
+vi.mock('primevue/utils');
+let wrapper = null;
 
 describe('BlockUI.vue', () => {
-    it('should blocked and unblocked the panel', async () => {
-        const wrapper = mount({
-            template: `
-                <Button type="button" label="Block" @click="blockPanel()"></Button>
-                <Button type="button" label="Unblock" @click="unblockPanel()"></Button>
+    beforeEach(() => {
+        wrapper = mount(BlockUI);
+    });
 
-                <BlockUI :blocked="blockedPanel">
-                    <Panel header="Godfather I" style="margin-top: 20px">
-                        <p>The story begins as Don Vito Corleone, the head of a New York Mafia family.</p>
-                    </Panel>
-                </BlockUI>
-            `,
-            components: {
-                BlockUI,
-                Panel,
-                Button
-            },
-            data() {
-                return {
-                    blockedPanel: false
-                };
-            },
-            methods: {
-                blockPanel() {
-                    this.blockedPanel = true;
-                },
-                unblockPanel() {
-                    this.blockedPanel = false;
-                }
+    afterEach(() => {
+        vi.clearAllMocks();
+    });
+
+    it('When blocked props is true, block method should be triggered on mounted hook', async () => {
+        const blockUiSpy = vi.spyOn(BlockUI.methods, 'block');
+
+        wrapper = mount(BlockUI, {
+            props: {
+                blocked: true
             }
         });
 
-        expect(wrapper.find('.p-blockui-container').exists()).toBe(true);
+        expect(blockUiSpy).toHaveBeenCalled();
+    });
 
-        const buttons = wrapper.findAll('.p-button');
+    it('When blocked props value is changed, block or unblock method should be triggered', async () => {
+        const blockSpy = vi.spyOn(wrapper.vm, 'block');
+        const unblockSpy = vi.spyOn(wrapper.vm, 'unblock');
 
-        await buttons[0].trigger('click');
+        await wrapper.setProps({ blocked: true });
 
-        expect(wrapper.find('.p-blockui').exists()).toBe(true);
-        expect(wrapper.find('.p-blockui').classes()).toContain('p-component-overlay-enter');
-        expect(wrapper.find('.p-blockui').attributes().style).toEqual('z-index: 1101;');
+        expect(blockSpy).toHaveBeenCalled();
 
-        await buttons[1].trigger('click');
+        await wrapper.setProps({ blocked: false });
 
-        expect(wrapper.find('.p-blockui').classes()).toContain('p-component-overlay-leave');
+        expect(unblockSpy).toHaveBeenCalled();
+    });
+
+    it('When block method triggered, mask should be added on DOM', async () => {
+        await wrapper.setProps({ fullScreen: true });
+        await wrapper.vm.block();
+
+        expect(document.querySelector('.p-blockui')).not.toBe(null);
+    });
+
+    it('When removeMask method triggered, isBlocked should be false and emitted', async () => {
+        wrapper = mount(BlockUI, {
+            props: {
+                blocked: true
+            },
+            slots: {
+                default: 'test'
+            }
+        });
+        await wrapper.vm.removeMask();
+
+        expect(wrapper.vm.isBlocked).toBe(false);
+        expect(wrapper.emitted().unblock.length).toBe(1);
     });
 });

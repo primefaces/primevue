@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <AppDoc name="TreeTablePaginatorDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="treetable/TreeTablePaginatorDemo.vue" />
+        <AppDoc name="TreeTableDemo" :sources="sources" :service="['NodeService']" :data="['treetablenodes']" github="Paginator" />
     </div>
 </template>
 

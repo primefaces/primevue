@@ -1,6 +1,6 @@
 <template>
     <div class="content-section documentation">
-        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-small']" github="datatable/DataTableDemo.vue">
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['CustomerService']" :data="['customers-small']">
             <h5>Import via Module</h5>
             <pre v-code.script><code>
 import DataTable from 'primevue/datatable';

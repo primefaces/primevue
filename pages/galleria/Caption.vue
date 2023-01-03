@@ -11,11 +11,11 @@
             <div class="card">
                 <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
                     <template #item="{ item }">
-                        <img :src="baseUrl + item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block" />
+                        <img :src="$config.public.contextPath + item.itemImageSrc" :alt="item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="{ item }">
                         <div class="grid grid-nogutter justify-content-center">
-                            <img :src="baseUrl + item.thumbnailImageSrc" :alt="item.alt" style="display: block" />
+                            <img :src="$config.public.contextPath + item.thumbnailImageSrc" :alt="item.alt" style="display: block" />
                         </div>
                     </template>
                     <template #caption="{ item }">
@@ -106,8 +106,7 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-            ],
-            baseUrl: ''
+            ]
         };
     },
     galleriaService: null,
@@ -116,7 +115,6 @@ export default {
     },
     mounted() {
         this.galleriaService.getImages().then((data) => (this.images = data));
-        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     }
 };
 </script>

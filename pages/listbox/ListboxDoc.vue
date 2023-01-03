@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ListboxDemo" :sources="sources" github="listbox/ListboxDemo.vue">
+    <AppDoc name="ListboxDemo" :sources="sources">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import Listbox from 'primevue/listbox';

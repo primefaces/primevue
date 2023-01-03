@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="ConfirmPopupDemo" :sources="sources" github="confirmpopup/ConfirmPopupDemo.vue">
+    <AppDoc name="ConfirmPopupDemo" :sources="sources">
         <h5>ConfirmationService</h5>
         <p>ConfirmPopup is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application instance is created.</p>
         <pre v-code.script><code>

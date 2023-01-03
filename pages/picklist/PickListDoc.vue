@@ -1,5 +1,5 @@
 <template>
-    <AppDoc name="PickListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="picklist/PickListDemo.vue">
+    <AppDoc name="PickListDemo" :sources="sources" :service="['ProductService']" :data="['products-small']">
         <h5>Import via Module</h5>
         <pre v-code.script><code>
 import PickList from 'primevue/picklist';

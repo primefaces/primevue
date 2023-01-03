@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <AppDoc name="DataTableResponsiveDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="datatable/DataTableResponsiveDemo.vue" />
+        <AppDoc name="DataTableDemo" :sources="sources" :service="['ProductService']" :data="['products-small']" github="Responsive" />
     </div>
 </template>
 

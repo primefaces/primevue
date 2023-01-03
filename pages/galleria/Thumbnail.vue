@@ -12,10 +12,10 @@
                 <h5>Positioned at Bottom</h5>
                 <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
                     <template #item="slotProps">
-                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="$config.public.contextPath + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="baseUrl + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                        <img :src="$config.public.contextPath + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                     </template>
                 </Galleria>
             </div>
@@ -24,11 +24,11 @@
                 <h5>Positioned at Left</h5>
                 <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="left" containerStyle="max-width: 640px">
                     <template #item="slotProps">
-                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="$config.public.contextPath + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
                         <div class="grid grid-nogutter justify-content-center">
-                            <img :src="baseUrl + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                            <img :src="$config.public.contextPath + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                         </div>
                     </template>
                 </Galleria>
@@ -38,11 +38,11 @@
                 <h5>Positioned at Right</h5>
                 <Galleria :value="images" :responsiveOptions="responsiveOptions2" :numVisible="4" thumbnailsPosition="right" containerStyle="max-width: 640px">
                     <template #item="slotProps">
-                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="$config.public.contextPath + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
                         <div class="grid grid-nogutter justify-content-center">
-                            <img :src="baseUrl + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                            <img :src="$config.public.contextPath + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                         </div>
                     </template>
                 </Galleria>
@@ -52,10 +52,10 @@
                 <h5>Positioned at Top</h5>
                 <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" thumbnailsPosition="top" containerStyle="max-width: 640px">
                     <template #item="slotProps">
-                        <img :src="baseUrl + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+                        <img :src="$config.public.contextPath + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </template>
                     <template #thumbnail="slotProps">
-                        <img :src="baseUrl + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
+                        <img :src="$config.public.contextPath + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" tyle="width: 100%; display: block;" />
                     </template>
                 </Galleria>
             </div>
@@ -190,8 +190,7 @@ export default {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-            ],
-            baseUrl: ''
+            ]
         };
     },
     galleriaService: null,
@@ -200,7 +199,6 @@ export default {
     },
     mounted() {
         this.galleriaService.getImages().then((data) => (this.images = data));
-        this.baseUrl = process.dev ? '' : '/primevue-nuxt';
     }
 };
 </script>

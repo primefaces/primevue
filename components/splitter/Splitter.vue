@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass">
-        <template v-for="(panel, i) of panels" :key="i" class="p-splitter-panel">
+        <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
                 v-if="i !== panels.length - 1"

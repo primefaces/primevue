@@ -20,19 +20,28 @@
         "format": "prettier --write \"**/*.{js,vue,d.ts}\"",
         "format:check": "prettier --check \"**/*.{js,vue,d.ts}\"",
         "test:unit": "vitest",
-        "test:build": "NODE_ENV=production rollup -c"
+        "test:coverage": "vitest --coverage",
+        "lint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+        "lint:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore ."
     },
     "devDependencies": {
+        "@babel/eslint-parser": "^7.18.9",
         "@fullcalendar/core": "^5.11.0",
         "@fullcalendar/daygrid": "^5.11.0",
         "@fullcalendar/interaction": "^5.11.0",
         "@fullcalendar/timegrid": "^5.11.0",
         "@fullcalendar/vue3": "^5.11.0",
         "@vitejs/plugin-vue-jsx": "^2.0.1",
+        "@vitest/coverage-istanbul": "^0.26.2",
         "@vue/test-utils": "^2.0.0",
         "@vuelidate/core": "^2.0.0-alpha.14",
         "@vuelidate/validators": "^2.0.0-alpha.12",
         "chart.js": "3.3.2",
+        "eslint": "^8.30.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-nuxt": "^4.0.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-vue": "^9.4.0",
         "gulp": "^4.0.2",
         "gulp-concat": "^2.6.0",
         "gulp-flatten": "^0.4.0",
@@ -41,6 +50,7 @@
         "gulp-uglifycss": "^1.0.6",
         "jsdom": "^19.0.0",
         "nuxt": "^3.0.0",
+        "prettier": "2.7.1",
         "primeflex": "^3.3.0",
         "primeicons": "^6.0.1",
         "quill": "^1.3.7",
@@ -49,10 +59,6 @@
         "rollup-plugin-vue": "^6.0.0-beta.9",
         "sass": "^1.45.0",
         "sass-loader": "^8.0.2",
-        "vitest": "^0.23.2",
-        "prettier": "2.7.1",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-vue": "^9.4.0",
-        "@babel/eslint-parser": "^7.18.9"
+        "vitest": "^0.23.2"
     }
 }
