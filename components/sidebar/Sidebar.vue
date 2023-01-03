@@ -64,7 +64,7 @@ export default {
         },
         blockScroll: {
             type: Boolean,
-            default: false
+            default: true
         }
     },
     maskClickListener: null,
@@ -95,7 +95,9 @@ export default {
     methods: {
         hide() {
             this.$emit('update:visible', false);
+
             this.outsideClickListener && this.unbindOutsideClickListener();
+            this.blockScroll && DomHandler.removeClass(document.body, 'p-overflow-hidden');
         },
         onEnter() {
             this.$emit('show');
@@ -120,6 +122,10 @@ export default {
         },
         onAfterEnter() {
             this.bindOutsideClickListener();
+
+            if (this.blockScroll) {
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
+            }
         },
         focus() {
             const findFocusableElement = (container) => {
