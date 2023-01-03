@@ -83,6 +83,11 @@ export interface TreeSelectProps {
      */
     inputProps?: object | undefined;
     /**
+     * Icon to display in tree select trigger button.
+     * Default value is 'pi pi-chevron-down'.
+     */
+    triggerIcon?: string | undefined;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     'aria-labelledby'?: string | undefined;

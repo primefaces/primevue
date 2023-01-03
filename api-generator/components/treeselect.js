@@ -91,6 +91,12 @@ const TreeSelectProps = [
             'Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.'
     },
     {
+        name: 'triggerIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display in tree select trigger button.'
+    },
+    {
         name: 'aria-labelledby',
         type: 'string',
         default: 'null',
