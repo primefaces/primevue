@@ -325,6 +325,18 @@ export default {
                         <td>null</td>
                         <td>Uses to pass all properties of the HTMLButtonElement to the next button.</td>
                     </tr>
+                    <tr>
+                        <td>previousButtonIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-left</td>
+                        <td>Icon to display in the previous tab button.</td>
+                    </tr>
+                    <tr>
+                        <td>nextButtonIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-right</td>
+                        <td>Icon to display in the next tab button.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

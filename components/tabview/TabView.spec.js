@@ -45,6 +45,49 @@ describe('TabPanel.vue', () => {
         expect(wrapper.findAll('li[role="presentation"]')[1].classes()).toContain('p-tabview-header');
         expect(wrapper.findAll('.p-tabview-panel')[0].attributes().style).toBe('display: none;');
     });
+
+    it('should have correct custom icons', async () => {
+        const wrapper = mount(TabView, {
+            global: {
+                components: {
+                    TabPanel
+                },
+                mocks: {
+                    $primevue: {
+                        config: {
+                            locale: {
+                                aria: {
+                                    previous: 'Previous',
+                                    next: 'Next'
+                                }
+                            },
+                            ripple: false
+                        }
+                    }
+                }
+            },
+            props: {
+                scrollable: true,
+                previousButtonIcon: 'pi pi-discord',
+                nextButtonIcon: 'pi pi-facebook'
+            },
+            slots: {
+                default: `
+                    <TabPanel v-for="tab in Array.from({ length: 5 }, (_, i) => ({ title: \`Tab \${i + 1}\`, content: \`Tab \${i + 1} Content\` }))" :key="tab.title" :header="tab.title">
+                        <p>{{tab.content}}</p>
+                    </TabPanel>
+                `
+            }
+        });
+
+        await wrapper.setData({ isPrevButtonDisabled: false, isNextButtonDisabled: false });
+
+        const previousIcon = wrapper.find('.p-tabview-nav-prev span');
+        const nextIcon = wrapper.find('.p-tabview-nav-next span');
+
+        expect(previousIcon.classes()).toContain('pi-discord');
+        expect(nextIcon.classes()).toContain('pi-facebook');
+    });
 });
 
 describe('dynamic tabs', () => {

@@ -12,7 +12,7 @@
                 @click="onPrevButtonClick"
                 v-bind="previousButtonProps"
             >
-                <span class="pi pi-chevron-left" aria-hidden="true"></span>
+                <span :class="previousButtonIcon" aria-hidden="true" />
             </button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
                 <ul ref="nav" class="p-tabview-nav" role="tablist">
@@ -48,7 +48,7 @@
                 @click="onNextButtonClick"
                 v-bind="nextButtonProps"
             >
-                <span class="pi pi-chevron-right" aria-hidden="true"></span>
+                <span :class="nextButtonIcon" aria-hidden="true" />
             </button>
         </div>
         <div class="p-tabview-panels">
@@ -97,13 +97,21 @@ export default {
             type: Boolean,
             default: false
         },
+        previousButtonIcon: {
+            type: String,
+            default: 'pi pi-chevron-left'
+        },
+        nextButtonIcon: {
+            type: String,
+            default: 'pi pi-chevron-right'
+        },
         previousButtonProps: {
             type: null,
-            defaault: null
+            default: null
         },
         nextButtonProps: {
             type: null,
-            defaault: null
+            default: null
         }
     },
     data() {
