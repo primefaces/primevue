@@ -404,6 +404,18 @@ export default {
                         <td>Whether to apply 'router-link-active-exact' class if route exactly matches the item path.</td>
                     </tr>
                     <tr>
+                        <td>collapseIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to display when panel is expanded.</td>
+                    </tr>
+                    <tr>
+                        <td>expandIcon</td>
+                        <td>string</td>
+                        <td>'pi pi-chevron-right</td>
+                        <td>Icon to display when panel is collapsed.</td>
+                    </tr>
+                    <tr>
                         <td>tabindex</td>
                         <td>number</td>
                         <td>0</td>

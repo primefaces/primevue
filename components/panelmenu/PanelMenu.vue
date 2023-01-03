@@ -34,7 +34,17 @@
                 <transition name="p-toggleable-content">
                     <div v-show="isItemActive(item)" :id="getContentId(index)" class="p-toggleable-content" role="region" :aria-labelledby="getHeaderId(index)">
                         <div v-if="getItemProp(item, 'items')" class="p-panelmenu-content">
-                            <PanelMenuList :panelId="getPanelId(index)" :items="getItemProp(item, 'items')" :template="$slots.item" :expandedKeys="expandedKeys" @item-toggle="changeExpandedKeys" @header-focus="updateFocusedHeader" :exact="exact" />
+                            <PanelMenuList
+                                :panelId="getPanelId(index)"
+                                :items="getItemProp(item, 'items')"
+                                :template="$slots.item"
+                                :expandedKeys="expandedKeys"
+                                :collapse-icon="collapseIcon"
+                                :expand-icon="expandIcon"
+                                :exact="exact"
+                                @item-toggle="changeExpandedKeys"
+                                @header-focus="updateFocusedHeader"
+                            />
                         </div>
                     </div>
                 </transition>
@@ -62,6 +72,14 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        collapseIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
+        expandIcon: {
+            type: String,
+            default: 'pi pi-chevron-right'
         },
         tabindex: {
             type: Number,
@@ -247,7 +265,7 @@ export default {
             return ['p-menuitem-icon', this.getItemProp(item, 'icon')];
         },
         getHeaderToggleIconClass(item) {
-            return ['p-submenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right'];
+            return ['p-submenu-icon', this.isItemActive(item) ? this.collapseIcon : this.expandIcon];
         }
     },
     computed: {

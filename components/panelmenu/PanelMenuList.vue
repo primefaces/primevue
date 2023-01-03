@@ -11,6 +11,8 @@
         :template="template"
         :activeItemPath="activeItemPath"
         :exact="exact"
+        :collapse-icon="collapseIcon"
+        :expand-icon="expandIcon"
         @focus="onFocus"
         @blur="onBlur"
         @keydown="onKeyDown"
@@ -45,6 +47,14 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        collapseIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
+        expandIcon: {
+            type: String,
+            default: 'pi pi-chevron-right'
         }
     },
     searchTimeout: null,

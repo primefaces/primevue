@@ -38,6 +38,16 @@ export interface PanelMenuProps {
      */
     exact?: boolean | undefined;
     /**
+     * Icon to display when panel is expanded.
+     * Default value is "pi pi-chevron-down".
+     */
+    collapseIcon?: string | undefined;
+    /**
+     * Icon to display when panel is collapsed.
+     * Default value is "pi pi-chevron-right".
+     */
+    expandIcon?: string | undefined;
+    /**
      * Index of the element in tabbing order.
      */
     tabindex?: number | string | undefined;

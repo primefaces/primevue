@@ -85,4 +85,20 @@ describe('PanelMenu', () => {
 
         expect(wrapper.emitted()['update:expandedKeys'][0]).toEqual([{ 2: true, '2_2': true }]);
     });
+
+    it('should have custom icons when provided', async () => {
+        await wrapper.setProps({ expandIcon: 'pi pi-discord', collapseIcon: 'pi pi-facebook' });
+
+        wrapper.findAll('.p-submenu-icon').forEach((icon) => expect(icon.classes()).toContain('pi-discord'));
+
+        await wrapper.setProps({
+            expandedKeys: {
+                2: true,
+                '2_2': true,
+                '2_2_0': true
+            }
+        });
+
+        wrapper.findAll('.p-submenu-icon').forEach((icon) => expect(icon.classes()).toContain('pi-facebook'));
+    });
 });

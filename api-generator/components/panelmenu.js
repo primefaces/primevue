@@ -16,6 +16,18 @@ const PanelMenuProps = [
         type: 'boolean',
         default: 'true',
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+    },
+    {
+        name: 'collapseIcon',
+        type: 'string',
+        default: 'pi pi-chevron-down',
+        description: 'Icon to display when panel is expanded.'
+    },
+    {
+        name: 'expandIcon',
+        type: 'string',
+        default: 'pi pi-chevron-right',
+        description: 'Icon to display when panel is collapsed.'
     }
 ];
 
