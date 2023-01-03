@@ -96,7 +96,7 @@ export default {
         hide() {
             this.$emit('update:visible', false);
 
-            this.outsideClickListener && this.unbindOutsideClickListener();
+            this.unbindOutsideClickListener();
             this.blockScroll && DomHandler.removeClass(document.body, 'p-overflow-hidden');
         },
         onEnter() {
