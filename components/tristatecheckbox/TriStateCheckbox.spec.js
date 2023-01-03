@@ -14,6 +14,7 @@ config.global.mocks = {
         }
     }
 };
+
 let wrapper;
 const modelValues = [true, false, null];
 const emittedResults = [false, null, true];
@@ -70,6 +71,16 @@ describe('TriStateCheckbox.vue', () => {
         await wrapper.setProps({ modelValue: false });
 
         expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-times');
+    });
+
+    it('should have custom icons when provided', async () => {
+        await wrapper.setProps({ trueIcon: 'pi pi-discord', falseIcon: 'pi pi-facebook', modelValue: true });
+
+        expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-discord');
+
+        await wrapper.setProps({ modelValue: false });
+
+        expect(wrapper.find('.p-checkbox-icon').classes()).toContain('pi-facebook');
     });
 });
 

@@ -18,6 +18,18 @@ const TriStateCheckboxProps = [
         description: 'Index of the element in tabbing order.'
     },
     {
+        name: 'trueIcon',
+        type: 'string',
+        default: 'pi pi-check',
+        description: 'Icon to display when checkbox value is equal to "true".'
+    },
+    {
+        name: 'falseIcon',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display when checkbox value is equal to "false".'
+    },
+    {
         name: 'inputId',
         type: 'string',
         default: 'null',

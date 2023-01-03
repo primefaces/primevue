@@ -52,6 +52,18 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
                         <td>Index of the element in tabbing order.</td>
                     </tr>
                     <tr>
+                        <td>trueIcon</td>
+                        <td>string</td>
+                        <td>pi pi-check</td>
+                        <td>Icon to display when checkbox value is equal to "true".</td>
+                    </tr>
+                    <tr>
+                        <td>falseIcon</td>
+                        <td>string</td>
+                        <td>pi pi-times</td>
+                        <td>Icon to display when checkbox value is equal to "false".</td>
+                    </tr>
+                    <tr>
                         <td>inputId</td>
                         <td>string</td>
                         <td>null</td>

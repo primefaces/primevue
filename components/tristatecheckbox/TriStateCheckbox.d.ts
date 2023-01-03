@@ -15,6 +15,14 @@ export interface TriStateCheckboxProps {
      */
     tabindex?: string | undefined;
     /**
+     * Icon to display when checkbox value is equal to "true".
+     */
+    trueIcon?: string | undefined;
+    /**
+     * Icon to display when checkbox value is equal to "false".
+     */
+    falseIcon?: string | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
