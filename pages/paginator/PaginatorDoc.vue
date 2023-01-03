@@ -188,6 +188,36 @@ onPage(event) {
                         <td>true</td>
                         <td>Whether to show the paginator even there is only one page.</td>
                     </tr>
+                    <tr>
+                        <td>firstPageIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-left</td>
+                        <td>Icon to display in the first page button.</td>
+                    </tr>
+                    <tr>
+                        <td>previousPageIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-left</td>
+                        <td>Icon to display in the previous page button.</td>
+                    </tr>
+                    <tr>
+                        <td>nextPageIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-right</td>
+                        <td>Icon to display in the next page button.</td>
+                    </tr>
+                    <tr>
+                        <td>lastPageIcon</td>
+                        <td>string</td>
+                        <td>pi pi-angle-double-right</td>
+                        <td>Icon to display in the last page button.</td>
+                    </tr>
+                    <tr>
+                        <td>dropdownIcon</td>
+                        <td>string</td>
+                        <td>pi pi-chevron-down</td>
+                        <td>Icon to display in the dropdowns.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

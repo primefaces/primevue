@@ -1,5 +1,5 @@
 <template>
-    <RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-rpp-options" :disabled="disabled"></RPPDropdown>
+    <RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-rpp-options" :disabled="disabled" :dropdownIcon="dropdownIcon" />
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
     name: 'RowsPerPageDropdown',
     emits: ['rows-change'],
     props: {
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
         options: Array,
         rows: Number,
         disabled: Boolean

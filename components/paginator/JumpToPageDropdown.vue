@@ -1,5 +1,5 @@
 <template>
-    <JTPDropdown :modelValue="page" :options="pageOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-page-options" :disabled="disabled"></JTPDropdown>
+    <JTPDropdown :modelValue="page" :options="pageOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-page-options" :dropdownIcon="dropdownIcon" :disabled="disabled"></JTPDropdown>
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
     name: 'JumpToPageDropdown',
     emits: ['page-change'],
     props: {
+        dropdownIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
+        },
         page: Number,
         pageCount: Number,
         disabled: Boolean

@@ -75,6 +75,31 @@ export interface PaginatorProps {
      * Default value is true.
      */
     alwaysShow?: boolean | undefined;
+    /**
+     * Icon to display in the first page button.
+     * Default value is 'pi pi-angle-double-left'.
+     */
+    firstPageIcon?: string | undefined;
+    /**
+     * Icon to display in the previous page button.
+     * Default value is 'pi pi-angle-left'.
+     */
+    previousPageIcon?: string | undefined;
+    /**
+     * Icon to display in the next page button.
+     * Default value is 'pi pi-angle-right'.
+     */
+    nextPageIcon?: string | undefined;
+    /**
+     * Icon to display in the last page button.
+     * Default value is 'pi pi-angle-double-right'.
+     */
+    lastPageIcon?: string | undefined;
+    /**
+     * Icon to display in the dropdowns.
+     * Default value is 'pi pi-chevron-down'.
+     */
+    dropdownIcon?: string | undefined;
 }
 
 export interface PaginatorSlots {
