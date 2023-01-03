@@ -2,10 +2,10 @@
     <div :class="containerClass">
         <div v-if="showSourceControls" class="p-picklist-buttons p-picklist-source-controls">
             <slot name="sourcecontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" v-bind="moveUpButtonProps" type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" v-bind="moveTopButtonProps" type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" v-bind="moveDownButtonProps" type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" v-bind="moveBottomButtonProps" type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" v-bind="moveUpButtonProps" type="button" :icon="moveUpIcon" @click="moveUp($event, 0)"></PLButton>
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" v-bind="moveTopButtonProps" type="button" :icon="moveTopIcon" @click="moveTop($event, 0)"></PLButton>
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" v-bind="moveDownButtonProps" type="button" :icon="moveDownIcon" @click="moveDown($event, 0)"></PLButton>
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" v-bind="moveBottomButtonProps" type="button" :icon="moveBottomIcon" @click="moveBottom($event, 0)"></PLButton>
             <slot name="sourcecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
@@ -46,10 +46,10 @@
         </div>
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
             <slot name="movecontrolsstart"></slot>
-            <PLButton :aria-label="moveToTargetAriaLabel" type="button" icon="pi pi-angle-right" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps"></PLButton>
-            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps"></PLButton>
-            <PLButton :aria-label="moveToSourceAriaLabel" type="button" icon="pi pi-angle-left" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps"></PLButton>
-            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" icon="pi pi-angle-double-left" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps"></PLButton>
+            <PLButton :aria-label="moveToTargetAriaLabel" type="button" :icon="moveToTargetIcon" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps"></PLButton>
+            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" :icon="moveAllToTargetIcon" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps"></PLButton>
+            <PLButton :aria-label="moveToSourceAriaLabel" type="button" :icon="moveToSourceIcon" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps"></PLButton>
+            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" :icon="moveAllToSourceIcon" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps"></PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
@@ -91,10 +91,10 @@
         </div>
         <div v-if="showTargetControls" class="p-picklist-buttons p-picklist-target-controls">
             <slot name="targetcontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" v-bind="moveUpButtonProps" type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" v-bind="moveTopButtonProps" type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" v-bind="moveDownButtonProps" type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" v-bind="moveBottomButtonProps" type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" v-bind="moveUpButtonProps" type="button" :icon="moveUp" @click="moveUp($event, 1)"></PLButton>
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" v-bind="moveTopButtonProps" type="button" :icon="moveTop" @click="moveTop($event, 1)"></PLButton>
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" v-bind="moveDownButtonProps" type="button" :icon="moveDown" @click="moveDown($event, 1)"></PLButton>
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" v-bind="moveBottomButtonProps" type="button" :icon="moveBottom" @click="moveBottom($event, 1)"></PLButton>
             <slot name="targetcontrolsend"></slot>
         </div>
     </div>
@@ -192,6 +192,38 @@ export default {
         tabindex: {
             type: Number,
             default: 0
+        },
+        moveUpIcon: {
+            type: String,
+            default: 'pi pi-angle-up'
+        },
+        moveTopIcon: {
+            type: String,
+            default: 'pi pi-angle-double-up'
+        },
+        moveDownIcon: {
+            type: String,
+            default: 'pi pi-angle-down'
+        },
+        moveBottomIcon: {
+            type: String,
+            default: 'pi pi-angle-double-down'
+        },
+        moveToTargetIcon: {
+            type: String,
+            default: 'pi pi-angle-right'
+        },
+        moveAllToTargetIcon: {
+            type: String,
+            default: 'pi pi-angle-double-right'
+        },
+        moveToSourceIcon: {
+            type: String,
+            default: 'pi pi-angle-left'
+        },
+        moveAllToSourceIcon: {
+            type: String,
+            default: 'pi pi-angle-double-left'
         }
     },
     itemTouched: false,

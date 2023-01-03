@@ -193,4 +193,49 @@ describe('PickList.vue', () => {
             ]
         ]);
     });
+
+    it('should have custom icons when provided', async () => {
+        await wrapper.setProps({
+            showSourceControls: true,
+            showTargetControls: true,
+            moveUpIcon: 'pi-discord',
+            moveTopIcon: 'pi-facebook',
+            moveDownIcon: 'pi-twitter',
+            moveBottomIcon: 'pi-bitcoin',
+            moveToTargetIcon: 'pi-apple',
+            moveAllToTargetIcon: 'pi-github',
+            moveToSourceIcon: 'pi-google',
+            moveAllToSourceIcon: 'pi-linkedin'
+        });
+
+        const sourceMoveUpButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(1) .p-button-icon');
+        const sourceMoveTopButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(2) .p-button-icon');
+        const sourceMoveDownButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(3) .p-button-icon');
+        const sourceMoveBottomButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(4) .p-button-icon');
+
+        const targetMoveUpButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(1) .p-button-icon');
+        const targetMoveTopButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(2) .p-button-icon');
+        const targetMoveDownButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(3) .p-button-icon');
+        const targetMoveBottomButton = wrapper.find('.p-picklist-source-controls button:nth-of-type(4) .p-button-icon');
+
+        const moveToTargetButton = wrapper.find('.p-picklist-transfer-buttons button:nth-of-type(1) .p-button-icon');
+        const moveAllToTargetButton = wrapper.find('.p-picklist-transfer-buttons button:nth-of-type(2) .p-button-icon');
+        const moveToSourceButton = wrapper.find('.p-picklist-transfer-buttons button:nth-of-type(3) .p-button-icon');
+        const moveAllToSourceButton = wrapper.find('.p-picklist-transfer-buttons button:nth-of-type(4) .p-button-icon');
+
+        expect(sourceMoveUpButton.classes()).toContain('pi-discord');
+        expect(sourceMoveTopButton.classes()).toContain('pi-facebook');
+        expect(sourceMoveDownButton.classes()).toContain('pi-twitter');
+        expect(sourceMoveBottomButton.classes()).toContain('pi-bitcoin');
+
+        expect(targetMoveUpButton.classes()).toContain('pi-discord');
+        expect(targetMoveTopButton.classes()).toContain('pi-facebook');
+        expect(targetMoveDownButton.classes()).toContain('pi-twitter');
+        expect(targetMoveBottomButton.classes()).toContain('pi-bitcoin');
+
+        expect(moveToTargetButton.classes()).toContain('pi-apple');
+        expect(moveAllToTargetButton.classes()).toContain('pi-github');
+        expect(moveToSourceButton.classes()).toContain('pi-google');
+        expect(moveAllToSourceButton.classes()).toContain('pi-linkedin');
+    });
 });
