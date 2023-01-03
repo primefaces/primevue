@@ -1,6 +1,6 @@
 <template>
     <div :id="id" class="p-panelmenu p-component">
-        <template v-for="(item, index) of items" :key="getPanelKey(index)">
+        <template v-for="(item, index) of model" :key="getPanelKey(index)">
             <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="getPanelClass(item)">
                 <div
                     :id="getHeaderId(index)"
@@ -74,14 +74,7 @@ export default {
             items: null
         };
     },
-    watch: {
-        model: {
-            immediate: true,
-            handler(newValue) {
-                this.items = reactive(newValue);
-            }
-        }
-    },
+
     methods: {
         getItemProp(item, name) {
             return item ? ObjectUtils.getItemValue(item[name]) : undefined;
@@ -90,7 +83,7 @@ export default {
             return this.getItemProp(item, 'label');
         },
         isItemActive(item) {
-            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : item === this.activeItem;
+            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : ObjectUtils.deepEquals(item, this.activeItem);
         },
         isItemVisible(item) {
             return this.getItemProp(item, 'visible') !== false;
@@ -208,7 +201,7 @@ export default {
         },
         changeActiveItem(event, item, selfActive = false) {
             if (!this.isItemDisabled(item)) {
-                this.activeItem = selfActive ? item : this.activeItem && this.activeItem === item ? null : item;
+                this.activeItem = selfActive ? item : this.activeItem && ObjectUtils.deepEquals(item, this.activeItem) ? null : item;
 
                 const active = this.isItemActive(item);
                 const eventName = active ? 'panel-open' : 'panel-close';
