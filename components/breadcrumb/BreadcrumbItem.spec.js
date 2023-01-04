@@ -1,5 +1,5 @@
 import { RouterLinkStub, shallowMount } from '@vue/test-utils';
-import { afterEach, beforeEach, expect } from 'vitest';
+import { beforeEach, expect } from 'vitest';
 import BreadcrumbItem from './BreadcrumbItem.vue';
 
 let wrapper = null;
@@ -24,11 +24,12 @@ beforeEach(() => {
             template: null
         }
     });
-
-    afterEach(() => {
-        vi.clearAllMocks();
-    });
 });
+
+afterEach(() => {
+    vi.clearAllMocks();
+});
+
 describe('BreadcrumbItem', () => {
     it('When component is mount, text should be exists', () => {
         expect(wrapper.find('.p-menuitem-text').exists()).toBe(true);
