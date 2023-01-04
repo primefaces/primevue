@@ -46,6 +46,12 @@ const SidebarProps = [
         type: 'string',
         default: 'close',
         description: 'Aria label of the close icon.'
+    },
+    {
+        name: 'blockScroll',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether background scroll should be blocked when sidebar is visible.'
     }
 ];
 

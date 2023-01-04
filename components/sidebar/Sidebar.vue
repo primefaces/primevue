@@ -67,7 +67,6 @@ export default {
             default: true
         }
     },
-    maskClickListener: null,
     container: null,
     content: null,
     headerContainer: null,

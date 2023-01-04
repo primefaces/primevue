@@ -70,14 +70,6 @@ describe('Sidebar.vue', () => {
         expect(bindOutsideClickListenerSpy).toHaveBeenCalled();
     });
 
-    /* it('When transition trigger to onAfterLeave, bindOutsideClickListener should be triggered', async () => {
-        const bindOutsideClickListenerSpy = vi.spyOn(wrapper.vm, 'bindOutsideClickListener');
-
-        await wrapper.vm.onAfterLeave();
-
-        expect(bindOutsideClickListenerSpy).toHaveBeenCalled();
-    }); */
-
     it('When keydown is triggered , hide method should be triggered', async () => {
         const hideSpy = vi.spyOn(wrapper.vm, 'hide');
 
