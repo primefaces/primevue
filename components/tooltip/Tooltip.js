@@ -352,10 +352,10 @@ const Tooltip = {
     },
     updated(el, options) {
         let target = getTarget(el);
+        unbindEvents(target);
         target.$_ptooltipModifiers = getModifiers(options);
 
         if (!options.value) {
-            unbindEvents(target);
             return;
         }
 
@@ -369,7 +369,6 @@ const Tooltip = {
             bindEvents(target);
         } else if (typeof options.value === 'object' && options.value) {
             if (ObjectUtils.isEmpty(options.value.value || options.value.value.trim() === '')) {
-                unbindEvents(target);
                 return;
             } else {
                 /* eslint-disable */
