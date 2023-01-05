@@ -96,8 +96,8 @@ export default {
         getItemKey(processedItem) {
             return this.getItemId(processedItem);
         },
-        getItemProp(processedItem, name) {
-            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
+        getItemProp(processedItem, name, params) {
+            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name], params) : undefined;
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
@@ -118,9 +118,7 @@ export default {
             return ObjectUtils.isNotEmpty(processedItem.items);
         },
         onItemClick(event, processedItem) {
-            const command = this.getItemProp(processedItem, 'command');
-
-            command && command({ originalEvent: event, item: processedItem.item });
+            this.getItemProp(processedItem, 'command', { originalEvent: event, item: processedItem.item });
             this.$emit('item-toggle', { processedItem, expanded: !this.isItemActive(processedItem) });
         },
         onItemToggle(event) {
