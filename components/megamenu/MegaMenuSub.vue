@@ -140,7 +140,7 @@ export default {
             return ObjectUtils.isNotEmpty(processedItem.items);
         },
         onItemClick(event, processedItem) {
-            const command = this.getItemProp(processedItem, 'command');
+            const command = processedItem.item.command;
 
             command && command({ originalEvent: event, item: processedItem.item });
             this.$emit('item-click', { originalEvent: event, processedItem, isFocus: true });
