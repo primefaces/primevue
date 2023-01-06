@@ -1361,21 +1361,23 @@ export default {
             }
 
             //footers
-            let footerInitiated = false;
+            if (!options || (options && options.exportSuppressFooterLine) !== true) {
+                let footerInitiated = false;
 
-            for (let i = 0; i < this.columns.length; i++) {
-                let column = this.columns[i];
+                for (let i = 0; i < this.columns.length; i++) {
+                    let column = this.columns[i];
 
-                if (i === 0) csv += '\n';
+                    if (i === 0) csv += '\n';
 
-                if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
-                    if (footerInitiated) csv += this.csvSeparator;
-                    else footerInitiated = true;
+                    if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
+                        if (footerInitiated) csv += this.csvSeparator;
+                        else footerInitiated = true;
 
-                    csv += '"' + (this.columnProp(column, 'exportFooter') || this.columnProp(column, 'footer') || this.columnProp(column, 'field')) + '"';
+                        csv += '"' + (this.columnProp(column, 'exportFooter') || this.columnProp(column, 'footer') || this.columnProp(column, 'field')) + '"';
+                    }
                 }
             }
-
+            
             DomHandler.exportCSV(csv, this.exportFilename);
         },
         resetPage() {

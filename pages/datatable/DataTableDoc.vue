@@ -1539,6 +1539,7 @@ export default {
 
             <h5>Data Export</h5>
             <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
+            <p><i>exportCSV()</i> takes an optional object as parameter. If the key <i>exportSuppressFexportSuppressFooterLine</i> in this object is <i>true</i>, the CSV export will not contain a footer line, but only the header and the data. <i></i></p>
             <pre v-code><code>>
 &lt;DataTable :value="cars" ref="dt"&gt;
     &lt;template #header&gt;
