@@ -44,6 +44,10 @@ export interface SidebarProps {
      * Default value is true.
      */
     modal?: boolean | undefined;
+    /**
+     * Whether background scroll should be blocked when sidebar is visible.
+     */
+    blockScroll?: boolean | undefined;
 }
 
 export interface SidebarSlots {
