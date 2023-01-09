@@ -1783,7 +1783,7 @@ export default {
                 throw 'Invalid Time';
             }
 
-            this.pm = ampm === this.$primevue.config.locale.am || ampm === this.$primevue.config.locale.am.toLowerCase();
+            this.pm = ampm === this.$primevue.config.locale.pm || ampm === this.$primevue.config.locale.pm.toLowerCase();
             let time = this.parseTime(timeString);
 
             value.setHours(time.hour);
