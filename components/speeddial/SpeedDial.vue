@@ -593,6 +593,10 @@ export default {
     transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+.p-speeddial-opened {
+    z-index: 2;
+}
+
 .p-speeddial-opened .p-speeddial-list {
     pointer-events: auto;
 }
