@@ -1,6 +1,6 @@
 <template>
     <Portal>
-        <transition name="p-confirm-popup" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
+        <transition name="p-confirm-popup" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="$attrs">
                 <template v-if="!$slots.message">
                     <div class="p-confirm-popup-content">
@@ -35,7 +35,9 @@ export default {
     data() {
         return {
             visible: false,
-            confirmation: null
+            confirmation: null,
+            autoFocusAccept: null,
+            autoFocusReject: null
         };
     },
     target: null,
@@ -129,12 +131,17 @@ export default {
             }
         },
         onEnter(el) {
-            this.focus();
+            this.autoFocusAccept = this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
+            this.autoFocusReject = this.confirmation.defaultFocus === 'reject' ? true : false;
+
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
 
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+        },
+        onAfterEnter() {
+            this.focus();
         },
         onLeave() {
             this.unbindOutsideClickListener();
@@ -221,7 +228,7 @@ export default {
             let focusTarget = this.container.querySelector('[autofocus]');
 
             if (focusTarget) {
-                focusTarget.focus();
+                focusTarget.focus({ preventScroll: true }); // Firefox requires preventScroll
             }
         },
         isTargetClicked(event) {
@@ -276,12 +283,6 @@ export default {
         },
         rejectClass() {
             return ['p-confirm-popup-reject p-button-sm', this.confirmation ? this.confirmation.rejectClass || 'p-button-text' : null];
-        },
-        autoFocusAccept() {
-            return this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
-        },
-        autoFocusReject() {
-            return this.confirmation.defaultFocus === 'reject' ? true : false;
         }
     },
     components: {

@@ -27,6 +27,7 @@ import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'SplitButton',
+    emits: ['click'],
     props: {
         label: {
             type: String,
@@ -91,6 +92,8 @@ export default {
         },
         onDefaultButtonClick(event) {
             this.$refs.menu.hide(event);
+
+            this.$emit('click');
         }
     },
     computed: {

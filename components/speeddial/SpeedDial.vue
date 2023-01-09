@@ -536,6 +536,9 @@ export default {
 .p-speeddial {
     position: absolute;
     display: flex;
+}
+
+.p-speeddial-button {
     z-index: 1;
 }
 
@@ -548,6 +551,7 @@ export default {
     justify-content: center;
     transition: top 0s linear 0.2s;
     pointer-events: none;
+    z-index: 2;
 }
 
 .p-speeddial-item {

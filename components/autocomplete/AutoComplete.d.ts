@@ -381,6 +381,10 @@ export interface AutoCompleteSlots {
          */
         options: any[];
     }) => VNode[];
+    /**
+     * Custom empty template when there is no data to display.
+     */
+    empty: () => VNode[];
 }
 
 export declare type AutoCompleteEmits = {

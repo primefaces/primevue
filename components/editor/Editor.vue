@@ -19,7 +19,7 @@
                     <button class="ql-italic" type="button"></button>
                     <button class="ql-underline" type="button"></button>
                 </span>
-                <span class="ql-formats">
+                <span :key="reRenderColorKey" class="ql-formats">
                     <select class="ql-color"></select>
                     <select class="ql-background"></select>
                 </span>
@@ -69,10 +69,16 @@ export default {
         editorStyle: null,
         modules: null
     },
+    data() {
+        return {
+            reRenderColorKey: 0
+        };
+    },
     quill: null,
     watch: {
         modelValue(newValue, oldValue) {
             if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
+                this.reRenderColorKey++;
                 this.renderValue(newValue);
             }
         }

@@ -14,6 +14,10 @@ describe('Chip.vue', () => {
         });
     });
 
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
     it('should exists', () => {
         expect(wrapper.find('.p-chip.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-chip-icon').classes()).toContain('pi-primevue');
@@ -25,5 +29,20 @@ describe('Chip.vue', () => {
         await wrapper.find('.p-chip-remove-icon').trigger('click');
 
         expect(wrapper.find('.p-chip.p-component').exists()).toBe(false);
+    });
+
+    it('When removable is true and keydown triggered OnKeydown method should be called', async () => {
+        const closeSpy = vi.spyOn(wrapper.vm, 'onKeydown');
+
+        await wrapper.find('.p-chip-remove-icon').trigger('keydown');
+
+        expect(closeSpy).toHaveBeenCalled();
+    });
+    it('When onKeyDown method triggered close method should be called', async () => {
+        const closeSpy = vi.spyOn(wrapper.vm, 'close');
+
+        await wrapper.vm.onKeydown({ key: 'Enter' });
+
+        expect(closeSpy).toHaveBeenCalled();
     });
 });

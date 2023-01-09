@@ -562,6 +562,10 @@ export default {
                         <td>loader</td>
                         <td>options: Options of the loader items for virtualscroller</td>
                     </tr>
+                    <tr>
+                        <td>empty</td>
+                        <td>-</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -604,6 +608,10 @@ export default {
                     <tr>
                         <td>p-autocomplete-token-label</td>
                         <td>Label of a selected item in multiple mode.</td>
+                    </tr>
+                    <tr>
+                        <td>p-autocomplete-empty-message</td>
+                        <td>Container element when there is no suggestion to display.</td>
                     </tr>
                     <tr>
                         <td>p-overlay-open</td>

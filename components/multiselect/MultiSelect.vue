@@ -660,8 +660,12 @@ export default {
             pressedInInputText && (this.focusedOptionIndex = -1);
         },
         onHomeKey(event, pressedInInputText = false) {
+            const { currentTarget } = event;
+
             if (pressedInInputText) {
-                event.currentTarget.setSelectionRange(0, 0);
+                const len = currentTarget.value.length;
+
+                currentTarget.setSelectionRange(0, event.shiftKey ? len : 0);
                 this.focusedOptionIndex = -1;
             } else {
                 let metaKey = event.metaKey || event.ctrlKey;
@@ -679,11 +683,12 @@ export default {
             event.preventDefault();
         },
         onEndKey(event, pressedInInputText = false) {
-            if (pressedInInputText) {
-                const target = event.currentTarget;
-                const len = target.value.length;
+            const { currentTarget } = event;
 
-                target.setSelectionRange(len, len);
+            if (pressedInInputText) {
+                const len = currentTarget.value.length;
+
+                currentTarget.setSelectionRange(event.shiftKey ? 0 : len, len);
                 this.focusedOptionIndex = -1;
             } else {
                 let metaKey = event.metaKey || event.ctrlKey;

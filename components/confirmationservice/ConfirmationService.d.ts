@@ -1,4 +1,4 @@
-import Vue, { Plugin } from 'vue';
+import { Plugin } from 'vue';
 import { ConfirmationOptions } from '../confirmationoptions';
 
 declare const plugin: Plugin;

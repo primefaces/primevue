@@ -121,6 +121,12 @@ import Sidebar from 'primevue/sidebar';
                             <b> Deprecated: </b> <i>aria.close</i> can be used in defaults to PrimeVue <router-link to="/locale">Locale</router-link> configuration.
                         </td>
                     </tr>
+                    <tr>
+                        <td>blockScroll</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Whether background scroll should be blocked when sidebar is visible.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
