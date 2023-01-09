@@ -4,7 +4,7 @@ import { VirtualScrollerProps } from '../virtualscroller';
 
 type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
 
-type DataTableSortFieldType = string | ((item: any) => string) | undefined;
+type DataTableSortFieldType = string | ((item: any) => string) | undefined | null;
 
 type DataTableDataKeyType = string | ((item: any) => string) | undefined;
 
