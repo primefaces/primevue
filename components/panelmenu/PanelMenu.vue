@@ -70,8 +70,7 @@ export default {
     },
     data() {
         return {
-            activeItem: null,
-            items: null
+            activeItem: null
         };
     },
 
