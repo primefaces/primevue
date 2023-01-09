@@ -204,7 +204,7 @@ export default {
                 const active = this.isItemActive(item);
                 const eventName = !active ? 'panel-open' : 'panel-close';
 
-                this.activeItem = selfActive ? item : this.activeItem && this.activeItem === item ? null : item;
+                this.activeItem = selfActive ? item : this.activeItem && ObjectUtils.equals(item, this.activeItem) ? null : item;
                 this.changeExpandedKeys({ item, expanded: !active });
                 this.$emit(eventName, { originalEvent: event, item });
             }
