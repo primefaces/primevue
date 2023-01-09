@@ -119,6 +119,9 @@
                                         <!--TODO: Deprecated since v3.16.0-->
                                     </li>
                                 </template>
+                                <li v-if="!items || (items && items.length === 0)" class="p-autocomplete-empty-message" role="option">
+                                    <slot name="empty">{{ searchResultMessageText }}</slot>
+                                </li>
                             </ul>
                         </template>
                         <template v-if="$slots.loader" v-slot:loader="{ options }">
@@ -323,7 +326,7 @@ export default {
     watch: {
         suggestions() {
             if (this.searching) {
-                ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : this.hide();
+                ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : !!this.$slots.empty ? this.show() : this.hide();
                 this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
             }
