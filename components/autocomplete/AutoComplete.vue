@@ -663,29 +663,19 @@ export default {
             this.multiple && event.stopPropagation(); // To prevent onArrowRightKeyOnMultiple method
         },
         onHomeKey(event) {
-            const target = event.currentTarget;
-            const len = target.value.length;
+            const { currentTarget } = event;
+            const len = currentTarget.value.length;
 
-            if (event.shiftKey) {
-                event.currentTarget.setSelectionRange(0, len);
-            } else {
-                event.currentTarget.setSelectionRange(0, 0);
-            }
-
+            currentTarget.setSelectionRange(0, event.shiftKey ? len : 0);
             this.focusedOptionIndex = -1;
 
             event.preventDefault();
         },
         onEndKey(event) {
-            const target = event.currentTarget;
-            const len = target.value.length;
+            const { currentTarget } = event;
+            const len = currentTarget.value.length;
 
-            if (event.shiftKey) {
-                event.currentTarget.setSelectionRange(0, len);
-            } else {
-                target.setSelectionRange(len, len);
-            }
-
+            currentTarget.setSelectionRange(event.shiftKey ? 0 : len, len);
             this.focusedOptionIndex = -1;
 
             event.preventDefault();
