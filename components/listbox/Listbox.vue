@@ -62,6 +62,7 @@
                                 :aria-setsize="ariaSetSize"
                                 :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                 @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions))"
+                                @mousedown="onOptionMouseDown($event, getOptionIndex(i, getItemOptions))"
                                 @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                 @touchend="onOptionTouchEnd()"
                             >
@@ -254,7 +255,7 @@ export default {
         },
         onListFocus(event) {
             this.focused = true;
-            this.focusedOptionIndex = this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
+            this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.$emit('focus', event);
         },
         onListBlur(event) {
@@ -331,6 +332,9 @@ export default {
             this.multiple ? this.onOptionSelectMultiple(event, option) : this.onOptionSelectSingle(event, option);
             this.optionTouched = false;
             index !== -1 && (this.focusedOptionIndex = index);
+        },
+        onOptionMouseDown(event, index) {
+            this.changeFocusedOptionIndex(event, index);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
