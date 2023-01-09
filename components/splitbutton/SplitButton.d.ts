@@ -54,25 +54,9 @@ export interface SplitButtonProps {
      */
     menuButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Style class of the button.
-     */
-    buttonClass?: string | undefined;
-    /**
      * Name of the menu button icon.
      */
     menuButtonIcon?: string | undefined;
-    /**
-     * Style class of the menu button.
-     */
-    menuButtonClass?: string | undefined;
-    /**
-     * Style class of the menu.
-     */
-    menuClass?: string | undefined;
-    /**
-     * Inline style of the menu.
-     */
-    menuStyle?: any | undefined;
 }
 
 export interface SplitButtonSlots {

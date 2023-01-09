@@ -54,34 +54,10 @@ const SplitButtonProps = [
         description: 'Inline of the component.'
     },
     {
-        name: 'buttonClass',
-        type: 'string',
-        default: 'null',
-        description: 'Style class of the button.'
-    },
-    {
         name: 'menuButtonIcon',
         type: 'string',
         default: 'null',
         description: 'Name of the menu button icon.'
-    },
-    {
-        name: 'menuButtonClass',
-        type: 'string',
-        default: 'null',
-        description: 'Style class of the menu button.'
-    },
-    {
-        name: 'menuClass',
-        type: 'string',
-        default: 'null',
-        description: 'Style class of the menu.'
-    },
-    {
-        name: 'menuStyle',
-        type: 'any',
-        default: 'null',
-        description: 'Inline style of the menu.'
     }
 ];
 

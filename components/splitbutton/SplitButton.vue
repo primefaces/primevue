@@ -1,12 +1,12 @@
 <template>
     <div :class="containerClass" :style="style">
         <slot>
-            <PVSButton type="button" :class="buttonClasses" :icon="icon" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="buttonProps" />
+            <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="buttonProps" />
         </slot>
         <PVSButton
             ref="button"
             type="button"
-            :class="menuButtonClasses"
+            class="p-splitbutton-menubutton"
             :icon="menuButtonIcon"
             :disabled="disabled"
             aria-haspopup="true"
@@ -16,7 +16,7 @@
             @keydown="onDropdownKeydown"
             v-bind="menuButtonProps"
         />
-        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :style="menuStyle" :class="menuClass" />
+        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
     </div>
 </template>
 
@@ -68,10 +68,6 @@ export default {
             type: null,
             default: null
         },
-        buttonClass: {
-            type: String,
-            default: null
-        },
         menuButtonProps: {
             type: null,
             default: null
@@ -79,18 +75,6 @@ export default {
         menuButtonIcon: {
             type: String,
             default: 'pi pi-chevron-down'
-        },
-        menuButtonClass: {
-            type: String,
-            default: null
-        },
-        menuClass: {
-            type: String,
-            default: null
-        },
-        menuStyle: {
-            type: null,
-            default: null
         }
     },
     data() {
@@ -119,12 +103,6 @@ export default {
         },
         containerClass() {
             return ['p-splitbutton p-component', this.class];
-        },
-        menuButtonClasses() {
-            return ['p-splitbutton-menubutton', this.menuButtonClass];
-        },
-        buttonClasses() {
-            return ['p-splitbutton-defaultbutton', this.buttonClass];
         }
     },
     components: {
