@@ -23,7 +23,7 @@
                     <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
                     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
-                <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>
+                <Tree v-model:expandedKeys="expandedKeys" :value="nodes"></Tree>
             </div>
         </div>
 

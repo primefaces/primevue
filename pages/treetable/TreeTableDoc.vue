@@ -647,7 +647,7 @@ export default {
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
 &lt;/div&gt;
-&lt;TreeTable :value="nodes" :expandedKeys="expandedKeys"&gt;
+&lt;TreeTable :value="nodes" v-model:expandedKeys="expandedKeys"&gt;
     &lt;Column field="name" header="Name" :expander="true"&gt;&lt;/Column&gt;
     &lt;Column field="size" header="Size"&gt;&lt;/Column&gt;
     &lt;Column field="type" header="Type"&gt;&lt;/Column&gt;
@@ -1917,7 +1917,7 @@ export default {
                 <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
                 <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
             </div>
-            <TreeTable :value="nodes" :expandedKeys="expandedKeys">
+            <TreeTable :value="nodes" v-model:expandedKeys="expandedKeys">
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>
                 <Column field="type" header="Type"></Column>
@@ -2008,7 +2008,7 @@ button {
                 <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
                 <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
             </div>
-            <TreeTable :value="nodes" :expandedKeys="expandedKeys">
+            <TreeTable :value="nodes" v-model:expandedKeys="expandedKeys">
                 <Column field="name" header="Name" :expander="true"></Column>
                 <Column field="size" header="Size"></Column>
                 <Column field="type" header="Type"></Column>
@@ -2093,7 +2093,7 @@ button {
                     <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll"></p-button>
                     <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
                 </div>
-                <p-treetable :value="nodes" :expanded-keys="expandedKeys">
+                <p-treetable :value="nodes" v-model:expanded-keys="expandedKeys">
                     <p-column field="name" header="Name" :expander="true"></p-column>
                     <p-column field="size" header="Size"></p-column>
                     <p-column field="type" header="Type"></p-column>

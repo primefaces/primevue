@@ -36,7 +36,7 @@
                     <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
                     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
-                <TreeTable :value="nodes" :expandedKeys="expandedKeys">
+                <TreeTable v-model:expandedKeys="expandedKeys" :value="nodes">
                     <Column field="name" header="Name" :expander="true"></Column>
                     <Column field="size" header="Size"></Column>
                     <Column field="type" header="Type"></Column>
