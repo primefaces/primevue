@@ -6,8 +6,6 @@
                 :id="inputId"
                 type="checkbox"
                 :value="value"
-                :class="inputClass"
-                :style="inputStyle"
                 :name="name"
                 :checked="checked"
                 :tabindex="tabindex"
@@ -21,7 +19,7 @@
                 v-bind="inputProps"
             />
         </div>
-        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]">
+        <div ref="box" :class="['p-checkbox-box', inputClass, { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" :style="inputStyle">
             <span :class="['p-checkbox-icon', { 'pi pi-check': checked }]"></span>
         </div>
     </div>
