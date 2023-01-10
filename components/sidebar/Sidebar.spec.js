@@ -31,7 +31,7 @@ describe('Sidebar.vue', () => {
 
     it('When component is mounted, sidebar should be exist', () => {
         expect(wrapper.find('.p-sidebar.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-sidebar').classes()).toContain('p-sidebar-left');
+        expect(wrapper.find('.p-sidebar-mask').classes()).toContain('p-sidebar-left');
     });
 
     it('When mask element triggered, sidebar should be hide', async () => {
