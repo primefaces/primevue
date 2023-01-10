@@ -1,8 +1,8 @@
 <template>
     <Portal>
-        <div v-if="maskVisible" ref="mask" style="maskStyle" :class="maskClasses" @mousedown="onMaskClick">
+        <div ref="mask" style="maskStyle" :class="maskClasses" @mousedown="onMaskClick">
             <transition name="p-sidebar" @after-enter="onAfterEnter" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
-                <div :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
+                <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
                     <div :ref="headerContainerRef" class="p-sidebar-header">
                         <div v-if="$slots.header" class="p-sidebar-header-content">
                             <slot name="header"></slot>
@@ -78,11 +78,10 @@ export default {
         };
     },
     watch: {
-        visible(val) {
-            this.maskVisible = val;
+        visible(newValue) {
+            this.maskVisible = newValue ? newValue : this.maskVisible;
         }
     },
-
     beforeUnmount() {
         if (this.container && this.autoZIndex) {
             ZIndexUtils.clear(this.container);
@@ -118,6 +117,8 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.clear(this.mask);
             }
+
+            this.maskVisible = false;
         },
         onAfterEnter() {
             this.bindOutsideClickListener();
@@ -196,7 +197,6 @@ export default {
         containerClass() {
             return [
                 'p-sidebar p-component',
-                this.getPositionClass(),
                 {
                     'p-input-filled': this.$primevue.config.inputStyle === 'filled',
                     'p-ripple-disabled': this.$primevue.config.ripple === false,
@@ -297,28 +297,28 @@ export default {
 
 /* Animation */
 /* Center */
-.p-sidebar-left.p-sidebar-enter-from,
-.p-sidebar-left.p-sidebar-leave-to {
+.p-sidebar-left .p-sidebar-enter-from,
+.p-sidebar-left .p-sidebar-leave-to {
     transform: translateX(-100%);
 }
-.p-sidebar-right.p-sidebar-enter-from,
-.p-sidebar-right.p-sidebar-leave-to {
+.p-sidebar-right .p-sidebar-enter-from,
+.p-sidebar-right .p-sidebar-leave-to {
     transform: translateX(100%);
 }
-.p-sidebar-top.p-sidebar-enter-from,
-.p-sidebar-top.p-sidebar-leave-to {
+.p-sidebar-top .p-sidebar-enter-from,
+.p-sidebar-top .p-sidebar-leave-to {
     transform: translateY(-100%);
 }
-.p-sidebar-bottom.p-sidebar-enter-from,
-.p-sidebar-bottom.p-sidebar-leave-to {
+.p-sidebar-bottom .p-sidebar-enter-from,
+.p-sidebar-bottom .p-sidebar-leave-to {
     transform: translateY(100%);
 }
-.p-sidebar-full.p-sidebar-enter-from,
-.p-sidebar-full.p-sidebar-leave-to {
+.p-sidebar-full .p-sidebar-enter-from,
+.p-sidebar-full .p-sidebar-leave-to {
     opacity: 0;
 }
-.p-sidebar-full.p-sidebar-enter-active,
-.p-sidebar-full.p-sidebar-leave-active {
+.p-sidebar-full .p-sidebar-enter-active,
+.p-sidebar-full .p-sidebar-leave-active {
     transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
