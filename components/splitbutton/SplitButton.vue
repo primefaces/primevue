@@ -7,7 +7,7 @@
             ref="button"
             type="button"
             class="p-splitbutton-menubutton"
-            icon="pi pi-chevron-down"
+            :icon="menuButtonIcon"
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
@@ -72,6 +72,10 @@ export default {
         menuButtonProps: {
             type: null,
             default: null
+        },
+        menuButtonIcon: {
+            type: String,
+            default: 'pi pi-chevron-down'
         }
     },
     data() {

@@ -53,6 +53,10 @@ export interface SplitButtonProps {
      * Uses to pass all properties of the HTMLButtonElement to the menu button.
      */
     menuButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Name of the menu button icon.
+     */
+    menuButtonIcon?: string | undefined;
 }
 
 export interface SplitButtonSlots {
