@@ -4221,7 +4221,7 @@
 .p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
   font-size: 2rem;
 }
-.p-dialog.p-confirm-dialog .p-confirm-dialog-message {
+.p-dialog.p-confirm-dialog .p-confirm-dialog-message:not(:first-child) {
   margin-left: 1rem;
 }
 

@@ -2,7 +2,7 @@
     <CDialog v-model:visible="visible" role="alertdialog" class="p-confirm-dialog" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" :breakpoints="breakpoints" :closeOnEscape="closeOnEscape" @update:visible="onHide">
         <template v-if="!$slots.message">
             <i v-if="confirmation.icon" :class="iconClass" />
-            <span :class="{ 'p-confirm-dialog-message': !!confirmation.icon }">{{ message }}</span>
+            <span class="p-confirm-dialog-message">{{ message }}</span>
         </template>
         <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
