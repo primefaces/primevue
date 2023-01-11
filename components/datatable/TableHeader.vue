@@ -27,6 +27,7 @@
                         :filters="filters"
                         :filterDisplay="filterDisplay"
                         :filtersStore="filtersStore"
+                        :filterOnOutsideClick="filterOnOutsideClick"
                         :filterInputProps="filterInputProps"
                         @filter-change="$emit('filter-change', $event)"
                         @filter-apply="$emit('filter-apply')"
@@ -199,6 +200,10 @@ export default {
             default: null
         },
         reorderableColumns: {
+            type: Boolean,
+            default: false
+        },
+        filterOnOutsideClick: {
             type: Boolean,
             default: false
         },

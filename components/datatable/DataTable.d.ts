@@ -588,6 +588,11 @@ export interface DataTableProps {
      */
     globalFilterFields?: string[] | undefined;
     /**
+     * Whether to trigger filter apply when outside of the element is clicked.
+     * Default value is false.
+     */
+    filterOnOutsideClick?: boolean | undefined;
+    /**
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
     filterLocale?: string | undefined;

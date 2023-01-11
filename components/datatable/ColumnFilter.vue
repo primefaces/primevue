@@ -182,6 +182,10 @@ export default {
             type: Object,
             default: null
         },
+        filterOnOutsideClick: {
+            type: Boolean,
+            default: false
+        },
         filterMenuClass: {
             type: String,
             default: null
@@ -453,6 +457,7 @@ export default {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
                     if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event.target)) {
+                        this.filterOnOutsideClick && this.applyFilter();
                         this.overlayVisible = false;
                     }
 

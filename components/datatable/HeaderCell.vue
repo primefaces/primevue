@@ -36,6 +36,7 @@
                 :filters="filters"
                 :filtersStore="filtersStore"
                 :filterInputProps="filterInputProps"
+                :filterOnOutsideClick="filterOnOutsideClick"
                 @filter-change="$emit('filter-change', $event)"
                 @filter-apply="$emit('filter-apply')"
                 :filterMenuStyle="columnProp('filterMenuStyle')"
@@ -140,6 +141,10 @@ export default {
             default: false
         },
         reorderableColumns: {
+            type: Boolean,
+            default: false
+        },
+        filterOnOutsideClick: {
             type: Boolean,
             default: false
         },
