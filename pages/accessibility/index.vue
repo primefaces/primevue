@@ -81,7 +81,7 @@
 
             <p>On the other hand, a fancy css based button using a div has no keyboard or screen reader support.</p>
             <pre v-code.script><code>
-&lt;button class="fancy-button" @click="onButtonClick(event)"&gt;Click&lt;/button&gt;
+&lt;div class="fancy-button" @click="onButtonClick(event)"&gt;Click&lt;/div&gt;
 
 </code></pre>
 

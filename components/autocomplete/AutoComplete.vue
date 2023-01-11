@@ -119,6 +119,9 @@
                                         <!--TODO: Deprecated since v3.16.0-->
                                     </li>
                                 </template>
+                                <li v-if="!items || (items && items.length === 0)" class="p-autocomplete-empty-message" role="option">
+                                    <slot name="empty">{{ searchResultMessageText }}</slot>
+                                </li>
                             </ul>
                         </template>
                         <template v-if="$slots.loader" v-slot:loader="{ options }">
@@ -323,7 +326,7 @@ export default {
     watch: {
         suggestions() {
             if (this.searching) {
-                ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : this.hide();
+                ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : !!this.$slots.empty ? this.show() : this.hide();
                 this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
             }
@@ -404,6 +407,11 @@ export default {
             }, 0); // For ScreenReaders
         },
         onFocus(event) {
+            if (this.disabled) {
+                // For ScreenReaders
+                return;
+            }
+
             if (!this.dirty && this.completeOnFocus) {
                 this.search(event, event.target.value, 'focus');
             }
@@ -421,6 +429,12 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
+            if (this.disabled) {
+                event.preventDefault();
+
+                return;
+            }
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -526,6 +540,11 @@ export default {
             }
         },
         onMultipleContainerFocus() {
+            if (this.disabled) {
+                // For ScreenReaders
+                return;
+            }
+
             this.focused = true;
         },
         onMultipleContainerBlur() {
@@ -533,6 +552,12 @@ export default {
             this.focused = false;
         },
         onMultipleContainerKeyDown(event) {
+            if (this.disabled) {
+                event.preventDefault();
+
+                return;
+            }
+
             switch (event.code) {
                 case 'ArrowLeft':
                     this.onArrowLeftKeyOnMultiple(event);
@@ -663,29 +688,19 @@ export default {
             this.multiple && event.stopPropagation(); // To prevent onArrowRightKeyOnMultiple method
         },
         onHomeKey(event) {
-            const target = event.currentTarget;
-            const len = target.value.length;
+            const { currentTarget } = event;
+            const len = currentTarget.value.length;
 
-            if (event.shiftKey) {
-                event.currentTarget.setSelectionRange(0, len);
-            } else {
-                event.currentTarget.setSelectionRange(0, 0);
-            }
-
+            currentTarget.setSelectionRange(0, event.shiftKey ? len : 0);
             this.focusedOptionIndex = -1;
 
             event.preventDefault();
         },
         onEndKey(event) {
-            const target = event.currentTarget;
-            const len = target.value.length;
+            const { currentTarget } = event;
+            const len = currentTarget.value.length;
 
-            if (event.shiftKey) {
-                event.currentTarget.setSelectionRange(0, len);
-            } else {
-                target.setSelectionRange(len, len);
-            }
-
+            currentTarget.setSelectionRange(event.shiftKey ? 0 : len, len);
             this.focusedOptionIndex = -1;
 
             event.preventDefault();

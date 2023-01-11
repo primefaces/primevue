@@ -99,11 +99,11 @@ export default {
         },
         previousButtonProps: {
             type: null,
-            defaault: null
+            default: null
         },
         nextButtonProps: {
             type: null,
-            defaault: null
+            default: null
         }
     },
     data() {

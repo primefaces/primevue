@@ -2028,6 +2028,12 @@ export default {
                             <td>Filters object with key-value pairs to define the filters.</td>
                         </tr>
                         <tr>
+                            <td>globalFilterFields</td>
+                            <td>array</td>
+                            <td>null</td>
+                            <td>An array of the fields for global filter.</td>
+                        </tr>
+                        <tr>
                             <td>filterDisplay</td>
                             <td>string</td>
                             <td>null</td>

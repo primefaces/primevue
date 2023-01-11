@@ -159,7 +159,10 @@ export default {
                 <tbody>
                     <tr>
                         <td>item</td>
-                        <td>item: Menuitem instance</td>
+                        <td>
+                            item: Menuitem instance<br />
+                            index: Index of the menuitem instance
+                        </td>
                     </tr>
                 </tbody>
             </table>

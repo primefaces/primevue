@@ -212,7 +212,7 @@ export default class NodeService {
     &lt;Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" /&gt;
     &lt;Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" /&gt;
 &lt;/div&gt;
-&lt;Tree :value="nodes" :expandedKeys="expandedKeys"&gt;&lt;/Tree&gt;
+&lt;Tree :value="nodes" v-model:expandedKeys="expandedKeys"&gt;&lt;/Tree&gt;
 
 </code></pre>
 
@@ -894,7 +894,7 @@ export default {
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
         </div>
-        <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>
+        <Tree :value="nodes" v-model:expandedKeys="expandedKeys"></Tree>
     </div>
 </template>
 
@@ -958,7 +958,7 @@ export default {
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
         </div>
-        <Tree :value="nodes" :expandedKeys="expandedKeys"></Tree>
+        <Tree :value="nodes" v-model:expandedKeys="expandedKeys"></Tree>
     </div>
 </template>
 
@@ -1018,7 +1018,7 @@ export default {
                 <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll"></p-button>
                 <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
             </div>
-            <p-tree :value="nodes" :expanded-keys="expandedKeys"></p-tree>
+            <p-tree :value="nodes" v-model:expanded-keys="expandedKeys"></p-tree>
         </div>
 
         <script type="module">

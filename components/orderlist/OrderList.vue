@@ -31,7 +31,7 @@
                 v-bind="listProps"
             >
                 <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
-                    <li :id="id + '_' + i" v-ripple role="option" :class="itemClass(item, `${id}_${i}`)" @click="onItemClick($event, item, i)" @touchend="onItemTouchEnd" :aria-selected="isSelected(item)">
+                    <li :id="id + '_' + i" v-ripple role="option" :class="itemClass(item, `${id}_${i}`)" @click="onItemClick($event, item, i)" @touchend="onItemTouchEnd" :aria-selected="isSelected(item)" @mousedown="onOptionMouseDown(i)">
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
@@ -148,9 +148,12 @@ export default {
         },
         onListFocus(event) {
             const selectedFirstItem = DomHandler.findSingle(this.list, 'li.p-orderlist-item.p-highlight');
-            const index = selectedFirstItem ? ObjectUtils.findIndexInList(selectedFirstItem, this.list.children) : '0';
+            const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.list.children);
 
             this.focused = true;
+
+            const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
+
             this.changeFocusedOptionIndex(index);
             this.$emit('focus', event);
         },
@@ -194,6 +197,10 @@ export default {
                 default:
                     break;
             }
+        },
+        onOptionMouseDown(index) {
+            this.focused = true;
+            this.focusedOptionIndex = index;
         },
         onArrowDownKey(event) {
             const optionIndex = this.findNextOptionIndex(this.focusedOptionIndex);

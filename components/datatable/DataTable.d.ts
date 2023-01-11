@@ -4,7 +4,7 @@ import { VirtualScrollerProps } from '../virtualscroller';
 
 type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
 
-type DataTableSortFieldType = string | ((item: any) => string) | undefined;
+type DataTableSortFieldType = string | ((item: any) => string) | undefined | null;
 
 type DataTableDataKeyType = string | ((item: any) => string) | undefined;
 
@@ -684,7 +684,7 @@ export interface DataTableProps {
     /**
      * One or more field names to use in row grouping.
      */
-    groupRowsBy?: (field: string) => object | string[] | string | undefined;
+    groupRowsBy?: ((field: string) => object) | string[] | string | undefined;
     /**
      * Whether the row groups can be expandable.
      */

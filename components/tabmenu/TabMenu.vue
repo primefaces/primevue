@@ -21,7 +21,7 @@
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
                             </a>
                         </template>
-                        <component v-else :is="$slots.item" :item="item"></component>
+                        <component v-else :is="$slots.item" :item="item" :index="i"></component>
                     </li>
                 </router-link>
                 <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)">
@@ -31,7 +31,7 @@
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
                     </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                    <component v-else :is="$slots.item" :item="item" :index="i"></component>
                 </li>
             </template>
             <li ref="inkbar" class="p-tabmenu-ink-bar"></li>

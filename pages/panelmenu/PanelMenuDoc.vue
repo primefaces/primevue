@@ -681,7 +681,7 @@ export default {
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
             </div>
-        <PanelMenu :model="items" :expandedKeys="expandedKeys" />
+        <PanelMenu :model="items" v-model:expandedKeys="expandedKeys" />
     </div>
 </template>
 
@@ -867,7 +867,7 @@ export default {
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
             </div>
-        <PanelMenu :model="items" :expandedKeys="expandedKeys" />
+        <PanelMenu :model="items" v-model:expandedKeys="expandedKeys" />
     </div>
 </template>
 
@@ -1053,7 +1053,7 @@ export default {
                 <p-button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2"></p-button>
                 <p-button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll"></p-button>
                 </div>
-            <p-panelmenu :model="items" :expanded-keys="expandedKeys"></p-panelmenu>
+            <p-panelmenu :model="items" v-model:expanded-keys="expandedKeys"></p-panelmenu>
         </div>
 
         <script type="module">

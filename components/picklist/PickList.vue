@@ -36,6 +36,7 @@
                         @click="onItemClick($event, item, i, 0)"
                         @dblclick="onItemDblClick($event, item, 0)"
                         @touchend="onItemTouchEnd"
+                        @mousedown="onOptionMouseDown(i, 'sourceList')"
                         role="option"
                         :aria-selected="isSelected(item, 0)"
                     >
@@ -80,6 +81,7 @@
                         @click="onItemClick($event, item, i, 1)"
                         @dblclick="onItemDblClick($event, item, 1)"
                         @keydown="onItemKeyDown($event, 'targetList')"
+                        @mousedown="onOptionMouseDown(i, 'targetList')"
                         @touchend="onItemTouchEnd"
                         role="option"
                         :aria-selected="isSelected(item, 1)"
@@ -236,9 +238,12 @@ export default {
         },
         onListFocus(event, listType) {
             const selectedFirstItem = DomHandler.findSingle(this.$refs[listType].$el, 'li.p-picklist-item.p-highlight');
-            const index = selectedFirstItem ? ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children) : '0';
+            const findIndex = ObjectUtils.findIndexInList(selectedFirstItem, this.$refs[listType].$el.children);
 
             this.focused[listType] = true;
+
+            const index = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : selectedFirstItem ? findIndex : -1;
+
             this.changeFocusedOptionIndex(index, listType);
             this.$emit('focus', event);
         },
@@ -246,6 +251,10 @@ export default {
             this.focused[listType] = false;
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
+        },
+        onOptionMouseDown(index, listType) {
+            this.focused[listType] = true;
+            this.focusedOptionIndex = index;
         },
         moveUp(event, listIndex) {
             if (this.d_selection && this.d_selection[listIndex]) {

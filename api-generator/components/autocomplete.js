@@ -387,11 +387,15 @@ const AutoCompleteSlots = [
     },
     {
         name: 'content',
-        description: 'Custom content for the virtual scroller'
+        description: 'Custom content for the virtual scroller.'
     },
     {
         name: 'loader',
-        description: 'Custom content for the virtual scroller loader items'
+        description: 'Custom content for the virtual scroller loader items.'
+    },
+    {
+        name: 'empty',
+        description: 'Custom empty template when there is no data to display.'
     }
 ];
 

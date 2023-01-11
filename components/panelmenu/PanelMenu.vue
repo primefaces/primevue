@@ -73,6 +73,7 @@ export default {
             activeItem: null
         };
     },
+
     methods: {
         getItemProp(item, name) {
             return item ? ObjectUtils.getItemValue(item[name]) : undefined;
@@ -81,7 +82,7 @@ export default {
             return this.getItemProp(item, 'label');
         },
         isItemActive(item) {
-            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : item === this.activeItem;
+            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : ObjectUtils.equals(item, this.activeItem);
         },
         isItemVisible(item) {
             return this.getItemProp(item, 'visible') !== false;
@@ -199,11 +200,10 @@ export default {
         },
         changeActiveItem(event, item, selfActive = false) {
             if (!this.isItemDisabled(item)) {
-                this.activeItem = selfActive ? item : this.activeItem && this.activeItem === item ? null : item;
-
                 const active = this.isItemActive(item);
-                const eventName = active ? 'panel-open' : 'panel-close';
+                const eventName = !active ? 'panel-open' : 'panel-close';
 
+                this.activeItem = selfActive ? item : this.activeItem && ObjectUtils.equals(item, this.activeItem) ? null : item;
                 this.changeExpandedKeys({ item, expanded: !active });
                 this.$emit(eventName, { originalEvent: event, item });
             }

@@ -1,5 +1,5 @@
 <template>
-    <JTPInput :modelValue="page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled" @update:modelValue="onChange($event)"></JTPInput>
+    <JTPInput ref="jtpInput" v-model="d_page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled"></JTPInput>
 </template>
 
 <script>
@@ -14,10 +14,20 @@ export default {
         pageCount: Number,
         disabled: Boolean
     },
-    methods: {
-        onChange(value) {
-            this.$emit('page-change', value - 1);
+    data() {
+        return {
+            d_page: null
+        };
+    },
+    watch: {
+        d_page(newValue) {
+            if (this.$refs.jtpInput && !this.$refs.jtpInput.focused) return;
+
+            this.$emit('page-change', newValue - 1);
         }
+    },
+    mounted() {
+        this.d_page = this.page;
     },
     computed: {
         inputArialabel() {
