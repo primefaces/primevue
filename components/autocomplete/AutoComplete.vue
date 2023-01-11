@@ -407,6 +407,11 @@ export default {
             }, 0); // For ScreenReaders
         },
         onFocus(event) {
+            if (this.disabled) {
+                // For ScreenReaders
+                return;
+            }
+
             if (!this.dirty && this.completeOnFocus) {
                 this.search(event, event.target.value, 'focus');
             }
@@ -424,6 +429,12 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
+            if (this.disabled) {
+                event.preventDefault();
+
+                return;
+            }
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -529,6 +540,11 @@ export default {
             }
         },
         onMultipleContainerFocus() {
+            if (this.disabled) {
+                // For ScreenReaders
+                return;
+            }
+
             this.focused = true;
         },
         onMultipleContainerBlur() {
@@ -536,6 +552,12 @@ export default {
             this.focused = false;
         },
         onMultipleContainerKeyDown(event) {
+            if (this.disabled) {
+                event.preventDefault();
+
+                return;
+            }
+
             switch (event.code) {
                 case 'ArrowLeft':
                     this.onArrowLeftKeyOnMultiple(event);

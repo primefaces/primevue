@@ -397,6 +397,11 @@ export default {
             }, 0); // For ScreenReaders
         },
         onFocus(event) {
+            if (this.disabled) {
+                // For ScreenReaders
+                return;
+            }
+
             this.focused = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
             this.overlayVisible && this.scrollInView(this.focusedOptionIndex);
@@ -409,6 +414,12 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
+            if (this.disabled) {
+                event.preventDefault();
+
+                return;
+            }
+
             const metaKey = event.metaKey || event.ctrlKey;
 
             switch (event.code) {

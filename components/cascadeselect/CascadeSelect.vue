@@ -278,6 +278,11 @@ export default {
             }, 0); // For ScreenReaders
         },
         onFocus(event) {
+            if (this.disabled) {
+                // For ScreenReaders
+                return;
+            }
+
             this.focused = true;
             this.$emit('focus', event);
         },
