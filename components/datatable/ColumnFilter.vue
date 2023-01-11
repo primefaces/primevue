@@ -76,7 +76,7 @@
                                     :aria-label="filterConstraintAriaLabel"
                                     @update:modelValue="onMenuMatchModeChange($event, i)"
                                 ></CFDropdown>
-                                <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
+                                <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" :applyFilter="applyFilter" />
                                 <div>
                                     <CFButton
                                         v-if="showRemoveIcon"
