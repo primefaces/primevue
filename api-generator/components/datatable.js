@@ -138,12 +138,6 @@ const DataTableProps = [
         description: 'Layout of the filter elements, valid values are "row" and "menu".'
     },
     {
-        name: 'filterOnOutsideClick',
-        type: 'boolean',
-        default: 'false',
-        description: 'Whether to trigger filter apply when outside of the element is clicked.'
-    },
-    {
         name: 'filterLocale',
         type: 'string',
         default: 'undefined',

@@ -49,7 +49,6 @@
                             :filters="d_filters"
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
-                            :filterOnOutsideClick="filterOnOutsideClick"
                             :filterInputProps="filterInputProps"
                             @column-click="onColumnHeaderClick($event)"
                             @column-mousedown="onColumnHeaderMouseDown($event)"
@@ -503,10 +502,6 @@ export default {
             default: false
         },
         stripedRows: {
-            type: Boolean,
-            default: false
-        },
-        filterOnOutsideClick: {
             type: Boolean,
             default: false
         },

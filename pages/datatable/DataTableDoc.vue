@@ -2039,12 +2039,6 @@ export default {
                             <td>Layout of the filter elements, valid values are "row" and "menu".</td>
                         </tr>
                         <tr>
-                            <td>filterOnOutsideClick</td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>Whether to trigger filter apply when outside of the element is clicked.</td>
-                        </tr>
-                        <tr>
                             <td>filterLocale</td>
                             <td>string</td>
                             <td>undefined</td>
