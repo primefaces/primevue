@@ -1,7 +1,8 @@
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type CalendarValueType = string | Date | string[] | Date[] | undefined;
+type OpenDateRange = [Date | null | undefined, Date | null | undefined];
+type CalendarValueType = string | Date | string[] | Date[] | OpenDateRange | undefined;
 
 type CalendarSlotDateType = { day: number; month: number; year: number; today: boolean; selectable: boolean };
 
