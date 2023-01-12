@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.22.1](https://github.com/primefaces/primevue/tree/3.22.1) (2023-01-12)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.22.0...3.22.1)
+
+- Sidebar: Extraneous non-props attributes warnings [\#3524](https://github.com/primefaces/primevue/issues/3524)
+
+**Fixed bugs:**
+
 ## [3.22.0](https://github.com/primefaces/primevue/tree/3.22.0) (2023-01-11)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.21.0...3.22.0)
