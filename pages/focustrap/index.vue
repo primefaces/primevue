@@ -1,7 +1,7 @@
 <template>
     <div>
         <Head>
-            <Title>Vue FocsuTrap Directive</Title>
+            <Title>Vue FocusTrap Directive</Title>
             <Meta name="description" content="Focus Trap keeps focus within a certain DOM element while tabbing." />
         </Head>
 
