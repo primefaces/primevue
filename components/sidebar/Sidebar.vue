@@ -28,6 +28,7 @@ import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Sidebar',
+    inheritAttrs: false,
     emits: ['update:visible', 'show', 'hide'],
     props: {
         visible: {
