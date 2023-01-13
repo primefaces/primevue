@@ -148,6 +148,11 @@ import Sidebar from 'primevue/sidebar';
                         <td>Callback to invoke when sidebar gets hidden.</td>
                     </tr>
                     <tr>
+                        <td>after-hide</td>
+                        <td>-</td>
+                        <td>Callback to invoke after dialog is hidden.</td>
+                    </tr>
+                    <tr>
                         <td>show</td>
                         <td>-</td>
                         <td>Callback to invoke when sidebar gets shown.</td>
@@ -210,7 +215,7 @@ import Sidebar from 'primevue/sidebar';
                         <td>Container element of a full screen sidebar.</td>
                     </tr>
                     <tr>
-                        <td>p-sidebar-active</td>
+                        <td>p-sidebar-visible</td>
                         <td>Container element when sidebar is visible.</td>
                     </tr>
                     <tr>

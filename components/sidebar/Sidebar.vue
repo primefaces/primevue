@@ -1,7 +1,7 @@
 <template>
     <Portal>
-        <div v-if="maskVisible" ref="mask" style="maskStyle" :class="maskClasses" @mousedown="onMaskClick">
-            <transition name="p-sidebar" @after-enter="onAfterEnter" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
+        <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @mousedown="onMaskClick">
+            <transition name="p-sidebar" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
                     <div :ref="headerContainerRef" class="p-sidebar-header">
                         <div v-if="$slots.header" class="p-sidebar-header-content">
@@ -29,7 +29,7 @@ import { DomHandler, ZIndexUtils } from 'primevue/utils';
 export default {
     name: 'Sidebar',
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide'],
+    emits: ['update:visible', 'show', 'hide', 'after-hide'],
     props: {
         visible: {
             type: Boolean,
@@ -69,18 +69,19 @@ export default {
         }
     },
     container: null,
+    mask: null,
     content: null,
     headerContainer: null,
     closeButton: null,
     outsideClickListener: null,
     data() {
         return {
-            maskVisible: false
+            containerVisible: this.visible
         };
     },
-    watch: {
-        visible(newValue) {
-            this.maskVisible = newValue ? newValue : this.maskVisible;
+    updated() {
+        if (this.visible) {
+            this.containerVisible = this.visible;
         }
     },
     beforeUnmount() {
@@ -100,17 +101,21 @@ export default {
         },
         onEnter() {
             this.$emit('show');
+            this.focus();
+            this.bindOutsideClickListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('modal', this.$refs.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
+                ZIndexUtils.set('modal', this.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
 
-            this.maskVisible = true;
-            this.focus();
+            if (this.blockScroll) {
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
+            }
+        },
+        onBeforeLeave() {
+            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
         },
         onLeave() {
-            DomHandler.addClass(this.$refs.mask, 'p-component-overlay-leave');
-
             this.$emit('hide');
             this.unbindOutsideClickListener();
         },
@@ -119,13 +124,12 @@ export default {
                 ZIndexUtils.clear(this.mask);
             }
 
-            this.maskVisible = false;
+            this.containerVisible = false;
+            this.$emit('after-hide');
         },
-        onAfterEnter() {
-            this.bindOutsideClickListener();
-
-            if (this.blockScroll) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
+        onMaskClick(event) {
+            if (this.dismissable && this.modal && this.mask === event.target) {
+                this.hide();
             }
         },
         focus() {
@@ -150,13 +154,11 @@ export default {
                 this.hide();
             }
         },
-        onMaskClick(event) {
-            if (this.dismissable && this.modal && this.$refs.mask === event.target) {
-                this.hide();
-            }
-        },
         containerRef(el) {
             this.container = el;
+        },
+        maskRef(el) {
+            this.mask = el;
         },
         contentRef(el) {
             this.content = el;
@@ -211,14 +213,14 @@ export default {
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         },
-        maskClasses() {
+        maskClass() {
             return [
                 'p-sidebar-mask',
                 this.getPositionClass(),
                 {
                     'p-component-overlay p-component-overlay-enter': this.modal,
                     'p-sidebar-mask-scrollblocker': this.blockScroll,
-                    'p-sidebar-visible': this.maskVisible,
+                    'p-sidebar-visible': this.containerVisible,
                     'p-sidebar-full': this.fullScreen
                 }
             ];
@@ -249,12 +251,12 @@ export default {
     transition-property: background-color;
 }
 
-.p-sidebar-visible {
-    display: flex;
-}
-
 .p-sidebar-mask.p-component-overlay {
     pointer-events: auto;
+}
+
+.p-sidebar-visible {
+    display: flex;
 }
 
 .p-sidebar {
@@ -389,14 +391,6 @@ export default {
 .p-sidebar-top .p-sidebar-lg,
 .p-sidebar-bottom .p-sidebar-lg {
     height: 30rem;
-}
-
-.p-sidebar-left .p-sidebar-view,
-.p-sidebar-right .p-sidebar-view,
-.p-sidebar-top .p-sidebar-view,
-.p-sidebar-bottom .p-sidebar-view {
-    width: 100%;
-    height: 100%;
 }
 
 .p-sidebar-left .p-sidebar-content,
