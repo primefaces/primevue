@@ -12,13 +12,13 @@ export default class ProductService {
     }
 
     getProducts() {
-        return fetch(this.contextPath + 'demo/data/products-small.json')
+        return fetch(this.contextPath + 'demo/data/products.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
 
     getProductsWithOrdersSmall() {
-        return fetch(this.contextPath + 'demo/data/products-small.json')
+        return fetch(this.contextPath + 'demo/data/products-orders-small.json')
             .then((res) => res.json())
             .then((d) => d.data);
     }
