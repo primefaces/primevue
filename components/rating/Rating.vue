@@ -143,6 +143,7 @@ export default {
 
 <style>
 .p-rating {
+    position: relative;
     display: flex;
     align-items: center;
 }

@@ -1,4 +1,5 @@
 .p-radiobutton {
+    position: relative;
     display: inline-flex;
     cursor: pointer;
     user-select: none;
