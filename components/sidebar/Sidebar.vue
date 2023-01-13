@@ -1,6 +1,6 @@
 <template>
     <Portal>
-        <div ref="mask" style="maskStyle" :class="maskClasses" @mousedown="onMaskClick">
+        <div v-if="maskVisible" ref="mask" style="maskStyle" :class="maskClasses" @mousedown="onMaskClick">
             <transition name="p-sidebar" @after-enter="onAfterEnter" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
                     <div :ref="headerContainerRef" class="p-sidebar-header">
@@ -65,7 +65,7 @@ export default {
         },
         blockScroll: {
             type: Boolean,
-            default: true
+            default: false
         }
     },
     container: null,
