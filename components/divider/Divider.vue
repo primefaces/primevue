@@ -123,7 +123,7 @@ export default {
     border-top-style: dotted;
 }
 
-.p-divider-dotted.p-divider-horizontal:before {
+.p-divider-dotted.p-divider-vertical:before {
     border-left-style: dotted;
 }
 </style>
