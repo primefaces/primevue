@@ -24,10 +24,13 @@ export default {
             if (this.$refs.jtpInput && !this.$refs.jtpInput.focused) return;
 
             this.$emit('page-change', newValue - 1);
+        },
+        page: {
+            handler(newValue) {
+                this.d_page = newValue;
+            },
+            immediate: true
         }
-    },
-    mounted() {
-        this.d_page = this.page;
     },
     computed: {
         inputArialabel() {
