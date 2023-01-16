@@ -1,11 +1,12 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import { describe, expect, it } from 'vitest';
+import DomHandler from '../utils/DomHandler';
 import Sidebar from './Sidebar.vue';
 describe('Sidebar.vue', () => {
     let wrapper;
 
-    beforeEach(() => {
+    beforeEach(async () => {
         wrapper = mount(Sidebar, {
             global: {
                 plugins: [PrimeVue],
@@ -14,7 +15,7 @@ describe('Sidebar.vue', () => {
                 }
             },
             props: {
-                visible: false,
+                visible: true,
                 bazeZIndex: 1000
             },
             slots: {
@@ -22,15 +23,14 @@ describe('Sidebar.vue', () => {
                 header: `<span class="header">Header Template</span>`
             }
         });
-        wrapper.setProps({ visible: true });
     });
 
     afterEach(() => {
         vi.clearAllMocks();
     });
 
-    it('When component is mounted, sidebar should be exist', () => {
-        expect(wrapper.find('.p-sidebar.p-component').exists()).toBe(true);
+    it('When component is mounted, sidebar should be exist', async () => {
+        expect(wrapper.find('.p-sidebar-mask').exists()).toBeTruthy();
     });
 
     it('When mask element triggered, sidebar should be hide', async () => {
@@ -48,7 +48,7 @@ describe('Sidebar.vue', () => {
         await wrapper.vm.onEnter();
 
         expect(wrapper.emitted().show.length).toBe(1);
-        expect(wrapper.vm.maskVisible).toBeTruthy();
+        expect(wrapper.vm.containerVisible).toBeTruthy();
         expect(focusSpy).toHaveBeenCalled();
     });
 
@@ -92,5 +92,38 @@ describe('Sidebar.vue', () => {
 
         expect(unbindOutsideClickListenerSpy).toHaveBeenCalled();
         expect(Sidebar.container).toBe(null);
+    });
+
+    it('When hide is triggered , removeClass util should be called', async () => {
+        const removeClassSpy = vi.spyOn(DomHandler, 'removeClass');
+
+        await wrapper.setProps({ blockScroll: true });
+        wrapper.vm.hide();
+
+        expect(removeClassSpy).toHaveBeenCalled();
+    });
+
+    it('When onEnter is triggered , addClass util should be called', async () => {
+        const addClassSpy = vi.spyOn(DomHandler, 'addClass');
+
+        await wrapper.setProps({ blockScroll: true });
+        wrapper.vm.onEnter();
+
+        expect(addClassSpy).toHaveBeenCalled();
+    });
+
+    it('When onBeforeLeave is triggered , addClass util should be called', async () => {
+        const addClassSpy = vi.spyOn(DomHandler, 'addClass');
+
+        await wrapper.setProps({ modal: true });
+        wrapper.vm.onBeforeLeave();
+
+        expect(addClassSpy).toHaveBeenCalled();
+    });
+
+    it('When onAfterLeave is triggered , containerVisible should be false', async () => {
+        wrapper.vm.onAfterLeave();
+
+        expect(wrapper.vm.containerVisible).toBeFalsy();
     });
 });
