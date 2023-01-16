@@ -1,5 +1,5 @@
 <template>
-    <JTPInput ref="jtpInput" v-model="d_page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled"></JTPInput>
+    <JTPInput ref="jtpInput" :modelValue="d_page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled" @update:modelValue="onChange"></JTPInput>
 </template>
 
 <script>
@@ -20,11 +20,16 @@ export default {
         };
     },
     watch: {
-        d_page(newValue) {
-            this.$emit('page-change', newValue - 1);
-        },
         page(newValue) {
             this.d_page = newValue;
+        }
+    },
+    methods: {
+        onChange(value) {
+            if (value !== this.page) {
+                this.d_page = value;
+                this.$emit('page-change', value - 1);
+            }
         }
     },
     computed: {
