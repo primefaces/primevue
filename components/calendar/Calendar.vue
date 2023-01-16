@@ -615,7 +615,9 @@ export default {
                 }
             }
         } else {
-            this.input.value = this.formatValue(this.modelValue);
+            if (this.input) {
+                this.input.value = this.formatValue(this.modelValue);
+            }
         }
     },
     updated() {
