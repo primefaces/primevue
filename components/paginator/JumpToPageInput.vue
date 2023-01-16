@@ -16,20 +16,15 @@ export default {
     },
     data() {
         return {
-            d_page: null
+            d_page: this.page
         };
     },
     watch: {
         d_page(newValue) {
-            if (this.$refs.jtpInput && !this.$refs.jtpInput.focused) return;
-
             this.$emit('page-change', newValue - 1);
         },
-        page: {
-            handler(newValue) {
-                this.d_page = newValue;
-            },
-            immediate: true
+        page(newValue) {
+            this.d_page = newValue;
         }
     },
     computed: {
