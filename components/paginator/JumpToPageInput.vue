@@ -1,5 +1,5 @@
 <template>
-    <JTPInput ref="jtpInput" v-model="d_page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled"></JTPInput>
+    <JTPInput ref="jtpInput" :modelValue="d_page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled" @update:modelValue="onChange"></JTPInput>
 </template>
 
 <script>
@@ -16,18 +16,21 @@ export default {
     },
     data() {
         return {
-            d_page: null
+            d_page: this.page
         };
     },
     watch: {
-        d_page(newValue) {
-            if (this.$refs.jtpInput && !this.$refs.jtpInput.focused) return;
-
-            this.$emit('page-change', newValue - 1);
+        page(newValue) {
+            this.d_page = newValue;
         }
     },
-    mounted() {
-        this.d_page = this.page;
+    methods: {
+        onChange(value) {
+            if (value !== this.page) {
+                this.d_page = value;
+                this.$emit('page-change', value - 1);
+            }
+        }
     },
     computed: {
         inputArialabel() {
