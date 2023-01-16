@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.22.2](https://github.com/primefaces/primevue/tree/3.22.2) (2023-01-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.22.1...3.22.2)
+
+**Implemented New Features and Enhancements:**
+
+- Sidebar: transition class update and adding `after-hide` event [\#3535](https://github.com/primefaces/primevue/issues/3535)
+
+**Fixed bugs:**
+
+- Divider: dotted vertical divider is not working [\#3534](https://github.com/primefaces/primevue/issues/3534)
+- RadioButton and Rating causes scroll [\#3533](https://github.com/primefaces/primevue/issues/3533)
+- Sidebar: Mask container should be removed from DOM [\#3531](https://github.com/primefaces/primevue/issues/3531)
+- Menu: TypeError with only disabled menuitems [\#3513](https://github.com/primefaces/primevue/issues/3513)
+- DataTable/Paginator:  JumpToInput not working.  Incrementing page not changing input value [\#3538](https://github.com/primefaces/primevue/issues/3538)
+
 ## [3.22.1](https://github.com/primefaces/primevue/tree/3.22.1) (2023-01-12)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.22.0...3.22.1)
