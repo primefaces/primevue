@@ -307,6 +307,11 @@
                             </a>
                         </div>
                         <div class="col-12 md:col-6">
+                            <a href="https://www.primefaces.org/layouts/apollo-vue">
+                                <img alt="Apollo" src="@/assets/images/layouts/apollo-vue.jpg" />
+                            </a>
+                        </div>
+                        <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/atlantis-vue">
                                 <img alt="Atlantis" src="@/assets/images/layouts/atlantis-vue.jpg" />
                             </a>
@@ -354,11 +359,6 @@
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/layouts/avalon-vue">
                                 <img alt="Avalon" src="@/assets/images/layouts/avalon-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/apollo-vue">
-                                <img alt="Apollo" src="@/assets/images/layouts/apollo-vue.jpg" />
                             </a>
                         </div>
                         <div class="col-12 md:col-6">

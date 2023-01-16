@@ -178,6 +178,9 @@
                         </li>
                         <li class="topbar-submenu-header">PREMIUM ADMIN TEMPLATES</li>
                         <li>
+                            <a href="https://www.primefaces.org/layouts/apollo-vue"><img src="@/assets/images/layouts/themeswitcher-apollo.svg" alt="Apollo" /><span>Apollo</span></a>
+                        </li>
+                        <li>
                             <a href="https://www.primefaces.org/layouts/atlantis-vue"><img src="@/assets/images/layouts/themeswitcher-atlantis.svg" alt="Atlantis" /><span>Atlantis</span></a>
                         </li>
                         <li>
@@ -206,9 +209,6 @@
                         </li>
                         <li>
                             <a href="https://www.primefaces.org/layouts/babylon-vue"><img src="@/assets/images/layouts/themeswitcher-babylon.png" alt="Babylon" /><span>Babylon</span></a>
-                        </li>
-                        <li>
-                            <a href="https://www.primefaces.org/layouts/apollo-vue"><img src="@/assets/images/layouts/themeswitcher-apollo.png" alt="Apollo" /><span>Apollo</span><span class="theme-badge darkmode">dark mode</span></a>
                         </li>
                         <li>
                             <a href="https://www.primefaces.org/layouts/roma-vue"><img src="@/assets/images/layouts/themeswitcher-roma.jpg" alt="Roma" /><span>Roma</span></a>
