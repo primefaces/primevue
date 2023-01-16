@@ -16,7 +16,7 @@
         <div class="content-section implementation">
             <div class="card">
                 <h5>Inline</h5>
-                <Menu :model="items" />
+                <Menu id="menu" :model="items" />
 
                 <h5>Overlay</h5>
                 <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
