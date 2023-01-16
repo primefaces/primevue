@@ -68,38 +68,35 @@ export default {
             default: false
         }
     },
+    data() {
+        return {
+            containerVisible: this.visible
+        };
+    },
     container: null,
     mask: null,
     content: null,
     headerContainer: null,
     closeButton: null,
     outsideClickListener: null,
-    data() {
-        return {
-            containerVisible: this.visible
-        };
-    },
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
         }
     },
     beforeUnmount() {
-        if (this.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.container);
+        this.disableDocumentSettings();
+
+        if (this.mask && this.autoZIndex) {
+            ZIndexUtils.clear(this.mask);
         }
 
-        this.unbindOutsideClickListener();
         this.container = null;
+        this.mask = null;
     },
     methods: {
         hide() {
             this.$emit('update:visible', false);
-            this.unbindOutsideClickListener();
-
-            if (this.blockScroll) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
-            }
         },
         onEnter() {
             this.$emit('show');
@@ -108,13 +105,9 @@ export default {
             if (this.autoZIndex) {
                 ZIndexUtils.set('modal', this.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
-
-            if (this.blockScroll) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
-            }
         },
         onAfterEnter() {
-            this.bindOutsideClickListener();
+            this.enableDocumentSettings();
         },
         onBeforeLeave() {
             if (this.modal) {
@@ -123,7 +116,6 @@ export default {
         },
         onLeave() {
             this.$emit('hide');
-            this.unbindOutsideClickListener();
         },
         onAfterLeave() {
             if (this.autoZIndex) {
@@ -131,6 +123,7 @@ export default {
             }
 
             this.containerVisible = false;
+            this.disableDocumentSettings();
             this.$emit('after-hide');
         },
         onMaskClick(event) {
@@ -154,6 +147,22 @@ export default {
             }
 
             focusTarget && focusTarget.focus();
+        },
+        enableDocumentSettings() {
+            if (this.dismissable && !this.modal) {
+                this.bindOutsideClickListener();
+            }
+
+            if (this.blockScroll) {
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
+            }
+        },
+        disableDocumentSettings() {
+            this.unbindOutsideClickListener();
+
+            if (this.blockScroll) {
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
+            }
         },
         onKeydown(event) {
             if (event.code === 'Escape') {
@@ -184,7 +193,7 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (!this.modal && this.isOutsideClicked(event) && this.dismissable) {
+                    if (this.isOutsideClicked(event)) {
                         this.hide();
                     }
                 };
