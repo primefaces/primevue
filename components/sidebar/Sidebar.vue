@@ -1,7 +1,7 @@
 <template>
     <Portal>
         <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @mousedown="onMaskClick">
-            <transition name="p-sidebar" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
+            <transition name="p-sidebar" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
                     <div :ref="headerContainerRef" class="p-sidebar-header">
                         <div v-if="$slots.header" class="p-sidebar-header-content">
@@ -95,14 +95,15 @@ export default {
     methods: {
         hide() {
             this.$emit('update:visible', false);
-
             this.unbindOutsideClickListener();
-            this.blockScroll && DomHandler.removeClass(document.body, 'p-overflow-hidden');
+
+            if (this.blockScroll) {
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
+            }
         },
         onEnter() {
             this.$emit('show');
             this.focus();
-            this.bindOutsideClickListener();
 
             if (this.autoZIndex) {
                 ZIndexUtils.set('modal', this.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
@@ -112,8 +113,13 @@ export default {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
+        onAfterEnter() {
+            this.bindOutsideClickListener();
+        },
         onBeforeLeave() {
-            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            if (this.modal) {
+                DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            }
         },
         onLeave() {
             this.$emit('hide');
