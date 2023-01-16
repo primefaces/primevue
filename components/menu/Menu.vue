@@ -252,7 +252,7 @@ export default {
             const links = DomHandler.find(this.container, 'li.p-menuitem:not(.p-disabled)');
             let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
 
-            this.focusedOptionIndex = links[order].getAttribute('id');
+            order > -1 && (this.focusedOptionIndex = links[order].getAttribute('id'));
         },
         toggle(event) {
             if (this.overlayVisible) this.hide();
