@@ -1539,7 +1539,7 @@ export default {
 
             <h5>Data Export</h5>
             <p>DataTable can export its data in CSV format using <i>exportCSV()</i> method.</p>
-            <pre v-code><code>>
+            <pre v-code><code>
 &lt;DataTable :value="cars" ref="dt"&gt;
     &lt;template #header&gt;
         &lt;div style="text-align: left"&gt;
