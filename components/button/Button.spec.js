@@ -81,4 +81,29 @@ describe('Button.vue', () => {
 
         expect(wrapper.html()).toBe('<button class="p-button p-component" type="button"><span class="ml-2 font-bold">Default PrimeVue Button</span></button>');
     });
+
+    it('should render default slot for a tag', () => {
+        const wrapper = mount(Button, {
+            props: { href: 'https://www.primefaces.org/primevue/' },
+            slots: {
+                default: h('span', { class: 'ml-2 font-bold' }, 'Default PrimeVue Button')
+            }
+        });
+
+        expect(wrapper.html()).toBe('<a class="p-button p-component" href="https://www.primefaces.org/primevue/"><span class="ml-2 font-bold">Default PrimeVue Button</span></a>');
+    });
+});
+
+describe('Button.vue', () => {
+    it('should render a tag when href is given', () => {
+        const href = 'https://www.primefaces.org/primevue/';
+        const props = { href };
+        let wrapper;
+
+        wrapper = mount(Button, {
+            props
+        });
+
+        expect(wrapper.find('a').exists()).toBe(true);
+    });
 });

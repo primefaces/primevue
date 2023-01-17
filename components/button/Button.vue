@@ -1,12 +1,24 @@
 <template>
-    <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled">
-        <slot>
-            <span v-if="loading && !icon" :class="iconStyleClass"></span>
-            <span v-if="icon" :class="iconStyleClass"></span>
-            <span class="p-button-label">{{ label || '&nbsp;' }}</span>
-            <span v-if="badge" :class="badgeStyleClass">{{ badge }}</span>
-        </slot>
-    </button>
+    <template v-if="isLink">
+        <a v-ripple :class="buttonClass" :aria-label="defaultAriaLabel" :href="href">
+            <slot>
+                <span v-if="loading && !icon" :class="iconStyleClass"></span>
+                <span v-if="icon" :class="iconStyleClass"></span>
+                <span class="p-button-label">{{ label || '&nbsp;' }}</span>
+                <span v-if="badge" :class="badgeStyleClass">{{ badge }}</span>
+            </slot>
+        </a>
+    </template>
+    <template v-else>
+        <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled">
+            <slot>
+                <span v-if="loading && !icon" :class="iconStyleClass"></span>
+                <span v-if="icon" :class="iconStyleClass"></span>
+                <span class="p-button-label">{{ label || '&nbsp;' }}</span>
+                <span v-if="badge" :class="badgeStyleClass">{{ badge }}</span>
+            </slot>
+        </button>
+    </template>
 </template>
 
 <script>
@@ -46,7 +58,11 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
-        }
+        },
+        href: {
+            type: String,
+            default: null
+        },
     },
     computed: {
         buttonClass() {
@@ -86,7 +102,10 @@ export default {
         },
         defaultAriaLabel() {
             return this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs['aria-label'];
-        }
+        },
+        isLink() {
+            return !!this.href;
+        },
     },
     directives: {
         ripple: Ripple
