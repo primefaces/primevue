@@ -347,8 +347,6 @@ const Tooltip = {
             target.$_ptooltipScrollHandler.destroy();
             target.$_ptooltipScrollHandler = null;
         }
-
-        ZIndexUtils.clear(el);
     },
     updated(el, options) {
         let target = getTarget(el);

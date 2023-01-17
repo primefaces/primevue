@@ -1,9 +1,9 @@
 function handler() {
     let zIndexes = [];
 
-    const generateZIndex = (key, baseZIndex) => {
-        let lastZIndex = zIndexes.length > 0 ? zIndexes[zIndexes.length - 1] : { key, value: baseZIndex };
-        let newZIndex = lastZIndex.value + (lastZIndex.key === key ? 0 : baseZIndex) + 1;
+    const generateZIndex = (key, baseZIndex = 999) => {
+        const lastZIndex = getLastZIndex(key, baseZIndex);
+        const newZIndex = lastZIndex.value + (lastZIndex.key === key ? 0 : baseZIndex) + 1;
 
         zIndexes.push({ key, value: newZIndex });
 
@@ -14,8 +14,12 @@ function handler() {
         zIndexes = zIndexes.filter((obj) => obj.value !== zIndex);
     };
 
-    const getCurrentZIndex = () => {
-        return zIndexes.length > 0 ? zIndexes[zIndexes.length - 1].value : 0;
+    const getCurrentZIndex = (key) => {
+        return getLastZIndex(key).value;
+    };
+
+    const getLastZIndex = (key, baseZIndex = 0) => {
+        return [...zIndexes].reverse().find((obj) => obj.key === key) || { key, value: baseZIndex };
     };
 
     const getZIndex = (el) => {
@@ -35,7 +39,7 @@ function handler() {
                 el.style.zIndex = '';
             }
         },
-        getCurrent: () => getCurrentZIndex()
+        getCurrent: (key) => getCurrentZIndex(key)
     };
 }
 
