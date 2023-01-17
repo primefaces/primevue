@@ -3,26 +3,26 @@
         <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
         <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="previewButtonProps">
             <slot name="indicator">
-                <i class="p-image-preview-icon pi pi-eye"></i>
+                <i :class="iconClass"></i>
             </slot>
         </button>
         <Portal>
             <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="maskClass" :aria-modal="maskVisible" @click="onMaskClick" @keydown="onMaskKeydown">
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button" :aria-label="rightAriaLabel">
-                        <i class="pi pi-refresh"></i>
+                        <i :class="editorIconClass[0]"></i>
                     </button>
                     <button class="p-image-action p-link" @click="rotateLeft" type="button" :aria-label="leftAriaLabel">
-                        <i class="pi pi-undo"></i>
+                        <i :class="editorIconClass[1]"></i>
                     </button>
                     <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="zoomDisabled" :aria-label="zoomOutAriaLabel">
-                        <i class="pi pi-search-minus"></i>
+                        <i :class="editorIconClass[2]"></i>
                     </button>
                     <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="zoomDisabled" :aria-label="zoomInAriaLabel">
-                        <i class="pi pi-search-plus"></i>
+                        <i :class="editorIconClass[3]"></i>
                     </button>
                     <button class="p-image-action p-link" type="button" @click="hidePreview" :aria-label="closeAriaLabel" autofocus>
-                        <i class="pi pi-times"></i>
+                        <i :class="editorIconClass[4]"></i>
                     </button>
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
@@ -68,6 +68,14 @@ export default {
         previewButtonProps: {
             type: null,
             default: null
+        },
+        icon: {
+            type: String,
+            default: 'pi pi-eye'
+        },
+        editorIcons: {
+            type: Array,
+            default: ()=>['pi pi-refresh','pi pi-undo','pi pi-search-minus','pi pi-search-plus','pi pi-times']
         }
     },
     mask: null,
@@ -179,6 +187,12 @@ export default {
                     'p-image-preview-container': this.preview
                 }
             ];
+        },
+        iconClass() {
+            return ['p-image-preview-icon', this.icon];
+        },
+        editorIconClass(){
+            return this.editorIcons
         },
         maskClass() {
             return ['p-image-mask p-component-overlay p-component-overlay-enter'];
