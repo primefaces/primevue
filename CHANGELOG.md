@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.22.3](https://github.com/primefaces/primevue/tree/3.22.3) (2023-01-17)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.22.2...3.22.3)
+
+**Fixed bugs:**
+
+- ZIndexUtils is not working as expected on the overlays  [\#3549](https://github.com/primefaces/primevue/issues/3549)
+
 ## [3.22.2](https://github.com/primefaces/primevue/tree/3.22.2) (2023-01-16)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.22.1...3.22.2)
