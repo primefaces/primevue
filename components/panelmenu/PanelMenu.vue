@@ -70,10 +70,18 @@ export default {
     },
     data() {
         return {
+            id: this.$attrs.id,
             activeItem: null
         };
     },
-
+    watch: {
+        '$attrs.id': function (newVal) {
+            this.id = newVal || UniqueComponentId();
+        }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
+    },
     methods: {
         getItemProp(item, name) {
             return item ? ObjectUtils.getItemValue(item[name]) : undefined;
@@ -248,11 +256,6 @@ export default {
         },
         getHeaderToggleIconClass(item) {
             return ['p-submenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right'];
-        }
-    },
-    computed: {
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         }
     },
     components: {

@@ -200,7 +200,7 @@ export default {
         onEnterKey(event) {
             if (ObjectUtils.isNotEmpty(this.focusedItem)) {
                 const element = DomHandler.findSingle(this.$el, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
+                const anchorElement = element && (DomHandler.findSingle(element, '.p-menuitem-link') || DomHandler.findSingle(element, 'a,button'));
 
                 anchorElement ? anchorElement.click() : element && element.click();
             }
