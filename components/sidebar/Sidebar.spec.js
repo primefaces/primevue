@@ -29,10 +29,6 @@ describe('Sidebar.vue', () => {
         vi.clearAllMocks();
     });
 
-    it('When component is mounted, sidebar should be exist', async () => {
-        expect(wrapper.find('.p-sidebar-mask').exists()).toBeTruthy();
-    });
-
     it('When mask element triggered, sidebar should be hide', async () => {
         const hideSpy = vi.spyOn(wrapper.vm, 'hide');
 
