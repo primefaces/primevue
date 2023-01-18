@@ -129,7 +129,7 @@
                         </div>
                     </div>
 
-                    <h5 class="flex align-items-center">PrimeOne Design - 2022 <Tag class="ml-3" value="NEW" rounded severity="success"></Tag></h5>
+                    <h5 class="flex align-items-center">PrimeOne Design <Tag class="ml-3" value="NEW" rounded severity="success"></Tag></h5>
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
@@ -181,7 +181,7 @@
                         </div>
                     </div>
 
-                    <h5>PrimeOne Design - 2021</h5>
+                    <h5>PrimeOne Design - Legacy</h5>
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'saga-blue')">
@@ -299,7 +299,7 @@
                     </div>
 
                     <h4>Admin Templates</h4>
-                    <p>Beautifully crafted <a href="https://cli.vuejs.org">Vue CLI</a> application templates by the PrimeTek design team.</p>
+                    <p>Beautifully crafted application templates by PrimeTek.</p>
                     <div class="grid premium-themes">
                         <div class="col-12 md:col-6">
                             <a href="https://www.primefaces.org/sakai-vue">
