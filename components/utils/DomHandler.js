@@ -513,7 +513,7 @@ export default {
     },
 
     isExist(element) {
-        return element !== null && typeof element !== 'undefined' && element.nodeName && element.parentNode;
+        return !!(element !== null && typeof element !== 'undefined' && element.nodeName && element.parentNode);
     },
 
     isClient() {
