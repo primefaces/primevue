@@ -1,12 +1,16 @@
-import { afterEach } from 'vitest';
+import { afterEach, expect } from 'vitest';
 import DomHandler from '../DomHandler';
 
 let mockHtmlElement;
+const { window } = global;
 
-global.navigator = {
-    userAgent: 'testUserAgent'
-};
 beforeEach(() => {
+    vi.clearAllMocks();
+    mockHtmlElement = null;
+    global.navigator = {
+        userAgent: 'testUserAgent'
+    };
+
     let testId = 'dummy-testId';
 
     mockHtmlElement = document.createElement('div');
@@ -15,9 +19,9 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-    mockHtmlElement = null;
-    vi.clearAllMocks();
+    document.body.removeChild(mockHtmlElement);
 });
+
 describe('DomHandler', () => {
     describe('innerWidth', () => {
         it('When el parameter is null, offsetWidth should be 0', () => {
@@ -170,20 +174,25 @@ describe('DomHandler', () => {
 
         it('When el parameter is not null and mockHtmlElement is a child', () => {
             const mockParentElement = document.createElement('div');
+            const mockChildElement = document.createElement('p');
 
-            mockParentElement.appendChild(mockHtmlElement);
+            mockParentElement.appendChild(mockChildElement);
 
-            expect(DomHandler.index(mockHtmlElement)).toBe(0);
+            expect(DomHandler.index(mockChildElement)).toBe(0);
+
+            mockParentElement.removeChild(mockChildElement);
+            document.body.appendChild(mockParentElement);
         });
 
         it('When el parameter is not null and mockHtmlElements parent has a nodetype 1 child', () => {
             const mockParentElement = document.createElement('div');
             const mockChild = document.createElement('p');
+            const mockChild1 = document.createElement('p');
 
             mockParentElement.appendChild(mockChild);
-            mockParentElement.appendChild(mockHtmlElement);
+            mockParentElement.appendChild(mockChild1);
 
-            expect(DomHandler.index(mockHtmlElement)).toBe(1);
+            expect(DomHandler.index(mockChild1)).toBe(1);
         });
     });
 
@@ -287,6 +296,8 @@ describe('DomHandler', () => {
             mockHtmlElement.appendChild(mockChild);
 
             expect(DomHandler.find(mockHtmlElement, 'p')).not.toBe([]);
+
+            mockHtmlElement.removeChild(mockChild);
         });
     });
 
@@ -301,6 +312,8 @@ describe('DomHandler', () => {
             mockHtmlElement.appendChild(mockChild);
 
             expect(DomHandler.findSingle(mockHtmlElement, 'p')).not.toBe(null);
+
+            mockHtmlElement.removeChild(mockChild);
         });
     });
 
@@ -354,6 +367,9 @@ describe('DomHandler', () => {
             DomHandler.absolutePosition(element, target);
             expect(element.style['transform-origin']).toBe('top');
             expect(element.style.top).toBe('300px');
+
+            document.body.removeChild(element);
+            document.body.removeChild(target);
         });
 
         it('When element position smaller than viewport.height', () => {
@@ -373,6 +389,9 @@ describe('DomHandler', () => {
             DomHandler.absolutePosition(element, target);
             expect(element.style['transform-origin']).toBe('bottom');
             expect(element.style.top).toBe('600px');
+
+            document.body.removeChild(element);
+            document.body.removeChild(target);
         });
     });
 
@@ -396,6 +415,9 @@ describe('DomHandler', () => {
             DomHandler.relativePosition(element, target);
 
             expect(element.style['transform-origin']).toBe('top');
+
+            document.body.removeChild(element);
+            document.body.removeChild(target);
         });
 
         it('When element position smaller than viewport.height', () => {
@@ -417,6 +439,9 @@ describe('DomHandler', () => {
             DomHandler.relativePosition(element, target);
 
             expect(element.style['transform-origin']).toBe('bottom');
+
+            document.body.removeChild(element);
+            document.body.removeChild(target);
         });
     });
 
@@ -446,9 +471,10 @@ describe('DomHandler', () => {
             mockHtmlElement.style.height = '100px';
             mockHtmlElement.appendChild(element);
             expect(DomHandler.getScrollableParents(element).length).toBe(1);
+
+            mockHtmlElement.removeChild(element);
         });
     });
-
     describe('getHiddenElementOuterHeight', () => {
         it('When element is null or not html element', () => {
             expect(DomHandler.getHiddenElementOuterHeight(null)).toBe(0);
@@ -543,7 +569,102 @@ describe('DomHandler', () => {
         it('When getSelection is not empty', () => {
             mockHtmlElement.style.display = 'none';
 
-            expect(DomHandler.isVisible(mockHtmlElement)).toBe(false);
+            expect(DomHandler.isVisible(mockHtmlElement)).toBeFalsy();
+        });
+    });
+
+    describe('resolveUserAgent', () => {
+        it('When getSelection is not empty', () => {
+            expect(DomHandler.resolveUserAgent()).toStrictEqual({ browser: '', version: '0' });
+        });
+    });
+    describe('isExist', () => {
+        it('When element is null or undefined', () => {
+            expect(DomHandler.isExist(null)).toBeFalsy();
+            expect(DomHandler.isExist(undefined)).toBeFalsy();
+        });
+
+        it('When element is a html element and has a parent element', () => {
+            const element = document.createElement('div');
+            const parent = document.createElement('div');
+
+            parent.appendChild(element);
+
+            expect(DomHandler.isExist(element)).toBeTruthy();
+        });
+    });
+
+    describe('isClient', () => {
+        it('When window is undefined', () => {
+            delete global.window;
+
+            expect(DomHandler.isClient()).toBeFalsy();
+
+            global.window = window;
+        });
+    });
+
+    describe('focuse', () => {
+        it('When element focused, document active element should be changed', () => {
+            const element = document.createElement('input');
+
+            mockHtmlElement.appendChild(element);
+
+            DomHandler.focus(element);
+
+            expect(document.activeElement.tagName).toBe('INPUT');
+
+            mockHtmlElement.removeChild(element);
+        });
+    });
+
+    describe('applyStyle', () => {
+        it('When style parametre is an object', () => {
+            mockHtmlElement.style.color = 'red';
+
+            DomHandler.applyStyle(mockHtmlElement, { color: 'blue' });
+
+            expect(mockHtmlElement.style.color).toBe('blue');
+        });
+
+        it('When style parametre is a string', () => {
+            let style = 'color:red';
+
+            DomHandler.applyStyle(mockHtmlElement, style);
+
+            expect(mockHtmlElement.style.color).toBe('red');
+        });
+    });
+
+    describe('isIOS', () => {
+        it('When style parametre is an object', () => {
+            global.window.navigator.userAgent = 'iPhone';
+
+            expect(DomHandler.isIOS()).toBeTruthy();
+        });
+    });
+
+    describe('isIOS', () => {
+        it('When style parametre is an object', () => {
+            global.window.navigator.userAgent = 'iPhone';
+
+            expect(DomHandler.isIOS()).toBeTruthy();
+        });
+    });
+
+    describe('isAndroid', () => {
+        it('When style parametre is an object', () => {
+            global.window.navigator.userAgent = 'android';
+
+            expect(DomHandler.isAndroid()).toBeTruthy();
+        });
+    });
+
+    describe('isTouchDevice', () => {
+        it('When style parametre is an object', () => {
+            global.window.navigator.userAgent = 'iPhone';
+
+            expect(DomHandler.isTouchDevice()).toBeFalsy();
         });
     });
 });
