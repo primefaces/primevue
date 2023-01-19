@@ -103,10 +103,19 @@ export default {
     },
     data() {
         return {
+            id: this.menuId,
             currentIndex: -3,
             focused: false,
             focusedOptionIndex: -1
         };
+    },
+    watch: {
+        menuId(newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         getItemId(index) {
@@ -263,9 +272,6 @@ export default {
         }
     },
     computed: {
-        id() {
-            return this.menuId || UniqueComponentId();
-        },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
         }

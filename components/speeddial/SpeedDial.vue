@@ -115,6 +115,7 @@ export default {
     list: null,
     data() {
         return {
+            id: this.$attrs.id,
             d_visible: this.visible,
             isItemClicked: false,
             focused: false,
@@ -122,11 +123,16 @@ export default {
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         visible(newValue) {
             this.d_visible = newValue;
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.type !== 'linear') {
             const button = DomHandler.findSingle(this.container, '.p-speeddial-button');
             const firstItem = DomHandler.findSingle(this.list, '.p-speeddial-item');
@@ -514,9 +520,6 @@ export default {
                 },
                 this.maskClass
             ];
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;

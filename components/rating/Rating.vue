@@ -77,8 +77,17 @@ export default {
     },
     data() {
         return {
+            name: this.$attrs.name,
             focusedOptionIndex: -1
         };
+    },
+    watch: {
+        '$attrs.name': function (newValue) {
+            this.name = newValue || UniqueComponentId();
+        }
+    },
+    mounted() {
+        this.name = this.name || UniqueComponentId();
     },
     methods: {
         onOptionClick(event, value) {
@@ -133,9 +142,6 @@ export default {
         },
         offIconClass() {
             return ['p-rating-icon', this.offIcon];
-        },
-        name() {
-            return this.$attrs.name || UniqueComponentId();
         }
     }
 };

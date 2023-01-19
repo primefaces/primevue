@@ -75,8 +75,8 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newVal) {
-            this.id = newVal || UniqueComponentId();
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
         }
     },
     mounted() {

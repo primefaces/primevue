@@ -185,17 +185,23 @@ export default {
     focusOnHover: false,
     data() {
         return {
+            id: this.$attrs.id,
             filterValue: null,
             focused: false,
             focusedOptionIndex: -1
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         this.autoUpdateModel();
     },
     methods: {
@@ -732,9 +738,6 @@ export default {
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;

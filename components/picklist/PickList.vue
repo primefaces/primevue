@@ -201,6 +201,7 @@ export default {
     styleElement: null,
     data() {
         return {
+            id: this.$attrs.id,
             d_selection: this.selection,
             focused: {
                 sourceList: false,
@@ -210,6 +211,9 @@ export default {
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         selection(newValue) {
             this.d_selection = newValue;
         }
@@ -225,6 +229,8 @@ export default {
         this.destroyStyle();
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.responsive) {
             this.createStyle();
         }
@@ -797,10 +803,10 @@ export default {
     },
     computed: {
         idSource() {
-            return this.$attrs.id || UniqueComponentId();
+            return `${this.id}_source`;
         },
         idTarget() {
-            return this.$attrs.id || UniqueComponentId();
+            return `${this.id}_target`;
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;

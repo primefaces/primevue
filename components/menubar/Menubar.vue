@@ -80,6 +80,7 @@ export default {
     },
     data() {
         return {
+            id: this.$attrs.id,
             mobileActive: false,
             focused: false,
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
@@ -88,6 +89,9 @@ export default {
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         activeItemPath(newPath) {
             if (ObjectUtils.isNotEmpty(newPath)) {
                 this.bindOutsideClickListener();
@@ -101,6 +105,9 @@ export default {
     outsideClickListener: null,
     container: null,
     menubar: null,
+    mounted() {
+        this.id = this.id || UniqueComponentId();
+    },
     beforeUnmount() {
         this.mobileActive = false;
         this.unbindOutsideClickListener();
@@ -592,9 +599,6 @@ export default {
             const processedItem = this.activeItemPath.find((p) => p.key === this.focusedItemInfo.parentKey);
 
             return processedItem ? processedItem.items : this.processedItems;
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         focusedItemId() {
             return this.focusedItemInfo.index !== -1 ? `${this.id}${ObjectUtils.isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;

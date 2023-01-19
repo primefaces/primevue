@@ -78,13 +78,20 @@ export default {
     },
     data() {
         return {
+            id: this.$attrs.id,
             d_activeIndex: this.activeIndex
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         activeIndex(newValue) {
             this.d_activeIndex = newValue;
         }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     methods: {
         isAccordionTab(child) {
@@ -255,9 +262,6 @@ export default {
 
                 return tabs;
             }, []);
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         }
     },
     directives: {

@@ -84,11 +84,17 @@ export default {
     },
     data() {
         return {
+            id: this.$attrs.id,
             overlayVisible: false,
             focused: false,
             focusedOptionIndex: -1,
             selectedOptionIndex: -1
         };
+    },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
     },
     target: null,
     outsideClickListener: null,
@@ -97,6 +103,8 @@ export default {
     container: null,
     list: null,
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (!this.popup) {
             this.bindResizeListener();
             this.bindOutsideClickListener();
@@ -388,9 +396,6 @@ export default {
                     'p-ripple-disabled': this.$primevue.config.ripple === false
                 }
             ];
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;

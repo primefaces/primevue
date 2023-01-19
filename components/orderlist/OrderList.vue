@@ -120,10 +120,16 @@ export default {
     list: null,
     data() {
         return {
+            id: this.$attrs.id,
             d_selection: this.selection,
             focused: false,
             focusedOptionIndex: -1
         };
+    },
+    watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        }
     },
     beforeUnmount() {
         this.destroyStyle();
@@ -135,6 +141,8 @@ export default {
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         if (this.responsive) {
             this.createStyle();
         }
@@ -549,9 +557,6 @@ export default {
                     'p-orderlist-striped': this.stripedRows
                 }
             ];
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         attributeSelector() {
             return UniqueComponentId();

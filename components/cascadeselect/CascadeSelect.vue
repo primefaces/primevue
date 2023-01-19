@@ -192,6 +192,7 @@ export default {
     focusOnHover: false,
     data() {
         return {
+            id: this.$attrs.id,
             focused: false,
             focusedOptionInfo: { index: -1, level: 0, parentKey: '' },
             activeOptionPath: [],
@@ -200,11 +201,16 @@ export default {
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         this.autoUpdateModel();
     },
     beforeUnmount() {
@@ -845,9 +851,6 @@ export default {
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionInfo.index !== -1 ? `${this.id}${ObjectUtils.isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;

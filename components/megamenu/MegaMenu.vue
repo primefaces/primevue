@@ -79,6 +79,7 @@ export default {
     searchValue: null,
     data() {
         return {
+            id: this.$attrs.id,
             focused: false,
             focusedItemInfo: { index: -1, key: '', parentKey: '' },
             activeItem: null,
@@ -86,6 +87,9 @@ export default {
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         activeItem(newItem) {
             if (ObjectUtils.isNotEmpty(newItem)) {
                 this.bindOutsideClickListener();
@@ -95,6 +99,9 @@ export default {
                 this.unbindResizeListener();
             }
         }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
@@ -602,9 +609,6 @@ export default {
         },
         vertical() {
             return this.orientation === 'vertical';
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         focusedItemId() {
             return ObjectUtils.isNotEmpty(this.focusedItemInfo.key) ? `${this.id}_${this.focusedItemInfo.key}` : null;

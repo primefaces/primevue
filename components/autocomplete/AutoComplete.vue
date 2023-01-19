@@ -316,6 +316,7 @@ export default {
     dirty: false,
     data() {
         return {
+            id: this.$attrs.id,
             focused: false,
             focusedOptionIndex: -1,
             focusedMultipleOptionIndex: -1,
@@ -324,6 +325,9 @@ export default {
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         suggestions() {
             if (this.searching) {
                 ObjectUtils.isNotEmpty(this.suggestions) ? this.show() : !!this.$slots.empty ? this.show() : this.hide();
@@ -335,6 +339,8 @@ export default {
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         this.autoUpdateModel();
     },
     updated() {
@@ -1055,9 +1061,6 @@ export default {
         },
         selectedMessageText() {
             return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;

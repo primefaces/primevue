@@ -108,12 +108,16 @@ export default {
     },
     data() {
         return {
+            id: this.$attrs.id,
             d_activeIndex: this.activeIndex,
             isPrevButtonDisabled: true,
             isNextButtonDisabled: false
         };
     },
     watch: {
+        '$attrs.id': function (newValue) {
+            this.id = newValue || UniqueComponentId();
+        },
         activeIndex(newValue) {
             this.d_activeIndex = newValue;
 
@@ -121,6 +125,8 @@ export default {
         }
     },
     mounted() {
+        this.id = this.id || UniqueComponentId();
+
         this.updateInkBar();
         this.scrollable && this.updateButtonState();
     },
@@ -358,9 +364,6 @@ export default {
         },
         nextButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.next : undefined;
-        },
-        id() {
-            return this.$attrs.id || UniqueComponentId();
         }
     },
     directives: {
