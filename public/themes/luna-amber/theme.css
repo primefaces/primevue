@@ -4394,6 +4394,7 @@
   border-radius: 0;
 }
 .p-contextmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  color: #dedede;
   padding: 0.857rem;
   user-select: none;
 }
@@ -4533,6 +4534,7 @@
   border-radius: 0;
 }
 .p-megamenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  color: #dedede;
   padding: 0.857rem;
   user-select: none;
 }
@@ -4651,6 +4653,7 @@
   border-radius: 0;
 }
 .p-menu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  color: #dedede;
   padding: 0.857rem;
   user-select: none;
 }
@@ -4762,6 +4765,7 @@
   border-radius: 0;
 }
 .p-menubar .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  color: #dedede;
   padding: 0.857rem;
   user-select: none;
 }
@@ -4922,6 +4926,7 @@
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .p-panelmenu .p-panelmenu-header .p-panelmenu-header-content .p-panelmenu-header-action {
+  color: #dedede;
   padding: 0.857rem 1rem;
   font-weight: 700;
 }
@@ -4974,6 +4979,7 @@
   border-radius: 0;
 }
 .p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  color: #dedede;
   padding: 0.857rem;
   user-select: none;
 }
@@ -5147,6 +5153,7 @@
   border-radius: 0;
 }
 .p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  color: #dedede;
   padding: 0.857rem;
   user-select: none;
 }
