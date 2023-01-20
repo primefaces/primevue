@@ -2,7 +2,7 @@
     <div :class="containerClass">
         <ul
             ref="container"
-            class="p-inputtext p-chips-multiple-container"
+            :class="listClass"
             tabindex="-1"
             role="listbox"
             aria-orientation="horizontal"
@@ -300,9 +300,16 @@ export default {
                 'p-chips p-component p-inputwrapper',
                 {
                     'p-disabled': this.disabled,
-                    'p-focus': this.focused,
                     'p-inputwrapper-filled': (this.modelValue && this.modelValue.length) || (this.inputValue && this.inputValue.length),
                     'p-inputwrapper-focus': this.focused
+                }
+            ];
+        },
+        listClass() {
+            return [
+                'p-inputtext p-chips-multiple-container',
+                {
+                    'p-focus': this.focused
                 }
             ];
         },
