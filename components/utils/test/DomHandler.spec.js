@@ -11,7 +11,7 @@ beforeEach(() => {
         userAgent: 'testUserAgent'
     };
 
-    let testId = 'dummy-testId';
+    const testId = 'dummy-testId';
 
     mockHtmlElement = document.createElement('div');
     mockHtmlElement.setAttribute('id', testId);
@@ -351,10 +351,10 @@ describe('DomHandler', () => {
 
     describe('absolutePosition', () => {
         it('When element position bigger than viewport.height', () => {
-            let element = document.createElement('div');
+            const element = document.createElement('div');
 
             document.body.appendChild(element);
-            let target = document.createElement('div');
+            const target = document.createElement('div');
 
             target.getBoundingClientRect = () => {
                 return {
@@ -373,10 +373,10 @@ describe('DomHandler', () => {
         });
 
         it('When element position smaller than viewport.height', () => {
-            let element = document.createElement('div');
+            const element = document.createElement('div');
 
             document.body.appendChild(element);
-            let target = document.createElement('div');
+            const target = document.createElement('div');
 
             target.getBoundingClientRect = () => {
                 return {
@@ -397,11 +397,11 @@ describe('DomHandler', () => {
 
     describe('relativePosition', () => {
         it('When element position bigger than viewport.height', () => {
-            let element = document.createElement('div');
+            const element = document.createElement('div');
 
             document.body.appendChild(element);
 
-            let target = document.createElement('div');
+            const target = document.createElement('div');
 
             target.getBoundingClientRect = () => {
                 return {
@@ -421,11 +421,11 @@ describe('DomHandler', () => {
         });
 
         it('When element position smaller than viewport.height', () => {
-            let element = document.createElement('div');
+            const element = document.createElement('div');
 
             document.body.appendChild(element);
 
-            let target = document.createElement('div');
+            const target = document.createElement('div');
 
             target.getBoundingClientRect = () => {
                 return {
@@ -505,6 +505,103 @@ describe('DomHandler', () => {
         });
     });
 
+    describe('fadeIn', () => {
+        it('When element is a html html, elements opactiy should be changed after timeout', () => {
+            const element = document.createElement('div');
+
+            element.style.opacity = 0;
+            DomHandler.fadeIn(element, 50);
+
+            setTimeout(function () {
+                expect(element.style.opacity).toBe('1');
+            }, 100);
+        });
+    });
+
+    describe('fadeOut', () => {
+        it('When element is a html html, elements opactiy should be changed after timeout', () => {
+            const el = document.createElement('div');
+
+            el.style.opacity = 1;
+            DomHandler.fadeOut(el, 50);
+
+            setTimeout(() => {
+                expect(el.style.opacity).toBe('0');
+            }, 100);
+        });
+    });
+
+    describe('getFirstFocusableElement', () => {
+        it('When element has children, function should be return first child', () => {
+            const element = document.createElement('div');
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
+
+            div1.setAttribute('tabindex', '0');
+            div2.setAttribute('tabindex', '1');
+
+            element.appendChild(div1);
+            element.appendChild(div2);
+
+            expect(DomHandler.getFirstFocusableElement(element, 'div')).toBe(div1);
+        });
+
+        it('When element has not children, function should be return null', () => {
+            const element = document.createElement('div');
+
+            expect(DomHandler.getFirstFocusableElement(element, 'div')).toBe(null);
+        });
+    });
+
+    describe('getLastFocusableElement', () => {
+        it('When element has children, function should be return last child', () => {
+            const element = document.createElement('div');
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
+
+            div1.setAttribute('tabindex', '0');
+            div2.setAttribute('tabindex', '1');
+
+            element.appendChild(div1);
+            element.appendChild(div2);
+
+            expect(DomHandler.getLastFocusableElement(element, 'div')).toBe(div2);
+        });
+
+        it('When element has not children, function should be return null', () => {
+            const element = document.createElement('div');
+
+            expect(DomHandler.getLastFocusableElement(element, 'div')).toBe(null);
+        });
+    });
+
+    describe('getNextFocusableElement', () => {
+        it('When element has children, function should be return last child', () => {
+            const element = document.createElement('div');
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
+
+            div1.setAttribute('tabindex', '0');
+            div2.setAttribute('tabindex', '1');
+
+            element.appendChild(div1);
+            element.appendChild(div2);
+
+            expect(DomHandler.getNextFocusableElement(element, div1, 'div')).toBe(div2);
+        });
+
+        it('When element has not children, function should be return null', () => {
+            const element = document.createElement('div');
+            const div1 = document.createElement('div');
+
+            div1.setAttribute('tabindex', '-1');
+
+            element.appendChild(div1);
+
+            expect(DomHandler.getNextFocusableElement(element, div1, 'div')).toBe(null);
+        });
+    });
+
     describe('getUserAgent', () => {
         it('When element is null or not html element', () => {
             expect(DomHandler.getUserAgent()).toBe('testUserAgent');
@@ -578,6 +675,21 @@ describe('DomHandler', () => {
             expect(DomHandler.resolveUserAgent()).toStrictEqual({ browser: '', version: '0' });
         });
     });
+
+    describe('calculateScrollbarWidth', () => {
+        it('When getSelection is not empty', () => {
+            const scrollDiv = document.createElement('div');
+
+            scrollDiv.className = 'p-scrollbar-measure';
+            document.body.appendChild(scrollDiv);
+            const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
+            document.body.removeChild(scrollDiv);
+
+            expect(DomHandler.calculateScrollbarWidth()).toBe(scrollbarWidth);
+        });
+    });
+
     describe('isExist', () => {
         it('When element is null or undefined', () => {
             expect(DomHandler.isExist(null)).toBeFalsy();
@@ -628,7 +740,7 @@ describe('DomHandler', () => {
         });
 
         it('When style parametre is a string', () => {
-            let style = 'color:red';
+            const style = 'color:red';
 
             DomHandler.applyStyle(mockHtmlElement, style);
 
