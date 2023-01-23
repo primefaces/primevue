@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.22.4](https://github.com/primefaces/primevue/tree/3.22.4) (2023-01-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.22.3...3.22.4)
+
+**Fixed bugs:**
+
+- Breadcrumb: when home is not defined, first separator should not be rendered [\#3570](https://github.com/primefaces/primevue/issues/3570)
+- PanelMenu header action color update [\#3561](https://github.com/primefaces/primevue/issues/3561)
+- Unique values created in components are set incorrectly. [\#3558](https://github.com/primefaces/primevue/issues/3558)
+- ZIndexUtils: Dropdown inside Dialog doesn't work [\#3554](https://github.com/primefaces/primevue/issues/3554)
+- PanelMenu: Link items can't be opened with a keyboard \(slot issue\) [\#3553](https://github.com/primefaces/primevue/issues/3553)
+- Material Calendar: Invalid State defect [\#3547](https://github.com/primefaces/primevue/issues/3547)
+- Textarea : Label colour do not changes to primary colour when floating above [\#3530](https://github.com/primefaces/primevue/issues/3530)
+- Calendar: Regression. Incorrect calendar pop-up positioning when used as editor in DataTable [\#3526](https://github.com/primefaces/primevue/issues/3526)
+
 ## [3.22.3](https://github.com/primefaces/primevue/tree/3.22.3) (2023-01-17)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.22.2...3.22.3)
