@@ -2,8 +2,8 @@
     <nav class="p-breadcrumb p-component">
         <ol class="p-breadcrumb-list">
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :exact="exact" />
-            <template v-for="item of model" :key="item.label">
-                <li class="p-menuitem-separator">
+            <template v-for="(item, i) of model" :key="item.label">
+                <li v-if="isHomeExist(i)" class="p-menuitem-separator">
                     <span class="pi pi-chevron-right" aria-hidden="true"></span>
                 </li>
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
@@ -29,6 +29,11 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        }
+    },
+    methods: {
+        isHomeExist(i) {
+            return this.home || i !== 0;
         }
     },
     components: {
