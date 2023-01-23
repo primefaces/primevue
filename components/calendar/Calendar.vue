@@ -1505,6 +1505,7 @@ export default {
 
             if (this.hourFormat == '24') newHour = newHour >= 24 ? newHour - 24 : newHour;
             else if (this.hourFormat == '12') {
+                // Before the AM/PM break, now after
                 if (prevHour < 12 && newHour > 11) {
                     newPM = !this.pm;
                 }
