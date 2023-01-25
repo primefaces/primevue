@@ -96,7 +96,7 @@
                                             {{ getYear(month) }}
                                         </button>
                                         <span v-if="currentView === 'year'" class="p-datepicker-decade">
-                                            <slot name="decade" :years="yearPickerValues"> {{ yearPickerValues[0] }} - {{ yearPickerValues[yearPickerValues.length - 1] }} </slot>
+                                            <slot name="decade" :years="yearPickerValues.map((e) => e.value)"> {{ yearPickerValues[0].value }} - {{ yearPickerValues[yearPickerValues.length - 1].value }} </slot>
                                         </span>
                                     </div>
                                     <button
@@ -154,18 +154,34 @@
                             </div>
                         </div>
                         <div v-if="currentView === 'month'" class="p-monthpicker">
-                            <span v-for="(m, i) of monthPickerValues" :key="m" v-ripple @click="onMonthSelect($event, i)" @keydown="onMonthCellKeydown($event, i)" class="p-monthpicker-month" :class="{ 'p-highlight': isMonthSelected(i) }">
-                                {{ m }}
+                            <span
+                                v-for="(m, i) of monthPickerValues"
+                                :key="m"
+                                v-ripple
+                                @click="onMonthSelect($event, { month: m, index: i })"
+                                @keydown="onMonthCellKeydown($event, { month: m, index: i })"
+                                class="p-monthpicker-month"
+                                :class="{ 'p-highlight': isMonthSelected(i), 'p-disabled': m.isDisabled }"
+                            >
+                                {{ m.label }}
                                 <div v-if="isMonthSelected(i)" class="p-hidden-accessible" aria-live="polite">
-                                    {{ m }}
+                                    {{ m.label }}
                                 </div>
                             </span>
                         </div>
                         <div v-if="currentView === 'year'" class="p-yearpicker">
-                            <span v-for="y of yearPickerValues" :key="y" v-ripple @click="onYearSelect($event, y)" @keydown="onYearCellKeydown($event, y)" class="p-yearpicker-year" :class="{ 'p-highlight': isYearSelected(y) }">
-                                {{ y }}
-                                <div v-if="isYearSelected(y)" class="p-hidden-accessible" aria-live="polite">
-                                    {{ y }}
+                            <span
+                                v-for="y of yearPickerValues"
+                                :key="y.value"
+                                v-ripple
+                                @click="onYearSelect($event, y)"
+                                @keydown="onYearCellKeydown($event, y)"
+                                class="p-yearpicker-year"
+                                :class="{ 'p-highlight': isYearSelected(y.value), 'p-disabled': y.isDisabled }"
+                            >
+                                {{ y.value }}
+                                <div v-if="isYearSelected(y.value)" class="p-hidden-accessible" aria-live="polite">
+                                    {{ y.value }}
                                 </div>
                             </span>
                         </div>
@@ -1632,7 +1648,9 @@ export default {
                 clearInterval(this.timePickerTimer);
             }
         },
-        onMonthSelect(event, index) {
+        onMonthSelect(event, { month, index }) {
+            if (month.isDisabled) return;
+
             if (this.view === 'month') {
                 this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
             } else {
@@ -1644,10 +1662,12 @@ export default {
             setTimeout(this.updateFocus, 0);
         },
         onYearSelect(event, year) {
+            if (year.isDisabled) return;
+
             if (this.view === 'year') {
-                this.onDateSelect(event, { year: year, month: 0, day: 1, selectable: true });
+                this.onDateSelect(event, { year: year.value, month: 0, day: 1, selectable: true });
             } else {
-                this.currentYear = year;
+                this.currentYear = year.value;
                 this.currentView = 'month';
                 this.$emit('year-change', { month: this.currentMonth + 1, year: this.currentYear });
             }
@@ -2878,8 +2898,21 @@ export default {
         monthPickerValues() {
             let monthPickerValues = [];
 
+            const fromYear = this.minDate?.getFullYear();
+            const fromMonth = this.minDate?.getMonth();
+            const toYear = this.maxDate?.getFullYear();
+            const toMonth = this.maxDate?.getMonth();
+
+            let monthStart = this.currentYear === fromYear ? fromMonth : 0;
+            const monthEnd = this.currentYear === toYear ? toMonth : 11;
+
             for (let i = 0; i <= 11; i++) {
-                monthPickerValues.push(this.$primevue.config.locale.monthNamesShort[i]);
+                const label = this.$primevue.config.locale.monthNamesShort[i];
+
+                monthPickerValues.push({
+                    label,
+                    isDisabled: this.currentYear < fromYear || this.currentYear > toYear || i < monthStart || i > monthEnd
+                });
             }
 
             return monthPickerValues;
@@ -2889,7 +2922,12 @@ export default {
             let base = this.currentYear - (this.currentYear % 10);
 
             for (let i = 0; i < 10; i++) {
-                yearPickerValues.push(base + i);
+                const value = base + i;
+
+                yearPickerValues.push({
+                    value,
+                    isDisabled: (this.minDate || this.maxDate) && (value < this.minDate?.getFullYear() || value > this.maxDate?.getFullYear())
+                });
             }
 
             return yearPickerValues;
