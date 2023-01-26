@@ -176,6 +176,9 @@
                 </template>
             </DTVirtualScroller>
         </div>
+        <div v-if="$slots.footer" class="p-datatable-footer">
+            <slot name="footer"></slot>
+        </div>
         <DTPaginator
             v-if="paginatorBottom"
             :rows="d_rows"
@@ -196,9 +199,6 @@
                 <slot name="paginatorend"></slot>
             </template>
         </DTPaginator>
-        <div v-if="$slots.footer" class="p-datatable-footer">
-            <slot name="footer"></slot>
-        </div>
         <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
         <span v-if="reorderableColumns" ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" />
         <span v-if="reorderableColumns" ref="reorderIndicatorDown" class="pi pi-arrow-up p-datatable-reorder-indicator-down" style="position: absolute; display: none" />
