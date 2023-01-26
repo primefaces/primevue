@@ -231,7 +231,7 @@ export default {
             this.$emit('after-hide');
         },
         onMaskClick(event) {
-            if (this.dismissableMask && this.closable && this.modal && this.mask === event.target) {
+            if (this.dismissableMask && this.modal && this.mask === event.target) {
                 this.close();
             }
         },
