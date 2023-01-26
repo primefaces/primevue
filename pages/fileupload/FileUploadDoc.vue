@@ -521,11 +521,6 @@ export default {
 
         <h5>Advanced</h5>
         <FileUpload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
-            <template #content>
-                <ul v-if="uploadedFiles && uploadedFiles[0]">
-                    <li v-for="file of uploadedFiles[0]" :key="file">{{ file.name }} - {{ file.size }} bytes</li>
-                </ul>
-            </template>
             <template #empty>
                 <p>Drag and drop files to here to upload.</p>
             </template>
@@ -666,11 +661,6 @@ export default {
 
         <h5>Advanced</h5>
         <FileUpload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
-            <template #content>
-                <ul v-if="uploadedFiles && uploadedFiles[0]">
-                    <li v-for="file of uploadedFiles[0]" :key="file">{{ file.name }} - {{ file.size }} bytes</li>
-                </ul>
-            </template>
             <template #empty>
                 <p>Drag and drop files to here to upload.</p>
             </template>
@@ -824,11 +814,6 @@ export default {
 
                 <h5>Advanced</h5>
                 <p-fileupload name="demo[]" url="https://www.primefaces.org/upload.php" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :max-file-size="1000000">
-                    <template #content>
-                        <ul v-if="uploadedFiles && uploadedFiles[0]">
-                            <li v-for="file of uploadedFiles[0]" :key="file">{{ file.name }} - {{ file.size }} bytes</li>
-                        </ul>
-                    </template>
                     <template #empty>
                         <p>Drag and drop files to here to upload.</p>
                     </template>
