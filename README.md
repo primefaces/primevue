@@ -245,7 +245,7 @@ app.use(PrimeVue, {
 
 ## Locale
 
-PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https://www.primefaces.org/primevue/showcase/#/locale) documentation for more information.
+PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https://www.primefaces.org/primevue/locale) documentation for more information.
 
 ## Quickstart with Vue CLI
 
