@@ -82,7 +82,7 @@
                             <a @click="changeTheme($event, 'fluent-light')"><img :src="$config.public.contextPath + 'demo/images/themes/fluent-light.png'" alt="Fluent Light" /><span>Fluent Light</span></a>
                         </li>
 
-                        <li class="topbar-submenu-header flex align-items-center">PRIMEONE 2022 <Tag class="ml-3" value="NEW" rounded severity="success"></Tag></li>
+                        <li class="topbar-submenu-header flex align-items-center">PRIMEONE</li>
                         <li>
                             <a @click="changeTheme($event, 'lara-light-indigo')"><img :src="$config.public.contextPath + 'demo/images/themes/lara-light-indigo.png'" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a>
                         </li>
@@ -108,7 +108,27 @@
                             <a @click="changeTheme($event, 'lara-dark-teal')"><img :src="$config.public.contextPath + 'demo/images/themes/lara-dark-teal.png'" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a>
                         </li>
 
-                        <li class="topbar-submenu-header">PRIMEONE 2021</li>
+                        <li class="topbar-submenu-header">MISC</li>
+                        <li>
+                            <a @click="changeTheme($event, 'soho-light')"><img :src="$config.public.contextPath + 'demo/images/themes/soho-light.png'" alt="Soho Light" /><span>Soho Light</span></a>
+                        </li>
+                        <li>
+                            <a @click="changeTheme($event, 'soho-dark', true)"><img :src="$config.public.contextPath + 'demo/images/themes/soho-dark.png'" alt="Soho Dark" /><span>Soho Dark</span></a>
+                        </li>
+                        <li>
+                            <a @click="changeTheme($event, 'viva-light')"><img :src="$config.public.contextPath + 'demo/images/themes/viva-light.svg'" alt="Viva Light" /><span>Viva Light</span></a>
+                        </li>
+                        <li>
+                            <a @click="changeTheme($event, 'viva-dark', true)"><img :src="$config.public.contextPath + 'demo/images/themes/viva-dark.svg'" alt="Viva Dark" /><span>Viva Dark</span></a>
+                        </li>
+                        <li>
+                            <a @click="changeTheme($event, 'mira')"><img :src="$config.public.contextPath + 'demo/images/themes/mira.jpg'" alt="Mira" /><span>Mira</span></a>
+                        </li>
+                        <li>
+                            <a @click="changeTheme($event, 'nano')"><img :src="$config.public.contextPath + 'demo/images/themes/nano.jpg'" alt="Nano" /><span>Nano</span></a>
+                        </li>
+
+                        <li class="topbar-submenu-header">PRIMEONE - LEGACY</li>
                         <li>
                             <a @click="changeTheme($event, 'saga-blue')"><img :src="$config.public.contextPath + 'demo/images/themes/saga-blue.png'" alt="Saga Blue" /><span>Saga Blue</span></a>
                         </li>
@@ -144,26 +164,6 @@
                         </li>
                         <li>
                             <a @click="changeTheme($event, 'arya-purple', true)"><img :src="$config.public.contextPath + 'demo/images/themes/arya-purple.png'" alt="Arya Purple" /><span>Arya Purple</span></a>
-                        </li>
-
-                        <li class="topbar-submenu-header">PREMIUM</li>
-                        <li>
-                            <a @click="changeTheme($event, 'soho-light')"><img :src="$config.public.contextPath + 'demo/images/themes/soho-light.png'" alt="Soho Light" /><span>Soho Light</span></a>
-                        </li>
-                        <li>
-                            <a @click="changeTheme($event, 'soho-dark', true)"><img :src="$config.public.contextPath + 'demo/images/themes/soho-dark.png'" alt="Soho Dark" /><span>Soho Dark</span></a>
-                        </li>
-                        <li>
-                            <a @click="changeTheme($event, 'viva-light')"><img :src="$config.public.contextPath + 'demo/images/themes/viva-light.svg'" alt="Viva Light" /><span>Viva Light</span></a>
-                        </li>
-                        <li>
-                            <a @click="changeTheme($event, 'viva-dark', true)"><img :src="$config.public.contextPath + 'demo/images/themes/viva-dark.svg'" alt="Viva Dark" /><span>Viva Dark</span></a>
-                        </li>
-                        <li>
-                            <a @click="changeTheme($event, 'mira')"><img :src="$config.public.contextPath + 'demo/images/themes/mira.jpg'" alt="Mira" /><span>Mira</span></a>
-                        </li>
-                        <li>
-                            <a @click="changeTheme($event, 'nano')"><img :src="$config.public.contextPath + 'demo/images/themes/nano.jpg'" alt="Nano" /><span>Nano</span></a>
                         </li>
                     </ul>
                 </transition>

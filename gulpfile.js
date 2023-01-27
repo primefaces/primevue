@@ -17,7 +17,7 @@ gulp.task('build-css', function () {
 });
 
 gulp.task('build-themes', function () {
-    return gulp.src(['public/themes/**/*', '!public/themes/soho-*/**/*', '!public/themes/viva-*/**/*', '!public/themes/mira/**/*', '!public/themes/nano/**/*']).pipe(gulp.dest('dist/resources/themes'));
+    return gulp.src(['public/themes/**/*']).pipe(gulp.dest('dist/resources/themes'));
 });
 
 gulp.task('images', function () {
