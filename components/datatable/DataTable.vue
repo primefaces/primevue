@@ -1368,7 +1368,7 @@ export default {
 
                 if (i === 0) csv += '\n';
 
-                if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
+                if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'exportFooter')) {
                     if (footerInitiated) csv += this.csvSeparator;
                     else footerInitiated = true;
 
