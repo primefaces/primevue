@@ -93,12 +93,18 @@ toggle(event) {
 </code></pre>
 
         <h5>Templating</h5>
-        <p>Menu offers content customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+        <p>Two slots named "start" and "end" are provided to embed content before or after the menu. In additon Menu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
         <pre v-code><code>
 &lt;Menu :model="items"&gt;
+    &lt;template #start&gt;
+		Start
+	&lt;/template&gt;
     &lt;template #item="{item}"&gt;
         &lt;a :href="item.url"&gt;&#123;&#123;item.label&#125;&#125;&lt;/a&gt;
     &lt;/template&gt;
+    &lt;template #end&gt;
+		End
+	&lt;/template&gt;
 &lt;/Menu&gt;
 
 </code></pre>
@@ -265,6 +271,14 @@ toggle(event) {
                         <td>item</td>
                         <td>item: Menuitem instance</td>
                     </tr>
+                    <tr>
+                        <td>start</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>end</td>
+                        <td>-</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -283,6 +297,14 @@ toggle(event) {
                     <tr>
                         <td>p-menu</td>
                         <td>Container element.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menu-start</td>
+                        <td>Container of the start slot.</td>
+                    </tr>
+                    <tr>
+                        <td>p-menu-end</td>
+                        <td>Container of the end slot.</td>
                     </tr>
                     <tr>
                         <td>p-menu-list</td>

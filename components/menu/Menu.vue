@@ -2,6 +2,9 @@
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
             <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
+                <div v-if="$slots.start" class="p-menu-start">
+                    <slot name="start"></slot>
+                </div>
                 <ul
                     :ref="listRef"
                     :id="id + '_list'"
@@ -29,6 +32,9 @@
                         <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :template="$slots.item" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
                     </template>
                 </ul>
+                <div v-if="$slots.end" class="p-menu-end">
+                    <slot name="end"></slot>
+                </div>
             </div>
         </transition>
     </Portal>

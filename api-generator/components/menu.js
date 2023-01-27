@@ -50,6 +50,14 @@ const MenuEvents = [
 
 const MenuSlots = [
     {
+        name: 'start',
+        description: 'Custom content before the content'
+    },
+    {
+        name: 'end',
+        description: 'Custom content after the content'
+    },
+    {
         name: 'item',
         description: 'Template of a menuitem.'
     }

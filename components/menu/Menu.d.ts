@@ -50,6 +50,14 @@ export interface MenuProps {
 
 export interface MenuSlots {
     /**
+     * Custom start template.
+     */
+    start: () => VNode[];
+    /**
+     * Custom end template.
+     */
+    end: () => VNode[];
+    /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
