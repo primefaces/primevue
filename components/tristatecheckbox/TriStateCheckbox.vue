@@ -54,16 +54,16 @@ export default {
             default: null
         },
         trueIconClass: {
-          type: String,
-          default: 'pi pi-check'
+            type: String,
+            default: 'pi pi-check'
         },
         falseIconClass: {
-          type: String,
-          default: 'pi pi-times'
+            type: String,
+            default: 'pi pi-times'
         },
         nullIconClass: {
-          type: String,
-          default: null
+            type: String,
+            default: null
         }
     },
     data() {
@@ -118,14 +118,14 @@ export default {
     computed: {
         icon() {
             if (this.modelValue === true) {
-              return this.trueIconClass;
+                return this.trueIconClass;
             }
 
             if (this.modelValue === false) {
-              return this.falseIconClass;
+                return this.falseIconClass;
             }
 
-            return this.nullIconClass
+            return this.nullIconClass;
         },
         containerClass() {
             return [
