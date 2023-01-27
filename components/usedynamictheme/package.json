@@ -1,0 +1,5 @@
+{
+  "main": "./usedynamictheme.cjs.js",
+  "module": "./usedynamictheme.esm.js",
+  "unpkg": "./usedynamictheme.min.js"
+}

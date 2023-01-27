@@ -26,6 +26,8 @@ let coreDependencies = {
     'primevue/useconfirm': 'primevue.useconfirm',
     'primevue/usetoast': 'primevue.usetoast',
     'primevue/usedialog': 'primevue.usedialog',
+    'primevue/usedynamictheme': 'primevue.usedynamictheme',
+    'primevue/dynamictheme': 'primevue.dynamictheme',
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
     'primevue/inputnumber': 'primevue.inputnumber',
@@ -176,6 +178,8 @@ function addServices() {
     addEntry('confirmationservice', 'ConfirmationService.js', 'confirmationservice');
     addEntry('confirmationeventbus', 'ConfirmationEventBus.js', 'confirmationeventbus');
     addEntry('useconfirm', 'UseConfirm.js', 'useconfirm');
+    addEntry('usedynamictheme', 'UseDynamicTheme.js', 'usedynamictheme');
+    addEntry('dynamictheme', 'DynamicTheme.js', 'dynamictheme');
     addEntry('toastservice', 'ToastService.js', 'toastservice');
     addEntry('toasteventbus', 'ToastEventBus.js', 'toasteventbus');
     addEntry('overlayeventbus', 'OverlayEventBus.js', 'overlayeventbus');
