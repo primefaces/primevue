@@ -1544,7 +1544,7 @@ export default {
         incrementMinute(event) {
             let newMinute = this.currentMinute + this.stepMinute;
 
-            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
+            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, this.pm)) {
                 this.currentMinute = newMinute > 59 ? newMinute - 60 : newMinute;
             }
 
@@ -1555,7 +1555,7 @@ export default {
 
             newMinute = newMinute < 0 ? 60 + newMinute : newMinute;
 
-            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, true)) {
+            if (this.validateTime(this.currentHour, newMinute, this.currentSecond, this.pm)) {
                 this.currentMinute = newMinute;
             }
 
@@ -1564,7 +1564,7 @@ export default {
         incrementSecond(event) {
             let newSecond = this.currentSecond + this.stepSecond;
 
-            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true)) {
+            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, this.pm)) {
                 this.currentSecond = newSecond > 59 ? newSecond - 60 : newSecond;
             }
 
@@ -1575,7 +1575,7 @@ export default {
 
             newSecond = newSecond < 0 ? 60 + newSecond : newSecond;
 
-            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, true)) {
+            if (this.validateTime(this.currentHour, this.currentMinute, newSecond, this.pm)) {
                 this.currentSecond = newSecond;
             }
 

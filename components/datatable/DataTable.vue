@@ -1685,7 +1685,7 @@ export default {
                 let dropIndex = this.draggedRowIndex > this.droppedRowIndex ? this.droppedRowIndex : this.droppedRowIndex === 0 ? 0 : this.droppedRowIndex - 1;
                 let processedData = [...this.processedData];
 
-                ObjectUtils.reorderArray(processedData, this.draggedRowIndex, dropIndex);
+                ObjectUtils.reorderArray(processedData, this.draggedRowIndex + this.d_first, dropIndex + this.d_first);
 
                 this.$emit('row-reorder', {
                     originalEvent: event,
