@@ -52,6 +52,18 @@ export default {
         'aria-label': {
             type: String,
             default: null
+        },
+        trueIconClass: {
+          type: String,
+          default: 'pi pi-check'
+        },
+        falseIconClass: {
+          type: String,
+          default: 'pi pi-times'
+        },
+        nullIconClass: {
+          type: String,
+          default: null
         }
     },
     data() {
@@ -105,23 +117,15 @@ export default {
     },
     computed: {
         icon() {
-            let icon;
-
-            switch (this.modelValue) {
-                case true:
-                    icon = 'pi pi-check';
-                    break;
-
-                case false:
-                    icon = 'pi pi-times';
-                    break;
-
-                case null:
-                    icon = null;
-                    break;
+            if (this.modelValue === true) {
+              return this.trueIconClass;
             }
 
-            return icon;
+            if (this.modelValue === false) {
+              return this.falseIconClass;
+            }
+
+            return this.nullIconClass
         },
         containerClass() {
             return [

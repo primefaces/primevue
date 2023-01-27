@@ -40,6 +40,24 @@ const TriStateCheckboxProps = [
         type: 'string',
         default: 'null',
         description: 'Used to define a string that labels the element.'
+    },
+    {
+        name: 'trueIconClass',
+        type: 'string',
+        default: 'pi pi-check',
+        description: 'Icon to display when checkbox value is equal to "true".'
+    },
+    {
+        name: 'falseIconClass',
+        type: 'string',
+        default: 'pi pi-times',
+        description: 'Icon to display when checkbox value is equal to "false".'
+    },
+    {
+        name: 'nullIconClass',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display when checkbox value is equal to "null".'
     }
 ];
 

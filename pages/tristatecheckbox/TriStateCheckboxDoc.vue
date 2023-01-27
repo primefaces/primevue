@@ -75,6 +75,24 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
                         <td>null</td>
                         <td>Establishes relationships between the component and label(s) where its value should be one or more element IDs.</td>
                     </tr>
+                    <tr>
+                      <td>trueIconClass</td>
+                      <td>string</td>
+                      <td>pi pi-check</td>
+                      <td>Icon to display when checkbox value is equal to "true"</td>
+                    </tr>
+                    <tr>
+                      <td>falseIconClass</td>
+                      <td>string</td>
+                      <td>pi pi-times</td>
+                      <td>Icon to display when checkbox value is equal to "false"</td>
+                    </tr>
+                    <tr>
+                      <td>nullIconClass</td>
+                      <td>string</td>
+                      <td>null</td>
+                      <td>Icon to display when checkbox value is equal to "null"</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -94,19 +112,15 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
                 </thead>
                 <tbody>
                     <tr>
-                        <td>p-chkbox</td>
+                        <td>p-checkbox</td>
                         <td>Container element</td>
                     </tr>
                     <tr>
-                        <td>p-tristatechkbox</td>
-                        <td>Container element</td>
-                    </tr>
-                    <tr>
-                        <td>p-chkbox-box</td>
+                        <td>p-checkbox-box</td>
                         <td>Container of icon.</td>
                     </tr>
                     <tr>
-                        <td>p-chkbox-icon</td>
+                        <td>p-checkbox-icon</td>
                         <td>Icon element.</td>
                     </tr>
                 </tbody>

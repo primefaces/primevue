@@ -30,6 +30,18 @@ export interface TriStateCheckboxProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Icon to display when checkbox value is equal to "true".
+     */
+    trueIconClass?: string | undefined;
+    /**
+     * Icon to display when checkbox value is equal to "false".
+     */
+    falseIconClass?: string | undefined;
+    /**
+     * Icon to display when checkbox value is equal to "null".
+     */
+    nullIconClass?: string | undefined;
 }
 
 export interface TriStateCheckboxSlots {}
