@@ -70,7 +70,7 @@ interface PrimeVueLocaleOptions {
     startsWith?: string;
     contains?: string;
     notContains?: string;
-    endWith?: string;
+    endsWith?: string;
     equals?: string;
     notEquals?: string;
     noFilter?: string;
