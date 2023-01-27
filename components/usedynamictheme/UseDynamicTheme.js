@@ -1,21 +1,4 @@
-import { onBeforeMount, ref } from 'vue';
-let themes = ref(null);
-let defaultTheme = ref(null);
-
 export function useDynamicTheme() {
-    onBeforeMount(() => {
-        if (import.meta.hot) {
-            import.meta.hot.send('get:themes');
-
-            import.meta.hot.on('send:themes', (data) => {
-                if (data.options) {
-                    themes.value = data.options.themes;
-                    defaultTheme.value = data.options.defaultTheme;
-                }
-            });
-        }
-    });
-
     const setTheme = (themeName) => {
         replaceLink(themeName);
     };
@@ -27,7 +10,8 @@ export function useDynamicTheme() {
 
 const replaceLink = (themeName) => {
     const linkElement = document.getElementById('theme-link');
-    const href = `/${themeName}.css`;
+    const linkHrefLastIndex = linkElement.href.lastIndexOf('/');
+    const href = removeBaseUrl(linkElement.href.substring(0, linkHrefLastIndex) + '/') + themeName + '.css';
 
     if (!linkElement || !href) {
         return;
@@ -52,3 +36,7 @@ const replaceLink = (themeName) => {
         cloneLinkElement.setAttribute('id', id);
     });
 };
+
+function removeBaseUrl(url) {
+    return url.replace(/^(?:\/\/|[^\/]+)*\//, '');
+}
