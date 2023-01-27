@@ -2,12 +2,12 @@
     <div>
         <Head>
             <Title>Locale - PrimeVue</Title>
-            <Meta name="description" content="The Locale API allows setting i18n and l7n options globally for the components." />
+            <Meta name="description" content="The Locale API allows setting i18n and l10n options globally for the components." />
         </Head>
 
         <div class="content-section documentation">
             <h1>Internationalization and Localization</h1>
-            <p>The Locale API allows setting <b>i18n</b> and <b>l7n</b> options globally for the components.</p>
+            <p>The Locale API allows setting <b>i18n</b> and <b>l10n</b> options globally for the components.</p>
 
             <h5>Getting Started</h5>
             <p>Locale values are stored in the global configuration that becomes accessible after installing the PrimeVue.</p>
