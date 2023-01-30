@@ -220,7 +220,7 @@
                 </transition>
             </li>
             <li class="topbar-submenu topbar-resources-submenu">
-                <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank"><span>Blocks</span></a>
+                <a href="https://blocks.primevue.org" target="_blank"><span>Blocks</span></a>
             </li>
             <li class="topbar-submenu">
                 <a tabindex="0" @click="toggleMenu($event, 3)">v3.23.0</a>

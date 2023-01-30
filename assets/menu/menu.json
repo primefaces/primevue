@@ -114,11 +114,11 @@
             "children": [
                 {
                     "name": "Free Blocks",
-                    "href": "https://www.primefaces.org/primeblocks-vue/#/free"
+                    "href": "https://blocks.primevue.org/#/free"
                 },
                 {
                     "name": "All Blocks",
-                    "href": "https://www.primefaces.org/primeblocks-vue/"
+                    "href": "https://blocks.primevue.org"
                 }
             ]
         },
