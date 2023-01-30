@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.23.0](https://github.com/primefaces/primevue/tree/3.23.0) (2023-01-30)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.22.4...3.23.0)
+
+**Implemented New Features and Enhancements:**
+
+- Menu: `start` and `end` templating [\#3599](https://github.com/primefaces/primevue/issues/3599)
+- Intro 6 New Free Themes [\#3597](https://github.com/primefaces/primevue/issues/3597)
+- DataTable: exportData exclude column footers [\#3328](https://github.com/primefaces/primevue/issues/3328)
+
+**Fixed bugs:**
+
+- Breadcrumb: Home item not using item slot [\#3604](https://github.com/primefaces/primevue/issues/3604)
+- Locale: `endsWith` typing error on d.ts [\#3595](https://github.com/primefaces/primevue/issues/3595)
+- Tag: Duplicate class names [\#3584](https://github.com/primefaces/primevue/issues/3584)
+- DataTable: tabbing error with row select and expanded rows enabled [\#3571](https://github.com/primefaces/primevue/issues/3571)
+- Dialog: dismissableMask not working when closable false [\#3560](https://github.com/primefaces/primevue/issues/3560)
+- DataTable:  Paginator should be below DataTable Footer templating [\#3540](https://github.com/primefaces/primevue/issues/3540)
+- Datatable: RowReorder fails in case of pagination on page other than first & last [\#3443](https://github.com/primefaces/primevue/issues/3443)
+- Calendar: maxDate with 12-hour-format does not allow minute and second value modification  [\#3356](https://github.com/primefaces/primevue/issues/3356)
+
 ## [3.22.4](https://github.com/primefaces/primevue/tree/3.22.4) (2023-01-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.22.3...3.22.4)
