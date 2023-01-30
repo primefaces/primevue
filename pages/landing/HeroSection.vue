@@ -12,7 +12,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/designer-vue')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center" @click="navigateTo('https://designer.primevue.org')">
                         <div class="flex flex-column align-items-center">
                             <img src="/demo/images/landing/designer-icon.svg" alt="primevue templates" />
                             <div class="name">

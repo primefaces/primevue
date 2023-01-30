@@ -48,7 +48,7 @@
                             </div>
                         </div>
 
-                        <a href="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+                        <a href="https://designer.primevue.org" class="font-semibold p-3 border-round flex align-items-center linkbox active">
                             <span>View Full Version</span>
                             <i class="pi pi-arrow-right ml-auto"></i>
                         </a>

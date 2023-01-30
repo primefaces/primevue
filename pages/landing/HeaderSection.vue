@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li class="mr-0 lg:mr-2">
-                        <a href="https://www.primefaces.org/designer-vue">
+                        <a href="https://designer.primevue.org">
                             <img src="/demo/images/landing/designer-icon.svg" alt="primevue templates" />
                             <span>Designer</span>
                         </a>
