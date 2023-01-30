@@ -34,7 +34,7 @@ export default {
         this.newsService = new NewsService();
     },
     mounted() {
-        this.newsActivate = () => {
+        /*this.newsActivate = () => {
             this.newsService.fetchNews().then((data) => {
                 this.$appState.announcement = data;
 
@@ -50,7 +50,7 @@ export default {
                     this.$appState.newsActive = true;
                 }
             });
-        };
+        };*/
 
         this.themeChangeListener = (event) => {
             const elementId = 'theme-link';
@@ -71,11 +71,11 @@ export default {
         };
 
         EventBus.on('theme-change', this.themeChangeListener);
-        EventBus.on('news-activate', this.newsActivate);
+        //EventBus.on('news-activate', this.newsActivate);
     },
     beforeUnmount() {
         EventBus.off('theme-change', this.themeChangeListener);
-        EventBus.off('news-activate', this.newsActivate);
+        //EventBus.off('news-activate', this.newsActivate);
     }
 };
 </script>

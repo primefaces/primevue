@@ -22,7 +22,7 @@ export default {
         };
     },
     mounted() {
-        EventBus.emit('news-activate');
+        //EventBus.emit('news-activate');
     },
     methods: {
         onClose() {
