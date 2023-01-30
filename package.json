@@ -49,7 +49,7 @@
         "gulp-uglify": "^3.0.2",
         "gulp-uglifycss": "^1.0.6",
         "jsdom": "^19.0.0",
-        "nuxt": "^3.0.0",
+        "nuxt": "3.0.0",
         "prettier": "2.7.1",
         "primeflex": "^3.3.0",
         "primeicons": "^6.0.1",
