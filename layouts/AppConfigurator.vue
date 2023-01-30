@@ -129,7 +129,7 @@
                         </div>
                     </div>
 
-                    <h5 class="flex align-items-center">PrimeOne Design <Tag class="ml-3" value="NEW" rounded severity="success"></Tag></h5>
+                    <h5 class="flex align-items-center">PrimeOne Design</h5>
                     <div class="grid free-themes">
                         <div class="col-3">
                             <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
@@ -178,6 +178,46 @@
                                 <img src="/demo/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" />
                             </button>
                             <span>Lara Dark Teal</span>
+                        </div>
+                    </div>
+
+                    <h5 class="flex align-items-center">Misc</h5>
+                    <div class="grid free-themes">
+                        <div class="col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-light')">
+                                <img src="/demo/images/themes/soho-light.png" alt="Soho Light" />
+                            </button>
+                            <span>Soho Light</span>
+                        </div>
+                        <div class="col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-dark', true)">
+                                <img src="/demo/images/themes/soho-dark.png" alt="Soho Dark" />
+                            </button>
+                            <span>Soho Dark</span>
+                        </div>
+                        <div class="col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-light')">
+                                <img src="/demo/images/themes/viva-light.svg" alt="Viva Light" />
+                            </button>
+                            <span>Viva Light</span>
+                        </div>
+                        <div class="col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-dark', true)">
+                                <img src="/demo/images/themes/viva-dark.svg" alt="Viva Dark" />
+                            </button>
+                            <span>Viva Dark</span>
+                        </div>
+                        <div class="col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'mira')">
+                                <img src="/demo/images/themes/mira.jpg" alt="Mira" />
+                            </button>
+                            <span>Mira</span>
+                        </div>
+                        <div class="col-3">
+                            <button class="p-link" type="button" @click="changeTheme($event, 'nano')">
+                                <img src="/demo/images/themes/nano.jpg" alt="Mira" />
+                            </button>
+                            <span>Nano</span>
                         </div>
                     </div>
 
@@ -254,47 +294,6 @@
                                 <img src="/demo/images/themes/arya-purple.png" alt="Arya Purple" />
                             </button>
                             <span>Arya Purple</span>
-                        </div>
-                    </div>
-
-                    <h4>Premium Themes</h4>
-                    <p>Premium themes are only available exclusively for <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a> subscribers and therefore not included in PrimeVue core.</p>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-light')">
-                                <img src="/demo/images/themes/soho-light.png" alt="Soho Light" />
-                            </button>
-                            <span>Soho Light</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-dark', true)">
-                                <img src="/demo/images/themes/soho-dark.png" alt="Soho Dark" />
-                            </button>
-                            <span>Soho Dark</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-light')">
-                                <img src="/demo/images/themes/viva-light.svg" alt="Viva Light" />
-                            </button>
-                            <span>Viva Light</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-dark', true)">
-                                <img src="/demo/images/themes/viva-dark.svg" alt="Viva Dark" />
-                            </button>
-                            <span>Viva Dark</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'mira')">
-                                <img src="/demo/images/themes/mira.jpg" alt="Mira" />
-                            </button>
-                            <span>Mira</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nano')">
-                                <img src="/demo/images/themes/nano.jpg" alt="Mira" />
-                            </button>
-                            <span>Nano</span>
                         </div>
                     </div>
 
