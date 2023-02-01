@@ -1,5 +1,5 @@
 <template>
-    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused }]" @click="onClick">
+    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused }]" @click.stop.prevent="onClick">
         <div class="p-hidden-accessible">
             <input ref="input" type="checkbox" :checked="checked" :disabled="$attrs.disabled" :tabindex="$attrs.disabled ? null : '0'" :aria-label="checkboxAriaLabel" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeydown" />
         </div>
