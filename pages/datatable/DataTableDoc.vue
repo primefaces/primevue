@@ -2045,6 +2045,12 @@ export default {
                             <td>Locale to use in filtering. The default locale is the host environment's current locale.</td>
                         </tr>
                         <tr>
+                            <td>clearSelectionOnRightClick</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>If set to true, right mouse click on the row will trigger clearing any text selection. Set to "false" to allow e.g. copying selected text.</td>
+                        </tr>
+                        <tr>
                             <td>selection</td>
                             <td>any</td>
                             <td>null</td>

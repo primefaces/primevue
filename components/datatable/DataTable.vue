@@ -357,6 +357,10 @@ export default {
             type: String,
             default: undefined
         },
+        clearSelectionOnRightClick: {
+            type: Boolean,
+            default: true
+        },
         selection: {
             type: [Array, Object],
             default: null
@@ -968,7 +972,10 @@ export default {
             this.$emit('row-dblclick', e);
         },
         onRowRightClick(event) {
-            DomHandler.clearSelection();
+            if (this.clearSelectionOnRightClick) {
+                DomHandler.clearSelection();
+            }
+
             event.originalEvent.target.focus();
 
             this.$emit('update:contextMenuSelection', event.data);

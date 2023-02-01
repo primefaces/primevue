@@ -144,6 +144,12 @@ const DataTableProps = [
         description: "Locale to use in filtering. The default locale is the host environment's current locale."
     },
     {
+        name: 'clearSelectionOnRightClick',
+        type: 'boolean',
+        default: 'true',
+        description: 'If set to true, right mouse click on the row will trigger clearing any text selection. Set to "false" to allow e.g. copying selected text.'
+    },
+    {
         name: 'selection',
         type: 'any',
         default: 'null',

@@ -592,6 +592,12 @@ export interface DataTableProps {
      */
     filterLocale?: string | undefined;
     /**
+     * If set to true, right mouse click on the row will trigger clearing any text selection.
+     * Set to "false" to allow e.g. copying selected text.
+     * Default value is true.
+     */
+    clearSelectionOnRightClick?: boolean | undefined;
+    /**
      * Selected row in single mode or an array of values in multiple mode.
      */
     selection?: any[] | any | undefined;
