@@ -87,8 +87,8 @@ Other alternative is utilizing the components directly within the browser with t
         <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet">
 
         <script src="https://unpkg.com/vue@next"></script>
-        <script src="https://unpkg.com/primevue^3/core/core.min.js"></script>
-        <script src="https://unpkg.com/primevue^3/slider/slider.min.js"></script>
+        <script src="https://unpkg.com/primevue@^3/core/core.min.js"></script>
+        <script src="https://unpkg.com/primevue@^3/slider/slider.min.js"></script>
     </head>
 
     <body>
