@@ -1,3 +1,4 @@
 {
-    "types": "./MenuItem.d.ts"
+    "types": "./MenuItem.d.ts",
+    "main": "./MenuItem.d.ts"    
 }
