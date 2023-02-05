@@ -353,21 +353,8 @@ export default {
         },
         tabs() {
             const nodes = this.$slots.default();
-            const tabNodes = this.getTabNodes(nodes);
 
-            return tabNodes.reduce((tabs, child) => {
-                if (this.isTabPanel(child)) {
-                    tabs.push(child);
-                } else if (child.children && child.children instanceof Array) {
-                    child.children.forEach((nestedChild) => {
-                        if (this.isTabPanel(nestedChild)) {
-                            tabs.push(nestedChild);
-                        }
-                    });
-                }
-
-                return tabs;
-            }, []);
+            return this.getTabNodes(nodes);
         },
         prevButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.previous : undefined;
