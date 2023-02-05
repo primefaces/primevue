@@ -333,6 +333,13 @@ export default {
         },
         getTabContentClass(tab) {
             return ['p-tabview-panel', this.getTabProp(tab, 'contentClass')];
+        },
+        getTabNodes(nodes) {
+            if (this.isTabPanel(nodes[0])) {
+                return nodes;
+            } else {
+                return this.getTabNodes(nodes[0].children);
+            }
         }
     },
     computed: {
@@ -345,7 +352,10 @@ export default {
             ];
         },
         tabs() {
-            return this.$slots.default().reduce((tabs, child) => {
+            const nodes = this.$slots.default();
+            const tabNodes = this.getTabNodes(nodes);
+
+            return tabNodes.reduce((tabs, child) => {
                 if (this.isTabPanel(child)) {
                     tabs.push(child);
                 } else if (child.children && child.children instanceof Array) {
