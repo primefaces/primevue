@@ -48,6 +48,10 @@ import Toolbar from 'primevue/toolbar';
                         <td>-</td>
                     </tr>
                     <tr>
+                        <td>center</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
                         <td>end</td>
                         <td>-</td>
                     </tr>
