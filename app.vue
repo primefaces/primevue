@@ -36,12 +36,12 @@ export default {
             if (itemString) {
                 const item = JSON.parse(itemString);
 
-                if (!item.hiddenNews || item.hiddenNews !== News.id)
+                if (!item.hiddenNews || item.hiddenNews !== News.id) {
                     this.$appState.newsActive = true;
-                
-                else this.$appState.newsActive = false;
-            } 
-            else {
+                } else {
+                    this.$appState.newsActive = false;
+                }
+            } else {
                 this.$appState.newsActive = true;
             }
         };

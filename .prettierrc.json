@@ -6,5 +6,6 @@
     "singleQuote": true,
     "vueIndentScriptAndStyle": false,
     "printWidth": 250,
-    "bracketSameLine": false
+    "bracketSameLine": false,
+    "endOfLine": "crlf"
 }
