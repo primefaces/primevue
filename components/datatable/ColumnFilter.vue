@@ -25,7 +25,7 @@
                     v-if="overlayVisible"
                     :ref="overlayRef"
                     :id="overlayId"
-                    v-focustrap="{ autoFocus: focustrapAutoFocus }"
+                    v-focustrap="{ autoFocus: true }"
                     :aria-modal="overlayVisible"
                     role="dialog"
                     :class="overlayClass"
@@ -145,10 +145,6 @@ export default {
             type: Boolean,
             default: true
         },
-        autoFocus: {
-            type: Boolean,
-            default: true
-        },
         showClearButton: {
             type: Boolean,
             default: true
@@ -203,8 +199,7 @@ export default {
         return {
             overlayVisible: false,
             defaultMatchMode: null,
-            defaultOperator: null,
-            focustrapAutoFocus: this.autoFocus
+            defaultOperator: null
         };
     },
     overlay: null,
