@@ -1,7 +1,7 @@
 <template>
     <div :class="['layout-sidebar', { active: active }]">
         <router-link to="/" class="logo">
-            <img :src="$config.public.contextPath + 'images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
+            <img :src="'https://primefaces.org/cdn/primevue/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
         </router-link>
         <div class="layout-sidebar-filter p-fluid">
             <AutoComplete

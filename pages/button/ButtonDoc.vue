@@ -136,11 +136,11 @@ import Button from 'primevue/button';
         <p>Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.</p>
         <pre v-code><code>
 &lt;Button type="button" class="px-3"&gt;
-    &lt;img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 1.5rem"/&gt;
+    &lt;img alt="logo" src="/images/logo.svg" style="width: 1.5rem"/&gt;
 &lt;/Button&gt;
 
 &lt;Button type="button" class="p-button-outlined p-button-success"&gt;
-    &lt;img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 1.5rem" /&gt;
+    &lt;img alt="logo" src="/images/logo.svg" style="width: 1.5rem" /&gt;
     &lt;span class="ml-2 font-bold"&gt;PrimeVue&lt;/span&gt;
 &lt;/Button&gt;
 

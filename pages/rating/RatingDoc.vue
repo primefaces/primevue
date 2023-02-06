@@ -39,13 +39,13 @@ import Rating from 'primevue/rating';
         <pre v-code><code>
 &lt;Rating :modelValue="3">
     &lt;template #cancelicon&gt;
-        &lt;img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24"&gt;
+        &lt;img src="/images/rating/cancel.png" height="24" width="24"&gt;
     &lt;/template&gt;
     &lt;template #onicon&gt;
-        &lt;img src="https://primefaces.org/cdn/primevue/images/rating/custom-onicon.png" height="24" width="24"&gt;
+        &lt;img src="/images/rating/custom-onicon.png" height="24" width="24"&gt;
     &lt;/template&gt;
     &lt;template #officon&gt;
-        &lt;img src="https://primefaces.org/cdn/primevue/images/rating/custom-officon.png" height="24" width="24"&gt;
+        &lt;img src="/images/rating/custom-officon.png" height="24" width="24"&gt;
     &lt;/template&gt;
 &lt;/Rating&gt;
 

@@ -118,7 +118,7 @@ data() &#123;
         :optionGroupChildren="['states', 'cities']" style="minWidth: 14rem"&gt;
     &lt;template #option="slotProps"&gt;
         &lt;div class="country-item"&gt;
-            &lt;img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" /&gt;
+            &lt;img src="/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.option.code.toLowerCase()" v-if="slotProps.option.states" /&gt;
             &lt;i class="pi pi-compass mr-2" v-if="slotProps.option.cities"&gt;&lt;/i&gt;
             &lt;i class="pi pi-map-marker mr-2" v-if="slotProps.option.cname"&gt;&lt;/i&gt;
             &lt;span&gt;&#123;&#123;slotProps.option.cname || slotProps.option.name&#125;&#125;&lt;/span&gt;

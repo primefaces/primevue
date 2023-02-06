@@ -45,14 +45,14 @@
                     </Column>
                     <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width: 25%">
                         <template #body="slotProps">
-                            <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="slotProps.data.representative.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                         <template #filter>
                             <MultiSelect v-model="filters1['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -111,14 +111,14 @@
                     </Column>
                     <Column header="Representative" :sortable="true" sortField="representative.name" filterField="representative.name" filterMatchMode="in" style="width: 25%">
                         <template #body="slotProps">
-                            <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="slotProps.data.representative.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                         <template #filter>
                             <MultiSelect v-model="filters2['representative.name']" :options="representatives" optionLabel="name" optionValue="name" placeholder="All" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>

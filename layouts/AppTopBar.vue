@@ -4,7 +4,7 @@
             <i class="pi pi-bars"></i>
         </a>
         <div v-tooltip.bottom="$appState.theme" class="app-theme">
-            <img :src="$config.public.contextPath + 'images/themes/' + logoMap[$appState.theme]" />
+            <img :src="'https://primefaces.org/cdn/primevue/images/themes/' + logoMap[$appState.theme]" />
         </div>
         <ul ref="topbarMenu" class="topbar-menu">
             <li class="topbar-submenu">
@@ -32,138 +32,138 @@
 
                         <li class="topbar-submenu-header">BOOTSTRAP</li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-light-blue')"><img :src="$config.public.contextPath + 'images/themes/bootstrap4-light-blue.svg'" alt="Blue Light" /><span>Blue Light</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-light-blue')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg'" alt="Blue Light" /><span>Blue Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-light-purple')"><img :src="$config.public.contextPath + 'images/themes/bootstrap4-light-purple.svg'" alt="Purple Light" /><span>Purple Light</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-light-purple')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-purple.svg'" alt="Purple Light" /><span>Purple Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-dark-blue', true)"><img :src="$config.public.contextPath + 'images/themes/bootstrap4-dark-blue.svg'" alt="Blue Dark" /><span>Blue Dark</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-dark-blue', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-blue.svg'" alt="Blue Dark" /><span>Blue Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'bootstrap4-dark-purple', true)"><img :src="$config.public.contextPath + 'images/themes/bootstrap4-dark-purple.svg'" alt="Purple Dark" /><span>Purple Dark</span></a>
+                            <a @click="changeTheme($event, 'bootstrap4-dark-purple', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-purple.svg'" alt="Purple Dark" /><span>Purple Dark</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">MATERIAL DESIGN</li>
                         <li>
-                            <a @click="changeTheme($event, 'md-light-indigo')"><img :src="$config.public.contextPath + 'images/themes/md-light-indigo.svg'" alt="Indigo Light" /><span>Indigo Light</span></a>
+                            <a @click="changeTheme($event, 'md-light-indigo')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg'" alt="Indigo Light" /><span>Indigo Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'md-light-deeppurple')"><img :src="$config.public.contextPath + 'images/themes/md-light-deeppurple.svg'" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
+                            <a @click="changeTheme($event, 'md-light-deeppurple')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg'" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'md-dark-indigo', true)"><img :src="$config.public.contextPath + 'images/themes/md-dark-indigo.svg'" alt="Indigo Dark" /><span>Indigo Dark</span></a>
+                            <a @click="changeTheme($event, 'md-dark-indigo', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg'" alt="Indigo Dark" /><span>Indigo Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'md-dark-deeppurple', true)"><img :src="$config.public.contextPath + 'images/themes/md-dark-deeppurple.svg'" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
+                            <a @click="changeTheme($event, 'md-dark-deeppurple', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg'" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">MATERIAL DESIGN COMPACT</li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-light-indigo')"><img :src="$config.public.contextPath + 'images/themes/md-light-indigo.svg'" alt="Indigo Light" /><span>Indigo Light</span></a>
+                            <a @click="changeTheme($event, 'mdc-light-indigo')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg'" alt="Indigo Light" /><span>Indigo Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-light-deeppurple')"><img :src="$config.public.contextPath + 'images/themes/md-light-deeppurple.svg'" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
+                            <a @click="changeTheme($event, 'mdc-light-deeppurple')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg'" alt="Deep Purple Light" /><span>Deep Purple Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-dark-indigo', true)"><img :src="$config.public.contextPath + 'images/themes/md-dark-indigo.svg'" alt="Indigo Dark" /><span>Indigo Dark</span></a>
+                            <a @click="changeTheme($event, 'mdc-dark-indigo', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg'" alt="Indigo Dark" /><span>Indigo Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mdc-dark-deeppurple', true)"><img :src="$config.public.contextPath + 'images/themes/md-dark-deeppurple.svg'" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
+                            <a @click="changeTheme($event, 'mdc-dark-deeppurple', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg'" alt="Deep Purple Dark" /><span>Deep Purple Dark</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">TAILWIND</li>
                         <li>
-                            <a @click="changeTheme($event, 'tailwind-light')"><img :src="$config.public.contextPath + 'images/themes/tailwind-light.png'" alt="Tailwind Light" /><span>Tailwind Light</span></a>
+                            <a @click="changeTheme($event, 'tailwind-light')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/tailwind-light.png'" alt="Tailwind Light" /><span>Tailwind Light</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">FLUENT UI</li>
                         <li>
-                            <a @click="changeTheme($event, 'fluent-light')"><img :src="$config.public.contextPath + 'images/themes/fluent-light.png'" alt="Fluent Light" /><span>Fluent Light</span></a>
+                            <a @click="changeTheme($event, 'fluent-light')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/fluent-light.png'" alt="Fluent Light" /><span>Fluent Light</span></a>
                         </li>
 
                         <li class="topbar-submenu-header flex align-items-center">PRIMEONE</li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-indigo')"><img :src="$config.public.contextPath + 'images/themes/lara-light-indigo.png'" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a>
+                            <a @click="changeTheme($event, 'lara-light-indigo')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-light-indigo.png'" alt="Lara Light Indigo" /><span>Lara Light Indigo</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-blue')"><img :src="$config.public.contextPath + 'images/themes/lara-light-blue.png'" alt="Lara Light Blue" /><span>Lara Light Blue</span></a>
+                            <a @click="changeTheme($event, 'lara-light-blue')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-light-blue.png'" alt="Lara Light Blue" /><span>Lara Light Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-purple')"><img :src="$config.public.contextPath + 'images/themes/lara-light-purple.png'" alt="Lara Light Purple" /><span>Lara Light Purple</span></a>
+                            <a @click="changeTheme($event, 'lara-light-purple')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-light-purple.png'" alt="Lara Light Purple" /><span>Lara Light Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-light-teal')"><img :src="$config.public.contextPath + 'images/themes/lara-light-teal.png'" alt="Lara Light Teal" /><span>Lara Light Teal</span></a>
+                            <a @click="changeTheme($event, 'lara-light-teal')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png'" alt="Lara Light Teal" /><span>Lara Light Teal</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-blue')"><img :src="$config.public.contextPath + 'images/themes/lara-dark-blue.png'" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-blue')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-dark-blue.png'" alt="Lara Dark Blue" /><span>Lara Dark Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-indigo')"><img :src="$config.public.contextPath + 'images/themes/lara-dark-indigo.png'" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-indigo')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-dark-indigo.png'" alt="Lara Dark Indigo" /><span>Lara Dark Indigo</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-purple')"><img :src="$config.public.contextPath + 'images/themes/lara-dark-purple.png'" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-purple')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-dark-purple.png'" alt="Lara Dark Purple" /><span>Lara Dark Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'lara-dark-teal')"><img :src="$config.public.contextPath + 'images/themes/lara-dark-teal.png'" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a>
+                            <a @click="changeTheme($event, 'lara-dark-teal')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/lara-dark-teal.png'" alt="Lara Dark Teal" /><span>Lara Dark Teal</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">MISC</li>
                         <li>
-                            <a @click="changeTheme($event, 'soho-light')"><img :src="$config.public.contextPath + 'images/themes/soho-light.png'" alt="Soho Light" /><span>Soho Light</span></a>
+                            <a @click="changeTheme($event, 'soho-light')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/soho-light.png'" alt="Soho Light" /><span>Soho Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'soho-dark', true)"><img :src="$config.public.contextPath + 'images/themes/soho-dark.png'" alt="Soho Dark" /><span>Soho Dark</span></a>
+                            <a @click="changeTheme($event, 'soho-dark', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/soho-dark.png'" alt="Soho Dark" /><span>Soho Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'viva-light')"><img :src="$config.public.contextPath + 'images/themes/viva-light.svg'" alt="Viva Light" /><span>Viva Light</span></a>
+                            <a @click="changeTheme($event, 'viva-light')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/viva-light.svg'" alt="Viva Light" /><span>Viva Light</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'viva-dark', true)"><img :src="$config.public.contextPath + 'images/themes/viva-dark.svg'" alt="Viva Dark" /><span>Viva Dark</span></a>
+                            <a @click="changeTheme($event, 'viva-dark', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/viva-dark.svg'" alt="Viva Dark" /><span>Viva Dark</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'mira')"><img :src="$config.public.contextPath + 'images/themes/mira.jpg'" alt="Mira" /><span>Mira</span></a>
+                            <a @click="changeTheme($event, 'mira')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/mira.jpg'" alt="Mira" /><span>Mira</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'nano')"><img :src="$config.public.contextPath + 'images/themes/nano.jpg'" alt="Nano" /><span>Nano</span></a>
+                            <a @click="changeTheme($event, 'nano')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/nano.jpg'" alt="Nano" /><span>Nano</span></a>
                         </li>
 
                         <li class="topbar-submenu-header">PRIMEONE - LEGACY</li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-blue')"><img :src="$config.public.contextPath + 'images/themes/saga-blue.png'" alt="Saga Blue" /><span>Saga Blue</span></a>
+                            <a @click="changeTheme($event, 'saga-blue')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/saga-blue.png'" alt="Saga Blue" /><span>Saga Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-green')"><img :src="$config.public.contextPath + 'images/themes/saga-green.png'" alt="Saga Green" /><span>Saga Green</span></a>
+                            <a @click="changeTheme($event, 'saga-green')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/saga-green.png'" alt="Saga Green" /><span>Saga Green</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-orange')"><img :src="$config.public.contextPath + 'images/themes/saga-orange.png'" alt="Saga Orange" /><span>Saga Orange</span></a>
+                            <a @click="changeTheme($event, 'saga-orange')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/saga-orange.png'" alt="Saga Orange" /><span>Saga Orange</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'saga-purple')"><img :src="$config.public.contextPath + 'images/themes/saga-purple.png'" alt="Saga Purple" /><span>Saga Purple</span></a>
+                            <a @click="changeTheme($event, 'saga-purple')"><img :src="'https://primefaces.org/cdn/primevue/images/themes/saga-purple.png'" alt="Saga Purple" /><span>Saga Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-blue', true)"><img :src="$config.public.contextPath + 'images/themes/vela-blue.png'" alt="Vela Blue" /><span>Vela Blue</span></a>
+                            <a @click="changeTheme($event, 'vela-blue', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/vela-blue.png'" alt="Vela Blue" /><span>Vela Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-green', true)"><img :src="$config.public.contextPath + 'images/themes/vela-green.png'" alt="Vela Green" /><span>Vela Green</span></a>
+                            <a @click="changeTheme($event, 'vela-green', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/vela-green.png'" alt="Vela Green" /><span>Vela Green</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-orange', true)"><img :src="$config.public.contextPath + 'images/themes/vela-orange.png'" alt="Vela Orange" /><span>Vela Orange</span></a>
+                            <a @click="changeTheme($event, 'vela-orange', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/vela-orange.png'" alt="Vela Orange" /><span>Vela Orange</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'vela-purple', true)"><img :src="$config.public.contextPath + 'images/themes/vela-purple.png'" alt="Vela Purple" /><span>Vela Purple</span></a>
+                            <a @click="changeTheme($event, 'vela-purple', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/vela-purple.png'" alt="Vela Purple" /><span>Vela Purple</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-blue', true)"><img :src="$config.public.contextPath + 'images/themes/arya-blue.png'" alt="Arya Blue" /><span>Arya Blue</span></a>
+                            <a @click="changeTheme($event, 'arya-blue', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/arya-blue.png'" alt="Arya Blue" /><span>Arya Blue</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-green', true)"><img :src="$config.public.contextPath + 'images/themes/arya-green.png'" alt="Arya Green" /><span>Arya Green</span></a>
+                            <a @click="changeTheme($event, 'arya-green', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/arya-green.png'" alt="Arya Green" /><span>Arya Green</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-orange', true)"><img :src="$config.public.contextPath + 'images/themes/arya-orange.png'" alt="Arya Orange" /><span>Arya Orange</span></a>
+                            <a @click="changeTheme($event, 'arya-orange', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/arya-orange.png'" alt="Arya Orange" /><span>Arya Orange</span></a>
                         </li>
                         <li>
-                            <a @click="changeTheme($event, 'arya-purple', true)"><img :src="$config.public.contextPath + 'images/themes/arya-purple.png'" alt="Arya Purple" /><span>Arya Purple</span></a>
+                            <a @click="changeTheme($event, 'arya-purple', true)"><img :src="'https://primefaces.org/cdn/primevue/images/themes/arya-purple.png'" alt="Arya Purple" /><span>Arya Purple</span></a>
                         </li>
                     </ul>
                 </transition>

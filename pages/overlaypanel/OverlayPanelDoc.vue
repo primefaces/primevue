@@ -19,7 +19,7 @@ import OverlayPanel from 'primevue/overlaypanel';
 &lt;Button type="button" label="Toggle" @click="toggle" /&gt;
 
 &lt;OverlayPanel ref="op"&gt;
-	&lt;img src="https://primefaces.org/cdn/primevue/images/nature/nature1.jpg" alt="Nature Image"&gt;
+	&lt;img src="/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 
 </code></pre>
@@ -35,7 +35,7 @@ toggle(event) {
         <p>Clicking outside the overlay hides the panel, setting <i>dismissable</i> to false disables this behavior. Additionally enabling <i>showCloseIcon</i> property displays a close icon at the top right corner to close the panel.</p>
         <pre v-code><code>
 &lt;OverlayPanel ref="op" :showCloseIcon="true" :dismissable="true"&gt;
-	&lt;img src="https://primefaces.org/cdn/primevue/images/nature/nature1.jpg" alt="Nature Image"&gt;
+	&lt;img src="/images/nature/nature1.jpg" alt="Nature Image"&gt;
 &lt;/OverlayPanel&gt;
 
 </code></pre>

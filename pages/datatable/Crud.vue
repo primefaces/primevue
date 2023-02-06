@@ -50,7 +50,7 @@
                     <Column field="name" header="Name" :sortable="true" style="min-width: 16rem"></Column>
                     <Column header="Image">
                         <template #body="slotProps">
-                            <img :src="$config.public.contextPath + 'images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
+                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="product-image" />
                         </template>
                     </Column>
                     <Column field="price" header="Price" :sortable="true" style="min-width: 8rem">

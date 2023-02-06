@@ -18,7 +18,7 @@ import Card from 'primevue/card';
         <pre v-code><code>
 &lt;Card&gt;
     &lt;template #header&gt;
-        &lt;img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png"&gt;
+        &lt;img alt="user header" src="/images/usercard.png"&gt;
     &lt;/template&gt;
     &lt;template #title&gt;
         Advanced Card
