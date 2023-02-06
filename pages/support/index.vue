@@ -13,7 +13,7 @@
                         although they are monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PRO support instead.
                     </p>
                 </div>
-                <div class="card m-0 xl:w-9 text-white bg-cover" style="background-image: url('images/support/card-pro.jpg')">
+                <div class="card m-0 xl:w-9 text-white bg-cover" style="background-image: url('https://primefaces.org/cdn/primevue/images/support/card-pro.jpg')">
                     <div class="text-xl font-semibold mb-3">PRO Support</div>
                     <p class="m-0 line-height-3">
                         With PRO support, it's easy to support, tune and add features to PrimeVue as if it were an in- house library. PRO is a term based commercial support service. With the exclusive services of PRO account, it is no longer needed
