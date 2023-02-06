@@ -24,11 +24,11 @@
                     :transitionInterval="3000"
                 >
                     <template #item="slotProps">
-                        <img :src="$config.public.contextPath + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
                     </template>
                     <template #thumbnail="slotProps">
                         <div class="grid grid-nogutter justify-content-center">
-                            <img :src="$config.public.contextPath + slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
                         </div>
                     </template>
                     <template #footer>
