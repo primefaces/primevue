@@ -65,6 +65,7 @@
                             :showApplyButton="columnProp(col, 'showApplyButton')"
                             :showMatchModes="columnProp(col, 'showFilterMatchModes')"
                             :showAddButton="columnProp(col, 'showAddButton')"
+                            :autoFocus="columnProp(col, 'autoFocus')"
                             :matchModeOptions="columnProp(col, 'filterMatchModeOptions')"
                             :maxConstraints="columnProp(col, 'maxConstraints')"
                             @operator-change="$emit('operator-change', $event)"
