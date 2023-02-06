@@ -23,7 +23,7 @@
                         <div class="product-item">
                             <div class="product-item-content">
                                 <div class="mb-3">
-                                    <img :src="$config.public.contextPath + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
+                                    <img :src="$config.public.contextPath + 'images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
                                     <h4 class="mb-1">{{ slotProps.data.name }}</h4>
@@ -50,7 +50,7 @@
                         <div class="product-item">
                             <div class="product-item-content">
                                 <div class="mb-3">
-                                    <img :src="$config.public.contextPath + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
+                                    <img :src="$config.public.contextPath + 'images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
                                     <h4 class="mb-1">{{ slotProps.data.name }}</h4>
@@ -77,7 +77,7 @@
                         <div class="product-item">
                             <div class="product-item-content">
                                 <div class="mb-3">
-                                    <img :src="$config.public.contextPath + 'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
+                                    <img :src="$config.public.contextPath + 'images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
                                 </div>
                                 <div>
                                     <h4 class="mb-1">{{ slotProps.data.name }}</h4>

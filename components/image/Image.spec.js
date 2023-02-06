@@ -12,12 +12,12 @@ describe('Image.vue', () => {
                 }
             },
             props: {
-                src: 'demo/images/galleria/galleria1.jpg'
+                src: 'images/galleria/galleria1.jpg'
             }
         });
 
         expect(wrapper.find('.p-image.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-image.p-component img').attributes().src).toBe('demo/images/galleria/galleria1.jpg');
+        expect(wrapper.find('.p-image.p-component img').attributes().src).toBe('images/galleria/galleria1.jpg');
     });
 
     it('should preview', async () => {
@@ -29,7 +29,7 @@ describe('Image.vue', () => {
                 }
             },
             props: {
-                src: 'demo/images/galleria/galleria1.jpg',
+                src: 'images/galleria/galleria1.jpg',
                 preview: true
             }
         });

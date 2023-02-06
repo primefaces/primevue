@@ -1,7 +1,7 @@
 <template>
     <section :ref="containerRef" :class="['landing-header pad-section', { 'landing-header-active': menuActive }]">
         <span>
-            <img :src="$config.public.contextPath + 'demo/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo" />
+            <img :src="$config.public.contextPath + 'images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo" />
         </span>
 
         <div class="flex align-items-center">
@@ -9,25 +9,25 @@
                 <ol class="list-none m-0 p-0 flex flex-column lg:flex-row flex-wrap lg:flex-nowrap lg:align-items-center font-semibold">
                     <li class="mr-0 lg:mr-2">
                         <router-link to="/setup">
-                            <img src="/demo/images/landing/core-icon.svg" alt="primevue core" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/core-icon.svg" alt="primevue core" />
                             <span>Components</span>
                         </router-link>
                     </li>
                     <li class="mr-0 lg:mr-2">
                         <a href="https://blocks.primevue.org">
-                            <img src="/demo/images/landing/blocks-icon.svg" alt="primevue templates" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <span>Blocks</span>
                         </a>
                     </li>
                     <li class="mr-0 lg:mr-2">
                         <a href="https://designer.primevue.org">
-                            <img src="/demo/images/landing/designer-icon.svg" alt="primevue templates" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/designer-icon.svg" alt="primevue templates" />
                             <span>Designer</span>
                         </a>
                     </li>
                     <li class="mr-0 lg:mr-2">
                         <a href="https://www.primefaces.org/store/templates.xhtml">
-                            <img src="/demo/images/landing/templates-icon.svg" alt="primevue templates" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/templates-icon.svg" alt="primevue templates" />
                             <span>Templates</span>
                         </a>
                     </li>

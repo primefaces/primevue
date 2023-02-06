@@ -113,7 +113,7 @@ export default {
 &lt;MultiSelect v-model="selectedCars2" :options="cars" optionLabel="brand" placeholder="Select a Car"&gt;
 	&lt;template #value="slotProps"&gt;
 		&lt;div class="p-multiselect-car-token" v-for="option of slotProps.value" :key="option.brand"&gt;
-			&lt;img :alt="option.brand" :src="'demo/images/car/' + option.brand + '.png'" /&gt;
+			&lt;img :alt="option.brand" :src="'images/car/' + option.brand + '.png'" /&gt;
 			&lt;span&gt;&#123;&#123;option.brand&#125;&#125;&lt;/span&gt;
 		&lt;/div&gt;
 		&lt;template v-if="!slotProps.value || slotProps.value.length === 0"&gt;
@@ -122,7 +122,7 @@ export default {
 	&lt;/template&gt;
 	&lt;template #option="slotProps"&gt;
 		&lt;div class="p-multiselect-car-option"&gt;
-			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'images/car/' + slotProps.option.brand + '.png'" /&gt;
 			&lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;

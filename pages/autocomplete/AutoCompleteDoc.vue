@@ -133,7 +133,7 @@ export default {
         <pre v-code><code>
 &lt;AutoComplete v-model="brand" :suggestions="filteredBrands" @complete="searchBrand($event)" placeholder="Hint: type 'v' or 'f'" :dropdown="true"&gt;
     &lt;template #item="slotProps"&gt;
-		&lt;img :alt="slotProps.item" :src="'demo/images/car/' + slotProps.item + '.png'" /&gt;
+		&lt;img :alt="slotProps.item" :src="'images/car/' + slotProps.item + '.png'" /&gt;
         &lt;div&gt;&#123;&#123;slotProps.item&#125;&#125;&lt;/div&gt;
 	&lt;/template&gt;
 &lt;/AutoComplete&gt;

@@ -46,7 +46,7 @@
                     </Column>
                     <Column header="Country" filterField="country.name" style="min-width: 12rem">
                         <template #body="{ data }">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
@@ -64,7 +64,7 @@
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="$config.public.contextPath + 'images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                         <template #filter="{ filterModel }">
@@ -72,7 +72,7 @@
                             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
@@ -169,7 +169,7 @@
                     </Column>
                     <Column header="Country" filterField="country.name" style="min-width: 12rem">
                         <template #body="{ data }">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
+                            <img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + data.country.code" width="30" />
                             <span class="image-text">{{ data.country.name }}</span>
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
@@ -178,14 +178,14 @@
                     </Column>
                     <Column header="Agent" filterField="representative" :showFilterMenu="false" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="data.representative.name" :src="$config.public.contextPath + 'images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ data.representative.name }}</span>
                         </template>
                         <template #filter="{ filterModel, filterCallback }">
                             <MultiSelect v-model="filterModel.value" @change="filterCallback()" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                                 <template #option="slotProps">
                                     <div class="p-multiselect-representative-option">
-                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
+                                        <img :alt="slotProps.option.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.option.image" width="32" style="vertical-align: middle" />
                                         <span class="image-text">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>

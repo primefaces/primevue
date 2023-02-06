@@ -526,7 +526,7 @@ export default {
     &lt;Column field="year" header="Year"&gt;&lt;/Column&gt;
     &lt;Column field="brand" header="Brand"&gt;
         &lt;template #body="slotProps"&gt;
-            &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"  width="48px"/&gt;
+            &lt;img :src="'images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"  width="48px"/&gt;
         &lt;/template&gt;
     &lt;/Column&gt;
     &lt;Column field="color" header="Color"&gt;&lt;/Column&gt;
@@ -1133,7 +1133,7 @@ matchModes: [
     &lt;template #expansion="slotProps"&gt;
         &lt;div class="car-details"&gt;
             &lt;div&gt;
-                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+                &lt;img :src="'images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
                 &lt;div class="grid"&gt;
                     &lt;div class="col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                     &lt;div class="col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
@@ -1212,7 +1212,7 @@ export default {
             &lt;Dropdown v-model="slotProps.data['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand"&gt;
                 &lt;template #option="optionProps"&gt;
                     &lt;div class="p-dropdown-car-option"&gt;
-                        &lt;img :alt="optionProps.option.brand" :src="'demo/images/car/' + optionProps.option.brand + '.png'" /&gt;
+                        &lt;img :alt="optionProps.option.brand" :src="'images/car/' + optionProps.option.brand + '.png'" /&gt;
                         &lt;span&gt;&#123;&#123;optionProps.option.brand&#125;&#125;&lt;/span&gt;
                     &lt;/div&gt;
                 &lt;/template&gt;
@@ -1610,7 +1610,7 @@ export default {
             &lt;Dropdown v-model="filters['brand']" :options="brands" optionLabel="brand" optionValue="value" placeholder="Select a Brand" class="p-column-filter" :showClear="true"&gt;
                 &lt;template #option="slotProps"&gt;
                     &lt;div class="p-dropdown-car-option"&gt;
-                        &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+                        &lt;img :alt="slotProps.option.brand" :src="'images/car/' + slotProps.option.brand + '.png'" /&gt;
                         &lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
                     &lt;/div&gt;
                 &lt;/template&gt;

@@ -48,7 +48,7 @@ export default {
 	&lt;div class="col-12"&gt;
         &lt;div class="car-details"&gt;
             &lt;div&gt;
-                &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+                &lt;img :src="'images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
                 &lt;div class="grid"&gt;
                     &lt;div class="col-12"&gt;Vin: &lt;b&gt;&#123;&#123;slotProps.data.vin&#125;&#125;&lt;/b&gt;&lt;/div&gt;
                     &lt;div class="col-12"&gt;Year: &lt;b&gt;&#123;&#123;slotProps.data.year&#125;&#125;&lt;/b&gt;&lt;/div&gt;
@@ -63,7 +63,7 @@ export default {
 &lt;template #grid="slotProps"&gt;
 	&lt;div style="padding: .5em" class="col-12 md:col-3"&gt;
 		&lt;Panel :header="slotProps.data.vin" style="text-align: center"&gt;
-			&lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
+			&lt;img :src="'images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand"/&gt;
 			&lt;div class="car-detail"&gt;&#123;&#123;slotProps.data.year&#125;&#125; - &#123;&#123;slotProps.data.color&#125;&#125;&lt;/div&gt;
 			&lt;Button icon="pi pi-search"&gt;&lt;/Button&gt;
 		&lt;/Panel&gt;

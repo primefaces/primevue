@@ -49,7 +49,7 @@ export default {
 &lt;SelectButton v-model="selectedCar" :options="cars" optionLabel="brand"&gt;
 	&lt;template #option="slotProps"&gt;
         &lt;div class="car-option"&gt;
-            &lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+            &lt;img :alt="slotProps.option.brand" :src="'images/car/' + slotProps.option.brand + '.png'" /&gt;
             &lt;div&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/div&gt;
         &lt;/div&gt;
 	&lt;/template&gt;

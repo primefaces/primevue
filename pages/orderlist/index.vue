@@ -20,7 +20,7 @@
                     <template #item="slotProps">
                         <div class="product-item">
                             <div class="image-container">
-                                <img :src="'demo/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
+                                <img :src="'images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
                             </div>
                             <div class="product-list-detail">
                                 <h6 class="mb-2">{{ slotProps.item.name }}</h6>

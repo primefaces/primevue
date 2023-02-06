@@ -33,13 +33,13 @@
                 <h5>Templating</h5>
                 <Rating v-model="val4">
                     <template #cancelicon>
-                        <img src="/demo/images/rating/cancel.png" height="24" width="24" />
+                        <img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24" />
                     </template>
                     <template #onicon>
-                        <img src="/demo/images/rating/custom-onicon.png" height="24" width="24" />
+                        <img src="https://primefaces.org/cdn/primevue/images/rating/custom-onicon.png" height="24" width="24" />
                     </template>
                     <template #officon>
-                        <img src="/demo/images/rating/custom-officon.png" height="24" width="24" />
+                        <img src="https://primefaces.org/cdn/primevue/images/rating/custom-officon.png" height="24" width="24" />
                     </template>
                 </Rating>
             </div>

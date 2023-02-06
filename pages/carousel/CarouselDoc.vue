@@ -44,7 +44,7 @@ import Carousel from 'primevue/carousel';
 		&lt;div class="car-item"&gt;
             &lt;div class="car-content"&gt;
                 &lt;div&gt;
-                    &lt;img :src="'demo/images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
+                    &lt;img :src="'images/car/' + slotProps.data.brand + '.png'" :alt="slotProps.data.brand" /&gt;
                 &lt;/div&gt;
                 &lt;div&gt;
                     &lt;div class="car-title"&gt;&#123;&#123;slotProps.data.brand&#125;&#125;&lt;/div&gt;

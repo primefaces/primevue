@@ -32,7 +32,7 @@
                         <span style="margin-left: 0.5rem; vertical-align: middle">View Picture</span>
                     </template>
                     <template #content>
-                        <img src="/demo/images/nature/nature1.jpg" />
+                        <img src="https://primefaces.org/cdn/primevue/images/nature/nature1.jpg" />
                     </template>
                 </Inplace>
 

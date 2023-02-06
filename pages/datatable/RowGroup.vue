@@ -17,7 +17,7 @@
                     <Column field="name" header="Name" style="min-width: 200px"></Column>
                     <Column field="country" header="Country" style="min-width: 200px">
                         <template #body="slotProps">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -29,7 +29,7 @@
                     </Column>
                     <Column field="date" header="Date" style="min-width: 200px"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -61,7 +61,7 @@
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>
@@ -73,7 +73,7 @@
                     </Column>
                     <Column field="date" header="Date"></Column>
                     <template #groupheader="slotProps">
-                        <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                        <img :alt="slotProps.data.representative.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                         <span class="image-text">{{ slotProps.data.representative.name }}</span>
                     </template>
                     <template #groupfooter="slotProps">
@@ -93,14 +93,14 @@
                     </Column>
                     <Column field="representative.name" header="Representative">
                         <template #body="slotProps">
-                            <img :alt="$config.public.contextPath + slotProps.data.representative.name" :src="$config.public.contextPath + 'demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
+                            <img :alt="$config.public.contextPath + slotProps.data.representative.name" :src="$config.public.contextPath + 'images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
                             <span class="image-text">{{ slotProps.data.representative.name }}</span>
                         </template>
                     </Column>
                     <Column field="name" header="Name"></Column>
                     <Column field="country" header="Country">
                         <template #body="slotProps">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
+                            <img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.data.country.code" width="30" />
                             <span class="image-text">{{ slotProps.data.country.name }}</span>
                         </template>
                     </Column>

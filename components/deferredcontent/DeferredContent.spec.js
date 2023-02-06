@@ -5,7 +5,7 @@ describe('DeferredContent', () => {
     it('should exist', async () => {
         const wrapper = mount(DeferredContent, {
             slots: {
-                default: '<img src="/demo/images/nature/nature4.jpg" alt="Nature"/>'
+                default: '<img src="https://primefaces.org/cdn/primevue/images/nature/nature4.jpg" alt="Nature"/>'
             }
         });
 

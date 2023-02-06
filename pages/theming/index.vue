@@ -10,7 +10,7 @@
             <p>Choose from a variety of themes or develop your own theme easily.</p>
 
             <h5>Architecture</h5>
-            <img alt="Architecture" src="@/assets/images/architecture.jpg" class="architecture-image" />
+            <img alt="Architecture" src="https://primefaces.org/cdn/primevue/images/architecture.jpg" class="architecture-image" />
             <p>
                 PrimeVue is a design agnostic library so unlike other UI libraries it does not enforce a certain styling such as material or bootstrap. In order to achieve this, styling has been separated into core and theme. Core resides inside
                 PrimeVue to implement the structure of the components such as positioning whereas theme brings the colors, paddings and margins.
@@ -44,7 +44,7 @@
             </div>
 
             <a href="http://www.primefaces.org/designer/primevue" class="designer-image">
-                <img alt="PrimeVue Designer" src="@/assets/images/primevue-designer.jpg" style="width: 100%" />
+                <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/primevue-designer.jpg" style="width: 100%" />
             </a>
 
             <h5>Scaling</h5>

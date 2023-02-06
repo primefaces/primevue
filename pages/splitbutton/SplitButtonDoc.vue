@@ -96,7 +96,7 @@ export default {
         <pre v-code><code>
 &lt;SplitButton :model="items" class="bg-primary border-round"&gt;
     &lt;Button @click="save"&gt;
-        &lt;img alt="logo" src="@/assets/images/logo.svg" style="width: 1rem" /&gt;
+        &lt;img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="width: 1rem" /&gt;
         &lt;span class="ml-2 flex align-items-center font-bold"&gt;PrimeVue&lt;/span&gt;
     &lt;/Button&gt;
 &lt;/SplitButton&gt;

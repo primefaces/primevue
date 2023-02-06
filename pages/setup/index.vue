@@ -338,31 +338,31 @@ app.use(PrimeVue, {
                         <tr>
                             <th>
                                 <div class="flex align-items-center">
-                                    <img src="@/assets/images/browsers/edge.svg" alt="edge" style="width: 1.5rem" class="mr-2" />
+                                    <img src="https://primefaces.org/cdn/primevue/images/browsers/edge.svg" alt="edge" style="width: 1.5rem" class="mr-2" />
                                     Edge
                                 </div>
                             </th>
                             <th>
                                 <div class="flex align-items-center">
-                                    <img src="@/assets/images/browsers/firefox.svg" alt="firefox" style="width: 1.5rem" class="mr-2" />
+                                    <img src="https://primefaces.org/cdn/primevue/images/browsers/firefox.svg" alt="firefox" style="width: 1.5rem" class="mr-2" />
                                     Firefox
                                 </div>
                             </th>
                             <th>
                                 <div class="flex align-items-center">
-                                    <img src="@/assets/images/browsers/chrome.svg" alt="chrome" style="width: 1.5rem" class="mr-2" />
+                                    <img src="https://primefaces.org/cdn/primevue/images/browsers/chrome.svg" alt="chrome" style="width: 1.5rem" class="mr-2" />
                                     Chrome
                                 </div>
                             </th>
                             <th>
                                 <div class="flex align-items-center">
-                                    <img src="@/assets/images/browsers/safari.svg" alt="safari" style="width: 1.5rem" class="mr-2" />
+                                    <img src="https://primefaces.org/cdn/primevue/images/browsers/safari.svg" alt="safari" style="width: 1.5rem" class="mr-2" />
                                     Safari
                                 </div>
                             </th>
                             <th>
                                 <div class="flex align-items-center">
-                                    <img src="@/assets/images/browsers/opera.svg" alt="opera" style="width: 1.5rem" class="mr-2" />
+                                    <img src="https://primefaces.org/cdn/primevue/images/browsers/opera.svg" alt="opera" style="width: 1.5rem" class="mr-2" />
                                     Opera
                                 </div>
                             </th>

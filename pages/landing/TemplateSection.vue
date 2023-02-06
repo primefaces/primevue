@@ -113,10 +113,10 @@ export default {
             const isDark = this.$appState.darkTheme;
             const url = template === 'templates-text' ? 'png' : 'jpeg';
 
-            return `url('demo/images/landing/templates/${template}-${isDark ? 'dark' : 'light'}.${url}')`;
+            return `url('images/landing/templates/${template}-${isDark ? 'dark' : 'light'}.${url}')`;
         },
         templateImg() {
-            return `demo/images/landing/templates/templates-text-${this.$appState.darkTheme ? 'dark' : 'light'}.png`;
+            return `images/landing/templates/templates-text-${this.$appState.darkTheme ? 'dark' : 'light'}.png`;
         }
     }
 };

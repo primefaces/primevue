@@ -104,7 +104,7 @@ export default {
 &lt;Dropdown v-model="selectedCar" :options="cars" optionLabel="brand" :filter="true" placeholder="Select a Car" :showClear="true"&gt;
     &lt;template #value="slotProps"&gt;
         &lt;div class="p-dropdown-car-value" v-if="slotProps.value"&gt;
-            &lt;img :alt="slotProps.value.brand" :src="'demo/images/car/' + slotProps.value.brand + '.png'" /&gt;
+            &lt;img :alt="slotProps.value.brand" :src="'images/car/' + slotProps.value.brand + '.png'" /&gt;
             &lt;span&gt;&#123;&#123;slotProps.value.brand&#125;&#125;&lt;/span&gt;
         &lt;/div&gt;
         &lt;span v-else&gt;
@@ -113,7 +113,7 @@ export default {
     &lt;/template&gt;
     &lt;template #option="slotProps"&gt;
 		&lt;div class="p-dropdown-car-option"&gt;
-			&lt;img :alt="slotProps.option.brand" :src="'demo/images/car/' + slotProps.option.brand + '.png'" /&gt;
+			&lt;img :alt="slotProps.option.brand" :src="'images/car/' + slotProps.option.brand + '.png'" /&gt;
 			&lt;span&gt;&#123;&#123;slotProps.option.brand&#125;&#125;&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/template&gt;

@@ -22,7 +22,7 @@
                 <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="searchCity($event)" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items">
                     <template #optiongroup="slotProps">
                         <div class="flex align-items-center country-item">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" />
+                            <img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" width="18" />
                             <div>{{ slotProps.item.label }}</div>
                         </div>
                     </template>
@@ -32,7 +32,7 @@
                 <AutoComplete v-model="selectedCountry2" loadingIcon="pi pi-spinner" :suggestions="filteredCountries" @complete="searchCountry($event)" :dropdown="true" optionLabel="name" forceSelection>
                     <template #item="slotProps">
                         <div class="country-item">
-                            <img src="@/assets/images/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" />
+                            <img src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="'flag flag-' + slotProps.item.code.toLowerCase()" />
                             <div>{{ slotProps.item.name }}</div>
                         </div>
                     </template>

@@ -16,20 +16,20 @@ describe('Gallleria.vue', () => {
             props: {
                 value: [
                     {
-                        itemImageSrc: 'demo/images/galleria/galleria1.jpg',
-                        thumbnailImageSrc: 'demo/images/galleria/galleria1s.jpg',
+                        itemImageSrc: 'images/galleria/galleria1.jpg',
+                        thumbnailImageSrc: 'images/galleria/galleria1s.jpg',
                         alt: 'Description for Image 1',
                         title: 'Title 1'
                     },
                     {
-                        itemImageSrc: 'demo/images/galleria/galleria2.jpg',
-                        thumbnailImageSrc: 'demo/images/galleria/galleria2s.jpg',
+                        itemImageSrc: 'images/galleria/galleria2.jpg',
+                        thumbnailImageSrc: 'images/galleria/galleria2s.jpg',
                         alt: 'Description for Image 2',
                         title: 'Title 2'
                     },
                     {
-                        itemImageSrc: 'demo/images/galleria/galleria3.jpg',
-                        thumbnailImageSrc: 'demo/images/galleria/galleria3s.jpg',
+                        itemImageSrc: 'images/galleria/galleria3.jpg',
+                        thumbnailImageSrc: 'images/galleria/galleria3s.jpg',
                         alt: 'Description for Image 3',
                         title: 'Title 3'
                     }

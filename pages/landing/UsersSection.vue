@@ -71,7 +71,7 @@
 export default {
     methods: {
         imgSrc(brand) {
-            return `demo/images/landing/whouses/${brand}-${this.colorScheme}.svg`;
+            return `images/landing/whouses/${brand}-${this.colorScheme}.svg`;
         }
     },
     computed: {

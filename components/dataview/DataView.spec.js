@@ -64,7 +64,7 @@ describe('DataView.vue', () => {
                                     <span :class="'product-badge status-'+slotProps.data.inventoryStatus.toLowerCase()">{{slotProps.data.inventoryStatus}}</span>
                                 </div>
                                 <div class="product-grid-item-content">
-                                    <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
+                                    <img :src="'images/product/' + slotProps.data.image" :alt="slotProps.data.name"/>
                                     <div class="product-name">{{slotProps.data.name}}</div>
                                     <div class="product-description">{{slotProps.data.description}}</div>
                                 </div>

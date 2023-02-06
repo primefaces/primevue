@@ -66,7 +66,7 @@ describe('Carousel.vue', () => {
                     <div class="product-item">
                         <div class="product-item-content">
                             <div class="mb-3">
-                                <img :src="'demo/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
+                                <img :src="'images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="product-image" />
                             </div>
                         </div>
                     </div>
