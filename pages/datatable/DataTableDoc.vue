@@ -2088,6 +2088,15 @@ export default {
                             <td>Selected row instance with the ContextMenu.</td>
                         </tr>
                         <tr>
+                            <td>lazySelectAllPreservesSelection</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>
+                                When enabled, clicking the check all box on a lazily paginated table will preserve any
+                                existing selections.
+                            </td>
+                        </tr>
+                        <tr>
                             <td>rowHover</td>
                             <td>boolean</td>
                             <td>false</td>

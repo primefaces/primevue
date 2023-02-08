@@ -385,6 +385,10 @@ export default {
             type: Boolean,
             default: null
         },
+        lazySelectAllPreservesSelection: {
+            type: Boolean,
+            default: false
+        },
         rowHover: {
             type: Boolean,
             default: false
@@ -1195,10 +1199,19 @@ export default {
                 let _selection = [];
 
                 if (checked) {
-                    _selection = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
+                    if (this.lazySelectAllPreservesSelection) {
+                        _selection = [...this.selection, ...this.processedData.filter((val) => this.findIndexInSelection(val) < 0)];
+                    } else {
+                        _selection = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
+                    }
+
                     this.$emit('row-select-all', { originalEvent, data: _selection });
                 } else {
-                    this.$emit('row-unselect-all', { originalEvent });
+                    if (this.lazySelectAllPreservesSelection) {
+                        _selection = [...this.selection].filter((val) => this.findIndex(val, this.processedData) < 0);
+                    }
+
+                    this.$emit('row-unselect-all', { originalEvent, data: _selection });
                 }
 
                 this.$emit('update:selection', _selection);

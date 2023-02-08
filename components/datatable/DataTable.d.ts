@@ -234,6 +234,10 @@ export interface DataTableRowUnselectAllEvent {
      * Browser event
      */
     originalEvent: Event;
+    /**
+     * Selected dataset
+     */
+    data: any;
 }
 
 export interface DataTableSelectAllChangeEvent {
@@ -624,6 +628,10 @@ export interface DataTableProps {
      * Whether all data is selected.
      */
     selectAll?: Nullable<boolean>;
+    /**
+     * Whether the select all checkbox clears the selection when lazy loading.
+     */
+    lazySelectAllPreservesSelection?: boolean | undefined;
     /**
      * When enabled, background of the rows change on hover.
      */

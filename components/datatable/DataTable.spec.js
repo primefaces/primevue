@@ -81,6 +81,8 @@ const data = [
     }
 ];
 
+const sortData = (a, b) => a.id > b.id ? 1 : b.id > a.id ? -1 : 0;
+
 describe('DataTable.vue', () => {
     let wrapper;
 
@@ -582,7 +584,7 @@ describe('DataTable.vue', () => {
         expect(wrapper.emitted()['row-select'][1][0].index).toBe(1);
     });
 
-    it('should select all rows', async () => {
+    it('should select all rows when not lazy', async () => {
         wrapper = mount(DataTable, {
             global: {
                 plugins: [PrimeVue],
@@ -609,7 +611,7 @@ describe('DataTable.vue', () => {
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual(smallData);
     });
 
-    it('should unselect all rows', async () => {
+    it('should unselect all rows when not lazy', async () => {
         wrapper = mount(DataTable, {
             global: {
                 plugins: [PrimeVue],
@@ -632,8 +634,139 @@ describe('DataTable.vue', () => {
 
         await wrapper.vm.toggleRowsWithCheckbox({ originalEvent: {}, checked: false });
 
-        expect(wrapper.emitted()['row-unselect-all'][0][0].data).toBe(undefined);
+        expect(wrapper.emitted()['row-unselect-all'][0][0].data).toEqual([]);
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual([]);
+    });
+
+    it('should select all rows on current page and reset selection when lazy', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: data.slice(0,5),
+                paginator: true,
+                rows: 5,
+                lazy: true,
+                selection: data.slice(5,10)
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code" />
+                    <Column field="name" header="Name" />
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowsWithCheckbox({ originalEvent: {}, checked: true });
+
+        const dataSubset = data.slice(0, 5);
+
+        expect(wrapper.emitted()['row-select-all'][0][0].data).toEqual(dataSubset);
+        expect(wrapper.emitted()['update:selection'][0][0]).toEqual(dataSubset);
+    });
+
+    it('should unselect all rows when lazy', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: data.slice(0, 5),
+                paginator: true,
+                rows: 5,
+                lazy: true,
+                selection: data.slice(5, 10)
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code" />
+                    <Column field="name" header="Name" />
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowsWithCheckbox({ originalEvent: {}, checked: false });
+
+        expect(wrapper.emitted()['row-unselect-all'][0][0].data).toEqual([]);
+        expect(wrapper.emitted()['update:selection'][0][0]).toEqual([]);
+    });
+
+    it('should select all rows on current page and keep selection when lazy with lazySelectAllPreservesSelection', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: data.slice(0, 5),
+                paginator: true,
+                rows: 5,
+                lazy: true,
+                lazySelectAllPreservesSelection: true,
+                selection: data.slice(5, 10)
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code" />
+                    <Column field="name" header="Name" />
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowsWithCheckbox({ originalEvent: {}, checked: true });
+
+        const sortedData = [...wrapper.emitted()['row-select-all'][0][0].data].sort(sortData);
+        const sortedSelection = [...wrapper.emitted()['update:selection'][0][0]].sort(sortData);
+
+        expect(sortedData).toEqual(data);
+        expect(sortedSelection).toEqual(data);
+    });
+
+    it('should unselect all rows on current page and keep selection when lazy with lazySelectAllPreservesSelection', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: data.slice(0, 5),
+                paginator: true,
+                rows: 5,
+                lazy: true,
+                lazySelectAllPreservesSelection: true,
+                selection: data
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code" />
+                    <Column field="name" header="Name" />
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowsWithCheckbox({ originalEvent: {}, checked: false });
+
+        const dataSubset = data.slice(5, 10);
+        const sortedData = [...wrapper.emitted()['row-unselect-all'][0][0].data].sort(sortData);
+        const sortedSelection = [...wrapper.emitted()['update:selection'][0][0]].sort(sortData);
+
+        expect(sortedData).toEqual(dataSubset);
+        expect(sortedSelection).toEqual(dataSubset);
     });
 
     // scrolling
