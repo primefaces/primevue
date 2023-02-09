@@ -366,7 +366,7 @@ const Tooltip = {
 
             bindEvents(target);
         } else if (typeof options.value === 'object' && options.value) {
-            if (ObjectUtils.isEmpty(options.value.value || options.value.value.trim() === '')) {
+            if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') {
                 unbindEvents(target);
                 return;
             } else {
