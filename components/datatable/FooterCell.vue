@@ -43,8 +43,12 @@ export default {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
 
+                    while (next && !next.classList.contains('p-frozen-column')) {
+                      next = next.nextElementSibling;
+                    }
+
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
+                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
                     this.styleObject.right = right + 'px';
@@ -52,8 +56,12 @@ export default {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
 
+                    while (prev && !prev.classList.contains('p-frozen-column')) {
+                      prev = prev.previousElementSibling;
+                    }
+
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
+                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
                     this.styleObject.left = left + 'px';
@@ -72,10 +80,10 @@ export default {
             ];
         },
         containerStyle() {
-            let bodyStyle = this.columnProp('footerStyle');
+            let footerStyle = this.columnProp('footerStyle');
             let columnStyle = this.columnProp('style');
 
-            return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
+            return this.columnProp('frozen') ? [columnStyle, footerStyle, this.styleObject] : [columnStyle, footerStyle];
         }
     }
 };

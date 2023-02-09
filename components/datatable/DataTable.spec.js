@@ -669,9 +669,9 @@ describe('DataTable.vue', () => {
     });
 
     // frozen columns
-    it('should have frozen columns', () => {
+    it('should have frozen columns', async () => {
         wrapper = null;
-        wrapper = mount(DataTable, {
+        wrapper = await mount(DataTable, {
             global: {
                 plugins: [PrimeVue],
                 components: {
@@ -686,16 +686,33 @@ describe('DataTable.vue', () => {
             },
             slots: {
                 default: `
-                    <Column field="code" header="Code" frozen></Column>
-                    <Column field="name" header="Name"></Column>
+                    <Column field="id" header="ID" footer="ID Footer" frozen style="width:3rem" />
+                    <Column field="code" header="Code" style="width: 5rem" />
+                    <Column field="name" header="Name" footer="Name Footer" frozen style="width: 10rem" />
+                    <Column field="code" header="Code 2" style="width: 10rem" />
+                    <Column field="name" header="Name 2" style="width: 10rem" />
                 `
             }
         });
 
-        expect(wrapper.find('th.p-frozen-column').exists()).toBe(true);
-        // expect(wrapper.find('th.p-frozen-column').attributes().style).toBe('left: 0px;');
-        expect(wrapper.findAll('td.p-frozen-column').length).toBe(3);
-        // expect(wrapper.findAll('td.p-frozen-column')[0].attributes().style).toBe('left: 0px;');
+        const headerColumns = wrapper.findAll('thead th.p-frozen-column');
+        const bodyColumns = wrapper.findAll('tbody td.p-frozen-column');
+        const footerColumns = wrapper.findAll('tfoot td.p-frozen-column');
+
+        expect(headerColumns.length).toBe(2); // 1 per frozen column
+        expect(bodyColumns.length).toBe(6); // 1 per row per frozen column
+        expect(footerColumns.length).toBe(2); // 1 per frozen column
+
+        // first frozen column should be left: 0
+        expect(headerColumns[0].attributes().style).toContain('left: 0px;');
+        expect(bodyColumns[0].attributes().style).toContain('left: 0px;');
+        expect(footerColumns[0].attributes().style).toContain('left: 0px;');
+
+        // 2nd frozen column should be left: 48 (3 rem of 1st frozen column)
+        // offsetWidth is not set in testing, so this does not calculate correctly :(
+        // expect(headerColumns[1].attributes().style).toContain('left: 48px;');
+        // expect(bodyColumns[1].attributes().style).toContain('left: 48px;');
+        // expect(footerColumns[1].attributes().style).toContain('left: 48px;');
     });
 
     // lazy loading

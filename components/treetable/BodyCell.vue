@@ -94,6 +94,10 @@ export default {
                     let right = 0;
                     let next = this.$el.nextElementSibling;
 
+                    while (next && !next.classList.contains('p-frozen-column')) {
+                      next = next.nextElementSibling;
+                    }
+
                     if (next) {
                         right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
@@ -102,6 +106,10 @@ export default {
                 } else {
                     let left = 0;
                     let prev = this.$el.previousElementSibling;
+
+                    while (prev && !prev.classList.contains('p-frozen-column')) {
+                      prev = prev.previousElementSibling;
+                    }
 
                     if (prev) {
                         left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
