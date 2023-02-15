@@ -90,6 +90,10 @@ export default {
             type: Boolean,
             default: true
         },
+        autoFocus: {
+            type: Boolean,
+            default: true
+        },
         filterMatchModeOptions: {
             type: Array,
             default: null

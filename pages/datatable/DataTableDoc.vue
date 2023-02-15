@@ -270,6 +270,12 @@ export default {
                             <td>When enabled, a button is displayed to add more rules.</td>
                         </tr>
                         <tr>
+                            <td>autoFocus</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>When enabled, filter opens and the first element will focus.</td>
+                        </tr>
+                        <tr>
                             <td>filterMatchModeOptions</td>
                             <td>array</td>
                             <td>null</td>

@@ -153,6 +153,11 @@ export interface ColumnProps {
      */
     showAddButton?: boolean | undefined;
     /**
+     * When enabled, filter opens and the first element will focus.
+     * Default value is true.
+     */
+    autoFocus?: boolean | undefined;
+    /**
      * An array of label-value pairs to override the global match mode options.
      */
     filterMatchModeOptions?: ColumnFilterMatchModeOptions[];

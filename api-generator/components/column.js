@@ -126,6 +126,12 @@ const ColumnProps = [
         description: 'When enabled, a button is displayed to add more rules.'
     },
     {
+        name: 'autoFocus',
+        type: 'boolean',
+        default: 'true',
+        description: 'When enabled, filter opens and the first element will focus.'
+    },
+    {
         name: 'filterMatchModeOptions',
         type: 'array',
         default: 'null',
