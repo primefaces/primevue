@@ -36,7 +36,7 @@
                     responsiveLayout="scroll"
                 >
                     <template #header>
-                        <div class="table-header flex flex-column md:flex-row md:justiify-content-between">
+                        <div class="table-header flex flex-column md:flex-row md:justify-content-between">
                             <h5 class="mb-2 md:m-0 p-as-md-center">Manage Products</h5>
                             <span class="p-input-icon-left">
                                 <i class="pi pi-search" />
@@ -219,7 +219,7 @@ export default {
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
                 <template #header>
-                    <div class="table-header flex flex-column md:flex-row md:justiify-content-between">
+                    <div class="table-header flex flex-column md:flex-row md:justify-content-between">
 						<h5 class="mb-2 md:m-0 p-as-md-center">Manage Products</h5>
 						<span class="p-input-icon-left">
                             <i class="pi pi-search" />
@@ -535,7 +535,7 @@ export default {
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
                 <template #header>
-                    <div class="table-header flex flex-column md:flex-row md:justiify-content-between">
+                    <div class="table-header flex flex-column md:flex-row md:justify-content-between">
 						<h5 class="mb-2 md:m-0 p-as-md-center">Manage Products</h5>
 						<span class="p-input-icon-left">
                             <i class="pi pi-search" />
@@ -860,7 +860,7 @@ export default {
                     paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rows-per-page-options="[5,10,25]"
                     current-page-report-template="Showing {first} to {last} of {totalRecords} products" responsive-layout="scroll">
                     <template #header>
-                        <div class="table-header flex flex-column md:flex-row md:justiify-content-between">
+                        <div class="table-header flex flex-column md:flex-row md:justify-content-between">
 							<h5 class="mb-2 md:m-0 p-as-md-center">Manage Products</h5>
 							<span class="p-input-icon-left">
                                 <i class="pi pi-search"></i>
