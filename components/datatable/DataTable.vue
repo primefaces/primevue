@@ -1642,7 +1642,7 @@ export default {
             if (this.rowDragging && this.draggedRowIndex !== index) {
                 let rowElement = event.currentTarget;
                 let rowY = DomHandler.getOffset(rowElement).top + DomHandler.getWindowScrollTop();
-                let pageY = event.pageY;
+                let pageY = event.pageY + window.scrollY;
                 let rowMidY = rowY + DomHandler.getOuterHeight(rowElement) / 2;
                 let prevRowElement = rowElement.previousElementSibling;
 
