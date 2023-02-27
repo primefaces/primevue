@@ -30,8 +30,6 @@ type DataTableStateStorageType = 'session' | 'local' | undefined;
 
 type DataTableEditModeType = 'cell' | 'row' | undefined;
 
-type DataTableScrollDirectionType = 'vertical' | 'horizontal' | 'both' | undefined;
-
 type DataTableScrollHeightType = 'flex' | string | undefined;
 
 type DataTableResponsiveLayoutType = 'stack' | 'scroll' | undefined;
@@ -644,10 +642,6 @@ export interface DataTableProps {
      */
     exportFunction?(options: DataTableExportFunctionOptions): any;
     /**
-     * Whether the cell widths scale according to their content or not. Does not apply to scrollable tables.
-     */
-    autoLayout?: boolean | undefined;
-    /**
      * When enabled, columns can be resized using drag and drop.
      */
     resizableColumns?: boolean | undefined;
@@ -733,12 +727,6 @@ export interface DataTableProps {
      */
     scrollHeight?: DataTableScrollHeightType;
     /**
-     * Orientation of the scrolling, options are 'vertical', 'horizontal' and 'both'.
-     * @see DataTableScrollDirectionType
-     * Default value is 'vertical'.
-     */
-    scrollDirection?: DataTableScrollDirectionType;
-    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * Note: Currently only vertical orientation mode is supported.
      * @see VirtualScroller.VirtualScrollerProps
@@ -749,9 +737,9 @@ export interface DataTableProps {
      */
     frozenValue?: any[] | undefined;
     /**
-     * Defines the responsive mode, valid options are 'stack' and 'scroll'.
+     * Defines the responsive mode, valid options are 'stack' and 'scroll'. Default value is 'scroll'.
      * @see DataTableResponsiveLayoutType
-     * Default value is 'stack'.
+     * @deprecated since version 3.24.0
      */
     responsiveLayout?: DataTableResponsiveLayoutType;
     /**

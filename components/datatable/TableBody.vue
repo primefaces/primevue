@@ -67,7 +67,9 @@
                     </td>
                 </tr>
                 <tr v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))" :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'" class="p-rowgroup-footer" role="row">
-                    <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
+                    <td :colspan="columnsLength - 1">
+                        <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
+                    </td>
                 </tr>
             </template>
         </template>
@@ -238,13 +240,6 @@ export default {
             isARowSelected: false
         };
     },
-    watch: {
-        virtualScrollerContentProps(newValue, oldValue) {
-            if (!this.isVirtualScrollerDisabled && this.getVirtualScrollerProp('vertical') && this.getVirtualScrollerProp('itemSize', oldValue) !== this.getVirtualScrollerProp('itemSize', newValue)) {
-                this.updateVirtualScrollerPosition();
-            }
-        }
-    },
     mounted() {
         if (this.frozenRow) {
             this.updateFrozenRowStickyPosition();
@@ -252,10 +247,6 @@ export default {
 
         if (this.scrollable && this.rowGroupMode === 'subheader') {
             this.updateFrozenRowGroupHeaderStickyPosition();
-        }
-
-        if (!this.isVirtualScrollerDisabled && this.getVirtualScrollerProp('vertical')) {
-            this.updateVirtualScrollerPosition();
         }
     },
     updated() {
@@ -537,11 +528,6 @@ export default {
             let tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
 
             this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px';
-        },
-        updateVirtualScrollerPosition() {
-            const tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
-
-            this.$el.style.top = (this.$el.style.top || 0) + tableHeaderHeight + 'px';
         },
         getVirtualScrollerProp(option, options) {
             options = options || this.virtualScrollerContentProps;
