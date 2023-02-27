@@ -1467,7 +1467,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper > .p-datatable-table`;
+            let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
@@ -1908,7 +1908,7 @@ export default {
                     this.createStyleElement();
 
                     let innerHTML = '';
-                    let selector = `.p-datatable[${attributeSelectorState}] > .p-datatable-wrapper > .p-datatable-table`;
+                    let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
 
                     widths.forEach((width, index) => {
                         let style = `width: ${width}px !important; max-width: ${width}px !important`;
@@ -2041,8 +2041,9 @@ export default {
                 this.responsiveStyleElement.type = 'text/css';
                 document.head.appendChild(this.responsiveStyleElement);
 
-                let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper > .p-datatable-table`;
-                let gridLinesSelector = `.p-datatable[${this.attributeSelector}].p-datatable-gridlines > .p-datatable-wrapper > .p-datatable-table`;
+                let tableSelector = `.p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
+                let selector = `.p-datatable[${this.attributeSelector}] > ${tableSelector}`;
+                let gridLinesSelector = `.p-datatable[${this.attributeSelector}].p-datatable-gridlines > ${tableSelector}`;
                 let innerHTML = `
 @media screen and (max-width: ${this.breakpoint}) {
     ${selector} > .p-datatable-thead > tr > th,
