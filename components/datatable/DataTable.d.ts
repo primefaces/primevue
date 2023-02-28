@@ -120,9 +120,8 @@ export interface DataTableSortEvent {
     rows: number;
     /**
      * Field to sort against
-     * @todo
      */
-    sortField: string | ((item: any) => string) | undefined | null;
+    sortField: string | ((item: any) => string) | undefined;
     /**
      * Sort order as integer
      */
@@ -130,7 +129,7 @@ export interface DataTableSortEvent {
     /**
      * MultiSort metadata
      */
-    multiSortMeta: DataTableSortMeta[] | undefined | null;
+    multiSortMeta: DataTableSortMeta[] | undefined;
     /**
      * Collection of active filters
      * @see DataTableFilterMeta
@@ -345,7 +344,8 @@ export interface DataTableRowExpandEvent {
 
 /**
  * Custom row collapse event.
- * @see {@link DataTableEmits.rowgroupCollapse}
+ * @see rowgroup-collapse
+ * @todo
  * @extends DataTableRowExpandEvent
  */
 export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
@@ -375,7 +375,8 @@ export interface DataTableCellEditInitEvent {
 
 /**
  * Custom cell edit cancel event.
- * @see {@link DataTableEmits.cellEditInit}
+ * @see cell-edit-init
+ * @todo
  * @extends DataTableCellEditInitEvent
  */
 export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent {}
@@ -448,14 +449,14 @@ export interface DataTableRowEditInitEvent {
 
 /**
  * Custom row edit init event.
- * @see {@link DataTableEmits.rowEditInit}
+ * @see row-edit-init
  * @extends DataTableRowEditInitEvent
  */
 export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
 
 /**
  *  Custom row edit cancel event.
- * @see {@link DataTableEmits.rowEditInit}
+ * @see row-edit-init
  * @extends DataTableRowEditCancelEvent
  */
 export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent {}
@@ -484,7 +485,7 @@ export interface DataTableStateEvent {
     /**
      * MultiSort metadata
      */
-    multiSortMeta: DataTableSortMeta[] | undefined | null;
+    multiSortMeta: DataTableSortMeta[] | undefined;
     /**
      * Collection of active filters
      * @see DataTableFilterMeta
@@ -531,9 +532,8 @@ export interface DataTableProps {
     value?: any[] | undefined | null;
     /**
      * Name of the field that uniquely identifies the a record in the data.
-     * @defaultValue null
      */
-    dataKey?: string | ((item: any) => string) | null | undefined;
+    dataKey?: string | ((item: any) => string) | undefined;
     /**
      * Number of rows to display per page.
      * @defaultValue 0
@@ -587,9 +587,9 @@ export interface DataTableProps {
     /**
      * Array of integer values to display inside rows per page dropdown.
      */
-    rowsPerPageOptions?: number[] | undefined | null;
+    rowsPerPageOptions?: number[] | undefined;
     /**
-     * Template of the current page report element. It displays information about the pagination state. Default value is ({currentPage} of {totalPages}) whereas available placeholders are the following;
+     * Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;
      *
      * - {currentPage}
      * - {totalPages}
@@ -617,9 +617,8 @@ export interface DataTableProps {
     loadingIcon?: string | undefined;
     /**
      * Property name or a getter function of a row data used for sorting by default
-     * @defaultValue null
      */
-    sortField?: string | ((item: any) => string) | null | undefined;
+    sortField?: string | ((item: any) => string) | undefined;
     /**
      * Order to sort the data by default.
      */
@@ -630,9 +629,9 @@ export interface DataTableProps {
      */
     defaultSortOrder?: number | undefined;
     /**
-     * An array of SortMeta objects to sort the data by default in multiple sort mode.
+     * An array of SortMeta objects to sort the data.
      */
-    multiSortMeta?: DataTableSortMeta[] | undefined | null;
+    multiSortMeta?: DataTableSortMeta[] | undefined;
     /**
      * Defines whether sorting works on single column or on multiple columns.
      * @defaultValue single
@@ -647,12 +646,11 @@ export interface DataTableProps {
      * Filters object with key-value pairs to define the filters.
      * @see DataTableFilterMeta
      */
-    filters?: DataTableFilterMeta | null;
+    filters?: DataTableFilterMeta;
     /**
-     * Layout of the filter elements, valid values are 'row' and 'menu'.
-     * @defaultValue null
+     * Layout of the filter elements.
      */
-    filterDisplay?: 'menu' | 'row' | undefined | null;
+    filterDisplay?: 'menu' | 'row' | undefined;
     /**
      * Fields for global filter
      */
@@ -666,12 +664,11 @@ export interface DataTableProps {
      */
     selection?: any[] | any | undefined;
     /**
-     * Specifies the selection mode, valid values are 'single' and 'multiple'.
-     * @defaultValue null
+     * Specifies the selection mode.
      */
     selectionMode?: 'single' | 'multiple' | undefined;
     /**
-     * Algorithm to define if a row is selected, valid values are 'equals' that compares by reference and 'deepEquals' that compares all fields.
+     * Algorithm to define if a row is selected.
      * @defaultValue deepEquals
      */
     compareSelectionBy?: 'equals' | 'deepEquals' | undefined;
@@ -689,7 +686,7 @@ export interface DataTableProps {
     /**
      * Selected row instance with the ContextMenu.
      */
-    contextMenuSelection?: any | any[] | undefined | null;
+    contextMenuSelection?: any | any[] | undefined;
     /**
      * Whether all data is selected.
      */
@@ -720,7 +717,7 @@ export interface DataTableProps {
      */
     resizableColumns?: boolean | undefined;
     /**
-     * Defines whether the overall table width should change on column resize, valid values are 'fit' and 'expand'.
+     * Defines whether the overall table width.
      * @defaultValue fit
      */
     columnResizeMode?: 'fit' | 'expand' | undefined;
@@ -745,13 +742,11 @@ export interface DataTableProps {
      */
     collapsedRowIcon?: string | undefined;
     /**
-     * Defines the row group mode, valid options are 'subheader' and 'rowspan'.
-     * @defaultValue null
+     * Defines the row group mode.
      */
-    rowGroupMode?: 'subheader' | 'rowspan' | undefined | null;
+    rowGroupMode?: 'subheader' | 'rowspan' | undefined;
     /**
      * One or more field names to use in row grouping.
-     * @todo
      */
     groupRowsBy?: ((field: string) => object) | string[] | string | undefined;
     /**
@@ -765,33 +760,31 @@ export interface DataTableProps {
      */
     expandedRowGroups?: any[] | DataTableExpandedRows;
     /**
-     * Defines where a stateful table keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage.
+     * Defines where a stateful table keeps its state.
      * @defaultValue session
      */
     stateStorage?: 'session' | 'local' | undefined;
     /**
      * Unique identifier of a stateful table to use in state storage.
      */
-    stateKey?: string | undefined | null;
+    stateKey?: string | undefined;
     /**
      * Defines the incell editing mode, valid options are 'cell' and 'row'.
-     * @defaultValue null
      */
-    editMode?: 'cell' | 'row' | undefined | null;
+    editMode?: 'cell' | 'row' | undefined;
     /**
      * A collection of rows to represent the current editing data in row edit mode.
      * @see DataTableEditingRows
      */
-    editingRows?: any[] | DataTableEditingRows | null;
+    editingRows?: any[] | DataTableEditingRows;
     /**
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
-     * @todo
      */
-    rowClass?: (data: any) => object | string | undefined | null;
+    rowClass?: (data: any) => object | string | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style for the corresponding row.
      */
-    rowStyle?: any | null;
+    rowStyle?: any;
     /**
      * When specified, enables horizontal and/or vertical scrolling.
      * @defaultValue false
@@ -799,15 +792,14 @@ export interface DataTableProps {
     scrollable?: boolean | undefined;
     /**
      * Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size.
-     * @defaultValue null
      */
-    scrollHeight?: 'flex' | string | undefined | null;
+    scrollHeight?: 'flex' | string | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * Note: Currently only vertical orientation mode is supported.
      * @see VirtualScroller.VirtualScrollerProps
      */
-    virtualScrollerOptions?: VirtualScrollerProps | null;
+    virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Items of the frozen part in scrollable DataTable.
      */
@@ -830,19 +822,19 @@ export interface DataTableProps {
     /**
      * Inline style of the table element.
      */
-    tableStyle?: any | null;
+    tableStyle?: any;
     /**
      * Style class of the table element.
      */
-    tableClass?: any | null;
+    tableClass?: any;
     /**
      * Uses to pass all properties of the TableHTMLAttributes to table element inside the component.
      */
-    tableProps?: TableHTMLAttributes | undefined | null;
+    tableProps?: TableHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
      */
-    filterInputProps?: InputHTMLAttributes | undefined | null;
+    filterInputProps?: InputHTMLAttributes | undefined;
 }
 /**
  * Defines valid slots in Datatable component.
@@ -1067,12 +1059,12 @@ export interface DataTableEmits {
      * Callback to invoke when a row group is collapsed.
      * @param {DataTableRowCollapseEvent} event - Custom row collapse event.
      */
-    rowgroupCollapse(event: DataTableRowCollapseEvent): void;
+    'rowgroup-collapse'(event: DataTableRowCollapseEvent): void;
     /**
      * Callback to invoke when cell edit is initiated.
      * @param {DataTableCellEditInitEvent} event - Custom cell edit init.
      */
-    cellEditInit(event: DataTableCellEditInitEvent): void;
+    'cell-edit-init'(event: DataTableCellEditInitEvent): void;
     /**
      * Callback to invoke when cell edit is completed.
      * @param {DataTableCellEditCompleteEvent} event - Custom cell edit complete event.
@@ -1087,7 +1079,7 @@ export interface DataTableEmits {
      * Callback to invoke when row edit is initiated.
      * @param {DataTableRowEditInitEvent} event - Custom row edit init event.
      */
-    rowEditInit(event: DataTableRowEditInitEvent): void;
+    'row-edit-init'(event: DataTableRowEditInitEvent): void;
     /**
      * Callback to invoke when row edit is saved.
      * @param {DataTableRowEditSaveEvent} event - Custom row edit save event.
@@ -1136,23 +1128,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * DataTable displays data in tabular format.
- *
- * Helper Components:
- *
- * - Column
- * - ColumnGroup
- * - Row
- *
- * Demos:
- *
- * - [DataTable](https://www.primefaces.org/primevue/datatable)
- * - [Edit](https://www.primefaces.org/primevue/datatable/edit)
- * - [Sort](https://www.primefaces.org/primevue/datatable/sort)
- * - [Filter](https://www.primefaces.org/primevue/datatable/filter)
- * etc.
- *
- */
 export default DataTable;
