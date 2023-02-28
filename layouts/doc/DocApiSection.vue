@@ -48,11 +48,13 @@ export default {
                 };
 
                 const values = APIDocs[moduleName].interfaces.values;
+                const componentValues = APIDocs[moduleName]?.components;
 
                 const props = values[`${docName}Props`];
                 const emits = values[`${docName}Emits`];
                 const slots = values[`${docName}Slots`];
-                const methods = values[docName];
+                const methods = componentValues ? componentValues[docName].methods : null;
+
                 const types = APIDocs[moduleName]['types'];
                 let events = this.findEvents(values);
                 const interfaces = this.findOtherInterfaces(values, docName);
@@ -77,7 +79,7 @@ export default {
                     });
                 }
 
-                if (slots && slots.methods.length) {
+                if (slots && slots.methods.length > 0) {
                     newDoc.children.push({
                         id: `api.${moduleName}.slots`,
                         label: 'Slots',
@@ -87,12 +89,12 @@ export default {
                     });
                 }
 
-                if (methods && methods.methods.length) {
+                if (methods && methods.values.length > 0) {
                     newDoc.children.push({
                         id: `api.${moduleName}.methods`,
                         label: 'Methods',
                         component: DocApiTable,
-                        data: this.setEmitData(methods.methods),
+                        data: this.setEmitData(methods.values),
                         description: APIDocs[moduleName].interfaces.methodDescription
                     });
                 }
