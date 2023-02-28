@@ -5,7 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/progressspinner/AccessibilityDoc';
 import BasicDoc from '@/doc/progressspinner/BasicDoc';
-import CustomDoc from '@/doc/progressspinner/customDoc';
+import CustomDoc from '@/doc/progressspinner/CustomDoc';
 import ImportDoc from '@/doc/progressspinner/ImportDoc';
 import StyleDoc from '@/doc/progressspinner/StyleDoc';
 
