@@ -127,6 +127,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
+    border: 1px solid transparent;
 }
 
 .p-inputswitch-slider:before {
