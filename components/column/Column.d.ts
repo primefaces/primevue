@@ -6,11 +6,16 @@
  * [Live Demo](https://www.primevue.org/datatable/)
  *
  * @module column
+ *
  */
+
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
+/**
+ * Filter model metadata.
+ */
 export interface ColumnFilterModelType {
     /**
      * Value of filterModel.
@@ -22,10 +27,17 @@ export interface ColumnFilterModelType {
     matchMode: string;
 }
 
+/**
+ * Filter match modes for specific columns.
+ */
 export interface ColumnFilterMatchModeOptions {
     [key: string]: string;
 }
 
+/**
+ * Custom column loading metadata.
+ * @see {@link VirtualScrollerLoaderOptions}
+ */
 export interface ColumnLoadingOptions extends VirtualScrollerLoaderOptions {
     /**
      * Cell index
@@ -57,6 +69,9 @@ export interface ColumnLoadingOptions extends VirtualScrollerLoaderOptions {
     field: string;
 }
 
+/**
+ * Defines valid properties in Column component.
+ */
 export interface ColumnProps {
     /**
      * Identifier of a column if field property is not defined.
@@ -245,6 +260,9 @@ export interface ColumnProps {
     hidden?: boolean | undefined;
 }
 
+/**
+ * Defines valid slots in Column component.
+ */
 export interface ColumnSlots {
     /**
      * Custom body template.
@@ -469,7 +487,7 @@ export interface ColumnEmits {}
  *
  * _Column is a helper component for DataTable and TreeTable._
  *
- * [Live Demo](https://www.primevue.org/column/)
+ * [Live Demo](https://www.primevue.org/datatable/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
