@@ -6382,7 +6382,7 @@
         }
     },
     "datatable": {
-        "description": "DataTable displays data in tabular format.\n\n[Live Demo](https://www.primereact.org/datatable/)",
+        "description": "DataTable displays data in tabular format.\n\n[Live Demo](https://www.primevue.org/datatable/)",
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -6392,7 +6392,7 @@
             "slotDescription": "Defines the slots used by the component.",
             "values": {
                 "DataTable": {
-                    "description": "**PrimeReact - DataTable**\n\n * _DataTable displays data in tabular format._\n\n[Live Demo](https://www.primevue.org/datatable/)\n--- ---\n![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)",
+                    "description": "**PrimeVue - DataTable**\n\n * _DataTable displays data in tabular format._\n\n[Live Demo](https://www.primevue.org/datatable/)\n--- ---\n![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)",
                     "relatedProp": "",
                     "props": [
                         {

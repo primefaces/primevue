@@ -2,7 +2,7 @@
  *
  * DataTable displays data in tabular format.
  *
- * [Live Demo](https://www.primereact.org/datatable/)
+ * [Live Demo](https://www.primevue.org/datatable/)
  *
  * @module datatable
  *
@@ -1071,7 +1071,7 @@ export interface DataTableEmits {
 }
 
 /**
- * **PrimeReact - DataTable**
+ * **PrimeVue - DataTable**
  *
  *  * _DataTable displays data in tabular format._
  *
