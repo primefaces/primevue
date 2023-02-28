@@ -10,7 +10,7 @@ import ImageDoc from '@/doc/avatar/ImageDoc';
 import ImportDoc from '@/doc/avatar/ImportDoc';
 import LabelDoc from '@/doc/avatar/LabelDoc';
 import StylingAvatarDoc from '@/doc/avatar/StylingAvatarDoc';
-import StylingAvatarGroupDoc from '@/doc/avatar/StylingAvatarGroupdoc';
+import StylingAvatarGroupDoc from '@/doc/avatar/StylingAvatarGroupDoc';
 
 export default {
     data() {
