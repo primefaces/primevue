@@ -293,7 +293,7 @@
 </template>
 
 <script>
-import PricingService from '@/service/PricingService';
+import FetchPricing from '@/service/PricingService';
 
 export default {
     data() {
@@ -301,12 +301,8 @@ export default {
             pricing: null
         };
     },
-    pricingService: null,
-    created() {
-        this.pricingService = new PricingService();
-    },
     mounted() {
-        this.pricingService.fetchPricing().then((data) => {
+        FetchPricing().then((data) => {
             this.pricing = data;
         });
     },
@@ -318,7 +314,7 @@ export default {
     computed: {
         coverImage() {
             const image = this.$appState.darkTheme ? 'images/uikit/primeone-cover-dark.jpg' : 'images/uikit/primeone-cover-light.jpg';
-            
+
             return 'https://primefaces.org/cdn/primevue/' + image;
         }
     }

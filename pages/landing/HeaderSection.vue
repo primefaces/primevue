@@ -8,19 +8,19 @@
             <nav class="scalein origin-top">
                 <ol class="list-none m-0 p-0 flex flex-column lg:flex-row flex-wrap lg:flex-nowrap lg:align-items-center font-semibold">
                     <li class="mr-0 lg:mr-2">
-                        <router-link to="/setup">
+                        <router-link to="/installation">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/core-icon.svg" alt="primevue core" />
                             <span>Components</span>
                         </router-link>
                     </li>
                     <li class="mr-0 lg:mr-2">
-                        <a href="https://blocks.primevue.org">
+                        <a href="https://www.primefaces.org/primeblocks-vue">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <span>Blocks</span>
                         </a>
                     </li>
                     <li class="mr-0 lg:mr-2">
-                        <a href="https://designer.primevue.org">
+                        <a href="https://www.primefaces.org/designer-vue">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/designer-icon.svg" alt="primevue templates" />
                             <span>Designer</span>
                         </a>

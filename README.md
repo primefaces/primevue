@@ -61,7 +61,7 @@ Finally you'll be able to utilize the component in your application. See the Sty
 ### CDN
 
 ```javascript
-<script src="https://unpkg.com/primevue@^3/core/core.min.js"></script>/script>
+<script src="https://unpkg.com/primevue@^3/core/core.min.js"></script>
 <script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"></script>
 ```
 

@@ -6,7 +6,7 @@
             <div class="box p-4 flex flex-column md:flex-row z-1 designer-editor">
                 <div class="mr-0 md:mr-4 p-4 designer-controls box border-bottom-1 border-left-none border-right-none border-top-none md:border-bottom-none md:border-right-1" style="border-radius: '10px'">
                     <div class="text-center mb-4">
-                        <img :src="'images/landing/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
+                        <img :src="'https://primefaces.org/cdn/primevue/images/landing/' + `${$appState.darkTheme ? 'designer-light.svg' : 'designer-dark.svg'}`" />
                     </div>
                     <div class="p-fluid">
                         <span class="font-semibold block mb-3">Primary</span>
@@ -48,7 +48,7 @@
                             </div>
                         </div>
 
-                        <a href="https://designer.primevue.org" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+                        <a href="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
                             <span>View Full Version</span>
                             <i class="pi pi-arrow-right ml-auto"></i>
                         </a>

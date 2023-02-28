@@ -21,7 +21,6 @@ export default {
     methods: {
         onClose() {
             this.$appState.newsActive = false;
-
             const item = {
                 hiddenNews: this.$appState.announcement.id
             };

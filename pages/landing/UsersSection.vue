@@ -71,7 +71,7 @@
 export default {
     methods: {
         imgSrc(brand) {
-            return `images/landing/whouses/${brand}-${this.colorScheme}.svg`;
+            return `https://primefaces.org/cdn/primevue/images/landing/whouses/${brand}-${this.colorScheme}.svg`;
         }
     },
     computed: {

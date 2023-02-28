@@ -1,0 +1,58 @@
+<template>
+    <DocSectionText v-bind="$attrs">
+        <p>A font icon next to the value can be displayed with the <i>icon</i> property.</p>
+    </DocSectionText>
+    <div class="card flex flex-wrap justify-content-center gap-2">
+        <Tag icon="pi pi-user" value="Primary"></Tag>
+        <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
+        <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+    </div>
+    <DocSectionCode :code="code" />
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            code: {
+                basic: `
+<Tag icon="pi pi-user" value="Primary"></Tag>
+<Tag icon="pi pi-check" severity="success" value="Success"></Tag>
+<Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+<Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+<Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>`,
+                options: `
+<template>
+    <div class="card flex flex-wrap justify-content-center gap-2">
+        <Tag icon="pi pi-user" value="Primary"></Tag>
+        <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
+        <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+    </div>
+</template>
+
+<script>
+
+<\/script>`,
+                composition: `
+<template>
+    <div class="card flex flex-wrap justify-content-center gap-2">
+        <Tag icon="pi pi-user" value="Primary"></Tag>
+        <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
+        <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
+        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>`
+            }
+        };
+    }
+};
+</script>

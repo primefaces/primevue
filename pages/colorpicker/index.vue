@@ -1,62 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue ColorPicker Component</Title>
-            <Meta name="description" content="ColorPicker is an input component to select a color." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>ColorPicker</h1>
-                <p>ColorPicker is an input component to select a color.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Inline</h5>
-                <ColorPicker v-model="color1" :inline="true" />
-
-                <h5>Overlay</h5>
-                <ColorPicker v-model="color2" />
-            </div>
-
-            <div class="card">
-                <h5>Wall Color</h5>
-                <div class="flex flex-column align-items-center md:flex-row md:align-items-start">
-                    <ColorPicker v-model="color3" :inline="true" />
-                    <div :style="wallStyle" class="mt-5 md:mt-0 md:ml-5 inline-flex">
-                        <img alt="room" src="https://primefaces.org/cdn/primevue/images/interior.png" class="w-full md:auto" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <ColorPickerDoc />
-    </div>
+    <DocComponent title="Vue ColorPicker Component" header="ColorPicker" description="ColorPicker is an input component to select a color." :componentDocs="docs" :apiDocs="['ColorPicker']" />
 </template>
 
 <script>
-import ColorPickerDoc from './ColorPickerDoc';
+import AccessibilityDoc from '@/doc/colorpicker/AccessibilityDoc';
+import BasicDoc from '@/doc/colorpicker/BasicDoc';
+import DisabledDoc from '@/doc/colorpicker/DisabledDoc';
+import FormatDoc from '@/doc/colorpicker/FormatDoc';
+import ImportDoc from '@/doc/colorpicker/ImportDoc';
+import InlineDoc from '@/doc/colorpicker/InlineDoc';
+import StyleDoc from '@/doc/colorpicker/StyleDoc';
 
 export default {
     data() {
         return {
-            color1: null,
-            color2: '1976D2',
-            color3: '474747'
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'inline',
+                    label: 'Inline',
+                    component: InlineDoc
+                },
+                {
+                    id: 'format',
+                    label: 'Format',
+                    component: FormatDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    computed: {
-        wallStyle() {
-            return {
-                backgroundColor: '#' + this.color3
-            };
-        }
-    },
-    components: {
-        ColorPickerDoc: ColorPickerDoc
     }
 };
 </script>

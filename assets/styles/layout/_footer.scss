@@ -1,0 +1,20 @@
+.layout-footer {
+    padding: 2rem 0;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-weight: 500;
+    color: var(--text-800);
+    border-top: 1px solid var(--surface-border);
+
+    a {
+        color: var(--primary-color);
+        font-weight: 700;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

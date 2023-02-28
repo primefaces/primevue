@@ -1,104 +1,75 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue InputText Component</Title>
-            <Meta name="description" content="InputText is an extension to standard input element with theming and keyfiltering." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>InputText</h1>
-                <p>InputText renders a text field to enter data.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <InputText v-model="value1" type="text" />
-                <span :style="{ marginLeft: '.5em' }">{{ value1 }}</span>
-
-                <h5>Floating Label</h5>
-                <span class="p-float-label">
-                    <InputText id="username" v-model="value2" type="text" />
-                    <label for="username">Username</label>
-                </span>
-
-                <h5>Left Icon</h5>
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
-                    <InputText v-model="value3" type="text" placeholder="Search" />
-                </span>
-
-                <h5>Right Icon</h5>
-                <span class="p-input-icon-right">
-                    <i class="pi pi-spin pi-spinner" />
-                    <InputText v-model="value4" type="text" />
-                </span>
-
-                <h5>Help Text</h5>
-                <div class="field">
-                    <label for="username1">Username</label>
-                    <InputText id="username1" type="username" aria-describedby="username1-help" />
-                    <small id="username1-help">Enter your username to reset your password.</small>
-                </div>
-
-                <h5>Invalid</h5>
-                <div class="field">
-                    <label for="username2">Username</label>
-                    <InputText id="username2" type="username" aria-describedby="username2-help" class="p-invalid" />
-                    <small id="username2-help" class="p-error">Username is not available.</small>
-                </div>
-
-                <h5>Disabled</h5>
-                <InputText v-model="value5" type="text" disabled />
-
-                <h5>Sizes</h5>
-                <div class="sizes">
-                    <InputText type="text" class="p-inputtext-sm" placeholder="Small" />
-                    <InputText type="text" placeholder="Normal" />
-                    <InputText type="text" class="p-inputtext-lg" placeholder="Large" />
-                </div>
-            </div>
-        </div>
-
-        <InputTextDoc />
-    </div>
+    <DocComponent title="Vue InputText Component" header="InputText" description="InputText is an extension to standard input element with theming." :componentDocs="docs" :apiDocs="['InputText']" />
 </template>
 
 <script>
-import InputTextDoc from './InputTextDoc';
+import AccessibilityDoc from '@/doc/inputtext/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
+import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
+import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
+import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
+import IconsDoc from '@/doc/inputtext/IconsDoc.vue';
+import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
+import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
+import SizesDoc from '@/doc/inputtext/SizesDoc.vue';
+import StyleDoc from '@/doc/inputtext/StyleDoc.vue';
 
 export default {
     data() {
         return {
-            value1: null,
-            value2: null,
-            value3: null,
-            value4: null,
-            value5: 'PrimeVue'
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'icons',
+                    label: 'Icons',
+                    component: IconsDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
+                },
+                {
+                    id: 'helptext',
+                    label: 'HelpText',
+                    component: HelpTextDoc
+                },
+                {
+                    id: 'floatlabel',
+                    label: 'FloatLabel',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    components: {
-        InputTextDoc: InputTextDoc
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.sizes {
-    .p-inputtext {
-        display: block;
-        margin-bottom: 0.5rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
-.field * {
-    display: block;
-}
-</style>

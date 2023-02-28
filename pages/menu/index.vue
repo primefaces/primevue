@@ -1,87 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Menu Component</Title>
-            <Meta name="description" content="Menu is a navigation/command component that supports dynamic and static positioning." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Menu</h1>
-                <p>Menu is a navigation / command component that supports dynamic and static positioning.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Inline</h5>
-                <Menu id="menu" :model="items" />
-
-                <h5>Overlay</h5>
-                <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
-                <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
-            </div>
-        </div>
-
-        <MenuDoc />
-    </div>
+    <DocComponent title="Vue Menu Component" header="Menu" description="Menu is a navigation/command component that supports dynamic and static positioning." :componentDocs="docs" :apiDocs="['Menu', 'MenuItem']" />
 </template>
 
 <script>
-import MenuDoc from './MenuDoc';
+import AccessibilityDoc from '@/doc/menu/AccessibilityDoc';
+import BasicDoc from '@/doc/menu/BasicDoc';
+import GroupDoc from '@/doc/menu/GroupDoc';
+import ImportDoc from '@/doc/menu/ImportDoc';
+import PopupDoc from '@/doc/menu/PopupDoc';
+import StyleDoc from '@/doc/menu/StyleDoc';
+import TemplateDoc from '@/doc/menu/TemplateDoc';
 
 export default {
     data() {
         return {
-            items: [
+            docs: [
                 {
-                    label: 'Options',
-                    items: [
-                        {
-                            label: 'Update',
-                            icon: 'pi pi-refresh',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                            }
-                        },
-                        {
-                            label: 'Delete',
-                            icon: 'pi pi-times',
-                            command: () => {
-                                this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                            }
-                        }
-                    ]
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
                 },
                 {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'group',
+                    label: 'Group',
+                    component: GroupDoc
+                },
+                {
+                    id: 'popup',
+                    label: 'Popup',
+                    component: PopupDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
                 }
             ]
         };
-    },
-    methods: {
-        toggle(event) {
-            this.$refs.menu.toggle(event);
-        },
-        save() {
-            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
-        }
-    },
-    components: {
-        MenuDoc: MenuDoc
     }
 };
 </script>

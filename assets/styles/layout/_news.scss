@@ -1,0 +1,76 @@
+.layout-news {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    padding: 0 2rem;
+
+    .layout-news-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 0%;
+    }
+
+    .layout-news-text {
+        line-height: 1.5;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        min-width: 0%;
+    }
+
+    .layout-news-link {
+        margin-left: 0.5rem;
+        line-height: 1.5;
+        white-space: nowrap;
+    }
+
+    .layout-news-close {
+        line-height: 1.5;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: background-color 0.3s;
+        margin-left: 0.5rem;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+.landing-news-active {
+    .landing-header {
+        top: 2rem;
+    }
+}
+
+.layout-news-active {
+    .layout-sidebar,
+    .layout-topbar,
+    .layout-config {
+        top: 2rem;
+    }
+
+    .layout-content {
+        padding-top: 7rem;
+    }
+
+    .doc-section-label,
+    .doc-table tbody td .doc-option-name,
+    .doc-table tbody td > i {
+        scroll-margin-top: 8.5rem;
+    }
+}

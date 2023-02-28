@@ -1,6 +1,18 @@
+/**
+ *
+ * Accordion groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/accordion/)
+ *
+ * @module accordiontab
+ *
+ */
 import { AnchorHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in AccordionTab component.
+ */
 export interface AccordionTabProps {
     /**
      * Orientation of tab headers.
@@ -40,18 +52,24 @@ export interface AccordionTabProps {
     disabled?: boolean | undefined;
 }
 
+/**
+ * Defines valid slots in Acordion slots.
+ */
 export interface AccordionTabSlots {
     /**
      * Default slot for content.
      */
-    default: () => VNode[];
+    default(): VNode[];
     /**
      * Custom content for the title section of a panel is defined using the header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
 }
 
-export declare type AccordionTabEmits = {};
+/**
+ * Defines valid emits in Acordion component.
+ */
+export interface AccordionTabEmits {}
 
 declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> {}
 

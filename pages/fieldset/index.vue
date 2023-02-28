@@ -1,55 +1,50 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Fieldset Component</Title>
-            <Meta name="description" content="Fieldset is a grouping component with a content toggle feature." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Fieldset</h1>
-                <p>Fieldset is a grouping component with the optional content toggle feature.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Regular</h5>
-                <Fieldset legend="Header">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </Fieldset>
-
-                <h5>Toggleable</h5>
-                <Fieldset legend="Header" :toggleable="true">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </Fieldset>
-            </div>
-        </div>
-
-        <FieldsetDoc />
-    </div>
+    <DocComponent title="Vue Fieldset Component" header="Fieldset" description="Fieldset is a grouping component with a content toggle feature." :componentDocs="docs" :apiDocs="['Fieldset']" />
 </template>
 
 <script>
-import FieldsetDoc from './FieldsetDoc';
-
+import AccessibilityDoc from '@/doc/fieldset/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/fieldset/BasicDoc.vue';
+import ImportDoc from '@/doc/fieldset/ImportDoc.vue';
+import StyleDoc from '@/doc/fieldset/StyleDoc.vue';
+import TemplateDoc from '@/doc/fieldset/TemplateDoc.vue';
+import ToggleableDoc from '@/doc/fieldset/ToggleableDoc.vue';
 export default {
-    components: {
-        FieldsetDoc: FieldsetDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'toggleable',
+                    label: 'Toggleable',
+                    component: ToggleableDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
+        };
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.fieldset p {
-    line-height: 1.5;
-    margin: 0;
-}
-</style>

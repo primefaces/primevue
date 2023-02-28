@@ -1,68 +1,51 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Deferred Content Component</Title>
-            <Meta name="description" content="DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>DeferredContent</h1>
-                <p>DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <div style="height: 800px">Scroll down to lazy load an image and the DataTable which initiates a query that is not executed on initial page load to speed up load performance.</div>
-
-                <DeferredContent @load="onImageLoad">
-                    <img src="https://primefaces.org/cdn/primevue/images/nature/nature4.jpg" alt="Nature" />
-                </DeferredContent>
-
-                <div style="height: 500px"></div>
-
-                <DeferredContent @load="onDataLoad" role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
-                    <DataTable :value="products" responsiveLayout="scroll">
-                        <Column field="code" header="Code"></Column>
-                        <Column field="name" header="Name"></Column>
-                        <Column field="category" header="Category"></Column>
-                        <Column field="quantity" header="Quantity"></Column>
-                    </DataTable>
-                </DeferredContent>
-            </div>
-        </div>
-
-        <DeferredContentDoc />
-    </div>
+    <DocComponent
+        title="Vue Deferred Content Component"
+        header="DeferredContent"
+        description="DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll."
+        :componentDocs="docs"
+        :apiDocs="['DeferredContent']"
+    />
 </template>
 
 <script>
-import ProductService from '../../service/ProductService';
-import DeferredContentDoc from './DeferredContentDoc';
+import AccessibilityDoc from '@/doc/deferredcontent/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/deferredcontent/BasicDoc.vue';
+import DataTableDoc from '@/doc/deferredcontent/DataTableDoc.vue';
+import ImportDoc from '@/doc/deferredcontent/ImportDoc.vue';
+import StyleDoc from '@/doc/deferredcontent/StyleDoc.vue';
 
 export default {
     data() {
         return {
-            products: null
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'datatable',
+                    label: 'DataTable',
+                    component: DataTableDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    productService: null,
-    created() {
-        this.productService = new ProductService();
-    },
-    methods: {
-        onImageLoad() {
-            this.$toast.add({ severity: 'success', summary: 'Image Initialized', detail: 'Scroll down to load the datatable' });
-        },
-        onDataLoad() {
-            this.productService.getProductsSmall().then((data) => (this.products = data));
-            this.$toast.add({ severity: 'success', summary: 'Data Initialized', detail: 'Render Completed' });
-        }
-    },
-    components: {
-        DeferredContentDoc: DeferredContentDoc
     }
 };
 </script>

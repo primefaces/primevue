@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "3.23.0",
+    "version": "3.24.0-SNAPSHOT",
     "homepage": "https://www.primefaces.org/primevue",
     "repository": {
         "type": "git",
@@ -22,7 +22,9 @@
         "test:unit": "vitest",
         "test:coverage": "vitest --coverage",
         "lint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-        "lint:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore ."
+        "lint:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
+        "apidoc": "node ./api-generator/build-apidoc.js",
+        "build:api": "node ./api-generator/build-api.js && npm run apidoc"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.18.9",
@@ -31,11 +33,10 @@
         "@fullcalendar/interaction": "^5.11.0",
         "@fullcalendar/timegrid": "^5.11.0",
         "@fullcalendar/vue3": "^5.11.0",
+        "@stackblitz/sdk": "^1.8.2",
         "@vitejs/plugin-vue-jsx": "^2.0.1",
         "@vitest/coverage-istanbul": "^0.26.2",
         "@vue/test-utils": "^2.0.0",
-        "@vuelidate/core": "^2.0.0-alpha.14",
-        "@vuelidate/validators": "^2.0.0-alpha.12",
         "chart.js": "3.3.2",
         "eslint": "^8.30.0",
         "eslint-config-prettier": "^8.5.0",
@@ -59,6 +60,8 @@
         "rollup-plugin-vue": "^6.0.0-beta.9",
         "sass": "^1.45.0",
         "sass-loader": "^8.0.2",
-        "vitest": "^0.23.2"
+        "vitest": "^0.23.2",
+        "typedoc": "0.23.23",
+        "typescript": "^4.9.4"
     }
 }

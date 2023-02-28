@@ -5,7 +5,7 @@
                 <ul class="list-none p-0 m-0">
                     <li class="font-bold mb-5">General</li>
                     <li class="mb-4">
-                        <router-link to="/setup" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Get Started</router-link>
+                        <router-link to="/installation" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Get Started</router-link>
                     </li>
                 </ul>
             </div>

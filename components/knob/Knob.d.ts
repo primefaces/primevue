@@ -1,5 +1,17 @@
+/**
+ *
+ * Knob is a form component to define number inputs with a dial.
+ *
+ * [Live Demo](https://www.primevue.org/knob/)
+ *
+ * @module knob
+ *
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Knob component. In addition to these, all properties of HTMLDivElement can be used in this component.
+ */
 export interface KnobProps {
     /**
      * Value of the component.
@@ -7,7 +19,7 @@ export interface KnobProps {
     modelValue?: number | undefined;
     /**
      * Size of the component in pixels.
-     * Default value is 100.
+     * @defaultValue 100
      */
     size?: number | undefined;
     /**
@@ -24,12 +36,12 @@ export interface KnobProps {
     step?: number | undefined;
     /**
      * Mininum boundary value.
-     * Default value is 0.
+     * @defaultValue 0
      */
     min?: number | undefined;
     /**
      * Maximum boundary value.
-     * Default value is 100.
+     * @defaultValue 100
      */
     max?: number | undefined;
     /**
@@ -46,17 +58,15 @@ export interface KnobProps {
     textColor?: string | undefined;
     /**
      * Width of the knob stroke.
-     * Default value is 14.
+     * @defaultValue 100
      */
     strokeWidth?: number | undefined;
     /**
      * Whether the show the value inside the knob.
-     * Default value is true.
      */
     showValue?: boolean | undefined;
     /**
      * Template string of the value.
-     * Default value is '{value}'.
      */
     valueTemplate?: string | undefined;
     /**
@@ -73,22 +83,38 @@ export interface KnobProps {
     'aria-label'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Knob component.
+ */
 export interface KnobSlots {}
 
-export declare type KnobEmits = {
+/**
+ * Defines valid emits in Knob component.
+ */
+export interface KnobEmits {
     /**
      * Emitted when the value changes.
-     * @param {number} value - New value.
+     * @param {number} event - New value.
      */
-    'update:modelValue': (value: number) => void;
+    'update:modelValue'(value: number): void;
     /**
      * Callback to invoke when the value changes.
-     * @param {number} value - New value
+     * @param {number} event - New value
      */
-    change: (value: number) => void;
-};
+    change(value: number): void;
+}
 
-declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}
+/**
+ * **PrimeVue - Knob**
+ *
+ * _Knob groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/knob/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ */
+export declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -96,13 +122,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Knob is a form component to define number inputs with a dial.
- *
- * Demos:
- *
- * - [Knob](https://www.primefaces.org/primevue/knob)
- *
- */
 export default Knob;

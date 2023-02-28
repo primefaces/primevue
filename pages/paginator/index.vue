@@ -1,78 +1,63 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Paginator Component</Title>
-            <Meta name="description" content="Paginator is a generic widget to display content in paged format." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Paginator</h1>
-                <p>Paginator is a generic component to display content in paged format.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
-
-                <h5>Responsive</h5>
-                <Paginator
-                    :template="{
-                        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
-                        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
-                        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput'
-                    }"
-                    :rows="10"
-                    :totalRecords="totalRecords"
-                ></Paginator>
-
-                <h5>Custom</h5>
-                <Paginator v-model:first="first" :rows="1" :totalRecords="totalRecords2" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink">
-                    <template #start>
-                        <Button type="button" icon="pi pi-refresh" @click="reset()" />
-                    </template>
-                    <template #end>
-                        <Button type="button" icon="pi pi-search" />
-                    </template>
-                </Paginator>
-
-                <div class="image-gallery">
-                    <img :src="'images/nature/' + image + '.jpg'" />
-                </div>
-            </div>
-        </div>
-
-        <PaginatorDoc />
-    </div>
+    <DocComponent title="Vue Paginator Component" header="Paginator" description="Paginator displays data in paged format and provides navigation between pages." :componentDocs="docs" :apiDocs="['Paginator']" />
 </template>
 
 <script>
-import PaginatorDoc from './PaginatorDoc';
+import AccessibilityDoc from '@/doc/paginator/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/paginator/BasicDoc.vue';
+import ImportDoc from '@/doc/paginator/ImportDoc.vue';
+import ResponsiveDoc from '@/doc/paginator/ResponsiveDoc.vue';
+import StyleDoc from '@/doc/paginator/StyleDoc.vue';
+import TemplateDoc from '@/doc/paginator/TemplateDoc.vue';
+import CurrentPageReportDoc from '../../doc/paginator/CurrentPageReportDoc.vue';
+import CustomContentDoc from '../../doc/paginator/CustomContentDoc.vue';
 
 export default {
     data() {
         return {
-            first: 0,
-            totalRecords: 120,
-            totalRecords2: 12
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'currentpagereport',
+                    label: 'Current Page Report',
+                    component: CurrentPageReportDoc
+                },
+                {
+                    id: 'responsive',
+                    label: 'Responsive',
+                    component: ResponsiveDoc
+                },
+                {
+                    id: 'customcontent',
+                    label: 'Custom Content',
+                    component: CustomContentDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    methods: {
-        reset() {
-            this.first = 0;
-        }
-    },
-    computed: {
-        image() {
-            return 'nature' + (this.first + 1);
-        }
-    },
-    components: {
-        PaginatorDoc: PaginatorDoc
     }
 };
 </script>

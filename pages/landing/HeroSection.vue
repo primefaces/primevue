@@ -12,7 +12,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center" @click="navigateTo('https://designer.primevue.org')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/designer-vue')">
                         <div class="flex flex-column align-items-center">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/designer-icon.svg" alt="primevue templates" />
                             <div class="name">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <router-link to="/setup">
+                    <router-link to="/installation">
                         <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation logo hidden md:flex my-4 align-items-center justify-content-center">
                             <div class="hero-box-inner text-center">
                                 <img src="https://primefaces.org/cdn/primevue/images/landing/overview-icon.svg" alt="primevue main" />
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://blocks.primevue.org')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeblocks-vue')">
                         <div class="flex flex-column align-items-center">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <div class="name">
@@ -81,7 +81,7 @@
         </div>
 
         <section class="landing-getstarted flex flex-column md:flex-row align-items-center justify-content-center mt-8 z-1">
-            <router-link to="/setup" class="linkbox active font-semibold py-3 px-4 ml-0 md:ml-6 fadeinleft animation-duration-2000 animation-ease-out">
+            <router-link to="/installation" class="linkbox active font-semibold py-3 px-4 ml-0 md:ml-6 fadeinleft animation-duration-2000 animation-ease-out">
                 Get Started
                 <i class="pi pi-arrow-right ml-3"></i>
             </router-link>

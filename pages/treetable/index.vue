@@ -1,107 +1,207 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue TreeTable Component</Title>
-            <Meta name="description" content="TreeTable is used to display hierarchical data in tabular format." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>TreeTable</h1>
-                <p>TreeTable is used to display hierarchical data in tabular format.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <TreeTable :value="nodes">
-                    <Column field="name" header="Name" :expander="true"></Column>
-                    <Column field="size" header="Size"></Column>
-                    <Column field="type" header="Type"></Column>
-                </TreeTable>
-            </div>
-
-            <div class="card">
-                <h5>Dynamic Columns</h5>
-                <TreeTable :value="nodes">
-                    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
-                </TreeTable>
-            </div>
-
-            <div class="card">
-                <h5>Programmatic Control</h5>
-                <div style="margin-bottom: 1em">
-                    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
-                </div>
-                <TreeTable v-model:expandedKeys="expandedKeys" :value="nodes">
-                    <Column field="name" header="Name" :expander="true"></Column>
-                    <Column field="size" header="Size"></Column>
-                    <Column field="type" header="Type"></Column>
-                </TreeTable>
-            </div>
-        </div>
-
-        <TreeTableDoc />
-    </div>
+    <DocComponent title="Vue TreeTable Component" header="TreeTable" description="TreeTable is used to display hierarchical data in tabular format." :componentDocs="docs" :apiDocs="['TreeTable', 'Column']" />
 </template>
 
 <script>
-import NodeService from '../../service/NodeService';
-import TreeTableDoc from './TreeTableDoc';
+import AccessibilityDoc from '@/doc/treetable/AccessibilityDoc';
+import BasicDoc from '@/doc/treetable/BasicDoc';
+import ColumnToggleDoc from '@/doc/treetable/ColumnToggleDoc';
+import ControlledDoc from '@/doc/treetable/ControlledDoc';
+import DynamicColumnsDoc from '@/doc/treetable/DynamicColumnsDoc';
+import FilterDoc from '@/doc/treetable/FilterDoc';
+import ImportDoc from '@/doc/treetable/ImportDoc';
+import LazyLoadDoc from '@/doc/treetable/LazyLoadDoc';
+import PaginatorBasicDoc from '@/doc/treetable/paginator/PaginatorBasicDoc';
+import PaginatorTemplateDoc from '@/doc/treetable/paginator/PaginatorTemplateDoc';
+import ExpandModeDoc from '@/doc/treetable/resize/ExpandModeDoc';
+import FitModeDoc from '@/doc/treetable/resize/FitModeDoc';
+import ResponsiveDoc from '@/doc/treetable/ResponsiveDoc';
+import FlexibleScrollDoc from '@/doc/treetable/scroll/FlexibleScrollDoc';
+import FrozenColumnsDoc from '@/doc/treetable/scroll/FrozenColumnsDoc';
+import HorizontalScrollDoc from '@/doc/treetable/scroll/HorizontalScrollDoc';
+import VerticalScrollDoc from '@/doc/treetable/scroll/VerticalScrollDoc';
+import CheckboxRowSelectionDoc from '@/doc/treetable/selection/CheckboxRowSelectionDoc';
+import MultipleRowsSelectionDoc from '@/doc/treetable/selection/MultipleRowsSelectionDoc';
+import RowSelectionEventsDoc from '@/doc/treetable/selection/RowSelectionEventsDoc';
+import SingleRowSelectionDoc from '@/doc/treetable/selection/SingleRowSelectionDoc';
+import SizeDoc from '@/doc/treetable/SizeDoc';
+import MultipleColumnsDoc from '@/doc/treetable/sort/MultipleColumnsDoc';
+import RemovableSortDoc from '@/doc/treetable/sort/RemovableSortDoc';
+import SingleColumnDoc from '@/doc/treetable/sort/SingleColumnDoc';
+import StyleDoc from '@/doc/treetable/StyleDoc';
+import TemplateDoc from '@/doc/treetable/TemplateDoc';
 
 export default {
     data() {
         return {
-            nodes: null,
-            columns: null,
-            expandedKeys: {}
-        };
-    },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-
-        this.columns = [
-            { field: 'name', header: 'Vin', expander: true },
-            { field: 'size', header: 'Size' },
-            { field: 'type', header: 'Type' }
-        ];
-    },
-    mounted() {
-        this.nodeService.getTreeTableNodes().then((data) => (this.nodes = data));
-    },
-    methods: {
-        expandAll() {
-            for (let node of this.nodes) {
-                this.expandNode(node);
-            }
-
-            this.expandedKeys = { ...this.expandedKeys };
-        },
-        collapseAll() {
-            this.expandedKeys = {};
-        },
-        expandNode(node) {
-            if (node.children && node.children.length) {
-                this.expandedKeys[node.key] = true;
-
-                for (let child of node.children) {
-                    this.expandNode(child);
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'dynamic_columns',
+                    label: 'Dynamic Columns',
+                    component: DynamicColumnsDoc
+                },
+                {
+                    id: 'controlled',
+                    label: 'Controlled',
+                    component: ControlledDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'size',
+                    label: 'Size',
+                    component: SizeDoc
+                },
+                {
+                    id: 'paginator',
+                    label: 'Paginator',
+                    children: [
+                        {
+                            id: 'paginator_basic',
+                            label: 'Basic',
+                            component: PaginatorBasicDoc
+                        },
+                        {
+                            id: 'paginator_template',
+                            label: 'Template',
+                            component: PaginatorTemplateDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'sort',
+                    label: 'Sort',
+                    children: [
+                        {
+                            id: 'single_sort',
+                            label: 'Single Column',
+                            component: SingleColumnDoc
+                        },
+                        {
+                            id: 'multiple_sort',
+                            label: 'Multiple Columns',
+                            component: MultipleColumnsDoc
+                        },
+                        {
+                            id: 'removable_sort',
+                            label: 'Removable Sort',
+                            component: RemovableSortDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc
+                },
+                {
+                    id: 'selection',
+                    label: 'Selection',
+                    children: [
+                        {
+                            id: 'single_row_selection',
+                            label: 'Single',
+                            component: SingleRowSelectionDoc
+                        },
+                        {
+                            id: 'multiple_rows_selection',
+                            label: 'Multiple',
+                            component: MultipleRowsSelectionDoc
+                        },
+                        {
+                            id: 'checkbox_row_selection',
+                            label: 'Checkbox',
+                            component: CheckboxRowSelectionDoc
+                        },
+                        {
+                            id: 'row_selection_events',
+                            label: 'Events',
+                            component: RowSelectionEventsDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'lazy_load',
+                    label: 'Lazy Load',
+                    component: LazyLoadDoc
+                },
+                {
+                    id: 'scroll',
+                    label: 'Scroll',
+                    children: [
+                        {
+                            id: 'vertical_scroll',
+                            label: 'Vertical',
+                            component: VerticalScrollDoc
+                        },
+                        {
+                            id: 'flex_scroll',
+                            label: 'Flexible',
+                            component: FlexibleScrollDoc
+                        },
+                        {
+                            id: 'horizontal_scroll',
+                            label: 'Horizontal',
+                            component: HorizontalScrollDoc
+                        },
+                        {
+                            id: 'frozen_columns',
+                            label: 'Frozen Columns',
+                            component: FrozenColumnsDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'column_resize',
+                    label: 'Column Resize',
+                    children: [
+                        {
+                            id: 'resize_fitmode',
+                            label: 'Fit Mode',
+                            component: FitModeDoc
+                        },
+                        {
+                            id: 'resize_expandmode',
+                            label: 'Expand Mode',
+                            component: ExpandModeDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'column_toggle',
+                    label: 'Column Toggle',
+                    component: ColumnToggleDoc
+                },
+                {
+                    id: 'responsive',
+                    label: 'Responsive',
+                    component: ResponsiveDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
                 }
-            }
-        }
-    },
-    components: {
-        TreeTableDoc: TreeTableDoc
+            ]
+        };
     }
 };
 </script>
-
-<style scoped>
-button {
-    margin-right: 0.5rem;
-}
-</style>
