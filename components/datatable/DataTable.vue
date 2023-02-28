@@ -29,9 +29,21 @@
             </template>
         </DTPaginator>
         <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
-            <DTVirtualScroller ref="virtualScroller" v-bind="virtualScrollerOptions" :items="processedData" :columns="columns" :style="{ height: scrollHeight }" :disabled="virtualScrollerDisabled" loaderDisabled :showSpacer="false">
+            <DTVirtualScroller
+                ref="virtualScroller"
+                v-bind="virtualScrollerOptions"
+                :items="processedData"
+                :columns="columns"
+                :style="{ height: scrollHeight !== 'flex' ? scrollHeight : undefined }"
+                :scrollHeight="scrollHeight !== 'flex' ? undefined : '100%'"
+                :disabled="virtualScrollerDisabled"
+                loaderDisabled
+                inline
+                autoSize
+                :showSpacer="false"
+            >
                 <template #content="slotProps">
-                    <table ref="table" role="table" :class="[tableClass, 'p-datatable-table']" :style="[tableStyle, slotProps.spacerStyle]" v-bind="tableProps">
+                    <table ref="table" role="table" :class="tableStyleClass" :style="[tableStyle, slotProps.spacerStyle]" v-bind="tableProps">
                         <DTTableHeader
                             :columnGroup="headerColumnGroup"
                             :columns="slotProps.columns"
@@ -171,6 +183,7 @@
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
                         />
+                        <tbody v-if="hasSpacerStyle(slotProps.spacerStyle)" :style="{ height: `calc(${slotProps.spacerStyle.height} - ${slotProps.rows.length * slotProps.itemSize}px)` }" class="p-datatable-virtualscroller-spacer"></tbody>
                         <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" />
                     </table>
                 </template>
@@ -401,10 +414,6 @@ export default {
             type: Function,
             default: null
         },
-        autoLayout: {
-            type: Boolean,
-            default: false
-        },
         resizableColumns: {
             type: Boolean,
             default: false
@@ -473,10 +482,6 @@ export default {
             type: Boolean,
             default: false
         },
-        scrollDirection: {
-            type: String,
-            default: 'vertical'
-        },
         virtualScrollerOptions: {
             type: Object,
             default: null
@@ -491,7 +496,7 @@ export default {
         },
         responsiveLayout: {
             type: String,
-            default: 'stack'
+            default: 'scroll'
         },
         breakpoint: {
             type: String,
@@ -1462,15 +1467,16 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
+            let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
-                let style = this.scrollable ? `flex: 1 1 ${colWidth}px !important` : `width: ${colWidth}px !important`;
+                let style = `width: ${colWidth}px !important; max-width: ${colWidth}px !important`;
 
                 innerHTML += `
-                    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index + 1}),
-                    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index + 1}),
-                    .p-datatable[${this.attributeSelector}] .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
+                    ${selector} > .p-datatable-thead > tr > th:nth-child(${index + 1}),
+                    ${selector} > .p-datatable-tbody > tr > td:nth-child(${index + 1}),
+                    ${selector} > .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
                         ${style}
                     }
                 `;
@@ -1902,14 +1908,15 @@ export default {
                     this.createStyleElement();
 
                     let innerHTML = '';
+                    let selector = `.p-datatable[${this.attributeSelector}] > .p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
 
                     widths.forEach((width, index) => {
-                        let style = this.scrollable ? `flex: 1 1 ${width}px !important` : `width: ${width}px !important`;
+                        let style = `width: ${width}px !important; max-width: ${width}px !important`;
 
                         innerHTML += `
-                            .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th:nth-child(${index + 1}),
-                            .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:nth-child(${index + 1}),
-                            .p-datatable[${this.attributeSelector}] .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
+                            ${selector} > .p-datatable-thead > tr > th:nth-child(${index + 1}),
+                            ${selector} > .p-datatable-tbody > tr > td:nth-child(${index + 1}),
+                            ${selector} > .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
                                 ${style}
                             }
                         `;
@@ -2034,31 +2041,34 @@ export default {
                 this.responsiveStyleElement.type = 'text/css';
                 document.head.appendChild(this.responsiveStyleElement);
 
+                let tableSelector = `.p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
+                let selector = `.p-datatable[${this.attributeSelector}] > ${tableSelector}`;
+                let gridLinesSelector = `.p-datatable[${this.attributeSelector}].p-datatable-gridlines > ${tableSelector}`;
                 let innerHTML = `
 @media screen and (max-width: ${this.breakpoint}) {
-    .p-datatable[${this.attributeSelector}] .p-datatable-thead > tr > th,
-    .p-datatable[${this.attributeSelector}] .p-datatable-tfoot > tr > td {
+    ${selector} > .p-datatable-thead > tr > th,
+    ${selector} > .p-datatable-tfoot > tr > td {
         display: none !important;
     }
 
-    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td {
+    ${selector} > .p-datatable-tbody > tr > td {
         display: flex;
         width: 100% !important;
         align-items: center;
         justify-content: space-between;
     }
 
-    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td:not(:last-child) {
+    ${selector} > .p-datatable-tbody > tr > td:not(:last-child) {
         border: 0 none;
     }
 
-    .p-datatable[${this.attributeSelector}].p-datatable-gridlines .p-datatable-tbody > tr > td:last-child {
+    ${gridLinesSelector} > .p-datatable-tbody > tr > td:last-child {
         border-top: 0;
         border-right: 0;
         border-left: 0;
     }
 
-    .p-datatable[${this.attributeSelector}] .p-datatable-tbody > tr > td > .p-column-title {
+    ${selector} > .p-datatable-tbody > tr > td > .p-column-title {
         display: block;
     }
 }
@@ -2109,6 +2119,9 @@ export default {
         },
         getVirtualScrollerRef() {
             return this.$refs.virtualScroller;
+        },
+        hasSpacerStyle(style) {
+            return ObjectUtils.isNotEmpty(style);
         }
     },
     computed: {
@@ -2117,13 +2130,9 @@ export default {
                 'p-datatable p-component',
                 {
                     'p-datatable-hoverable-rows': this.rowHover || this.selectionMode,
-                    'p-datatable-auto-layout': this.autoLayout,
                     'p-datatable-resizable': this.resizableColumns,
                     'p-datatable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
                     'p-datatable-scrollable': this.scrollable,
-                    'p-datatable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
-                    'p-datatable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
-                    'p-datatable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
                     'p-datatable-flex-scrollable': this.scrollable && this.scrollHeight === 'flex',
                     'p-datatable-responsive-stack': this.responsiveLayout === 'stack',
                     'p-datatable-responsive-scroll': this.responsiveLayout === 'scroll',
@@ -2132,6 +2141,17 @@ export default {
                     'p-datatable-grouped-header': this.headerColumnGroup != null,
                     'p-datatable-grouped-footer': this.footerColumnGroup != null
                 }
+            ];
+        },
+        tableStyleClass() {
+            return [
+                'p-datatable-table',
+                {
+                    'p-datatable-scrollable-table': this.scrollable,
+                    'p-datatable-resizable-table': this.resizableColumns,
+                    'p-datatable-resizable-table-fit': this.resizableColumns && this.columnResizeMode === 'fit'
+                },
+                this.tableClass
             ];
         },
         columns() {
@@ -2266,10 +2286,13 @@ export default {
     position: relative;
 }
 
-.p-datatable table {
-    border-collapse: collapse;
-    min-width: 100%;
-    table-layout: fixed;
+.p-datatable > .p-datatable-wrapper {
+    overflow: auto;
+}
+
+.p-datatable-table {
+    border-spacing: 0px;
+    width: 100%;
 }
 
 .p-datatable .p-sortable-column {
@@ -2289,59 +2312,27 @@ export default {
     justify-content: center;
 }
 
-.p-datatable-responsive-scroll > .p-datatable-wrapper {
-    overflow-x: auto;
-}
-
-.p-datatable-responsive-scroll > .p-datatable-wrapper > table,
-.p-datatable-auto-layout > .p-datatable-wrapper > table {
-    table-layout: auto;
-}
-
 .p-datatable-hoverable-rows .p-selectable-row {
     cursor: pointer;
 }
 
 /* Scrollable */
-.p-datatable-scrollable .p-datatable-wrapper {
+.p-datatable-scrollable > .p-datatable-wrapper {
     position: relative;
-    overflow: auto;
 }
 
-.p-datatable-scrollable .p-datatable-thead,
-.p-datatable-scrollable .p-datatable-tbody,
-.p-datatable-scrollable .p-datatable-tfoot {
-    display: block;
-}
-
-.p-datatable-scrollable .p-datatable-thead > tr,
-.p-datatable-scrollable .p-datatable-tbody > tr,
-.p-datatable-scrollable .p-datatable-tfoot > tr {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-}
-
-.p-datatable-scrollable .p-datatable-thead > tr > th,
-.p-datatable-scrollable .p-datatable-tbody > tr > td,
-.p-datatable-scrollable .p-datatable-tfoot > tr > td {
-    display: flex;
-    flex: 1 1 0;
-    align-items: center;
-}
-
-.p-datatable-scrollable .p-datatable-thead {
+.p-datatable-scrollable-table > .p-datatable-thead {
     position: sticky;
     top: 0;
     z-index: 1;
 }
 
-.p-datatable-scrollable .p-datatable-frozen-tbody {
+.p-datatable-scrollable-table > .p-datatable-frozen-tbody {
     position: sticky;
     z-index: 1;
 }
 
-.p-datatable-scrollable .p-datatable-tfoot {
+.p-datatable-scrollable-table > .p-datatable-tfoot {
     position: sticky;
     bottom: 0;
     z-index: 1;
@@ -2356,72 +2347,38 @@ export default {
     z-index: 1;
 }
 
-.p-datatable-scrollable-both .p-datatable-thead > tr > th,
-.p-datatable-scrollable-both .p-datatable-tbody > tr > td,
-.p-datatable-scrollable-both .p-datatable-tfoot > tr > td,
-.p-datatable-scrollable-horizontal .p-datatable-thead > tr > th .p-datatable-scrollable-horizontal .p-datatable-tbody > tr > td,
-.p-datatable-scrollable-horizontal .p-datatable-tfoot > tr > td {
-    flex: 1 0 auto;
-}
-
 .p-datatable-flex-scrollable {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.p-datatable-flex-scrollable .p-datatable-wrapper {
+.p-datatable-flex-scrollable > .p-datatable-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1;
     height: 100%;
 }
 
-.p-datatable-scrollable .p-rowgroup-header {
+.p-datatable-scrollable-table > .p-datatable-tbody > .p-rowgroup-header {
     position: sticky;
     z-index: 1;
 }
 
-.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead,
-.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot {
-    display: table;
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed;
-}
-
-.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr,
-.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot > tr {
-    display: table-row;
-}
-
-.p-datatable-scrollable.p-datatable-grouped-header .p-datatable-thead > tr > th,
-.p-datatable-scrollable.p-datatable-grouped-footer .p-datatable-tfoot > tr > td {
-    display: table-cell;
-}
-
-.p-datatable-scrollable .p-virtualscroller > .p-datatable-table {
-    display: inline-block; /* For Safari */
-}
-
 /* Resizable */
-.p-datatable-resizable > .p-datatable-wrapper {
-    overflow-x: auto;
-}
-
-.p-datatable-resizable .p-datatable-thead > tr > th,
-.p-datatable-resizable .p-datatable-tfoot > tr > td,
-.p-datatable-resizable .p-datatable-tbody > tr > td {
+.p-datatable-resizable-table > .p-datatable-thead > tr > th,
+.p-datatable-resizable-table > .p-datatable-tfoot > tr > td,
+.p-datatable-resizable-table > .p-datatable-tbody > tr > td {
     overflow: hidden;
     white-space: nowrap;
 }
 
-.p-datatable-resizable .p-resizable-column:not(.p-frozen-column) {
+.p-datatable-resizable-table > .p-datatable-thead > tr > th.p-resizable-column:not(.p-frozen-column) {
     background-clip: padding-box;
     position: relative;
 }
 
-.p-datatable-resizable-fit .p-resizable-column:last-child .p-column-resizer {
+.p-datatable-resizable-table-fit > .p-datatable-thead > tr > th.p-resizable-column:last-child .p-column-resizer {
     display: none;
 }
 
@@ -2560,7 +2517,11 @@ export default {
 }
 
 /* VirtualScroller */
-.p-datatable .p-virtualscroller-loading {
+.p-datatable-virtualscroller-spacer {
+    display: flex;
+}
+
+.p-datatable .p-virtualscroller .p-virtualscroller-loading {
     transform: none !important;
     min-height: 0;
     position: sticky;
