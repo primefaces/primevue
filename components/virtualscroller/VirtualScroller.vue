@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { DomHandler } from 'primevue/utils';
+
 export default {
     name: 'VirtualScroller',
     emits: ['update:numToleratedItems', 'scroll', 'scroll-index-change', 'lazy-load'],
@@ -74,6 +76,10 @@ export default {
             type: Number,
             default: 0
         },
+        resizeDelay: {
+            type: Number,
+            default: 10
+        },
         lazy: {
             type: Boolean,
             default: false
@@ -105,12 +111,29 @@ export default {
         tabindex: {
             type: Number,
             default: 0
+        },
+        inline: {
+            type: Boolean,
+            default: false
+        },
+        step: {
+            type: Number,
+            default: 0
+        },
+        appendOnly: {
+            type: Boolean,
+            default: false
+        },
+        autoSize: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
         return {
             first: this.isBoth() ? { rows: 0, cols: 0 } : 0,
             last: this.isBoth() ? { rows: 0, cols: 0 } : 0,
+            page: this.isBoth() ? { rows: 0, cols: 0 } : 0,
             numItemsInViewport: this.isBoth() ? { rows: 0, cols: 0 } : 0,
             lastScrollPos: this.isBoth() ? { top: 0, left: 0 } : 0,
             d_numToleratedItems: this.numToleratedItems,
@@ -124,6 +147,15 @@ export default {
     content: null,
     lastScrollPos: null,
     scrollTimeout: null,
+    resizeTimeout: null,
+    defaultWidth: 0,
+    defaultHeight: 0,
+    defaultContentWidth: 0,
+    defaultContentHeight: 0,
+    isRangeChanged: false,
+    lazyLoadState: {},
+    resizeListener: null,
+    initialized: false,
     watch: {
         numToleratedItems(newValue) {
             this.d_numToleratedItems = newValue;
@@ -134,22 +166,59 @@ export default {
         items(newValue, oldValue) {
             if (!oldValue || oldValue.length !== (newValue || []).length) {
                 this.init();
+                this.calculateAutoSize();
             }
+        },
+        itemSize() {
+            this.init();
+            this.calculateAutoSize();
         },
         orientation() {
             this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
+        },
+        scrollHeight() {
+            this.init();
+            this.calculateAutoSize();
+        },
+        scrollWidth() {
+            this.init();
+            this.calculateAutoSize();
         }
     },
     mounted() {
-        this.init();
+        this.viewInit();
 
         this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
+        this.lazyLoadState = this.lazyLoadState || {};
+    },
+    updated() {
+        !this.initialized && this.viewInit();
+    },
+    unmounted() {
+        this.unbindResizeListener();
+
+        this.initialized = false;
     },
     methods: {
+        viewInit() {
+            if (DomHandler.isVisible(this.element)) {
+                this.setContentEl(this.content);
+                this.init();
+                this.bindResizeListener();
+
+                this.defaultWidth = DomHandler.getWidth(this.element);
+                this.defaultHeight = DomHandler.getHeight(this.element);
+                this.defaultContentWidth = DomHandler.getWidth(this.content);
+                this.defaultContentHeight = DomHandler.getHeight(this.content);
+                this.initialized = true;
+            }
+        },
         init() {
-            this.setSize();
-            this.calculateOptions();
-            this.setSpacerSize();
+            if (!this.disabled) {
+                this.setSize();
+                this.calculateOptions();
+                this.setSpacerSize();
+            }
         },
         isVertical() {
             return this.orientation === 'vertical';
@@ -161,31 +230,34 @@ export default {
             return this.orientation === 'both';
         },
         scrollTo(options) {
-            this.element && this.element.scrollTo(options);
+            this.lastScrollPos = this.both ? { top: 0, left: 0 } : 0;
+            this.element?.scrollTo(options);
         },
         scrollToIndex(index, behavior = 'auto') {
             const both = this.isBoth();
             const horizontal = this.isHorizontal();
             const first = this.first;
             const { numToleratedItems } = this.calculateNumItems();
+            const contentPos = this.getContentPosition();
             const itemSize = this.itemSize;
             const calculateFirst = (_index = 0, _numT) => (_index <= _numT ? 0 : _index);
-            const calculateCoord = (_first, _size) => _first * _size;
+            const calculateCoord = (_first, _size, _cpos) => _first * _size + _cpos;
             const scrollTo = (left = 0, top = 0) => this.scrollTo({ left, top, behavior });
+            let newFirst = both ? { rows: 0, cols: 0 } : 0;
+            let isRangeChanged = false;
 
             if (both) {
-                const newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
-
-                if (newFirst.rows !== first.rows || newFirst.cols !== first.cols) {
-                    scrollTo(calculateCoord(newFirst.cols, itemSize[1]), calculateCoord(newFirst.rows, itemSize[0]));
-                }
+                newFirst = { rows: calculateFirst(index[0], numToleratedItems[0]), cols: calculateFirst(index[1], numToleratedItems[1]) };
+                scrollTo(calculateCoord(newFirst.cols, itemSize[1], contentPos.left), calculateCoord(newFirst.rows, itemSize[0], contentPos.top));
+                isRangeChanged = newFirst.rows !== first.rows || newFirst.cols !== first.cols;
             } else {
-                const newFirst = calculateFirst(index, numToleratedItems);
-
-                if (newFirst !== first) {
-                    horizontal ? scrollTo(calculateCoord(newFirst, itemSize), 0) : scrollTo(0, calculateCoord(newFirst, itemSize));
-                }
+                newFirst = calculateFirst(index, numToleratedItems);
+                horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), 0) : scrollTo(0, calculateCoord(newFirst, itemSize, contentPos.top));
+                isRangeChanged = newFirst !== first;
             }
+
+            this.isRangeChanged = isRangeChanged;
+            this.first = newFirst;
         },
         scrollInView(index, to, behavior = 'auto') {
             if (to) {
@@ -238,8 +310,7 @@ export default {
             if (this.element) {
                 const both = this.isBoth();
                 const horizontal = this.isHorizontal();
-                const scrollTop = this.element.scrollTop;
-                const scrollLeft = this.element.scrollLeft;
+                const { scrollTop, scrollLeft } = this.element.scrollTop;
 
                 if (both) {
                     firstInViewport = { rows: calculateFirstInViewport(scrollTop, this.itemSize[0]), cols: calculateFirstInViewport(scrollLeft, this.itemSize[1]) };
@@ -282,7 +353,7 @@ export default {
             const both = this.isBoth();
             const first = this.first;
             const { numItemsInViewport, numToleratedItems } = this.calculateNumItems();
-            const calculateLast = (_first, _num, _numT, _isCols) => this.getLast(_first + _num + (_first < _numT ? 2 : 3) * _numT, _isCols);
+            const calculateLast = (_first, _num, _numT, _isCols = false) => this.getLast(_first + _num + (_first < _numT ? 2 : 3) * _numT, _isCols);
             const last = both
                 ? { rows: calculateLast(first.rows, numItemsInViewport.rows, numToleratedItems[0]), cols: calculateLast(first.cols, numItemsInViewport.cols, numToleratedItems[1], true) }
                 : calculateLast(first, numItemsInViewport, numToleratedItems);
@@ -297,23 +368,55 @@ export default {
             }
 
             if (this.lazy) {
-                this.$emit('lazy-load', { first, last });
+                Promise.resolve().then(() => {
+                    this.lazyLoadState = {
+                        first: this.step ? (both ? { rows: 0, cols: first.cols } : 0) : first,
+                        last: Math.min(this.step ? this.step : last, this.items.length)
+                    };
+
+                    this.$emit('lazy-load', this.lazyLoadState);
+                });
+            }
+        },
+        calculateAutoSize() {
+            if (this.autoSize && !this.d_loading) {
+                Promise.resolve().then(() => {
+                    if (this.content) {
+                        const both = this.isBoth();
+                        const horizontal = this.isHorizontal();
+                        const vertical = this.isVertical();
+
+                        this.content.style.minHeight = this.content.style.minWidth = 'auto';
+                        this.content.style.position = 'relative';
+                        this.element.style.contain = 'none';
+
+                        const [contentWidth, contentHeight] = [DomHandler.getWidth(this.content), DomHandler.getHeight(this.content)];
+
+                        contentWidth !== this.defaultContentWidth && (this.element.style.width = '');
+                        contentHeight !== this.defaultContentHeight && (this.element.style.height = '');
+
+                        const [width, height] = [DomHandler.getWidth(this.element), DomHandler.getHeight(this.element)];
+
+                        (both || horizontal) && (this.element.style.width = width < this.defaultWidth ? width + 'px' : this.scrollWidth || this.defaultWidth + 'px');
+                        (both || vertical) && (this.element.style.height = height < this.defaultHeight ? height + 'px' : this.scrollHeight || this.defaultHeight + 'px');
+
+                        this.content.style.minHeight = this.content.style.minWidth = '';
+                        this.content.style.position = '';
+                        this.element.style.contain = '';
+                    }
+                });
             }
         },
         getLast(last = 0, isCols) {
-            if (this.items) {
-                return Math.min(isCols ? (this.columns || this.items[0]).length : this.items.length, last);
-            }
-
-            return 0;
+            return this.items ? Math.min(isCols ? (this.columns || this.items[0]).length : this.items.length, last) : 0;
         },
         getContentPosition() {
             if (this.content) {
                 const style = getComputedStyle(this.content);
-                const left = parseInt(style.paddingLeft, 10) + Math.max(parseInt(style.left, 10), 0);
-                const right = parseInt(style.paddingRight, 10) + Math.max(parseInt(style.right, 10), 0);
-                const top = parseInt(style.paddingTop, 10) + Math.max(parseInt(style.top, 10), 0);
-                const bottom = parseInt(style.paddingBottom, 10) + Math.max(parseInt(style.bottom, 10), 0);
+                const left = parseFloat(style.paddingLeft) + Math.max(parseFloat(style.left) || 0, 0);
+                const right = parseFloat(style.paddingRight) + Math.max(parseFloat(style.right) || 0, 0);
+                const top = parseFloat(style.paddingTop) + Math.max(parseFloat(style.top) || 0, 0);
+                const bottom = parseFloat(style.paddingBottom) + Math.max(parseFloat(style.bottom) || 0, 0);
 
                 return { left, right, top, bottom, x: left + right, y: top + bottom };
             }
@@ -355,15 +458,12 @@ export default {
             }
         },
         setContentPosition(pos) {
-            if (this.content) {
+            if (this.content && !this.appendOnly) {
                 const both = this.isBoth();
                 const horizontal = this.isHorizontal();
                 const first = pos ? pos.first : this.first;
                 const calculateTranslateVal = (_first, _size) => _first * _size;
-
-                const setTransform = (_x = 0, _y = 0) => {
-                    this.contentStyle = { ...this.contentStyle, ...{ transform: `translate3d(${_x}px, ${_y}px, 0)` } };
-                };
+                const setTransform = (_x = 0, _y = 0) => (this.contentStyle = { ...this.contentStyle, ...{ transform: `translate3d(${_x}px, ${_y}px, 0)` } });
 
                 if (both) {
                     setTransform(calculateTranslateVal(first.cols, this.itemSize[1]), calculateTranslateVal(first.rows, this.itemSize[0]));
@@ -412,33 +512,39 @@ export default {
             if (both) {
                 const isScrollDown = this.lastScrollPos.top <= scrollTop;
                 const isScrollRight = this.lastScrollPos.left <= scrollLeft;
-                const currentIndex = { rows: calculateCurrentIndex(scrollTop, this.itemSize[0]), cols: calculateCurrentIndex(scrollLeft, this.itemSize[1]) };
-                const triggerIndex = {
-                    rows: calculateTriggerIndex(currentIndex.rows, this.first.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0], isScrollDown),
-                    cols: calculateTriggerIndex(currentIndex.cols, this.first.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], isScrollRight)
-                };
 
-                newFirst = {
-                    rows: calculateFirst(currentIndex.rows, triggerIndex.rows, this.first.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0], isScrollDown),
-                    cols: calculateFirst(currentIndex.cols, triggerIndex.cols, this.first.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], isScrollRight)
-                };
-                newLast = {
-                    rows: calculateLast(currentIndex.rows, newFirst.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0]),
-                    cols: calculateLast(currentIndex.cols, newFirst.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], true)
-                };
+                if (!this.appendOnly || (this.appendOnly && (isScrollDown || isScrollRight))) {
+                    const currentIndex = { rows: calculateCurrentIndex(scrollTop, this.itemSize[0]), cols: calculateCurrentIndex(scrollLeft, this.itemSize[1]) };
+                    const triggerIndex = {
+                        rows: calculateTriggerIndex(currentIndex.rows, this.first.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0], isScrollDown),
+                        cols: calculateTriggerIndex(currentIndex.cols, this.first.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], isScrollRight)
+                    };
 
-                isRangeChanged = newFirst.rows !== this.first.rows || newLast.rows !== this.last.rows || newFirst.cols !== this.first.cols || newLast.cols !== this.last.cols;
-                newScrollPos = { top: scrollTop, left: scrollLeft };
+                    newFirst = {
+                        rows: calculateFirst(currentIndex.rows, triggerIndex.rows, this.first.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0], isScrollDown),
+                        cols: calculateFirst(currentIndex.cols, triggerIndex.cols, this.first.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], isScrollRight)
+                    };
+                    newLast = {
+                        rows: calculateLast(currentIndex.rows, newFirst.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0]),
+                        cols: calculateLast(currentIndex.cols, newFirst.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], true)
+                    };
+
+                    isRangeChanged = newFirst.rows !== this.first.rows || newLast.rows !== this.last.rows || newFirst.cols !== this.first.cols || newLast.cols !== this.last.cols || this.isRangeChanged;
+                    newScrollPos = { top: scrollTop, left: scrollLeft };
+                }
             } else {
                 const scrollPos = horizontal ? scrollLeft : scrollTop;
                 const isScrollDownOrRight = this.lastScrollPos <= scrollPos;
-                const currentIndex = calculateCurrentIndex(scrollPos, this.itemSize);
-                const triggerIndex = calculateTriggerIndex(currentIndex, this.first, this.last, this.numItemsInViewport, this.d_numToleratedItems, isScrollDownOrRight);
 
-                newFirst = calculateFirst(currentIndex, triggerIndex, this.first, this.last, this.numItemsInViewport, this.d_numToleratedItems, isScrollDownOrRight);
-                newLast = calculateLast(currentIndex, newFirst, this.last, this.numItemsInViewport, this.d_numToleratedItems);
-                isRangeChanged = newFirst !== this.first || newLast !== this.last;
-                newScrollPos = scrollPos;
+                if (!this.appendOnly || (this.appendOnly && isScrollDownOrRight)) {
+                    const currentIndex = calculateCurrentIndex(scrollPos, this.itemSize);
+                    const triggerIndex = calculateTriggerIndex(currentIndex, this.first, this.last, this.numItemsInViewport, this.d_numToleratedItems, isScrollDownOrRight);
+
+                    newFirst = calculateFirst(currentIndex, triggerIndex, this.first, this.last, this.numItemsInViewport, this.d_numToleratedItems, isScrollDownOrRight);
+                    newLast = calculateLast(currentIndex, newFirst, this.last, this.numItemsInViewport, this.d_numToleratedItems);
+                    isRangeChanged = newFirst !== this.first || newLast !== this.last || this.isRangeChanged;
+                    newScrollPos = scrollPos;
+                }
             }
 
             return {
@@ -462,21 +568,29 @@ export default {
 
                 this.$emit('scroll-index-change', newState);
 
-                if (this.lazy) {
-                    this.$emit('lazy-load', newState);
+                if (this.lazy && this.isPageChanged(first)) {
+                    const lazyLoadState = {
+                        first: this.step ? Math.min(this.getPageByFirst(first) * this.step, this.items.length - this.step) : first,
+                        last: Math.min(this.step ? (this.getPageByFirst(first) + 1) * this.step : last, this.items.length)
+                    };
+                    const isLazyStateChanged = this.lazyLoadState.first !== lazyLoadState.first || this.lazyLoadState.last !== lazyLoadState.last;
+
+                    isLazyStateChanged && this.$emit('lazy-load', lazyLoadState);
+                    this.lazyLoadState = lazyLoadState;
                 }
             }
         },
         onScroll(event) {
             this.$emit('scroll', event);
 
-            if (this.delay) {
+            if (this.delay && this.isPageChanged()) {
                 if (this.scrollTimeout) {
                     clearTimeout(this.scrollTimeout);
                 }
 
                 if (!this.d_loading && this.showLoader) {
-                    const { isRangeChanged: changed } = this.onScrollPositionChange(event);
+                    const { isRangeChanged } = this.onScrollPositionChange(event);
+                    const changed = isRangeChanged || (this.step ? this.isPageChanged() : false);
 
                     changed && (this.d_loading = true);
                 }
@@ -484,12 +598,54 @@ export default {
                 this.scrollTimeout = setTimeout(() => {
                     this.onScrollChange(event);
 
-                    if (this.d_loading && this.showLoader && !this.lazy) {
+                    if (this.d_loading && this.showLoader && (!this.lazy || this.loading === undefined)) {
                         this.d_loading = false;
+                        this.page = this.getPageByFirst();
                     }
                 }, this.delay);
             } else {
                 this.onScrollChange(event);
+            }
+        },
+        onResize() {
+            if (this.resizeTimeout) {
+                clearTimeout(this.resizeTimeout);
+            }
+
+            this.resizeTimeout = setTimeout(() => {
+                if (DomHandler.isVisible(this.element)) {
+                    const both = this.isBoth();
+                    const vertical = this.isVertical();
+                    const horizontal = this.isHorizontal();
+                    const [width, height] = [DomHandler.getWidth(this.element), DomHandler.getHeight(this.element)];
+                    const [isDiffWidth, isDiffHeight] = [width !== this.defaultWidth, height !== this.defaultHeight];
+                    const reinit = both ? isDiffWidth || isDiffHeight : horizontal ? isDiffWidth : vertical ? isDiffHeight : false;
+
+                    if (reinit) {
+                        this.d_numToleratedItems = this.numToleratedItems;
+                        this.defaultWidth = width;
+                        this.defaultHeight = height;
+                        this.defaultContentWidth = DomHandler.getWidth(this.content);
+                        this.defaultContentHeight = DomHandler.getHeight(this.content);
+
+                        this.init();
+                    }
+                }
+            }, this.resizeDelay);
+        },
+        bindResizeListener() {
+            if (!this.resizeListener) {
+                this.resizeListener = this.onResize.bind(this);
+
+                window.addEventListener('resize', this.resizeListener);
+                window.addEventListener('orientationchange', this.resizeListener);
+            }
+        },
+        unbindResizeListener() {
+            if (this.resizeListener) {
+                window.removeEventListener('resize', this.resizeListener);
+                window.removeEventListener('orientationchange', this.resizeListener);
+                this.resizeListener = null;
             }
         },
         getOptions(renderedIndex) {
@@ -518,6 +674,15 @@ export default {
                 ...extOptions
             };
         },
+        getPageByFirst(first) {
+            return Math.floor(((first ?? this.first) + this.d_numToleratedItems * 4) / (this.step || 1));
+        },
+        isPageChanged(first) {
+            return this.step ? this.page !== this.getPageByFirst(first ?? this.first) : true;
+        },
+        setContentEl(el) {
+            this.content = el || this.content || DomHandler.findSingle(this.element, '.p-virtualscroller-content');
+        },
         elementRef(el) {
             this.element = el;
         },
@@ -530,8 +695,9 @@ export default {
             return [
                 'p-virtualscroller',
                 {
-                    'p-both-scroll': this.isBoth(),
-                    'p-horizontal-scroll': this.isHorizontal()
+                    'p-virtualscroller-inline': this.inline,
+                    'p-virtualscroller-both p-both-scroll': this.isBoth(),
+                    'p-virtualscroller-horizontal p-horizontal-scroll': this.isHorizontal()
                 },
                 this.class
             ];
@@ -553,13 +719,10 @@ export default {
             ];
         },
         loadedItems() {
-            const items = this.items;
-
-            if (items && !this.d_loading) {
-                if (this.isBoth()) {
-                    return items.slice(this.first.rows, this.last.rows).map((item) => (this.columns ? item : item.slice(this.first.cols, this.last.cols)));
-                } else if (this.isHorizontal() && this.columns) return items;
-                else return items.slice(this.first, this.last);
+            if (this.items && !this.d_loading) {
+                if (this.isBoth()) return this.items.slice(this.appendOnly ? 0 : this.first.rows, this.last.rows).map((item) => (this.columns ? item : item.slice(this.appendOnly ? 0 : this.first.cols, this.last.cols)));
+                else if (this.isHorizontal() && this.columns) return this.items;
+                else return this.items.slice(this.appendOnly ? 0 : this.first, this.last);
             }
 
             return [];
@@ -597,7 +760,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    contain: content;
+    /* contain: content; */
     min-height: 100%;
     min-width: 100%;
     will-change: transform;
@@ -625,5 +788,18 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.p-virtualscroller-loading-icon {
+    font-size: 2rem;
+}
+
+.p-virtualscroller-horizontal > .p-virtualscroller-content {
+    display: flex;
+}
+
+/* Inline */
+.p-virtualscroller-inline .p-virtualscroller-content {
+    position: static;
 }
 </style>

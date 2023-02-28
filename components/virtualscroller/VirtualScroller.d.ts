@@ -129,6 +129,11 @@ export interface VirtualScrollerProps {
      */
     delay?: number | undefined;
     /**
+     * Delay after window's resize finishes.
+     * @defaultValue 10
+     */
+    resizeDelay?: number | undefined;
+    /**
      * Defines if data is loaded and interacted with in lazy manner.
      */
     lazy?: boolean | undefined;
@@ -163,6 +168,26 @@ export interface VirtualScrollerProps {
      * Default value is 0.
      */
     tabindex?: number | string | undefined;
+    /**
+     * When enabled, positions the content as inline.
+     * @defaultValue false
+     */
+    inline?: boolean | undefined;
+    /**
+     * Used to specify how many items to load in each load method in lazy mode.
+     * @defaultValue 0
+     */
+    step?: number | undefined;
+    /**
+     * Used to append each loaded item to top without removing any items from the DOM. Using very large data may cause the browser to crash.
+     * @defaultValue false
+     */
+    appendOnly?: boolean | undefined;
+    /**
+     * Whether to dynamically change the height or width of scrollable container.
+     * @defaultValue false
+     */
+    autoSize?: boolean | undefined;
 }
 
 export interface VirtualScrollerSlots {
