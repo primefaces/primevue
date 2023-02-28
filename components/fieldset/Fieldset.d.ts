@@ -1,6 +1,19 @@
+/**
+ *
+ * Fieldset is a grouping component with the optional content toggle feature.
+ *
+ * [Live Demo](https://www.primevue.org/fieldset/)
+ *
+ * @module fieldset
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom toggle event.
+ * @see toggle
+ */
 export interface FieldsetToggleEvent {
     /**
      * Browser event.
@@ -12,6 +25,9 @@ export interface FieldsetToggleEvent {
     value: boolean;
 }
 
+/**
+ * Defines valid properties in Fieldset component.
+ */
 export interface FieldsetProps {
     /**
      * Header text of the fieldset.
@@ -19,18 +35,24 @@ export interface FieldsetProps {
     legend?: string | undefined;
     /**
      * When specified, content can toggled by clicking the legend.
+     * @defaultValue false
      */
     toggleable?: boolean | undefined;
     /**
      * Defines the default visibility state of the content.
+     * @defaultValue false
      */
     collapsed?: boolean | undefined;
     /**
      * Uses to pass the custom value to read for the anchor inside the component.
+     * @todo
      */
     toggleButtonProps?: object | undefined;
 }
 
+/**
+ * Defines valid slots in Fieldset slots.
+ */
 export interface FieldsetSlots {
     /**
      * Default content slot.
@@ -42,20 +64,35 @@ export interface FieldsetSlots {
     legend: () => VNode[];
 }
 
-export declare type FieldsetEmits = {
+/**
+ * Defines valid emits in Fildset component.
+ */
+export interface FieldsetEmits {
     /**
      * Emitted when the collapsed changes.
      * @param {boolean} value - New value.
      */
-    'update:collapsed': (value: boolean) => void;
+    'update:collapsed'(value: boolean): void;
     /**
      * Callback to invoke when a tab gets expanded or collapsed.
      * @param {FieldsetToggleEvent} event - Custom toggle event.
      */
-    toggle: (event: FieldsetToggleEvent) => void;
-};
+    toggle(event: FieldsetToggleEvent): void;
+}
 
-declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
+/**
+ * **PrimeVue - Fieldset**
+ *
+ * _Fieldset is a grouping component with the optional content toggle feature._
+ *
+ * [Live Demo](https://www.primevue.org/fieldset/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
+export declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
