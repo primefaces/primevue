@@ -1,6 +1,6 @@
 <template>
     <div class="tabmenudemo-content">
-        <h5>Edit Component Content</h5>
+        <h3>Edit Component Content</h3>
     </div>
 </template>
 

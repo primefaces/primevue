@@ -1,7 +1,9 @@
+/**
+ * @module column
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
-
 type ColumnFieldType = string | ((item: any) => string) | undefined;
 
 type ColumnSelectionModeType = 'single' | 'multiple' | undefined;
@@ -252,7 +254,7 @@ export interface ColumnSlots {
      * Custom body template.
      * @param {Object} scope - body slot's params.
      */
-    body: (scope: {
+    body(scope: {
         /**
          * Row data.
          */
@@ -281,32 +283,32 @@ export interface ColumnSlots {
          * Callback function
          */
         editorInitCallback: () => void;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
      */
-    header: (scope: {
+    header(scope: {
         /**
          * Column node.
          */
         column: Column;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom footer template.
      * @param {Object} scope - footer slot's params.
      */
-    footer: (scope: {
+    footer(scope: {
         /**
          * Column node.
          */
         column: Column;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom editor template.
      * @param {Object} scope - editor slot's params.
      */
-    editor: (scope: {
+    editor(scope: {
         /**
          * Row data.
          */
@@ -335,12 +337,12 @@ export interface ColumnSlots {
          * Callback function
          */
         editorCancelCallback: () => void;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom filter template.
      * @param {Object} scope - filter slot's params.
      */
-    filter: (scope: {
+    filter(scope: {
         /**
          * Column field.
          */
@@ -354,12 +356,12 @@ export interface ColumnSlots {
          * Callback function
          */
         filterCallback: () => void;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom filter header template.
      * @param {Object} scope - filter header slot's params.
      */
-    filterheader: (scope: {
+    filterheader(scope: {
         /**
          * Column field.
          */
@@ -373,12 +375,12 @@ export interface ColumnSlots {
          * Callback function
          */
         filterCallback: () => void;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom filter footer template.
      * @param {Object} scope - filter footer slot's params.
      */
-    filterfooter: (scope: {
+    filterfooter(scope: {
         /**
          * Column field.
          */
@@ -392,12 +394,12 @@ export interface ColumnSlots {
          * Callback function
          */
         filterCallback: () => void;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom filter clear template.
      * @param {Object} scope - filter clear slot's params.
      */
-    filterclear: (scope: {
+    filterclear(scope: {
         /**
          * Column field.
          */
@@ -411,12 +413,12 @@ export interface ColumnSlots {
          * Callback function
          */
         filterCallback: () => void;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom filter apply template.
      * @param {Object} scope - filter apply slot's params.
      */
-    filterapply: (scope: {
+    filterapply(scope: {
         /**
          * Column field.
          */
@@ -430,12 +432,12 @@ export interface ColumnSlots {
          * Callback function
          */
         filterCallback: () => void;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom loading template.
      * @param {Object} scope - loading slot's params.
      */
-    loading: (scope: {
+    loading(scope: {
         /**
          * Row data.
          */
@@ -461,10 +463,10 @@ export interface ColumnSlots {
          * @see ColumnLoadingOptions
          */
         loadingOptions: ColumnLoadingOptions;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type ColumnEmits = {};
+export interface ColumnEmits {}
 
 declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
 

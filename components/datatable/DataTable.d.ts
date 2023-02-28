@@ -1,38 +1,47 @@
+/**
+ *
+ * DataTable displays data in tabular format.
+ *
+ * [Live Demo](https://www.primereact.org/datatable/)
+ *
+ * @module datatable
+ *
+ */
 import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 import { VirtualScrollerProps } from '../virtualscroller';
 
-type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
+export declare type DataTablePaginatorPositionType = 'top' | 'bottom' | 'both' | undefined;
 
-type DataTableSortFieldType = string | ((item: any) => string) | undefined | null;
+export declare type DataTableSortFieldType = string | ((item: any) => string) | undefined | null;
 
-type DataTableDataKeyType = string | ((item: any) => string) | undefined;
+export declare type DataTableDataKeyType = string | ((item: any) => string) | undefined;
 
-type DataTableMultiSortMetaType = DataTableSortMeta[] | undefined | null;
+export declare type DataTableMultiSortMetaType = DataTableSortMeta[] | undefined | null;
 
-type DataTableSortOrderType = 1 | 0 | -1 | undefined | null;
+export declare type DataTableSortOrderType = 1 | 0 | -1 | undefined | null;
 
-type DataTableSortModeType = 'single' | 'multiple' | undefined;
+export declare type DataTableSortModeType = 'single' | 'multiple' | undefined;
 
-type DataTableFilterMatchModeType = 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | undefined;
+export declare type DataTableFilterMatchModeType = 'startsWith' | 'contains' | 'notContains' | 'endsWith' | 'equals' | 'notEquals' | 'in' | 'lt' | 'lte' | 'gt' | 'gte' | 'between' | 'dateIs' | 'dateIsNot' | 'dateBefore' | 'dateAfter' | undefined;
 
-type DataTableFilterDisplayType = 'menu' | 'row' | undefined;
+export declare type DataTableFilterDisplayType = 'menu' | 'row' | undefined;
 
-type DataTableSelectionModeType = 'single' | 'multiple' | undefined;
+export declare type DataTableSelectionModeType = 'single' | 'multiple' | undefined;
 
-type DataTableCompareSelectionBy = 'equals' | 'deepEquals' | undefined;
+export declare type DataTableCompareSelectionByType = 'equals' | 'deepEquals' | undefined;
 
-type DataTableColumnResizeModeType = 'fit' | 'expand' | undefined;
+export declare type DataTableColumnResizeModeType = 'fit' | 'expand' | undefined;
 
-type DataTableRowGroupModeType = 'subheader' | 'rowspan' | undefined;
+export declare type DataTableRowGroupModeType = 'subheader' | 'rowspan' | undefined;
 
-type DataTableStateStorageType = 'session' | 'local' | undefined;
+export declare type DataTableStateStorageType = 'session' | 'local' | undefined;
 
-type DataTableEditModeType = 'cell' | 'row' | undefined;
+export declare type DataTableEditModeType = 'cell' | 'row' | undefined;
 
-type DataTableScrollHeightType = 'flex' | string | undefined;
+export declare type DataTableScrollHeightType = 'flex' | string | undefined;
 
-type DataTableResponsiveLayoutType = 'stack' | 'scroll' | undefined;
+export declare type DataTableResponsiveLayoutType = 'stack' | 'scroll' | undefined;
 
 export interface DataTableExportFunctionOptions {
     /**
@@ -103,6 +112,10 @@ export interface DataTableExportCSVOptions {
     selectionOnly: boolean;
 }
 
+/**
+ * Custom tab open event.
+ * @see {@link DataTableEmits.sort}
+ */
 export interface DataTableSortEvent {
     /**
      * Browser event.
@@ -144,6 +157,8 @@ export interface DataTableSortEvent {
 }
 
 /**
+ * Custom pagination event.
+ * @see {@link DataTableEmits.page}
  * @extends DataTableSortEvent
  */
 export interface DataTablePageEvent extends DataTableSortEvent {
@@ -158,6 +173,8 @@ export interface DataTablePageEvent extends DataTableSortEvent {
 }
 
 /**
+ * Custom sort event.
+ * @see {@link DataTableEmits.sort}
  * @extends DataTableSortEvent
  */
 export interface DataTableFilterEvent extends DataTableSortEvent {
@@ -457,6 +474,9 @@ export interface DataTableStateEvent {
     selectionKeys: any[];
 }
 
+/**
+ * Defines valid properties in Datatable component.
+ */
 export interface DataTableProps {
     /**
      * An array of objects to display.
@@ -600,10 +620,10 @@ export interface DataTableProps {
     selectionMode?: DataTableSelectionModeType;
     /**
      * Algorithm to define if a row is selected, valid values are 'equals' that compares by reference and 'deepEquals' that compares all fields.
-     * @see DataTableCompareSelectionBy
+     * @see DataTableCompareSelectionByType
      * Default value is 'deepEquals'.
      */
-    compareSelectionBy?: DataTableCompareSelectionBy;
+    compareSelectionBy?: DataTableCompareSelectionByType;
     /**
      * Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and
      * when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
@@ -772,33 +792,34 @@ export interface DataTableProps {
      */
     filterInputProps?: InputHTMLAttributes | undefined;
 }
-
+/**
+ * Defines valid slots in Datatable component.
+ */
 export interface DataTableSlots {
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom footer template.
      */
-    footer: () => VNode[];
+    footer(): VNode[];
     /**
      * Custom paginator start template.
      */
-    paginatorstart: () => VNode[];
+    paginatorstart(): VNode[];
     /**
      * Custom paginator end template.
      */
-    paginatorend: () => VNode[];
+    paginatorend(): VNode[];
     /**
      * Custom empty template.
      */
-    empty: () => VNode[];
+    empty(): VNode[];
     /**
      * Custom group header template.
-     * @param {Object} scope - group header slot's params.
      */
-    groupheader: (scope: {
+    groupheader(scope: {
         /**
          * Row data
          */
@@ -807,12 +828,12 @@ export interface DataTableSlots {
          * Row index
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom group footer template.
      * @param {Object} scope - group footer slot's params.
      */
-    groupfooter: (scope: {
+    groupfooter(scope: {
         /**
          * Row data
          */
@@ -821,16 +842,16 @@ export interface DataTableSlots {
          * Row index
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom loading template.
      */
-    loading: () => VNode[];
+    loading(): VNode[];
     /**
      * Custom expansion template.
      * @param {Object} scope - expansion slot's params.
      */
-    expansion: (scope: {
+    expansion(scope: {
         /**
          * Row data
          */
@@ -839,209 +860,222 @@ export interface DataTableSlots {
          * Row index
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
 }
-
-export declare type DataTableEmits = {
+/**
+ * Defines valid emits in Datatable component.
+ */
+export interface DataTableEmits {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
      */
-    'update:first': (value: number) => void;
+    'update:first'(value: number): void;
     /**
      * Emitted when the rows changes.
      * @param {number} value - New value.
      */
-    'update:rows': (value: number) => void;
+    'update:rows'(value: number): void;
     /**
      * Emitted when the sortField changes.
      * @param {string} value - New value.
      */
-    'update:sortField': (value: string) => void;
+    'update:sortField'(value: string): void;
     /**
      * Emitted when the sortOrder changes.
      * @param {number | undefined} value - New value.
      */
-    'update:sortOrder': (value: number | undefined) => void;
+    'update:sortOrder'(value: number | undefined): void;
     /**
      * Emitted when the multiSortMeta changes.
      * @param {DataTableMultiSortMetaType} value - New value.
      */
-    'update:multiSortMeta': (value: DataTableMultiSortMetaType) => void;
+    'update:multiSortMeta'(value: DataTableMultiSortMetaType): void;
     /**
      * Emitted when the selection changes.
      * @param {*} value - New value.
      */
-    'update:selection': (value: any[] | any | undefined) => void;
+    'update:selection'(value: any[] | any | undefined): void;
     /**
      * Emitted when the contextMenuSelection changes.
      * @param {*} value - New value.
      */
-    'update:contextMenuSelection': (value: any[] | any | undefined) => void;
+    'update:contextMenuSelection'(value: any[] | any | undefined): void;
     /**
      * Emitted when the expandedRows changes.
      * @param {DataTableExpandedRows} value - New value.
      */
-    'update:expandedRows': (value: any[] | DataTableExpandedRows) => void;
+    'update:expandedRows'(value: any[] | DataTableExpandedRows): void;
     /**
      * Emitted when the expandedRowGroups changes.
      * @param {DataTableExpandedRows} value - New value.
      */
-    'update:expandedRowGroups': (value: any[] | DataTableExpandedRows) => void;
+    'update:expandedRowGroups'(value: any[] | DataTableExpandedRows): void;
     /**
      * Emitted when the filters changes.
      * @param {DataTableFilterMeta} value - New value.
      */
-    'update:filters': (value: DataTableFilterMeta) => void;
+    'update:filters'(value: DataTableFilterMeta): void;
     /**
      * Emitted when the editingRows changes.
      * @param {DataTableEditingRows} value - New value.
      */
-    'update:editingRows': (value: any[] | DataTableEditingRows) => void;
+    'update:editingRows'(value: any[] | DataTableEditingRows): void;
     /**
      * Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.
      * @param {DataTablePageEvent} event - Custom page event.
      */
-    page: (event: DataTablePageEvent) => void;
+    page(event: DataTablePageEvent): void;
     /**
      * Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation.
      * @param {DataTableSortEvent} event - Custom sort event.
      */
-    sort: (event: DataTableSortEvent) => void;
+    sort(event: DataTableSortEvent): void;
     /**
      * Event to emit after filtering, not triggered in lazy mode.
      * @param {DataTableFilterEvent} event - Custom filter event.
      */
-    filter: (event: DataTableFilterEvent) => void;
+    filter(event: DataTableFilterEvent): void;
     /**
      * Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value.
      * @param {*} value - Value displayed by the table.
      */
-    'value-change': (value: any[]) => void;
+    'value-change'(value: any[]): void;
     /**
      * Callback to invoke when a row is clicked.
      * @param {DataTableRowClickEvent} event - Custom row click event.
      */
-    'row-click': (event: DataTableRowClickEvent) => void;
+    'row-click'(event: DataTableRowClickEvent): void;
     /**
      * Callback to invoke when a row is double clicked.
      * @param {DataTableRowDoubleClickEvent} event - Custom row double click event.
      */
-    'row-dblclick': (event: DataTableRowDoubleClickEvent) => void;
+    'row-dblclick'(event: DataTableRowDoubleClickEvent): void;
     /**
      * Callback to invoke when a row is selected with a ContextMenu.
      * @param {DataTableRowContextMenuEvent} event - Custom row context menu event.
      */
-    'row-contextmenu': (event: DataTableRowContextMenuEvent) => void;
+    'row-contextmenu'(event: DataTableRowContextMenuEvent): void;
     /**
      * Callback to invoke when a row is selected.
      * @param {DataTableRowSelectEvent} event - Custom row select event.
      */
-    'row-select': (event: DataTableRowSelectEvent) => void;
+    'row-select'(event: DataTableRowSelectEvent): void;
     /**
      * Fired when header checkbox is checked.
      * @param {DataTableRowSelectAllEvent} event - Custom row select all event.
      */
-    'row-select-all': (event: DataTableRowSelectAllEvent) => void;
+    'row-select-all'(event: DataTableRowSelectAllEvent): void;
     /**
      * Fired when header checkbox is unchecked.
      * @param {DataTableRowUnselectAllEvent} event - Custom row unselect all event.
      */
-    'row-unselect-all': (event: DataTableRowUnselectAllEvent) => void;
+    'row-unselect-all'(event: DataTableRowUnselectAllEvent): void;
     /**
      * Callback to invoke when a row is unselected.
      * @param {DataTableRowUnselectEvent} event - Custom row unselect event.
      */
-    'row-unselect': (event: DataTableRowUnselectEvent) => void;
+    'row-unselect'(event: DataTableRowUnselectEvent): void;
     /**
      * Callback to invoke when all data is selected.
      * @param {DataTableSelectAllChangeEvent} event - Custom select all change event.
      */
-    'select-all-change': (event: DataTableSelectAllChangeEvent) => void;
+    'select-all-change'(event: DataTableSelectAllChangeEvent): void;
     /**
      * Callback to invoke when a column is resized.
      * @param {DataTableColumnResizeEndEvent} - Custom column resize event.
      */
-    'column-resize-end': (event: DataTableColumnResizeEndEvent) => void;
+    'column-resize-end'(event: DataTableColumnResizeEndEvent): void;
     /**
      * Callback to invoke when a column is reordered.
      * @param {DataTableColumnReorderEvent} event - Custom column reorder event.
      */
-    'column-reorder': (event: DataTableColumnReorderEvent) => void;
+    'column-reorder'(event: DataTableColumnReorderEvent): void;
     /**
      * Callback to invoke when a row is reordered.
      * @param {DataTableRowReorderEvent} event - Custom row reorder event.
      */
-    'row-reorder': (event: DataTableRowReorderEvent) => void;
+    'row-reorder'(event: DataTableRowReorderEvent): void;
     /**
      * Callback to invoke when a row is expanded.
      * @param {DataTableRowExpandEvent} event - Custom row expand event.
      */
-    'row-expand': (event: DataTableRowExpandEvent) => void;
+    'row-expand'(event: DataTableRowExpandEvent): void;
     /**
      * Callback to invoke when a row is collapsed.
      * @param {DataTableRowCollapseEvent} event - Custom row collapse event.
      */
-    'row-collapse': (event: DataTableRowCollapseEvent) => void;
+    'row-collapse'(event: DataTableRowCollapseEvent): void;
     /**
      * Callback to invoke when a row group is expanded.
      * @param {DataTableRowExpandEvent} event - Custom row expand event.
      */
-    'rowgroup-expand': (event: DataTableRowExpandEvent) => void;
+    'rowgroup-expand'(event: DataTableRowExpandEvent): void;
     /**
      * Callback to invoke when a row group is collapsed.
      * @param {DataTableRowCollapseEvent} event - Custom row collapse event.
      */
-    'rowgroup-collapse': (event: DataTableRowCollapseEvent) => void;
+    'rowgroup-collapse'(event: DataTableRowCollapseEvent): void;
     /**
      * Callback to invoke when cell edit is initiated.
      * @param {DataTableCellEditInitEvent} event - Custom cell edit init.
      */
-    'cell-edit-init': (event: DataTableCellEditInitEvent) => void;
+    'cell-edit-init'(event: DataTableCellEditInitEvent): void;
     /**
      * Callback to invoke when cell edit is completed.
      * @param {DataTableCellEditCompleteEvent} event - Custom cell edit complete event.
      */
-    'cell-edit-complete': (event: DataTableCellEditCompleteEvent) => void;
+    'cell-edit-complete'(event: DataTableCellEditCompleteEvent): void;
     /**
      * Callback to invoke when cell edit is cancelled with escape key.
      * @param {DataTableCellEditCancelEvent} event - Custom cell edit cancel event.
      */
-    'cell-edit-cancel': (event: DataTableCellEditCancelEvent) => void;
+    'cell-edit-cancel'(event: DataTableCellEditCancelEvent): void;
     /**
      * Callback to invoke when row edit is initiated.
      * @param {DataTableRowEditInitEvent} event - Custom row edit init event.
      */
-    'row-edit-init': (event: DataTableRowEditInitEvent) => void;
+    'row-edit-init'(event: DataTableRowEditInitEvent): void;
     /**
      * Callback to invoke when row edit is saved.
      * @param {DataTableRowEditSaveEvent} event - Custom row edit save event.
      */
-    'row-edit-save': (event: DataTableRowEditSaveEvent) => void;
+    'row-edit-save'(event: DataTableRowEditSaveEvent): void;
     /**
      * Callback to invoke when row edit is cancelled.
      * @param {DataTableRowEditCancelEvent} event - Custom row edit cancel event.
      */
-    'row-edit-cancel': (event: DataTableRowEditCancelEvent) => void;
+    'row-edit-cancel'(event: DataTableRowEditCancelEvent): void;
     /**
      * Invoked when a stateful table saves the state.
      * @param {DataTableStateEvent} event - Custom state event.
      */
-    'state-restore': (event: DataTableStateEvent) => void;
+    'state-restore'(event: DataTableStateEvent): void;
     /**
      * Invoked when a stateful table restores the state.
      * @param {DataTableStateEvent} event - Custom state event.
      */
-    'state-save': (event: DataTableStateEvent) => void;
-};
+    'state-save'(event: DataTableStateEvent): void;
+}
 
-declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, DataTableEmits> {
+/**
+ * **PrimeReact - DataTable**
+ *
+ *  * _DataTable displays data in tabular format._
+ *
+ * [Live Demo](https://www.primevue.org/datatable/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Interfaces
+ */
+export declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, DataTableEmits> {
     /**
      * Exports the data to CSV format.
      * @param {DataTableExportCSVOptions} [options] - Export options.
      * @param {Object[]} [data] - Custom exportable data. This param can be used on lazy dataTable.
      */
-    exportCSV: (options?: DataTableExportCSVOptions, data?: any[]) => void;
+    exportCSV(options?: DataTableExportCSVOptions, data?: any[]): void;
 }
 
 declare module '@vue/runtime-core' {
@@ -1058,6 +1092,7 @@ declare module '@vue/runtime-core' {
  *
  * - Column
  * - ColumnGroup
+ * - Row
  *
  * Demos:
  *

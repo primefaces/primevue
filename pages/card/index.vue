@@ -1,65 +1,45 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Card Component</Title>
-            <Meta name="description" content="Card is a flexible container component." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Card</h1>
-                <p>Card is a flexible container component.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <Card style="width: 25rem; margin-bottom: 2em">
-                <template #title> Simple Card </template>
-                <template #content>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                        quas!
-                    </p>
-                </template>
-            </Card>
-
-            <Card style="width: 25em">
-                <template #header>
-                    <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
-                </template>
-                <template #title> Advanced Card </template>
-                <template #subtitle> Card subtitle </template>
-                <template #content>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                        quas!
-                    </p>
-                </template>
-                <template #footer>
-                    <Button icon="pi pi-check" label="Save" />
-                    <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: 0.5em" />
-                </template>
-            </Card>
-        </div>
-
-        <CardDoc />
-    </div>
+    <DocComponent title="Vue Card Component" header="Card" description="Card is a flexible container component." :componentDocs="docs" :apiDocs="['Card']" />
 </template>
 
 <script>
-import CardDoc from './CardDoc';
+import AccessibilityDoc from '@/doc/card/AccessibilityDoc';
+import AdvancedDoc from '@/doc/card/AdvancedDoc';
+import BasicDoc from '@/doc/card/BasicDoc';
+import ImportDoc from '@/doc/card/ImportDoc';
+import StyleDoc from '@/doc/card/StyleDoc';
 
 export default {
-    components: {
-        CardDoc: CardDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'advanced',
+                    label: 'Advanced',
+                    component: AdvancedDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
+        };
     }
 };
 </script>
-
-<style lang="scss" scoped>
-p {
-    line-height: 1.5;
-    margin: 0;
-}
-</style>

@@ -1,135 +1,75 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Toast Component</Title>
-            <Meta name="description" content="Toast is used to display messages in an overlay." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Toast</h1>
-                <p>Toast is used to display messages in an overlay.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <Toast position="bottom-center" group="bc">
-                <template #message="slotProps">
-                    <div class="flex flex-column">
-                        <div class="text-center">
-                            <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                            <h4>{{ slotProps.message.summary }}</h4>
-                            <p>{{ slotProps.message.detail }}</p>
-                        </div>
-                        <div class="grid p-fluid">
-                            <div class="col-6">
-                                <Button class="p-button-success" label="Yes" @click="onConfirm"></Button>
-                            </div>
-                            <div class="col-6">
-                                <Button class="p-button-secondary" label="No" @click="onReject"></Button>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-            </Toast>
-
-            <div class="card">
-                <h5>Severities</h5>
-                <Button label="Success" class="p-button-success" @click="showSuccess" />
-                <Button label="Info" class="p-button-info" @click="showInfo" />
-                <Button label="Warn" class="p-button-warning" @click="showWarn" />
-                <Button label="Error" class="p-button-danger" @click="showError" />
-
-                <h5>Positions</h5>
-                <Button label="Top Left" class="mr-2" @click="showTopLeft" />
-                <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
-                <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
-
-                <h5>Options</h5>
-                <Button @click="showMultiple" label="Multiple" class="p-button-warning" />
-                <Button @click="showSticky" label="Sticky" />
-
-                <h5>Remove All</h5>
-                <Button @click="clear" label="Clear" />
-
-                <h5>Template</h5>
-                <Button @click="showTemplate" label="Confirm" />
-            </div>
-        </div>
-
-        <ToastDoc />
-    </div>
+    <DocComponent title="Vue Toast Component" header="Toast" description="Toast is used to display messages in an overlay." :componentDocs="docs" :apiDocs="['Toast']" />
 </template>
 
 <script>
-import ToastDoc from './ToastDoc';
+import AccessibilityDoc from '@/doc/toast/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/toast/BasicDoc.vue';
+import ImportDoc from '@/doc/toast/ImportDoc.vue';
+import MultipleDoc from '@/doc/toast/MultipleDoc.vue';
+import PositionDoc from '@/doc/toast/PositionDoc.vue';
+import SeverityDoc from '@/doc/toast/SeverityDoc.vue';
+import StickyDoc from '@/doc/toast/StickyDoc.vue';
+import StyleDoc from '@/doc/toast/StyleDoc.vue';
+import TemplateDoc from '@/doc/toast/TemplateDoc.vue';
+import ToastServiceDoc from '@/doc/toast/ToastServiceDoc.vue';
 
 export default {
     data() {
         return {
-            messages: []
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'toast-service',
+                    label: 'Toast Service',
+                    component: ToastServiceDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'severity',
+                    label: 'Severity',
+                    component: SeverityDoc
+                },
+                {
+                    id: 'position',
+                    label: 'Position',
+                    component: PositionDoc
+                },
+                {
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
+                },
+                {
+                    id: 'sticky',
+                    label: 'Sticky',
+                    component: StickyDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    methods: {
-        showSuccess() {
-            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
-        },
-        showInfo() {
-            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
-        },
-        showWarn() {
-            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
-        },
-        showError() {
-            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
-        },
-        showTopLeft() {
-            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', group: 'tl', life: 3000 });
-        },
-        showBottomLeft() {
-            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', group: 'bl', life: 3000 });
-        },
-        showBottomRight() {
-            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', group: 'br', life: 3000 });
-        },
-        showSticky() {
-            this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content' });
-        },
-        showMultiple() {
-            this.$toast.add({ severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 });
-            this.$toast.add({ severity: 'info', summary: 'Message 2', detail: 'Message 2 Content', life: 3000 });
-            this.$toast.add({ severity: 'info', summary: 'Message 3', detail: 'Message 3 Content', life: 3000 });
-        },
-        showTemplate() {
-            this.$toast.add({ severity: 'warn', summary: 'Are you sure?', detail: 'Proceed to confirm', group: 'bc' });
-        },
-        onConfirm() {
-            this.$toast.removeGroup('bc');
-        },
-        onReject() {
-            this.$toast.removeGroup('bc');
-        },
-        clear() {
-            this.$toast.removeAllGroups();
-        }
-    },
-    components: {
-        ToastDoc: ToastDoc
     }
 };
 </script>
-
-<style lang="scss" scoped>
-button {
-    min-width: 10rem;
-    margin-right: 0.5rem;
-}
-
-@media screen and (max-width: 960px) {
-    button {
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-}
-</style>

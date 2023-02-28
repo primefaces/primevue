@@ -1,72 +1,63 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Slider Component</Title>
-            <Meta name="description" content="Slider is a component to provide input with a drag handle." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Slider</h1>
-                <p>Slider is an input component to provide a numerical input.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic: {{ value1 }}</h5>
-                <Slider v-model="value1" />
-
-                <h5>Input: {{ value2 }}</h5>
-                <InputText v-model.number="value2" />
-                <Slider v-model="value2" />
-
-                <h5>Step: {{ value3 }}</h5>
-                <Slider v-model="value3" :step="20" />
-
-                <h5>Decimal Step: {{ value4 }}</h5>
-                <Slider v-model="value4" :step="0.5" />
-
-                <h5>Range: {{ value5 }}</h5>
-                <Slider v-model="value5" :range="true" />
-
-                <h5>Vertical: {{ value6 }}</h5>
-                <Slider v-model="value6" orientation="vertical" />
-            </div>
-        </div>
-
-        <SliderDoc />
-    </div>
+    <DocComponent title="Vue Slider Component" header="Slider" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['Slider']" />
 </template>
 
 <script>
-import SliderDoc from './SliderDoc';
+import AccessibilityDoc from '@/doc/slider/AccessibilityDoc';
+import BasicDoc from '@/doc/slider/BasicDoc';
+import ImportDoc from '@/doc/slider/ImportDoc';
+import InputDoc from '@/doc/slider/InputDoc';
+import RangeDoc from '@/doc/slider/RangeDoc';
+import StepDoc from '@/doc/slider/StepDoc';
+import StyleDoc from '@/doc/slider/StyleDoc';
+import VerticalDoc from '@/doc/slider/VerticalDoc';
 
 export default {
     data() {
         return {
-            value1: null,
-            value2: 50,
-            value3: 20,
-            value4: 30.5,
-            value5: [20, 80],
-            value6: 50
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'input',
+                    label: 'Input',
+                    component: InputDoc
+                },
+                {
+                    id: 'step',
+                    label: 'Step',
+                    component: StepDoc
+                },
+                {
+                    id: 'range',
+                    label: 'Range',
+                    component: RangeDoc
+                },
+                {
+                    id: 'vertical',
+                    label: 'Vertical',
+                    component: VerticalDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    components: {
-        SliderDoc: SliderDoc
     }
 };
 </script>
-
-<style scoped>
-.p-slider-horizontal,
-.p-inputtext {
-    width: 14rem;
-}
-
-.p-slider-vertical {
-    height: 14rem;
-}
-</style>

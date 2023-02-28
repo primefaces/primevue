@@ -1,4 +1,4 @@
-import { ComponentCustomProps, VNodeProps, EmitsOptions, AllowedComponentProps, ObjectEmitsOptions } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, ObjectEmitsOptions, VNodeProps } from 'vue';
 
 declare type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
 
@@ -14,7 +14,7 @@ declare type EmitFn<Options = ObjectEmitsOptions, Event extends keyof Options = 
           }[Event]
       >;
 
-export class ClassComponent<Props, Slots, Emits extends EmitsOptions = {}> {
+export class ClassComponent<Props, Slots, Emits> {
     $props: Props & PublicProps;
     $slots: Slots;
     $emit: EmitFn<Emits>;

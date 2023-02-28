@@ -1,10 +1,13 @@
+/**
+ * @module row
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export interface RowProps {}
 
 export interface RowSlots {}
 
-export declare type RowEmits = {};
+export interface RowEmits {}
 
 declare class Row extends ClassComponent<RowProps, RowSlots, RowEmits> {}
 

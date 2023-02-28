@@ -1,48 +1,63 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Textarea Component</Title>
-            <Meta name="description" content="Textarea adds styling, key filtering and autoResize functionality to standard textarea element." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Textarea</h1>
-                <p>Textarea is a multi-line text input element.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <Textarea v-model="value1" rows="5" cols="30" />
-
-                <h5>Auto Resize</h5>
-                <Textarea v-model="value2" :autoResize="true" rows="5" cols="30" />
-
-                <h5>Disabled</h5>
-                <Textarea v-model="value3" disabled rows="5" cols="30" />
-            </div>
-        </div>
-
-        <TextareaDoc />
-    </div>
+    <DocComponent title="Vue Textarea Component" header="Textarea" description="Textarea adds styling, key filtering and autoResize functionality to standard textarea element." :componentDocs="docs" :apiDocs="['Textarea']" />
 </template>
 
 <script>
-import TextareaDoc from './TextareaDoc';
+import AccessibilityDoc from '@/doc/textarea/AccessibilityDoc';
+import AutoResizeDoc from '@/doc/textarea/AutoResizeDoc';
+import BasicDoc from '@/doc/textarea/BasicDoc';
+import DisabledDoc from '@/doc/textarea/DisabledDoc';
+import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc';
+import ImportDoc from '@/doc/textarea/ImportDoc';
+import InvalidDoc from '@/doc/textarea/InvalidDoc';
+import StyleDoc from '@/doc/textarea/StyleDoc';
 
 export default {
     data() {
         return {
-            value1: '',
-            value2: '',
-            value3: ''
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'auto-resize',
+                    label: 'Auto Resize',
+                    component: AutoResizeDoc
+                },
+                {
+                    id: 'float-label',
+                    label: 'Float Label',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    components: {
-        TextareaDoc: TextareaDoc
     }
 };
 </script>

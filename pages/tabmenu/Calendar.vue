@@ -1,6 +1,6 @@
 <template>
     <div class="tabmenudemo-content">
-        <h5>Calendar Component Content</h5>
+        <h3>Calendar Component Content</h3>
     </div>
 </template>
 

@@ -1,0 +1,43 @@
+.layout-topbar {
+    padding: 0;
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    z-index: 1100;
+    border-bottom: 1px solid var(--surface-border);
+
+    .layout-topbar-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4rem;
+    }
+
+    &.layout-topbar-sticky {
+        backdrop-filter: blur(8px);
+    }
+
+    .menu-button {
+        display: none;
+        color: var(--text-color);
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        align-items: center;
+        justify-content: center;
+        transition: border-color .3s;
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--primary-color);
+        }
+
+        i {
+            font-size: 1.5rem;
+        }
+    }
+}

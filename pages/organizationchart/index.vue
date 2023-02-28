@@ -1,248 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue OrganizationChart Component</Title>
-            <Meta name="description" content="OrganizationChart visualizes hierarchical organization data." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>OrganizationChart</h1>
-                <p>OrganizationChart visualizes hierarchical organization data.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Advanced</h5>
-                <OrganizationChart
-                    v-model:selectionKeys="selection"
-                    :value="data1"
-                    :collapsible="true"
-                    class="company"
-                    selectionMode="single"
-                    @node-select="onNodeSelect"
-                    @node-unselect="onNodeUnselect"
-                    @node-collapse="onNodeCollapse"
-                    @node-expand="onNodeExpand"
-                >
-                    <template #person="slotProps">
-                        <div class="node-header ui-corner-top">{{ slotProps.node.data.label }}</div>
-                        <div class="node-content">
-                            <img :src="'images/organization/' + slotProps.node.data.avatar" width="32" />
-                            <div>{{ slotProps.node.data.name }}</div>
-                        </div>
-                    </template>
-                    <template #default="slotProps">
-                        <span>{{ slotProps.node.data.label }}</span>
-                    </template>
-                </OrganizationChart>
-            </div>
-
-            <div class="card">
-                <h5>Basic</h5>
-                <OrganizationChart :value="data2">
-                    <template #default="slotProps">
-                        <span>{{ slotProps.node.data.label }}</span>
-                    </template>
-                </OrganizationChart>
-            </div>
-        </div>
-
-        <OrganizationChartDoc />
-    </div>
+    <DocComponent title="Vue Organization Chart Component" header="OrganizationChart" description="OrganizationChart visualizes hierarchical organization data." :componentDocs="docs" :apiDocs="['OrganizationChart']" />
 </template>
+
 <script>
-import OrganizationChartDoc from './OrganizationChartDoc';
+import AccessibilityDoc from '@/doc/organizationchart/AccessibilityDoc';
+import BasicDoc from '@/doc/organizationchart/BasicDoc';
+import ColoredDoc from '@/doc/organizationchart/ColoredDoc';
+import ImportDoc from '@/doc/organizationchart/ImportDoc';
+import SelectionDoc from '@/doc/organizationchart/SelectionDoc';
+import StyleDoc from '@/doc/organizationchart/StyleDoc';
+import TemplateDoc from '@/doc/organizationchart/TemplateDoc';
 
 export default {
     data() {
         return {
-            data1: {
-                key: '0',
-                type: 'person',
-                styleClass: 'p-person',
-                data: { label: 'CEO', name: 'Walter White', avatar: 'walter.jpg' },
-                children: [
-                    {
-                        key: '0_0',
-                        type: 'person',
-                        styleClass: 'p-person',
-                        data: { label: 'CFO', name: 'Saul Goodman', avatar: 'saul.jpg' },
-                        children: [
-                            {
-                                key: '0_0_0',
-                                data: { label: 'Tax' },
-                                selectable: false,
-                                styleClass: 'department-cfo'
-                            },
-                            {
-                                key: '0_0_1',
-                                data: { label: 'Legal' },
-                                selectable: false,
-                                styleClass: 'department-cfo'
-                            }
-                        ]
-                    },
-                    {
-                        key: '0_1',
-                        type: 'person',
-                        styleClass: 'p-person',
-                        data: { label: 'COO', name: 'Mike E.', avatar: 'mike.jpg' },
-                        children: [
-                            {
-                                key: '0_1_0',
-                                data: { label: 'Operations' },
-                                selectable: false,
-                                styleClass: 'department-coo'
-                            }
-                        ]
-                    },
-                    {
-                        key: '0_2',
-                        type: 'person',
-                        styleClass: 'p-person',
-                        data: { label: 'CTO', name: 'Jesse Pinkman', avatar: 'jesse.jpg' },
-                        children: [
-                            {
-                                key: '0_2_0',
-                                data: { label: 'Development' },
-                                selectable: false,
-                                styleClass: 'department-cto',
-                                children: [
-                                    {
-                                        key: '0_2_0_0',
-                                        data: { label: 'Analysis' },
-                                        selectable: false,
-                                        styleClass: 'department-cto'
-                                    },
-                                    {
-                                        key: '0_2_0_1',
-                                        data: { label: 'Front End' },
-                                        selectable: false,
-                                        styleClass: 'department-cto'
-                                    },
-                                    {
-                                        key: '0_2_0_2',
-                                        data: { label: 'Back End' },
-                                        selectable: false,
-                                        styleClass: 'department-cto'
-                                    }
-                                ]
-                            },
-                            {
-                                key: '0_2_1',
-                                data: { label: 'QA' },
-                                selectable: false,
-                                styleClass: 'department-cto'
-                            },
-                            {
-                                key: '0_2_2',
-                                data: { label: 'R&D' },
-                                selectable: false,
-                                styleClass: 'department-cto'
-                            }
-                        ]
-                    }
-                ]
-            },
-            data2: {
-                key: '0',
-                data: { label: 'F.C. Barcelona' },
-                children: [
-                    {
-                        key: '0_0',
-                        data: { label: 'F.C. Barcelona' },
-                        children: [
-                            {
-                                key: '0_0_0',
-                                data: { label: 'Chelsea F.C.' }
-                            },
-                            {
-                                key: '0_0_1',
-                                data: { label: 'F.C. Barcelona' }
-                            }
-                        ]
-                    },
-                    {
-                        key: '0_1',
-                        data: { label: 'Real Madrid' },
-                        children: [
-                            {
-                                key: '0_1_0',
-                                data: { label: 'Bayern Munich' }
-                            },
-                            {
-                                key: '0_1_1',
-                                data: { label: 'Real Madrid' }
-                            }
-                        ]
-                    }
-                ]
-            },
-            selection: {}
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'selection',
+                    label: 'Selection',
+                    component: SelectionDoc
+                },
+                {
+                    id: 'colored',
+                    label: 'Colored',
+                    component: ColoredDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    methods: {
-        onNodeSelect(node) {
-            this.$toast.add({ severity: 'success', summary: 'Node Selected', detail: node.data.label, life: 3000 });
-        },
-        onNodeUnselect(node) {
-            this.$toast.add({ severity: 'success', summary: 'Node Unselected', detail: node.data.label, life: 3000 });
-        },
-        onNodeExpand(node) {
-            this.$toast.add({ severity: 'success', summary: 'Node Expanded', detail: node.data.label, life: 3000 });
-        },
-        onNodeCollapse(node) {
-            this.$toast.add({ severity: 'success', summary: 'Node Collapsed', detail: node.data.label, life: 3000 });
-        }
-    },
-    components: {
-        OrganizationChartDoc: OrganizationChartDoc
     }
 };
 </script>
-
-<style scoped lang="scss">
-::v-deep(.p-organizationchart) {
-    .p-person {
-        padding: 0;
-        border: 0 none;
-    }
-
-    .node-header,
-    .node-content {
-        padding: 0.5em 0.7rem;
-    }
-
-    .node-header {
-        background-color: #495ebb;
-        color: #ffffff;
-    }
-
-    .node-content {
-        text-align: center;
-        border: 1px solid #495ebb;
-    }
-
-    .node-content img {
-        border-radius: 50%;
-    }
-
-    .department-cfo {
-        background-color: #7247bc;
-        color: #ffffff;
-    }
-
-    .department-coo {
-        background-color: #a534b6;
-        color: #ffffff;
-    }
-
-    .department-cto {
-        background-color: #e9286f;
-        color: #ffffff;
-    }
-}
-</style>

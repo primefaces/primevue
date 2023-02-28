@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import NodeService from '../../service/NodeService';
+import { NodeService } from '@/service/NodeService';
 export default {
     data() {
         return {
@@ -203,7 +203,7 @@ export default {
             radioValue: 'C',
             nodes: null,
             switchValue: true,
-            selectButtonValue: 1,
+            selectButtonValue: { name: 'Prime', value: 1 },
             dateValue: null,
             rangeValues: [20, 80],
             items: [
@@ -218,12 +218,8 @@ export default {
             ]
         };
     },
-    nodeService: null,
-    created() {
-        this.nodeService = new NodeService();
-    },
     mounted() {
-        this.nodeService.getTreeNodes().then((data) => (this.nodes = data));
+        NodeService.getTreeNodes().then((data) => (this.nodes = data));
     },
     methods: {
         setCategory(category) {

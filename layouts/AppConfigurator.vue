@@ -1,406 +1,349 @@
 <template>
-    <div :class="containerClass">
-        <div class="layout-config-content-wrapper">
-            <a href="#" class="layout-config-button" @click="toggleConfigurator">
-                <i class="pi pi-cog"></i>
-            </a>
-            <a href="#" class="layout-config-close" @click="hideConfigurator">
-                <i class="pi pi-times"></i>
-            </a>
+    <Sidebar v-model:visible="visible" @hide="onSidebarHide" class="layout-config-sidebar w-full sm:w-30rem" position="right">
+        <div class="p-2">
+            <section class="mb-5">
+                <h3>Component Scale</h3>
+                <div class="flex align-items-center gap-2">
+                    <Button icon="pi pi-minus" @click="decrementScale" class="p-button-text p-button-rounded w-2rem h-2rem" :disabled="scale === scales[0]" />
+                    <i v-for="s in scales" :key="s" :class="['pi pi-circle-fill text-sm text-600', { 'text-lg text-primary': s === scale }]" />
 
-            <div class="layout-config-content">
-                <div>
-                    <h4>Component Scale</h4>
-                    <div class="config-scale">
-                        <Button icon="pi pi-minus" @click="decrementScale()" class="p-button-text" :disabled="scale === scales[0]" />
-                        <i v-for="s of scales" :key="s" class="pi pi-circle-fill" :class="{ 'scale-active': s === scale }" />
-                        <Button icon="pi pi-plus" @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
+                    <Button icon="pi pi-plus" @click="incrementScale" class="p-button-text p-button-rounded w-2rem h-2rem" :disabled="scale === scales[scales.length - 1]" />
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h3>Input Style</h3>
+                <div class="flex gap-5">
+                    <div class="flex align-items-center gap-2">
+                        <RadioButton v-model="inputStyle" name="inputStyle" value="outlined" inputId="outlined_input"></RadioButton>
+                        <label for="outlined_input">Outlined</label>
                     </div>
-
-                    <AppInputStyleSwitch />
-
-                    <h4>Ripple Effect</h4>
-                    <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
-
-                    <h4>Free Themes</h4>
-                    <p>Built-in component themes created by the <a href="https://www.primefaces.org/designer/primevue">PrimeVue Theme Designer</a>.</p>
-
-                    <h5>Bootstrap</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-light-blue')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" />
-                            </button>
-                            <span>Blue</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-light-purple')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" />
-                            </button>
-                            <span>Purple</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-dark-blue', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" />
-                            </button>
-                            <span>Blue</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-dark-purple', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" />
-                            </button>
-                            <span>Purple</span>
-                        </div>
-                    </div>
-
-                    <h5>Material Design</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'md-light-indigo')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg" alt="Material Light Indigo" />
-                            </button>
-                            <span>Indigo</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'md-light-deeppurple')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg" alt="Material Light Deep Purple" />
-                            </button>
-                            <span>Deep Purple</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'md-dark-indigo', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg" alt="Material Dark Indigo" />
-                            </button>
-                            <span>Indigo</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'md-dark-deeppurple', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Dark Deep Purple" />
-                            </button>
-                            <span>Deep Purple</span>
-                        </div>
-                    </div>
-
-                    <h5>Material Design Compact</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'mdc-light-indigo')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg" alt="Material Compact Light Indigo" />
-                            </button>
-                            <span>Indigo</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'mdc-light-deeppurple')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg" alt="Material Compact Deep Purple" />
-                            </button>
-                            <span>Deep Purple</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'mdc-dark-indigo', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg" alt="Material Compact Dark Indigo" />
-                            </button>
-                            <span>Indigo</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'mdc-dark-deeppurple', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Compact Dark Deep Purple" />
-                            </button>
-                            <span>Deep Purple</span>
-                        </div>
-                    </div>
-
-                    <h5>Tailwind</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'tailwind-light')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/tailwind-light.png" alt="Tailwind Light" />
-                            </button>
-                            <span>Tailwind Light</span>
-                        </div>
-                    </div>
-
-                    <h5>Fluent UI</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'fluent-light')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/fluent-light.png" alt="Fluent Light" />
-                            </button>
-                            <span>Fluent Light</span>
-                        </div>
-                    </div>
-
-                    <h5 class="flex align-items-center">PrimeOne Design</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-indigo')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" />
-                            </button>
-                            <span>Lara Light Indigo</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-blue')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-blue.png" alt="Lara Light Blue" />
-                            </button>
-                            <span>Lara Light Blue</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-purple')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-purple.png" alt="Lara Light Purple" />
-                            </button>
-                            <span>Lara Light Purple</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-light-teal')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" />
-                            </button>
-                            <span>Lara Light Teal</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-indigo', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" />
-                            </button>
-                            <span>Lara Dark Indigo</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-blue', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" />
-                            </button>
-                            <span>Lara Dark Blue</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-purple', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" />
-                            </button>
-                            <span>Lara Dark Purple</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'lara-dark-teal', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" />
-                            </button>
-                            <span>Lara Dark Teal</span>
-                        </div>
-                    </div>
-
-                    <h5 class="flex align-items-center">Misc</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-light')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/soho-light.png" alt="Soho Light" />
-                            </button>
-                            <span>Soho Light</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'soho-dark', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/soho-dark.png" alt="Soho Dark" />
-                            </button>
-                            <span>Soho Dark</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-light')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/viva-light.svg" alt="Viva Light" />
-                            </button>
-                            <span>Viva Light</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'viva-dark', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/viva-dark.svg" alt="Viva Dark" />
-                            </button>
-                            <span>Viva Dark</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'mira')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/mira.jpg" alt="Mira" />
-                            </button>
-                            <span>Mira</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'nano')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/nano.jpg" alt="Mira" />
-                            </button>
-                            <span>Nano</span>
-                        </div>
-                    </div>
-
-                    <h5>PrimeOne Design - Legacy</h5>
-                    <div class="grid free-themes">
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'saga-blue')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/saga-blue.png" alt="Saga Blue" />
-                            </button>
-                            <span>Saga Blue</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'saga-green')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/saga-green.png" alt="Saga Green" />
-                            </button>
-                            <span>Saga Green</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'saga-orange')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/saga-orange.png" alt="Saga Orange" />
-                            </button>
-                            <span>Saga Orange</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'saga-purple')">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/saga-purple.png" alt="Saga Purple" />
-                            </button>
-                            <span>Saga Purple</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'vela-blue', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/vela-blue.png" alt="Vela Blue" />
-                            </button>
-                            <span>Vela Blue</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'vela-green', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/vela-green.png" alt="Vela Green" />
-                            </button>
-                            <span>Vela Green</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'vela-orange', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/vela-orange.png" alt="Vela Orange" />
-                            </button>
-                            <span>Vela Orange</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'vela-purple', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/vela-purple.png" alt="Vela Purple" />
-                            </button>
-                            <span>Vela Purple</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'arya-blue', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/arya-blue.png" alt="Arya Blue" />
-                            </button>
-                            <span>Arya Blue</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'arya-green', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/arya-green.png" alt="Arya Green" />
-                            </button>
-                            <span>Arya Green</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'arya-orange', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/arya-orange.png" alt="Arya Orange" />
-                            </button>
-                            <span>Arya Orange</span>
-                        </div>
-                        <div class="col-3">
-                            <button class="p-link" type="button" @click="changeTheme($event, 'arya-purple', true)">
-                                <img src="https://primefaces.org/cdn/primevue/images/themes/arya-purple.png" alt="Arya Purple" />
-                            </button>
-                            <span>Arya Purple</span>
-                        </div>
-                    </div>
-
-                    <h4>Admin Templates</h4>
-                    <p>Beautifully crafted application templates by PrimeTek.</p>
-                    <div class="grid premium-themes">
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/sakai-vue">
-                                <img alt="Ultima" src="https://primefaces.org/cdn/primevue/images/layouts/sakai-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/apollo-vue">
-                                <img alt="Apollo" src="https://primefaces.org/cdn/primevue/images/layouts/apollo-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/atlantis-vue">
-                                <img alt="Atlantis" src="https://primefaces.org/cdn/primevue/images/layouts/atlantis-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/freya-vue">
-                                <img alt="Freya" src="https://primefaces.org/cdn/primevue/images/layouts/freya-vue.png" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/ultima-vue">
-                                <img alt="Ultima" src="https://primefaces.org/cdn/primevue/images/layouts/ultima-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/diamond-vue">
-                                <img alt="Diamond" src="https://primefaces.org/cdn/primevue/images/layouts/diamond-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/verona-vue">
-                                <img alt="Verona" src="https://primefaces.org/cdn/primevue/images/layouts/verona-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/poseidon-vue">
-                                <img alt="Poseidon" src="https://primefaces.org/cdn/primevue/images/layouts/poseidon-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/sapphire-vue">
-                                <img alt="Sapphire" src="https://primefaces.org/cdn/primevue/images/layouts/sapphire-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/serenity-vue">
-                                <img alt="Serenity" src="https://primefaces.org/cdn/primevue/images/layouts/serenity-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/babylon-vue">
-                                <img alt="Babylon" src="https://primefaces.org/cdn/primevue/images/layouts/babylon-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/avalon-vue">
-                                <img alt="Avalon" src="https://primefaces.org/cdn/primevue/images/layouts/avalon-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/roma-vue">
-                                <img alt="Roma" src="https://primefaces.org/cdn/primevue/images/layouts/roma-vue.jpg" />
-                            </a>
-                        </div>
-                        <div class="col-12 md:col-6">
-                            <a href="https://www.primefaces.org/layouts/prestige-vue">
-                                <img alt="Prestige" src="https://primefaces.org/cdn/primevue/images/layouts/prestige-vue.jpg" />
-                            </a>
-                        </div>
+                    <div class="flex align-items-center gap-2">
+                        <RadioButton v-model="inputStyle" name="inputStyle" value="filled" inputId="filled_input"></RadioButton>
+                        <label for="filled_input">Filled</label>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section class="mb-5">
+                <h3>Ripple Effect</h3>
+                <InputSwitch v-model="ripple" />
+            </section>
+
+            <section>
+                <h3>Free Themes</h3>
+                <p>
+                    Built-in component themes created by the
+                    <a href="https://www.primefaces.org/designer/primevue" class="text-primary hover:underline font-medium"> primevue Theme Designer </a>
+                    .
+                </p>
+
+                <h4>Bootstrap</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('bootstrap4-light-blue')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('bootstrap4-light-purple')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('bootstrap4-dark-blue', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('bootstrap4-dark-purple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Purple</span>
+                    </div>
+                </div>
+
+                <h4>Material Design</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('md-light-indigo', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg" alt="Material Light Indigo" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Indigo</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('md-light-deeppurple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg" alt="Material Light Deep Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Deep Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('md-dark-indigo', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg" alt="Material Dark Indigo" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Indigo</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('md-dark-purple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Dark Deep Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Deep Purple</span>
+                    </div>
+                </div>
+
+                <h4>Material Design Compact</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('md-light-indigo')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-indigo.svg" alt="Material Compact Light Indigo" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Indigo</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('mdc-light-deeppurple')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-light-deeppurple.svg" alt="Material Compact Deep Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Deep Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('mdc-dark-indigo', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-indigo.svg" alt="Material Compact Dark Indigo" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Indigo</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('mdc-dark-deeppurple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Compact Dark Deep Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Deep Purple</span>
+                    </div>
+                </div>
+
+                <h4>Tailwind</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('tailwind-light')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/tailwind-light.png" alt="Tailwind Light" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Tailwind Light</span>
+                    </div>
+                </div>
+
+                <h4>Fluent UI</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('fluent-light')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/fluent-light.png" alt="Fluent Light" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Blue</span>
+                    </div>
+                </div>
+
+                <h4>PrimeOne Design</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-light-indigo')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-indigo.png" alt="Lara Light Indigo" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Indigo</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-light-blue')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-blue.png" alt="Lara Light Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-light-purple')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-purple.png" alt="Lara Light Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-light-teal')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-light-teal.png" alt="Lara Light Teal" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Teal</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-dark-indigo', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-indigo.png" alt="Lara Dark Indigo" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Indigo</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-dark-blue', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-blue.png" alt="Lara Dark Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-dark-purple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-purple.png" alt="Lara Dark Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('lara-dark-teal', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/lara-dark-teal.png" alt="Lara Dark Teal" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Lara Teal</span>
+                    </div>
+                </div>
+
+                <h4>Misc</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('soho-light')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/soho-light.png" alt="Soho Light" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Soho Light</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('soho-dark', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/soho-dark.png" alt="Soho Dark" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Soho Dark</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('viva-light')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/viva-light.svg" alt="Viva Light" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Viva Light</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('viva-dark', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/viva-dark.svg" alt="Viva Dark" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Viva Dark</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('mira')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/mira.jpg" alt="Mira" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Mira</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('nano')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/nano.jpg" alt="Nano" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Nano</span>
+                    </div>
+                </div>
+
+                <h4>PrimeOne Design - Legacy</h4>
+                <div class="grid free-themes">
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('saga-blue')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/saga-blue.png" alt="Saga Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Saga Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('saga-green')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/saga-green.png" alt="Saga Green" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Saga Green</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('saga-orange')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/saga-orange.png" alt="Saga Orange" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Saga Orange</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('saga-purple')">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/saga-purple.png" alt="Saga Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Saga Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('vela-blue', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/vela-blue.png" alt="Vela Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Vela Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('vela-green', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/vela-green.png" alt="Vela Green" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Vela Green</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('vela-orange', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/vela-orange.png" alt="Vela Orange" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Vela Orange</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('vela-purple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/vela-purple.png" alt="Vela Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Vela Purple</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('arya-blue', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/arya-blue.png" alt="Arya Blue" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Arya Blue</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('arya-green', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/arya-green.png" alt="Arya Green" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Arya Green</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('arya-orange', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/arya-orange.png" alt="Arya Orange" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Arya Orange</span>
+                    </div>
+                    <div class="col-3 flex flex-column align-items-center gap-2">
+                        <button class="p-link" @click="changeTheme('arya-purple', true)">
+                            <img src="https://primefaces.org/cdn/primevue/images/themes/arya-purple.png" alt="Arya Purple" class="w-3rem border-round" />
+                        </button>
+                        <span class="white-space-nowrap">Arya Purple</span>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
+    </Sidebar>
 </template>
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
+    emits: ['update:modelValue'],
     props: {
-        inputStyle: String
+        modelValue: Boolean
     },
     data() {
         return {
-            active: false,
+            visible: false,
             scale: 14,
-            scales: [12, 13, 14, 15, 16]
+            scales: [12, 13, 14, 15, 16],
+            inputStyle: 'filled',
+            ripple: true
         };
+    },
+    watch: {
+        modelValue(value) {
+            this.visible = value;
+        },
+        inputStyle(value) {
+            this.$primevue.config.inputStyle = value === 'filled';
+        },
+        ripple(value) {
+            this.$primevue.config.ripple = value;
+        }
     },
     outsideClickListener: null,
     themeChangeListener: null,
-    watch: {
-        $route() {
-            if (this.active) {
-                this.active = false;
-                this.unbindOutsideClickListener();
-            }
-        }
-    },
     beforeUnmount() {
         EventBus.off('theme-change', this.themeChangeListener);
     },
@@ -415,41 +358,12 @@ export default {
         EventBus.on('theme-change', this.themeChangeListener);
     },
     methods: {
-        toggleConfigurator(event) {
-            this.active = !this.active;
-            event.preventDefault();
-
-            if (this.active) this.bindOutsideClickListener();
-            else this.unbindOutsideClickListener();
+        onSidebarHide() {
+            this.visible = false;
+            this.$emit('update:modelValue', false);
         },
-        hideConfigurator(event) {
-            this.active = false;
-            this.unbindOutsideClickListener();
-            event.preventDefault();
-        },
-        changeTheme(event, theme, dark) {
+        changeTheme(theme, dark) {
             EventBus.emit('theme-change', { theme: theme, dark: dark });
-            event.preventDefault();
-        },
-        bindOutsideClickListener() {
-            if (!this.outsideClickListener) {
-                this.outsideClickListener = (event) => {
-                    if (this.active && this.isOutsideClicked(event)) {
-                        this.active = false;
-                    }
-                };
-
-                document.addEventListener('click', this.outsideClickListener);
-            }
-        },
-        unbindOutsideClickListener() {
-            if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
-                this.outsideClickListener = null;
-            }
-        },
-        isOutsideClicked(event) {
-            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target));
         },
         decrementScale() {
             this.scale--;
@@ -461,17 +375,6 @@ export default {
         },
         applyScale() {
             document.documentElement.style.fontSize = this.scale + 'px';
-        },
-        onRippleChange(value) {
-            this.$primevue.config.ripple = value;
-        }
-    },
-    computed: {
-        containerClass() {
-            return ['layout-config', { 'layout-config-active': this.active }];
-        },
-        rippleActive() {
-            return this.$primevue.config.ripple;
         }
     }
 };

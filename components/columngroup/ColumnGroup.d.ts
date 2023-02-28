@@ -1,12 +1,13 @@
+/**
+ * @module columngroup
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-
-type ColumnGroupType = 'header' | 'footer' | undefined;
 
 export interface ColumnGroupProps {
     /**
      * Type of column group
      */
-    type?: ColumnGroupType;
+    type?: 'header' | 'footer' | undefined;
 }
 
 export interface ColumnGroupSlots {}

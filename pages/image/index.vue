@@ -1,40 +1,51 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Image Component</Title>
-            <Meta name="description" content="Displays an image with preview and tranformation options." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Image</h1>
-                <p>Displays an image with preview and tranformation options. For multiple image, see <router-link to="galleria">Galleria</router-link>.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <Image :src="'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg'" alt="Image" width="250" />
-
-                <h5>Preview</h5>
-                <Image :src="'https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg'" alt="Image" width="250" preview />
-            </div>
-        </div>
-
-        <ImageDoc />
-    </div>
+    <DocComponent title="Vue Image Component" header="Image" description="Displays a single image with preview and tranformation options." :componentDocs="docs" :apiDocs="['Image']" />
 </template>
 
 <script>
-import ImageDoc from './ImageDoc';
+import AccessibilityDoc from '@/doc/image/AccessibilityDoc';
+import BasicDoc from '@/doc/image/BasicDoc';
+import ImportDoc from '@/doc/image/ImportDoc';
+import PreviewDoc from '@/doc/image/PreviewDoc';
+import StyleDoc from '@/doc/image/StyleDoc';
+import TemplateDoc from '@/doc/image/TemplateDoc';
 
 export default {
-    components: {
-        ImageDoc: ImageDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'preview',
+                    label: 'Preview',
+                    component: PreviewDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
+        };
     }
 };
 </script>
-
-<style lang="scss" scoped></style>

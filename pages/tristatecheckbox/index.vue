@@ -1,42 +1,51 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue TriStateCheckbox Component</Title>
-            <Meta name="description" content="TriStateCheckbox is used to select either true, false or null as the value." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>TriStateCheckbox</h1>
-                <p>TriStateCheckbox is used to select either "true", "false" or "null" as the value.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <div class="field-checkbox m-0">
-                    <TriStateCheckbox v-model="value" inputId="checkbox" />
-                    <label for="checkbox">{{ value == null ? 'null' : value }}</label>
-                </div>
-            </div>
-        </div>
-
-        <TriStateCheckboxDoc />
-    </div>
+    <DocComponent title="Vue TriStateCheckbox Component" header="TriStateCheckbox" description="TriStateCheckbox is used to select either true, false or null as the value." :componentDocs="docs" :apiDocs="['TriStateCheckbox']" />
 </template>
 
 <script>
-import TriStateCheckboxDoc from './TriStateCheckboxDoc';
+import AccessibilityDoc from '@/doc/tristatecheckbox/AccessibilityDoc';
+import BasicDoc from '@/doc/tristatecheckbox/BasicDoc';
+import DisabledDoc from '@/doc/tristatecheckbox/DisabledDoc';
+import ImportDoc from '@/doc/tristatecheckbox/ImportDoc';
+import InvalidDoc from '@/doc/tristatecheckbox/InvalidDoc';
+import StyleDoc from '@/doc/tristatecheckbox/StyleDoc';
 
 export default {
     data() {
         return {
-            value: null
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    components: {
-        TriStateCheckboxDoc: TriStateCheckboxDoc
     }
 };
 </script>

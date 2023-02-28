@@ -5,12 +5,13 @@
 </template>
 
 <script>
-import EventBus from '@/layouts/AppEventBus';
 import News from '@/assets/data/news.json';
+import EventBus from '@/layouts/AppEventBus';
 
 export default {
     themeChangeListener: null,
     newsActivate: null,
+    newsService: null,
     data() {
         return {
             layout: 'custom'
@@ -36,12 +37,10 @@ export default {
             if (itemString) {
                 const item = JSON.parse(itemString);
 
-                if (!item.hiddenNews || item.hiddenNews !== News.id)
+                if (!item.hiddenNews || item.hiddenNews !== News.id) {
                     this.$appState.newsActive = true;
-                
-                else this.$appState.newsActive = false;
-            } 
-            else {
+                } else this.$appState.newsActive = false;
+            } else {
                 this.$appState.newsActive = true;
             }
         };
@@ -75,6 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/landing/landing.scss';
-@import '@/assets/styles/app/app.scss';
+@import '@/assets/styles/layout/landing/landing.scss';
+@import '@/assets/styles/layout/layout.scss';
+@import '@/assets/styles/demo/demo.scss';
 </style>

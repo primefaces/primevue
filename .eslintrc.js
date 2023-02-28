@@ -10,7 +10,7 @@ module.exports = {
         requireConfigFile: false
     },
     plugins: ['prettier'],
-    ignorePatterns: ['**/public/**', '/layouts/AppDocumentation.vue'],
+    ignorePatterns: ['**/public/**'],
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

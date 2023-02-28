@@ -1,53 +1,63 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue Tag Component</Title>
-            <Meta name="description" content="Tag component is used to categorize content." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>Tag</h1>
-                <p>Tag component is used to categorize content.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Tags</h5>
-                <Tag class="mr-2" value="Primary" aria-label="Tabable Primary Tag" tabindex="0"></Tag>
-                <Tag class="mr-2" severity="success" value="Success"></Tag>
-                <Tag class="mr-2" severity="info" value="Info"></Tag>
-                <Tag class="mr-2" severity="warning" value="Warning"></Tag>
-                <Tag severity="danger" value="Danger"></Tag>
-
-                <h5>Pills</h5>
-                <Tag class="mr-2" value="Primary" rounded></Tag>
-                <Tag class="mr-2" severity="success" value="Success" rounded></Tag>
-                <Tag class="mr-2" severity="info" value="Info" rounded></Tag>
-                <Tag class="mr-2" severity="warning" value="Warning" rounded></Tag>
-                <Tag severity="danger" value="Danger" rounded></Tag>
-
-                <h5>Icons</h5>
-                <Tag class="mr-2" icon="pi pi-user" value="Primary"></Tag>
-                <Tag class="mr-2" icon="pi pi-check" severity="success" value="Success"></Tag>
-                <Tag class="mr-2" icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-                <Tag class="mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"></Tag>
-                <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
-            </div>
-        </div>
-
-        <TagDoc />
-    </div>
+    <DocComponent title="Vue Tag Component" header="Tag" description="Tag component is used to categorize content." :componentDocs="docs" :apiDocs="['Tag']" />
 </template>
 
 <script>
-import TagDoc from './TagDoc';
+import AccessibilityDoc from '@/doc/tag/AccessibilityDoc';
+import BasicDoc from '@/doc/tag/BasicDoc';
+import IconDoc from '@/doc/tag/IconDoc';
+import ImportDoc from '@/doc/tag/ImportDoc';
+import PillDoc from '@/doc/tag/PillDoc';
+import SeverityDoc from '@/doc/tag/SeverityDoc';
+import StyleDoc from '@/doc/tag/StyleDoc';
+import TemplateDoc from '@/doc/tag/TemplateDoc';
 
 export default {
-    components: {
-        TagDoc: TagDoc
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'severity',
+                    label: 'Severity',
+                    component: SeverityDoc
+                },
+                {
+                    id: 'pill',
+                    label: 'Pill',
+                    component: PillDoc
+                },
+                {
+                    id: 'icons',
+                    label: 'Icon',
+                    component: IconDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
+        };
     }
 };
 </script>

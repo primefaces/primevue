@@ -1,64 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue SelectButton Component</Title>
-            <Meta name="description" content="SelectButton is used to choose single or multiple items from a list using buttons." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>SelectButton</h1>
-                <p>SelectButton is a form component to choose a value from a list of options using button elements.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5 id="single">Single Selection</h5>
-                <SelectButton v-model="value1" :options="options" aria-labelledby="single" />
-
-                <h5 id="multiple">Multiple Selection</h5>
-                <SelectButton v-model="value2" :options="paymentOptions" optionLabel="name" multiple aria-labelledby="multiple" />
-
-                <h5 id="custom">Custom Content</h5>
-                <SelectButton v-model="value3" :options="justifyOptions" optionLabel="value" dataKey="value" aria-labelledby="custom">
-                    <template #option="slotProps">
-                        <i :class="slotProps.option.icon"></i>
-                    </template>
-                </SelectButton>
-            </div>
-        </div>
-
-        <SelectButtonDoc />
-    </div>
+    <DocComponent title="Vue SelectButton Component" header="SelectButton" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['SelectButton']" />
 </template>
 
 <script>
-import SelectButtonDoc from './SelectButtonDoc';
+import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc';
+import BasicDoc from '@/doc/selectbutton/BasicDoc';
+import DisabledDoc from '@/doc/selectbutton/DisabledDoc';
+import ImportDoc from '@/doc/selectbutton/ImportDoc';
+import InvalidDoc from '@/doc/selectbutton/InvalidDoc';
+import MultipleDoc from '@/doc/selectbutton/MultipleDoc';
+import TemplateDoc from '@/doc/selectbutton/TemplateDoc';
 
 export default {
     data() {
         return {
-            value1: 'Off',
-            value2: null,
-            value3: null,
-            options: ['Off', 'On'],
-            paymentOptions: [
-                { name: 'Option 1', value: 1 },
-                { name: 'Option 2', value: 2 },
-                { name: 'Option 3', value: 3 }
-            ],
-            justifyOptions: [
-                { icon: 'pi pi-align-left', value: 'Left' },
-                { icon: 'pi pi-align-right', value: 'Right' },
-                { icon: 'pi pi-align-center', value: 'Center' },
-                { icon: 'pi pi-align-justify', value: 'Justify' }
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
             ]
         };
-    },
-    components: {
-        SelectButtonDoc: SelectButtonDoc
     }
 };
 </script>

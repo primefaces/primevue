@@ -1,44 +1,57 @@
 <template>
-    <div>
-        <Head>
-            <Title>Vue InputSwitch Component</Title>
-            <Meta name="description" content="InputSwitch is used to select a boolean value." />
-        </Head>
-
-        <div class="content-section introduction">
-            <div class="feature-intro">
-                <h1>InputSwitch</h1>
-                <p>InputSwitch is used to select a boolean value.</p>
-            </div>
-            <AppDemoActions />
-        </div>
-
-        <div class="content-section implementation">
-            <div class="card">
-                <h5>Basic</h5>
-                <InputSwitch v-model="checked1" />
-
-                <h5>Preselection</h5>
-                <InputSwitch v-model="checked2" />
-            </div>
-        </div>
-
-        <InputSwitchDoc />
-    </div>
+    <DocComponent title="Vue InputSwitch Component" header="InputSwitch" description="InputSwitch is used to select a boolean value." :componentDocs="docs" :apiDocs="['InputSwitch']" />
 </template>
 
 <script>
-import InputSwitchDoc from './InputSwitchDoc';
+import AccessibilityDoc from '@/doc/inputswitch/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/inputswitch/BasicDoc.vue';
+import DisabledDoc from '@/doc/inputswitch/DisabledDoc.vue';
+import ImportDoc from '@/doc/inputswitch/ImportDoc.vue';
+import InvalidDoc from '@/doc/inputswitch/InvalidDoc.vue';
+import PreselectionDoc from '@/doc/inputswitch/PreselectionDoc.vue';
+import StyleDoc from '@/doc/inputswitch/StyleDoc.vue';
 
 export default {
     data() {
         return {
-            checked1: false,
-            checked2: true
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'preselection',
+                    label: 'Preselection',
+                    component: PreselectionDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'style',
+                    label: 'Style',
+                    component: StyleDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ]
         };
-    },
-    components: {
-        InputSwitchDoc: InputSwitchDoc
     }
 };
 </script>

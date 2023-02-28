@@ -1,0 +1,405 @@
+const TypeDoc = require('typedoc');
+const path = require('path');
+const fs = require('fs');
+
+const rootDir = path.resolve(__dirname, '../');
+const outputPath = path.resolve(rootDir, 'doc/common/apidoc');
+
+const staticMessages = {
+    methods: "Defines methods that can be accessed by the component's reference.",
+    emits: 'Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.',
+    slots: 'Defines the slots used by the component.',
+    functions: 'Defines the custom functions used by the module.',
+    events: "Defines the custom events used by the component's emit.",
+    interfaces: 'Defines the custom interfaces used by the module.',
+    types: 'Defines the custom types used by the module.'
+};
+
+const app = new TypeDoc.Application();
+
+// If you want TypeDoc to load tsconfig.json / typedoc.json files
+app.options.addReader(new TypeDoc.TSConfigReader());
+app.options.addReader(new TypeDoc.TypeDocReader());
+
+app.bootstrap({
+    // typedoc options here
+    name: 'PrimeVue',
+    entryPoints: [`components`],
+    entryPointStrategy: 'expand',
+    hideGenerator: true,
+    excludeExternals: true,
+    includeVersion: true,
+    searchInComments: true,
+    disableSources: true,
+    logLevel: 'Error',
+    exclude: ['node_modules', 'components/**/*.js']
+});
+
+const project = app.convert();
+
+if (project) {
+    const doc = {};
+
+    const parseText = (text) => {
+        return text.replace(/&#123;/g, '{').replace(/&#125;/g, '}');
+    };
+
+    project.children.forEach((module) => {
+        const { name, comment } = module;
+
+        /*  if (name === 'knob') {
+            console.log('module', module);
+        } */ // REMOVE
+
+        // if (name !== 'datatable') return; // REMOVE
+
+        const description = comment && comment.summary.map((s) => s.text || '').join(' ');
+
+        doc[name] = {
+            description
+        };
+
+        const module_component_group = module.groups.find((g) => g.title === 'Component');
+        let methods = {
+            description: staticMessages['methods'],
+            values: []
+        };
+
+        module_component_group &&
+            module_component_group.children.forEach((component) => {
+                const description =
+                    component.comment &&
+                    component.comment.summary
+                        .map((s) => {
+                            const text = s.text || '';
+                            const splittedText = text.split('_');
+
+                            return splittedText[1] ? splittedText[1] : text;
+                        })
+                        .join(' ');
+
+                !doc[name]['components'] && (doc[name]['components'] = {});
+
+                const component_method_group = component.groups && component.groups.find((g) => g.title === 'Methods');
+
+                component_method_group &&
+                    component_method_group.children.forEach((method) => {
+                        const signature = method.getAllSignatures()[0];
+
+                        methods.values.push({
+                            name: signature.name,
+                            parameters: signature.parameters.map((param) => {
+                                return {
+                                    name: param.name,
+                                    type: param.type.toString(),
+                                    description: param.comment && param.comment.summary.map((s) => s.text || '').join(' ')
+                                };
+                            }),
+                            returnType: signature.type.toString(),
+                            description: signature.comment && signature.comment.summary.map((s) => s.text || '').join(' ')
+                        });
+                    });
+
+                const component_props_id = component.extendedTypes && component.extendedTypes[0].typeArguments && component.extendedTypes[0].typeArguments[0] && component.extendedTypes[0].typeArguments[0]._target;
+                const module_properties_group = module.groups.find((g) => g.title === 'Properties');
+                const component_props = module_properties_group && module_properties_group.children.find((c) => (component_props_id ? c.id === component_props_id : true));
+
+                const props = {
+                    description: '',
+                    values: []
+                };
+                const emit = {
+                    description: staticMessages['emit'],
+                    values: []
+                };
+
+                if (component_props) {
+                    props.description = component_props.comment ? component_props.comment.summary.map((s) => parseText(s.text || '')).join(' ') : '';
+
+                    const component_props_group = component_props.groups && component_props.groups.find((g) => g.title === 'Properties');
+
+                    component_props_group &&
+                        component_props_group.children.forEach((prop) => {
+                            if (!prop.inheritedFrom || (prop.inheritedFrom && !prop.inheritedFrom.toString().startsWith('Omit.data-pr-'))) {
+                                props.values.push({
+                                    name: prop.name,
+                                    optional: prop.flags.isOptional,
+                                    readonly: prop.flags.isReadonly,
+                                    type: prop.type.toString(),
+                                    default: prop.comment && prop.comment.getTag('@defaultValue') ? parseText(prop.comment.getTag('@defaultValue').content[0].text) : '', // TODO: Check
+                                    description: prop.comment && prop.comment.summary.map((s) => parseText(s.text || '')).join(' '),
+                                    deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0].text) : undefined
+                                });
+                            }
+                        });
+
+                    const component_props_methods_group = component_props.groups && component_props.groups.find((g) => g.title === 'Methods');
+
+                    component_props_methods_group &&
+                        component_props_methods_group.children.forEach((method) => {
+                            const signature = method.getAllSignatures()[0];
+
+                            methods.values.push({
+                                name: signature.name,
+                                parameters: signature.parameters.map((param) => {
+                                    return {
+                                        name: param.name,
+                                        optional: param.flags.isOptional,
+                                        type: param.type.toString(),
+                                        description: param.comment && param.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                                    };
+                                }),
+                                returnType: signature.type.toString(),
+                                description: signature.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                            });
+                        });
+                }
+
+                doc[name]['components'][component.name] = {
+                    description,
+                    methods
+                };
+            });
+
+        const module_model_group = module.groups.find((g) => g.title === 'Model');
+
+        module_model_group &&
+            module_model_group.children.forEach((model) => {
+                const event_props_description = model.comment && model.comment.summary.map((s) => s.text || '').join(' ');
+
+                !doc[name]['model'] && (doc[name]['model'] = {});
+
+                const props = {
+                    description: '',
+                    values: []
+                };
+                const model_props_group = model.groups.find((g) => g.title === 'Properties');
+
+                model_props_group &&
+                    model_props_group.children.forEach((prop) => {
+                        props.values.push({
+                            name: prop.name,
+                            optional: prop.flags.isOptional,
+                            readonly: prop.flags.isReadonly,
+                            type: prop.type.toString(),
+                            default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
+                            description: prop.comment && prop.comment.summary.map((s) => s.text || '').join(' ')
+                        });
+                    });
+
+                doc[name]['model'][model.name] = {
+                    description: event_props_description,
+                    props
+                };
+            });
+
+        const module_functions_group = module.groups.find((g) => g.title === 'Functions');
+
+        module_functions_group &&
+            module_functions_group.children.forEach((method) => {
+                !doc[name]['functions'] &&
+                    (doc[name]['functions'] = {
+                        description: staticMessages['functions'],
+                        values: {}
+                    });
+
+                const signatures = method.getAllSignatures();
+
+                if (signatures && signatures.length > 0) {
+                    const signature = signatures[0];
+
+                    doc[name]['functions'].values[method.name] = {
+                        name: signature.name,
+                        parameters: signature.parameters.map((param) => {
+                            return {
+                                name: param.name,
+                                type: param.type.toString(),
+                                description: param.comment && param.comment.summary.map((s) => s.text || '').join(' ')
+                            };
+                        }),
+                        returnType: signature.type.toString(),
+                        description: signature.comment && signature.comment.summary.map((s) => s.text || '').join(' ')
+                    };
+                }
+            });
+
+        const module_events_group = module.groups.find((g) => g.title === 'Events');
+
+        module_events_group &&
+            module_events_group.children.forEach((event) => {
+                const event_props_description = event.comment && event.comment.summary.map((s) => s.text || '').join(' ');
+                const component_prop = event.comment && event.comment.getTag('@see') ? event.comment.getTag('@see').content[0].text : ''; // TODO: Check
+                const event_extendedBy = event.extendedBy && event.extendedBy.toString();
+
+                !doc[name]['events'] &&
+                    (doc[name]['events'] = {
+                        description: staticMessages['events'],
+                        values: {}
+                    });
+
+                const props = [];
+                const event_props_group = event.groups.find((g) => g.title === 'Properties');
+
+                event_props_group &&
+                    event_props_group.children.forEach((prop) => {
+                        props.push({
+                            name: prop.name,
+                            optional: prop.flags.isOptional,
+                            readonly: prop.flags.isReadonly,
+                            type: prop.type.toString(),
+                            //default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
+                            description: prop.comment && prop.comment.summary.map((s) => s.text || '').join(' ')
+                        });
+                    });
+
+                doc[name]['events'].values[event.name] = {
+                    description: event_props_description,
+                    relatedProp: component_prop,
+                    props,
+                    extendedBy: event_extendedBy
+                };
+            });
+
+        const module_interfaces_group = module.groups.find((g) => g.title === 'Interfaces');
+
+        module_interfaces_group &&
+            module_interfaces_group.children.forEach((event) => {
+                const event_props_description = event.comment && event.comment.summary.map((s) => s.text || '').join(' ');
+                const component_prop = event.comment && event.comment.getTag('@see') ? event.comment.getTag('@see').content[0].text : ''; // TODO: Check
+                const event_extendedBy = event.extendedBy && event.extendedBy.toString();
+                const event_extendedTypes = event.extendedTypes && event.extendedTypes.toString();
+
+                !doc[name]['interfaces'] &&
+                    (doc[name]['interfaces'] = {
+                        description: staticMessages['interfaces'],
+                        eventDescription: staticMessages['events'],
+                        methodDescription: staticMessages['methods'],
+                        typeDescription: staticMessages['types'],
+                        emitDescription: staticMessages['emits'],
+                        slotDescription: staticMessages['slots'],
+                        values: {}
+                    });
+
+                const props = [];
+                const methods = [];
+
+                if (event.groups) {
+                    const event_props_group = event.groups.find((g) => g.title === 'Properties');
+
+                    event_props_group &&
+                        event_props_group.children.forEach((prop) => {
+                            props.push({
+                                name: prop.name,
+                                optional: prop.flags.isOptional,
+                                readonly: prop.flags.isReadonly,
+                                type: prop.type.toString(),
+                                default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
+                                description: prop.comment && prop.comment.summary.map((s) => s.text || '').join(' ')
+                            });
+                        });
+
+                    const event_methods_group = event.groups.find((g) => g.title === 'Methods');
+
+                    event_methods_group &&
+                        event_methods_group.children.forEach((method) => {
+                            const signature = method.getAllSignatures()[0];
+
+                            methods.push({
+                                name: signature.name,
+                                parameters: signature.parameters.map((param) => {
+                                    let type = param.type.toString();
+
+                                    if (param.type.declaration) {
+                                        type = '';
+
+                                        param.type.declaration.children.forEach((child) => {
+                                            type += ` \t ${child.name}: ${child.type.name}, // ${child.comment?.summary[0].text}\n `;
+                                        });
+
+                                        type = `{\n ${type} }`;
+                                    }
+
+                                    return {
+                                        name: param.name,
+                                        optional: param.flags.isOptional,
+                                        type: type,
+                                        description: param.comment && param.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                                    };
+                                }),
+                                returnType: signature.type.toString(),
+                                description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                            });
+                        });
+                }
+
+                const signature = event.getAllSignatures();
+
+                if (signature && signature.length > 0) {
+                    const parameter = signature[0].parameters[0];
+
+                    props.push({
+                        name: `[${parameter.name}: ${parameter.type.toString()}]`,
+                        optional: parameter.flags.isOptional,
+                        readonly: parameter.flags.isReadonly,
+                        type: signature[0].type.toString(),
+                        //default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
+                        description: signature[0].comment && signature[0].comment.summary.map((s) => s.text || '').join(' ')
+                    });
+                }
+
+                doc[name]['interfaces'].values[event.name] = {
+                    description: event_props_description,
+                    relatedProp: component_prop,
+                    props,
+                    methods,
+                    extendedBy: event_extendedBy,
+                    extendedTypes: event_extendedTypes
+                };
+            });
+
+        const module_types_group = module.groups.find((g) => g.title === 'Type Aliases');
+
+        module_types_group &&
+            module_types_group.children.forEach((event) => {
+                const event_props_description = event.comment && event.comment.summary.map((s) => s.text || '').join(' ');
+
+                !doc[name]['types'] &&
+                    (doc[name]['types'] = {
+                        description: staticMessages['types'],
+                        values: {}
+                    });
+
+                let values = event.type.toString();
+                const declaration = event.type.declaration;
+
+                if (declaration) {
+                    const groups = declaration.groups && declaration.groups.find((g) => g.title === 'Properties');
+
+                    const map = {};
+
+                    groups &&
+                        groups.children.forEach((prop) => {
+                            const description = prop.comment && prop.comment.summary.map((s) => s.text || '').join(' ');
+
+                            map[`${prop.name}${prop.flags.isOptional ? '?' : ''}`] = `${prop.type.toString()}, ${description ? '// ' + description : ''}`;
+                        });
+
+                    values = JSON.stringify(map, null, 4);
+                }
+
+                doc[name]['types'].values[event.name] = {
+                    values,
+                    description: event_props_description
+                };
+            });
+
+        // app.generateJson(module, `./api-generator/module-typedoc.json`);
+    });
+
+    const typedocJSON = JSON.stringify(doc, null, 4);
+
+    !fs.existsSync(outputPath) && fs.mkdirSync(outputPath);
+    fs.writeFileSync(path.resolve(outputPath, 'index.json'), typedocJSON);
+
+    /*  app.generateJson(project, `./api-generator/typedoc.json`); */
+}

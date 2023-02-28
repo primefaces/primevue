@@ -1,0 +1,279 @@
+<template>
+    <DocSectionText v-bind="$attrs">
+        <p>Bars can be stacked on top of each other when <i>stacked</i> option of a scale is enabled.</p>
+    </DocSectionText>
+    <div class="card">
+        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem" />
+    </div>
+    <DocSectionCode :code="code" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" />
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            chartData: null,
+            chartOptions: null,
+            code: {
+                basic: `
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem" />`,
+                options: `
+<template>
+    <div class="card">
+        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem" />
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            chartData: null,
+            chartOptions: null
+        };
+    },
+    mounted() {
+        this.chartData = this.setChartData();
+        this.chartOptions = this.setChartOptions();
+    },
+    methods: {
+        setChartData() {
+            const documentStyle = getComputedStyle(document.documentElement);
+
+            return {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: 'Dataset 1',
+                        backgroundColor: documentStyle.getPropertyValue('--blue-500'),
+                        data: [50, 25, 12, 48, 90, 76, 42]
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 2',
+                        backgroundColor: documentStyle.getPropertyValue('--green-500'),
+                        data: [21, 84, 24, 75, 37, 65, 34]
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 3',
+                        backgroundColor: documentStyle.getPropertyValue('--yellow-500'),
+                        data: [41, 52, 24, 74, 23, 21, 32]
+                    }
+                ]
+            };
+        },
+        setChartOptions() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            const textColor = documentStyle.getPropertyValue('--text-color');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
+            return {
+                maintainAspectRatio: false,
+                aspectRatio: 0.8,
+                plugins: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    legend: {
+                        labels: {
+                            color: textColor
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            color: textColorSecondary
+                        },
+                        grid: {
+                            color: surfaceBorder
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: textColorSecondary
+                        },
+                        grid: {
+                            color: surfaceBorder
+                        }
+                    }
+                }
+            };
+        }
+    }
+};
+<\/script>`,
+                composition: `
+<template>
+    <div class="card">
+        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+
+const setChartData = () =>  {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                type: 'bar',
+                label: 'Dataset 1',
+                backgroundColor: documentStyle.getPropertyValue('--blue-500'),
+                data: [50, 25, 12, 48, 90, 76, 42]
+            },
+            {
+                type: 'bar',
+                label: 'Dataset 2',
+                backgroundColor: documentStyle.getPropertyValue('--green-500'),
+                data: [21, 84, 24, 75, 37, 65, 34]
+            },
+            {
+                type: 'bar',
+                label: 'Dataset 3',
+                backgroundColor: documentStyle.getPropertyValue('--yellow-500'),
+                data: [41, 52, 24, 74, 23, 21, 32]
+            }
+        ]
+    };
+};
+const setChartOptions = () =>  {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
+    return {
+        maintainAspectRatio: false,
+        aspectRatio: 0.8,
+        plugins: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                stacked: true,
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                stacked: true,
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            }
+        }
+    };
+}
+<\/script>`
+            }
+        };
+    },
+    mounted() {
+        this.chartData = this.setChartData();
+        this.chartOptions = this.setChartOptions();
+    },
+    methods: {
+        setChartData() {
+            const documentStyle = getComputedStyle(document.documentElement);
+
+            return {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: 'Dataset 1',
+                        backgroundColor: documentStyle.getPropertyValue('--blue-500'),
+                        data: [50, 25, 12, 48, 90, 76, 42]
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 2',
+                        backgroundColor: documentStyle.getPropertyValue('--green-500'),
+                        data: [21, 84, 24, 75, 37, 65, 34]
+                    },
+                    {
+                        type: 'bar',
+                        label: 'Dataset 3',
+                        backgroundColor: documentStyle.getPropertyValue('--yellow-500'),
+                        data: [41, 52, 24, 74, 23, 21, 32]
+                    }
+                ]
+            };
+        },
+        setChartOptions() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            const textColor = documentStyle.getPropertyValue('--text-color');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
+            return {
+                maintainAspectRatio: false,
+                aspectRatio: 0.8,
+                plugins: {
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    legend: {
+                        labels: {
+                            color: textColor
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            color: textColorSecondary
+                        },
+                        grid: {
+                            color: surfaceBorder
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: textColorSecondary
+                        },
+                        grid: {
+                            color: surfaceBorder
+                        }
+                    }
+                }
+            };
+        }
+    }
+};
+</script>

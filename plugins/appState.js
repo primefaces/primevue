@@ -1,14 +1,6 @@
 const $appState = {
-    install: (Vue) => {
-        Vue.config.globalProperties.$appState = reactive({
-            theme: 'lara-light-blue',
-            darkTheme: false,
-            codeSandbox: false,
-            sourceType: 'options-api',
-            newsActive: true,
-            announcement: {},
-            storageKey: 'primevue'
-        });
+    install: (Vue, options) => {
+        Vue.config.globalProperties.$appState = reactive({ theme: 'lara-light-blue', darkTheme: false, codeSandbox: false, sourceType: 'options-api', newsActive: false, announcement: {} });
     }
 };
 

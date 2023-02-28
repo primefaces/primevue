@@ -1,9 +1,9 @@
 <template>
     <div class="layout-wrapper" :class="containerClass">
         <app-news v-if="$appState.newsActive" />
-        <app-topbar @menubutton-click="onMenuButtonClick" />
+        <app-topbar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
         <app-menu :active="sidebarActive" />
-        <app-configurator />
+        <app-configurator v-model="appConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <div class="layout-content-inner">
@@ -29,7 +29,8 @@ import AppTopBar from './AppTopBar.vue';
 export default {
     data() {
         return {
-            sidebarActive: false
+            sidebarActive: false,
+            appConfigActive: false
         };
     },
     watch: {
@@ -102,7 +103,10 @@ export default {
             return false;
         },
         redirect() {
-            window.location.href = 'https://blocks.primevue.org';
+            window.location.href = 'https://www.primefaces.org/primeblocks-vue';
+        },
+        onConfigButtonClick() {
+            this.appConfigActive = true;
         }
     },
     computed: {
