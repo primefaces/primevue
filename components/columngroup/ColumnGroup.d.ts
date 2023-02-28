@@ -13,7 +13,7 @@ export interface ColumnGroupProps {
 export interface ColumnGroupSlots {}
 
 /**
- * @todo
+ * @group Interfaces
  */
 export declare type ColumnGroupEmits = {};
 
