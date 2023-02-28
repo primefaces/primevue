@@ -1,3 +1,12 @@
+/**
+ *
+ * Card is a flexible container component.
+ *
+ * [Live Demo](https://www.primevue.org/card/)
+ *
+ * @module card
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -7,28 +16,42 @@ export interface CardSlots {
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom title template.
      */
-    title: () => VNode[];
+    title(): VNode[];
     /**
      * Custom subtitle template.
      */
-    subtitle: () => VNode[];
+    subtitle(): VNode[];
     /**
      * Custom content template.
      */
-    content: () => VNode[];
+    content(): VNode[];
     /**
      * Custom footer template.
      */
-    footer: () => VNode[];
+    footer(): VNode[];
 }
 
+/**
+ * @group Interfaces
+ */
 export declare type CardEmits = {};
 
-declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> {}
+/**
+ * **PrimeVue - Card**
+ *
+ * _Card is a flexible container component._
+ *
+ * [Live Demo](https://www.primevue.org/card/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ */
+export declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
