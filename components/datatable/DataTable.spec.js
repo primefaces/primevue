@@ -655,12 +655,6 @@ describe('DataTable.vue', () => {
         expect(wrapper.find('.p-datatable-flex-scrollable').exists()).toBe(true);
     });
 
-    it('should both scrolling', async () => {
-        await wrapper.setProps({ scrollable: true, scrollHeight: '100px', scrollDirection: 'both' });
-
-        expect(wrapper.find('.p-datatable-scrollable-both').exists()).toBe(true);
-    });
-
     it('should have frozen rows', async () => {
         await wrapper.setProps({ frozenValue: [smallData[0]], scrollable: true, scrollHeight: '100px', scrollDirection: 'both' });
 
@@ -1404,13 +1398,13 @@ describe('DataTable.vue', () => {
     // contextmenu
 
     // responsive
-    it('should have stack layout', () => {
+    it('should have stack layout', async () => {
+        await wrapper.setProps({ responsiveLayout: 'stack' });
+
         expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-responsive-stack');
     });
 
-    it('should have scroll layout', async () => {
-        await wrapper.setProps({ responsiveLayout: 'scroll' });
-
+    it('should have scroll layout', () => {
         expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-responsive-scroll');
     });
 
