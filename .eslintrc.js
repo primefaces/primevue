@@ -7,7 +7,12 @@ module.exports = {
     extends: ['plugin:nuxt/recommended', 'plugin:vue/vue3-essential', 'prettier'],
     parserOptions: {
         parser: '@babel/eslint-parser',
-        requireConfigFile: false
+        requireConfigFile: false,
+        babelOptions: {
+            parserOpts: {
+                plugins: ['typescript']
+            }
+        }
     },
     plugins: ['prettier'],
     ignorePatterns: ['**/public/**'],
