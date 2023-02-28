@@ -225,7 +225,16 @@
         }
     },
     "accordiontab": {
-        "description": "Accordion groups a collection of contents in tabs.\n\n[Live Demo](https://www.primevue.org/accordion/)",
+        "description": "AccordionTab is a helper component for Accordion.\n\n[Live Demo](https://www.primevue.org/accordion/)",
+        "components": {
+            "AccordionTab": {
+                "description": "AccordionTab is a helper component for Accordion..",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -235,7 +244,7 @@
             "slotDescription": "Defines the slots used by the component.",
             "values": {
                 "AccordionTabEmits": {
-                    "description": "Defines valid emits in Acordion component.",
+                    "description": "Defines valid emits in AcordionTab component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": []
@@ -273,7 +282,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the tab is disabled."
                         },
                         {
@@ -320,7 +329,7 @@
                     "methods": []
                 },
                 "AccordionTabSlots": {
-                    "description": "Defines valid slots in Acordion slots.",
+                    "description": "Defines valid slots in AcordionTab slots.",
                     "relatedProp": "",
                     "props": [],
                     "methods": [
@@ -3400,9 +3409,9 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | HTMLElement",
-                            "default": "body",
-                            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+                            "type": "CalendarAppendToType",
+                            "default": "",
+                            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
                         {
                             "name": "aria-label",
@@ -3496,9 +3505,9 @@
                             "name": "hourFormat",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"12\" | \"24\"",
+                            "type": "CalendarHourFormatType",
                             "default": "",
-                            "description": "Specifies hour format."
+                            "description": "Specifies 12 or 24 hour format."
                         },
                         {
                             "name": "icon",
@@ -3600,8 +3609,8 @@
                             "name": "modelValue",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | string | string[] | Date | Date[]",
-                            "default": "null",
+                            "type": "CalendarValueType",
+                            "default": "",
                             "description": "Value of the component."
                         },
                         {
@@ -3696,9 +3705,9 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"multiple\" | \"range\" | \"single\"",
-                            "default": "single",
-                            "description": "Defines the quantity of the selection."
+                            "type": "CalendarSelectionModeType",
+                            "default": "",
+                            "description": "Defines the quantity of the selection, valid values are 'single', 'multiple' and 'range'."
                         },
                         {
                             "name": "shortYearCutoff",
@@ -3816,9 +3825,9 @@
                             "name": "view",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"month\" | \"year\" | \"date\"",
-                            "default": "date",
-                            "description": "Type of view to display."
+                            "type": "CalendarViewType",
+                            "default": "",
+                            "description": "Type of view to display, valid values are 'date', 'month' and 'year'."
                         },
                         {
                             "name": "yearNavigator",
@@ -8931,7 +8940,17 @@
             }
         }
     },
-    "deferredcontent/DeferredContent": {
+    "deferredcontent": {
+        "description": "DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.\n\n[Live Demo](https://www.primevue.org/deferredcontent/)",
+        "components": {
+            "DeferredContent": {
+                "description": "DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -8940,31 +8959,36 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "DeferredContentEmits": {
+                    "description": "Defines valid emits in DeferredContent component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "load",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke when deferred content is loaded."
+                        }
+                    ]
+                },
                 "DeferredContentProps": {
                     "relatedProp": "",
                     "props": [],
                     "methods": []
                 },
                 "DeferredContentSlots": {
+                    "description": "Defines valid slots in DeferredContent component.",
                     "relatedProp": "",
-                    "props": [
+                    "props": [],
+                    "methods": [
                         {
                             "name": "default",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default content slot."
                         }
-                    ],
-                    "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "DeferredContentEmits": {
-                    "values": "{\n    \"load\": \"Function, \"\n}"
+                    ]
                 }
             }
         }
@@ -9267,7 +9291,17 @@
             }
         }
     },
-    "divider/Divider": {
+    "divider": {
+        "description": "Divider is used to separate contents.\n\n[Live Demo](https://www.primefaces.org/primevue/divider)",
+        "components": {
+            "Divider": {
+                "description": "Divider is used to separate contents.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -9276,14 +9310,20 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "DividerEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                },
                 "DividerProps": {
+                    "description": "Defines valid properties in Divider component.",
                     "relatedProp": "",
                     "props": [
                         {
                             "name": "align",
                             "optional": true,
                             "readonly": false,
-                            "type": "DividerAlignType",
+                            "type": "\"center\" | \"left\" | \"top\" | \"bottom\" | \"right\"",
                             "default": "",
                             "description": "Alignment of the content, options are 'left', 'center', 'right' for horizontal layout and 'top', 'center', 'bottom' for vertical."
                         },
@@ -9291,41 +9331,33 @@
                             "name": "layout",
                             "optional": true,
                             "readonly": false,
-                            "type": "DividerLayoutType",
-                            "default": "",
+                            "type": "\"horizontal\" | \"vertical\"",
+                            "default": "horizontal",
                             "description": "Specifies the orientation, valid values are 'horizontal' and 'vertical'."
                         },
                         {
                             "name": "type",
                             "optional": true,
                             "readonly": false,
-                            "type": "DividerType",
-                            "default": "",
+                            "type": "\"dashed\" | \"dotted\" | \"solid\"",
+                            "default": "solid",
                             "description": "Border style type."
                         }
                     ],
                     "methods": []
                 },
                 "DividerSlots": {
+                    "description": "Defines valid slots in Divider slots.",
                     "relatedProp": "",
-                    "props": [
+                    "props": [],
+                    "methods": [
                         {
                             "name": "default",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default content slot."
                         }
-                    ],
-                    "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "DividerEmits": {
-                    "values": "{}"
+                    ]
                 }
             }
         }

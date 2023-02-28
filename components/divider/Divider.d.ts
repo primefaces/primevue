@@ -1,46 +1,60 @@
+/**
+ *
+ * Divider is used to separate contents.
+ *
+ * [Live Demo](https://www.primefaces.org/primevue/divider)
+ *
+ * @module divider
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type DividerHorizontalAlignType = 'left' | 'center' | 'right' | undefined;
-
-type DividerVerticalAlignType = 'top' | 'center' | 'bottom' | undefined;
-
-type DividerAlignType = DividerHorizontalAlignType | DividerVerticalAlignType | undefined;
-
-type DividerLayoutType = 'horizontal' | 'vertical' | undefined;
-
-type DividerType = 'solid' | 'dashed' | 'dotted' | undefined;
-
+/**
+ * Defines valid properties in Divider component.
+ */
 export interface DividerProps {
     /**
      * Alignment of the content, options are 'left', 'center', 'right' for horizontal layout and 'top', 'center', 'bottom' for vertical.
-     * @see DividerAlignType
      */
-    align?: DividerAlignType;
+    align?: 'left' | 'center' | 'right' | 'top' | 'center' | 'bottom' | undefined;
     /**
      * Specifies the orientation, valid values are 'horizontal' and 'vertical'.
-     * @see DividerLayoutType
-     * Default value is 'horizontal'.
+     * @defaultValue horizontal
      */
-    layout?: DividerLayoutType;
+    layout?: 'horizontal' | 'vertical' | undefined;
     /**
      * Border style type.
-     * @see DividerType
-     * Default value is 'solid'.
+     * @defaultValue solid
      */
-    type?: DividerType;
+    type?: 'solid' | 'dashed' | 'dotted' | undefined;
 }
 
+/**
+ * Defines valid slots in Divider slots.
+ */
 export interface DividerSlots {
     /**
      * Default content slot.
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type DividerEmits = {};
+export interface DividerEmits {}
 
-declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> {}
+/**
+ * **PrimeVue - Divider**
+ *
+ * _Divider is used to separate contents._
+ *
+ * [Live Demo](https://www.primefaces.org/primevue/divider)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
+export declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
