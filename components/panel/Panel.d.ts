@@ -1,6 +1,19 @@
+/**
+ *
+ * Panel is a container with the optional content toggle feature.
+ *
+ * [Live Demo](https://www.primevue.org/panel/)
+ *
+ * @module panel
+ *
+ */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom toggle event.
+ * @see toggle
+ */
 export interface PanelToggleEvent {
     /**
      * Browser event.
@@ -12,6 +25,9 @@ export interface PanelToggleEvent {
     value: boolean;
 }
 
+/**
+ * Defines valid properties in Panel component.
+ */
 export interface PanelProps {
     /**
      * Header text of the panel.
@@ -31,22 +47,28 @@ export interface PanelProps {
     toggleButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
+/**
+ * Defines valid slots in Panel slots.
+ */
 export interface PanelSlots {
     /**
      * Custom content template.
      */
-    default: () => VNode[];
+    default(): VNode[];
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom icons template.
      */
-    icons: () => VNode[];
+    icons(): VNode[];
 }
 
-export declare type PanelEmits = {
+/**
+ * Defines valid emits in Panel component.
+ */
+export interface PanelEmits {
     /**
      * Emitted when the collapsed changes.
      * @param {boolean} value - New value.
@@ -57,9 +79,21 @@ export declare type PanelEmits = {
      * @param {PanelToggleEvent} event - Custom toggle event.
      */
     toggle: (event: PanelToggleEvent) => void;
-};
+}
 
-declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
+/**
+ * **PrimeVue - Panel**
+ *
+ * _Panel is a container with the optional content toggle feature._
+ *
+ * [Live Demo](https://www.primevue.org/panel/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
+export declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
