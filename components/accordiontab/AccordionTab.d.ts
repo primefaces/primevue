@@ -1,6 +1,6 @@
 /**
  *
- * Accordion groups a collection of contents in tabs.
+ * AccordionTab is a helper component for Accordion.
  *
  * [Live Demo](https://www.primevue.org/accordion/)
  *
@@ -48,12 +48,13 @@ export interface AccordionTabProps {
     contentProps?: HTMLAttributes | undefined;
     /**
      * Whether the tab is disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
 }
 
 /**
- * Defines valid slots in Acordion slots.
+ * Defines valid slots in AcordionTab slots.
  */
 export interface AccordionTabSlots {
     /**
@@ -67,11 +68,23 @@ export interface AccordionTabSlots {
 }
 
 /**
- * Defines valid emits in Acordion component.
+ * Defines valid emits in AcordionTab component.
+ * @group Interfaces
  */
 export interface AccordionTabEmits {}
 
-declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> {}
+/**
+ * **PrimeVue - Accordion**
+ *
+ * _AccordionTab is a helper component for Accordion.._
+ *
+ * [Live Demo](https://www.primevue.org/accordion/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ */
+export declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -81,7 +94,7 @@ declare module '@vue/runtime-core' {
 
 /**
  *
- * AccordionTab is a helper component for Accordion.
+ * AccordionTab is a helper component for Accordion..
  *
  * Demos:
  *
