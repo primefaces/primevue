@@ -5256,7 +5256,16 @@
         }
     },
     "column": {
-        "description": "",
+        "description": "Column component defines various options to specify corresponding features.\nIt is a helper component for DataTable and TreeTable.\n\n[Live Demo](https://www.primevue.org/datatable/)",
+        "components": {
+            "Column": {
+                "description": "Column is a helper component for DataTable and TreeTable.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -5352,7 +5361,7 @@
                             "name": "column",
                             "optional": false,
                             "readonly": false,
-                            "type": "default",
+                            "type": "Column",
                             "default": "",
                             "description": "Column instance"
                         },
@@ -5423,8 +5432,8 @@
                             "name": "alignFrozen",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnAlignFrozenType",
-                            "default": "",
+                            "type": "\"left\" | \"right\"",
+                            "default": "left",
                             "description": "Position of a frozen column, valid values are left and right."
                         },
                         {
@@ -5519,7 +5528,7 @@
                             "name": "field",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnFieldType",
+                            "type": "string | Function",
                             "default": "",
                             "description": "Property represented by the column."
                         },
@@ -5527,7 +5536,7 @@
                             "name": "filterField",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnFieldType",
+                            "type": "string | Function",
                             "default": "",
                             "description": "Property name to use in filtering, defaults to field."
                         },
@@ -5648,8 +5657,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Maximum number of constraints for a column filter.\nDefault value is 2."
+                            "default": "2",
+                            "description": "Maximum number of constraints for a column filter."
                         },
                         {
                             "name": "reorderableColumn",
@@ -5680,8 +5689,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon of the drag handle to reorder rows.\nDefault value is 'pi pi-bars'."
+                            "default": "pi pi-bars",
+                            "description": "Icon of the drag handle to reorder rows."
                         },
                         {
                             "name": "rowspan",
@@ -5695,63 +5704,63 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnSelectionModeType",
+                            "type": "\"multiple\" | \"single\"",
                             "default": "",
-                            "description": "Defines column based selection mode, options are 'single' and 'multiple'."
+                            "description": "Defines column based selection mode."
                         },
                         {
                             "name": "showAddButton",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "When enabled, a button is displayed to add more rules.\nDefault value is true."
+                            "default": "true",
+                            "description": "When enabled, a button is displayed to add more rules."
                         },
                         {
                             "name": "showApplyButton",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Displays a button to apply the column filtering.\nDefault value is true."
+                            "default": "true",
+                            "description": "Displays a button to apply the column filtering."
                         },
                         {
                             "name": "showClearButton",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Displays a button to clear the column filtering.\nDefault value is true."
+                            "default": "true",
+                            "description": "Displays a button to clear the column filtering."
                         },
                         {
                             "name": "showFilterMatchModes",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Whether to show the match modes selector.\nDefault value is true."
+                            "default": "true",
+                            "description": "Whether to show the match modes selector."
                         },
                         {
                             "name": "showFilterMenu",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Whether to display the filter overlay.\nDefault value is true."
+                            "default": "true",
+                            "description": "Whether to display the filter overlay."
                         },
                         {
                             "name": "showFilterOperator",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "When enabled, match all and match any operator selector is displayed.\nDefault value is true."
+                            "default": "true",
+                            "description": "When enabled, match all and match any operator selector is displayed."
                         },
                         {
                             "name": "sortField",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnFieldType",
+                            "type": "string | Function",
                             "default": "",
                             "description": "Property name to use in sorting, defaults to field."
                         },

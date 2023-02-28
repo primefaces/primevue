@@ -1,14 +1,15 @@
 /**
+ *
+ * Column component defines various options to specify corresponding features.
+ * It is a helper component for DataTable and TreeTable.
+ *
+ * [Live Demo](https://www.primevue.org/datatable/)
+ *
  * @module column
  */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
-type ColumnFieldType = string | ((item: any) => string) | undefined;
-
-type ColumnSelectionModeType = 'single' | 'multiple' | undefined;
-
-type ColumnAlignFrozenType = 'left' | 'right' | undefined;
 
 export interface ColumnFilterModelType {
     /**
@@ -63,19 +64,16 @@ export interface ColumnProps {
     columnKey?: string | undefined;
     /**
      * Property represented by the column.
-     * @see ColumnFieldType
      */
-    field?: ColumnFieldType;
+    field?: string | ((item: any) => string) | undefined;
     /**
      * Property name to use in sorting, defaults to field.
-     * @see ColumnFieldType
      */
-    sortField?: ColumnFieldType;
+    sortField?: string | ((item: any) => string) | undefined;
     /**
      * Property name to use in filtering, defaults to field.
-     * @see ColumnFieldType
      */
-    filterField?: ColumnFieldType;
+    filterField?: string | ((item: any) => string) | undefined;
     /**
      * Type of data. It's value is related to PrimeVue.filterMatchModeOptions config.
      */
@@ -126,32 +124,32 @@ export interface ColumnProps {
     footerClass?: any;
     /**
      * Whether to display the filter overlay.
-     * Default value is true.
+     * @defaultValue true
      */
     showFilterMenu?: boolean | undefined;
     /**
      * When enabled, match all and match any operator selector is displayed.
-     * Default value is true.
+     * @defaultValue true
      */
     showFilterOperator?: boolean | undefined;
     /**
      * Displays a button to clear the column filtering.
-     * Default value is true.
+     * @defaultValue true
      */
     showClearButton?: boolean | undefined;
     /**
      * Displays a button to apply the column filtering.
-     * Default value is true.
+     * @defaultValue true
      */
     showApplyButton?: boolean | undefined;
     /**
      * Whether to show the match modes selector.
-     * Default value is true.
+     * @defaultValue true
      */
     showFilterMatchModes?: boolean | undefined;
     /**
      * When enabled, a button is displayed to add more rules.
-     * Default value is true.
+     * @defaultValue true
      */
     showAddButton?: boolean | undefined;
     /**
@@ -160,7 +158,7 @@ export interface ColumnProps {
     filterMatchModeOptions?: ColumnFilterMatchModeOptions[];
     /**
      * Maximum number of constraints for a column filter.
-     * Default value is 2.
+     * @defaultValue 2
      */
     maxConstraints?: number | undefined;
     /**
@@ -184,10 +182,9 @@ export interface ColumnProps {
      */
     filterMenuClass?: any;
     /**
-     * Defines column based selection mode, options are 'single' and 'multiple'.
-     * @see ColumnSelectionModeType
+     * Defines column based selection mode.
      */
-    selectionMode?: ColumnSelectionModeType;
+    selectionMode?: 'single' | 'multiple' | undefined;
     /**
      * Displays an icon to toggle row expansion.
      */
@@ -206,7 +203,7 @@ export interface ColumnProps {
     rowReorder?: boolean | undefined;
     /**
      * Icon of the drag handle to reorder rows.
-     * Default value is 'pi pi-bars'.
+     * @defaultValue pi pi-bars
      */
     rowReorderIcon?: string | undefined;
     /**
@@ -223,10 +220,9 @@ export interface ColumnProps {
     frozen?: boolean | undefined;
     /**
      * Position of a frozen column, valid values are left and right.
-     * @see ColumnAlignFrozenType
-     * Default value is 'left'.
+     * @defaultValue left
      */
-    alignFrozen?: ColumnAlignFrozenType;
+    alignFrozen?: 'left' | 'right' | undefined;
     /**
      * Whether the column is included in data export.
      */
@@ -468,7 +464,18 @@ export interface ColumnSlots {
 
 export interface ColumnEmits {}
 
-declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
+/**
+ * **PrimeVue - Column**
+ *
+ * _Column is a helper component for DataTable and TreeTable._
+ *
+ * [Live Demo](https://www.primevue.org/column/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -476,14 +483,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Column is a helper component for DataTable and TreeTable.
- *
- * Demos:
- *
- * - [DataTable](https://www.primefaces.org/primevue/datatable)
- * - [TreeTable](https://www.primefaces.org/primevue/treetable)
- *
- */
 export default Column;
