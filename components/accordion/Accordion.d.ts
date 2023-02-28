@@ -41,7 +41,7 @@ export interface AccordionTabCloseEvent extends AccordionTabOpenEvent {}
 export interface AccordionClickEvent extends AccordionTabOpenEvent {}
 
 /**
- * Defines valid properties in AccordionTab component.
+ * Defines valid properties in Accordion component.
  */
 export interface AccordionProps {
     /**
@@ -53,7 +53,7 @@ export interface AccordionProps {
      * Index of the active tab or an array of indexes in multiple mode.
      * @defaultValue null
      */
-    activeIndex?: number | number[] | undefined;
+    activeIndex?: number | number[] | null | undefined;
     /**
      * When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.
      * @defaultValue false
@@ -82,17 +82,17 @@ export interface AccordionProps {
 }
 
 /**
- * Defines valid slots in Acordion slots.
+ * Defines valid slots in Accordion slots.
  */
-export interface AccordionSlots {
+export declare type AccordionSlots = {
     /**
      * Default slot to detect AccordionTab components.
      */
     default(): VNode[];
-}
+};
 
 /**
- * Defines valid emits in Acordion component.
+ * Defines valid emits in Accordion component.
  */
 export interface AccordionEmits {
     /**
@@ -126,6 +126,8 @@ export interface AccordionEmits {
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
  *
+ * @group Component
+ *
  */
 export declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> {}
 
@@ -135,17 +137,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Accordion groups a collection of contents in tabs.
- *
- * Helper Components:
- *
- * - AccordionTab
- *
- * Demos:
- *
- * - [Accordion](https://www.primefaces.org/primevue/accordion)
- *
- */
 export default Accordion;
