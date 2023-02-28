@@ -10411,7 +10411,17 @@
             }
         }
     },
-    "fieldset/Fieldset": {
+    "fieldset": {
+        "description": "Fieldset is a grouping component with the optional content toggle feature.\n\n[Live Demo](https://www.primevue.org/fieldset/)",
+        "components": {
+            "Fieldset": {
+                "description": "Fieldset is a grouping component with the optional content toggle feature.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -10420,7 +10430,41 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "FieldsetEmits": {
+                    "description": "Defines valid emits in Fildset component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "toggle",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "FieldsetToggleEvent",
+                                    "description": "Custom toggle event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a tab gets expanded or collapsed."
+                        },
+                        {
+                            "name": "update:collapsed",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "boolean",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the collapsed changes."
+                        }
+                    ]
+                },
                 "FieldsetProps": {
+                    "description": "Defines valid properties in Fieldset component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -10428,7 +10472,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Defines the default visibility state of the content."
                         },
                         {
@@ -10452,13 +10496,14 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When specified, content can toggled by clicking the legend."
                         }
                     ],
                     "methods": []
                 },
                 "FieldsetSlots": {
+                    "description": "Defines valid slots in Fieldset slots.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -10479,7 +10524,8 @@
                     "methods": []
                 },
                 "FieldsetToggleEvent": {
-                    "relatedProp": "",
+                    "description": "Custom toggle event.",
+                    "relatedProp": "toggle",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -10499,14 +10545,6 @@
                         }
                     ],
                     "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "FieldsetEmits": {
-                    "values": "{\n    \"toggle\": \"Function, \",\n    \"update:collapsed\": \"Function, \"\n}"
                 }
             }
         }
@@ -14448,7 +14486,17 @@
             }
         }
     },
-    "panel/Panel": {
+    "panel": {
+        "description": "Panel is a container with the optional content toggle feature.\n\n[Live Demo](https://www.primevue.org/panel/)",
+        "components": {
+            "Panel": {
+                "description": "Panel is a container with the optional content toggle feature.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -14457,7 +14505,29 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "PanelEmits": {
+                    "description": "Defines valid emits in Panel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "toggle",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "update:collapsed",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "PanelProps": {
+                    "description": "Defines valid properties in Panel component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -14496,34 +14566,33 @@
                     "methods": []
                 },
                 "PanelSlots": {
+                    "description": "Defines valid slots in Panel slots.",
                     "relatedProp": "",
-                    "props": [
+                    "props": [],
+                    "methods": [
                         {
                             "name": "default",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
                         },
                         {
                             "name": "header",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom header template."
                         },
                         {
                             "name": "icons",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icons template."
                         }
-                    ],
-                    "methods": []
+                    ]
                 },
                 "PanelToggleEvent": {
-                    "relatedProp": "",
+                    "description": "Custom toggle event.",
+                    "relatedProp": "toggle",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -14543,14 +14612,6 @@
                         }
                     ],
                     "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "PanelEmits": {
-                    "values": "{\n    \"toggle\": \"Function, \",\n    \"update:collapsed\": \"Function, \"\n}"
                 }
             }
         }
@@ -15824,7 +15885,17 @@
             }
         }
     },
-    "scrollpanel/ScrollPanel": {
+    "scrollpanel": {
+        "description": "ScrollPanel is a cross browser, lightweight and themable alternative to native browser scrollbar.\n\n[Live Demo](https://www.primevue.org/scrollpanel/)",
+        "components": {
+            "ScrollPanel": {
+                "description": "ScrollPanel is a cross browser, lightweight and themable alternative to native browser scrollbar..",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -15833,7 +15904,13 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "ScrollPanelEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                },
                 "ScrollPanelProps": {
+                    "description": "Defines valid properties in ScrollPanel component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -15841,13 +15918,14 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Step factor to scroll the content while pressing the arrow keys.\nDefault value is 5."
+                            "default": "5",
+                            "description": "Step factor to scroll the content while pressing the arrow keys."
                         }
                     ],
                     "methods": []
                 },
                 "ScrollPanelSlots": {
+                    "description": "Defines valid slots in Accordion slots.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -15859,14 +15937,6 @@
                         }
                     ],
                     "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "ScrollPanelEmits": {
-                    "values": "{}"
                 }
             }
         }
