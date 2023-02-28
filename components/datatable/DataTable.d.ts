@@ -523,7 +523,7 @@ export interface DataTableStateEvent {
 }
 
 /**
- * Defines valid properties in Datatable component.
+ * Defines valid properties in DataTable component.
  */
 export interface DataTableProps {
     /**
@@ -836,8 +836,9 @@ export interface DataTableProps {
      */
     filterInputProps?: InputHTMLAttributes | undefined;
 }
+
 /**
- * Defines valid slots in Datatable component.
+ * Defines valid slots in DataTable component.
  */
 export interface DataTableSlots {
     /**
