@@ -12,6 +12,9 @@ export interface ColumnGroupProps {
 
 export interface ColumnGroupSlots {}
 
+/**
+ * @todo
+ */
 export declare type ColumnGroupEmits = {};
 
 declare class ColumnGroup extends ClassComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits> {}

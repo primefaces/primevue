@@ -1,6 +1,15 @@
 {
     "accordion": {
         "description": "Accordion groups a collection of contents in tabs.\n\n[Live Demo](https://www.primevue.org/accordion/)",
+        "components": {
+            "Accordion": {
+                "description": "Accordion groups a collection of contents in tabs.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -34,7 +43,7 @@
                     "extendedTypes": "AccordionTabOpenEvent"
                 },
                 "AccordionEmits": {
-                    "description": "Defines valid emits in Acordion component.",
+                    "description": "Defines valid emits in Accordion component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": [
@@ -93,14 +102,14 @@
                     ]
                 },
                 "AccordionProps": {
-                    "description": "Defines valid properties in AccordionTab component.",
+                    "description": "Defines valid properties in Accordion component.",
                     "relatedProp": "",
                     "props": [
                         {
                             "name": "activeIndex",
                             "optional": true,
                             "readonly": false,
-                            "type": "number | number[]",
+                            "type": "null | number | number[]",
                             "default": "null",
                             "description": "Index of the active tab or an array of indexes in multiple mode."
                         },
@@ -155,19 +164,6 @@
                     ],
                     "methods": []
                 },
-                "AccordionSlots": {
-                    "description": "Defines valid slots in Acordion slots.",
-                    "relatedProp": "",
-                    "props": [],
-                    "methods": [
-                        {
-                            "name": "default",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Default slot to detect AccordionTab components."
-                        }
-                    ]
-                },
                 "AccordionTabCloseEvent": {
                     "description": "Custom tab close event.",
                     "relatedProp": "tab-close",
@@ -215,6 +211,15 @@
                     ],
                     "methods": [],
                     "extendedBy": "AccordionTabCloseEvent,AccordionClickEvent"
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "AccordionSlots": {
+                    "values": "{}",
+                    "description": "Defines valid slots in Accordion slots."
                 }
             }
         }
@@ -5943,7 +5948,8 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ColumnGroupEmits": {
-                    "values": "{}"
+                    "values": "{}",
+                    "description": ""
                 }
             }
         }
@@ -6383,6 +6389,492 @@
     },
     "datatable": {
         "description": "DataTable displays data in tabular format.\n\n[Live Demo](https://www.primevue.org/datatable/)",
+        "components": {
+            "DataTable": {
+                "description": "DataTable displays data in tabular format.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": [
+                        {
+                            "name": "exportCSV",
+                            "parameters": [
+                                {
+                                    "name": "options",
+                                    "type": "DataTableExportCSVOptions",
+                                    "description": "Export options."
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "any[]",
+                                    "description": "Custom exportable data. This param can be used on lazy dataTable."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Exports the data to CSV format."
+                        }
+                    ]
+                }
+            }
+        },
+        "events": {
+            "description": "Defines the custom events used by the component's emit.",
+            "values": {
+                "DataTableCellEditCompleteEvent": {
+                    "description": "Custom cell edit complete event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "data",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Row data to edit."
+                        },
+                        {
+                            "name": "field",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "description": "Field name of the row data."
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of the row data to edit."
+                        },
+                        {
+                            "name": "newData",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "New row data after editing."
+                        },
+                        {
+                            "name": "newValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Field value of new row data after editing."
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        },
+                        {
+                            "name": "type",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "description": "Type of completion such as 'enter', 'outside' or 'tab'."
+                        },
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Field value of row data to edit."
+                        }
+                    ]
+                },
+                "DataTableCellEditInitEvent": {
+                    "description": "Custom cell edit init event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "data",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Row data to edit."
+                        },
+                        {
+                            "name": "field",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "description": "Field name of the row data."
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of the row data to edit."
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        }
+                    ],
+                    "extendedBy": "DataTableCellEditCancelEvent"
+                },
+                "DataTableColumnReorderEvent": {
+                    "description": "Custom row column reorder event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "dragIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of the dragged column"
+                        },
+                        {
+                            "name": "dropIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of the dropped column"
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        }
+                    ]
+                },
+                "DataTableColumnResizeEndEvent": {
+                    "description": "Custom row resize end event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "delta",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Change in column width"
+                        },
+                        {
+                            "name": "element",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "HTMLElement",
+                            "description": "DOM element of the resized column."
+                        }
+                    ]
+                },
+                "DataTableRowClickEvent": {
+                    "description": "Custom row click event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "data",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Selected row data."
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Row index."
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event."
+                        }
+                    ],
+                    "extendedBy": "DataTableRowDoubleClickEvent,DataTableRowContextMenuEvent"
+                },
+                "DataTableRowEditInitEvent": {
+                    "description": "Custom row edit complete event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "data",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Row data to edit."
+                        },
+                        {
+                            "name": "field",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "description": "Field name of the row data."
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of the row data to edit."
+                        },
+                        {
+                            "name": "newData",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "New row data after editing."
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        }
+                    ],
+                    "extendedBy": "DataTableRowEditSaveEvent,DataTableRowEditCancelEvent"
+                },
+                "DataTableRowExpandEvent": {
+                    "description": "Custom row expand event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "data",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "description": "Expanded row data"
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        }
+                    ],
+                    "extendedBy": "DataTableRowCollapseEvent"
+                },
+                "DataTableRowReorderEvent": {
+                    "description": "Custom row reorder event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "dragIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of the dragged row"
+                        },
+                        {
+                            "name": "dropIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of the dropped row"
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        },
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "description": "Reordered value"
+                        }
+                    ]
+                },
+                "DataTableRowSelectAllEvent": {
+                    "description": "Custom row select all event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "data",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Selected dataset"
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        }
+                    ]
+                },
+                "DataTableRowSelectEvent": {
+                    "description": "Custom row select event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "data",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Selected row data"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Row index"
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        },
+                        {
+                            "name": "type",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "description": "Type of the selection, valid values are 'row', 'radio' or 'checkbox'."
+                        }
+                    ],
+                    "extendedBy": "DataTableRowUnselectEvent"
+                },
+                "DataTableRowUnselectAllEvent": {
+                    "description": "Custom row unselect all event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        }
+                    ]
+                },
+                "DataTableSelectAllChangeEvent": {
+                    "description": "Custom row select all change event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "description": "Whether all data is selected."
+                        },
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "description": "Browser event"
+                        }
+                    ]
+                },
+                "DataTableStateEvent": {
+                    "description": "Custom state event.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "columWidths",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string[]",
+                            "description": "Comma separated list of column widths"
+                        },
+                        {
+                            "name": "columnOrder",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string[]",
+                            "description": "Order of the columns"
+                        },
+                        {
+                            "name": "expandedRowGroups",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[] | DataTableExpandedRows",
+                            "description": "Instances of rows in expanded state"
+                        },
+                        {
+                            "name": "expandedRowKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "description": "Keys of rows in expanded state"
+                        },
+                        {
+                            "name": "expandedRows",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[] | DataTableExpandedRows",
+                            "description": "Instances of rows in expanded state"
+                        },
+                        {
+                            "name": "filters",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataTableFilterMeta",
+                            "description": "Collection of active filters"
+                        },
+                        {
+                            "name": "first",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Index of first record"
+                        },
+                        {
+                            "name": "multiSortMeta",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | null | DataTableSortMeta[]",
+                            "description": "MultiSort metadata"
+                        },
+                        {
+                            "name": "rows",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "description": "Number of rows to display in new page"
+                        },
+                        {
+                            "name": "selection",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "description": "Selected rows"
+                        },
+                        {
+                            "name": "selectionKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "description": "Keys of selected rows"
+                        },
+                        {
+                            "name": "sortField",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "description": "Field to sort against"
+                        },
+                        {
+                            "name": "sortOrder",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | null | 0 | 1 | -1",
+                            "description": "Sort order as integer"
+                        }
+                    ]
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -6391,58 +6883,9 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
-                "DataTable": {
-                    "description": "**PrimeVue - DataTable**\n\n * _DataTable displays data in tabular format._\n\n[Live Demo](https://www.primevue.org/datatable/)\n--- ---\n![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "$emit",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function & Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "$props",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DataTableProps & VNodeProps & AllowedComponentProps & ComponentCustomProps",
-                            "default": ""
-                        },
-                        {
-                            "name": "$slots",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DataTableSlots",
-                            "default": ""
-                        }
-                    ],
-                    "methods": [
-                        {
-                            "name": "exportCSV",
-                            "parameters": [
-                                {
-                                    "name": "options",
-                                    "optional": true,
-                                    "type": "DataTableExportCSVOptions",
-                                    "description": "Export options."
-                                },
-                                {
-                                    "name": "data",
-                                    "optional": true,
-                                    "type": "any[]",
-                                    "description": "Custom exportable data. This param can be used on lazy dataTable."
-                                }
-                            ],
-                            "returnType": "void",
-                            "description": "Exports the data to CSV format."
-                        }
-                    ],
-                    "extendedTypes": "ClassComponent<DataTableProps, DataTableSlots, DataTableEmits>"
-                },
                 "DataTableCellEditCancelEvent": {
-                    "description": "",
-                    "relatedProp": "",
+                    "description": "Custom cell edit cancel event.",
+                    "relatedProp": "cellEditInit",
                     "props": [
                         {
                             "name": "data",
@@ -6480,168 +6923,8 @@
                     "methods": [],
                     "extendedTypes": "DataTableCellEditInitEvent"
                 },
-                "DataTableCellEditCompleteEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "data",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Row data to edit."
-                        },
-                        {
-                            "name": "field",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Field name of the row data."
-                        },
-                        {
-                            "name": "index",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of the row data to edit."
-                        },
-                        {
-                            "name": "newData",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "New row data after editing."
-                        },
-                        {
-                            "name": "newValue",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Field value of new row data after editing."
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        },
-                        {
-                            "name": "type",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Type of completion such as 'enter', 'outside' or 'tab'."
-                        },
-                        {
-                            "name": "value",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Field value of row data to edit."
-                        }
-                    ],
-                    "methods": []
-                },
-                "DataTableCellEditInitEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "data",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Row data to edit."
-                        },
-                        {
-                            "name": "field",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Field name of the row data."
-                        },
-                        {
-                            "name": "index",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of the row data to edit."
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        }
-                    ],
-                    "methods": [],
-                    "extendedBy": "DataTableCellEditCancelEvent"
-                },
-                "DataTableColumnReorderEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "dragIndex",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of the dragged column"
-                        },
-                        {
-                            "name": "dropIndex",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of the dropped column"
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        }
-                    ],
-                    "methods": []
-                },
-                "DataTableColumnResizeEndEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "delta",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Change in column width"
-                        },
-                        {
-                            "name": "element",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "HTMLElement",
-                            "default": "",
-                            "description": "DOM element of the resized column."
-                        }
-                    ],
-                    "methods": []
-                },
                 "DataTableEditingRows": {
+                    "description": "Custom datatable editing rows.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -6685,7 +6968,7 @@
                             "description": "Callback to invoke when cell edit is completed."
                         },
                         {
-                            "name": "cell-edit-init",
+                            "name": "cellEditInit",
                             "parameters": [
                                 {
                                     "name": "event",
@@ -6814,19 +7097,6 @@
                             "description": "Callback to invoke when row edit is cancelled."
                         },
                         {
-                            "name": "row-edit-init",
-                            "parameters": [
-                                {
-                                    "name": "event",
-                                    "optional": false,
-                                    "type": "DataTableRowEditInitEvent",
-                                    "description": "Custom row edit init event."
-                                }
-                            ],
-                            "returnType": "void",
-                            "description": "Callback to invoke when row edit is initiated."
-                        },
-                        {
                             "name": "row-edit-save",
                             "parameters": [
                                 {
@@ -6918,17 +7188,17 @@
                             "description": "Fired when header checkbox is unchecked."
                         },
                         {
-                            "name": "rowgroup-collapse",
+                            "name": "rowEditInit",
                             "parameters": [
                                 {
                                     "name": "event",
                                     "optional": false,
-                                    "type": "DataTableRowCollapseEvent",
-                                    "description": "Custom row collapse event."
+                                    "type": "DataTableRowEditInitEvent",
+                                    "description": "Custom row edit init event."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke when a row group is collapsed."
+                            "description": "Callback to invoke when row edit is initiated."
                         },
                         {
                             "name": "rowgroup-expand",
@@ -6942,6 +7212,19 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a row group is expanded."
+                        },
+                        {
+                            "name": "rowgroupCollapse",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "DataTableRowCollapseEvent",
+                                    "description": "Custom row collapse event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a row group is collapsed."
                         },
                         {
                             "name": "select-all-change",
@@ -7079,7 +7362,7 @@
                                 {
                                     "name": "value",
                                     "optional": false,
-                                    "type": "DataTableMultiSortMetaType",
+                                    "type": "undefined | null | DataTableSortMeta[]",
                                     "description": "New value."
                                 }
                             ],
@@ -7154,6 +7437,7 @@
                     ]
                 },
                 "DataTableExpandedRows": {
+                    "description": "Custom datatable expanded rows.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -7166,6 +7450,7 @@
                     "methods": []
                 },
                 "DataTableExportCSVOptions": {
+                    "description": "Custom datatable export csv metadata.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -7180,6 +7465,7 @@
                     "methods": []
                 },
                 "DataTableExportFunctionOptions": {
+                    "description": "Custom datatable export metadata.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -7209,7 +7495,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableFilterMatchModeType",
+                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -7241,7 +7527,7 @@
                             "name": "multiSortMeta",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableMultiSortMetaType",
+                            "type": "undefined | null | DataTableSortMeta[]",
                             "default": "",
                             "description": "MultiSort metadata"
                         },
@@ -7265,7 +7551,7 @@
                             "name": "sortField",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableSortFieldType",
+                            "type": "undefined | null | string | Function",
                             "default": "",
                             "description": "Field to sort against"
                         },
@@ -7273,7 +7559,7 @@
                             "name": "sortOrder",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableSortOrderType",
+                            "type": "undefined | null | 0 | 1 | -1",
                             "default": "",
                             "description": "Sort order as integer"
                         }
@@ -7282,6 +7568,7 @@
                     "extendedTypes": "DataTableSortEvent"
                 },
                 "DataTableFilterMeta": {
+                    "description": "Custom datatable filter metadata.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -7294,13 +7581,14 @@
                     "methods": []
                 },
                 "DataTableFilterMetaData": {
+                    "description": "Custom datatable filter metadata.",
                     "relatedProp": "",
                     "props": [
                         {
                             "name": "matchMode",
                             "optional": false,
                             "readonly": false,
-                            "type": "string",
+                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
                             "default": "",
                             "description": "Filter match mode"
                         },
@@ -7316,6 +7604,7 @@
                     "methods": []
                 },
                 "DataTableOperatorFilterMetaData": {
+                    "description": "Custom datatable operator filter metadata.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -7345,7 +7634,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableFilterMatchModeType",
+                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -7369,7 +7658,7 @@
                             "name": "multiSortMeta",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableMultiSortMetaType",
+                            "type": "undefined | null | DataTableSortMeta[]",
                             "default": "",
                             "description": "MultiSort metadata"
                         },
@@ -7409,7 +7698,7 @@
                             "name": "sortField",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableSortFieldType",
+                            "type": "undefined | null | string | Function",
                             "default": "",
                             "description": "Field to sort against"
                         },
@@ -7417,7 +7706,7 @@
                             "name": "sortOrder",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableSortOrderType",
+                            "type": "undefined | null | 0 | 1 | -1",
                             "default": "",
                             "description": "Sort order as integer"
                         }
@@ -7434,47 +7723,39 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Whether to show it even there is only one page.\nDefault value is true."
-                        },
-                        {
-                            "name": "autoLayout",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "",
-                            "description": "Whether the cell widths scale according to their content or not. Does not apply to scrollable tables."
+                            "default": "true",
+                            "description": "Whether to show it even there is only one page."
                         },
                         {
                             "name": "breakpoint",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "The breakpoint to define the maximum width boundary when using stack responsive layout.\nDefault value is '960px'."
+                            "default": "960px",
+                            "description": "The breakpoint to define the maximum width boundary when using stack responsive layout."
                         },
                         {
                             "name": "collapsedRowIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon of the row toggler to display the row as collapsed.\nDefault value is 'pi-chevron-right'."
+                            "default": "pi-chevron-right",
+                            "description": "Icon of the row toggler to display the row as collapsed."
                         },
                         {
                             "name": "columnResizeMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableColumnResizeModeType",
-                            "default": "",
+                            "type": "\"fit\" | \"expand\"",
+                            "default": "fit",
                             "description": "Defines whether the overall table width should change on column resize, valid values are 'fit' and 'expand'."
                         },
                         {
                             "name": "compareSelectionBy",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableCompareSelectionByType",
-                            "default": "",
+                            "type": "\"equals\" | \"deepEquals\"",
+                            "default": "deepEquals",
                             "description": "Algorithm to define if a row is selected, valid values are 'equals' that compares by reference and 'deepEquals' that compares all fields."
                         },
                         {
@@ -7482,7 +7763,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Enables context menu integration."
                         },
                         {
@@ -7498,23 +7779,23 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Character to use as the csv separator.\nDefault value is ','."
+                            "default": ",",
+                            "description": "Character to use as the csv separator."
                         },
                         {
                             "name": "currentPageReportTemplate",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
+                            "default": "'({currentPage} of {totalPages})'",
                             "description": "Template of the current page report element. It displays information about the pagination state. Default value is ({currentPage} of {totalPages}) whereas available placeholders are the following;\n\n- {currentPage}\n- {totalPages}\n- {rows}\n- {first}\n- {last}\n- {totalRecords}"
                         },
                         {
                             "name": "dataKey",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableDataKeyType",
-                            "default": "",
+                            "type": "null | string | Function",
+                            "default": "null",
                             "description": "Name of the field that uniquely identifies the a record in the data."
                         },
                         {
@@ -7522,22 +7803,22 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Default sort order of an unsorted column.\nDefault value is 1."
+                            "default": "1",
+                            "description": "Default sort order of an unsorted column."
                         },
                         {
                             "name": "editMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableEditModeType",
-                            "default": "",
+                            "type": "null | \"cell\" | \"row\"",
+                            "default": "null",
                             "description": "Defines the incell editing mode, valid options are 'cell' and 'row'."
                         },
                         {
                             "name": "editingRows",
                             "optional": true,
                             "readonly": false,
-                            "type": "any[] | DataTableEditingRows",
+                            "type": "null | any[] | DataTableEditingRows",
                             "default": "",
                             "description": "A collection of rows to represent the current editing data in row edit mode."
                         },
@@ -7546,7 +7827,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the row groups can be expandable."
                         },
                         {
@@ -7562,14 +7843,14 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon of the row toggler to display the row as expanded.\nDefault value is 'pi-chevron-down'."
+                            "default": "pi-chevron-down",
+                            "description": "Icon of the row toggler to display the row as expanded."
                         },
                         {
                             "name": "expandedRows",
                             "optional": true,
                             "readonly": false,
-                            "type": "any[] | DataTableExpandedRows",
+                            "type": "null | any[] | DataTableExpandedRows",
                             "default": "",
                             "description": "A collection of row data display as expanded."
                         },
@@ -7578,22 +7859,22 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Name of the exported file.\nDefault value is 'download'."
+                            "default": "download",
+                            "description": "Name of the exported file."
                         },
                         {
                             "name": "filterDisplay",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableFilterDisplayType",
-                            "default": "",
+                            "type": "null | \"menu\" | \"row\"",
+                            "default": "null",
                             "description": "Layout of the filter elements, valid values are 'row' and 'menu'."
                         },
                         {
                             "name": "filterInputProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputHTMLAttributes",
+                            "type": "null | InputHTMLAttributes",
                             "default": "",
                             "description": "Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component."
                         },
@@ -7609,7 +7890,7 @@
                             "name": "filters",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableFilterMeta",
+                            "type": "null | DataTableFilterMeta",
                             "default": "",
                             "description": "Filters object with key-value pairs to define the filters."
                         },
@@ -7618,14 +7899,14 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Index of the first row to be displayed.\nDefault value is 0."
+                            "default": "0",
+                            "description": "Index of the first row to be displayed."
                         },
                         {
                             "name": "frozenValue",
                             "optional": true,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "null | any[]",
                             "default": "",
                             "description": "Items of the frozen part in scrollable DataTable."
                         },
@@ -7650,7 +7931,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Defines if data is loaded and interacted with in lazy manner."
                         },
                         {
@@ -7658,7 +7939,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Displays a loader to indicate data load is in progress."
                         },
                         {
@@ -7666,22 +7947,22 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "The icon to show while indicating data load is in progress.\nDefault value is 'pi pi-spinner'."
+                            "default": "pi pi-spinner",
+                            "description": "The icon to show while indicating data load is in progress."
                         },
                         {
                             "name": "metaKeySelection",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.\nDefault value is 'true'."
+                            "default": "true",
+                            "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
                         },
                         {
                             "name": "multiSortMeta",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableMultiSortMetaType",
+                            "type": "null | DataTableSortMeta[]",
                             "default": "",
                             "description": "An array of SortMeta objects to sort the data by default in multiple sort mode."
                         },
@@ -7690,23 +7971,23 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Number of page links to display.\nDefault value is 5."
+                            "default": "5",
+                            "description": "Number of page links to display."
                         },
                         {
                             "name": "paginator",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When specified as true, enables the pagination."
                         },
                         {
                             "name": "paginatorPosition",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTablePaginatorPositionType",
-                            "default": "",
+                            "type": "\"both\" | \"top\" | \"bottom\"",
+                            "default": "bottom",
                             "description": "Position of the paginator, options are 'top','bottom' or 'both'."
                         },
                         {
@@ -7714,15 +7995,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "any",
-                            "default": "",
-                            "description": "Template of the paginator. It can be customized using the template property using the predefined keys, default value is 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'. Here are the available elements that can be placed inside a paginator in any order.\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
+                            "default": "'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'",
+                            "description": "Template of the paginator. It can be customized using the template property using the predefined keys.\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
                         },
                         {
                             "name": "removableSort",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, columns can have an un-sorted state."
                         },
                         {
@@ -7730,7 +8011,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, columns can be reordered using drag and drop."
                         },
                         {
@@ -7738,16 +8019,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, columns can be resized using drag and drop."
-                        },
-                        {
-                            "name": "responsiveLayout",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTableResponsiveLayoutType",
-                            "default": "",
-                            "description": "Defines the responsive mode, valid options are 'stack' and 'scroll'."
                         },
                         {
                             "name": "rowClass",
@@ -7760,8 +8033,8 @@
                             "name": "rowGroupMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableRowGroupModeType",
-                            "default": "",
+                            "type": "null | \"rowspan\" | \"subheader\"",
+                            "default": "null",
                             "description": "Defines the row group mode, valid options are 'subheader' and 'rowspan'."
                         },
                         {
@@ -7769,7 +8042,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, background of the rows change on hover."
                         },
                         {
@@ -7785,31 +8058,23 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
+                            "default": "0",
                             "description": "Number of rows to display per page."
                         },
                         {
                             "name": "rowsPerPageOptions",
                             "optional": true,
                             "readonly": false,
-                            "type": "number[]",
+                            "type": "null | number[]",
                             "default": "",
                             "description": "Array of integer values to display inside rows per page dropdown."
-                        },
-                        {
-                            "name": "scrollDirection",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTableScrollDirectionType",
-                            "default": "",
-                            "description": "Orientation of the scrolling, options are 'vertical', 'horizontal' and 'both'."
                         },
                         {
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableScrollHeightType",
-                            "default": "",
+                            "type": "null | string",
+                            "default": "null",
                             "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
                         },
                         {
@@ -7817,7 +8082,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When specified, enables horizontal and/or vertical scrolling."
                         },
                         {
@@ -7840,8 +8105,8 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableSelectionModeType",
-                            "default": "",
+                            "type": "\"multiple\" | \"single\"",
+                            "default": "null",
                             "description": "Specifies the selection mode, valid values are 'single' and 'multiple'."
                         },
                         {
@@ -7849,23 +8114,23 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to show grid lines between cells."
                         },
                         {
                             "name": "sortField",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableSortFieldType",
-                            "default": "",
+                            "type": "null | string | Function",
+                            "default": "null",
                             "description": "Property name or a getter function of a row data used for sorting by default"
                         },
                         {
                             "name": "sortMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableSortModeType",
-                            "default": "",
+                            "type": "\"multiple\" | \"single\"",
+                            "default": "single",
                             "description": "Defines whether sorting works on single column or on multiple columns."
                         },
                         {
@@ -7880,7 +8145,7 @@
                             "name": "stateKey",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "null | string",
                             "default": "",
                             "description": "Unique identifier of a stateful table to use in state storage."
                         },
@@ -7888,8 +8153,8 @@
                             "name": "stateStorage",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableStateStorageType",
-                            "default": "",
+                            "type": "\"local\" | \"session\"",
+                            "default": "session",
                             "description": "Defines where a stateful table keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage."
                         },
                         {
@@ -7897,7 +8162,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to displays rows with alternating colors."
                         },
                         {
@@ -7912,7 +8177,7 @@
                             "name": "tableProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "TableHTMLAttributes",
+                            "type": "null | TableHTMLAttributes",
                             "default": "",
                             "description": "Uses to pass all properties of the TableHTMLAttributes to table element inside the component."
                         },
@@ -7929,14 +8194,14 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
+                            "default": "0",
                             "description": "Number of total records, defaults to length of value when not defined."
                         },
                         {
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "null | any[]",
                             "default": "",
                             "description": "An array of objects to display."
                         },
@@ -7944,7 +8209,7 @@
                             "name": "virtualScrollerOptions",
                             "optional": true,
                             "readonly": false,
-                            "type": "VirtualScrollerProps",
+                            "type": "null | VirtualScrollerProps",
                             "default": "",
                             "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.\nNote: Currently only vertical orientation mode is supported."
                         }
@@ -7964,40 +8229,9 @@
                         }
                     ]
                 },
-                "DataTableRowClickEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "data",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Selected row data."
-                        },
-                        {
-                            "name": "index",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Row index."
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event."
-                        }
-                    ],
-                    "methods": [],
-                    "extendedBy": "DataTableRowDoubleClickEvent,DataTableRowContextMenuEvent"
-                },
                 "DataTableRowCollapseEvent": {
-                    "description": "",
-                    "relatedProp": "",
+                    "description": "Custom row collapse event.",
+                    "relatedProp": "rowgroupCollapse",
                     "props": [
                         {
                             "name": "data",
@@ -8020,7 +8254,7 @@
                     "extendedTypes": "DataTableRowExpandEvent"
                 },
                 "DataTableRowContextMenuEvent": {
-                    "description": "",
+                    "description": "Custom context menu event.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -8052,7 +8286,7 @@
                     "extendedTypes": "DataTableRowClickEvent"
                 },
                 "DataTableRowDoubleClickEvent": {
-                    "description": "",
+                    "description": "Custom row double click event.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -8084,8 +8318,8 @@
                     "extendedTypes": "DataTableRowClickEvent"
                 },
                 "DataTableRowEditCancelEvent": {
-                    "description": "",
-                    "relatedProp": "",
+                    "description": "Custom row edit cancel event.",
+                    "relatedProp": "rowEditInit",
                     "props": [
                         {
                             "name": "data",
@@ -8130,57 +8364,10 @@
                     ],
                     "methods": [],
                     "extendedTypes": "DataTableRowEditInitEvent"
-                },
-                "DataTableRowEditInitEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "data",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Row data to edit."
-                        },
-                        {
-                            "name": "field",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Field name of the row data."
-                        },
-                        {
-                            "name": "index",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of the row data to edit."
-                        },
-                        {
-                            "name": "newData",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "New row data after editing."
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        }
-                    ],
-                    "methods": [],
-                    "extendedBy": "DataTableRowEditSaveEvent,DataTableRowEditCancelEvent"
                 },
                 "DataTableRowEditSaveEvent": {
-                    "description": "",
-                    "relatedProp": "",
+                    "description": "Custom row edit init event.",
+                    "relatedProp": "rowEditInit",
                     "props": [
                         {
                             "name": "data",
@@ -8226,144 +8413,8 @@
                     "methods": [],
                     "extendedTypes": "DataTableRowEditInitEvent"
                 },
-                "DataTableRowExpandEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "data",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any[]",
-                            "default": "",
-                            "description": "Expanded row data"
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        }
-                    ],
-                    "methods": [],
-                    "extendedBy": "DataTableRowCollapseEvent"
-                },
-                "DataTableRowReorderEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "dragIndex",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of the dragged row"
-                        },
-                        {
-                            "name": "dropIndex",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of the dropped row"
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        },
-                        {
-                            "name": "value",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any[]",
-                            "default": "",
-                            "description": "Reordered value"
-                        }
-                    ],
-                    "methods": []
-                },
-                "DataTableRowSelectAllEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "data",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Selected dataset"
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        }
-                    ],
-                    "methods": []
-                },
-                "DataTableRowSelectEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "data",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Selected row data"
-                        },
-                        {
-                            "name": "index",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Row index"
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        },
-                        {
-                            "name": "type",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Type of the selection, valid values are 'row', 'radio' or 'checkbox'."
-                        }
-                    ],
-                    "methods": [],
-                    "extendedBy": "DataTableRowUnselectEvent"
-                },
-                "DataTableRowUnselectAllEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        }
-                    ],
-                    "methods": []
-                },
                 "DataTableRowUnselectEvent": {
-                    "description": "",
+                    "description": "Custom row unselect event.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -8401,28 +8452,6 @@
                     ],
                     "methods": [],
                     "extendedTypes": "DataTableRowSelectEvent"
-                },
-                "DataTableSelectAllChangeEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "checked",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "",
-                            "description": "Whether all data is selected."
-                        },
-                        {
-                            "name": "originalEvent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Event",
-                            "default": "",
-                            "description": "Browser event"
-                        }
-                    ],
-                    "methods": []
                 },
                 "DataTableSlots": {
                     "description": "Defines valid slots in Datatable component.",
@@ -8513,7 +8542,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableFilterMatchModeType",
+                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -8537,7 +8566,7 @@
                             "name": "multiSortMeta",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableMultiSortMetaType",
+                            "type": "undefined | null | DataTableSortMeta[]",
                             "default": "",
                             "description": "MultiSort metadata"
                         },
@@ -8561,7 +8590,7 @@
                             "name": "sortField",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableSortFieldType",
+                            "type": "undefined | null | string | Function",
                             "default": "",
                             "description": "Field to sort against"
                         },
@@ -8569,7 +8598,7 @@
                             "name": "sortOrder",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableSortOrderType",
+                            "type": "undefined | null | 0 | 1 | -1",
                             "default": "",
                             "description": "Sort order as integer"
                         }
@@ -8578,6 +8607,7 @@
                     "extendedBy": "DataTablePageEvent,DataTableFilterEvent"
                 },
                 "DataTableSortMeta": {
+                    "description": "Custom datatable sort meta.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -8592,178 +8622,12 @@
                             "name": "order",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataTableSortOrderType",
+                            "type": "undefined | null | 0 | 1 | -1",
                             "default": "",
                             "description": "Column sort order"
                         }
                     ],
                     "methods": []
-                },
-                "DataTableStateEvent": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "columWidths",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string[]",
-                            "default": "",
-                            "description": "Comma separated list of column widths"
-                        },
-                        {
-                            "name": "columnOrder",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string[]",
-                            "default": "",
-                            "description": "Order of the columns"
-                        },
-                        {
-                            "name": "expandedRowGroups",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any[] | DataTableExpandedRows",
-                            "default": "",
-                            "description": "Instances of rows in expanded state"
-                        },
-                        {
-                            "name": "expandedRowKeys",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any[]",
-                            "default": "",
-                            "description": "Keys of rows in expanded state"
-                        },
-                        {
-                            "name": "expandedRows",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any[] | DataTableExpandedRows",
-                            "default": "",
-                            "description": "Instances of rows in expanded state"
-                        },
-                        {
-                            "name": "filters",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DataTableFilterMeta",
-                            "default": "",
-                            "description": "Collection of active filters"
-                        },
-                        {
-                            "name": "first",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Index of first record"
-                        },
-                        {
-                            "name": "multiSortMeta",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DataTableMultiSortMetaType",
-                            "default": "",
-                            "description": "MultiSort metadata"
-                        },
-                        {
-                            "name": "rows",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "number",
-                            "default": "",
-                            "description": "Number of rows to display in new page"
-                        },
-                        {
-                            "name": "selection",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Selected rows"
-                        },
-                        {
-                            "name": "selectionKeys",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any[]",
-                            "default": "",
-                            "description": "Keys of selected rows"
-                        },
-                        {
-                            "name": "sortField",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Field to sort against"
-                        },
-                        {
-                            "name": "sortOrder",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DataTableSortOrderType",
-                            "default": "",
-                            "description": "Sort order as integer"
-                        }
-                    ],
-                    "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "DataTableColumnResizeModeType": {
-                    "values": "\"fit\" | \"expand\" | undefined"
-                },
-                "DataTableCompareSelectionByType": {
-                    "values": "\"equals\" | \"deepEquals\" | undefined"
-                },
-                "DataTableDataKeyType": {
-                    "values": "string | Function | undefined"
-                },
-                "DataTableEditModeType": {
-                    "values": "\"cell\" | \"row\" | undefined"
-                },
-                "DataTableFilterDisplayType": {
-                    "values": "\"menu\" | \"row\" | undefined"
-                },
-                "DataTableFilterMatchModeType": {
-                    "values": "\"startsWith\" | \"contains\" | \"notContains\" | \"endsWith\" | \"equals\" | \"notEquals\" | \"in\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\" | undefined"
-                },
-                "DataTableMultiSortMetaType": {
-                    "values": "DataTableSortMeta[] | undefined | null"
-                },
-                "DataTablePaginatorPositionType": {
-                    "values": "\"top\" | \"bottom\" | \"both\" | undefined"
-                },
-                "DataTableResponsiveLayoutType": {
-                    "values": "\"stack\" | \"scroll\" | undefined"
-                },
-                "DataTableRowGroupModeType": {
-                    "values": "\"subheader\" | \"rowspan\" | undefined"
-                },
-                "DataTableScrollDirectionType": {
-                    "values": "\"vertical\" | \"horizontal\" | \"both\" | undefined"
-                },
-                "DataTableScrollHeightType": {
-                    "values": "\"flex\" | string | undefined"
-                },
-                "DataTableSelectionModeType": {
-                    "values": "\"single\" | \"multiple\" | undefined"
-                },
-                "DataTableSortFieldType": {
-                    "values": "string | Function | undefined | null"
-                },
-                "DataTableSortModeType": {
-                    "values": "\"single\" | \"multiple\" | undefined"
-                },
-                "DataTableSortOrderType": {
-                    "values": "1 | 0 | -1 | undefined | null"
-                },
-                "DataTableStateStorageType": {
-                    "values": "\"session\" | \"local\" | undefined"
                 }
             }
         }
@@ -19914,6 +19778,22 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "appendOnly",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Used to append each loaded item to top without removing any items from the DOM. Using very large data may cause the browser to crash."
+                        },
+                        {
+                            "name": "autoSize",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether to dynamically change the height or width of scrollable container."
+                        },
+                        {
                             "name": "class",
                             "optional": true,
                             "readonly": false,
@@ -19944,6 +19824,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Unique identifier of the element."
+                        },
+                        {
+                            "name": "inline",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, positions the content as inline."
                         },
                         {
                             "name": "itemSize",
@@ -20009,6 +19897,14 @@
                             "description": "The orientation of scrollbar."
                         },
                         {
+                            "name": "resizeDelay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "10",
+                            "description": "Delay after window's resize finishes."
+                        },
+                        {
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
@@ -20039,6 +19935,14 @@
                             "type": "boolean",
                             "default": "",
                             "description": "Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller.\nDefault value is true."
+                        },
+                        {
+                            "name": "step",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Used to specify how many items to load in each load method in lazy mode."
                         },
                         {
                             "name": "style",
