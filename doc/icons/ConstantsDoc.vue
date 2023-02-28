@@ -5,7 +5,7 @@
     <div class="card flex justify-content-center">
         <Menu :model="items" />
     </div>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

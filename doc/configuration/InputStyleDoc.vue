@@ -7,7 +7,7 @@
             PrimeVue configuration as well.
         </p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

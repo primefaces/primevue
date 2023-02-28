@@ -4,6 +4,6 @@
         <p>FileUpload uses a hidden native <i>input</i> element with <i>type="file"</i> for screen readers.</p>
 
         <h3>Keyboard Support</h3>
-        <p>Interactive elements of the uploader are buttons, visit the <Link href="/button#accessibility">Button</Link> accessibility section for more information.</p>
+        <p>Interactive elements of the uploader are buttons, visit the <NuxtLink to="/button/#accessibility">Button</NuxtLink> accessibility section for more information.</p>
     </DocSectionText>
 </template>

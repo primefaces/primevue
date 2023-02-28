@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Dynamic dialogs require the <i>DialogService</i> to be configured globally.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

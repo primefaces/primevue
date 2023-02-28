@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>FilterService can be extended by adding new constraints using the register function.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>DataView depends on PrimeFlex Grid functionality so it needs to be installed and imported.</p>
     </DocSectionText>
-    <DocSectionCode :code="code1" hideToggleCode import hideCodeSandbox hideStackBlitz />
-    <DocSectionCode :code="code2" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

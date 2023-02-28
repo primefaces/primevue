@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>To start with, Ripple needs to be enabled globally. See the <nuxt-link to="/ripple">Configuration API</nuxt-link> for details.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

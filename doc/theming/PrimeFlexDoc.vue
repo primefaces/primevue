@@ -13,7 +13,7 @@
         <Button type="button" label="Button 2" class="p-button-secondary mb-3 md:mb-0"></Button>
         <Button type="button" label="Button 3" class="p-button-help"></Button>
     </div>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

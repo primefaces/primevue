@@ -6,15 +6,25 @@
             <i>aria-label</i> props.
         </p>
 
-        <pre v-code><code>
-&lt;span id="label_status /"&gt;
-&lt;ProgressBar aria-labelledby="label_status /"&gt;
-
-&lt;ProgressBar aria-label="Status /"&gt;
-
-</code></pre>
+        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
 
         <h3>Keyboard Support</h3>
         <p>Not applicable.</p>
     </DocSectionText>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            code: {
+                basic: `
+<span id="label_status" />
+<ProgressBar aria-labelledby="label_status" />
+
+<ProgressBar aria-label="Status" />`
+            }
+        };
+    }
+};
+</script>

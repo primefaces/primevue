@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>PrimeVue ships with various free themes to choose from. The list below states all the available themes in the npm distribution with import paths.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz codeClassName="h-20rem overflow-auto" />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz codeClassName="h-20rem overflow-auto" />
 </template>
 
 <script>

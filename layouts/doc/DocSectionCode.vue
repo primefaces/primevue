@@ -72,7 +72,14 @@
             ></Button>
         </div>
 
-        <template v-if="codeMode === 'basic'">
+        <template v-if="codeMode === 'basic' && importCode">
+            <pre v-code.script><code>
+{{ code.basic }}
+
+</code></pre>
+        </template>
+
+        <template v-if="codeMode === 'basic' && !importCode">
             <pre v-code><code>
 {{ code.basic }}
 
@@ -139,6 +146,10 @@ export default {
         extFiles: {
             type: null,
             default: null
+        },
+        importCode: {
+            type: Boolean,
+            default: false
         }
     },
     data() {

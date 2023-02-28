@@ -11,7 +11,7 @@
             override the default <i>aria-label</i>.
         </p>
 
-        <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
 
         <h3>Overlay Keyboard Support</h3>
         <div class="doc-tablewrapper">

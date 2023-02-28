@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>PrimeVue is available for download at <a href="https://www.npmjs.com/package/primevue">npm</a>.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

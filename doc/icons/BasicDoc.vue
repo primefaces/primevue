@@ -8,7 +8,7 @@
         <span class="pi pi-search"></span>
         <span class="pi pi-user"></span>
     </div>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

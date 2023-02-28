@@ -6,7 +6,7 @@
         </p>
         <p>In multiple selection mode, value binding should be a key-value pair where key is the node key and value is a boolean to indicate selection.</p>
     </DocSectionText>
-    <DocSectionCode :code="activeNodes" hideToggleCode import hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+    <DocSectionCode :code="activeNodes" hideToggleCode importCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
     <div class="card flex justify-content-center">
         <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" placeholder="Select Items" class="md:w-20rem w-full" />
     </div>

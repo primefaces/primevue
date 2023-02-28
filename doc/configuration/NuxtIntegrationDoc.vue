@@ -5,12 +5,12 @@
         <h6>nuxt.config.js</h6>
         <p>Open the nuxt configuration file and add the css dependencies.</p>
 
-        <DocSectionCode :code="code1" hideToggleCode import hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 
         <h6>primevue.js</h6>
         <p>Create a file like <i>primevue.js</i> under the plugins directory for the configuration.</p>
 
-        <DocSectionCode :code="code2" hideToggleCode import hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
     </DocSectionText>
 </template>
 

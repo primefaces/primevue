@@ -3,7 +3,7 @@
         <p>Selection of multiple nodes via checkboxes is enabled by configuring <i>selectionMode</i> as <i>checkbox</i>.</p>
         <p>In checkbox selection mode, value binding should be a key-value pair where key is the node key and value is an object that has <i>checked</i> and <i>partialChecked</i> properties to represent the checked state of a node.</p>
     </DocSectionText>
-    <DocSectionCode :code="introCode" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="introCode" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
     <div class="card">
         <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
             <Column field="name" header="Name" expander></Column>

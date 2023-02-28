@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed globally before the application instance is created.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

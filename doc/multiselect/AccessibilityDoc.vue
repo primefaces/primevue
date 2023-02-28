@@ -16,7 +16,7 @@
 
         <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <NuxtLink to="/locale">locale</NuxtLink> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
 
-        <DocSectionCode :code="code" hideToggleCode import hideCodeSandbox hideStackBlitz v-bind="$attrs" />
+        <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
 
         <h3>Closed State Keyboard Support</h3>
         <div class="doc-tablewrapper">
@@ -252,10 +252,10 @@ export default {
         return {
             code: {
                 basic: `
-    <span id="dd1"></span>Options</span>
-    <MultiSelect aria-labelledby="dd1" />
-    
-    <MultiSelect aria-label="Options" />`
+<span id="dd1"></span>Options</span>
+<MultiSelect aria-labelledby="dd1" />
+
+<MultiSelect aria-label="Options" />`
             }
         };
     }
