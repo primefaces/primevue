@@ -1,33 +1,39 @@
+/**
+ *
+ * When pressed, a floating action button can display multiple primary actions that can be performed on a page.
+ *
+ * [Live Demo](https://www.primevue.org/speeddial/)
+ *
+ * @module speeddial
+ *
+ */
 import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SpeedDialDirectionType = 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | undefined;
-
-type SpeedDialType = 'linear' | 'circle' | 'semi-circle' | 'quarter-circle' | undefined;
-
-type SpeedDialTooltipPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
-
-type SpeedDialTooltipEventType = 'hover' | 'focus' | undefined;
-
+/**
+ * Defines tooltip options.
+ * @see {@link SpeedDialProps.tooltipOptions}
+ */
 export interface SpeedDialTooltipOptions {
     /**
      * Event to show the tooltip, valid values are hover and focus.
-     * @see SpeedDialTooltipEventType
      */
-    event: string;
+    event: 'hover' | 'focus' | undefined;
     /**
      * Position of element.
-     * @see SpeedDialTooltipPositionType
      * Default value is 'bottom'.
      */
-    position: string;
+    position: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**
      * Optional options.
      */
-    [key: string]: string;
+    [key: string]: any;
 }
 
+/**
+ * Defines valid properties in SpeedDial component.
+ */
 export interface SpeedDialProps {
     /**
      * MenuModel instance to define the action items.
@@ -35,41 +41,42 @@ export interface SpeedDialProps {
     model?: MenuItem[] | undefined;
     /**
      * Specifies the visibility of the overlay.
+     * @defaultValue false
      */
     visible?: boolean | undefined;
     /**
      * Specifies the opening direction of actions.
-     * @see SpeedDialDirectionType
-     * Default value is 'up'.
+     * @defaultValue up
      */
-    direction?: SpeedDialDirectionType;
+    direction?: 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | undefined;
     /**
      * Transition delay step for each action item.
-     * Default value is 30.
+     * @defaultValue 30
      */
     transitionDelay?: number | undefined;
     /**
      * Specifies the opening type of actions.
-     * @see SpeedDialType
-     * Default value is 'linear'.
+     * @defaultValue linear
      */
-    type?: SpeedDialType;
+    type?: 'linear' | 'circle' | 'semi-circle' | 'quarter-circle' | undefined;
     /**
      * Radius for *circle types.
-     * Default value is 0.
+     * @defaultValue 0
      */
     radius?: number | undefined;
     /**
      * Whether to show a mask element behind the speeddial.
+     * @defaultValue false
      */
     mask?: boolean | undefined;
     /**
      * Whether the component is disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * Whether the actions close when clicked outside.
-     * Default value is true.
+     * @defaultValue true
      */
     hideOnClickOutside?: boolean | undefined;
     /**
@@ -86,7 +93,7 @@ export interface SpeedDialProps {
     maskClass?: string | undefined;
     /**
      * Show icon of the button element.
-     * Default value is 'pi pi-plus'.
+     * @defaultValue pi pi-plus
      */
     showIcon?: string | undefined;
     /**
@@ -95,7 +102,7 @@ export interface SpeedDialProps {
     hideIcon?: string | undefined;
     /**
      * Defined to rotate showIcon when hideIcon is not present.
-     * Default value is true.
+     * @defaultValue true
      */
     rotateAnimation?: boolean | undefined;
     /**
@@ -108,7 +115,7 @@ export interface SpeedDialProps {
     style?: any;
     /**
      * Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'.
-     * @see SpeedDialTooltipOptions
+     * @type {SpeedDialTooltipOptions}
      */
     tooltipOptions?: SpeedDialTooltipOptions;
     /**
@@ -121,55 +128,74 @@ export interface SpeedDialProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in SpeedDial component.
+ */
 export interface SpeedDialSlots {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Menuitem instance
+         * @type {MenuItem}
          */
         item: MenuItem;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom button template.
      * @param {Object} scope - button slot's params.
      */
-    button: (scope: {
+    button(scope: {
         /**
          * Toggle metadata
          */
-        toggle: () => void;
-    }) => VNode[];
+        toggle(): void;
+    }): VNode[];
 }
 
-export declare type SpeedDialEmits = {
+/**
+ * Defines valid emits in SpeedDial component.
+ */
+export interface SpeedDialEmits {
     /**
      * Fired when the button element clicked.
      * @param {Event} event - Browser event.
      */
-    click: (event: Event) => void;
+    click(event: Event): void;
     /**
      * Fired when the actions are visible.
      */
-    show: () => void;
+    show(): void;
     /**
      * Fired when the actions are hidden.
      */
-    hide: () => void;
+    hide(): void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
-};
+    blur(event: Event): void;
+}
 
+/**
+ * **PrimeVue - SpeedDial**
+ *
+ * _When pressed, a floating action button can display multiple primary actions that can be performed on a page._
+ *
+ * [Live Demo](https://www.primevue.org/speeddial/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class SpeedDial extends ClassComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -178,17 +204,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * When pressed, a floating action button can display multiple primary actions that can be performed on a page.
- *
- * Helper API:
- *
- * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
- *
- * Demos:
- *
- * - [SpeedDial](https://www.primefaces.org/primevue/speeddial)
- *
- */
 export default SpeedDial;
