@@ -1,13 +1,19 @@
-import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+/**
+ *
+ * TreeSelect is a form component to choose from hierarchical data.
+ *
+ * [Live Demo](https://www.primevue.org/treeselect/)
+ *
+ * @module treeselect
+ *
+ */
+import { InputHTMLAttributes, VNode } from 'vue';
 import { TreeNode } from '../tree';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type TreeSelectSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
-
-type TreeSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
-
-type TreeSelectDisplayType = 'comma' | 'chip' | undefined;
-
+/**
+ * Defines valid properties in TreeSelect component.
+ */
 export interface TreeSelectProps {
     /**
      * Value of the component.
@@ -19,7 +25,7 @@ export interface TreeSelectProps {
     options?: TreeNode[] | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * Default value is '200px'.
+     * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
     /**
@@ -28,6 +34,7 @@ export interface TreeSelectProps {
     placeholder?: string | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -36,34 +43,31 @@ export interface TreeSelectProps {
     tabindex?: string | undefined;
     /**
      * Defines the selection mode.
-     * @see TreeSelectSelectionModeType
      */
-    selectionMode?: TreeSelectSelectionModeType;
+    selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
     /**
      * Style class of the overlay panel.
      */
     panelClass?: any;
     /**
-     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
-     * @see TreeSelectAppendToType
-     * Default value is 'body'.
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached.
+     * @defaultValue body
      */
-    appendTo?: TreeSelectAppendToType;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
+     * @defaultValue No results found
      */
     emptyMessage?: string | undefined;
     /**
      * Defines how the selected items are displayed.
-     * @see TreeSelectDisplayType
-     * Default value is 'comma'.
+     * @defaultValue comma
      */
-    display?: TreeSelectDisplayType;
+    display?: 'comma' | 'chip' | undefined;
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
-     * Default value is true.
+     * @defaultValue true
      */
     metaKeySelection?: boolean | undefined;
     /**
@@ -79,9 +83,9 @@ export interface TreeSelectProps {
      */
     inputStyle?: any | undefined;
     /**
-     *
+     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
-    inputProps?: object | undefined;
+    inputProps?: InputHTMLAttributes | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -92,12 +96,15 @@ export interface TreeSelectProps {
     'aria-label'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in TreeSelect component.
+ */
 export interface TreeSelectSlots {
     /**
      * Custom value template.
      * @param {Object} scope - value slot's params.
      */
-    value: (scope: {
+    value(scope: {
         /**
          * Selected value
          */
@@ -106,12 +113,12 @@ export interface TreeSelectSlots {
          * Placeholder
          */
         placeholder: string;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
      */
-    header: (scope: {
+    header(scope: {
         /**
          * Selected value
          */
@@ -120,12 +127,12 @@ export interface TreeSelectSlots {
          * An array of treenodes.
          */
         options: TreeNode[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom footer template.
      * @param {Object} scope - footer slot's params.
      */
-    footer: (scope: {
+    footer(scope: {
         /**
          * Selected value
          */
@@ -134,67 +141,81 @@ export interface TreeSelectSlots {
          * An array of treenodes.
          */
         options: TreeNode[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom empty template.
      */
-    empty: () => VNode[];
+    empty(): VNode[];
     /**
      * Custom indicator template.
      */
-    indicator: () => VNode[];
+    indicator(): VNode[];
 }
 
-export declare type TreeSelectEmits = {
+/**
+ * Defines valid emits in TreeSelect component.
+ */
+export interface TreeSelectEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any) => void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {*} value - Selected node keys
      */
-    change: (value: string[]) => void;
+    change(value: string[]): void;
     /**
      * Callback to invoke before the overlay is shown.
      */
-    'before-show': () => void;
+    'before-show'(): void;
     /**
      * Callback to invoke before the overlay is hidden.
      */
-    'before-hide': () => void;
+    'before-hide'(): void;
     /**
      * Callback to invoke when the overlay is shown.
      */
-    show: () => void;
+    show(): void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    hide: () => void;
+    hide(): void;
     /**
      * Callback to invoke when a node is selected.
      * @param {TreeNode} node - Node instance.
      */
-    'node-select': (node: TreeNode) => void;
+    'node-select'(node: TreeNode): void;
     /**
      * Callback to invoke when a node is unselected.
      * @param {TreeNode} node - Node instance.
      */
-    'node-unselect': (node: TreeNode) => void;
+    'node-unselect'(node: TreeNode): void;
     /**
      * Callback to invoke when a node is expanded.
      * @param {TreeNode} node - Node instance.
      */
-    'node-expand': (node: TreeNode) => void;
+    'node-expand'(node: TreeNode): void;
     /**
      * Callback to invoke when a node is collapsed.
      * @param {TreeNode} node - Node instance.
      */
-    'node-collapse': (node: TreeNode) => void;
-};
+    'node-collapse'(node: TreeNode): void;
+}
 
-declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits> {
+/**
+ * **PrimeVue - TreeSelect**
+ *
+ * _TreeSelect is a form component to choose from hierarchical data._
+ *
+ * [Live Demo](https://www.primevue.org/treeselect/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits> {
     /**
      * Shows the overlay.
      *
@@ -215,17 +236,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * TreeSelect is a form component to choose from hierarchical data.
- *
- * Helper API:
- *
- * - TreeNode
- *
- * Demos:
- *
- * - [TreeSelect](https://www.primefaces.org/primevue/treeselect)
- *
- */
 export default TreeSelect;
