@@ -1,19 +1,20 @@
+/**
+ *
+ * AutoComplete is an input component that provides real-time suggestions while being typed.
+ *
+ * [Live Demo](https://www.primevue.org/autocomplete/)
+ *
+ * @module autocomplete
+ *
+ */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
 
-type AutoCompleteFieldType = string | ((data: any) => string) | undefined;
-
-type AutoCompleteOptionLabelType = string | ((data: any) => string) | undefined;
-
-type AutoCompleteOptionDisabledType = string | ((data: any) => boolean) | undefined;
-
-type AutoCompleteOptionChildrenType = string | ((data: any) => any[]) | undefined;
-
-type AutoCompleteDropdownMode = 'blank' | 'current' | undefined;
-
-type AutoCompleteAppendTo = 'body' | 'self' | string | undefined | HTMLElement;
-
+/**
+ * Custom change event.
+ * @see {@link AutoCompleteEmits.change}
+ */
 export interface AutoCompleteChangeEvent {
     /**
      * Browser event.
@@ -25,6 +26,10 @@ export interface AutoCompleteChangeEvent {
     value: any;
 }
 
+/**
+ * Custom item select event.
+ * @see {@link AutoCompleteEmits.item-select}
+ */
 export interface AutoCompleteItemSelectEvent {
     /**
      * Browser event
@@ -37,10 +42,16 @@ export interface AutoCompleteItemSelectEvent {
 }
 
 /**
+ * Custom item unselect event.
+ * @see {@link AutoCompleteEmits.item-unselect}
  * @extends AutoCompleteItemSelectEvent
  */
 export interface AutoCompleteItemUnselectEvent extends AutoCompleteItemSelectEvent {}
 
+/**
+ * Custom dropdown click event.
+ * @see {@link AutoCompleteEmits.dropdown-click}
+ */
 export interface AutoCompleteDropdownClickEvent {
     /**
      * Browser mouse event
@@ -52,6 +63,10 @@ export interface AutoCompleteDropdownClickEvent {
     query: string;
 }
 
+/**
+ * Custom complete event.
+ * @see {@link AutoCompleteEmits.complete}
+ */
 export interface AutoCompleteCompleteEvent {
     /**
      * Browser event
@@ -63,6 +78,9 @@ export interface AutoCompleteCompleteEvent {
     query: string;
 }
 
+/**
+ * Defines valid properties in AutoComplete component.
+ */
 export interface AutoCompleteProps {
     /**
      * Value of the component.
@@ -75,51 +93,48 @@ export interface AutoCompleteProps {
     /**
      * @deprecated since v3.16.0. Use 'optionLabel' property instead.
      * Property name or getter function of a suggested object to resolve and display.
-     * @type {AutoCompleteFieldType}
      */
-    field?: AutoCompleteFieldType;
+    field?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function to use as the label of an option.
-     * @see AutoCompleteOptionLabelType
      */
-    optionLabel?: AutoCompleteOptionLabelType;
+    optionLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
-     * @see AutoCompleteOptionDisabledType
      */
-    optionDisabled?: AutoCompleteOptionDisabledType;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
-     * @see AutoCompleteOptionLabelType
      */
-    optionGroupLabel?: AutoCompleteOptionLabelType;
+    optionGroupLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function that refers to the children options of option group.
-     * @see AutoCompleteOptionChildrenType
      */
-    optionGroupChildren?: AutoCompleteOptionChildrenType;
+    optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Maximum height of the suggestions panel.
-     * Default value is '200px'.
+     * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
     /**
      * Displays a button next to the input field when enabled.
+     * @defaultValue false
      */
     dropdown?: boolean | undefined;
     /**
      * Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value.
-     * @see AutoCompleteDropdownMode
-     * Default value is 'blank'.
+     * @defaultValue blank
      */
-    dropdownMode?: AutoCompleteDropdownMode;
+    dropdownMode?: 'blank' | 'current' | undefined;
     /**
      * @deprecated since v3.16.0
      * Highlights automatically the first item of the dropdown to be selected.
+     * @defaultValue false
      */
     autoHighlight?: boolean | undefined;
     /**
      * Specifies if multiple values can be selected.
+     * @defaultValue false
      */
     multiple?: boolean | undefined;
     /**
@@ -128,6 +143,7 @@ export interface AutoCompleteProps {
     placeholder?: string | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -136,27 +152,28 @@ export interface AutoCompleteProps {
     dataKey?: string | undefined;
     /**
      * Minimum number of characters to initiate a search.
-     * Default value is 1.
+     * @defaultValue 1
      */
     minLength?: number | undefined;
     /**
      * Delay between keystrokes to wait before sending a query.
-     * Default value is 300.
+     * @defaultValue 300
      */
     delay?: number | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * Special keywords are 'body' for document body and 'self' for the element itself.
-     * @see AutoCompleteAppendTo
-     * Default value is body.
+     * @defaultValue body
      */
-    appendTo?: AutoCompleteAppendTo;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions.
+     * @defaultValue false
      */
-    forceSelection?: boolean;
+    forceSelection?: boolean | undefined;
     /**
      * Whether to run a query when input receives focus.
+     * @defaultValue false
      */
     completeOnFocus?: boolean | undefined;
     /**
@@ -189,7 +206,7 @@ export interface AutoCompleteProps {
     panelProps?: HTMLAttributes | undefined;
     /**
      * Icon to display in the dropdown.
-     * Default value is 'pi pi-chevron-down'.
+     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
@@ -198,27 +215,27 @@ export interface AutoCompleteProps {
     dropdownClass?: string | undefined;
     /**
      * Icon to display in loading state.
-     * Default value is 'pi pi-spinner pi-spin'.
+     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * Default value is 'pi pi-times-circle'.
+     * @defaultValue pi pi-times-circle
      */
     removeTokenIcon?: string | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
-     * @see VirtualScroller.VirtualScrollerProps
+     * @type {VirtualScrollerProps}
      */
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Whether to focus on the first visible or selected element when the overlay panel is shown.
-     * Default value is true.
+     * @defaultValue true
      */
     autoOptionFocus?: boolean | undefined;
     /**
      * When enabled, the focused option is selected.
-     * Default value is false.
+     * @defaultValue false
      */
     selectOnFocus?: boolean | undefined;
     /**
@@ -227,22 +244,22 @@ export interface AutoCompleteProps {
     searchLocale?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} results are available'.
+     * @defaultValue {0} results are available
      */
     searchMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} items selected'.
+     * @defaultValue {0} items selected
      */
     selectionMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No selected item'.
+     * @defaultValue No selected item
      */
     emptySelectionMessage?: string | undefined;
     /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
+     * @defaultValue No results found
      */
     emptySearchMessage?: string | undefined;
     /**
@@ -259,22 +276,25 @@ export interface AutoCompleteProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in AutoComplete component.
+ */
 export interface AutoCompleteSlots {
     /**
      * Custom chip template.
      * @param {Object} scope - chip slot's params.
      */
-    chip: (scope: {
+    chip(scope: {
         /**
          * A value in the selection
          */
         value: any;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom header template of panel.
      * @param {Object} scope - header slot's params.
      */
-    header: (scope: {
+    header(scope: {
         /**
          * Value of the component
          */
@@ -283,12 +303,12 @@ export interface AutoCompleteSlots {
          * Displayed options
          */
         suggestions: any[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom footer template of panel.
      * @param {Object} scope - footer slot's params.
      */
-    footer: (scope: {
+    footer(scope: {
         /**
          * Value of the component
          */
@@ -297,13 +317,13 @@ export interface AutoCompleteSlots {
          * Displayed options
          */
         suggestions: any[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * @deprecated since v3.16.0
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Option instance
          */
@@ -312,12 +332,12 @@ export interface AutoCompleteSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom option template.
      * @param {Object} scope - option slot's params.
      */
-    option: (scope: {
+    option(scope: {
         /**
          * Option instance
          */
@@ -326,12 +346,12 @@ export interface AutoCompleteSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom option group template.
      * @param {Object} scope - option group slot's params.
      */
-    optiongroup: (scope: {
+    optiongroup(scope: {
         /**
          * @deprecated since v3.16.0. Use the 'option' instead.
          * Option instance
@@ -345,12 +365,12 @@ export interface AutoCompleteSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom panel template.
      * @param {Object} scope - content slot's params.
      */
-    content: (scope: {
+    content(scope: {
         /**
          * An array of objects to display for virtualscroller
          */
@@ -367,89 +387,104 @@ export interface AutoCompleteSlots {
         /**
          * Options of the items
          * @param {number} index - Rendered index
-         * @return {@link VirtualScroller.VirtualScrollerItemOptions}
+         * @return {VirtualScrollerItemOptions}
          */
         getItemOptions(index: number): VirtualScrollerItemOptions;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom loader template.
      * @param {Object} scope - loader slot's params.
      */
-    loader: (scope: {
+    loader(scope: {
         /**
          * Options of the loader items for virtualscroller
          */
         options: any[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom empty template when there is no data to display.
      */
-    empty: () => VNode[];
+    empty(): VNode[];
 }
 
-export declare type AutoCompleteEmits = {
+/**
+ * Defines valid emits in AutoComplete component.
+ */
+export declare interface AutoCompleteEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any) => void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {AutoCompleteChangeEvent} event - Custom change event.
      */
-    change: (event: AutoCompleteChangeEvent) => void;
+    change(event: AutoCompleteChangeEvent): void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
+    blur(event: Event): void;
     /**
      * Callback to invoke when a suggestion is selected.
      * @param {AutoCompleteItemSelectEvent} event - Custom item select event.
      */
-    'item-select': (event: AutoCompleteItemSelectEvent) => void;
+    'item-select'(event: AutoCompleteItemSelectEvent): void;
     /**
      * Callback to invoke when a selected value is removed.
      * @param {AutoCompleteItemUnselectEvent} event - Custom item unselect event.
      */
-    'item-unselect': (event: AutoCompleteItemUnselectEvent) => void;
+    'item-unselect'(event: AutoCompleteItemUnselectEvent): void;
     /**
      * Callback to invoke to when dropdown button is clicked.
      * @param {AutoCompleteDropdownClickEvent} event - Custom dropdown click event.
      */
-    'dropdown-click': (event: AutoCompleteDropdownClickEvent) => void;
+    'dropdown-click'(event: AutoCompleteDropdownClickEvent): void;
     /**
      * Callback to invoke when input is cleared by the user.
      */
-    clear: () => void;
+    clear(): void;
     /**
      * Callback to invoke to search for suggestions.
      * @param {AutoCompleteCompleteEvent} event - Custom complete event.
      */
-    complete: (event: AutoCompleteCompleteEvent) => void;
+    complete(event: AutoCompleteCompleteEvent): void;
     /**
      * Callback to invoke before the overlay is shown.
      */
-    'before-show': () => void;
+    'before-show'(): void;
     /**
      * Callback to invoke before the overlay is hidden.
      */
-    'before-hide': () => void;
+    'before-hide'(): void;
     /**
      * Callback to invoke when the overlay is shown.
      */
-    show: () => void;
+    show(): void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    hide: () => void;
-};
+    hide(): void;
+}
 
+/**
+ * **PrimeVue - AutoComplete**
+ *
+ * _AutoComplete is an input component that provides real-time suggestions while being typed._
+ *
+ * [Live Demo](https://www.primevue.org/autocomplete/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class AutoComplete extends ClassComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -458,13 +493,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * AutoComplete is an input component that provides real-time suggestions when being typed.
- *
- * Demos:
- *
- * - [AutoComplete](https://www.primefaces.org/primevue/autocomplete)
- *
- */
 export default AutoComplete;
