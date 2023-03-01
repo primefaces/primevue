@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Table Component" header="DataTable" description="DataTable displays data in tabular format." :componentDocs="docs" :apiDocs="['DataTable', 'Column', 'ColumnGroup']" />
+    <DocComponent title="Vue Table Component" header="DataTable" description="DataTable displays data in tabular format." :componentDocs="docs" :apiDocs="['DataTable', 'Column', 'ColumnGroup', 'Row']" />
 </template>
 
 <script>
