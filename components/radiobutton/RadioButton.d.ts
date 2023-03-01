@@ -1,6 +1,18 @@
+/**
+ *
+ * RadioButton groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/radiobutton/)
+ *
+ * @module radiobutton
+ *
+ */
 import { InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in RadioButton component.
+ */
 export interface RadioButtonProps {
     /**
      * Value of the checkbox.
@@ -46,24 +58,39 @@ export interface RadioButtonProps {
 
 export interface RadioButtonSlots {}
 
-export declare type RadioButtonEmits = {
+/**
+ * Defines valid emits in RadioButton component.
+ */
+export interface RadioButtonEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any) => void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on radio button click.
      * @param {Event} event - Browser event.
      */
-    click: (event: Event) => void;
+    click(event: Event): void;
     /**
      * Callback to invoke on radio button value change.
      * @param {Event} event - Browser event.
      */
-    change: (event: Event) => void;
-};
+    change(event: Event): void;
+}
 
+/**
+ * **PrimeVue - RadioButton**
+ *
+ * _RadioButton groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/radiobutton/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class RadioButton extends ClassComponent<RadioButtonProps, RadioButtonSlots, RadioButtonEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -72,13 +99,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * RadioButton is an extension to standard radio button element with theming.
- *
- * Demos:
- *
- * - [RadioButton](https://www.primefaces.org/primevue/radiobutton)
- *
- */
 export default RadioButton;
