@@ -126,7 +126,7 @@ export interface CheckboxEmits {
  * @group Component
  *
  */
-export declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
+declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -134,13 +134,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Checkbox is an extension to standard checkbox element with theming.
- *
- * Demos:
- *
- * - [Checkbox](https://www.primefaces.org/primevue/checkbox)
- *
- */
 export default Checkbox;
