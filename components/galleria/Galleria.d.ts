@@ -1,9 +1,14 @@
+/**
+ *
+ * Galleria is an advanced content gallery component.
+ *
+ * [Live Demo](https://www.primevue.org/galleria/)
+ *
+ * @module galleria
+ *
+ */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-
-type GalleriaThumbnailsPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
-
-type GalleriaIndicatorsPositionType = 'bottom' | 'top' | 'left' | 'right' | undefined;
 
 export interface GalleriaResponsiveOptions {
     /**
@@ -16,6 +21,9 @@ export interface GalleriaResponsiveOptions {
     numVisible: number;
 }
 
+/**
+ * Defines valid properties in Galleria component.
+ */
 export interface GalleriaProps {
     /**
      * Unique identifier of the element.
@@ -27,19 +35,22 @@ export interface GalleriaProps {
     value?: any[];
     /**
      * Index of the first item.
-     * Default value is 0.
+     * @defaultValue 0
      */
     activeIndex?: number | undefined;
     /**
      * Whether to display the component on fullscreen.
+     * @defaultValue false
      */
     fullScreen?: boolean | undefined;
     /**
      * Specifies the visibility of the mask on fullscreen mode.
+     * @defaultValue false
      */
     visible?: boolean | undefined;
     /**
      * Number of items per page.
+     * @defaultValue 3
      */
     numVisible?: number | undefined;
     /**
@@ -49,67 +60,72 @@ export interface GalleriaProps {
     responsiveOptions?: GalleriaResponsiveOptions[];
     /**
      * Whether to display navigation buttons in item section.
+     * @defaultValue false
      */
     showItemNavigators?: boolean | undefined;
     /**
      * Whether to display navigation buttons in thumbnail container.
-     * Default value is true.
+     * @defaultValue true
      */
     showThumbnailNavigators?: boolean | undefined;
     /**
      * Whether to display navigation buttons on item hover.
+     * @defaultValue false
      */
     showItemNavigatorsOnHover?: boolean | undefined;
     /**
      * When enabled, item is changed on indicator hover.
+     * @defaultValue false
      */
     changeItemOnIndicatorHover?: boolean | undefined;
     /**
      * Defines if scrolling would be infinite.
+     * @defaultValue false
      */
     circular?: boolean | undefined;
     /**
      * Items are displayed with a slideshow in autoPlay mode.
+     * @defaultValue false
      */
     autoPlay?: boolean | undefined;
     /**
      * Time in milliseconds to scroll items.
-     * Default value is 4000.
+     * @defaultValue 4000
      */
     transitionInterval?: number | undefined;
     /**
      * Whether to display thumbnail container.
-     * Default value is true.
+     * @defaultValue true
      */
     showThumbnails?: boolean | undefined;
     /**
      * Position of thumbnails.
-     * @see GalleriaThumbnailsPositionType
-     * Default value is 'bottom'.
+     * @defaultValue bottom
      */
-    thumbnailsPosition?: GalleriaThumbnailsPositionType;
+    thumbnailsPosition?: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**
      * Height of the viewport in vertical thumbnail.
-     * Default value is '300px'.
+     * @defaultValue 300px
      */
     verticalThumbnailViewPortHeight?: string | undefined;
     /**
      * Whether to display indicator container.
+     * @defaultValue false
      */
     showIndicators?: boolean | undefined;
     /**
      * When enabled, indicator container is displayed on item container.
+     * @defaultValue false
      */
     showIndicatorsOnItem?: boolean | undefined;
     /**
      * Position of indicators.
-     * @see GalleriaIndicatorsPositionType
-     * Default value is 'bottom'.
+     * @defaultValue bottom
      */
-    indicatorsPosition?: GalleriaIndicatorsPositionType;
+    indicatorsPosition?: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**
      * Base zIndex value to use in layering.
-     * Default value is 0.
+     * @defaultValue 0
      */
     baseZIndex?: number | undefined;
     /**
@@ -137,71 +153,88 @@ export interface GalleriaProps {
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
 }
-
+/**
+ * Defines valid slots in Galleria slots.
+ */
 export interface GalleriaSlots {
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom footer template.
      */
-    footer: () => VNode[];
+    footer(): VNode[];
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Item instance
          */
         item: any;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom caption template.
      * @param {Object} scope - caption slot's params.
      */
-    caption: (scope: {
+    caption(scope: {
         /**
          * Item instance
          */
         item: any;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom indicator template.
      * @param {Object} scope - indicator slot's params.
      */
-    indicator: (scope: {
+    indicator(scope: {
         /**
          * Index of the indicator item
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom thumbnail template.
      * @param {Object} scope - thumbnail slot's params.
      */
-    thumbnail: (scope: {
+    thumbnail(scope: {
         /**
          * Item instance
          */
         item: any;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type GalleriaEmits = {
+/**
+ * Defines valid emits in Galleria component.
+ */
+export interface GalleriaEmits {
     /**
      * Emitted when the active index changes.
      * @param {number} value - Index of new active item.
      */
-    'update:activeIndex': (value: number) => void;
+    'update:activeIndex'(value: number): void;
     /**
      * Emitted when the visible changes.
      * @param {boolean} value - New value.
      */
-    'update:visible': (value: boolean) => void;
-};
+    'update:visible'(value: boolean): void;
+}
 
+/**
+ * **PrimeVue - Galleria**
+ *
+ * _Galleria is an advanced content gallery component._
+ *
+ * [Live Demo](https://www.primevue.org/galleria/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Galleria extends ClassComponent<GalleriaProps, GalleriaSlots, GalleriaEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -210,13 +243,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Galleria is an advanced content gallery component.
- *
- * Demos:
- *
- * - [Galleria](https://www.primefaces.org/primevue/galleria)
- *
- */
 export default Galleria;
