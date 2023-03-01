@@ -1,8 +1,19 @@
+/**
+ *
+ * FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.
+ *
+ * [Live Demo](https://www.primevue.org/fileupload/)
+ *
+ * @module fileupload
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type FileUploadModeType = 'advanced' | 'basic' | undefined;
-
+/**
+ * Custom select event.
+ * @see select
+ */
 export interface FileUploadSelectEvent {
     /**
      * Browser event.
@@ -14,6 +25,10 @@ export interface FileUploadSelectEvent {
     files: any;
 }
 
+/**
+ * Custom before upload event.
+ * @see before-upload
+ */
 export interface FileUploadBeforeUploadEvent {
     /**
      * XmlHttpRequest instance.
@@ -25,6 +40,10 @@ export interface FileUploadBeforeUploadEvent {
     formData: FormData;
 }
 
+/**
+ * Custom progress event.
+ * @see progress
+ */
 export interface FileUploadProgressEvent {
     /**
      * Browser event.
@@ -36,6 +55,10 @@ export interface FileUploadProgressEvent {
     progress: number;
 }
 
+/**
+ * Custom upload event.
+ * @see upload
+ */
 export interface FileUploadUploadEvent {
     /**
      * XmlHttpRequest instance.
@@ -47,13 +70,20 @@ export interface FileUploadUploadEvent {
     files: File | File[];
 }
 
+/**
+ * Custom uploader event.
+ * @see uploader
+ */
 export interface FileUploadUploaderEvent {
     /**
      * List of selected files.
      */
     files: File | File[];
 }
-
+/**
+ * Custom error event.
+ * @see error
+ */
 export interface FileUploadErrorEvent {
     /**
      * XmlHttpRequest instance.
@@ -64,7 +94,10 @@ export interface FileUploadErrorEvent {
      */
     files: File | File[];
 }
-
+/**
+ * Custom before send event.
+ * @see before-send
+ */
 export interface FileUploadBeforeSendEvent {
     /**
      * XmlHttpRequest instance.
@@ -76,6 +109,10 @@ export interface FileUploadBeforeSendEvent {
     formData: FormData;
 }
 
+/**
+ * Custom remove event.
+ * @see remove
+ */
 export interface FileUploadRemoveEvent {
     /**
      * Removed file.
@@ -86,7 +123,10 @@ export interface FileUploadRemoveEvent {
      */
     files: File[];
 }
-
+/**
+ * Custom remove upload file event.
+ * @see removeUploadFile
+ */
 export interface FileUploadRemoveUploadedFile {
     /**
      * Removed file.
@@ -98,6 +138,9 @@ export interface FileUploadRemoveUploadedFile {
     files: File[];
 }
 
+/**
+ * Defines valid properties in FileUpload component.
+ */
 export interface FileUploadProps {
     /**
      * Name of the request parameter to identify the files at backend.
@@ -109,12 +152,12 @@ export interface FileUploadProps {
     url?: string | undefined;
     /**
      * Defines the UI of the component, possible values are 'advanced' and 'basic'.
-     * @see FileUploadModeType
-     * Default value is 'advanced'.
+     * @defaultValue advanced
      */
-    mode?: FileUploadModeType;
+    mode?: 'advanced' | 'basic' | undefined;
     /**
      * Used to select multiple files at once from file dialog.
+     * @defaultValue false
      */
     multiple?: boolean | undefined;
     /**
@@ -123,10 +166,12 @@ export interface FileUploadProps {
     accept?: string | undefined;
     /**
      * Disables the upload functionality.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * When enabled, upload begins automatically after selection is completed.
+     * @defaultValue false
      */
     auto?: boolean | undefined;
     /**
@@ -135,17 +180,17 @@ export interface FileUploadProps {
     maxFileSize?: number | undefined;
     /**
      * Message of the invalid fize size.
-     * Default value is '{0}: Invalid file size, file size should be smaller than {1}.'.
+     * @defaultValue {0}: Invalid file size, file size should be smaller than {1}.
      */
     invalidFileSizeMessage?: string | undefined;
     /**
      * Message to display when number of files to be uploaded exceeeds the limit.
-     * Default value is 'Maximum number of files exceeded, limit is {0} at most.'.
+     * @defaultValue Maximum number of files to be uploaded is {0}.
      */
     invalidFileLimitMessage?: string | undefined;
     /**
      * Message of the invalid fize type.
-     * Default value is '{0}: Invalid file type, allowed file types: {1}.'.
+     * @defaultValue {0}: Invalid file type.
      */
     invalidFileTypeMessage?: string | undefined;
     /**
@@ -154,11 +199,12 @@ export interface FileUploadProps {
     fileLimit?: number | undefined;
     /**
      * Cross-site Access-Control requests should be made using credentials such as cookies, authorization headers or TLS client certificates.
+     * @defaultValue false
      */
     withCredentials?: boolean | undefined;
     /**
      * Width of the image thumbnail in pixels.
-     * Default value is 50.
+     * @defaultValue 50
      */
     previewWidth?: number | undefined;
     /**
@@ -167,38 +213,41 @@ export interface FileUploadProps {
     chooseLabel?: string | undefined;
     /**
      * Label of the upload button. Defaults to PrimeVue Locale configuration.
-     * Default value is 'Upload'.
      */
     uploadLabel?: string | undefined;
     /**
      * Label of the cancel button. Defaults to PrimeVue Locale configuration.
-     * Default value is 'Cancel'.
+     * @defaultValue Cancel
      */
     cancelLabel?: string | undefined;
     /**
      * Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue Locale configuration.
+     * @defaultValue false
      */
     customUpload?: boolean | undefined;
     /**
      * Whether to show the upload button.
-     * Default value is true.
+     * @defaultValue true
      */
     showUploadButton?: boolean | undefined;
     /**
      * Whether to show the cancel button.
-     * Default value is true.
+     * @defaultValue true
      */
     showCancelButton?: boolean | undefined;
     /**
      * Icon of the choose button.
+     * @defaultValue pi pi-fw pi-plus
      */
     chooseIcon?: string | undefined;
     /**
      * Icon of the upload button.
+     * @defaultValue pi pi-fw pi-upload
      */
     uploadIcon?: string | undefined;
     /**
      * Icon of the cancel button.
+     * @defaultValue pi pi-fw pi-times
      */
     cancelIcon?: string | undefined;
     /**
@@ -211,11 +260,14 @@ export interface FileUploadProps {
     class?: any;
 }
 
+/**
+ * Defines valid slots in FileUpload slots.
+ */
 export interface FileUploadSlots {
     /**
      * Custom header content template.
      */
-    header: (scope: {
+    header(scope: {
         /**
          * Files to upload.
          */
@@ -227,20 +279,20 @@ export interface FileUploadSlots {
         /**
          * Choose function
          */
-        chooseCallback: () => void;
+        chooseCallback(): void;
         /**
          * Upload function
          */
-        uploadCallback: () => void;
+        uploadCallback(): void;
         /**
          *  Clear function
          */
-        clearCallback: () => void;
-    }) => VNode[];
+        clearCallback(): void;
+    }): VNode[];
     /**
      * Custom uploaded content template.
      */
-    content: (scope: {
+    content(scope: {
         /**
          * Files to upload.
          */
@@ -252,11 +304,11 @@ export interface FileUploadSlots {
         /**
          * Function to remove an uploaded file.
          */
-        removeUploadedFileCallback: (index: number) => void;
+        removeUploadedFileCallback(index: number): void;
         /**
          * Function to remove a file.
          */
-        removeFileCallback: (index: number) => void;
+        removeFileCallback(index: number): void;
         /**
          *  Uploaded progress as number.
          */
@@ -265,65 +317,77 @@ export interface FileUploadSlots {
          * Status messages about upload process.
          */
         messages: string | undefined;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom content when there is no selected file.
      */
-    empty: () => VNode[];
+    empty(): VNode[];
 }
 
-export declare type FileUploadEmits = {
+export interface FileUploadEmits {
     /**
      * Callback to invoke when files are selected.
      * @param {FileUploadSelectEvent} event - Custom select event.
      */
-    select: (event: FileUploadSelectEvent) => void;
+    select(event: FileUploadSelectEvent): void;
     /**
      * Callback to invoke before file upload begins to customize the request such as post parameters before the files.
      * @param {FileUploadBeforeUploadEvent} event - Custom before upload event.
      */
-    'before-upload': (event: FileUploadBeforeUploadEvent) => void;
+    'before-upload'(event: FileUploadBeforeUploadEvent): void;
     /**
      * Callback to invoke when files are being uploaded.
      * @param {FileUploadProgressEvent} event - Custom progress event.
      */
-    progress: (event: FileUploadProgressEvent) => void;
+    progress(event: FileUploadProgressEvent): void;
     /**
      * Callback to invoke when file upload is complete.
      * @param {FileUploadUploadEvent} event - Custom upload event.
      */
-    upload: (event: FileUploadUploadEvent) => void;
+    upload(event: FileUploadUploadEvent): void;
     /**
      * Callback to invoke to implement a custom upload.
      * @param {FileUploadUploaderEvent} event - Custom uploader event.
      */
-    uploader: (event: FileUploadUploaderEvent) => void;
+    uploader(event: FileUploadUploaderEvent): void;
     /**
      * Callback to invoke if file upload fails.
      * @param {FileUploadErrorEvent} event - Custom error event.
      */
-    error: (event: FileUploadErrorEvent) => void;
+    error(event: FileUploadErrorEvent): void;
     /**
      * Callback to invoke before file send begins to customize the request such as adding headers.
      * @param {FileUploadBeforeSendEvent} event - Custom before send event.
      */
-    'before-send': (event: FileUploadBeforeSendEvent) => void;
+    'before-send'(event: FileUploadBeforeSendEvent): void;
     /**
      * Callback to invoke when files in queue are removed without uploading.
      */
-    clear: () => void;
+    clear(): void;
     /**
      * Callback to invoke when a singe file is removed from the list.
      * @param {FileUploadRemoveEvent} event - Custom remove event.
      */
-    remove: (event: FileUploadRemoveEvent) => void;
+    remove(event: FileUploadRemoveEvent): void;
     /**
      * Callback to invoke when a single uploaded file is removed from the uploaded file list.
      * @param {FileUploadRemoveUploadedFile} event - Custom uploaded file remove event.
      */
-    removeUploadedFile: (event: FileUploadRemoveUploadedFile) => void;
-};
+    removeUploadedFile(event: FileUploadRemoveUploadedFile): void;
+}
 
+/**
+ * **PrimeVue - FileUpload**
+ *
+ * _FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations._
+ *
+ * [Live Demo](https://www.primevue.org/fileupload/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -332,13 +396,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.
- *
- * Demos:
- *
- * - [FileUpload](https://www.primefaces.org/primevue/fileupload)
- *
- */
 export default FileUpload;
