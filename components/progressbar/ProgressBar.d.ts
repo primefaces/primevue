@@ -1,8 +1,18 @@
+/**
+ *
+ * ProgressBar is a process status indicator.
+ *
+ * [Live Demo](https://www.primevue.org/progressbar)
+ *
+ * @module progressbar
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type ProgressBarModeType = 'determinate' | 'indeterminate' | undefined;
-
+/**
+ * Defines valid properties in ProgressBar component.
+ */
 export interface ProgressBarProps {
     /**
      * Current value of the progress.
@@ -10,26 +20,42 @@ export interface ProgressBarProps {
     value?: number | undefined;
     /**
      * Defines the mode of the progress
-     * @see ProgressBarModeType
-     * Default value is 'determinate'.
+     * @defaultValue determinate
      */
-    mode?: ProgressBarModeType;
+    mode?: 'determinate' | 'indeterminate' | undefined;
     /**
      * Whether to display the progress bar value.
-     * Default value is true.
+     * @defaultValue true
      */
     showValue?: boolean | undefined;
 }
 
+/**
+ * Defines valid slots in ProgressBar component.
+ */
 export interface ProgressBarSlots {
     /**
      * Custom content slot.
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type ProgressBarEmits = {};
+/**
+ * Defines valid emits in ProgressBar component.
+ */
+export interface ProgressBarEmits {}
 
+/**
+ * **PrimeVue - ProgressBar**
+ *
+ * ProgressBar is a process status indicator._
+ *
+ * [Live Demo](https://www.primevue.org/progressbar/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class ProgressBar extends ClassComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -38,13 +64,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * ProgressBar is a process status indicator.
- *
- * Demos:
- *
- * - [ProgressBar](https://www.primefaces.org/primevue/progressbar)
- *
- */
 export default ProgressBar;
