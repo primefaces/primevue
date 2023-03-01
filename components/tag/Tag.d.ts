@@ -1,8 +1,18 @@
+/**
+ *
+ * Tag component is used to categorize content.
+ *
+ * [Live Demo](https://www.primevue.org/tag)
+ *
+ * @module tag
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type TagSeverityType = 'success' | 'info' | 'warning' | 'danger' | undefined;
-
+/**
+ * Defines valid properties in Tag component.
+ */
 export interface TagProps {
     /**
      * Value to display inside the tag.
@@ -10,11 +20,11 @@ export interface TagProps {
     value?: any;
     /**
      * Severity type of the tag.
-     * @see TagSeverityType
      */
-    severity?: TagSeverityType;
+    severity?: 'success' | 'info' | 'warning' | 'danger' | undefined;
     /**
      * Whether the corners of the tag are rounded.
+     * @defaultValue false
      */
     rounded?: boolean | undefined;
     /**
@@ -23,15 +33,32 @@ export interface TagProps {
     icon?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Tag component.
+ */
 export interface TagSlots {
     /**
      * Custom content template
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type TagEmits = {};
+/**
+ * Defines valid emits in Tag component.
+ */
+export interface TagEmits {}
 
+/**
+ * **PrimeVue - Tag**
+ *
+ * _Tag component is used to categorize content._
+ *
+ * [Live Demo](https://www.primevue.org/tag/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class Tag extends ClassComponent<TagProps, TagSlots, TagEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -40,13 +67,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Tag component is used to categorize content.
- *
- * Demos:
- *
- * - [Tag](https://www.primefaces.org/primevue/tag)
- *
- */
 export default Tag;
