@@ -126,7 +126,7 @@ export interface CheckboxEmits {
  * @group Component
  *
  */
-export declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
+declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

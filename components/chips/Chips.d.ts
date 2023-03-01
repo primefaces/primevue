@@ -1,6 +1,19 @@
+/**
+ *
+ * Chips groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/chips/)
+ *
+ * @module chips
+ *
+ */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom remove event.
+ * @see remove
+ */
 export interface ChipsAddEvent {
     /**
      * Browser event.
@@ -13,10 +26,15 @@ export interface ChipsAddEvent {
 }
 
 /**
+ * Custom remove event.
+ * @see remove
  * @extends ChipsAddEvent
  */
 export interface ChipsRemoveEvent extends ChipsAddEvent {}
 
+/**
+ * Defines valid properties in Chips component.
+ */
 export interface ChipsProps {
     /**
      * Value of the component.
@@ -77,38 +95,54 @@ export interface ChipsProps {
      */
     'aria-label'?: string | undefined;
 }
-
+/**
+ * Defines valid slots in Chips slots.
+ */
 export interface ChipsSlots {
     /**
      * Custom chip template.
      * @param {Object} scope - chip slot's params.
      */
-    chip: (scope: {
+    chip(scope: {
         /**
          * Value of the component
          */
         value: any;
-    }) => VNode[];
+    }): VNode[];
 }
-
-export declare type ChipsEmits = {
+/**
+ * Defines valid emits in Chips component.
+ */
+export interface ChipsEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any[]) => void;
+    'update:modelValue'(value: any[]): void;
     /**
      * Callback to invoke when a chip is added.
      * @param {ChipsAddEvent} event - Custom add event.
      */
-    add: (event: ChipsAddEvent) => void;
+    add(event: ChipsAddEvent): void;
     /**
      * Callback to invoke when a chip is removed.
      * @param {ChipsRemoveEvent} event - Custom remove event.
      */
-    remove: (event: ChipsRemoveEvent) => void;
-};
+    remove(event: ChipsRemoveEvent): void;
+}
 
+/**
+ * **PrimeVue - Chips**
+ *
+ * _Chips is used to enter multiple values on an input field._
+ *
+ * [Live Demo](https://www.primevue.org/chips/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Chips extends ClassComponent<ChipsProps, ChipsSlots, ChipsEmits> {}
 
 declare module '@vue/runtime-core' {
