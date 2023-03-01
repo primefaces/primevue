@@ -1,6 +1,18 @@
+/**
+ *
+ * Rating component is a star based selection input.
+ *
+ * [Live Demo](https://www.primevue.org/rating/)
+ *
+ * @module rating
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom change event.
+ */
 export interface RatingChangeEvent {
     /**
      * Browser event
@@ -12,6 +24,9 @@ export interface RatingChangeEvent {
     value: number;
 }
 
+/**
+ * Defines valid properties in Rating component.
+ */
 export interface RatingProps {
     /**
      * Value of the rating.
@@ -23,90 +38,109 @@ export interface RatingProps {
     name?: string | undefined;
     /**
      * When present, it specifies that the element should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * When present, it specifies that component is read-only.
+     * @defaultValue false
      */
     readonly?: boolean | undefined;
     /**
      * Number of stars.
-     * Default value is 5.
+     * @defaultValue 5
      */
     stars?: number | undefined;
     /**
      * When specified a cancel icon is displayed to allow clearing the value.
-     * Default value is true.
+     * @defaultValue true
      */
     cancel?: boolean | undefined;
     /**
      * Icon for the on state.
-     * Default value is pi pi-star.
+     * @defaultValue pi pi-star
      */
     onIcon?: string | undefined;
     /**
      * Icon for the off state.
-     * Default value is pi pi-star-fill.
+     * @defaultValue pi pi-star-fill
      */
     offIcon?: string | undefined;
     /**
      * Icon for the cancelable state.
-     * Default value is pi pi-ban.
+     * @defaultValue pi pi-ban
      */
     cancelIcon?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Rating component.
+ */
 export interface RatingSlots {
     /**
      * Custom cancel icon template.
      */
-    cancelicon: () => VNode[];
+    cancelicon(): VNode[];
     /**
      * Custom on icon template.
      * @param {Object} scope - on icon slot's params.
      */
-    onicon: (scope: {
+    onicon(scope: {
         /**
          * Item value
          */
         value: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom off icon template.
      * @param {Object} scope - off icon slot's params.
      */
-    officon: (scope: {
+    officon(scope: {
         /**
          * Item value
          */
         value: number;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type RatingEmits = {
+/**
+ * Defines valid emits in Rating component.
+ */
+export interface RatingEmits {
     /**
      * Emitted when the value changes.
      * @param {number} value - New value.
      */
-    'update:modelValue': (value: number) => void;
+    'update:modelValue'(value: number): void;
     /**
      * Callback to invoke when a suggestion is selected.
      * @param {RatingChangeEvent} event - Custom change event.
      */
-    change: (event: RatingChangeEvent) => void;
+    change(event: RatingChangeEvent): void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
-};
+    blur(event: Event): void;
+}
 
-declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}
+/**
+ * **PrimeVue - Rating**
+ *
+ * _Rating component is a star based selection input._
+ *
+ * [Live Demo](https://www.primevue.org/rating/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -114,13 +148,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Rating component is a star based selection input.
- *
- * Demos:
- *
- * - [Rating](https://www.primefaces.org/primevue/rating)
- *
- */
 export default Rating;
