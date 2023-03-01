@@ -151,13 +151,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Chips is used to enter multiple values on an input field.
- *
- * Demos:
- *
- * - [Chips](https://www.primefaces.org/primevue/chips)
- *
- */
 export default Chips;

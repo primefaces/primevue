@@ -1,6 +1,19 @@
+/**
+ *
+ * Editor groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/editor/)
+ *
+ * @module editor
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom text change event.
+ * @see text-change
+ */
 export interface EditorTextChangeEvent {
     /**
      * Current value as html.
@@ -23,7 +36,10 @@ export interface EditorTextChangeEvent {
      */
     instance: any;
 }
-
+/**
+ * Custom selection change event.
+ * @see selection-change
+ */
 export interface EditorSelectionChangeEvent {
     /**
      * Current value as html.
@@ -50,7 +66,10 @@ export interface EditorSelectionChangeEvent {
      */
     instance: any;
 }
-
+/**
+ * Custom load event.
+ * @see load
+ */
 export interface EditorLoadEvent {
     /**
      * Text editor instance.
@@ -58,6 +77,9 @@ export interface EditorLoadEvent {
     instance: any;
 }
 
+/**
+ * Defines valid properties in Editor component.
+ */
 export interface EditorProps {
     /**
      * Value of the content.
@@ -85,6 +107,9 @@ export interface EditorProps {
     modules?: any;
 }
 
+/**
+ * Defines valid slots in Editor slots.
+ */
 export interface EditorSlots {
     /**
      * Custom toolbar template.
@@ -92,29 +117,44 @@ export interface EditorSlots {
     toolbar: () => VNode[];
 }
 
-export declare type EditorEmits = {
+/**
+ * Defines valid emits in Editor component.
+ */
+export interface EditorEmits {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
      */
-    'update:modelValue': (value: string) => void;
+    'update:modelValue'(value: string): void;
     /**
      * Callback to invoke when text of editor changes.
      * @param {EditorTextChangeEvent} event - Custom text change event.
      */
-    'text-change': (event: EditorTextChangeEvent) => void;
+    'text-change'(event: EditorTextChangeEvent): void;
     /**
      * Callback to invoke when selection of the text changes.
      * @param {EditorSelectionChangeEvent} event - Custom selection change event.
      */
-    'selection-change': (event: EditorSelectionChangeEvent) => void;
+    'selection-change'(event: EditorSelectionChangeEvent): void;
     /**
      * Callback to invoke when the quill modules are loaded.
      * @param {EditorLoadEvent} event - Custom load event.
      */
-    load: (event: EditorLoadEvent) => void;
-};
+    load(event: EditorLoadEvent): void;
+}
 
+/**
+ * **PrimeVue - Editor**
+ *
+ * _Editor groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/editor/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Editor extends ClassComponent<EditorProps, EditorSlots, EditorEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -123,13 +163,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Editor is rich text editor component based on Quill.
- *
- * Demos:
- *
- * - [Editor](https://www.primefaces.org/primevue/editor)
- *
- */
 export default Editor;

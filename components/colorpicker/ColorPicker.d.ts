@@ -123,13 +123,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * ColorPicker is an input component to select a color.
- *
- * Demos:
- *
- * - [ColorPicker](https://www.primefaces.org/primevue/colorpicker)
- *
- */
 export default ColorPicker;

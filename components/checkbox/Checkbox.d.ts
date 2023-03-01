@@ -134,13 +134,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Checkbox is an extension to standard checkbox element with theming.
- *
- * Demos:
- *
- * - [Checkbox](https://www.primefaces.org/primevue/checkbox)
- *
- */
 export default Checkbox;
