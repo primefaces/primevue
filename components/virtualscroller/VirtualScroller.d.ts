@@ -1,14 +1,19 @@
+/**
+ *
+ * VirtualScroller is a performant approach to handle huge data efficiently.
+ *
+ * [Live Demo](https://www.primevue.org/virtualscroller/)
+ *
+ * @module virtualscroller
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type VirtualScrollerItemsType = any[] | any[][] | undefined | null;
-
-type VirtualScrollerItemSizeType = number | number[] | undefined;
-
-type VirtualScrollerOrientationType = 'vertical' | 'horizontal' | 'both' | undefined;
-
-type VirtualScrollerToType = 'to-start' | 'to-end' | undefined;
-
+/**
+ * Custom scroll index change event.
+ * @see scroll-index-change
+ */
 export interface VirtualScrollerScrollIndexChangeEvent {
     /**
      * First index of the new data range to be loaded.
@@ -21,15 +26,22 @@ export interface VirtualScrollerScrollIndexChangeEvent {
 }
 
 /**
+ * Custom lazy event.
+ * @see scroll-index-change
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
 export interface VirtualScrollerLazyEvent extends VirtualScrollerScrollIndexChangeEvent {}
 
 /**
+ * Custom virtualscroller viewport metadata.
+ * @see scroll-index-change
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
 export interface VirtualScrollerViewport extends VirtualScrollerScrollIndexChangeEvent {}
 
+/**
+ * Virtual scroller rendered range.
+ */
 export interface VirtualScrollerRangeMethod {
     /**
      * Whether the item is first.
@@ -46,6 +58,9 @@ export interface VirtualScrollerRangeMethod {
     viewport: VirtualScrollerViewport;
 }
 
+/**
+ * Custom item options.
+ */
 export interface VirtualScrollerItemOptions {
     /**
      * Item index
@@ -78,10 +93,15 @@ export interface VirtualScrollerItemOptions {
 }
 
 /**
+ * Custom virtualscroller loader options
+ * @see VirtualScrollerItemOptions
  * @extends VirtualScrollerItemOptions
  */
 export interface VirtualScrollerLoaderOptions extends VirtualScrollerItemOptions {}
 
+/**
+ * Defines valid properties in VirtualScroller component.
+ */
 export interface VirtualScrollerProps {
     /**
      * Unique identifier of the element.
@@ -98,11 +118,11 @@ export interface VirtualScrollerProps {
     /**
      * An array of objects to display.
      */
-    items?: VirtualScrollerItemsType;
+    items?: any[] | any[][] | undefined | null;
     /**
      * The height/width of item according to orientation.
      */
-    itemSize?: VirtualScrollerItemSizeType;
+    itemSize?: number | number[] | undefined;
     /**
      * Height of the scroll viewport.
      */
@@ -113,19 +133,18 @@ export interface VirtualScrollerProps {
     scrollWidth?: string | undefined;
     /**
      * The orientation of scrollbar.
-     * @see VirtualScrollerOrientationType
-     * Default value is 'vertical'.
+     * @defaultValue vertical
      */
-    orientation?: VirtualScrollerOrientationType;
+    orientation?: 'vertical' | 'horizontal' | 'both' | undefined;
     /**
      * Determines how many additional elements to add to the DOM outside of the view.
      * According to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number.
-     * Default value is half the number of items shown in the view.
+     * @defaultValue half the number of items shown in the view.
      */
     numToleratedItems?: number | undefined;
     /**
      * Delay in scroll before new data is loaded.
-     * Default value is 0.
+     * @defaultValue 0
      */
     delay?: number | undefined;
     /**
@@ -135,14 +154,17 @@ export interface VirtualScrollerProps {
     resizeDelay?: number | undefined;
     /**
      * Defines if data is loaded and interacted with in lazy manner.
+     * @defaultValue false
      */
     lazy?: boolean | undefined;
     /**
      * If disabled, the VirtualScroller feature is eliminated and the content is displayed directly.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * Used to implement a custom loader instead of using the loader feature in the VirtualScroller.
+     * @defaultValue false
      */
     loaderDisabled?: boolean | undefined;
     /**
@@ -151,21 +173,22 @@ export interface VirtualScrollerProps {
     showLoader?: boolean | undefined;
     /**
      * Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller.
-     * Default value is true.
+     * @defaultValue true
      */
     showSpacer?: boolean | undefined;
     /**
      * Whether to load items.
+     * @defaultValue false
      */
     loading?: boolean | undefined;
     /**
      * Callback to invoke in lazy mode to load new data.
      * @param {VirtualScrollerLazyEvent} event - Custom lazy event.
      */
-    onLazyLoad?: (event: VirtualScrollerLazyEvent) => void;
+    onLazyLoad?(event: VirtualScrollerLazyEvent): void;
     /**
      * Index of the element in tabbing order.
-     * Default value is 0.
+     * @defaultValue 0.
      */
     tabindex?: number | string | undefined;
     /**
@@ -190,12 +213,15 @@ export interface VirtualScrollerProps {
     autoSize?: boolean | undefined;
 }
 
+/**
+ * Defines valid slots in VirtualScroller component.
+ */
 export interface VirtualScrollerSlots {
     /**
      * Custom content template.
      * @param {Object} scope - content slot's params.
      */
-    content: (scope: {
+    content(scope: {
         /**
          * An array of objects to display for virtualscroller
          */
@@ -228,7 +254,7 @@ export interface VirtualScrollerSlots {
         /**
          * The height/width of item according to orientation.
          */
-        itemSize: VirtualScrollerItemSizeType;
+        itemSize: number | number[] | undefined;
         /**
          * The number of the rendered rows.
          */
@@ -257,12 +283,12 @@ export interface VirtualScrollerSlots {
          * Whether the orientation is both.
          */
         both: boolean;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Item data.
          */
@@ -271,42 +297,56 @@ export interface VirtualScrollerSlots {
          * Item options.
          */
         options: VirtualScrollerItemOptions;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom loader template.
      * @param {Object} scope - header slot's params.
      */
-    loader: (scope: {
+    loader(scope: {
         /**
          * Loader options.
          */
         options: VirtualScrollerLoaderOptions;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type VirtualScrollerEmits = {
+/**
+ * Defines valid emits in VirtualScroller component.
+ */
+export interface VirtualScrollerEmits {
     /**
      * Emitted when the numToleratedItems changes.
      * @param {number} value - New number tolerated items
      */
-    'update:numToleratedItems': (value: number) => void;
+    'update:numToleratedItems'(value: number): void;
     /**
      * Callback to invoke when scroll position changes.
      * @param {Event} event - Browser event.
      */
-    scroll: (event: Event) => void;
+    scroll(event: Event): void;
     /**
      * Callback to invoke when scroll position and item's range in view changes.
-     * @param {AccordionTabOpenEvent} event - Custom tab open event.
+     * @param {VirtualScrollerScrollIndexChangeEvent} event - Custom tab open event.
      */
-    'scroll-index-change': (event: VirtualScrollerScrollIndexChangeEvent) => void;
+    'scroll-index-change'(event: VirtualScrollerScrollIndexChangeEvent): void;
     /**
      * Callback to invoke in lazy mode to load new data.
      * @param {VirtualScrollerLazyEvent} event - Custom lazy event.
      */
-    'lazy-load': (event: VirtualScrollerLazyEvent) => void;
-};
+    'lazy-load'(event: VirtualScrollerLazyEvent): void;
+}
 
+/**
+ * **PrimeVue - VirtualScroller**
+ *
+ * _VirtualScroller is a performant approach to handle huge data efficiently._
+ *
+ * [Live Demo](https://www.primevue.org/virtualscroller/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits> {
     /**
      * Scroll to move to a specific position.
@@ -322,10 +362,10 @@ declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, Virtu
     /**
      * It is used to move the specified index into the view. It is a method that will usually be needed when keyboard support is added to the virtualScroller component.
      * @param {number} index - Index of item according to orientation mode.
-     * @param {VirtualScrollerToType} to - Defines the location of the item in view,
+     * @param {'to-start' | 'to-end' } to - Defines the location of the item in view,
      * @param {ScrollBehavior} [behavior] Behavior of scroll
      */
-    scrollInView(index: number, to: VirtualScrollerToType, behavior?: ScrollBehavior): void;
+    scrollInView(index: number, to: 'to-start' | 'to-end', behavior?: ScrollBehavior): void;
     /**
      * Returns the range of items added to the DOM.
      */
@@ -338,13 +378,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * VirtualScroller is a performant approach to handle huge data efficiently.
- *
- * Demos:
- *
- * - [VirtualScroller](https://www.primefaces.org/primevue/virtualscroller)
- *
- */
 export default VirtualScroller;
