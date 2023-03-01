@@ -1,9 +1,19 @@
+/**
+ *
+ * SplitButton groups a set of commands in an overlay with a default command.
+ *
+ * [Live Demo](https://www.primevue.org/autocomplete/)
+ *
+ * @module splitbutton
+ *
+ */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SplitButtonAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
-
+/**
+ * Defines valid properties in SplitButton component.
+ */
 export interface SplitButtonProps {
     /**
      * Text of the button.
@@ -19,22 +29,23 @@ export interface SplitButtonProps {
     model?: MenuItem[] | undefined;
     /**
      * Whether to automatically manage layering.
-     * Default value is true.
+     * @defaultValue true
      */
     autoZIndex?: boolean | undefined;
     /**
      * Base zIndex value to use in layering.
-     * Default value is 0.
+     * @defaultValue 0
      */
     baseZIndex?: number | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * @see SplitButtonAppendToType
-     * Default value is true.
+     * Special keywords are 'body' for document body and 'self' for the element itself.
+     * @defaultValue body
      */
-    appendTo?: SplitButtonAppendToType;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * When present, it specifies that the element should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -59,21 +70,39 @@ export interface SplitButtonProps {
     menuButtonIcon?: string | undefined;
 }
 
+/**
+ * Defines valid slots in SplitButton component.
+ */
 export interface SplitButtonSlots {
     /**
      * Button part of the content can easily be customized with the default slot instead of using the built-in modes.
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type SplitButtonEmits = {
+/**
+ * Defines valid emits in SplitButton component.
+ */
+export interface SplitButtonEmits {
     /**
      * Callback to invoke when main button is clicked.
      * @param {Event} event - Browser event.
      */
-    click: (event: Event) => void;
-};
+    click(event: Event): void;
+}
 
+/**
+ * **PrimeVue - SplitButton**
+ *
+ * _SplitButton groups a set of commands in an overlay with a default command._
+ *
+ * [Live Demo](https://www.primevue.org/splitbutton/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class SplitButton extends ClassComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -82,17 +111,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * SplitButton groups a set of commands in an overlay with a default command.
- *
- * Helper API:
- *
- * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
- *
- * Demos:
- *
- * - [SplitButton](https://www.primefaces.org/primevue/splitbutton)
- *
- */
 export default SplitButton;
