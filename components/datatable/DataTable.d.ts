@@ -103,7 +103,7 @@ export interface DataTableExportCSVOptions {
 
 /**
  * Custom tab open event.
- * @see {@link DataTableEmits.sort}
+ * @see sort
  */
 export interface DataTableSortEvent {
     /**
@@ -143,7 +143,7 @@ export interface DataTableSortEvent {
 
 /**
  * Custom pagination event.
- * @see {@link DataTableEmits.page}
+ * @see page
  * @extends DataTableSortEvent
  */
 export interface DataTablePageEvent extends DataTableSortEvent {
@@ -159,7 +159,7 @@ export interface DataTablePageEvent extends DataTableSortEvent {
 
 /**
  * Custom sort event.
- * @see {@link DataTableEmits.sort}
+ * @see sort
  * @extends DataTableSortEvent
  */
 export interface DataTableFilterEvent extends DataTableSortEvent {
@@ -190,14 +190,14 @@ export interface DataTableRowClickEvent {
 
 /**
  * Custom row double click event.
- * @see {@link DataTableEmits.row-click}
+ * @see row-click
  * @extends DataTableRowClickEvent
  */
 export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent {}
 
 /**
  * Custom context menu event.
- * @see {@link DataTableEmits.row-click}
+ * @see row-click
  * @extends DataTableRowClickEvent
  */
 export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
@@ -227,7 +227,7 @@ export interface DataTableRowSelectEvent {
 
 /**
  * Custom row unselect event.
- * @see {@link DataTableEmits.row-select}
+ * @see row-select
  * @extends DataTableRowSelectEvent
  */
 export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
@@ -348,7 +348,6 @@ export interface DataTableRowExpandEvent {
 /**
  * Custom row collapse event.
  * @see rowgroup-collapse
- * @todo
  * @extends DataTableRowExpandEvent
  */
 export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
