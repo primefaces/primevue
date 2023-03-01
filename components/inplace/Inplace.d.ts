@@ -1,22 +1,37 @@
-import { HTMLAttributes, ButtonHTMLAttributes, VNode } from 'vue';
+/**
+ *
+ * Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.
+ *
+ * [Live Demo](https://www.primevue.org/inplace)
+ *
+ * @module inplace
+ *
+ */
+import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Inplace component.
+ */
 export interface InplaceProps {
     /**
      * Displays a button to switch back to display mode.
+     * @defaultValue false
      */
     closable?: boolean | undefined;
     /**
      * Whether the content is displayed or not.
+     * @defaultValue false
      */
     active?: boolean | undefined;
     /**
      * When present, it specifies that the element should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * Icon to display in the close button.
-     * Default value is 'pi pi-times'.
+     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
@@ -29,35 +44,52 @@ export interface InplaceProps {
     closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
+/**
+ * Defines valid slots in Inplace component.
+ */
 export interface InplaceSlots {
     /**
      * Custom display template.
      */
-    display: () => VNode[];
+    display(): VNode[];
     /**
      * Custom content template.
      */
-    content: () => VNode[];
+    content(): VNode[];
 }
 
-export declare type InplaceEmits = {
+/**
+ * Defines valid emits in Inplace component.
+ */
+export interface InplaceEmits {
     /**
      * Emitted when the active changes.
      * @param {boolean} value - New value.
      */
-    'update:active': (value: boolean) => void;
+    'update:active'(value: boolean): void;
     /**
      * Callback to invoke when inplace is opened.
      * @param {Event} event - Browser event.
      */
-    open: (event: Event) => void;
+    open(event: Event): void;
     /**
      * Callback to invoke when inplace is closed.
      * @param {Event} event - Browser event.
      */
-    close: (event: Event) => void;
-};
+    close(event: Event): void;
+}
 
+/**
+ * **PrimeVue - Inplace**
+ *
+ * _Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content._
+ *
+ * [Live Demo](https://www.primevue.org/inplace/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class Inplace extends ClassComponent<InplaceProps, InplaceSlots, InplaceEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -66,13 +98,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.
- *
- * Demos:
- *
- * - [Inplace](https://www.primefaces.org/primevue/inplace)
- *
- */
 export default Inplace;
