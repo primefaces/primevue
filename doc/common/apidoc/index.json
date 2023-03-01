@@ -3349,7 +3349,17 @@
             }
         }
     },
-    "calendar/Calendar": {
+    "calendar": {
+        "description": "Calendar also known as DatePicker, is a form component to work with dates.\n\n[Live Demo](https://www.primevue.org/calendar/)",
+        "components": {
+            "Calendar": {
+                "description": "Calendar also known as DatePicker, is a form component to work with dates.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -3359,6 +3369,7 @@
             "slotDescription": "Defines the slots used by the component.",
             "values": {
                 "CalendarBlurEvent": {
+                    "description": "Custom Calendar blur event.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -3380,7 +3391,116 @@
                     ],
                     "methods": []
                 },
+                "CalendarEmits": {
+                    "description": "Defines valid emits in Calendar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "blur",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "clear-click",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "focus",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "keydown",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "month-change",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "today-click",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "year-change",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [
+                        {
+                            "name": "date-select",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "Date",
+                                    "description": "Selected value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a date is selected."
+                        },
+                        {
+                            "name": "hide",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke when datepicker panel is hidden."
+                        },
+                        {
+                            "name": "input",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event"
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when input field is being typed."
+                        },
+                        {
+                            "name": "show",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke when datepicker panel is shown."
+                        },
+                        {
+                            "name": "update:modelValue",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "undefined | string | string[] | Date | Date[]",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value changes."
+                        }
+                    ]
+                },
                 "CalendarMonthChangeEvent": {
+                    "description": "Custom Calendar month change event.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -3403,6 +3523,7 @@
                     "methods": []
                 },
                 "CalendarProps": {
+                    "description": "Defines valid properties in Calendar component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -3434,16 +3555,16 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Whether to automatically manage layering.\nDefault value is true."
+                            "default": "true",
+                            "description": "Whether to automatically manage layering."
                         },
                         {
                             "name": "baseZIndex",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Base zIndex value to use in layering.\nDefault value is 0."
+                            "default": "0",
+                            "description": "Base zIndex value to use in layering."
                         },
                         {
                             "name": "dateFormat",
@@ -3458,15 +3579,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon to show in each of the decrement buttons.\nDefault value is 'pi pi-chevron-down'."
+                            "default": "pi pi-chevron-down",
+                            "description": "Icon to show in each of the decrement buttons."
                         },
                         {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
@@ -3490,7 +3611,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to hide the overlay on date selection when showTime is enabled."
                         },
                         {
@@ -3498,7 +3619,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to hide the overlay on date selection is completed when selectionMode is range."
                         },
                         {
@@ -3506,7 +3627,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"12\" | \"24\"",
-                            "default": "",
+                            "default": "24",
                             "description": "Specifies hour format."
                         },
                         {
@@ -3514,8 +3635,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon of the calendar button.\nDefault value is 'pi pi-calendar'."
+                            "default": "pi pi-calendar",
+                            "description": "Icon of the calendar button."
                         },
                         {
                             "name": "id",
@@ -3530,15 +3651,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon to show in each of the increment buttons.\nDefault value is 'pi pi-chevron-up'."
+                            "default": "pi pi-chevron-up",
+                            "description": "Icon to show in each of the increment buttons."
                         },
                         {
                             "name": "inline",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, displays the calendar as inline instead of an overlay."
                         },
                         {
@@ -3578,8 +3699,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Wheter to allow prevents entering the date manually via typing.\nDefault value is true."
+                            "default": "true",
+                            "description": "Wheter to allow prevents entering the date manually via typing."
                         },
                         {
                             "name": "maxDate",
@@ -3618,7 +3739,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the month should be rendered as a dropdown instead of text."
                         },
                         {
@@ -3626,16 +3747,16 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon to show in the next button.\nDefault value is 'pi pi-chevron-right'."
+                            "default": "pi pi-chevron-right",
+                            "description": "Icon to show in the next button."
                         },
                         {
                             "name": "numberOfMonths",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Number of months to display.\nDefault value is 1."
+                            "default": "1",
+                            "description": "Number of months to display."
                         },
                         {
                             "name": "panelClass",
@@ -3674,15 +3795,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Icon to show in the previous button.\nDefault value is 'pi pi-chevron-left'."
+                            "default": "pi pi-chevron-left",
+                            "description": "Icon to show in the previous button."
                         },
                         {
                             "name": "readonly",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, it specifies that an input field is read-only."
                         },
                         {
@@ -3698,7 +3819,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true."
                         },
                         {
@@ -3714,15 +3835,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "The cutoff year for determining the century for a date.\nDefault value is +10."
+                            "default": "+10",
+                            "description": "The cutoff year for determining the century for a date."
                         },
                         {
                             "name": "showButtonBar",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to display today and clear buttons at the footer."
                         },
                         {
@@ -3730,7 +3851,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, displays a button with icon next to input."
                         },
                         {
@@ -3738,23 +3859,23 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "When disabled, datepicker will not be visible with input focus.\nDefault value is true."
+                            "default": "true",
+                            "description": "When disabled, datepicker will not be visible with input focus."
                         },
                         {
                             "name": "showOtherMonths",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option.\nDefault value is true."
+                            "default": "true",
+                            "description": "Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option."
                         },
                         {
                             "name": "showSeconds",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to show the seconds in time picker."
                         },
                         {
@@ -3762,7 +3883,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to display timepicker."
                         },
                         {
@@ -3770,7 +3891,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, calendar will show week numbers."
                         },
                         {
@@ -3778,31 +3899,31 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Hours to change per step.\nDefault value is 1."
+                            "default": "1",
+                            "description": "Hours to change per step."
                         },
                         {
                             "name": "stepMinute",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Minutes to change per step.\nDefault value is 1."
+                            "default": "1",
+                            "description": "Minutes to change per step."
                         },
                         {
                             "name": "stepSecond",
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Seconds to change per step.\nDefault value is 1."
+                            "default": "1",
+                            "description": "Seconds to change per step."
                         },
                         {
                             "name": "timeOnly",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to display timepicker only."
                         },
                         {
@@ -3810,15 +3931,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
-                            "description": "Separator of time selector.\nDefault value is ':'."
+                            "default": ":",
+                            "description": "Separator of time selector."
                         },
                         {
                             "name": "touchUI",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, calendar overlay is displayed as optimized for touch devices."
                         },
                         {
@@ -3834,7 +3955,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the year should be rendered as a dropdown instead of text."
                         },
                         {
@@ -3842,13 +3963,14 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "",
+                            "default": "false",
                             "description": "The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020)."
                         }
                     ],
                     "methods": []
                 },
                 "CalendarResponsiveOptions": {
+                    "description": "Custom Calendar responsive options metadata.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -3870,41 +3992,8 @@
                     ],
                     "methods": []
                 },
-                "CalendarSlots": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "date",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "decade",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "footer",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "header",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        }
-                    ],
-                    "methods": []
-                },
                 "CalendarYearChangeEvent": {
+                    "description": "Custom Calendar year change event.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -3931,8 +4020,9 @@
         "types": {
             "description": "Defines the custom types used by the module.",
             "values": {
-                "CalendarEmits": {
-                    "values": "{\n    \"blur\": \"Function, \",\n    \"clear-click\": \"Function, \",\n    \"date-select\": \"Function, \",\n    \"focus\": \"Function, \",\n    \"hide\": \"Function, \",\n    \"input\": \"Function, \",\n    \"keydown\": \"Function, \",\n    \"month-change\": \"Function, \",\n    \"show\": \"Function, \",\n    \"today-click\": \"Function, \",\n    \"update:modelValue\": \"Function, \",\n    \"year-change\": \"Function, \"\n}"
+                "CalendarSlots": {
+                    "values": "{}",
+                    "description": "Defines valid slots in Calendar component."
                 }
             }
         }

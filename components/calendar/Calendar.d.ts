@@ -1,18 +1,18 @@
+/**
+ *
+ * Calendar also known as DatePicker, is a form component to work with dates.
+ *
+ * [Live Demo](https://www.primevue.org/calendar/)
+ *
+ * @module calendar
+ *
+ */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type CalendarValueType = string | Date | string[] | Date[] | undefined;
-
-type CalendarSlotDateType = { day: number; month: number; year: number; today: boolean; selectable: boolean };
-
-type CalendarSelectionModeType = 'single' | 'multiple' | 'range' | undefined;
-
-type CalendarViewType = 'date' | 'month' | 'year' | undefined;
-
-type CalendarHourFormatType = '12' | '24' | undefined;
-
-type CalendarAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
-
+/**
+ * Custom Calendar responsive options metadata.
+ */
 export interface CalendarResponsiveOptions {
     /**
      * Breakpoint for responsive mode. Exp; @media screen and (max-width: ${breakpoint}) {...}
@@ -24,6 +24,9 @@ export interface CalendarResponsiveOptions {
     numMonths: number;
 }
 
+/**
+ * Custom Calendar month change event.
+ */
 export interface CalendarMonthChangeEvent {
     /**
      * New month.
@@ -35,6 +38,9 @@ export interface CalendarMonthChangeEvent {
     year: number;
 }
 
+/**
+ * Custom Calendar year change event.
+ */
 export interface CalendarYearChangeEvent {
     /**
      * New month.
@@ -46,6 +52,9 @@ export interface CalendarYearChangeEvent {
     year: number;
 }
 
+/**
+ * Custom Calendar blur event.
+ */
 export interface CalendarBlurEvent {
     /**
      * Browser event
@@ -57,99 +66,107 @@ export interface CalendarBlurEvent {
     value: string;
 }
 
+/**
+ * Defines valid properties in Calendar component.
+ */
 export interface CalendarProps {
     /**
      * Value of the component.
+     * @defaultValue null
      */
-    modelValue?: CalendarValueType;
+    modelValue?: string | Date | string[] | Date[] | undefined | null;
     /**
-     * Defines the quantity of the selection, valid values are 'single', 'multiple' and 'range'.
-     * @see CalendarSelectionModeType
-     * Default value is 'single'.
+     * Defines the quantity of the selection.
+     * @defaultValue single
      */
-    selectionMode?: CalendarSelectionModeType;
+    selectionMode?: 'single' | 'multiple' | 'range' | undefined;
     /**
      * Format of the date. Defaults to PrimeVue Locale configuration.
      */
     dateFormat?: string | undefined;
     /**
      * When enabled, displays the calendar as inline instead of an overlay.
+     * @defaultValue false
      */
     inline?: boolean | undefined;
     /**
      * Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option.
-     * Default value is true.
+     * @defaultValue true
      */
     showOtherMonths?: boolean | undefined;
     /**
      * Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true.
+     * @defaultValue false
      */
     selectOtherMonths?: boolean | undefined;
     /**
      * When enabled, displays a button with icon next to input.
+     * @defaultValue false
      */
     showIcon?: boolean | undefined;
     /**
      * Icon of the calendar button.
-     * Default value is 'pi pi-calendar'.
+     * @defaultValue pi pi-calendar
      */
     icon?: string | undefined;
     /**
      * Icon to show in the previous button.
-     * Default value is 'pi pi-chevron-left'.
+     * @defaultValue pi pi-chevron-left
      */
     previousIcon?: string | undefined;
     /**
      * Icon to show in the next button.
-     * Default value is 'pi pi-chevron-right'.
+     * @defaultValue pi pi-chevron-right
      */
     nextIcon?: string | undefined;
     /**
      * Icon to show in each of the increment buttons.
-     * Default value is 'pi pi-chevron-up'.
+     * @defaultValue pi pi-chevron-up
      */
     incrementIcon?: string | undefined;
     /**
      * Icon to show in each of the decrement buttons.
-     * Default value is 'pi pi-chevron-down'.
+     * @defaultValue pi pi-chevron-down
      */
     decrementIcon?: string | undefined;
     /**
      * Number of months to display.
-     * Default value is 1.
+     * @defaultValue 1
      */
     numberOfMonths?: number | undefined;
     /**
      * An array of options for responsive design.
-     * @see CalendarResponsiveOptions
      */
     responsiveOptions?: CalendarResponsiveOptions[];
     /**
-     * Type of view to display, valid values are 'date', 'month' and 'year'.
-     * @see CalendarViewType
-     * Default value is 'date'.
+     * Type of view to display.
+     * @defaultValue date
      */
-    view?: CalendarViewType;
+    view?: 'date' | 'month' | 'year' | undefined;
     /**
      * When enabled, calendar overlay is displayed as optimized for touch devices.
+     * @defaultValue false
      */
     touchUI?: boolean | undefined;
     /**
      * Whether the month should be rendered as a dropdown instead of text.
      *
      * @deprecated since version 3.9.0, Navigator is always on.
+     * @defaultValue false
      */
     monthNavigator?: boolean | undefined;
     /**
      * Whether the year should be rendered as a dropdown instead of text.
      *
      * @deprecated since version 3.9.0, Navigator is always on.
+     * @defaultValue false
      */
     yearNavigator?: boolean | undefined;
     /**
      * The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020).
      *
      * @deprecated since version 3.9.0, Years are based on decades by default.
+     * @defaultValue false
      */
     yearRange?: string | undefined;
     /**
@@ -174,87 +191,97 @@ export interface CalendarProps {
     maxDateCount?: number | undefined;
     /**
      * When disabled, datepicker will not be visible with input focus.
-     * Default value is true.
+     * @defaultValue true
      */
     showOnFocus?: boolean | undefined;
     /**
      * Whether to automatically manage layering.
-     * Default value is true.
+     * @defaultValue true
      */
     autoZIndex?: boolean | undefined;
     /**
      * Base zIndex value to use in layering.
-     * Default value is 0.
+     * @defaultValue 0
      */
     baseZIndex?: number | undefined;
     /**
      * Whether to display today and clear buttons at the footer.
+     * @defaultValue false
      */
     showButtonBar?: boolean | undefined;
     /**
      * The cutoff year for determining the century for a date.
-     * Default value is +10.
+     * @defaultValue +10
      */
     shortYearCutoff?: string | undefined;
     /**
      * Whether to display timepicker.
+     * @defaultValue false
      */
     showTime?: boolean | undefined;
     /**
      * Whether to display timepicker only.
+     * @defaultValue false
      */
     timeOnly?: boolean | undefined;
     /**
-     * Specifies 12 or 24 hour format.
+     * Specifies hour format.
+     * @defaultValue 24
      */
-    hourFormat?: CalendarHourFormatType;
+    hourFormat?: '12' | '24' | undefined;
     /**
      * Hours to change per step.
-     * Default value is 1.
+     * @defaultValue 1
      */
     stepHour?: number | undefined;
     /**
      * Minutes to change per step.
-     * Default value is 1.
+     * @defaultValue 1
      */
     stepMinute?: number | undefined;
     /**
      * Seconds to change per step.
-     * Default value is 1.
+     * @defaultValue 1
      */
     stepSecond?: number | undefined;
     /**
      * Whether to show the seconds in time picker.
+     * @defaultValue false
      */
     showSeconds?: boolean | undefined;
     /**
      * Whether to hide the overlay on date selection when showTime is enabled.
+     * @defaultValue false
      */
     hideOnDateTimeSelect?: boolean | undefined;
     /**
      * Whether to hide the overlay on date selection is completed when selectionMode is range.
+     * @defaultValue false
      */
     hideOnRangeSelection?: boolean | undefined;
     /**
      * Separator of time selector.
-     * Default value is ':'.
+     * @defaultValue :
      */
     timeSeparator?: string | undefined;
     /**
      * When enabled, calendar will show week numbers.
+     * @defaultValue false
      */
     showWeek?: boolean | undefined;
     /**
      * Wheter to allow prevents entering the date manually via typing.
-     * Default value is true.
+     * @defaultValue true
      */
     manualInput?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * When present, it specifies that an input field is read-only.
+     * @defaultValue false
      */
     readonly?: boolean | undefined;
     /**
@@ -262,11 +289,10 @@ export interface CalendarProps {
      */
     placeholder?: string | undefined;
     /**
-     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
-     * @see CalendarAppendToType
-     * Default value is 'body'.
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached.
+     * @defaultValue body
      */
-    appendTo?: CalendarAppendToType;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Identifier of the element.
      */
@@ -309,61 +335,65 @@ export interface CalendarProps {
     'aria-label'?: string | undefined;
 }
 
-export interface CalendarSlots {
+/**
+ * Defines valid slots in Calendar component.
+ */
+export declare type CalendarSlots = {
     /**
      * Custom header template of panel.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom footer template of panel.
      */
-    footer: () => VNode[];
+    footer(): VNode[];
     /**
      * Custom date template.
-     * @param {Object} scope - date slot's params.
      */
-    date: (scope: {
+    date(scope: {
         /**
          * Value of the component.
          */
-        date: CalendarSlotDateType;
-    }) => VNode[];
+        date: { day: number; month: number; year: number; today: boolean; selectable: boolean };
+    }): VNode[];
     /**
      * Custom decade template.
-     * @param {CalendarDecadeSlot} scope - decade slot's params.
      */
-    decade: (scope: {
+    decade(scope: {
         /**
          * An array containing the start and and year of a decade to display at header of the year picker.
          */
         years: string[] | undefined;
-    }) => VNode[];
-}
+    }): VNode[];
+};
 
-export declare type CalendarEmits = {
+/**
+ * Defines valid emits in Calendar component.
+ */
+export interface CalendarEmits {
     /**
      * Emitted when the value changes.
-     * @param {CalendarValueType} value - New value.
+     * @param {string | Date | string[] | Date[] | undefined} value - New value.
      */
-    'update:modelValue': (value: CalendarValueType) => void;
+    'update:modelValue'(value: string | Date | string[] | Date[] | undefined): void;
     /**
      * Callback to invoke when input field is being typed.
      * @param {Event} event - Browser event
      */
-    input: (event: Event) => void;
+    input(event: Event): void;
     /**
      * Callback to invoke when a date is selected.
      * @param {Date} value - Selected value.
      */
-    'date-select': (value: Date) => void;
+    'date-select'(value: Date): void;
     /**
      * Callback to invoke when datepicker panel is shown.
      */
-    show: () => void;
+    show(): void;
     /**
      * Callback to invoke when datepicker panel is hidden.
      */
-    hide: () => void;
+    hide(): void;
     /**
      * Callback to invoke when today button is clicked.
      * @param {Date} date - Today as a date instance.
@@ -398,9 +428,20 @@ export declare type CalendarEmits = {
      * Callback to invoke when a key is pressed.
      */
     keydown: (event: Event) => void;
-};
+}
 
-declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> {}
+/**
+ * **PrimeVue - Calendar**
+ *
+ * _Calendar also known as DatePicker, is a form component to work with dates._
+ *
+ * [Live Demo](https://www.primevue.org/calendar/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -408,13 +449,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Calendar is an input component to select a date.
- *
- * Demos:
- *
- * - [Calendar](https://www.primefaces.org/primevue/calendar)
- *
- */
 export default Calendar;
