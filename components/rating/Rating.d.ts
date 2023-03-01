@@ -12,6 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom change event.
+ * @see change
  */
 export interface RatingChangeEvent {
     /**

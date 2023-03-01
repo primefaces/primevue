@@ -12,6 +12,7 @@ import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-help
 
 /**
  * Custom input event.
+ * @see input
  */
 export interface InputNumberInputEvent {
     /**
@@ -26,6 +27,7 @@ export interface InputNumberInputEvent {
 
 /**
  * Custom blur event.
+ * @see blur
  */
 export interface InputNumberBlurEvent {
     /**

@@ -12,6 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom change event.
+ * @see change
  */
 export interface SelectButtonChangeEvent {
     /**
@@ -109,7 +110,6 @@ export interface SelectButtonEmits {
     change(event: SelectButtonChangeEvent): void;
     /**
      * Callback to invoke on focus.
-     * @param {SelectButtonChangeEvent} event - Browser event.
      */
     focus(event: Event): void;
     /**

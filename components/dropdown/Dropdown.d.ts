@@ -13,7 +13,7 @@ import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscro
 
 /**
  * Custom change event.
- * @see {@link DropdownEmits.change}
+ * @see change
  */
 export interface DropdownChangeEvent {
     /**
@@ -28,7 +28,7 @@ export interface DropdownChangeEvent {
 
 /**
  * Custom filetr event.
- * @see {@link DropdownEmits.filter}
+ * @see filter
  */
 export interface DropdownFilterEvent {
     /**
