@@ -1,6 +1,18 @@
+/**
+ *
+ * Checkbox is an extension to standard checkbox element with theming.
+ *
+ * [Live Demo](https://www.primevue.org/checkbox/)
+ *
+ * @module checkbox
+ *
+ */
 import { InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Checkbox component.
+ */
 export interface CheckboxProps {
     /**
      * Value of the checkbox.
@@ -16,18 +28,22 @@ export interface CheckboxProps {
     name?: string | undefined;
     /**
      * Allows to select a boolean value instead of multiple values.
+     * @default false
      */
     binary?: boolean;
     /**
      * When present, it specifies that the element should be disabled.
+     * @default false
      */
     disabled?: boolean | undefined;
     /**
      * When present, it specifies that an input field is read-only.
+     * @default false
      */
     readonly?: boolean | undefined;
     /**
      * When present, it specifies that the element is required.
+     * @default false
      */
     required?: boolean | undefined;
     /**
@@ -36,10 +52,12 @@ export interface CheckboxProps {
     tabindex?: number | undefined;
     /**
      * Value in checked state.
+     * @default true
      */
     trueValue?: any;
     /**
      * Value in unchecked state.
+     * @default false
      */
     falseValue?: any;
     /**
@@ -70,30 +88,45 @@ export interface CheckboxProps {
 
 export interface CheckboxSlots {}
 
-export declare type CheckboxEmits = {
+/**
+ * Defines valid emits in Checkbox component.
+ */
+export interface CheckboxEmits {
     /**
      * Emitted when the page changes.
      * @param {*} value - New page value.
      */
-    'update:page': (value: any) => void;
+    'update:page'(value: any): void;
     /**
      * Callback to invoke on value click.
      * @param {MouseEvent} event - Browser event.
      */
-    click: (event: MouseEvent) => void;
+    click(event: MouseEvent): void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.
      */
-    change: (event: Event) => void;
+    change(event: Event): void;
     /**
      * Callback to invoke on value change.
      * @param {boolean} value - New value.
      */
-    input: (value: boolean) => void;
-};
+    input(value: boolean): void;
+}
 
-declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
+/**
+ * **PrimeVue - Checkbox**
+ *
+ * _Accordion groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/checkbox/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
+export declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

@@ -307,7 +307,7 @@ if (project) {
                             methods.push({
                                 name: signature.name,
                                 parameters: signature.parameters.map((param) => {
-                                    let type = param.type.toString();
+                                    /*  let type = param.type.toString();
 
                                     if (param.type.declaration) {
                                         type = '';
@@ -317,12 +317,12 @@ if (project) {
                                         });
 
                                         type = `{\n ${type} }`;
-                                    }
+                                    } */
 
                                     return {
                                         name: param.name,
                                         optional: param.flags.isOptional,
-                                        type: type,
+                                        type: param.type.toString(),
                                         description: param.comment && param.comment.summary.map((s) => parseText(s.text || '')).join(' ')
                                     };
                                 }),
