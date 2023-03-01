@@ -1,12 +1,19 @@
+/**
+ *
+ * DataView displays data in grid or list layout with pagination and sorting features.
+ *
+ * [Live Demo](https://www.primevue.org/dataview/)
+ *
+ * @module dataview
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type DataViewLayoutType = 'list' | 'grid' | undefined;
-
-type DataTablePositionType = 'top' | 'bottom' | 'both' | undefined;
-
-type DataViewSortFieldType = string | ((item: any) => string) | undefined;
-
+/**
+ * Custom change event.
+ * @see page
+ */
 export interface DataViewPageEvent {
     /**
      * New page number
@@ -26,6 +33,9 @@ export interface DataViewPageEvent {
     pageCount: number;
 }
 
+/**
+ * Defines valid properties in DataView component. In addition to these, all properties of HTMLDivElement can be used in this component.
+ */
 export interface DataViewProps {
     /**
      * An array of objects to display.
@@ -33,18 +43,17 @@ export interface DataViewProps {
     value?: any[] | undefined;
     /**
      * Layout of the items, valid values are 'list' and 'grid'.
-     * @see DataViewLayoutType
-     * Default value is 'list'.
+     * @defaultValue list
      */
-    layout?: any;
+    layout?: 'list' | 'grid' | undefined;
     /**
      * Number of rows to display per page.
-     * Default value is 0.
+     * @defaultValue 0
      */
     rows?: number | undefined;
     /**
      * Index of the first record to render.
-     * Default value is 0.
+     * @defaultValue 0
      */
     first?: number | undefined;
     /**
@@ -53,21 +62,21 @@ export interface DataViewProps {
     totalRecords?: number | undefined;
     /**
      * When specified as true, enables the pagination.
+     * @defaultValue false
      */
     paginator?: boolean | undefined;
     /**
      * Position of the paginator, options are 'top','bottom' or 'both'.
-     * @see DataTablePositionType
-     * Default value is 'bottom'.
+     * @defaultValue bottom
      */
-    paginatorPosition?: DataTablePositionType;
+    paginatorPosition?: 'top' | 'bottom' | 'both' | undefined;
     /**
      * Whether to show it even there is only one page.
-     * Default value is true.
+     * @defaultValue true
      */
     alwaysShowPaginator?: boolean | undefined;
     /**
-     * Template of the paginator. It can be customized using the template property using the predefined keys, default value is 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'. Here are the available elements that can be placed inside a paginator in any order.
+     * Template of the paginator. It can be customized using the template property using the predefined keys,
      *
      * - FirstPageLink
      * - PrevPageLink
@@ -78,11 +87,13 @@ export interface DataViewProps {
      * - JumpToPageDropdown
      * - JumpToPageInput
      * - CurrentPageReport
+     *
+     * @defaultValue FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown
      */
     paginatorTemplate?: string | undefined;
     /**
      * Number of page links to display.
-     * Default value is 5.
+     * @defaultValue 5
      */
     pageLinkSize?: number | undefined;
     /**
@@ -90,7 +101,7 @@ export interface DataViewProps {
      */
     rowsPerPageOptions?: number[] | undefined;
     /**
-     * Template of the current page report element. It displays information about the pagination state. Default value is ({currentPage} of {totalPages}) whereas available placeholders are the following;
+     * Template of the current page report element. It displays information about the pagination state.
      *
      * - {currentPage}
      * - {totalPages}
@@ -98,19 +109,21 @@ export interface DataViewProps {
      * - {first}
      * - {last}
      * - {totalRecords}
+     *
+     * @defaultValue ({currentPage} of {totalPages})
      */
     currentPageReportTemplate?: string | undefined;
     /**
      * Property name or a getter function of data to use in sorting by default.
-     * @see DataViewSortFieldType
      */
-    sortField?: DataViewSortFieldType;
+    sortField?: string | ((item: any) => string) | undefined;
     /**
      * Order to sort the data by default.
      */
     sortOrder?: number | undefined;
     /**
      * Defines if data is loaded and interacted with in lazy manner.
+     * @defaultValue false
      */
     lazy?: boolean | undefined;
     /**
@@ -119,32 +132,35 @@ export interface DataViewProps {
     dataKey: string | undefined;
 }
 
+/**
+ * Defines valid slots in DataView component.
+ */
 export interface DataViewSlots {
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom footer template.
      */
-    footer: () => VNode[];
+    footer(): VNode[];
     /**
      * Custom empty template.
      */
-    empty: () => VNode[];
+    empty(): VNode[];
     /**
      * Custom paginator start template.
      */
-    paginatorstart: () => VNode[];
+    paginatorstart(): VNode[];
     /**
      * Custom paginator end template.
      */
-    paginatorend: () => VNode[];
+    paginatorend(): VNode[];
     /**
      * Custom list template.
      * @param {Object} scope - list slot's params.
      */
-    list: (scope: {
+    list(scope: {
         /**
          * Value of the component
          */
@@ -153,12 +169,12 @@ export interface DataViewSlots {
          * Index of the grid
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom list template.
      * @param {Object} scope - list slot's params.
      */
-    grid: (scope: {
+    grid(scope: {
         /**
          * Value of the component
          */
@@ -167,27 +183,42 @@ export interface DataViewSlots {
          * Index of the grid
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type DataViewEmits = {
+/**
+ * Defines valid slots in DataView component.
+ */
+export interface DataViewEmits {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
      */
-    'update:first': (value: number) => void;
+    'update:first'(value: number): void;
     /**
      * Emitted when the rows changes.
      * @param {number} value - New value.
      */
-    'update:rows': (value: number) => void;
+    'update:rows'(value: number): void;
     /**
      * Callback to invoke when page changes, the event object contains information about the new state.
      * @param {DataViewPageEvent} event - Custom page event.
      */
-    page: (event: DataViewPageEvent) => void;
-};
+    page(event: DataViewPageEvent): void;
+}
 
+/**
+ * **PrimeVue - DataViewLayoutOptions**
+ *
+ * _DataView displays data in grid or list layout with pagination and sorting features._
+ *
+ * [Live Demo](https://www.primevue.org/dataview/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
 declare class DataView extends ClassComponent<DataViewProps, DataViewSlots, DataViewEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -196,17 +227,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * DataView displays data in grid or list layout with pagination and sorting features.
- *
- * Helper API:
- *
- * - PrimeFlex
- *
- * Demos:
- *
- * - [DataView](https://www.primefaces.org/primevue/dataview)
- *
- */
 export default DataView;
