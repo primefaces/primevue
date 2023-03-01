@@ -1,8 +1,21 @@
+/**
+ *
+ * OrganizationChart visualizes hierarchical organization data.
+ *@todo
+ * Helper API:
+ *
+ * - OrganizationChartNode
+ *
+ * - [Live Demo](https://www.primefaces.org/primevue/organizationchart)
+ *
+ * @module organizationchart
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type OrganizationChartSelectionModeType = 'single' | 'multiple' | undefined;
-
+/**
+ * Defines valid properties in OrganizationChartNode.
+ */
 export interface OrganizationChartNode {
     /**
      * Unique identifier of the node. (required)
@@ -54,6 +67,9 @@ export interface OrganizationChartCollapsedKeys {
     [key: string]: any;
 }
 
+/**
+ * Defines valid properties in OrganizationChart component.
+ */
 export interface OrganizationChartProps {
     /**
      * Value of the component.
@@ -65,9 +81,8 @@ export interface OrganizationChartProps {
     selectionKeys?: OrganizationChartSelectionKeys;
     /**
      * Type of the selection.
-     * @see OrganizationChartSelectionModeType
      */
-    selectionMode?: OrganizationChartSelectionModeType;
+    selectionMode?: 'single' | 'multiple' | undefined;
     /**
      * A map instance of key-value pairs to represented the collapsed nodes.
      */
@@ -78,50 +93,68 @@ export interface OrganizationChartProps {
     collapsible?: boolean;
 }
 
+/**
+ * Defines valid slots in OrganizationChart component.
+ */
 export interface OrganizationChartSlots {
     /**
      * Custom content template.
      */
-    default: (node: any) => VNode[];
+    default(node: any): VNode[];
     /**
      * Dynamic content template.
+     * @todo
      */
-    [key: string]: (node: any) => VNode[];
+    // [key: string](node: any): VNode[];
 }
 
-type OrganizationChartEmits = {
+/**
+ * Defines valid emits in OrganizationChart component.
+ */
+export interface OrganizationChartEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:selectionKeys': (value: any) => void;
+    'update:selectionKeys'(value: any): void;
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.
      */
-    'update:collapsedKeys': (value: boolean) => void;
+    'update:collapsedKeys'(value: boolean): void;
     /**
      * Callback to invoke when a suggestion is selected.
      * @param {OrganizationChartNode} node - Node instance.
      */
-    'node-select': (node: OrganizationChartNode) => void;
+    'node-select'(node: OrganizationChartNode): void;
     /**
      * Callback to invoke when a node is unselected.
      * @param {OrganizationChartNode} node - Node instance.
      */
-    'node-unselect': (node: OrganizationChartNode) => void;
+    'node-unselect'(node: OrganizationChartNode): void;
     /**
      * Callback to invoke when a node is expanded.
      * @param {OrganizationChartNode} node - Node instance.
      */
-    'node-expand': (node: OrganizationChartNode) => void;
+    'node-expand'(node: OrganizationChartNode): void;
     /**
      * Callback to invoke when a node is collapsed.
      * @param {OrganizationChartNode} node - Node instance.
      */
-    'node-collapsed': (node: OrganizationChartNode) => void;
-};
+    'node-collapsed'(node: OrganizationChartNode): void;
+}
 
+/**
+ * **PrimeVue - OrganizationChart**
+ *
+ * _OrganizationChart visualizes hierarchical organization data._
+ *
+ * [Live Demo](https://www.primevue.org/organizationchart/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class OrganizationChart extends ClassComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -130,17 +163,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * OrganizationChart visualizes hierarchical organization data.
- *
- * Helper API:
- *
- * - OrganizationChartNode
- *
- * Demos:
- *
- * - [OrganizationChart](https://www.primefaces.org/primevue/organizationchart)
- *
- */
 export default OrganizationChart;
