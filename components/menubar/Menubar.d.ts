@@ -1,7 +1,19 @@
+/**
+ *
+ * Menubar is a horizontal menu component.
+ *
+ * [Live Demo](https://www.primevue.org/menubar/)
+ *
+ * @module menubar
+ *
+ */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Menubar component.
+ */
 export interface MenubarProps {
     /**
      * An array of menuitems.
@@ -9,7 +21,7 @@ export interface MenubarProps {
     model?: MenuItem[] | undefined;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
-     * Default value is true.
+     * @defaultValue true
      */
     exact?: boolean | undefined;
     /**
@@ -26,29 +38,47 @@ export interface MenubarProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Menubar component.
+ */
 export interface MenubarSlots {
     /**
      * Custom start template.
      */
-    start: () => VNode[];
+    start(): VNode[];
     /**
      * Custom end template.
      */
-    end: () => VNode[];
+    end(): VNode[];
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Menuitem instance
          */
         item: MenuItem;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type MenubarEmits = {};
+/**
+ * Defines valid emits in Menubar component.
+ */
+export interface MenubarEmits {}
 
+/**
+ * **PrimeVue - Menubar**
+ *
+ * _Menubar is a horizontal menu component._
+ *
+ * [Live Demo](https://www.primevue.org/menubar/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Menubar extends ClassComponent<MenubarProps, MenubarSlots, MenubarEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -57,17 +87,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Menubar is a horizontal menu component.
- *
- * Helper API:
- *
- * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
- *
- * Demos:
- *
- * - [Menubar](https://www.primefaces.org/primevue/menubar)
- *
- */
 export default Menubar;
