@@ -1,7 +1,19 @@
+/**
+ *
+ * ConfirmPopup displays a confirmation overlay displayed relatively to its target.
+ *
+ * [Live Demo](https://www.primevue.org/confirmpopup)
+ *
+ * @module confirmpopup
+ *
+ */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { ConfirmationOptions } from '../confirmationoptions';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in ConfirmPopup component.
+ */
 export interface ConfirmPopupProps {
     /**
      * Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.
@@ -9,17 +21,34 @@ export interface ConfirmPopupProps {
     group?: string;
 }
 
+/**
+ * Defines valid slots in ConfirmPopup component.
+ */
 export interface ConfirmPopupSlots {
     /**
      * Custom message template.
      * @param {Object} scope - message slot's params.
      */
-    message: (scope: { message: ConfirmationOptions }) => VNode[];
+    message(scope: { message: ConfirmationOptions }): VNode[];
 }
 
-export declare type ConfirmPopupEmits = {};
+/**
+ * Defines valid emits in ConfirmPopup component.
+ */
+export interface ConfirmPopupEmits {}
 
-declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> {}
+/**
+ * **PrimeVue - ConfirmPopup**
+ *
+ * _ConfirmPopup displays a confirmation overlay displayed relatively to its target._
+ *
+ * [Live Demo](https://www.primevue.org/confirmpopup/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -27,18 +56,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * ConfirmPopup displays a confirmation overlay displayed relatively to its target.
- *
- * Helper API:
- *
- * - Confirmation API
- * - ConfirmationService
- *
- * Demos:
- *
- * - [ConfirmPopup](https://www.primefaces.org/primevue/confirmpopup)
- *
- */
 export default ConfirmPopup;
