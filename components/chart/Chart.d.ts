@@ -51,12 +51,12 @@ export interface ChartProps {
     plugins?: any;
     /**
      * Width of the chart in non-responsive mode.
-     * Default value is 300.
+     * @defaultValue 300
      */
     width?: number | undefined;
     /**
      * Height of the chart in non-responsive mode.
-     * Default value is 150.
+     * @defaultValue 150
      */
     height?: number | undefined;
     /**

@@ -1,6 +1,6 @@
 /**
  *
- * InputSwitch groups a collection of contents in tabs.
+ * InputSwitch is used to select a boolean value.
  *
  * [Live Demo](https://www.primevue.org/inputswitch/)
  *
@@ -85,7 +85,7 @@ export interface InputSwitchEmits {
 /**
  * **PrimeVue - InputSwitch**
  *
- * _InputSwitch groups a collection of contents in tabs._
+ * _InputSwitch is used to select a boolean value._
  *
  * [Live Demo](https://www.primevue.org/inputswitch/)
  * --- ---

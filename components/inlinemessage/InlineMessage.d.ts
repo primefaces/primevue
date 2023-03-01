@@ -1,26 +1,49 @@
+/**
+ *
+ * InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, severity of the message.
+ *
+ * [Live Demo](https://www.primevue.org/inlinemessage/)
+ *
+ * @module inlinemessage
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type InlineMessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefined;
-
+/**
+ * Defines valid properties in InlineMessage component.
+ */
 export interface InlineMessageProps {
     /**
      * Severity level of the message.
-     * @see InlineMessageSeverityType
-     * Default value is 'info'.
+     * @defaultValue 'info'
      */
-    severity?: InlineMessageSeverityType;
+    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
 }
-
+/**
+ * Defines valid slots in InlineMessage slots.
+ */
 export interface InlineMessageSlots {
     /**
      * Default custom slot.
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type InlineMessageEmits = {};
+export interface InlineMessageEmits {}
 
+/**
+ * **PrimeVue - InlineMessage**
+ *
+ * _InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, severity of the message._
+ *
+ * [Live Demo](https://www.primevue.org/inlinemessage/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class InlineMessage extends ClassComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -29,13 +52,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, severity of the message.
- *
- * Demos:
- *
- * - [InlineMessage](https://www.primefaces.org/primevue/message)
- *
- */
 export default InlineMessage;

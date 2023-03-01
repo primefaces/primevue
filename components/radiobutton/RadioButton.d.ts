@@ -1,6 +1,6 @@
 /**
  *
- * RadioButton groups a collection of contents in tabs.
+ * RadioButton is an extension to standard radio button element with theming.
  *
  * [Live Demo](https://www.primevue.org/radiobutton/)
  *
@@ -82,7 +82,7 @@ export interface RadioButtonEmits {
 /**
  * **PrimeVue - RadioButton**
  *
- * _RadioButton groups a collection of contents in tabs._
+ * _RadioButton is an extension to standard radio button element with theming._
  *
  * [Live Demo](https://www.primevue.org/radiobutton/)
  * --- ---

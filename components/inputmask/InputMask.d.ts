@@ -1,6 +1,6 @@
 /**
  *
- * InputMask groups a collection of contents in tabs.
+ * InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.
  *
  * [Live Demo](https://www.primevue.org/inputmask/)
  *
@@ -83,7 +83,7 @@ export interface InputMaskEmits {
 /**
  * **PrimeVue - InputMask**
  *
- * _InputMask groups a collection of contents in tabs._
+ * _InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone._
  *
  * [Live Demo](https://www.primevue.org/inputmask/)
  * --- ---

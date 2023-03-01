@@ -1,27 +1,37 @@
+/**
+ *
+ * Message groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/message/)
+ *
+ * @module message
+ *
+ */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type MessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefined;
-
+/**
+ * Defines valid properties in Message component.
+ */
 export interface MessageProps {
     /**
      * Severity level of the message.
-     * @see MessageSeverityType
-     * Default value is 'info'.
+     * @defaultValue 'info'
      */
-    severity?: MessageSeverityType;
+    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
     /**
      * Whether the message can be closed manually using the close icon.
-     * Default value is true.
+     * @defaultValue true
      */
     closable?: boolean | undefined;
     /**
      * When enabled, message is not removed automatically.
+     * @defaultValue true
      */
     sticky?: boolean | undefined;
     /**
      * Delay in milliseconds to close the message automatically.
-     * Default value is 3000.
+     * @defaultValue 3000
      */
     life?: number | undefined;
     /**
@@ -30,7 +40,7 @@ export interface MessageProps {
     icon?: string | undefined;
     /**
      * Icon to display in the message close button.
-     * Default value is 'pi pi-times'.
+     * @defaultValue 'pi pi-times'
      */
     closeIcon?: string | undefined;
     /**
@@ -39,21 +49,39 @@ export interface MessageProps {
     closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
+/**
+ * Defines valid slots in Message slots.
+ */
 export interface MessageSlots {
     /**
      * Default custom slot.
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type MessageEmits = {
+/**
+ * Defines valid emits in Message component.
+ */
+export interface MessageEmits {
     /**
      * Callback to invoke when a message is closed.
      * @param {Event} event - Browser event.
      */
-    close: (event: Event) => void;
-};
+    close(event: Event): void;
+}
 
+/**
+ * **PrimeVue - Message**
+ *
+ * _Messages is used to display inline messages with various severities._
+ *
+ * [Live Demo](https://www.primevue.org/message/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Message extends ClassComponent<MessageProps, MessageSlots, MessageEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -62,13 +90,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Messages is used to display inline messages with various severities.
- *
- * Demos:
- *
- * - [Message](https://www.primefaces.org/primevue/message)
- *
- */
 export default Message;
