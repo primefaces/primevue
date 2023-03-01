@@ -1,19 +1,20 @@
+/**
+ *
+ * Dropdown also known as Select, is used to choose an item from a collection of options.
+ *
+ * [Live Demo](https://www.primereact.org/dropdown/)
+ *
+ * @module dropdown
+ *
+ */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
 
-type DropdownOptionLabelType = string | ((data: any) => string) | undefined;
-
-type DropdownOptionValueType = string | ((data: any) => any) | undefined;
-
-type DropdownOptionDisabledType = string | ((data: any) => boolean) | undefined;
-
-type DropdownOptionChildrenType = string | ((data: any) => any[]) | undefined;
-
-type DropdownFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
-
-type DropdownAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
-
+/**
+ * Custom change event.
+ * @see {@link DropdownEmits.change}
+ */
 export interface DropdownChangeEvent {
     /**
      * Browser event.
@@ -25,6 +26,10 @@ export interface DropdownChangeEvent {
     value: any;
 }
 
+/**
+ * Custom filetr event.
+ * @see {@link DropdownEmits.filter}
+ */
 export interface DropdownFilterEvent {
     /**
      * Browser event.
@@ -36,6 +41,9 @@ export interface DropdownFilterEvent {
     value: any;
 }
 
+/**
+ * Defines valid properties in Dropdown component.
+ */
 export interface DropdownProps {
     /**
      * Value of the component.
@@ -47,32 +55,27 @@ export interface DropdownProps {
     options?: any[];
     /**
      * Property name or getter function to use as the label of an option.
-     * @see DropdownOptionLabelType
      */
-    optionLabel?: DropdownOptionLabelType;
+    optionLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
-     * @see DropdownOptionValueType
      */
-    optionValue?: DropdownOptionValueType;
+    optionValue?: string | ((data: any) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
-     * @see DropdownOptionDisabledType
      */
-    optionDisabled?: DropdownOptionDisabledType;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
-     * @see DropdownOptionLabelType
      */
-    optionGroupLabel?: DropdownOptionLabelType;
+    optionGroupLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function that refers to the children options of option group.
-     * @see DropdownOptionChildrenType
      */
-    optionGroupChildren?: DropdownOptionChildrenType;
+    optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * Default value is '200px'.
+     * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
     /**
@@ -89,10 +92,9 @@ export interface DropdownProps {
     filterLocale?: string | undefined;
     /**
      * Defines the filtering algorithm to use when searching the options.
-     * @see DropdownFilterMatchModeType
-     * Default value is 'contains'.
+     * @defaultValue contains
      */
-    filterMatchMode?: DropdownFilterMatchModeType;
+    filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | undefined;
     /**
      * Fields used when filtering the options, defaults to optionLabel.
      */
@@ -154,33 +156,32 @@ export interface DropdownProps {
      */
     clearIconProps?: HTMLAttributes | undefined;
     /**
-     * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
-     * @see DropdownAppendToType
-     * Default value is 'body'.
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached.
+     * @defaultValue body
      */
-    appendTo?: DropdownAppendToType;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Whether the dropdown is in loading state.
      */
     loading?: boolean | undefined;
     /**
      * Icon to display in clear button.
-     * Default value is 'pi pi-times'.
+     * @defaultValue pi pi-times
      */
     clearIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
-     * Default value is 'pi pi-chevron-down'.
+     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * Default value is 'pi pi-search'.
+     * @defaultValue pi pi-search
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * Default value is 'pi pi-spinner pi-spin'.
+     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
@@ -189,47 +190,46 @@ export interface DropdownProps {
     resetFilterOnHide?: boolean;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
-     * @see VirtualScroller.VirtualScrollerProps
      */
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Whether to focus on the first visible or selected element when the overlay panel is shown.
-     * Default value is true.
+     * @defaultValue true
      */
     autoOptionFocus?: boolean | undefined;
     /**
      * Whether to focus on the filter element when the overlay panel is shown.
-     * Default value is false.
+     * @defaultValue false
      */
     autoFilterFocus?: boolean | undefined;
     /**
      * When enabled, the focused option is selected.
-     * Default value is false.
+     * @defaultValue false
      */
     selectOnFocus?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} results are available'.
+     * @defaultValue \{0} results are available
      */
     filterMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} items selected'.
+     * @defaultValue \{0} items selected
      */
     selectionMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No selected item'.
+     * @defaultValue No selected item
      */
     emptySelectionMessage?: string | undefined;
     /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
+     * @defaultValue No results found
      */
     emptyFilterMessage?: string | undefined;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
+     * @defaultValue No results found
      */
     emptyMessage?: string | undefined;
     /**
@@ -246,12 +246,15 @@ export interface DropdownProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Dropdown component.
+ */
 export interface DropdownSlots {
     /**
      * Custom value template.
      * @param {Object} scope - value slot's params.
      */
-    value: (scope: {
+    value(scope: {
         /**
          * Value of the component
          */
@@ -260,16 +263,16 @@ export interface DropdownSlots {
          * Placeholder prop value
          */
         placeholder: string;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom indicator template.
      */
-    indicator: () => VNode[];
+    indicator(): VNode[];
     /**
      * Custom header template of panel.
      * @param {Object} scope - header slot's params.
      */
-    header: (scope: {
+    header(scope: {
         /**
          * Value of the component
          */
@@ -278,12 +281,12 @@ export interface DropdownSlots {
          * Displayed options
          */
         options: any[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom footer template of panel.
      * @param {Object} scope - footer slot's params.
      */
-    footer: (scope: {
+    footer(scope: {
         /**
          * Value of the component
          */
@@ -292,12 +295,12 @@ export interface DropdownSlots {
          * Displayed options
          */
         options: any[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom option template.
      * @param {Object} scope - option slot's params.
      */
-    option: (scope: {
+    option(scope: {
         /**
          * Option instance
          */
@@ -306,12 +309,12 @@ export interface DropdownSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom option group template.
      * @param {Object} scope - option group slot's params.
      */
-    optiongroup: (scope: {
+    optiongroup(scope: {
         /**
          * Option instance
          */
@@ -320,20 +323,20 @@ export interface DropdownSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom empty filter template.
      */
-    emptyfilter: () => VNode[];
+    emptyfilter(): VNode[];
     /**
      * Custom empty template.
      */
-    empty: () => VNode[];
+    empty(): VNode[];
     /**
      * Custom content template.
      * @param {Object} scope - content slot's params.
      */
-    content: (scope: {
+    content(scope: {
         /**
          * An array of objects to display for virtualscroller
          */
@@ -353,74 +356,88 @@ export interface DropdownSlots {
          * @return {@link VirtualScroller.VirtualScrollerItemOptions}
          */
         getItemOptions(index: number): VirtualScrollerItemOptions;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom loader template.
      * @param {Object} scope - loader slot's params.
      */
-    loader: (scope: {
+    loader(scope: {
         /**
          * Options of the loader items for virtualscroller
          */
         options: any[];
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type DropdownEmits = {
+/**
+ * Defines valid emits in Dropdown component.
+ */
+export interface DropdownEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any) => void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {DropdownChangeEvent} event - Custom change event.
      */
-    change: (event: DropdownChangeEvent) => void;
+    change(event: DropdownChangeEvent): void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
+    blur(event: Event): void;
     /**
      * Callback to invoke before the overlay is shown.
      */
-    'before-show': () => void;
+    'before-show'(): void;
     /**
      * Callback to invoke before the overlay is hidden.
      */
-    'before-hide': () => void;
+    'before-hide'(): void;
     /**
      * Callback to invoke when the overlay is shown.
      */
-    show: () => void;
+    show(): void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    hide: () => void;
+    hide(): void;
     /**
      * Callback to invoke on filter input.
      * @param {DropdownFilterEvent} event - Custom filter event.
      */
-    filter: (event: DropdownFilterEvent) => void;
-};
+    filter(event: DropdownFilterEvent): void;
+}
 
-declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, DropdownEmits> {
+/**
+ * **PrimeVue - Dropdown**
+ *
+ * _Dropdown also known as Select, is used to choose an item from a collection of options._
+ *
+ * [Live Demo](https://www.primevue.org/dropdown/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, DropdownEmits> {
     /**
      * Shows the overlay.
-     * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component. @defaultValue false.
      *
      * @memberof Dropdown
      */
     show: (isFocus?: boolean) => void;
     /**
      * Hides the overlay.
-     * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component. @defaultValue false.
      *
      * @memberof Dropdown
      */
