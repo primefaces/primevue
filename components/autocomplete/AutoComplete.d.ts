@@ -485,7 +485,7 @@ export interface AutoCompleteEmits {
  * @group Component
  *
  */
-declare class AutoComplete extends ClassComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits> {}
+export declare class AutoComplete extends ClassComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

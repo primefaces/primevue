@@ -296,7 +296,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        editorInitCallback: () => void;
+        editorInitCallback(): void;
     }): VNode[];
     /**
      * Custom header template.
@@ -346,11 +346,11 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        editorSaveCallback: () => void;
+        editorSaveCallback(): void;
         /**
          * Callback function
          */
-        editorCancelCallback: () => void;
+        editorCancelCallback(): void;
     }): VNode[];
     /**
      * Custom filter template.
@@ -369,7 +369,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback: () => void;
+        filterCallback(): void;
     }): VNode[];
     /**
      * Custom filter header template.
@@ -388,7 +388,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback: () => void;
+        filterCallback(): void;
     }): VNode[];
     /**
      * Custom filter footer template.
@@ -407,7 +407,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback: () => void;
+        filterCallback(): void;
     }): VNode[];
     /**
      * Custom filter clear template.
@@ -426,7 +426,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback: () => void;
+        filterCallback(): void;
     }): VNode[];
     /**
      * Custom filter apply template.
@@ -445,7 +445,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback: () => void;
+        filterCallback(): void;
     }): VNode[];
     /**
      * Custom loading template.
