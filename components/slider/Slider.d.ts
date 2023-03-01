@@ -84,7 +84,7 @@ export interface SliderSlots {}
 /**
  * Defines valid emits in Slider component.
  */
-export declare type SliderEmits = {
+export interface SliderEmits {
     /**
      * Emitted when the value changes.
      * @param {number | number[]} value - New value.
@@ -100,7 +100,7 @@ export declare type SliderEmits = {
      * @param {SliderSlideEndEvent} event - Custom slide end event.
      */
     slideend(event: SliderSlideEndEvent): void;
-};
+}
 
 /**
  * **PrimeVue - Slider**
