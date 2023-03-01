@@ -84,12 +84,12 @@ export interface AccordionProps {
 /**
  * Defines valid slots in Accordion slots.
  */
-export declare type AccordionSlots = {
+export interface AccordionSlots {
     /**
      * Default slot to detect AccordionTab components.
      */
     default(): VNode[];
-};
+}
 
 /**
  * Defines valid emits in Accordion component.
@@ -129,7 +129,7 @@ export interface AccordionEmits {
  * @group Component
  *
  */
-export declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> {}
+declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

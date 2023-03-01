@@ -53,7 +53,7 @@ export default {
                 const props = values[`${docName}Props`];
                 const emits = values[`${docName}Emits`];
                 const slots = values[`${docName}Slots`];
-                const methods = componentValues ? componentValues[docName].methods : null;
+                const methods = componentValues ? componentValues['default'].methods : null;
 
                 const types = APIDocs[moduleName]['types'];
                 let events = this.findEvents(values);

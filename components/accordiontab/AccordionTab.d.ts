@@ -84,7 +84,7 @@ export interface AccordionTabEmits {}
  *
  * @group Component
  */
-export declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> {}
+declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
