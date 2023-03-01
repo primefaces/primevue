@@ -1,12 +1,18 @@
+/**
+ *
+ * InputNumber is an input component to provide numerical input.
+ *
+ * [Live Demo](https://www.primevue.org/inputnumber/)
+ *
+ * @module inputnumber
+ *
+ */
 import { ButtonHTMLAttributes, InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
-type InputNumberButtonLayoutType = 'stacked' | 'horizontal' | 'vertical' | undefined;
-
-type InputNumberLocaleMatcherType = 'lookup' | 'best fit' | undefined;
-
-type InputNumberModeType = 'decimal' | 'currency' | undefined;
-
+/**
+ * Custom input event.
+ */
 export interface InputNumberInputEvent {
     /**
      * Browser event
@@ -18,6 +24,9 @@ export interface InputNumberInputEvent {
     value: string | number | undefined;
 }
 
+/**
+ * Custom blur event.
+ */
 export interface InputNumberBlurEvent {
     /**
      * Browser event
@@ -29,6 +38,9 @@ export interface InputNumberBlurEvent {
     value: string;
 }
 
+/**
+ * Defines valid properties in InputNumber component.
+ */
 export interface InputNumberProps {
     /**
      * Value of the component.
@@ -36,18 +48,19 @@ export interface InputNumberProps {
     modelValue?: Nullable<number>;
     /**
      * Whether to format the value.
+     * @defaultValue true
      */
     format?: boolean | undefined;
     /**
      * Displays spinner buttons.
+     * @defaultValue false
      */
     showButtons?: boolean | undefined;
     /**
      * Layout of the buttons.
-     * @see InputNumberButtonLayoutType
      * Default value is 'stacked'.
      */
-    buttonLayout?: InputNumberButtonLayoutType;
+    buttonLayout?: 'stacked' | 'horizontal' | 'vertical' | undefined;
     /**
      * Style class of the increment button.
      */
@@ -73,16 +86,14 @@ export interface InputNumberProps {
     /**
      * The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'.
      * See [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details.
-     * @see InputNumberLocaleMatcherType
      * Default value is 'best fit'
      */
-    localeMatcher?: InputNumberLocaleMatcherType;
+    localeMatcher?: 'lookup' | 'best fit' | undefined;
     /**
      * Defines the behavior of the component.
-     * @see InputNumberModeType
      * Default value is 'decimal'.
      */
-    mode?: InputNumberModeType;
+    mode?: 'decimal' | 'currency' | undefined;
     /**
      * Text to display before the value.
      */
@@ -103,7 +114,7 @@ export interface InputNumberProps {
     currencyDisplay?: string | undefined;
     /**
      * Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators.
-     * Default value is true.
+     * @defaultValue true
      */
     useGrouping?: boolean | undefined;
     /**
@@ -126,25 +137,27 @@ export interface InputNumberProps {
     max?: number | undefined;
     /**
      * Step factor to increment/decrement the value.
-     * Default value is 1.
+     * @defaultValue 1
      */
     step?: number | undefined;
     /**
      * Determines whether the input field is empty.
-     * Default value is true.
+     * @defaultValue true
      */
     allowEmpty?: boolean | undefined;
     /**
      * Highlights automatically the input value.
-     * Default value is false.
+     * @defaultValue false
      */
     highlightOnFocus?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * When present, it specifies that an input field is read-only.
+     * @defaultValue false
      */
     readonly?: boolean | undefined;
     /**
@@ -185,32 +198,49 @@ export interface InputNumberProps {
     'aria-label'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in InputNumber component.
+ */
 export interface InputNumberSlots {}
 
-export declare type InputNumberEmits = {
+/**
+ * Defines valid emits in InputNumber component.
+ */
+export interface InputNumberEmits {
     /**
      * Emitted when the value changes.
      * @param {number} value - New value.
      */
-    'update:modelValue': (value: number) => void;
+    'update:modelValue'(value: number): void;
     /**
      * Callback to invoke when the value is entered.
      * @param {InputNumberInputEvent} event - Custom input event.
      */
-    input: (event: InputNumberInputEvent) => void;
+    input(event: InputNumberInputEvent): void;
     /**
      * Callback to invoke on focus of input field.
      * @param {Event} event - Focus event
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke on blur of input field.
      * @param {InputNumberBlurEvent} event - Blur event
      */
-    blur: (event: InputNumberBlurEvent) => void;
-};
+    blur(event: InputNumberBlurEvent): void;
+}
 
-declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {
+/**
+ * **PrimeVue - InputNumber**
+ *
+ * _InputNumber is an input component to provide numerical input._
+ *
+ * [Live Demo](https://www.primevue.org/inputnumber/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {
     /**
      * Returns Intl.NumberFormat object.
      *
@@ -225,17 +255,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * InputNumber is an input component to provide numerical input.
- *
- * Helper API:
- *
- * - [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
- *
- * Demos:
- *
- * - [InputNumber](https://www.primefaces.org/primevue/inputnumber)
- *
- */
 export default InputNumber;
