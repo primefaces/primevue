@@ -190,12 +190,14 @@ export interface DataTableRowClickEvent {
 
 /**
  * Custom row double click event.
+ * @see {@link DataTableEmits.row-click}
  * @extends DataTableRowClickEvent
  */
 export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent {}
 
 /**
  * Custom context menu event.
+ * @see {@link DataTableEmits.row-click}
  * @extends DataTableRowClickEvent
  */
 export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
@@ -225,6 +227,7 @@ export interface DataTableRowSelectEvent {
 
 /**
  * Custom row unselect event.
+ * @see {@link DataTableEmits.row-select}
  * @extends DataTableRowSelectEvent
  */
 export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
@@ -488,7 +491,6 @@ export interface DataTableStateEvent {
     multiSortMeta: DataTableSortMeta[] | undefined;
     /**
      * Collection of active filters
-     * @see DataTableFilterMeta
      */
     filters: DataTableFilterMeta;
     /**
@@ -501,7 +503,6 @@ export interface DataTableStateEvent {
     columnOrder: string[];
     /**
      * Instances of rows in expanded state
-     * @see DataTableExpandedRows
      */
     expandedRows: any[] | DataTableExpandedRows;
     /**
@@ -708,7 +709,6 @@ export interface DataTableProps {
     exportFilename?: string | undefined;
     /**
      * Custom function to export data.
-     * @see DataTableExportFunctionOptions
      */
     exportFunction?(options: DataTableExportFunctionOptions): any;
     /**
@@ -728,7 +728,6 @@ export interface DataTableProps {
     reorderableColumns?: boolean | undefined;
     /**
      * A collection of row data display as expanded.
-     * @see DataTableExpandedRows
      */
     expandedRows?: any[] | DataTableExpandedRows | null;
     /**
@@ -756,7 +755,6 @@ export interface DataTableProps {
     expandableRowGroups?: boolean | undefined;
     /**
      * An array of group field values whose groups would be rendered as expanded.
-     * @see DataTableExpandedRows
      */
     expandedRowGroups?: any[] | DataTableExpandedRows;
     /**
@@ -774,7 +772,6 @@ export interface DataTableProps {
     editMode?: 'cell' | 'row' | undefined;
     /**
      * A collection of rows to represent the current editing data in row edit mode.
-     * @see DataTableEditingRows
      */
     editingRows?: any[] | DataTableEditingRows;
     /**
@@ -797,7 +794,6 @@ export interface DataTableProps {
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * Note: Currently only vertical orientation mode is supported.
-     * @see VirtualScroller.VirtualScrollerProps
      */
     virtualScrollerOptions?: VirtualScrollerProps;
     /**

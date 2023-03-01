@@ -3409,9 +3409,9 @@
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarAppendToType",
-                            "default": "",
-                            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
+                            "type": "string | HTMLElement",
+                            "default": "body",
+                            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
                             "name": "aria-label",
@@ -3505,9 +3505,9 @@
                             "name": "hourFormat",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarHourFormatType",
+                            "type": "\"12\" | \"24\"",
                             "default": "",
-                            "description": "Specifies 12 or 24 hour format."
+                            "description": "Specifies hour format."
                         },
                         {
                             "name": "icon",
@@ -3609,8 +3609,8 @@
                             "name": "modelValue",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarValueType",
-                            "default": "",
+                            "type": "null | string | string[] | Date | Date[]",
+                            "default": "null",
                             "description": "Value of the component."
                         },
                         {
@@ -3705,9 +3705,9 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarSelectionModeType",
-                            "default": "",
-                            "description": "Defines the quantity of the selection, valid values are 'single', 'multiple' and 'range'."
+                            "type": "\"multiple\" | \"range\" | \"single\"",
+                            "default": "single",
+                            "description": "Defines the quantity of the selection."
                         },
                         {
                             "name": "shortYearCutoff",
@@ -3825,9 +3825,9 @@
                             "name": "view",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarViewType",
-                            "default": "",
-                            "description": "Type of view to display, valid values are 'date', 'month' and 'year'."
+                            "type": "\"month\" | \"year\" | \"date\"",
+                            "default": "date",
+                            "description": "Type of view to display."
                         },
                         {
                             "name": "yearNavigator",
@@ -8277,7 +8277,7 @@
                 },
                 "DataTableRowContextMenuEvent": {
                     "description": "Custom context menu event.",
-                    "relatedProp": "",
+                    "relatedProp": "row-click",
                     "props": [
                         {
                             "name": "data",
@@ -8309,7 +8309,7 @@
                 },
                 "DataTableRowDoubleClickEvent": {
                     "description": "Custom row double click event.",
-                    "relatedProp": "",
+                    "relatedProp": "row-click",
                     "props": [
                         {
                             "name": "data",
@@ -8437,7 +8437,7 @@
                 },
                 "DataTableRowUnselectEvent": {
                     "description": "Custom row unselect event.",
-                    "relatedProp": "",
+                    "relatedProp": "row-select",
                     "props": [
                         {
                             "name": "data",
@@ -16844,7 +16844,17 @@
             }
         }
     },
-    "splitter/Splitter": {
+    "splitter": {
+        "description": "Splitter is utilized to separate and resize panels.\n\n[Live Demo](https://www.primevue.org/splitter/)",
+        "components": {
+            "Splitter": {
+                "description": "Splitter is utilized to separate and resize panels.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -16853,7 +16863,41 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "SplitterEmits": {
+                    "description": "Defines valid emits in Splitter component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "resizeend",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "SplitterResizeEndEvent",
+                                    "description": "Custom resize end event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when resize ends."
+                        },
+                        {
+                            "name": "resizestar",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "SplitterResizeStartEvent",
+                                    "description": "Custom resize start event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when resize starts."
+                        }
+                    ]
+                },
                 "SplitterProps": {
+                    "description": "Defines valid properties in Splitter component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -16861,15 +16905,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Size of the divider in pixels.\nDefault value is 4."
+                            "default": "4",
+                            "description": "Size of the divider in pixels."
                         },
                         {
                             "name": "layout",
                             "optional": true,
                             "readonly": false,
-                            "type": "SplitterLayoutType",
-                            "default": "",
+                            "type": "\"horizontal\" | \"vertical\"",
+                            "default": "horizontal",
                             "description": "Orientation of the panels."
                         },
                         {
@@ -16884,8 +16928,8 @@
                             "name": "stateStorage",
                             "optional": true,
                             "readonly": false,
-                            "type": "SplitterStateStorageType",
-                            "default": "",
+                            "type": "\"local\" | \"session\"",
+                            "default": "session",
                             "description": "Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage."
                         },
                         {
@@ -16893,14 +16937,15 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "",
-                            "description": "Step factor to increment/decrement the size of the panels while pressing the arrow keys.\nDefault value is 1."
+                            "default": "1",
+                            "description": "Step factor to increment/decrement the size of the panels while pressing the arrow keys."
                         }
                     ],
                     "methods": []
                 },
                 "SplitterResizeEndEvent": {
-                    "relatedProp": "",
+                    "description": "Custom resize end event.",
+                    "relatedProp": "resizeend",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -16922,7 +16967,8 @@
                     "methods": []
                 },
                 "SplitterResizeStartEvent": {
-                    "relatedProp": "",
+                    "description": "Custom resize start event.",
+                    "relatedProp": "resizestar",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -16944,30 +16990,32 @@
                     "methods": []
                 },
                 "SplitterSlots": {
+                    "description": "Defines valid slots in Splitter slots.",
                     "relatedProp": "",
-                    "props": [
+                    "props": [],
+                    "methods": [
                         {
                             "name": "default",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Default slot to detect SplitterPanel components."
                         }
-                    ],
-                    "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "SplitterEmits": {
-                    "values": "{\n    \"resizeend\": \"Function, \",\n    \"resizestar\": \"Function, \"\n}"
+                    ]
                 }
             }
         }
     },
-    "splitterpanel/SplitterPanel": {
+    "splitterpanel": {
+        "description": "SplitterPanel is a helper component for Splitter component.\n\n[Live Demo](https://www.primevue.org/splitter/)",
+        "components": {
+            "SplitterPanel": {
+                "description": "SplitterPanel is a helper component for Splitter component.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -16976,7 +17024,13 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "SplitterPanelEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                },
                 "SplitterPanelProps": {
+                    "description": "Defines valid properties in SplitterPanel component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -16999,6 +17053,7 @@
                     "methods": []
                 },
                 "SplitterPanelSlots": {
+                    "description": "Defines valid slots in SplitterPanel slots.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -17010,14 +17065,6 @@
                         }
                     ],
                     "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "SplitterPanelEmits": {
-                    "values": "{}"
                 }
             }
         }
