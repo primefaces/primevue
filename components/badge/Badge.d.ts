@@ -1,10 +1,18 @@
+/**
+ *
+ * Badge represents people using icons, labels and images.
+ *
+ * [Live Demo](https://www.primevue.org/badge)
+ *
+ * @module badge
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type BadgeSeverityType = 'info' | 'success' | 'warning' | 'danger' | undefined;
-
-type BadgeSizeType = 'large' | 'xlarge' | undefined;
-
+/**
+ * Defines valid properties in Badge component.
+ */
 export interface BadgeProps {
     /**
      * Value to display inside the badge.
@@ -12,25 +20,40 @@ export interface BadgeProps {
     value?: any;
     /**
      * Severity type of the badge.
-     * @see BadgeSeverityType
      */
-    severity?: BadgeSeverityType;
+    severity?: 'info' | 'success' | 'warning' | 'danger' | undefined;
     /**
      * Size of the badge, valid options are 'large' and 'xlarge'.
-     * @see BadgeSizeType
      */
-    size?: BadgeSizeType;
+    size?: 'large' | 'xlarge' | undefined;
 }
 
+/**
+ * Defines valid slots in Badge component.
+ */
 export interface BadgeSlots {
     /**
      * Content can easily be customized with the default slot instead of using the built-in display.
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type BadgeEmits = {};
+/**
+ * Defines valid emits in Badge component.
+ */
+export interface BadgeEmits {}
 
+/**
+ * **PrimeVue - Badge**
+ *
+ * _Badge represents people using icons, labels and images._
+ *
+ * [Live Demo](https://www.primevue.org/badge/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> {}
 
 declare module '@vue/runtime-core' {
