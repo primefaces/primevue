@@ -1,9 +1,19 @@
+/**
+ *
+ * MegaMenu is navigation component that displays submenus together.
+ *
+ * [Live Demo](https://www.primevue.org/megamenu/)
+ *
+ * @module megamenu
+ *
+ */
 import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type MegaMenuOrientationType = 'horizontal' | 'vertical' | undefined;
-
+/**
+ * Defines valid properties in MegaMenu component.
+ */
 export interface MegaMenuProps {
     /**
      * An array of menuitems.
@@ -11,17 +21,17 @@ export interface MegaMenuProps {
     model?: MenuItem[] | undefined;
     /**
      * Defines the orientation.
-     * @see MegaMenuOrientationType
-     * Default value is 'horizontal'.
+     * @defaultValue horizontal
      */
-    orientation?: MegaMenuOrientationType;
+    orientation?: 'horizontal' | 'vertical' | undefined;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
-     * Default value is true.
+     * @defaultValue true
      */
     exact?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -38,40 +48,58 @@ export interface MegaMenuProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in MegaMenu component.
+ */
 export interface MegaMenuSlots {
     /**
      * Custom start template.
      */
-    start: () => VNode[];
+    start(): VNode[];
     /**
      * Custom end template.
      */
-    end: () => VNode[];
+    end(): VNode[];
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Menuitem instance
          */
         item: MenuItem;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type MegaMenuEmits = {
+/**
+ * Defines valid emits in MegaMenu component.
+ */
+export interface MegaMenuEmits {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
-};
+    blur(event: Event): void;
+}
 
+/**
+ * **PrimeVue - MegaMenu**
+ *
+ * _MegaMenu is navigation component that displays submenus together._
+ *
+ * [Live Demo](https://www.primevue.org/megamenu/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -80,17 +108,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * MegaMenu is navigation component that displays submenus together.
- *
- * Helper API:
- *
- * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
- *
- * Demos:
- *
- * - [MegaMenu](https://www.primefaces.org/primevue/megamenu)
- *
- */
 export default MegaMenu;
