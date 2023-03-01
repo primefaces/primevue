@@ -1,7 +1,19 @@
+/**
+ *
+ * ConfirmDialog uses a Dialog UI with confirmDialog method or <ConfirmDialog> tag.
+ *
+ * [Live Demo](https://www.primevue.org/confirmdialog)
+ *
+ * @module confirmdialog
+ *
+ */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { ConfirmationOptions } from '../confirmationoptions';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Breakpoint metadata.
+ */
 export interface ConfirmDialogBreakpoints {
     /**
      * Breakpoint for responsive mode.
@@ -21,6 +33,9 @@ export interface ConfirmDialogBreakpoints {
     [key: string]: string;
 }
 
+/**
+ * Defines valid properties in ConfirmDialog component.
+ */
 export interface ConfirmDialogProps {
     /**
      * Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.
@@ -33,17 +48,34 @@ export interface ConfirmDialogProps {
     breakpoints?: ConfirmDialogBreakpoints;
 }
 
+/**
+ * Defines valid slots in ConfirmDialog component.
+ */
 export interface ConfirmDialogSlots {
     /**
      * Custom message template.
      * @param {Object} scope - message slot's params.
      */
-    message: (scope: { message: ConfirmationOptions }) => VNode[];
+    message(scope: { message: ConfirmationOptions }): VNode[];
 }
 
-export declare type ConfirmDialogEmits = {};
+/**
+ * Defines valid emits in ConfirmDialog component.
+ */
+export interface ConfirmDialogEmits {}
 
-declare class ConfirmDialog extends ClassComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits> {}
+/**
+ * **PrimeVue - ConfirmDialog**
+ *
+ * _ConfirmDialog uses a Dialog UI with confirmDialog method or <ConfirmDialog> tag._
+ *
+ * [Live Demo](https://www.primevue.org/confirmdialog/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class ConfirmDialog extends ClassComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -51,18 +83,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.
- *
- * Helper API:
- *
- * - Confirmation API
- * - ConfirmationService
- *
- * Demos:
- *
- * - [ConfirmDialog](https://www.primefaces.org/primevue/confirmdialog)
- *
- */
 export default ConfirmDialog;
