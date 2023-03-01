@@ -28,7 +28,7 @@ export interface MultiSelectChangeEvent {
 
 /**
  * Custom all change event.
- * @see {@link MultiSelectEmits.selectall-change}
+ * @see {@link MultiSelectEmits['selectall-change']}
  */
 export interface MultiSelectAllChangeEvent {
     /**

@@ -28,7 +28,7 @@ export interface AutoCompleteChangeEvent {
 
 /**
  * Custom item select event.
- * @see {@link AutoCompleteEmits.item-select}
+ * @see {@link AutoCompleteEmits['item-select']}
  */
 export interface AutoCompleteItemSelectEvent {
     /**
@@ -43,14 +43,14 @@ export interface AutoCompleteItemSelectEvent {
 
 /**
  * Custom item unselect event.
- * @see {@link AutoCompleteEmits.item-unselect}
+ * @see {@link AutoCompleteEmits['item-unselect']}
  * @extends AutoCompleteItemSelectEvent
  */
 export interface AutoCompleteItemUnselectEvent extends AutoCompleteItemSelectEvent {}
 
 /**
  * Custom dropdown click event.
- * @see {@link AutoCompleteEmits.dropdown-click}
+ * @see {@link AutoCompleteEmits['dropdown-click']}
  */
 export interface AutoCompleteDropdownClickEvent {
     /**
