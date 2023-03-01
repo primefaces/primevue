@@ -1,12 +1,18 @@
+/**
+ *
+ * SelectButton is used to choose single or multiple items from a list using buttons.
+ *
+ * [Live Demo](https://www.primevue.org/selectbutton/)
+ *
+ * @module selectbutton
+ *
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SelectButtonOptionLabelType = string | ((data: any) => string) | undefined;
-
-type SelectButtonOptionValueType = string | ((data: any) => any) | undefined;
-
-type SelectButtonOptionDisabledType = string | ((data: any) => boolean) | undefined;
-
+/**
+ * Custom change event.
+ */
 export interface SelectButtonChangeEvent {
     /**
      * Browser event.
@@ -18,6 +24,9 @@ export interface SelectButtonChangeEvent {
     value: any;
 }
 
+/**
+ * Defines valid properties in SelectButton component.
+ */
 export interface SelectButtonProps {
     /**
      * Value of the component.
@@ -30,21 +39,23 @@ export interface SelectButtonProps {
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: SelectButtonOptionLabelType;
+    optionLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: SelectButtonOptionValueType;
+    optionValue?: string | ((data: any) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: SelectButtonOptionDisabledType;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     /**
      * When specified, allows selecting multiple values.
+     * @defaultValue false
      */
     multiple?: boolean | undefined;
     /**
      * When present, it specifies that the element should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -53,6 +64,7 @@ export interface SelectButtonProps {
     dataKey?: string | undefined;
     /**
      * Whether selection can be cleared.
+     * @defaultValue true
      */
     unselectable?: boolean | undefined;
     /**
@@ -61,12 +73,15 @@ export interface SelectButtonProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in SelectButton component.
+ */
 export interface SelectButtonSlots {
     /**
      * Custom content for each option.
      * @param {Object} scope - option slot's params.
      */
-    option: (scope: {
+    option(scope: {
         /**
          * Option instance
          */
@@ -75,33 +90,47 @@ export interface SelectButtonSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type SelectButtonEmits = {
+/**
+ * Defines valid emits in SelectButton component.
+ */
+export interface SelectButtonEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any) => void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {SelectButtonChangeEvent} event - Custom change event.
      */
-    change: (event: SelectButtonChangeEvent) => void;
+    change(event: SelectButtonChangeEvent): void;
     /**
      * Callback to invoke on focus.
      * @param {SelectButtonChangeEvent} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke on blur.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
-};
+    blur(event: Event): void;
+}
 
-declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> {}
+/**
+ * **PrimeVue - SelectButton**
+ *
+ * _SelectButton is used to choose single or multiple items from a list using buttons._
+ *
+ * [Live Demo](https://www.primevue.org/selectbutton/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -109,13 +138,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * SelectButton is a form component to choose a value from a list of options using button elements.
- *
- * Demos:
- *
- * - [SelectButton](https://www.primefaces.org/primevue/selectbutton)
- *
- */
 export default SelectButton;
