@@ -1,6 +1,17 @@
-import { VNode } from 'vue';
+/**
+ *
+ * Tree is used to display hierarchical data.
+ *
+ * [Live Demo](https://www.primevue.org/tree/)
+ *
+ * @module tree
+ *
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom TreeNode metadata.
+ */
 export interface TreeNode {
     /**
      * Mandatory unique key of the node.
@@ -56,12 +67,9 @@ export interface TreeNode {
     collapsedIcon?: string;
 }
 
-type TreeSelectionModeType = 'single' | 'multiple' | 'checkbox' | undefined;
-
-type TreeFilterModeType = 'lenient' | 'strict' | undefined;
-
-type TreeScrollHeightType = 'flex' | string | undefined;
-
+/**
+ * Custom expanded keys metadata.
+ */
 export interface TreeExpandedKeys {
     /**
      * Optional
@@ -69,6 +77,9 @@ export interface TreeExpandedKeys {
     [key: string]: any;
 }
 
+/**
+ * Custom selection keys metadata.
+ */
 export interface TreeSelectionKeys {
     /**
      * Optional
@@ -76,6 +87,9 @@ export interface TreeSelectionKeys {
     [key: string]: any;
 }
 
+/**
+ * Defines valid properties in Tree component.
+ */
 export interface TreeProps {
     /**
      * An array of treenodes.
@@ -92,20 +106,21 @@ export interface TreeProps {
     /**
      * Defines the selection mode.
      */
-    selectionMode?: TreeSelectionModeType;
+    selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
-     * Default value is true.
+     * @defaultValue true
      */
     metaKeySelection?: boolean | undefined;
     /**
      * Whether to display loading indicator.
+     * @defaultValue false
      */
     loading?: boolean | undefined;
     /**
      * Icon to display when tree is loading.
-     * Default value is 'pi pi-spin'.
+     * @defaultValue pi pi-spin
      */
     loadingIcon?: string | undefined;
     /**
@@ -119,10 +134,9 @@ export interface TreeProps {
     filterBy?: string | undefined;
     /**
      * Mode for filtering.
-     * @see TreeFilterModeType
-     * Default value is 'lenient'.
+     * @defaultValue lenient
      */
-    filterMode?: TreeFilterModeType;
+    filterMode?: 'lenient' | 'strict' | undefined;
     /**
      * Placeholder text to show when filter input is empty.
      */
@@ -133,9 +147,8 @@ export interface TreeProps {
     filterLocale?: string | undefined;
     /**
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
-     * @see TreeScrollHeightType
      */
-    scrollHeight?: TreeScrollHeightType;
+    scrollHeight?: 'flex' | string | undefined;
     /**
      * Defines a string value that labels an interactive element.
      */
@@ -146,51 +159,69 @@ export interface TreeProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Tree component.
+ */
 export interface TreeSlots {
     /**
      * Optional slots.
+     * @todo
      */
-    [key: string]: (scope: {
-        /**
-         * Tree node instance
-         */
-        node: TreeNode;
-    }) => VNode[];
+    // [key: string](scope: {
+    /**
+     * Tree node instance
+     */
+    //     node: TreeNode;
+    // }):VNode[];
 }
 
-export declare type TreeEmits = {
+/**
+ * Defines valid slots in Tree component.
+ */
+export interface TreeEmits {
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.
      */
-    'update:expandedKeys': (value: TreeExpandedKeys) => void;
+    'update:expandedKeys'(value: TreeExpandedKeys): void;
     /**
      * Emitted when the selection keys change.
      * @param {TreeSelectionKeys} value - New selection keys.
      */
-    'update:selectionKeys': (event: TreeSelectionKeys) => void;
+    'update:selectionKeys'(event: TreeSelectionKeys): void;
     /**
      * Callback to invoke when a node is selected.
      * @param {TreeNode} node - Node instance.
      */
-    'node-select': (node: TreeNode) => void;
+    'node-select'(node: TreeNode): void;
     /**
      * Callback to invoke when a node is unselected.
      * @param {TreeNode} node - Node instance.
      */
-    'node-unselect': (node: TreeNode) => void;
+    'node-unselect'(node: TreeNode): void;
     /**
      * Callback to invoke when a node is expanded.
      * @param {TreeNode} node - Node instance.
      */
-    'node-expand': (node: TreeNode) => void;
+    'node-expand'(node: TreeNode): void;
     /**
      * Callback to invoke when a node is collapsed.
      * @param {TreeNode} node - Node instance.
      */
-    'node-collapse': (node: TreeNode) => void;
-};
+    'node-collapse'(node: TreeNode): void;
+}
 
+/**
+ * **PrimeVue - Tree**
+ *
+ * _Tree is used to display hierarchical data._
+ *
+ * [Live Demo](https://www.primevue.org/tree/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class Tree extends ClassComponent<TreeProps, TreeSlots, TreeEmits> {}
 
 declare module '@vue/runtime-core' {
