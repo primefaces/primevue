@@ -1,6 +1,19 @@
+/**
+ *
+ * OrderList is used to managed the order of a collection.
+ *
+ * - [Live Demo](https://www.primefaces.org/primevue/orderlist)
+ *
+ * @module orderlist
+ *
+ */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom reorder event
+ * @see reorder
+ */
 export interface OrderListReorderEvent {
     /**
      * Browser event
@@ -16,6 +29,10 @@ export interface OrderListReorderEvent {
     direction: string;
 }
 
+/**
+ * Custom selection change event
+ * @see selection-change
+ */
 export interface OrderListSelectionChangeEvent {
     /**
      * Browser event
@@ -27,6 +44,9 @@ export interface OrderListSelectionChangeEvent {
     value: any[];
 }
 
+/**
+ * Defines valid properties in OrderList component.
+ */
 export interface OrderListProps {
     /**
      * Value of the component.
@@ -44,7 +64,7 @@ export interface OrderListProps {
      * Defines whether metaKey is requred or not for the selection.
      * When true metaKey needs to be pressed to select or unselect an item and
      * when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
-     * Default value is true.
+     * @defaultValue true
      */
     metaKeySelection?: boolean | undefined;
     /**
@@ -53,12 +73,12 @@ export interface OrderListProps {
     listStyle?: any;
     /**
      * Whether the list optimizes layout based on screen size.
-     * Default value is true.
+     * @defaultValue true
      */
     responsive?: boolean | undefined;
     /**
      * The breakpoint to define the maximum width boundary when responsiveness is enabled.
-     * Default value is '960px'.
+     * @defaultValue 960px
      */
     breakpoint?: string | undefined;
     /**
@@ -99,16 +119,19 @@ export interface OrderListProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in OrderList component.
+ */
 export interface OrderListSlots {
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Item of the component
          */
@@ -117,40 +140,54 @@ export interface OrderListSlots {
          * Index of the item.
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom controls start template.
      */
-    controlsstart: () => VNode[];
+    controlsstart(): VNode[];
     /**
      * Custom controls end template.
      */
-    controlsend: () => VNode[];
+    controlsend(): VNode[];
 }
 
-export declare type OrderListEmits = {
+/**
+ * Defines valid slots in OrderList component.
+ */
+export interface OrderListEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any[]) => void;
+    'update:modelValue'(value: any[]): void;
     /**
      * Emitted when the selection changes.
      * @param {*} value - New value.
      */
-    'update:selection': (value: any[]) => void;
+    'update:selection'(value: any[]): void;
     /**
      * Callback to invoke when the list is reordered.
      * @param {OrderListReorderEvent} event - Custom reorder event.
      */
-    reorder: (event: OrderListReorderEvent) => void;
+    reorder(event: OrderListReorderEvent): void;
     /**
      * Callback to invoke when selection changes.
      * @param {OrderListSelectionChangeEvent} event - Custom selection change event.
      */
-    'selection-change': (event: OrderListSelectionChangeEvent) => void;
-};
+    'selection-change'(event: OrderListSelectionChangeEvent): void;
+}
 
+/**
+ * **PrimeVue - OrderList**
+ *
+ * _OrderList is used to sort a collection._
+ *
+ * [Live Demo](https://www.primevue.org/orderlist/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class OrderList extends ClassComponent<OrderListProps, OrderListSlots, OrderListEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -159,13 +196,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * OrderList is used to managed the order of a collection.
- *
- * Demos:
- *
- * - [OrderList](https://www.primefaces.org/primevue/orderlist)
- *
- */
 export default OrderList;
