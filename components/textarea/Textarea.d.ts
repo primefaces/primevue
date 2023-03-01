@@ -1,6 +1,19 @@
+/**
+ *
+ * Textarea is a multi-line text input element.
+ *
+ * [Live Demo](https://www.primevue.org/textarea/)
+ *
+ * @module textarea
+ *
+ */
 import { TextareaHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Textarea component. In addition to these, all properties of TextareaHTMLAttributes can be used in this component.
+ * @extends TextareaHTMLAttributes
+ */
 export interface TextareaProps extends TextareaHTMLAttributes {
     /**
      * Value of the component.
@@ -12,16 +25,34 @@ export interface TextareaProps extends TextareaHTMLAttributes {
     autoResize?: boolean | undefined;
 }
 
+/**
+ * Defines valid slots in Textarea component.
+ */
 export interface TextareaSlots {}
 
-export declare type TextareaEmits = {
+/**
+ * Defines valid emits in Textarea component.
+ */
+export interface TextareaEmits {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
      */
     'update:modelValue': (value: string) => void;
-};
+}
 
+/**
+ * **PrimeVue - Textarea**
+ *
+ * _Textarea is a multi-line text input element._
+ *
+ * [Live Demo](https://www.primevue.org/textarea/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Textarea extends ClassComponent<TextareaProps, TextareaSlots, TextareaEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -30,13 +61,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Textarea is a multi-line text input element.
- *
- * Demos:
- *
- * - [Textarea](https://www.primefaces.org/primevue/textarea)
- *
- */
 export default Textarea;
