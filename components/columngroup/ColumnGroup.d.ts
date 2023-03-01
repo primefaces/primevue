@@ -12,10 +12,7 @@ export interface ColumnGroupProps {
 
 export interface ColumnGroupSlots {}
 
-/**
- * @group Interfaces
- */
-export declare type ColumnGroupEmits = {};
+export interface ColumnGroupEmits {}
 
 declare class ColumnGroup extends ClassComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits> {}
 
@@ -25,13 +22,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * ColumnGroup is a helper component to create grouped header and footer on DataTable.
- *
- * Demos:
- *
- * - [ColumnGroup](https://www.primefaces.org/primevue/datatable/colgroup)
- *
- */
 export default ColumnGroup;

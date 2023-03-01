@@ -1109,7 +1109,7 @@ export interface DataTableEmits {
  *
  * @group Component
  */
-export declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, DataTableEmits> {
+declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, DataTableEmits> {
     /**
      * Exports the data to CSV format.
      * @param {DataTableExportCSVOptions} [options] - Export options.

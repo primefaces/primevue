@@ -493,7 +493,7 @@ export interface ColumnEmits {}
  *
  * @group Component
  */
-export declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
+declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
