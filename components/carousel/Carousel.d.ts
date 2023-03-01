@@ -1,7 +1,14 @@
+/**
+ *
+ * Carousel is a content slider featuring various customization options.
+ *
+ * [Live Demo](https://www.primevue.org/carousel/)
+ *
+ * @module carousel
+ *
+ */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-
-type CarouselOrientationType = 'horizontal' | 'vertical' | undefined;
 
 export interface CarouselResponsiveOptions {
     /**
@@ -17,7 +24,9 @@ export interface CarouselResponsiveOptions {
      */
     numScroll: number;
 }
-
+/**
+ * Defines valid properties in Carousel component.
+ */
 export interface CarouselProps {
     /**
      * An array of objects to display.
@@ -25,17 +34,17 @@ export interface CarouselProps {
     value?: any | undefined;
     /**
      * Index of the first item.
-     * Default value is 0.
+     * @defaultValue 0
      */
     page?: number | undefined;
     /**
      * Number of items per page.
-     * Default value is 1.
+     * @defaultValue 1
      */
     numVisible?: number | undefined;
     /**
      * Number of items to scroll.
-     * Default value is 1.
+     * @defaultValue 1
      */
     numScroll?: number | undefined;
     /**
@@ -45,13 +54,12 @@ export interface CarouselProps {
     responsiveOptions?: CarouselResponsiveOptions[] | undefined;
     /**
      * Specifies the layout of the component, valid values are 'horizontal' and 'vertical'.
-     * @see CarouselOrientationType
-     * Default value is 'horizontal'.
+     * @defaultValue horizontal
      */
-    orientation?: CarouselOrientationType;
+    orientation?: 'horizontal' | 'vertical' | undefined;
     /**
      * Height of the viewport in vertical layout.
-     * Default value is '300px'.
+     * @defaultValue 300px
      */
     verticalViewPortHeight?: string | undefined;
     /**
@@ -68,21 +76,22 @@ export interface CarouselProps {
     indicatorsContentClass?: any;
     /**
      * Defines if scrolling would be infinite.
+     * @defaultValue false
      */
     circular?: boolean | undefined;
     /**
      * Time in milliseconds to scroll items automatically.
-     * Default value is 0.
+     * @defaultValue 0
      */
     autoplayInterval?: number | undefined;
     /**
      * Whether to display navigation buttons in container.
-     * Default value is true.
+     * @defaultValue true
      */
     showNavigators?: boolean | undefined;
     /**
      * Whether to display indicator container.
-     * Default value is true.
+     * @defaultValue true
      */
     showIndicators?: boolean | undefined;
     /**
@@ -95,12 +104,15 @@ export interface CarouselProps {
     nextButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
+/**
+ * Defines valid slots in Carousel slots.
+ */
 export interface CarouselSlots {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Data of the component
          */
@@ -109,25 +121,40 @@ export interface CarouselSlots {
          * Index of the item
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom footer template.
      */
-    footer: () => VNode[];
+    footer(): VNode[];
 }
 
-export declare type CarouselEmits = {
+/**
+ * Defines valid emits in Carousel component.
+ */
+export interface CarouselEmits {
     /**
      * Emitted when the page changes.
      * @param {number} value - New page value.
      */
-    'update:page': (value: number) => void;
-};
+    'update:page'(value: number): void;
+}
 
+/**
+ * **PrimeVue - Carousel**
+ *
+ * _Carousel is a content slider featuring various customization options._
+ *
+ * [Live Demo](https://www.primevue.org/carousel/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Carousel extends ClassComponent<CarouselProps, CarouselSlots, CarouselEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -136,13 +163,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Carousel is a content slider featuring various customization options.
- *
- * Demos:
- *
- * - [Carousel](https://www.primefaces.org/primevue/carousel)
- *
- */
 export default Carousel;
