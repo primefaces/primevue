@@ -45,7 +45,7 @@ export interface ScrollPanelEmits {}
  * @group Component
  *
  */
-export declare class ScrollPanel extends ClassComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits> {}
+declare class ScrollPanel extends ClassComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -53,13 +53,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * ScrollPanel is a cross browser, lightweight and themable alternative to native browser scrollbar.
- *
- * Demos:
- *
- * - [ScrollPanel](https://www.primefaces.org/primevue/scrollpanel)
- *
- */
 export default ScrollPanel;

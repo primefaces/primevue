@@ -108,7 +108,7 @@ export interface SplitterEmits {
  * @group Component
  *
  */
-export declare class Splitter extends ClassComponent<SplitterProps, SplitterSlots, SplitterEmits> {}
+declare class Splitter extends ClassComponent<SplitterProps, SplitterSlots, SplitterEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -116,17 +116,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Splitter is utilized to separate and resize panels.
- *
- * Helper Components:
- *
- * - SplitterPanel
- *
- * Demos:
- *
- * - [Splitter](https://www.primefaces.org/primevue/splitter)
- *
- */
 export default Splitter;

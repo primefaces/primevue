@@ -56,7 +56,7 @@ export interface ToolbarEmits {}
  * @group Component
  *
  */
-export declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> {}
+declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -64,13 +64,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Toolbar is a grouping component for buttons and other content.
- *
- * Demos:
- *
- * - [Toolbar](https://www.primefaces.org/primevue/toolbar)
- *
- */
 export default Toolbar;

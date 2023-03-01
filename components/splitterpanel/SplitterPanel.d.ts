@@ -48,7 +48,7 @@ export interface SplitterPanelEmits {}
  * @group Component
  *
  */
-export declare class SplitterPanel extends ClassComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits> {}
+declare class SplitterPanel extends ClassComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -56,13 +56,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * SplitterPanel is a helper component for Splitter component.
- *
- * Demos:
- *
- * - [SplitterPanel](https://www.primefaces.org/primevue/splitter)
- *
- */
 export default SplitterPanel;

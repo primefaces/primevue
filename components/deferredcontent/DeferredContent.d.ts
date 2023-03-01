@@ -43,7 +43,7 @@ export interface DeferredContentEmits {
  *
  * @group Component
  */
-export declare class DeferredContent extends ClassComponent<DeferredContentProps, DeferredContentSlots, DeferredContentEmits> {}
+declare class DeferredContent extends ClassComponent<DeferredContentProps, DeferredContentSlots, DeferredContentEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -51,13 +51,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.
- *
- * Demos:
- *
- * - [DeferredContent](https://www.primefaces.org/primevue/deferredcontent)
- *
- */
 export default DeferredContent;

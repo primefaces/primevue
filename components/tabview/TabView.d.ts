@@ -115,7 +115,7 @@ export interface TabViewEmits {
  * @group Component
  *
  */
-export declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> {}
+declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -123,17 +123,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * TabView is a container component to group content with tabs.
- *
- * Helper Components:
- *
- * - TabPanel
- *
- * Demos:
- *
- * - [TabView](https://www.primefaces.org/primevue/tabview)
- *
- */
 export default TabView;

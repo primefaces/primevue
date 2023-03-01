@@ -92,7 +92,7 @@ export interface FieldsetEmits {
  * @group Component
  *
  */
-export declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
+declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -100,13 +100,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Fieldset is a grouping component with the optional content toggle feature.
- *
- * Demos:
- *
- * - [Fieldset](https://www.primefaces.org/primevue/fieldset)
- *
- */
 export default Fieldset;

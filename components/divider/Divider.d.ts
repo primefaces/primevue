@@ -54,7 +54,7 @@ export interface DividerEmits {}
  * @group Component
  *
  */
-export declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> {}
+declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -62,13 +62,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Divider is used to separate contents.
- *
- * Demos:
- *
- * - [Divider](https://www.primefaces.org/primevue/divider)
- *
- */
 export default Divider;

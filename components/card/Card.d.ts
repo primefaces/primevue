@@ -51,7 +51,7 @@ export declare type CardEmits = {};
  *
  * @group Component
  */
-export declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> {}
+declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -59,13 +59,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Card is a flexible container component.
- *
- * Demos:
- *
- * - [Card](https://www.primefaces.org/primevue/card)
- *
- */
 export default Card;
