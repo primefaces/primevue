@@ -10,7 +10,7 @@
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
- * Defines valid properties in Knob component. In addition to these, all properties of HTMLDivElement can be used in this component.
+ * Defines valid properties in Knob component.
  */
 export interface KnobProps {
     /**
@@ -24,14 +24,17 @@ export interface KnobProps {
     size?: number | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
      * When present, it specifies that the component value cannot be edited.
+     * @defaultValue false
      */
     readonly?: boolean | undefined;
     /**
      * Step factor to increment/decrement the value.
+     * @defaultValue 1
      */
     step?: number | undefined;
     /**
@@ -46,31 +49,37 @@ export interface KnobProps {
     max?: number | undefined;
     /**
      * Background of the value.
+     * @defaultValue var(--primary-color, Black)
      */
     valueColor?: string | undefined;
     /**
      * Background color of the range.
+     * @defaultValue var(--surface-border, LightGray)
      */
     rangeColor?: string | undefined;
     /**
      * Color of the value text.
+     * @defaultValue var(--text-color-secondary, Black)
      */
     textColor?: string | undefined;
     /**
      * Width of the knob stroke.
-     * @defaultValue 100
+     * @defaultValue 14
      */
     strokeWidth?: number | undefined;
     /**
      * Whether the show the value inside the knob.
+     * @defaultValue true
      */
     showValue?: boolean | undefined;
     /**
      * Template string of the value.
+     * @defaultValue {value}
      */
     valueTemplate?: string | undefined;
     /**
      * Index of the element in tabbing order.
+     * @defaultValue 0
      */
     tabindex?: number | undefined;
     /**
