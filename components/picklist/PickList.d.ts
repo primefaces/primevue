@@ -1,6 +1,19 @@
+/**
+ *
+ * PickList is used to reorder items between different lists.
+ *
+ * - [Live Demo](https://www.primefaces.org/primevue/picklist)
+ *
+ * @module picklist
+ *
+ */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom reorder event.
+ * @see reorder
+ */
 export interface PickListReorderEvent {
     /**
      * Browser event
@@ -20,6 +33,10 @@ export interface PickListReorderEvent {
     listIndex: number;
 }
 
+/**
+ * Custom selection change event.
+ * @see selection-change
+ */
 export interface PickListSelectionChangeEvent {
     /**
      * Browser event
@@ -31,6 +48,10 @@ export interface PickListSelectionChangeEvent {
     value: any[];
 }
 
+/**
+ * Custom move-to-target event.
+ * @see move-to-target
+ */
 export interface PickListMoveToTargetEvent {
     /**
      * Browser event
@@ -43,20 +64,29 @@ export interface PickListMoveToTargetEvent {
 }
 
 /**
+ * Custom move-all-to-target event.
+ * @see move-to-target
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToTargetEvent extends PickListMoveToTargetEvent {}
 
 /**
+ * Custom move-to-source event.
+ * @see move-to-target
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveToSourceEvent extends PickListMoveToTargetEvent {}
 
 /**
+ * Custom move-all-to-source event.
+ * @see move-to-target
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent {}
 
+/**
+ * Defines valid properties in PickList component.
+ */
 export interface PickListProps {
     /**
      * Value of the component as a multidimensional array.
@@ -74,7 +104,7 @@ export interface PickListProps {
      * Defines whether metaKey is requred or not for the selection.
      * When true metaKey needs to be pressed to select or unselect an item and
      * when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
-     * Default value is true.
+     * @defaultValue true
      */
     metaKeySelection?: boolean | undefined;
     /**
@@ -83,24 +113,27 @@ export interface PickListProps {
     listStyle?: any | undefined;
     /**
      * Whether the list optimizes layout based on screen size.
-     * Default value is true.
+     * @defaultValue true
      */
     responsive?: boolean | undefined;
     /**
      * The breakpoint to define the maximum width boundary when responsiveness is enabled.
-     * Default value is '960px'.
+     * @defaultValue 960px
      */
     breakpoint?: string | undefined;
     /**
      * Whether to displays rows with alternating colors.
+     * @defaultValue false
      */
     stripedRows?: boolean | undefined;
     /**
      * Whether to show buttons of source list.
+     * @defaultValue false
      */
     showSourceControls?: boolean | undefined;
     /**
      * Whether to show buttons of target list.
+     * @defaultValue false
      */
     showTargetControls?: boolean | undefined;
     /**
@@ -149,16 +182,19 @@ export interface PickListProps {
     moveAllToSourceProps?: ButtonHTMLAttributes | undefined;
 }
 
+/**
+ * Defines valid slots in PickList component.
+ */
 export interface PickListSlots {
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Item of the component
          */
@@ -167,84 +203,98 @@ export interface PickListSlots {
          * Index of the item
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom source header template.
      */
-    sourceheader: () => VNode[];
+    sourceheader(): VNode[];
     /**
      * Custom target header template.
      */
-    targetheader: () => VNode[];
+    targetheader(): VNode[];
     /**
      * Custom source controls start template.
      */
-    sourcecontrolsstart: () => VNode[];
+    sourcecontrolsstart(): VNode[];
     /**
      * Custom source controls end template.
      */
-    sourcecontrolsend: () => VNode[];
+    sourcecontrolsend(): VNode[];
     /**
      * Custom move controls start template.
      */
-    movecontrolsstart: () => VNode[];
+    movecontrolsstart(): VNode[];
     /**
      * Custom move controls end template.
      */
-    movecontrolsend: () => VNode[];
+    movecontrolsend(): VNode[];
     /**
      * Custom target controls start template.
      */
-    targetcontrolsstart: () => VNode[];
+    targetcontrolsstart(): VNode[];
     /**
      * Custom target controls end template.
      */
-    targetcontrolsend: () => VNode[];
+    targetcontrolsend(): VNode[];
 }
 
-export declare type PickListEmits = {
+/**
+ * Defines valid emits in PickList component.
+ */
+export interface PickListEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any[][]) => void;
+    'update:modelValue'(value: any[][]): void;
     /**
      * Emitted when the selection changes.
      * @param {*} value - New value.
      */
-    'update:selection': (value: any[][]) => void;
+    'update:selection'(value: any[][]): void;
     /**
      * Callback to invoke when the list is reordered.
      * @param {PickListReorderEvent} event - Custom reorder event.
      */
-    reorder: (event: PickListReorderEvent) => void;
+    reorder(event: PickListReorderEvent): void;
     /**
      * Callback to invoke when one or more items are moved to the other list.
      * @param {PickListSelectionChangeEvent} event - Custom selection change event.
      */
-    'selection-change': (event: PickListSelectionChangeEvent) => void;
+    'selection-change'(event: PickListSelectionChangeEvent): void;
     /**
      * Callback to invoke when one or more items are moved to the target list.
      * @param {PickListMoveToTargetEvent} event - Custom move to target event.
      */
-    'move-to-target': (event: PickListMoveToTargetEvent) => void;
+    'move-to-target'(event: PickListMoveToTargetEvent): void;
     /**
      * Callback to invoke when all items are moved to the target list.
      * @param {PickListMoveAllToTargetEvent} event - Custom move all to target event.
      */
-    'move-all-to-target': (event: PickListMoveAllToTargetEvent) => void;
+    'move-all-to-target'(event: PickListMoveAllToTargetEvent): void;
     /**
      * Callback to invoke when one or more items are moved to the source list.
      * @param {PickListMoveToSourceEvent} event - Custom move to source event.
      */
-    'move-to-source': (event: PickListMoveToSourceEvent) => void;
+    'move-to-source'(event: PickListMoveToSourceEvent): void;
     /**
      * Callback to invoke when all items are moved to the source list.
      * @param {PickListMoveAllToSourceEvent} event - Custom move all to source event.
      */
-    'move-all-to-source': (event: PickListMoveAllToSourceEvent) => void;
-};
+    'move-all-to-source'(event: PickListMoveAllToSourceEvent): void;
+}
 
+/**
+ * **PrimeVue - PickList**
+ *
+ * _PickList is used to reorder items between different lists._
+ *
+ * [Live Demo](https://www.primevue.org/picklist/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class PickList extends ClassComponent<PickListProps, PickListSlots, PickListEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -253,13 +303,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * PickList is used to reorder items between different lists.
- *
- * Demos:
- *
- * - [PickList](https://www.primefaces.org/primevue/picklist)
- *
- */
 export default PickList;
