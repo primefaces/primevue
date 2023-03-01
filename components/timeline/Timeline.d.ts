@@ -1,14 +1,17 @@
+/**
+ *
+ * Timeline visualizes a series of chained events.
+ *
+ * - [Live Demo](https://www.primefaces.org/primevue/timeline)
+ *
+ * @module timeline
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type TimelineVerticalAlignType = 'left' | 'right' | 'alternate' | undefined;
-
-type TimelineHorizontalAlignType = 'top' | 'bottom' | undefined;
-
-type TimelineAlignType = TimelineVerticalAlignType | TimelineHorizontalAlignType | undefined;
-
-type TimelineLayoutType = 'vertical' | 'horizontal' | undefined;
-
+/**
+ * Defines valid properties in Timeline component.
+ */
 export interface TimelineProps {
     /**
      * An array of events to display.
@@ -16,28 +19,29 @@ export interface TimelineProps {
     value?: any[] | undefined;
     /**
      * Position of the timeline bar relative to the content.
-     * @see TimelineAlignType
-     * Default value is 'left'.
+     * @defaultValue left
      */
-    align?: TimelineAlignType;
+    align?: 'left' | 'right' | 'alternate' | 'top' | 'bottom' | undefined;
     /**
      * Orientation of the timeline.
-     * @see TimelineLayoutType
-     * Default value is 'horizontal'.
+     * @defaultValue horizontal
      */
-    layout?: TimelineLayoutType;
+    layout?: 'vertical' | 'horizontal' | undefined;
     /**
      * Name of the field that uniquely identifies the a record in the data.
      */
     dataKey?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Timeline component.
+ */
 export interface TimelineSlots {
     /**
      * Custom content template
      * @param {Object} scope - content slot's params.
      */
-    content: (scope: {
+    content(scope: {
         /**
          * Item data
          */
@@ -46,12 +50,12 @@ export interface TimelineSlots {
          * Index of item
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom opposite template.
      * @param {Object} scope - opposite slot's params.
      */
-    opposite: (scope: {
+    opposite(scope: {
         /**
          * Item data
          */
@@ -60,12 +64,12 @@ export interface TimelineSlots {
          * Index of item
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom marker template.
      * @param {Object} scope - marker slot's params.
      */
-    marker: (scope: {
+    marker(scope: {
         /**
          * Item data
          */
@@ -74,11 +78,11 @@ export interface TimelineSlots {
          * Index of item
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom connector template.
      */
-    connector: (scope: {
+    connector(scope: {
         /**
          * Item data
          */
@@ -87,11 +91,25 @@ export interface TimelineSlots {
          * Index of item
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type TimelineEmits = {};
+/**
+ * Defines valid emits in Timeline component.
+ */
+export interface TimelineEmits {}
 
+/**
+ * **PrimeVue - Timeline**
+ *
+ * _Timeline visualizes a series of chained events._
+ *
+ * [Live Demo](https://www.primevue.org/timeline/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class Timeline extends ClassComponent<TimelineProps, TimelineSlots, TimelineEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -100,13 +118,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Timeline visualizes a series of chained events.
- *
- * Demos:
- *
- * - [Timeline](https://www.primefaces.org/primevue/timeline)
- *
- */
 export default Timeline;
