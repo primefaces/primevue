@@ -1,6 +1,19 @@
+/**
+ *
+ * Chart groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/chart/)
+ *
+ * @module chart
+ *
+ */
 import { CanvasHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Custom select event.
+ * @see select
+ */
 export interface ChartSelectEvent {
     /**
      * Browser event.
@@ -16,6 +29,9 @@ export interface ChartSelectEvent {
     dataset: any;
 }
 
+/**
+ * Defines valid properties in Chart component.
+ */
 export interface ChartProps {
     /**
      * Type of the chart.
@@ -51,44 +67,59 @@ export interface ChartProps {
 
 export interface ChartSlots {}
 
-export declare type ChartEmits = {
+/**
+ * Defines valid emits in Chart component.
+ */
+export interface ChartEmits {
     /**
      * Callback to invoke when a tab gets expanded.
      * @param {ChartSelectEvent} event - Custom select event.
      */
-    select: (event: ChartSelectEvent) => void;
+    select(event: ChartSelectEvent): void;
     /**
      * Callback to invoke when chart is loaded.
      * @param {*} chart - Chart instance.
      */
-    loaded: (chart: any) => void;
-};
+    loaded(chart: any): void;
+}
 
+/**
+ * **PrimeVue - Chart**
+ *
+ * _Chart groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/chart/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
     /**
      * Redraws the graph.
      *
      * @memberof Chart
      */
-    refresh: () => void;
+    refresh(): void;
     /**
      * Destroys the graph first and then creates it again.
      *
      * @memberof Chart
      */
-    reinit: () => void;
+    reinit(): void;
     /**
      * Returns an HTML string of a legend for that chart. The legend is generated from the legendCallback in the options.
      *
      * @memberof Chart
      */
-    generateLegend: () => string | any;
+    generateLegend(): string | any;
     /**
      * Returns Chart instance.
      *
      * @memberof Chart
      */
-    getChart: () => any;
+    getChart(): any;
 }
 
 declare module '@vue/runtime-core' {
@@ -97,17 +128,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Chart components are based on Charts.js, an open source HTML5 based charting library.
- *
- * Helper API;
- *
- * - [Chart.js](https://www.chartjs.org/)
- *
- * Demos:
- *
- * - [Chart](https://www.primefaces.org/primevue/chart)
- *
- */
 export default Chart;
