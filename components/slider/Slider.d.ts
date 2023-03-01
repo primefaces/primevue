@@ -1,7 +1,18 @@
+/**
+ *
+ * Slider is a component to provide input with a drag handle.
+ *
+ * [Live Demo](https://www.primevue.org/slider/)
+ *
+ * @module slider
+ *
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type SliderOrientationType = 'horizontal' | 'vertical' | undefined;
-
+/**
+ * Custom slide end event.
+ * @see {@link SliderEmits.slideend}
+ */
 export interface SliderSlideEndEvent {
     /**
      * Original event
@@ -13,39 +24,42 @@ export interface SliderSlideEndEvent {
     value: number;
 }
 
+/**
+ * Defines valid properties in Slider component.
+ */
 export interface SliderProps {
     /**
      * Value of the component.
-     * Default value is 0.
      */
     modelValue?: number | number[] | undefined;
     /**
      * Mininum boundary value.
-     * Default value is 0.
+     * @defaultValue 0
      */
     min?: number | undefined;
     /**
      * Maximum boundary value.
-     * Default value is 100.
+     * @defaultValue 100
      */
     max?: number | undefined;
     /**
      * Orientation of the slider.
-     * @see SliderOrientationType
-     * Default value is 'horizontal'.
+     * @defaultValue horizontal
      */
-    orientation?: SliderOrientationType;
+    orientation?: 'horizontal' | 'vertical' | undefined;
     /**
      * Step factor to increment/decrement the value.
-     * Default value is 1.
+     * @defaultValue 1
      */
     step?: number | undefined;
     /**
      * When speficed, allows two boundary values to be picked.
+     * @defaultValue false
      */
     range?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -62,26 +76,44 @@ export interface SliderProps {
     'aria-label'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Slider component.
+ */
 export interface SliderSlots {}
 
+/**
+ * Defines valid emits in Slider component.
+ */
 export declare type SliderEmits = {
     /**
      * Emitted when the value changes.
      * @param {number | number[]} value - New value.
      */
-    'update:modelValue': (value: number | number[]) => void;
+    'update:modelValue'(value: number | number[]): void;
     /**
      * Callback to invoke on value change.
      * @param {number} value - New value
      */
-    change: (value: number) => void;
+    change(value: number): void;
     /**
      * Callback to invoke when slide ends.
      * @param {SliderSlideEndEvent} event - Custom slide end event.
      */
-    slideend: (event: SliderSlideEndEvent) => void;
+    slideend(event: SliderSlideEndEvent): void;
 };
 
+/**
+ * **PrimeVue - Slider**
+ *
+ * _Slider is a component to provide input with a drag handle._
+ *
+ * [Live Demo](https://www.primevue.org/slider/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Slider extends ClassComponent<SliderProps, SliderSlots, SliderEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -90,13 +122,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Slider is an input component to provide a numerical input.
- *
- * Demos:
- *
- * - [Slider](https://www.primefaces.org/primevue/slider)
- *
- */
 export default Slider;
