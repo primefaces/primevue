@@ -85,7 +85,7 @@ export interface ButtonEmits {}
  *
  * @group Component
  */
-export declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> {}
+declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

@@ -242,7 +242,7 @@ export interface InputNumberEmits {
  *
  * @group Component
  */
-export declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {
+declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {
     /**
      * Returns Intl.NumberFormat object.
      *

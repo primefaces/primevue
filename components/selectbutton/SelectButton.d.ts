@@ -130,7 +130,7 @@ export interface SelectButtonEmits {
  *
  * @group Component
  */
-export declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> {}
+declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

@@ -427,7 +427,7 @@ export interface DropdownEmits {
  *
  * @group Component
  */
-export declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, DropdownEmits> {
+declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, DropdownEmits> {
     /**
      * Shows the overlay.
      * @param {boolean} [isFocus] - Decides whether to focus on the component. @defaultValue false.

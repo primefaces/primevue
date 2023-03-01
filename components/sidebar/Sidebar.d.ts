@@ -105,7 +105,7 @@ export interface SidebarEmits {
  *
  * @group Component
  */
-export declare class Sidebar extends ClassComponent<SidebarProps, SidebarSlots, SidebarEmits> {}
+declare class Sidebar extends ClassComponent<SidebarProps, SidebarSlots, SidebarEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

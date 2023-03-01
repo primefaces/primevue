@@ -75,7 +75,7 @@ export interface ConfirmDialogEmits {}
  *
  * @group Component
  */
-export declare class ConfirmDialog extends ClassComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits> {}
+declare class ConfirmDialog extends ClassComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

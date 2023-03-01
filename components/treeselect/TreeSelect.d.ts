@@ -215,7 +215,7 @@ export interface TreeSelectEmits {
  *
  * @group Component
  */
-export declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits> {
+declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits> {
     /**
      * Shows the overlay.
      *

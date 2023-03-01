@@ -47,7 +47,7 @@ export interface InputTextEmits {
  *
  * @group Component
  */
-export declare class InputText extends ClassComponent<InputTextProps, InputTextSlots, InputTextEmits> {}
+declare class InputText extends ClassComponent<InputTextProps, InputTextSlots, InputTextEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

@@ -35,7 +35,7 @@ export interface DynamicDialogSlots {}
  *
  * @group Component
  */
-export declare class DynamicDialog extends ClassComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits> {}
+declare class DynamicDialog extends ClassComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

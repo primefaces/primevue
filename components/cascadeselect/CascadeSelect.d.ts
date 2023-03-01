@@ -279,7 +279,7 @@ export interface CascadeSelectEmits {
  *
  * @group Component
  */
-export declare class CascadeSelect extends ClassComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits> {}
+declare class CascadeSelect extends ClassComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

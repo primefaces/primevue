@@ -123,7 +123,7 @@ export interface KnobEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
  *
  */
-export declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}
+declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

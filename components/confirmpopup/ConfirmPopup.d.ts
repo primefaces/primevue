@@ -48,7 +48,7 @@ export interface ConfirmPopupEmits {}
  *
  * @group Component
  */
-export declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> {}
+declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

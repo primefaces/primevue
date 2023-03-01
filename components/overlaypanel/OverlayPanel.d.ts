@@ -102,7 +102,7 @@ export interface OverlayPanelEmits {
  *
  * @group Component
  */
-export declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits> {
+declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits> {
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.

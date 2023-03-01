@@ -141,7 +141,7 @@ export interface RatingEmits {
  *
  * @group Component
  */
-export declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}
+declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {

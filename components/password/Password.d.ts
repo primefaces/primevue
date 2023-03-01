@@ -165,7 +165,7 @@ export interface PasswordEmits {
  *
  * @group Component
  */
-export declare class Password extends ClassComponent<PasswordProps, PasswordSlots, PasswordEmits> {}
+declare class Password extends ClassComponent<PasswordProps, PasswordSlots, PasswordEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
