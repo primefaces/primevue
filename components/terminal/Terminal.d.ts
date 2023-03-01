@@ -1,5 +1,17 @@
+/**
+ *
+ * Terminal is a text based user interface.
+ *
+ * [Live Demo](https://www.primevue.org/terminal)
+ *
+ * @module terminal
+ *
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Terminal component.
+ */
 export interface TerminalProps {
     /**
      * Initial text to display on terminal.
@@ -11,10 +23,27 @@ export interface TerminalProps {
     prompt?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Terminal component.
+ */
 export interface TerminalSlots {}
 
-export declare type TerminalEmits = {};
+/**
+ * Defines valid emits in Terminal component.
+ */
+export interface TerminalEmits {}
 
+/**
+ * **PrimeVue - Terminal**
+ *
+ * _Terminal is a text based user interface._
+ *
+ * [Live Demo](https://www.primevue.org/terminal/)
+ * --- ---
+ * ![Primevue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class Terminal extends ClassComponent<TerminalProps, TerminalSlots, TerminalEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -23,17 +52,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Terminal is a text based user interface.
- *
- * Helper API:
- *
- * - TerminalService
- *
- * Demos:
- *
- * - [Terminal](https://www.primefaces.org/primevue/terminal)
- *
- */
 export default Terminal;
