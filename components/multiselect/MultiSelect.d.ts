@@ -1,21 +1,20 @@
+/**
+ *
+ * MultiSelect is used to select multiple items from a collection.
+ *
+ * [Live Demo](https://www.primevue.org/multiselect/)
+ *
+ * @module multiselect
+ *
+ */
 import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-import { VirtualScrollerProps, VirtualScrollerItemOptions } from '../virtualscroller';
+import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
 
-type MultiSelectOptionLabelType = string | ((data: any) => string) | undefined;
-
-type MultiSelectOptionValueType = string | ((data: any) => any) | undefined;
-
-type MultiSelectOptionDisabledType = string | ((data: any) => boolean) | undefined;
-
-type MultiSelectOptionChildrenType = string | ((data: any) => any[]) | undefined;
-
-type MultiSelectFilterMatchModeType = 'contains' | 'startsWith' | 'endsWith' | undefined;
-
-type MultiSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
-
-type MultiSelectDisplayType = 'comma' | 'chip' | undefined;
-
+/**
+ * Custom change event.
+ * @see {@link MultiSelectEmits.change}
+ */
 export interface MultiSelectChangeEvent {
     /**
      * Browser event
@@ -27,6 +26,10 @@ export interface MultiSelectChangeEvent {
     value: any;
 }
 
+/**
+ * Custom all change event.
+ * @see {@link MultiSelectEmits.selectall-change}
+ */
 export interface MultiSelectAllChangeEvent {
     /**
      * Browser event
@@ -38,6 +41,10 @@ export interface MultiSelectAllChangeEvent {
     checked: boolean;
 }
 
+/**
+ * Custom filter event
+ * @see {@link MultiSelectEmits.filter}
+ */
 export interface MultiSelectFilterEvent {
     /**
      * Original event
@@ -49,6 +56,9 @@ export interface MultiSelectFilterEvent {
     value: string;
 }
 
+/**
+ * Defines valid properties in MultiSelect component.
+ */
 export interface MultiSelectProps {
     /**
      * Value of the component.
@@ -61,26 +71,26 @@ export interface MultiSelectProps {
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: MultiSelectOptionLabelType;
+    optionLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: MultiSelectOptionValueType;
+    optionValue?: string | ((data: any) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: MultiSelectOptionDisabledType;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
-    optionGroupLabel?: MultiSelectOptionLabelType;
+    optionGroupLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: MultiSelectOptionChildrenType;
+    optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * Default value is '200px'.
+     * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
     /**
@@ -89,6 +99,7 @@ export interface MultiSelectProps {
     placeholder?: string | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -125,6 +136,7 @@ export interface MultiSelectProps {
     dataKey?: string | undefined;
     /**
      * When specified, displays a filter input at header.
+     * @defaultValue false
      */
     filter?: boolean | undefined;
     /**
@@ -137,29 +149,26 @@ export interface MultiSelectProps {
     filterLocale?: string | undefined;
     /**
      * Defines the filtering algorithm to use when searching the options.
-     * @see MultiSelectFilterMatchModeType
-     * Default value is 'contains'.
+     * @defaultValue contains
      */
-    filterMatchMode?: MultiSelectFilterMatchModeType;
+    filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | undefined;
     /**
      * Fields used when filtering the options, defaults to optionLabel.
      */
     filterFields?: string[] | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
-     * @see MultiSelectAppendToType
-     * Default value is 'body'.
+     * @defaultValue body
      */
-    appendTo?: MultiSelectAppendToType;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Defines how the selected items are displayed.
-     * @see MultiSelectDisplayType
-     * Default value is 'comma'.
+     * @defaultValue comma
      */
-    display?: MultiSelectDisplayType;
+    display?: 'comma' | 'chip' | undefined;
     /**
      * Label to display after exceeding max selected labels.
-     * Default value is '{0} items selected'.
+     * @defaultValue {0} items selected
      */
     selectedItemsLabel?: string | undefined;
     /**
@@ -172,89 +181,92 @@ export interface MultiSelectProps {
     selectionLimit?: number | undefined;
     /**
      * Whether to show the header checkbox to toggle the selection of all items at once.
-     * Default value is true.
+     * @defaultValue true
      */
     showToggleAll?: boolean | undefined;
     /**
      * Whether the multiselect is in loading state.
+     * @defaultValue false
      */
     loading?: boolean | undefined;
     /**
      * Icon to display in the checkboxes.
-     * Default value is 'pi pi-check'.
+     * @defaultValue pi pi-check
      */
     checkboxIcon?: string | undefined;
     /**
      * Icon to display in the dropdown close button.
-     * Default value is 'pi pi-times'.
+     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
-     * Default value is 'pi pi-chevron-down'.
+     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * Default value is 'pi pi-search'.
+     * @defaultValue pi pi-search
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * Default value is 'pi pi-spinner pi-spin'.
+     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * Default value is 'pi pi-times-circle'.
+     * @defaultValue pi pi-times-circle
      */
     removeTokenIcon?: string | undefined;
     /**
      * Whether all data is selected.
+     * @defaultValue false
      */
     selectAll?: boolean | undefined;
     /**
      * Clears the filter value when hiding the dropdown.
+     * @defaultValue false
      */
-    resetFilterOnHide?: boolean;
+    resetFilterOnHide?: boolean | undefined;
     /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
-     * @see VirtualScroller.VirtualScrollerProps
+     * @type {VirtualScrollerProps}
      */
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
      * Whether to focus on the first visible or selected element when the overlay panel is shown.
-     * Default value is true.
+     * @defaultValue true
      */
     autoOptionFocus?: boolean | undefined;
     /**
      * Whether to focus on the filter element when the overlay panel is shown.
-     * Default value is false.
+     * @defaultValue false
      */
     autoFilterFocus?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} results are available'.
+     * @defaultValue {0} results are available
      */
     filterMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} items selected'.
+     * @defaultValue {0} items selected
      */
     selectionMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No selected item'.
+     * @defaultValue No selected item
      */
     emptySelectionMessage?: string | undefined;
     /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
+     * @defaultValue No results found
      */
     emptyFilterMessage?: string | undefined;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
+     * @defaultValue No results found
      */
     emptyMessage?: string | undefined;
     /**
@@ -271,12 +283,15 @@ export interface MultiSelectProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in MultiSelect component.
+ */
 export interface MultiSelectSlots {
     /**
      * Custom value template.
      * @param {Object} scope - value slot's params.
      */
-    value: (scope: {
+    value(scope: {
         /**
          * Value of the component
          */
@@ -285,26 +300,26 @@ export interface MultiSelectSlots {
          * Placeholder prop value
          */
         placeholder: string;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom chip template.
      * @param {Object} scope - chip slot's params.
      */
-    chip: (scope: {
+    chip(scope: {
         /**
          * A value in the selection
          */
         value: any;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom indicator template.
      */
-    indicator: () => VNode[];
+    indicator(): VNode[];
     /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
      */
-    header: (scope: {
+    header(scope: {
         /**
          * Value of the component
          */
@@ -313,12 +328,12 @@ export interface MultiSelectSlots {
          * Displayed options
          */
         options: any[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom footer template.
      * @param {Object} scope - footer slot's params.
      */
-    footer: (scope: {
+    footer(scope: {
         /**
          * Value of the component
          */
@@ -327,12 +342,12 @@ export interface MultiSelectSlots {
          * Displayed options
          */
         options: any[];
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom option template.
      * @param {Object} scope - option slot's params.
      */
-    option: (scope: {
+    option(scope: {
         /**
          * Option instance
          */
@@ -341,12 +356,12 @@ export interface MultiSelectSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom option group template.
      * @param {Object} scope - option group slot's params.
      */
-    optiongroup: (scope: {
+    optiongroup(scope: {
         /**
          * Option instance
          */
@@ -355,20 +370,20 @@ export interface MultiSelectSlots {
          * Index of the option
          */
         index: number;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom emptyfilter template.
      */
-    emptyfilter: () => VNode[];
+    emptyfilter(): VNode[];
     /**
      * Custom empty template.
      */
-    empty: () => VNode[];
+    empty(): VNode[];
     /**
      * Custom content template.
      * @param {Object} scope - content slot's params.
      */
-    content: (scope: {
+    content(scope: {
         /**
          * An array of objects to display for virtualscroller
          */
@@ -385,71 +400,86 @@ export interface MultiSelectSlots {
         /**
          * Options of the items
          * @param {number} index - Rendered index
-         * @return {@link VirtualScroller.VirtualScrollerItemOptions}
+         * @return {VirtualScrollerItemOptions}
          */
         getItemOptions(index: number): VirtualScrollerItemOptions;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom loader template.
      * @param {Object} scope - loader slot's params.
      */
-    loader: (scope: {
+    loader(scope: {
         /**
          * Options of the loader items for virtualscroller
          */
         options: any[];
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type MultiSelectEmits = {
+/**
+ * Defines valid emits in MultiSelect component.
+ */
+export interface MultiSelectEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any) => void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {MultiSelectChangeEvent} event - Custom change event.
      */
-    change: (event: MultiSelectChangeEvent) => void;
+    change(event: MultiSelectChangeEvent): void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
+    blur(event: Event): void;
     /**
      * Callback to invoke before the overlay is shown.
      */
-    'before-show': () => void;
+    'before-show'(): void;
     /**
      * Callback to invoke before the overlay is hidden.
      */
-    'before-hide': () => void;
+    'before-hide'(): void;
     /**
      * Callback to invoke when the overlay is shown.
      */
-    show: () => void;
+    show(): void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    hide: () => void;
+    hide(): void;
     /**
      * Callback to invoke on filter input.
      * @param {MultiSelectFilterEvent} event - Custom filter event.
      */
-    filter: (event: MultiSelectFilterEvent) => void;
+    filter(event: MultiSelectFilterEvent): void;
     /**
      * Callback to invoke when all data is selected.
      * @param {MultiSelectAllChangeEvent} event - Custom select all change event.
      */
-    'selectall-change': (event: MultiSelectAllChangeEvent) => void;
-};
+    'selectall-change'(event: MultiSelectAllChangeEvent): void;
+}
 
+/**
+ * **PrimeVue - MultiSelect**
+ *
+ * _MultiSelect is used to select multiple items from a collection._
+ *
+ * [Live Demo](https://www.primevue.org/multiselect/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits> {
     /**
      * Shows the overlay.
@@ -457,14 +487,14 @@ declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSl
      *
      * @memberof MultiSelect
      */
-    show: (isFocus?: boolean) => void;
+    show(isFocus?: boolean): void;
     /**
      * Hides the overlay.
      * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
      *
      * @memberof MultiSelect
      */
-    hide: (isFocus?: boolean) => void;
+    hide(isFocus?: boolean): void;
 }
 
 declare module '@vue/runtime-core' {
@@ -473,13 +503,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * MultiSelect is used to multiple values from a list of options.
- *
- * Demos:
- *
- * - [MultiSelect](https://www.primefaces.org/primevue/multiselect)
- *
- */
 export default MultiSelect;
