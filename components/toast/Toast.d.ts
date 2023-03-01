@@ -1,17 +1,21 @@
+/**
+ *
+ * Toast is used to display messages in an overlay.
+ *
+ * [Live Demo](https://www.primevue.org/toast/)
+ *
+ * @module toast
+ *
+ */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-
-type ToastPositionType = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center' | undefined;
-
-type ToastMessageSeverityType = 'success' | 'info' | 'warn' | 'error' | undefined;
 
 export interface ToastMessageOptions {
     /**
      * Severity level of the message.
-     * @see ToastMessageSeverityType
      * Default value is 'info'.
      */
-    severity?: any | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
     /**
      * Summary content of the message.
      */
@@ -56,6 +60,9 @@ export interface ToastBreakpointsType {
     [key: string]: any;
 }
 
+/**
+ * Defines valid properties in Toast component.
+ */
 export interface ToastProps {
     /**
      * Unique identifier of a message group.
@@ -63,18 +70,17 @@ export interface ToastProps {
     group?: string | undefined;
     /**
      * Position of the toast in viewport.
-     * @see ToastPositionType
-     * Default value is 'top-right'.
+     * @defaultValue top-right
      */
-    position?: ToastPositionType;
+    position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center' | undefined;
     /**
      * Whether to automatically manage layering.
-     * Default value is true.
+     * @defaultValue true
      */
     autoZIndex?: boolean | undefined;
     /**
      * Base zIndex value to use in layering.
-     * Default value is 0.
+     * @defaultValue 0
      */
     baseZIndex?: number | undefined;
     /**
@@ -84,27 +90,27 @@ export interface ToastProps {
     breakpoints?: ToastBreakpointsType;
     /**
      * Icon to display in the toast close button.
-     * Default value is 'pi pi-times'.
+     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the toast with info severity.
-     * Default value is 'pi pi-info-circle'.
+     * @defaultValue pi pi-info-circle
      */
     infoIcon?: string | undefined;
     /**
      * Icon to display in the toast with warn severity.
-     * Default value is 'pi pi-exclamation-triangle'.
+     * @defaultValue pi pi-exclamation-triangle
      */
     warnIcon?: string | undefined;
     /**
      * Icon to display in the toast with error severity.
-     * Default value is 'pi pi-times'.
+     * @defaultValue pi pi-times
      */
     errorIcon?: string | undefined;
     /**
      * Icon to display in the toast with success severity.
-     * Default value is 'pi pi-check'.
+     * @defaultValue pi pi-check
      */
     successIcon?: string | undefined;
     /**
@@ -118,16 +124,28 @@ export interface ToastSlots {
      * Custom message template.
      * @param {Object} scope - message slot's params.
      */
-    message: (scope: {
+    message(scope: {
         /**
          * Message of the component
          */
         message: any;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type ToastEmits = {};
+export interface ToastEmits {}
 
+/**
+ * **PrimeVue - Toast**
+ *
+ * _Toast is used to display messages in an overlay._
+ *
+ * [Live Demo](https://www.primevue.org/toast/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Toast extends ClassComponent<ToastProps, ToastSlots, ToastEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -136,17 +154,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Toast is used to display messages in an overlay.
- *
- * Helper API:
- *
- * - ToastService
- *
- * Demos:
- *
- * - [Toast](https://www.primefaces.org/primevue/toast)
- *
- */
 export default Toast;

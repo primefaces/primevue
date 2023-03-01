@@ -2,7 +2,7 @@
  *
  * Dropdown also known as Select, is used to choose an item from a collection of options.
  *
- * [Live Demo](https://www.primereact.org/dropdown/)
+ * [Live Demo](https://www.primevue.org/dropdown/)
  *
  * @module dropdown
  *
