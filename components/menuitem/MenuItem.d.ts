@@ -1,11 +1,16 @@
+/**
+ *
+ * PrimeVue menu components share a common api to specify the menuitems and submenus.
+ *
+ * @module menuitem
+ *
+ */
 import { RouteLocationRaw } from 'vue-router';
 
-type MenuItemLabelType = string | ((...args: any) => string) | undefined;
-
-type MenuItemDisabledType = boolean | ((...args: any) => boolean) | undefined;
-
-type MenuItemVisibleType = boolean | ((...args: any) => boolean) | undefined;
-
+/**
+ * Custom command event.
+ * @see {@link MenuItem.command}
+ */
 export interface MenuItemCommandEvent {
     /**
      * Browser event.
@@ -21,11 +26,15 @@ export interface MenuItemCommandEvent {
     [key: string]: any;
 }
 
+/**
+ * Defines model of MenuItem API.
+ * @group Model
+ */
 export interface MenuItem {
     /**
      * Property name or getter function to use as the label of an item.
      */
-    label?: MenuItemLabelType;
+    label?: string | ((...args: any) => string) | undefined;
     /**
      * Icon of the item.
      */
@@ -36,9 +45,9 @@ export interface MenuItem {
     to?: RouteLocationRaw | undefined;
     /**
      * Callback to execute when item is clicked.
-     * @param {@link MenuItemCommandEvent} event - Custom command event.
+     * @param {MenuItemCommandEvent} event - Custom command event.
      */
-    command?: (event: MenuItemCommandEvent) => void;
+    command?(event: MenuItemCommandEvent): void;
     /**
      * External link to navigate when item is clicked.
      */
@@ -49,18 +58,21 @@ export interface MenuItem {
     items?: MenuItem[] | undefined;
     /**
      * A boolean or a function to return a boolean to specify if the item is disabled.
+     * @defaultValue false
      */
-    disabled?: MenuItemDisabledType;
+    disabled?: boolean | ((...args: any) => boolean) | undefined;
     /**
      * A boolean or a function to return a boolean to specify if the item is visible.
+     * @defaultValue true
      */
-    visible?: MenuItemVisibleType;
+    visible?: boolean | ((...args: any) => boolean) | undefined;
     /**
      * Specifies where to open the linked document.
      */
     target?: string | undefined;
     /**
      * Defines the item as a separator.
+     * @defaultValue false
      */
     separator?: boolean | undefined;
     /**
