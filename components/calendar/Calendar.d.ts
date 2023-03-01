@@ -338,7 +338,7 @@ export interface CalendarProps {
 /**
  * Defines valid slots in Calendar component.
  */
-export declare type CalendarSlots = {
+export interface CalendarSlots {
     /**
      * Custom header template of panel.
      */
@@ -365,7 +365,7 @@ export declare type CalendarSlots = {
          */
         years: string[] | undefined;
     }): VNode[];
-};
+}
 
 /**
  * Defines valid emits in Calendar component.
@@ -398,36 +398,36 @@ export interface CalendarEmits {
      * Callback to invoke when today button is clicked.
      * @param {Date} date - Today as a date instance.
      */
-    'today-click': (date: Date) => void;
+    'today-click'(date: Date): void;
     /**
      * Callback to invoke when clear button is clicked.
      * @param {Event} event - Browser event.
      */
-    'clear-click': (event: Event) => void;
+    'clear-click'(event: Event): void;
     /**
      * Callback to invoke when a month is changed using the navigators.
      * @param {CalendarMonthChangeEvent} event - Custom month change event.
      */
-    'month-change': (event: CalendarMonthChangeEvent) => void;
+    'month-change'(event: CalendarMonthChangeEvent): void;
     /**
      * Callback to invoke when a year is changed using the navigators.
      * @param {CalendarYearChangeEvent} event - Custom year change event.
      */
-    'year-change': (event: CalendarYearChangeEvent) => void;
+    'year-change'(event: CalendarYearChangeEvent): void;
     /**
      * Callback to invoke on focus of input field.
      * @param {Event} event - Focus event
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke on blur of input field.
      * @param {CalendarBlurEvent} event - Blur event
      */
-    blur: (event: CalendarBlurEvent) => void;
+    blur(event: CalendarBlurEvent): void;
     /**
      * Callback to invoke when a key is pressed.
      */
-    keydown: (event: Event) => void;
+    keydown(event: Event): void;
 }
 
 /**
