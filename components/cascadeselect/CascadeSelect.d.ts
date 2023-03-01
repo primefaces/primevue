@@ -1,16 +1,18 @@
+/**
+ *
+ * CascadeSelect is a form component to select a value from a nested structure of options.
+ *
+ * [Live Demo](https://www.primevue.org/cascadeselect/)
+ *
+ * @module cascadeselect
+ *
+ */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type CascadeSelectOptionLabelType = string | ((data: any) => string) | undefined;
-
-type CascadeSelectOptionValueType = string | ((data: any) => any) | undefined;
-
-type CascadeSelectOptionDisabledType = string | ((data: any) => boolean) | undefined;
-
-type CascadeSelectOptionChildrenType = string[] | string | ((data: any) => any[]) | undefined;
-
-type CascadeSelectAppendToType = 'body' | 'self' | string | undefined | HTMLElement;
-
+/**
+ * Custom change event
+ */
 export interface CascadeSelectChangeEvent {
     /**
      * Original event.
@@ -23,10 +25,14 @@ export interface CascadeSelectChangeEvent {
 }
 
 /**
+ * @see {@link CascadeSelectProps.change}
  * @extends CascadeSelectChangeEvent
  */
 export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent {}
 
+/**
+ * Defines valid properties in CascadeSelect component.
+ */
 export interface CascadeSelectProps {
     /**
      * Value of the component.
@@ -38,35 +44,31 @@ export interface CascadeSelectProps {
     options?: any[] | undefined;
     /**
      * Property name or getter function to use as the label of an option.
-     * @see CascadeSelectOptionLabelType
      */
-    optionLabel?: CascadeSelectOptionLabelType;
+    optionLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
-     * @see CascadeSelectOptionValueType
      */
-    optionValue?: CascadeSelectOptionValueType;
+    optionValue?: string | ((data: any) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
-     * @see CascadeSelectOptionDisabledType
      */
-    optionDisabled?: CascadeSelectOptionDisabledType;
+    optionDisabled?: string | ((data: any) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
-     * @see CascadeSelectOptionLabelType
      */
-    optionGroupLabel?: CascadeSelectOptionLabelType;
+    optionGroupLabel?: string | ((data: any) => string) | undefined;
     /**
      * Property name or getter function to retrieve the items of a group.
-     * @see CascadeSelectOptionChildrenType
      */
-    optionGroupChildren?: CascadeSelectOptionChildrenType;
+    optionGroupChildren?: string[] | string | ((data: any) => any[]) | undefined;
     /**
      * Default text to display when no option is selected.
      */
     placeholder?: string | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -103,37 +105,37 @@ export interface CascadeSelectProps {
     panelProps?: HTMLAttributes | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
-     * @see CascadeSelectAppendToType
-     * Default value is 'body'.
+     * @defaultValue body
      */
-    appendTo?: CascadeSelectAppendToType;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Whether the dropdown is in loading state.
+     * @defaultValue false
      */
     loading?: boolean | undefined;
     /**
      * Icon to display in the dropdown.
-     * Default value is 'pi pi-chevron-down'.
+     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * Default value is 'pi pi-spinner pi-spin'.
+     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in the option group.
-     * Default value is 'pi pi-angle-right'.
+     * @defaultValue pi pi-angle-right
      */
     optionGroupIcon?: string | undefined;
     /**
      * Whether to focus on the first visible or selected element when the overlay panel is shown.
-     * Default value is true.
+     * @defaultValue true
      */
     autoOptionFocus?: boolean | undefined;
     /**
      * When enabled, the focused option is selected/opened.
-     * Default value is false.
+     * @defaultValue false
      */
     selectOnFocus?: boolean | undefined;
     /**
@@ -142,27 +144,27 @@ export interface CascadeSelectProps {
     searchLocale?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} results are available'.
+     * @defaultValue {0} results are available
      */
     searchMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is '{0} items selected'.
+     * @defaultValue {0} items selected
      */
     selectionMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No selected item'.
+     * @defaultValue No selected item
      */
     emptySelectionMessage?: string | undefined;
     /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No results found'.
+     * @defaultValue No results found
      */
     emptySearchMessage?: string | undefined;
     /**
      * Text to be displayed when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * Default value is 'No available options'.
+     * @defaultValue No available options
      */
     emptyMessage?: string | undefined;
     /**
@@ -179,22 +181,25 @@ export interface CascadeSelectProps {
     'aria-label'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in CascadeSelect component.
+ */
 export interface CascadeSelectSlots {
     /**
      * Custom content for each option.
      * @param {Object} scope - option slot's params.
      */
-    option: (scope: {
+    option(scope: {
         /**
          * Option instance
          */
         option: any;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom value template.
      * @param {CascadeSelectValueSlot} scope - value slot's params.
      */
-    value: (scope: {
+    value(scope: {
         /**
          * Value of the component
          */
@@ -203,63 +208,77 @@ export interface CascadeSelectSlots {
          * Placeholder text to show
          */
         placeholder: string;
-    }) => VNode[];
+    }): VNode[];
     /**
      * Custom indicator template.
      */
-    indicator: () => VNode[];
+    indicator(): VNode[];
 }
 
-export declare type CascadeSelectEmits = {
+/**
+ * Defines valid emits in CascadeSelect component.
+ */
+export interface CascadeSelectEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
      */
-    'update:modelValue': (value: any) => void;
+    'update:modelValue'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param { CascadeSelectChangeEvent } event - Custom change event.
      */
-    change: (event: CascadeSelectChangeEvent) => void;
+    change(event: CascadeSelectChangeEvent): void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
+    blur(event: Event): void;
     /**
      * Callback to invoke on click.
      * @param { Event } event - Browser event.
      */
-    click: (event: Event) => void;
+    click(event: Event): void;
     /**
      * Callback to invoke when a group changes.
      * @param { CascadeSelectGroupChangeEvent } event - Custom change event.
      */
-    'group-change': (event: CascadeSelectGroupChangeEvent) => void;
+    'group-change'(event: CascadeSelectGroupChangeEvent): void;
     /**
      * Callback to invoke before the overlay is shown.
      */
-    'before-show': () => void;
+    'before-show'(): void;
     /**
      * Callback to invoke before the overlay is hidden.
      */
-    'before-hide': () => void;
+    'before-hide'(): void;
     /**
      * Callback to invoke when the overlay is shown.
      */
-    show: () => void;
+    show(): void;
     /**
      * Callback to invoke when the overlay is hidden.
      */
-    hide: () => void;
-};
+    hide(): void;
+}
 
-declare class CascadeSelect extends ClassComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits> {}
+/**
+ * **PrimeVue - CascadeSelect**
+ *
+ * _CascadeSelect is a form component to select a value from a nested structure of options._
+ *
+ * [Live Demo](https://www.primevue.org/cascadeselect/)
+ * --- ---
+ * ![PrimeVue(https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class CascadeSelect extends ClassComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -267,13 +286,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * CascadeSelect displays a nested structure of options.
- *
- * Demos:
- *
- * - [CascadeSelect](https://www.primefaces.org/primevue/cascadeselect)
- *
- */
 export default CascadeSelect;
