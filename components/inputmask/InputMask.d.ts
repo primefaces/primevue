@@ -1,5 +1,17 @@
+/**
+ *
+ * InputMask groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/inputmask/)
+ *
+ * @module inputmask
+ *
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in InputMask component.
+ */
 export interface InputMaskProps {
     /**
      * Value of the component.
@@ -7,7 +19,7 @@ export interface InputMaskProps {
     modelValue?: string | undefined;
     /**
      * Placeholder character in mask, default is underscore.
-     * Default value is '_'.
+     * @defaultValue _
      */
     slotChar?: string | undefined;
     /**
@@ -16,35 +28,44 @@ export interface InputMaskProps {
     mask?: string | undefined;
     /**
      * Clears the incomplete value on blur.
-     * Default value is true.
+     * @defaultValue true
      */
     autoClear?: boolean | undefined;
     /**
      * Defines if model sets the raw unmasked value to bound value or the formatted mask value.
+     * @defaultValue false
      */
     unmask?: boolean | undefined;
+    /**
+     * Whether the items are clickable or not.
+     * @defaultValue false
+     */
+    readonly?: boolean | undefined;
 }
 
 export interface InputMaskSlots {}
 
-export declare type InputMaskEmits = {
+/**
+ * Defines valid emits in InputMask component.
+ */
+export interface InputMaskEmits {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
      */
-    'update:modelValue': (value: string) => void;
+    'update:modelValue'(value: string): void;
     /**
      * Callback to invoke when the component receives focus.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      */
-    blur: (event: Event) => void;
+    blur(event: Event): void;
     /**
      * Callback to invoke when a key is pressed.
      */
-    keydown: (event: Event) => void;
+    keydown(event: Event): void;
     /**
      * Callback to invoke when a key that produces a character value is pressed down.
      */
@@ -57,8 +78,20 @@ export declare type InputMaskEmits = {
      * Callback to invoke when the mask is completed.
      */
     complete: (event: Event) => void;
-};
+}
 
+/**
+ * **PrimeVue - InputMask**
+ *
+ * _InputMask groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/inputmask/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class InputMask extends ClassComponent<InputMaskProps, InputMaskSlots, InputMaskEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -67,13 +100,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.
- *
- * Demos:
- *
- * - [InputMask](https://www.primefaces.org/primevue/inputmask)
- *
- */
 export default InputMask;

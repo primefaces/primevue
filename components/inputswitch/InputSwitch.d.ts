@@ -1,6 +1,18 @@
+/**
+ *
+ * InputSwitch groups a collection of contents in tabs.
+ *
+ * [Live Demo](https://www.primevue.org/inputswitch/)
+ *
+ * @module inputswitch
+ *
+ */
 import { InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in InputSwitch component.
+ */
 export interface InputSwitchProps {
     /**
      * Specifies whether a inputswitch should be checked or not.
@@ -8,10 +20,12 @@ export interface InputSwitchProps {
     modelValue?: boolean | string | undefined;
     /**
      * Value in checked state.
+     * @defaultValue true
      */
     trueValue?: any;
     /**
      * Value in unchecked state.
+     * @defaultValue false
      */
     falseValue?: any;
     /**
@@ -42,29 +56,44 @@ export interface InputSwitchProps {
 
 export interface InputSwitchSlots {}
 
-export declare type InputSwitchEmits = {
+/**
+ * Defines valid emits in InputSwitch component.
+ */
+export interface InputSwitchEmits {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.
      */
-    'update:modelValue': (value: boolean) => void;
+    'update:modelValue'(value: boolean): void;
     /**
      * Callback to invoke on click.
      * @param {Event} event - Browser event.
      */
-    click: (event: Event) => void;
+    click(event: Event): void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.
      */
-    change: (event: Event) => void;
+    change(event: Event): void;
     /**
      * Callback to invoke on value change.
      * @param {boolean} value - New value.
      */
-    input: (value: boolean) => void;
-};
+    input(value: boolean): void;
+}
 
+/**
+ * **PrimeVue - InputSwitch**
+ *
+ * _InputSwitch groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/inputswitch/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class InputSwitch extends ClassComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -73,13 +102,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * InputSwitch is used to select a boolean value.
- *
- * Demos:
- *
- * - [InputSwitch](https://www.primefaces.org/primevue/inputswitch)
- *
- */
 export default InputSwitch;
