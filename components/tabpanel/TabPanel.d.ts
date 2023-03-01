@@ -1,6 +1,18 @@
+/**
+ *
+ * TabPanel is a helper component for TabPanel component.
+ *
+ * [Live Demo](https://www.primevue.org/tabview/)
+ *
+ * @module tabpanel
+ *
+ */
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in TabPanel component.
+ */
 export interface TabPanelProps {
     /**
      * Orientation of tab headers.
@@ -36,10 +48,13 @@ export interface TabPanelProps {
     contentProps?: HTMLAttributes | undefined;
     /**
      * Whether the tab is disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
 }
-
+/**
+ * Defines valid slots in TabPanel slots.
+ */
 export interface TabPanelSlots {
     /**
      * Custom content template.
@@ -51,9 +66,21 @@ export interface TabPanelSlots {
     header: () => VNode[];
 }
 
-export declare type TabPanelEmits = {};
+export interface TabPanelEmits {}
 
-declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> {}
+/**
+ * **PrimeVue - TabPanel**
+ *
+ * _TabPanel is a helper component for TabPanel component._
+ *
+ * [Live Demo](https://www.primevue.org/tabview/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
+export declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -63,11 +90,11 @@ declare module '@vue/runtime-core' {
 
 /**
  *
- * TabPanel is a helper component for TabView component.
+ * TabPanel is a helper component for TabPanel component.
  *
  * Demos:
  *
- * - [TabPanel](https://www.primefaces.org/primevue/tabpanel)
+ * - [TabPanel](https://www.primefaces.org/primevue/tabview)
  *
  */
 export default TabPanel;
