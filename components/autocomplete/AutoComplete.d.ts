@@ -410,7 +410,7 @@ export interface AutoCompleteSlots {
 /**
  * Defines valid emits in AutoComplete component.
  */
-export declare interface AutoCompleteEmits {
+export interface AutoCompleteEmits {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
