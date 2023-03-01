@@ -1,10 +1,17 @@
+/**
+ *
+ * Avatar represents people using icons, labels and images.
+ *
+ * - [Live Demo](https://www.primefaces.org/primevue/avatar)
+ *
+ * @module avatar
+ */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type AvatarSizeType = 'normal' | 'large' | 'xlarge' | undefined;
-
-type AvatarShapeType = 'square' | 'circle' | undefined;
-
+/**
+ * Defines valid properties in Avatar component.
+ */
 export interface AvatarProps {
     /**
      * Defines the text to display.
@@ -19,17 +26,15 @@ export interface AvatarProps {
      */
     image?: string | undefined;
     /**
-     * Size of the element, valid options are 'normal', 'large' and 'xlarge'.
-     * @see AvatarSizeType
-     * Default value is 'normal'.
+     * Size of the element.
+     * @defaultValue normal
      */
-    size?: AvatarSizeType;
+    size?: 'normal' | 'large' | 'xlarge' | undefined;
     /**
-     * Shape of the element, valid options are 'square' and 'circle'.
-     * @see AvatarShapeType
-     * Default value is 'square'.
+     * Shape of the element.
+     * @defaultValue square
      */
-    shape?: AvatarShapeType;
+    shape?: 'square' | 'circle' | undefined;
     /**
      * Establishes a string value that labels the component.
      */
@@ -40,20 +45,37 @@ export interface AvatarProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in Avatar component.
+ */
 export interface AvatarSlots {
     /**
      * Content can easily be customized with the default slot instead of using the built-in modes.
      */
-    default: () => VNode[];
+    default(): VNode[];
 }
 
-export declare type AvatarEmits = {
+/**
+ * Defines valid emits in Avatar component.
+ */
+export interface AvatarEmits {
     /**
      * Triggered when an error occurs while loading an image file.
      */
-    error: () => void;
-};
+    error(): void;
+}
 
+/**
+ * **PrimeVue - Avatar**
+ *
+ * _Avatar represents people using icons, labels and images._
+ *
+ * [Live Demo](https://www.primevue.org/avatar/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
 declare class Avatar extends ClassComponent<AvatarProps, AvatarSlots, AvatarEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -62,13 +84,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Avatar represents people using icons, labels and images.
- *
- * Demos:
- *
- * - [Avatar](https://www.primefaces.org/primevue/avatar)
- *
- */
 export default Avatar;
