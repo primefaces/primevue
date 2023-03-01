@@ -1,12 +1,41 @@
+/**
+ *
+ * DynamicDialogs can be created dynamically with any component as the content using a DialogService.
+ *
+ * - [Live Demo](https://www.primefaces.org/primevue/dynamicdialog)
+ *
+ * @module dynamicdialog
+ *
+ */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in DynamicDialog component.
+ */
 export interface DynamicDialogProps {}
 
-export declare type DynamicDialogEmits = {};
+/**
+ * Defines valid emits in DynamicDialog component.
+ */
+export interface DynamicDialogEmits {}
 
+/**
+ * Defines valid slots in DynamicDialog component.
+ */
 export interface DynamicDialogSlots {}
 
-declare class DynamicDialog extends ClassComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits> {}
+/**
+ * **PrimeVue - DynamicDialog**
+ *
+ * _DynamicDialogs can be created dynamically with any component as the content using a DialogService._
+ *
+ * [Live Demo](https://www.primevue.org/dynamicdialog/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ */
+export declare class DynamicDialog extends ClassComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -14,13 +43,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * DynamicDialogs can be created dynamically with any component as the content using a DialogService.
- *
- * Demos:
- *
- * - [DynamicDialog](https://www.primefaces.org/primevue/dynamicdialog)
- *
- */
 export default DynamicDialog;
