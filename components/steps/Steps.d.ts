@@ -1,7 +1,19 @@
+/**
+ *
+ * Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps.
+ *
+ * [Live Demo](https://www.primevue.org/steps/)
+ *
+ * @module steps
+ *
+ */
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { MenuItem } from '../menuitem';
+import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Steps component.
+ */
 export interface StepsProps {
     /**
      * Unique identifier of the element.
@@ -13,31 +25,49 @@ export interface StepsProps {
     model?: MenuItem[] | undefined;
     /**
      * Whether the items are clickable or not.
-     * Default value is true.
+     * @defaultValue true
      */
     readonly?: boolean | undefined;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
-     * Default value is true.
+     * @defaultValue true
      */
     exact?: boolean | undefined;
 }
 
+/**
+ * Defines valid slots in Steps component.
+ */
 export interface StepsSlots {
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Menuitem instance
          */
         item: MenuItem;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type StepsEmits = {};
+/**
+ * Defines valid emits in Steps component.
+ */
+export interface StepsEmits {}
 
+/**
+ * **PrimeVue - Steps**
+ *
+ * _Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps._
+ *
+ * [Live Demo](https://www.primevue.org/steps/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class Steps extends ClassComponent<StepsProps, StepsSlots, StepsEmits> {}
 
 declare module '@vue/runtime-core' {
@@ -46,13 +76,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps.
- *
- * Demos:
- *
- * - [Steps](https://www.primefaces.org/primevue/steps)
- *
- */
 export default Steps;
