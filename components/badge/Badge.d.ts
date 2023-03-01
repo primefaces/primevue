@@ -62,13 +62,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Badge is a small status indicator for another element.
- *
- * Demos:
- *
- * - [Badge](https://www.primefaces.org/primevue/badge)
- *
- */
 export default Badge;

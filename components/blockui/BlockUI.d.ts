@@ -77,13 +77,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * BlockUI can either block other components or the whole page.
- *
- * Demos:
- *
- * - [BlockUI](https://www.primefaces.org/primevue/blockui)
- *
- */
 export default BlockUI;
