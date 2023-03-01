@@ -93,7 +93,7 @@ export interface PanelEmits {
  * @group Component
  *
  */
-export declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
+declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -101,13 +101,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Panel is a container with the optional content toggle feature.
- *
- * Demos:
- *
- * - [Panel](https://www.primefaces.org/primevue/panel)
- *
- */
 export default Panel;

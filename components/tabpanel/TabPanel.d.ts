@@ -80,7 +80,7 @@ export interface TabPanelEmits {}
  * @group Component
  *
  */
-export declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> {}
+declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> {}
 
 declare module '@vue/runtime-core' {
     interface GlobalComponents {
@@ -88,13 +88,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * TabPanel is a helper component for TabPanel component.
- *
- * Demos:
- *
- * - [TabPanel](https://www.primefaces.org/primevue/tabview)
- *
- */
 export default TabPanel;
