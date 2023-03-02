@@ -1,16 +1,6 @@
-import { ObjectDirective } from 'vue';
+import { DirectiveBinding, ObjectDirective } from 'vue';
 
-declare const Tooltip: ObjectDirective;
-
-/**
- * Defines options of Tooltip.
- * @group Model
- */
-export interface TooltipProps {
-    /**
-     * Text of the tooltip.
-     */
-    value?: string | undefined;
+export declare type TooltipDirectiveModifiers = {
     /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
@@ -30,10 +20,24 @@ export interface TooltipProps {
      */
     escape?: boolean | undefined;
     /**
-     * 	Automatically adjusts the element position when there is not enough space on the selected position.
+     * Automatically adjusts the element position when there is not enough space on the selected position.
      * @defaultValue true
      */
     fitContent?: boolean | undefined;
+};
+
+export interface TooltipDirectiveBinding extends Omit<DirectiveBinding, 'modifiers' | 'value'> {
+    /**
+     * Text of the tooltip.
+     */
+    value?: string | undefined;
+    /**
+     * Tooltip modifiers
+     * @type {TooltipDirectiveModifiers}
+     */
+    modifiers?: TooltipDirectiveModifiers | undefined;
 }
+
+declare const Tooltip: ObjectDirective;
 
 export default Tooltip;
