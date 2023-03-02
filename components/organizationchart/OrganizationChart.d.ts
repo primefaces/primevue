@@ -6,7 +6,7 @@
  *
  * - OrganizationChartNode
  *
- * - [Live Demo](https://primevue.org//organizationchart)
+ * - [Live Demo](https://primevue.org/organizationchart)
  *
  * @module organizationchart
  */

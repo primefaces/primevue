@@ -27,7 +27,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [FullCalendar](https://primevue.org//fullcalendar)
+ * - [FullCalendar](https://primevue.org/fullcalendar)
  *
  * @deprecated
  */

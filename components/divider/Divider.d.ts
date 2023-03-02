@@ -2,7 +2,7 @@
  *
  * Divider is used to separate contents.
  *
- * [Live Demo](https://primevue.org//divider)
+ * [Live Demo](https://primevue.org/divider)
  *
  * @module divider
  *
@@ -47,7 +47,7 @@ export interface DividerEmits {}
  *
  * _Divider is used to separate contents._
  *
- * [Live Demo](https://primevue.org//divider)
+ * [Live Demo](https://primevue.org/divider)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
  *

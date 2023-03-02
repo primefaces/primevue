@@ -98,7 +98,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Accordion](https://primevue.org//accordion)
+ * - [Accordion](https://primevue.org/accordion)
  *
  */
 export default AccordionTab;

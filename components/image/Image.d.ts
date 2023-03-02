@@ -86,7 +86,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Image](https://primevue.org//image)
+ * - [Image](https://primevue.org/image)
  *
  */
 export default Image;
