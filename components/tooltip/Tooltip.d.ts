@@ -3,6 +3,9 @@
  * Tooltip directive provides advisory information for a component.
  *
  * - [Live Demo](https://primevue.org/tooltip)
+ *
+ * @module tooltip
+ *
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
@@ -42,7 +45,7 @@ export interface TooltipOptions {
 /**
  * Defines modifiers of Tooltip.
  */
-export declare type TooltipDirectiveModifiers = {
+export interface TooltipDirectiveModifiers {
     /**
      * Right position for Tooltip.
      */
@@ -63,7 +66,7 @@ export declare type TooltipDirectiveModifiers = {
      * Focus event for Tooltip.
      */
     focus?: string | undefined;
-};
+}
 
 /**
  * Binding of Tooltip directive.

@@ -3,6 +3,8 @@
  * Focus Trap keeps focus within a certain DOM element while tabbing.
  *
  * - [Live Demo](https://primevue.org/focustrap)
+ *
+ * @module focustrap
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
