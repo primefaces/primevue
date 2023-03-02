@@ -13,7 +13,7 @@ import { DirectiveBinding, ObjectDirective } from 'vue';
  */
 export interface StyleClassOptions {
     /**
-     * Selector to define the target element.
+     * Selector to define the target element. Available selectors are '@next', '@prev', '@parent' and '@grandparent'.
      */
     selector?: '@next' | '@prev' | '@parent' | '@grandparent' | string | undefined;
     /**
