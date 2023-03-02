@@ -1,7 +1,7 @@
 <template>
     <DocComponent
         title="Vue Stepper Component"
-        header="Stepper"
+        header="Steps"
         description="Steps also known as Stepper, is an indicator for the steps in a workflow. Layout of steps component is optimized for responsive design."
         :componentDocs="docs"
         :apiDocs="['Steps', 'MenuItem']"
