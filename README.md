@@ -14,7 +14,7 @@ PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homep
 PrimeVue is available at npm, if you have an existing application run the following command to download it to your project.
 
 ````
-npm install primevue@^3 --save
+npm install primevue --save
 npm install primeicons --save
 ````
 
@@ -61,8 +61,8 @@ Finally you'll be able to utilize the component in your application. See the Sty
 ### CDN
 
 ```javascript
-<script src="https://unpkg.com/primevue@^3/core/core.min.js"></script>
-<script src="https://unpkg.com/primevue@^3/multiselect/multiselect.min.js"></script>
+<script src="https://unpkg.com/primevue/core/core.min.js"></script>
+<script src="https://unpkg.com/primevue/multiselect/multiselect.min.js"></script>
 ```
 
 ## Single File Components
