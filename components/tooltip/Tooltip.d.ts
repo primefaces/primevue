@@ -48,24 +48,29 @@ export interface TooltipOptions {
 export interface TooltipDirectiveModifiers {
     /**
      * Right position for Tooltip.
+     *  @defaultValue true
      */
-    right?: string | undefined;
+    right?: boolean | undefined;
     /**
-     * Feft position for Tooltip.
+     * Left position for Tooltip.
+     *  @defaultValue false
      */
-    left?: string | undefined;
+    left?: boolean | undefined;
     /**
      * Top position for Tooltip.
+     *  @defaultValue false
      */
-    top?: string | undefined;
+    top?: boolean | undefined;
     /**
      * Bottom position for Tooltip.
+     *  @defaultValue false
      */
-    bottom?: string | undefined;
+    bottom?: boolean | undefined;
     /**
      * Focus event for Tooltip.
+     *  @defaultValue true
      */
-    focus?: string | undefined;
+    focus?: boolean | undefined;
 }
 
 /**

@@ -13,21 +13,25 @@ import { DirectiveBinding, ObjectDirective } from 'vue';
  */
 export interface BadgeDirectiveModifiers {
     /**
-     * Success severity for Badge directive.
-     */
-    success?: string | undefined;
-    /**
      * Info severity for Badge directive.
+     *  @defaultValue true
      */
-    info?: string | undefined;
+    info?: boolean | undefined;
+    /**
+     * Success severity for Badge directive.
+     * @defaultValue false
+     */
+    success?: boolean | undefined;
     /**
      * Warning severity for Badge directive.
+     *  @defaultValue false
      */
-    warning?: string | undefined;
+    warning?: boolean | undefined;
     /**
      * Danger severity for Badge directive.
+     *  @defaultValue false
      */
-    danger?: string | undefined;
+    danger?: boolean | undefined;
 }
 
 /**
