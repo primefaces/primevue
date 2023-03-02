@@ -63,7 +63,8 @@ const getVueApp = (props = {}, sourceType) => {
                     build: 'vite build',
                     preview: 'vite preview'
                 },
-                dependencies
+                dependencies,
+                main: 'src/App.vue'
             }
         },
         'vite.config.js': {
