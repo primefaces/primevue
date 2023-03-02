@@ -2,7 +2,7 @@
  *
  * Paginator is a generic component to display content in paged format.
  *
- * - [Paginator](https://www.primefaces.org/primevue/paginator)
+ * - [Paginator](https://primevue.org//paginator)
  *
  * @module paginator
  *

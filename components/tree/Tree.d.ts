@@ -240,7 +240,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Tree](https://www.primefaces.org/primevue/tree)
+ * - [Tree](https://primevue.org//tree)
  *
  */
 export default Tree;

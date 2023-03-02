@@ -32,7 +32,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [DataViewLayoutOptions](https://www.primefaces.org/primevue/dataview)
+ * - [DataViewLayoutOptions](https://primevue.org//dataview)
  *
  */
 export default DataViewLayoutOptions;

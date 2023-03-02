@@ -2,7 +2,7 @@
  *
  * Avatar represents people using icons, labels and images.
  *
- * - [Live Demo](https://www.primefaces.org/primevue/avatar)
+ * - [Live Demo](https://primevue.org//avatar)
  *
  * @module avatar
  */

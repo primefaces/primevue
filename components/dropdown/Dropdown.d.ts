@@ -456,7 +456,7 @@ declare module '@vue/runtime-core' {
  *
  * Demos:
  *
- * - [Dropdown](https://www.primefaces.org/primevue/dropdown)
+ * - [Dropdown](https://primevue.org//dropdown)
  *
  */
 export default Dropdown;

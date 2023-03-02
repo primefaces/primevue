@@ -22,7 +22,7 @@ export default defineNuxtConfig({
                 { name: 'twitter:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:title', content: 'PrimeVue | Vue UI Component Library' },
-                { property: 'og:url', content: 'https://www.primefaces.org/primevue' },
+                { property: 'og:url', content: 'https://primevue.org/' },
                 { property: 'og:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
                 { property: 'og:image', content: 'https://www.primefaces.org/static/social/primevue-preview.jpg' },
                 { property: 'og:ttl', content: '604800' }

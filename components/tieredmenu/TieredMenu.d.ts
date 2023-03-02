@@ -129,11 +129,11 @@ declare module '@vue/runtime-core' {
  *
  * Helper API:
  *
- * - [MenuItem](https://www.primefaces.org/primevue/menumodel)
+ * - [MenuItem](https://primevue.org//menumodel)
  *
  * Demos:
  *
- * - [TieredMenu](https://www.primefaces.org/primevue/tieredmenu)
+ * - [TieredMenu](https://primevue.org//tieredmenu)
  *
  */
 export default TieredMenu;

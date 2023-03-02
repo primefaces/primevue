@@ -18,7 +18,7 @@
 export default {
     data() {
         return {
-            home: { icon: 'pi pi-home', url: 'https://www.primefaces.org/primevue' },
+            home: { icon: 'pi pi-home', url: 'https://primevue.org/' },
             items: [{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }],
             code: {
                 basic: `
@@ -46,7 +46,7 @@ export default {
 export default {
     data() {
         return {
-            home: { icon: 'pi pi-home', url: 'https://www.primefaces.org/primevue' },
+            home: { icon: 'pi pi-home', url: 'https://primevue.org/' },
             items: [{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }]
         }
     }
@@ -68,7 +68,7 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const home = ref({ icon: 'pi pi-home', url: 'https://www.primefaces.org/primevue' });
+const home = ref({ icon: 'pi pi-home', url: 'https://primevue.org/' });
 const items = ref([{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }]);
 }
 <\/script>`

@@ -2,7 +2,7 @@
  *
  * Timeline visualizes a series of chained events.
  *
- * - [Live Demo](https://www.primefaces.org/primevue/timeline)
+ * - [Live Demo](https://primevue.org//timeline)
  *
  * @module timeline
  */
