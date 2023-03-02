@@ -82,13 +82,13 @@ Other alternative is utilizing the components directly within the browser with t
     <head>
         <meta charset="utf-8">
         <title>PrimeVue Demo</title>
-        <link href="https://unpkg.com/primevue/resources/themes/lara-light-indigo/theme.css" rel="stylesheet">
+        <link href="https://unpkg.com/primevue/resources/themes/lara-light-blue/theme.css" rel="stylesheet">
         <link href="https://unpkg.com/primevue/resources/primevue.min.css" rel="stylesheet">
         <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet">
 
         <script src="https://unpkg.com/vue@next"></script>
-        <script src="https://unpkg.com/primevue^3/core/core.min.js"></script>
-        <script src="https://unpkg.com/primevue^3/slider/slider.min.js"></script>
+        <script src="https://unpkg.com/primevue/core/core.min.js"></script>
+        <script src="https://unpkg.com/primevue/slider/slider.min.js"></script>
     </head>
 
     <body>
@@ -124,7 +124,7 @@ Other alternative is utilizing the components directly within the browser with t
 The css dependencies are as follows, note that you may change the theme with another one of your choice.
 
 ```css
-primevue/resources/themes/saga-blue/theme.css       //theme
+primevue/resources/themes/lara-light-blue/theme.css       //theme
 primevue/resources/primevue.min.css                 //core css
 primeicons/primeicons.css                           //icons
 ```
@@ -132,7 +132,7 @@ primeicons/primeicons.css                           //icons
 If you are using a bundler such as webpack with a css loader you may also import them to your main application component.
 
 ```javascript
-import 'primevue/resources/themes/lara-light-indigo/theme.css';
+import 'primevue/resources/themes/lara-light-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 ```
@@ -150,7 +150,7 @@ import { defineNuxtConfig } from 'nuxt3';
 
 export default defineNuxtConfig({
     css: [
-        'primevue/resources/themes/saga-blue/theme.css',
+        'primevue/resources/themes/lara-light-blue/theme.css',
         'primevue/resources/primevue.css',
         'primeicons/primeicons.css'
     ]
