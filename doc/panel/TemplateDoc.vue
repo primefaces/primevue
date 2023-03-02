@@ -61,7 +61,6 @@ export default {
             ],
             code: {
                 basic: `
-<Toast />
 <Panel header="Header" toggleable>
     <template #icons>
         <button class="p-panel-header-icon p-link mr-2" @click="toggle">
