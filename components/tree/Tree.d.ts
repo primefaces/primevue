@@ -230,17 +230,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Tree is used to display hierarchical data.
- *
- * Helper API:
- *
- * - TreeNode
- *
- * Demos:
- *
- * - [Tree](https://primevue.org/tree)
- *
- */
 export default Tree;

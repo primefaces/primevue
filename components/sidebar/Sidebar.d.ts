@@ -113,13 +113,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Sidebar is a panel component displayed as an overlay at the edges of the screen.
- *
- * Demos:
- *
- * - [Sidebar](https://primevue.org/sidebar)
- *
- */
 export default Sidebar;

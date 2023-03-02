@@ -92,13 +92,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * AccordionTab is a helper component for Accordion..
- *
- * Demos:
- *
- * - [Accordion](https://primevue.org/accordion)
- *
- */
 export default AccordionTab;
