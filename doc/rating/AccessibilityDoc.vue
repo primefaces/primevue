@@ -2,7 +2,7 @@
     <DocSectionText id="accessibility" label="Accessibility" v-bind="$attrs">
         <h3>Screen Reader</h3>
         <p>
-            Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <nuxt-link to="/locale">locale</nuxt-link> API via <i>star</i> and <i>stars</i> of the
+            Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the <NuxtLink to="/locale">locale</NuxtLink> API via <i>star</i> and <i>stars</i> of the
             <i>aria</i> property.
         </p>
 

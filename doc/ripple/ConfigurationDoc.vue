@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>To start with, Ripple needs to be enabled globally. See the <nuxt-link to="/ripple">Configuration API</nuxt-link> for details.</p>
+        <p>To start with, Ripple needs to be enabled globally. See the <NuxtLink to="/configuration/#ripple">Configuration API</NuxtLink> for details.</p>
     </DocSectionText>
     <DocSectionCode :code="code" importCode hideCodeSandbox hideStackBlitz />
 </template>

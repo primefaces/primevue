@@ -4,7 +4,7 @@
         <p>Toast component use <i>alert</i> role that implicitly defines <i>aria-live</i> as "assertive" and <i>aria-atomic</i> as "true".</p>
 
         <p>
-            Close element is a <i>button</i> with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <nuxt-link to="/locale">locale</nuxt-link> API by default, you may use <i>closeButtonProps</i> to customize the element and
+            Close element is a <i>button</i> with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <NuxtLink to="/locale">locale</NuxtLink> API by default, you may use <i>closeButtonProps</i> to customize the element and
             override the default <i>aria-label</i>.
         </p>
 
