@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import DataView from 'primevue/dataview';
+                basic: `import DataView from 'primevue/dataview';
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'   // optional`
             }
         };

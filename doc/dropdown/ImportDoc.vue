@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import Dropdown from 'primevue/dropdown';`
+                basic: `import Dropdown from 'primevue/dropdown';`
             }
         };
     }

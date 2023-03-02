@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import OverlayPanel from 'primevue/overlaypanel';`
+                basic: `import OverlayPanel from 'primevue/overlaypanel';`
             }
         };
     }

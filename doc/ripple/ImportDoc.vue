@@ -15,16 +15,14 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-import { createApp } from 'vue';
+                basic: `import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
 app.use(PrimeVue, { ripple: true });`
             },
             code2: {
-                basic: `
-import Ripple from 'primevue/ripple';
+                basic: `import Ripple from 'primevue/ripple';
 
 app.directive('ripple', Ripple);`
             }

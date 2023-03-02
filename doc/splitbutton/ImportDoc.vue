@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import SplitButton from 'primevue/splitbutton';`
+                basic: `import SplitButton from 'primevue/splitbutton';`
             }
         };
     }

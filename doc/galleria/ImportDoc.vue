@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import Galleria from 'primevue/galleria';`
+                basic: `import Galleria from 'primevue/galleria';`
             }
         };
     }

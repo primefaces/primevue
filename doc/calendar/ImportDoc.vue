@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import Calendar from 'primevue/calendar';`
+                basic: `import Calendar from 'primevue/calendar';`
             }
         };
     }
