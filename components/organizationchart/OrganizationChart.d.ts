@@ -1,14 +1,11 @@
 /**
  *
  * OrganizationChart visualizes hierarchical organization data.
- *@todo
- * Helper API:
  *
- * - OrganizationChartNode
- *
- * - [Live Demo](https://primevue.org/organizationchart)
+ * [Live Demo](https://primevue.org/organizationchart)
  *
  * @module organizationchart
+ *
  */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';

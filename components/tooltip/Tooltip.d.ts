@@ -1,6 +1,10 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
-export declare type TooltipDirectiveModifiers = {
+export interface TooltipOptions {
+    /**
+     * Text of the tooltip.
+     */
+    value?: string | undefined;
     /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
@@ -24,15 +28,17 @@ export declare type TooltipDirectiveModifiers = {
      * @defaultValue true
      */
     fitContent?: boolean | undefined;
-};
+}
+
+export declare type TooltipDirectiveModifiers = {};
 
 export interface TooltipDirectiveBinding extends Omit<DirectiveBinding, 'modifiers' | 'value'> {
     /**
-     * Text of the tooltip.
+     * Value of the tooltip.
      */
-    value?: string | undefined;
+    value?: string | TooltipOptions | undefined;
     /**
-     * Tooltip modifiers
+     * Modifiers of the tooltip.
      * @type {TooltipDirectiveModifiers}
      */
     modifiers?: TooltipDirectiveModifiers | undefined;
