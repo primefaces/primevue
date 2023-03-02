@@ -2,7 +2,7 @@
     <ul ref="nav" class="doc-section-nav">
         <li v-for="doc of docs" :key="doc.label" :class="['navbar-item', { 'active-navbar-item': activeId === doc.id }]">
             <div class="navbar-item-content">
-                <NuxtLink :to="`/${$router.currentRoute.value.name}/#${doc.id}`">
+                <NuxtLink :to="`${checkRouteName}/#${doc.id}`">
                     <button class="p-link" @click="onButtonClick(doc)">{{ doc.label }}</button>
                 </NuxtLink>
             </div>
@@ -11,7 +11,7 @@
                 <ul>
                     <li v-for="child of doc.children" :key="child.label" :class="['navbar-item', { 'active-navbar-item': activeId === child.id }]">
                         <div class="navbar-item-content">
-                            <NuxtLink :to="`/${$router.currentRoute.value.name}/#${child.id}`">
+                            <NuxtLink :to="`${checkRouteName}/#${child.id}`">
                                 <button class="p-link" @click="onButtonClick(child)">
                                     {{ child.label }}
                                 </button>
@@ -103,6 +103,17 @@ export default {
         },
         getIdOfTheSection(section) {
             return section.querySelector('a').getAttribute('id');
+        }
+    },
+    computed: {
+        checkRouteName() {
+            const path = this.$router.currentRoute.value.path;
+
+            if (path.lastIndexOf('/') === path.length - 1) {
+                return path.slice(0, -1);
+            }
+
+            return path;
         }
     }
 };
