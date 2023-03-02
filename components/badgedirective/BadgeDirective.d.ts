@@ -3,13 +3,15 @@
  * Badge directive is a small status indicator for another element.
  *
  * - [Live Demo](https://primevue.org/badge)
+ *
+ * @module badgedirective
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
 /**
  * Defines modifiers of Badge directive.
  */
-export declare type BadgeDirectiveModifiers = {
+export interface BadgeDirectiveModifiers {
     /**
      * Success severity for Badge directive.
      */
@@ -26,7 +28,7 @@ export declare type BadgeDirectiveModifiers = {
      * Danger severity for Badge directive.
      */
     danger?: string | undefined;
-};
+}
 
 /**
  * Binding of Badge directive.

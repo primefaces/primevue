@@ -54,7 +54,6 @@ export default {
                 const emits = values[`${docName}Emits`];
                 const slots = values[`${docName}Slots`];
                 const methods = componentValues ? componentValues['default'].methods : null;
-
                 const types = APIDocs[moduleName]['types'];
                 let events = this.findEvents(values);
                 const interfaces = this.findOtherInterfaces(values, docName);
@@ -109,7 +108,11 @@ export default {
                     });
                 }
 
-                if (interfaces && interfaces.length) {
+                if (interfaces && interfaces.length > 0) {
+                    const isValidDirective = this.checkDirectiveInterfaces(interfaces, docName);
+
+                    if (!isValidDirective) return;
+
                     newDoc.children.push({
                         id: `api.${moduleName}.interfaces`,
                         label: 'Interfaces',
@@ -266,6 +269,11 @@ export default {
             }
 
             return interfaces;
+        },
+        checkDirectiveInterfaces(interfaces, docName) {
+            const findMainInterface = interfaces.find((interfaceData) => interfaceData.key.includes('DirectiveBinding'));
+
+            return !findMainInterface || findMainInterface.values.props.length > 0;
         }
     }
 };
