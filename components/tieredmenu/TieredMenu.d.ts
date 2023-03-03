@@ -110,7 +110,7 @@ export interface TieredMenuEmits {
 }
 
 /**
- * **PrimeVue - Menu**
+ * **PrimeVue - TieredMenu**
  *
  * _TieredMenu displays submenus in nested overlays._
  *
