@@ -145,11 +145,30 @@ export function usePrimeVue() {
     return PrimeVue;
 }
 
+function switchTheme(currentTheme, newTheme, linkElementId, callback) {
+    const linkElement = document.getElementById(linkElementId);
+    const cloneLinkElement = linkElement.cloneNode(true);
+    const newThemeUrl = linkElement.getAttribute('href').replace(currentTheme, newTheme);
+
+    cloneLinkElement.setAttribute('id', linkElementId + '-clone');
+    cloneLinkElement.setAttribute('href', newThemeUrl);
+    cloneLinkElement.addEventListener('load', () => {
+        linkElement.remove();
+        cloneLinkElement.setAttribute('id', linkElementId);
+
+        if (callback) {
+            callback();
+        }
+    });
+    linkElement.parentNode?.insertBefore(cloneLinkElement, linkElement.nextSibling);
+}
+
 export default {
     install: (app, options) => {
         let configOptions = options ? { ...defaultOptions, ...options } : { ...defaultOptions };
         const PrimeVue = {
-            config: reactive(configOptions)
+            config: reactive(configOptions),
+            changeTheme: switchTheme
         };
 
         app.config.globalProperties.$primevue = PrimeVue;

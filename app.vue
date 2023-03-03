@@ -46,21 +46,10 @@ export default {
         };
 
         this.themeChangeListener = (event) => {
-            const elementId = 'theme-link';
-            const linkElement = document.getElementById(elementId);
-            const cloneLinkElement = linkElement.cloneNode(true);
-            const newThemeUrl = linkElement.getAttribute('href').replace(this.$appState.theme, event.theme);
-
-            cloneLinkElement.setAttribute('id', elementId + '-clone');
-            cloneLinkElement.setAttribute('href', newThemeUrl);
-            cloneLinkElement.addEventListener('load', () => {
-                linkElement.remove();
-                cloneLinkElement.setAttribute('id', elementId);
+            this.$primevue.changeTheme(this.$appState.theme, event.theme, 'theme-link', () => {
+                this.$appState.theme = event.theme;
+                this.$appState.darkTheme = event.dark;
             });
-            linkElement.parentNode?.insertBefore(cloneLinkElement, linkElement.nextSibling);
-
-            this.$appState.theme = event.theme;
-            this.$appState.darkTheme = event.dark;
         };
 
         EventBus.on('theme-change', this.themeChangeListener);
@@ -76,5 +65,4 @@ export default {
 <style lang="scss">
 @import '@/assets/styles/layout/landing/landing.scss';
 @import '@/assets/styles/layout/layout.scss';
-@import '@/assets/styles/demo/demo.scss';
 </style>

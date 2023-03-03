@@ -20,13 +20,14 @@
 
 <script>
 import ArchitectureDoc from '@/doc/theming/ArchitectureDoc';
-import CSSVariablesDoc from '@/doc/theming/CSSVariablesDoc';
-import DesignerDoc from '@/doc/theming/DesignerDoc';
+import BuiltInThemesDoc from '@/doc/theming/BuiltInThemesDoc';
+import CSSModulesDoc from '@/doc/theming/CSSModulesDoc';
+import CustomThemeDoc from '@/doc/theming/CustomThemeDoc';
 import PrimeFlexDoc from '@/doc/theming/PrimeFlexDoc';
 import ScaleDoc from '@/doc/theming/ScaleDoc';
-import ScopedStylingDoc from '@/doc/theming/ScopedStylingDoc';
-import ThemesDoc from '@/doc/theming/ThemesDoc';
+import ScopedCSSDoc from '@/doc/theming/ScopedCSSDoc';
 import UtilsDoc from '@/doc/theming/UtilsDoc';
+import SwitchThemesDoc from '../../doc/theming/SwitchThemesDoc';
 
 export default {
     data() {
@@ -38,19 +39,29 @@ export default {
                     component: ArchitectureDoc
                 },
                 {
-                    id: 'themes',
-                    label: 'Themes',
-                    component: ThemesDoc
+                    id: 'builtinthemes',
+                    label: 'Buit-in Themes',
+                    component: BuiltInThemesDoc
                 },
                 {
-                    id: 'designer',
-                    label: 'Designer',
-                    component: DesignerDoc
+                    id: 'switchthemes',
+                    label: 'Switch Themes',
+                    component: SwitchThemesDoc
                 },
                 {
-                    id: 'scopedstyling',
-                    label: 'Scoped Styling',
-                    component: ScopedStylingDoc
+                    id: 'customtheme',
+                    label: 'Custom Theme',
+                    component: CustomThemeDoc
+                },
+                {
+                    id: 'scopedcss',
+                    label: 'Scoped CSS',
+                    component: ScopedCSSDoc
+                },
+                {
+                    id: 'cssmodules',
+                    label: 'CSS Modules',
+                    component: CSSModulesDoc
                 },
                 {
                     id: 'scale',
@@ -66,11 +77,6 @@ export default {
                     id: 'utils',
                     label: 'Utils',
                     component: UtilsDoc
-                },
-                {
-                    id: 'cssvariables',
-                    label: 'CSS Variables',
-                    component: CSSVariablesDoc
                 }
             ]
         };

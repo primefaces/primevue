@@ -43,10 +43,6 @@
                     <td>p-invalid</td>
                     <td>Applies the invalid style to a text or a form field.</td>
                 </tr>
-                <tr>
-                    <td>p-text-secondary</td>
-                    <td>Applies the text color of the theme with the secondary priority.</td>
-                </tr>
             </tbody>
         </table>
     </div>

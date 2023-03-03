@@ -8,9 +8,9 @@
 
         <p>Here is an example to demonstrate how to align 3 buttons horizontally on bigger screens and display them as stacked on smaller ones.</p>
     </DocSectionText>
-    <div class="card flex flex-column md:flex-row justify-content-between my-5">
-        <Button type="button" label="Button 1" class="mb-3 md:mb-0"></Button>
-        <Button type="button" label="Button 2" class="p-button-secondary mb-3 md:mb-0"></Button>
+    <div class="card flex flex-column md:flex-row md:justify-content-between row-gap-3">
+        <Button type="button" label="Button 1"></Button>
+        <Button type="button" label="Button 2" class="p-button-secondary"></Button>
         <Button type="button" label="Button 3" class="p-button-help"></Button>
     </div>
     <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
@@ -22,9 +22,9 @@ export default {
         return {
             code: {
                 basic: `
-<div class="flex flex-column md:flex-row justify-content-between my-5">
-    <Button type="button" label="Button 1" class="mb-3 md:mb-0"></Button>
-    <Button type="button" label="Button 2" class="p-button-secondary mb-3 md:mb-0"></Button>
+<div class="flex flex-column md:flex-row md:justify-content-between row-gap-3">
+    <Button type="button" label="Button 1"></Button>
+    <Button type="button" label="Button 2" class="p-button-secondary"></Button>
     <Button type="button" label="Button 3" class="p-button-help"></Button>
 </div>`
             }
