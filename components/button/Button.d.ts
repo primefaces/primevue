@@ -65,7 +65,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Defines the style of the button.
      */
-    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'danger' | undefined;
+    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | undefined;
     /**
      * Add a shadow to indicate elevation.
      * @defaultValue false
