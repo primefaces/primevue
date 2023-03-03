@@ -49,7 +49,7 @@ export interface DividerEmits {}
  *
  * [Live Demo](https://primevue.org/divider)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

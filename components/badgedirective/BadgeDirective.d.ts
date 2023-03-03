@@ -56,7 +56,7 @@ export interface BadgeDirectiveBinding extends Omit<DirectiveBinding, 'modifiers
  *
  * [Live Demo](https://www.primevue.org/badge/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  */
 declare const BadgeDirective: ObjectDirective;

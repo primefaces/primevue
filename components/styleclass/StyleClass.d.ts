@@ -68,7 +68,7 @@ export interface StyleClassDirectiveBinding extends Omit<DirectiveBinding, 'modi
  *
  * [Live Demo](https://www.primevue.org/styleclass/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  */
 declare const StyleClass: ObjectDirective;

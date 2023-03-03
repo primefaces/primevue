@@ -110,7 +110,7 @@ export interface ColorPickerEmits {
  *
  * [Live Demo](https://www.primevue.org/colorpicker/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

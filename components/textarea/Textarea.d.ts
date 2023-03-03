@@ -48,7 +48,7 @@ export interface TextareaEmits {
  *
  * [Live Demo](https://www.primevue.org/textarea/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

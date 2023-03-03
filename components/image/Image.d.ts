@@ -48,7 +48,7 @@ export interface ImageEmits {}
  *
  * [Live Demo](https://www.primevue.org/image/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

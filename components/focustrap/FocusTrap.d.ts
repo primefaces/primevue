@@ -36,7 +36,7 @@ export interface FocusTrapDirectiveBinding extends Omit<DirectiveBinding, 'modif
  *
  * [Live Demo](https://www.primevue.org/focustrap/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  */
 declare const FocusTrap: ObjectDirective;

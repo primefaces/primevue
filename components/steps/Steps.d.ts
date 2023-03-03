@@ -63,7 +63,7 @@ export interface StepsEmits {}
  *
  * [Live Demo](https://www.primevue.org/steps/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

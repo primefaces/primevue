@@ -51,7 +51,7 @@ export interface ToolbarEmits {}
  *
  * [Live Demo](https://www.primevue.org/toolbar/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

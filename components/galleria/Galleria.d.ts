@@ -230,7 +230,7 @@ export interface GalleriaEmits {
  *
  * [Live Demo](https://www.primevue.org/galleria/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

@@ -87,7 +87,7 @@ export interface InputMaskEmits {
  *
  * [Live Demo](https://www.primevue.org/inputmask/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

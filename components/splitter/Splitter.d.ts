@@ -103,7 +103,7 @@ export interface SplitterEmits {
  *
  * [Live Demo](https://www.primevue.org/splitter/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

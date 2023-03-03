@@ -120,7 +120,7 @@ export interface KnobEmits {
  *
  * [Live Demo](https://www.primevue.org/knob/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  */
 declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}

@@ -121,7 +121,7 @@ export interface CheckboxEmits {
  *
  * [Live Demo](https://www.primevue.org/checkbox/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

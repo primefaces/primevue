@@ -95,7 +95,7 @@ export interface TooltipDirectiveBinding extends Omit<DirectiveBinding, 'modifie
  *
  * [Live Demo](https://www.primevue.org/tooltip/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  */
 declare const Tooltip: ObjectDirective;

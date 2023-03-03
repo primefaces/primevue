@@ -88,7 +88,7 @@ export interface PanelEmits {
  *
  * [Live Demo](https://www.primevue.org/panel/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

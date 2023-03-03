@@ -43,7 +43,7 @@ export interface SplitterPanelEmits {}
  *
  * [Live Demo](https://www.primevue.org/splitterpanel/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

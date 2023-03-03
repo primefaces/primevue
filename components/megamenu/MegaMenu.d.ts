@@ -95,7 +95,7 @@ export interface MegaMenuEmits {
  *
  * [Live Demo](https://www.primevue.org/megamenu/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

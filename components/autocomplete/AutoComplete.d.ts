@@ -480,7 +480,7 @@ export interface AutoCompleteEmits {
  *
  * [Live Demo](https://www.primevue.org/autocomplete/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

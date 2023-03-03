@@ -98,7 +98,7 @@ export interface SplitButtonEmits {
  *
  * [Live Demo](https://www.primevue.org/splitbutton/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

@@ -20,7 +20,7 @@ export interface RippleDirectiveBinding extends Omit<DirectiveBinding, 'modifier
  *
  * [Live Demo](https://www.primevue.org/ripple/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  */
 declare const Ripple: ObjectDirective;

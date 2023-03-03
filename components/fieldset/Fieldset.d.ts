@@ -87,7 +87,7 @@ export interface FieldsetEmits {
  *
  * [Live Demo](https://www.primevue.org/fieldset/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

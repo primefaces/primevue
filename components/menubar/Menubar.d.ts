@@ -74,7 +74,7 @@ export interface MenubarEmits {}
  *
  * [Live Demo](https://www.primevue.org/menubar/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

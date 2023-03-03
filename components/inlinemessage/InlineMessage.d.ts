@@ -39,7 +39,7 @@ export interface InlineMessageEmits {}
  *
  * [Live Demo](https://www.primevue.org/inlinemessage/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

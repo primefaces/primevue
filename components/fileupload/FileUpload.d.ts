@@ -382,7 +382,7 @@ export interface FileUploadEmits {
  *
  * [Live Demo](https://www.primevue.org/fileupload/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *

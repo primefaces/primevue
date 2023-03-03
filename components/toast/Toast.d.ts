@@ -141,7 +141,7 @@ export interface ToastEmits {}
  *
  * [Live Demo](https://www.primevue.org/toast/)
  * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *
