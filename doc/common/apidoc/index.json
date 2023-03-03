@@ -21470,7 +21470,24 @@
             }
         }
     },
-    "tieredmenu/TieredMenu": {
+    "tieredmenu": {
+        "description": "TieredMenu displays submenus in nested overlays.\n\n[Live Demo](https://www.primevue.org/menu/)",
+        "components": {
+            "default": {
+                "description": "TieredMenu displays submenus in nested overlays.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": [
+                        {
+                            "name": "hide",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Hides the overlay."
+                        }
+                    ]
+                }
+            }
+        },
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -21479,7 +21496,65 @@
             "emitDescription": "Defines emit that determine the behavior of the component based on a given condition or report the actions that the component takes.",
             "slotDescription": "Defines the slots used by the component.",
             "values": {
+                "TieredMenuEmits": {
+                    "description": "Defines valid emits in TieredMenuMenu component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "before-hide",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke before the popup is hidden."
+                        },
+                        {
+                            "name": "before-show",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke before the popup is shown."
+                        },
+                        {
+                            "name": "blur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component loses focus."
+                        },
+                        {
+                            "name": "focus",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the component receives focus."
+                        },
+                        {
+                            "name": "hide",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the popup is hidden."
+                        },
+                        {
+                            "name": "show",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Callback to invoke when the popup is shown."
+                        }
+                    ]
+                },
                 "TieredMenuProps": {
+                    "description": "Defines valid properties in TieredMenuMenu component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -21566,25 +21641,24 @@
                     "methods": []
                 },
                 "TieredMenuSlots": {
+                    "description": "Defines valid slots in TieredMenuMenu component.",
                     "relatedProp": "",
-                    "props": [
+                    "props": [],
+                    "methods": [
                         {
                             "name": "item",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "Object",
+                                    "description": "item slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content for each item."
                         }
-                    ],
-                    "methods": []
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "TieredMenuEmits": {
-                    "values": "{\n    \"before-hide\": \"Function, \",\n    \"before-show\": \"Function, \",\n    \"blur\": \"Function, \",\n    \"focus\": \"Function, \",\n    \"hide\": \"Function, \",\n    \"show\": \"Function, \"\n}"
+                    ]
                 }
             }
         }
