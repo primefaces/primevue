@@ -3,13 +3,13 @@
         <p>Outlined buttons display a border without a background initially.</p>
     </DocSectionText>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-secondary mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-success mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-info mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-warning mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-help mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-danger mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="secondary" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="success" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="info" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="warning" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="help" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="danger" class="mb-2"></SplitButton>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -44,24 +44,24 @@ export default {
             ],
             code: {
                 basic: `
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-secondary mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-success mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-info mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-warning mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-help mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-danger mb-2"></SplitButton>`,
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="secondary" class="mb-2"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="success" class="mb-2"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="info" class="mb-2"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="warning" class="mb-2"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="help" class="mb-2"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="danger" class="mb-2"></SplitButton>`,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Toast />
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined  p-button-secondary mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-success mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-info mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-warning mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-help mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-danger mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="secondary" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="success" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="info" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="warning" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="help" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="danger" class="mb-2"></SplitButton>
     </div>
 </template>
 
@@ -106,13 +106,13 @@ export default {
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Toast />
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined  p-button-secondary mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-success mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-info mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-warning mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-help mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-outlined p-button-danger mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="secondary" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="success" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="info" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="warning" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="help" class="mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" @click="save" outlined severity="danger" class="mb-2"></SplitButton>
     </div>
 </template>
 

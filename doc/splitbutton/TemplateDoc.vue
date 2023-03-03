@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
+        <p>Custom content inside a button is defined as children.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round">

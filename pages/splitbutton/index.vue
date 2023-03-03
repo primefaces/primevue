@@ -37,14 +37,14 @@ export default {
                     component: SeverityDoc
                 },
                 {
-                    id: 'outlined',
-                    label: 'Outlined',
-                    component: OutlinedDoc
-                },
-                {
                     id: 'raised',
                     label: 'Raised',
                     component: RaisedDoc
+                },
+                {
+                    id: 'rounded',
+                    label: 'Rounded',
+                    component: RoundedDoc
                 },
                 {
                     id: 'text',
@@ -57,9 +57,9 @@ export default {
                     component: RaisedTextDoc
                 },
                 {
-                    id: 'rounded',
-                    label: 'Rounded',
-                    component: RoundedDoc
+                    id: 'outlined',
+                    label: 'Outlined',
+                    component: OutlinedDoc
                 },
                 {
                     id: 'sizes',

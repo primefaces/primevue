@@ -3,9 +3,9 @@
         <p>SplitButton provides <i>small</i> and <i>large</i> sizes as alternatives to the standard.</p>
     </DocSectionText>
     <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-sm"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-lg"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
     </div>
     <DocSectionCode :code="code" />
 </template>
