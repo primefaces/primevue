@@ -175,9 +175,8 @@ export default {
                 data.push({
                     name: prop.name,
                     type: prop.type,
-                    default: prop.defaultValue,
-                    description: prop.description,
-                    default: prop.default
+                    default: prop.default,
+                    description: prop.description
                 });
             }
 
@@ -229,6 +228,7 @@ export default {
                     interfaceDatas.data.push({
                         name: prop.name,
                         type: prop.type,
+                        default: prop.default,
                         description: prop.description
                     });
                 });
