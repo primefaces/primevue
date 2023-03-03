@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Items display a tooltip on hober when a standalone <nuxt-link to="/tooltip/">Tooltip</nuxt-link> is present with a target that matches the items.</p>
+        <p>Items display a tooltip on hober when a standalone <NuxtLink to="/tooltip">Tooltip</NuxtLink> is present with a target that matches the items.</p>
     </DocSectionText>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">

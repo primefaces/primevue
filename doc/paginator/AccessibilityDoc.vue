@@ -5,23 +5,21 @@
 
         <p>
             First, previous, next and last page navigators elements with <i>aria-label</i> attributes referring to the <i>aria.firstPageLabel</i>, <i>aria.prevPageLabel</i>, <i>aria.nextPageLabel</i> and <i>aria.lastPageLabel</i> properties of the
-            <nuxt-link to="/locale">locale</nuxt-link> API respectively.
+            <NuxtLink to="/locale">locale</NuxtLink> API respectively.
         </p>
 
-        <p>
-            Page links are also button elements with an <i>aria-label</i> attribute derived from the <i>aria.pageLabel</i> of the <nuxt-link to="/locale">locale</nuxt-link> API. Current page is marked with <i>aria-current</i> set to "page" as well.
-        </p>
+        <p>Page links are also button elements with an <i>aria-label</i> attribute derived from the <i>aria.pageLabel</i> of the <NuxtLink to="/locale">locale</NuxtLink> API. Current page is marked with <i>aria-current</i> set to "page" as well.</p>
 
         <p>Current page report uses <i>aria-live="polite"</i> to instruct screen reader about the changes to the pagination state.</p>
 
         <p>
-            Rows per page dropdown internally uses a dropdown component, refer to the <nuxt-link to="/dropdown">dropdown</nuxt-link> documentation for accessibility details. Additionally, the dropdown uses an <i>aria-label</i> from the
-            <i>aria.rowsPerPageLabel</i> property of the <nuxt-link to="/locale">locale</nuxt-link> API.
+            Rows per page dropdown internally uses a dropdown component, refer to the <NuxtLink to="/dropdown">dropdown</NuxtLink> documentation for accessibility details. Additionally, the dropdown uses an <i>aria-label</i> from the
+            <i>aria.rowsPerPageLabel</i> property of the <NuxtLink to="/locale">locale</NuxtLink> API.
         </p>
 
         <p>
             Jump to page input is an <i>input</i> element with an <i>aria-label</i> that refers to the <i>aria.jumpToPageInputLabel</i> property and jump to page dropdown internally uses a dropdown component, with an <i>aria-label</i> that refers to
-            the <i>aria.jumpToPageDropdownLabel</i> property of the <nuxt-link to="/locale">locale</nuxt-link> API.
+            the <i>aria.jumpToPageDropdownLabel</i> property of the <NuxtLink to="/locale">locale</NuxtLink> API.
         </p>
 
         <h3>Keyboard Support</h3>
@@ -57,6 +55,6 @@
         </div>
 
         <h3>Rows Per Page Dropdown Keyboard Support</h3>
-        <p>Refer to the <nuxt-link to="/dropdown">dropdown</nuxt-link> documentation for more details about keyboard support.</p>
+        <p>Refer to the <NuxtLink to="/dropdown">dropdown</NuxtLink> documentation for more details about keyboard support.</p>
     </DocSectionText>
 </template>

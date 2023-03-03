@@ -29,7 +29,7 @@ export interface TabViewChangeEvent {
  * Custom tab change event.
  * @see tab-click
  * @extends TabViewChangeEvent
- 
+
  */
 export interface TabViewClickEvent extends TabViewChangeEvent {}
 

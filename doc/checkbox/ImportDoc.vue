@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import Checkbox from 'primevue/checkbox';`
+                basic: `import Checkbox from 'primevue/checkbox';`
             }
         };
     }

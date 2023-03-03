@@ -1,5 +1,17 @@
+/**
+ *
+ * Tooltip directive provides advisory information for a component.
+ *
+ * - [Live Demo](https://primevue.org/tooltip)
+ *
+ * @module tooltip
+ *
+ */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
+/**
+ * Defines options of Tooltip.
+ */
 export interface TooltipOptions {
     /**
      * Text of the tooltip.
@@ -30,8 +42,40 @@ export interface TooltipOptions {
     fitContent?: boolean | undefined;
 }
 
-export declare type TooltipDirectiveModifiers = {};
+/**
+ * Defines modifiers of Tooltip.
+ */
+export interface TooltipDirectiveModifiers {
+    /**
+     * Right position for Tooltip.
+     *  @defaultValue true
+     */
+    right?: boolean | undefined;
+    /**
+     * Left position for Tooltip.
+     *  @defaultValue false
+     */
+    left?: boolean | undefined;
+    /**
+     * Top position for Tooltip.
+     *  @defaultValue false
+     */
+    top?: boolean | undefined;
+    /**
+     * Bottom position for Tooltip.
+     *  @defaultValue false
+     */
+    bottom?: boolean | undefined;
+    /**
+     * Focus event for Tooltip.
+     *  @defaultValue true
+     */
+    focus?: boolean | undefined;
+}
 
+/**
+ * Binding of Tooltip directive.
+ */
 export interface TooltipDirectiveBinding extends Omit<DirectiveBinding, 'modifiers' | 'value'> {
     /**
      * Value of the tooltip.
@@ -44,6 +88,16 @@ export interface TooltipDirectiveBinding extends Omit<DirectiveBinding, 'modifie
     modifiers?: TooltipDirectiveModifiers | undefined;
 }
 
+/**
+ * **PrimeVue - Tooltip**
+ *
+ * _Tooltip directive provides advisory information for a component._
+ *
+ * [Live Demo](https://www.primevue.org/tooltip/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ */
 declare const Tooltip: ObjectDirective;
 
 export default Tooltip;

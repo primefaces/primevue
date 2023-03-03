@@ -10,8 +10,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-// with npm
+                basic: `// with npm
 npm install primevue primeicons
 
 // with yarn

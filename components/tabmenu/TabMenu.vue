@@ -34,7 +34,7 @@
                     <component v-else :is="$slots.item" :item="item" :index="i"></component>
                 </li>
             </template>
-            <li ref="inkbar" class="p-tabmenu-ink-bar"></li>
+            <li ref="inkbar" role="none" class="p-tabmenu-ink-bar"></li>
         </ul>
     </div>
 </template>

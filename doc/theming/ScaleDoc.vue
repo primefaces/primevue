@@ -13,11 +13,9 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-html {
+                basic: `html {
     font-size: 14px;
-}
-        `
+}`
             }
         };
     }

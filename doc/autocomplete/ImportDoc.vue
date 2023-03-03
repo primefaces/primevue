@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import AutoComplete from 'primevue/autocomplete';`
+                basic: `import AutoComplete from 'primevue/autocomplete';`
             }
         };
     }

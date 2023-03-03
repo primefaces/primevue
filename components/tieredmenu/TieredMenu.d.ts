@@ -123,17 +123,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * TieredMenu displays submenus in nested overlays.
- *
- * Helper API:
- *
- * - [MenuItem](https://primevue.org/menumodel)
- *
- * Demos:
- *
- * - [TieredMenu](https://primevue.org/tieredmenu)
- *
- */
 export default TieredMenu;

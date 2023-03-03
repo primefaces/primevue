@@ -26,6 +26,19 @@
         "apidoc": "node ./api-generator/build-apidoc.js",
         "build:api": "node ./api-generator/build-api.js && npm run apidoc"
     },
+    "keywords": [
+        "primevue",
+        "vue",
+        "vue.js",
+        "vue2",
+        "vue3",
+        "ui library",
+        "component library",
+        "material",
+        "bootstrap",
+        "fluent",
+        "tailwind"
+    ],
     "devDependencies": {
         "@babel/eslint-parser": "^7.18.9",
         "@fullcalendar/core": "^5.11.0",

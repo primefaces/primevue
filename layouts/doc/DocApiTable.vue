@@ -26,12 +26,12 @@
                             <template v-if="k !== 'readonly' && k !== 'optional' && k !== 'deprecated'">
                                 <span v-if="k === 'name'" :id="id + '.' + v" class="doc-option-name">
                                     {{ v }}
-                                    <nuxt-link :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" class="doc-option-link">
+                                    <NuxtLink :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" class="doc-option-link">
                                         <i class="pi pi-link"></i>
-                                    </nuxt-link>
+                                    </NuxtLink>
                                 </span>
 
-                                <nuxt-link v-else-if="isLinkType(k, v)" :to="setLinkPath(v)" class="doc-option-link"> {{ v }} </nuxt-link>
+                                <NuxtLink v-else-if="isLinkType(k, v)" :to="setLinkPath(v)" class="doc-option-link"> {{ v }} </NuxtLink>
 
                                 <span v-else :id="id + '.' + v">
                                     {{ v }}

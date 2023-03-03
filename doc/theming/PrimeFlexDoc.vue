@@ -26,8 +26,7 @@ export default {
     <Button type="button" label="Button 1"></Button>
     <Button type="button" label="Button 2" class="p-button-secondary"></Button>
     <Button type="button" label="Button 3" class="p-button-help"></Button>
-</div>
-        `
+</div>`
             }
         };
     }

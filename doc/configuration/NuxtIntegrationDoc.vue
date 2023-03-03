@@ -19,8 +19,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-export default defineNuxtConfig({
+                basic: `export default defineNuxtConfig({
     css: [
         "primevue/resources/themes/lara-light-blue/theme.css",
         "primevue/resources/primevue.css",
@@ -32,8 +31,7 @@ export default defineNuxtConfig({
 })`
             },
             code2: {
-                basic: `
-import { defineNuxtPlugin } from "#app";
+                basic: `import { defineNuxtPlugin } from "#app";
 import PrimeVue from "primevue/config";
 import Button from "primevue/button";
 

@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import MultiSelect from 'primevue/multiselect';`
+                basic: `import MultiSelect from 'primevue/multiselect';`
             }
         };
     }

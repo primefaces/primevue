@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import Tooltip from 'primevue/tooltip';
+                basic: `import Tooltip from 'primevue/tooltip';
 
 app.directive('tooltip', Tooltip);`
             }

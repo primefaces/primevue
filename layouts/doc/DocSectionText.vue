@@ -1,7 +1,7 @@
 <template>
     <component :is="$attrs.level === 2 ? 'h3' : 'h2'" class="doc-section-label">
         {{ $attrs.label }}
-        <NuxtLink :id="$attrs.id" :to="`/${$router.currentRoute.value.name}/#${$attrs.id}`" target="_self" @click="onClick"> # </NuxtLink>
+        <NuxtLink :id="$attrs.id" :to="`${checkRouteName}/#${$attrs.id}`" target="_self" @click="onClick"> # </NuxtLink>
     </component>
     <div v-if="$attrs" class="doc-section-description">
         <slot></slot>
@@ -21,6 +21,17 @@ export default {
             setTimeout(() => {
                 parentElement.scrollIntoView({ block: 'start' });
             }, 0);
+        }
+    },
+    computed: {
+        checkRouteName() {
+            const path = this.$router.currentRoute.value.path;
+
+            if (path.lastIndexOf('/') === path.length - 1) {
+                return path.slice(0, -1);
+            }
+
+            return path;
         }
     }
 };

@@ -80,13 +80,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Displays an image with preview and tranformation options. For multiple image, see Galleria.
- *
- * Demos:
- *
- * - [Image](https://primevue.org/image)
- *
- */
 export default Image;

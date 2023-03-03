@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import Button from 'primevue/button';`
+                basic: `import Button from 'primevue/button';`
             }
         };
     }

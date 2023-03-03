@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import ConfirmDialog from 'primevue/confirmdialog';`
+                basic: `import ConfirmDialog from 'primevue/confirmdialog';`
             }
         };
     }

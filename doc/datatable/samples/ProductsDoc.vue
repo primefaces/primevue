@@ -509,6 +509,21 @@ export default {
             this.filters = {
                 'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
             }
+        },
+        getStatusLabel(status) {
+            switch (status) {
+                case 'INSTOCK':
+                    return 'success';
+
+                case 'LOWSTOCK':
+                    return 'warning';
+
+                case 'OUTOFSTOCK':
+                    return 'danger';
+
+                default:
+                    return null;
+            }
         }
     }
 }
@@ -776,6 +791,22 @@ const deleteSelectedProducts = () => {
     deleteProductsDialog.value = false;
     selectedProducts.value = null;
     toast.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
+};
+
+const getStatusLabel = (status) => {
+    switch (status) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warning';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
 };
 
 <\/script>

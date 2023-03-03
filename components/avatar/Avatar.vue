@@ -3,7 +3,7 @@
         <slot>
             <span v-if="label" class="p-avatar-text">{{ label }}</span>
             <span v-else-if="icon" :class="iconClass"></span>
-            <img v-else-if="image" :src="image" @error="onError" />
+            <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" />
         </slot>
     </div>
 </template>

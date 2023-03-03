@@ -450,13 +450,4 @@ declare module '@vue/runtime-core' {
     }
 }
 
-/**
- *
- * Dropdown is used to select an item from a list of options.
- *
- * Demos:
- *
- * - [Dropdown](https://primevue.org/dropdown)
- *
- */
 export default Dropdown;
