@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue DataView Component" header="DataView" description="DataView displays data in grid or list layout with pagination and sorting features." :componentDocs="docs" :apiDocs="['DataView']" />
+    <DocComponent title="Vue DataView Component" header="DataView" description="DataView displays data in grid or list layout with pagination and sorting features." :componentDocs="docs" :apiDocs="['DataView', 'DataViewLayoutOptions']" />
 </template>
 
 <script>
