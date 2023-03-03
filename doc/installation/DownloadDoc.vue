@@ -14,8 +14,7 @@ export default {
 npm install primevue primeicons
 
 // with yarn
-yarn add primevue primeicons
-        `
+yarn add primevue primeicons`
             }
         };
     }
