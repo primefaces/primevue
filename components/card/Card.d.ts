@@ -10,8 +10,14 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines valid properties in Card component.
+ */
 export interface CardProps {}
 
+/**
+ * Defines valid slots in Card component.
+ */
 export interface CardSlots {
     /**
      * Custom header template.
@@ -36,9 +42,9 @@ export interface CardSlots {
 }
 
 /**
- * @group Interfaces
+ * Defines valid emits in Card component.
  */
-export declare type CardEmits = {};
+export interface CardEmits {}
 
 /**
  * **PrimeVue - Card**
