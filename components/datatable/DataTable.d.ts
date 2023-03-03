@@ -576,7 +576,7 @@ export interface DataTableProps {
      * - JumpToPageDropdown
      * - JumpToPageInput
      * - CurrentPageReport
-     * @defaultValue 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
+     * @defaultValue FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown
      */
     paginatorTemplate?: any | string;
     /**
@@ -597,7 +597,7 @@ export interface DataTableProps {
      * - {first}
      * - {last}
      * - {totalRecords}
-     * @defaultValue '({currentPage} of {totalPages})'
+     * @defaultValue ({currentPage} of {totalPages})
      */
     currentPageReportTemplate?: string | undefined;
     /**
@@ -612,7 +612,7 @@ export interface DataTableProps {
     loading?: boolean | undefined;
     /**
      * The icon to show while indicating data load is in progress.
-     * @defaultValue 'pi pi-spinner'
+     * @defaultValue pi pi-spinner
      */
     loadingIcon?: string | undefined;
     /**
@@ -634,7 +634,7 @@ export interface DataTableProps {
     multiSortMeta?: DataTableSortMeta[] | undefined;
     /**
      * Defines whether sorting works on single column or on multiple columns.
-     * @defaultValue 'single'
+     * @defaultValue single
      */
     sortMode?: 'single' | 'multiple' | undefined;
     /**
@@ -669,7 +669,7 @@ export interface DataTableProps {
     selectionMode?: 'single' | 'multiple' | undefined;
     /**
      * Algorithm to define if a row is selected.
-     * @defaultValue 'deepEquals'
+     * @defaultValue deepEquals
      */
     compareSelectionBy?: 'equals' | 'deepEquals' | undefined;
     /**
@@ -698,12 +698,12 @@ export interface DataTableProps {
     rowHover?: boolean | undefined;
     /**
      * Character to use as the csv separator.
-     * @defaultValue ','
+     * @defaultValue ,
      */
     csvSeparator?: string | undefined;
     /**
      * Name of the exported file.
-     * @defaultValue 'download'
+     * @defaultValue download
      */
     exportFilename?: string | undefined;
     /**
@@ -717,7 +717,7 @@ export interface DataTableProps {
     resizableColumns?: boolean | undefined;
     /**
      * Defines whether the overall table width.
-     * @defaultValue 'fit'
+     * @defaultValue fit
      */
     columnResizeMode?: 'fit' | 'expand' | undefined;
     /**
@@ -731,12 +731,12 @@ export interface DataTableProps {
     expandedRows?: any[] | DataTableExpandedRows | null;
     /**
      * Icon of the row toggler to display the row as expanded.
-     * @defaultValue 'pi-chevron-down'
+     * @defaultValue pi-chevron-down
      */
     expandedRowIcon?: string | undefined;
     /**
      * Icon of the row toggler to display the row as collapsed.
-     * @defaultValue 'pi-chevron-right'
+     * @defaultValue pi-chevron-right
      */
     collapsedRowIcon?: string | undefined;
     /**
@@ -758,7 +758,7 @@ export interface DataTableProps {
     expandedRowGroups?: any[] | DataTableExpandedRows;
     /**
      * Defines where a stateful table keeps its state.
-     * @defaultValue 'session'
+     * @defaultValue session
      */
     stateStorage?: 'session' | 'local' | undefined;
     /**
@@ -801,7 +801,7 @@ export interface DataTableProps {
     frozenValue?: any[] | undefined | null;
     /**
      * The breakpoint to define the maximum width boundary when using stack responsive layout.
-     * @defaultValue '960px'
+     * @defaultValue 960px
      */
     breakpoint?: string | undefined;
     /**
