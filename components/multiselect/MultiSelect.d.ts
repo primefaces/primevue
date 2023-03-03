@@ -90,7 +90,7 @@ export interface MultiSelectProps {
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * @defaultValue 200px
+     * @defaultValue '200px'
      */
     scrollHeight?: string | undefined;
     /**
@@ -149,7 +149,7 @@ export interface MultiSelectProps {
     filterLocale?: string | undefined;
     /**
      * Defines the filtering algorithm to use when searching the options.
-     * @defaultValue contains
+     * @defaultValue 'contains'
      */
     filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | undefined;
     /**
@@ -158,17 +158,17 @@ export interface MultiSelectProps {
     filterFields?: string[] | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
-     * @defaultValue body
+     * @defaultValue 'body'
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Defines how the selected items are displayed.
-     * @defaultValue comma
+     * @defaultValue 'comma'
      */
     display?: 'comma' | 'chip' | undefined;
     /**
      * Label to display after exceeding max selected labels.
-     * @defaultValue {0} items selected
+     * @defaultValue '{0} items selected'
      */
     selectedItemsLabel?: string | undefined;
     /**
@@ -191,32 +191,32 @@ export interface MultiSelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in the checkboxes.
-     * @defaultValue pi pi-check
+     * @defaultValue 'pi pi-check'
      */
     checkboxIcon?: string | undefined;
     /**
      * Icon to display in the dropdown close button.
-     * @defaultValue pi pi-times
+     * @defaultValue 'pi pi-times'
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
-     * @defaultValue pi pi-chevron-down
+     * @defaultValue 'pi pi-chevron-down'
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * @defaultValue pi pi-search
+     * @defaultValue 'pi pi-search'
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue pi pi-spinner pi-spin
+     * @defaultValue 'pi pi-spinner pi-spin'
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * @defaultValue pi pi-times-circle
+     * @defaultValue 'pi pi-times-circle'
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -246,27 +246,27 @@ export interface MultiSelectProps {
     autoFilterFocus?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue {0} results are available
+     * @defaultValue '{0} results are available'
      */
     filterMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue {0} items selected
+     * @defaultValue '{0} items selected'
      */
     selectionMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No selected item
+     * @defaultValue 'No selected item'
      */
     emptySelectionMessage?: string | undefined;
     /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No results found
+     * @defaultValue 'No results found'
      */
     emptyFilterMessage?: string | undefined;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No results found
+     * @defaultValue 'No results found'
      */
     emptyMessage?: string | undefined;
     /**

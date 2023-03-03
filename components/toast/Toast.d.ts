@@ -13,7 +13,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface ToastMessageOptions {
     /**
      * Severity level of the message.
-     * Default value is 'info'.
+     * @defaultValue 'info'
      */
     severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
     /**
@@ -26,12 +26,12 @@ export interface ToastMessageOptions {
     detail?: any | undefined;
     /**
      * Whether the message can be closed manually using the close icon.
-     * Default value is true.
+     * @defaultValue true
      */
     closable?: boolean | undefined;
     /**
      * Delay in milliseconds to close the message automatically.
-     * Default value is 3000.
+     * @defaultValue 3000
      */
     life?: number | undefined;
     /**

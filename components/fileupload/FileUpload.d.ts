@@ -152,7 +152,7 @@ export interface FileUploadProps {
     url?: string | undefined;
     /**
      * Defines the UI of the component, possible values are 'advanced' and 'basic'.
-     * @defaultValue advanced
+     * @defaultValue 'advanced'
      */
     mode?: 'advanced' | 'basic' | undefined;
     /**
@@ -180,17 +180,17 @@ export interface FileUploadProps {
     maxFileSize?: number | undefined;
     /**
      * Message of the invalid fize size.
-     * @defaultValue {0}: Invalid file size, file size should be smaller than {1}.
+     * @defaultValue '{0}: Invalid file size, file size should be smaller than {1.}'
      */
     invalidFileSizeMessage?: string | undefined;
     /**
      * Message to display when number of files to be uploaded exceeeds the limit.
-     * @defaultValue Maximum number of files to be uploaded is {0}.
+     * @defaultValue 'Maximum number of files to be uploaded is {0.}'
      */
     invalidFileLimitMessage?: string | undefined;
     /**
      * Message of the invalid fize type.
-     * @defaultValue {0}: Invalid file type.
+     * @defaultValue '{0}: Invalid file type.'
      */
     invalidFileTypeMessage?: string | undefined;
     /**
@@ -222,7 +222,6 @@ export interface FileUploadProps {
     cancelLabel?: string | undefined;
     /**
      * Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue Locale configuration.
-     * @defaultValue false
      */
     customUpload?: boolean | undefined;
     /**
@@ -237,17 +236,17 @@ export interface FileUploadProps {
     showCancelButton?: boolean | undefined;
     /**
      * Icon of the choose button.
-     * @defaultValue pi pi-fw pi-plus
+     * @defaultValue 'pi pi-fw pi-plus'
      */
     chooseIcon?: string | undefined;
     /**
      * Icon of the upload button.
-     * @defaultValue pi pi-fw pi-upload
+     * @defaultValue 'pi pi-fw pi-upload'
      */
     uploadIcon?: string | undefined;
     /**
      * Icon of the cancel button.
-     * @defaultValue pi pi-fw pi-times
+     * @defaultValue 'pi pi-fw pi-times'
      */
     cancelIcon?: string | undefined;
     /**

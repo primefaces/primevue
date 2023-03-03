@@ -21,7 +21,7 @@ export interface MegaMenuProps {
     model?: MenuItem[] | undefined;
     /**
      * Defines the orientation.
-     * @defaultValue horizontal
+     * @defaultValue 'horizontal'
      */
     orientation?: 'horizontal' | 'vertical' | undefined;
     /**

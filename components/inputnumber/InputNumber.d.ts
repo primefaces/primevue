@@ -60,7 +60,7 @@ export interface InputNumberProps {
     showButtons?: boolean | undefined;
     /**
      * Layout of the buttons.
-     * Default value is 'stacked'.
+     * @defaultValue 'stacked'.
      */
     buttonLayout?: 'stacked' | 'horizontal' | 'vertical' | undefined;
     /**
@@ -73,12 +73,12 @@ export interface InputNumberProps {
     decrementButtonClass?: string | undefined;
     /**
      * Style class of the increment button.
-     * Default value is 'pi pi-angle-up'.
+     * @defaultValue 'pi pi-angle-up'
      */
     incrementButtonIcon?: string | undefined;
     /**
      * Style class of the decrement button.
-     * Default value is 'pi pi-angle-down'.
+     * @defaultValue 'pi pi-angle-down'
      */
     decrementButtonIcon?: string | undefined;
     /**
@@ -88,12 +88,12 @@ export interface InputNumberProps {
     /**
      * The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'.
      * See [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details.
-     * Default value is 'best fit'
+     * @defaultValue 'best fit'
      */
     localeMatcher?: 'lookup' | 'best fit' | undefined;
     /**
      * Defines the behavior of the component.
-     * Default value is 'decimal'.
+     * @defaultValue 'decimal'.
      */
     mode?: 'decimal' | 'currency' | undefined;
     /**
@@ -111,7 +111,7 @@ export interface InputNumberProps {
     currency?: string | undefined;
     /**
      * How to display the currency in currency formatting. Possible values are 'symbol' to use a localized currency symbol such as €, 'code' to use the ISO currency code, 'name' to use a localized currency name such as 'dollar'.
-     * Default value is 'symbol'.
+     * @defaultValue 'symbol'
      */
     currencyDisplay?: string | undefined;
     /**

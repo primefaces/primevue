@@ -25,7 +25,7 @@ export interface TreeSelectProps {
     options?: TreeNode[] | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * @defaultValue 200px
+     * @defaultValue '200px'
      */
     scrollHeight?: string | undefined;
     /**
@@ -51,17 +51,17 @@ export interface TreeSelectProps {
     panelClass?: any;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * @defaultValue body
+     * @defaultValue 'body'
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No results found
+     * @defaultValue 'No results found'
      */
     emptyMessage?: string | undefined;
     /**
      * Defines how the selected items are displayed.
-     * @defaultValue comma
+     * @defaultValue 'comma'
      */
     display?: 'comma' | 'chip' | undefined;
     /**

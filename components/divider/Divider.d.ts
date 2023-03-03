@@ -15,17 +15,17 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
  */
 export interface DividerProps {
     /**
-     * Alignment of the content, options are 'left', 'center', 'right' for horizontal layout and 'top', 'center', 'bottom' for vertical.
+     * Alignment of the content.
      */
     align?: 'left' | 'center' | 'right' | 'top' | 'center' | 'bottom' | undefined;
     /**
      * Specifies the orientation, valid values are 'horizontal' and 'vertical'.
-     * @defaultValue horizontal
+     * @defaultValue 'horizontal'
      */
     layout?: 'horizontal' | 'vertical' | undefined;
     /**
      * Border style type.
-     * @defaultValue solid
+     * @defaultValue 'solid'
      */
     type?: 'solid' | 'dashed' | 'dotted' | undefined;
 }

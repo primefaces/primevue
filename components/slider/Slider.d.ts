@@ -44,7 +44,7 @@ export interface SliderProps {
     max?: number | undefined;
     /**
      * Orientation of the slider.
-     * @defaultValue horizontal
+     * @defaultValue 'horizontal'
      */
     orientation?: 'horizontal' | 'vertical' | undefined;
     /**

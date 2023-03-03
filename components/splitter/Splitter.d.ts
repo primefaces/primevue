@@ -60,7 +60,7 @@ export interface SplitterProps {
     stateKey?: string | undefined;
     /**
      * Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage.
-     * @defaultValue session
+     * @defaultValue 'session'
      */
     stateStorage?: 'local' | 'session' | undefined;
     /**

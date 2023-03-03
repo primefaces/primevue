@@ -32,7 +32,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     icon?: string | undefined;
     /**
      * Position of the icon.
-     * @defaultValue left
+     * @defaultValue 'left'
      */
     iconPos?: 'left' | 'right' | 'top' | 'bottom' | undefined;
     /**

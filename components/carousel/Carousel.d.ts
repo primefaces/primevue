@@ -59,7 +59,7 @@ export interface CarouselProps {
     orientation?: 'horizontal' | 'vertical' | undefined;
     /**
      * Height of the viewport in vertical layout.
-     * @defaultValue 300px
+     * @defaultValue '300px'
      */
     verticalViewPortHeight?: string | undefined;
     /**

@@ -27,12 +27,12 @@ export interface AvatarProps {
     image?: string | undefined;
     /**
      * Size of the element.
-     * @defaultValue normal
+     * @defaultValue 'normal'
      */
     size?: 'normal' | 'large' | 'xlarge' | undefined;
     /**
      * Shape of the element.
-     * @defaultValue square
+     * @defaultValue 'square'
      */
     shape?: 'square' | 'circle' | undefined;
     /**

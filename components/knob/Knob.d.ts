@@ -49,17 +49,17 @@ export interface KnobProps {
     max?: number | undefined;
     /**
      * Background of the value.
-     * @defaultValue var(--primary-color, Black)
+     * @defaultValue 'var(--primary-color, Black)'
      */
     valueColor?: string | undefined;
     /**
      * Background color of the range.
-     * @defaultValue var(--surface-border, LightGray)
+     * @defaultValue 'var(--surface-border, LightGray)'
      */
     rangeColor?: string | undefined;
     /**
      * Color of the value text.
-     * @defaultValue var(--text-color-secondary, Black)
+     * @defaultValue 'var(--text-color-secondary, Black)'
      */
     textColor?: string | undefined;
     /**
@@ -74,7 +74,7 @@ export interface KnobProps {
     showValue?: boolean | undefined;
     /**
      * Template string of the value.
-     * @defaultValue \{value}
+     * @defaultValue '{value}'
      */
     valueTemplate?: string | undefined;
     /**

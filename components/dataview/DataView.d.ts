@@ -43,7 +43,7 @@ export interface DataViewProps {
     value?: any[] | undefined;
     /**
      * Layout of the items, valid values are 'list' and 'grid'.
-     * @defaultValue list
+     * @defaultValue 'list'
      */
     layout?: 'list' | 'grid' | undefined;
     /**
@@ -67,7 +67,7 @@ export interface DataViewProps {
     paginator?: boolean | undefined;
     /**
      * Position of the paginator, options are 'top','bottom' or 'both'.
-     * @defaultValue bottom
+     * @defaultValue 'bottom'
      */
     paginatorPosition?: 'top' | 'bottom' | 'both' | undefined;
     /**
@@ -110,7 +110,7 @@ export interface DataViewProps {
      * - {last}
      * - {totalRecords}
      *
-     * @defaultValue ({currentPage} of {totalPages})
+     * @defaultValue '({currentPage} of {totalPages})'
      */
     currentPageReportTemplate?: string | undefined;
     /**

@@ -31,7 +31,7 @@ export interface InplaceProps {
     disabled?: boolean | undefined;
     /**
      * Icon to display in the close button.
-     * @defaultValue pi pi-times
+     * @defaultValue 'pi pi-times'
      */
     closeIcon?: string | undefined;
     /**

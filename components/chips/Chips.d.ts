@@ -50,7 +50,7 @@ export interface ChipsProps {
     addOnBlur?: boolean | undefined;
     /**
      * Whether to allow duplicate values or not.
-     * Default value is true.
+     * @defaultValue true.
      */
     allowDuplicate?: boolean | undefined;
     /**
@@ -75,7 +75,7 @@ export interface ChipsProps {
     inputProps?: InputHTMLAttributes | undefined;
     /**
      * Icon to display in chip remove action.
-     * Default value is 'pi pi-times-circle'.
+     * @defaultValue 'pi pi-times-circle'
      */
     removeTokenIcon?: string | undefined;
     /**

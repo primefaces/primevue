@@ -21,7 +21,7 @@ export interface DockTooltipOptions {
     event: 'hover' | 'focus' | undefined;
     /**
      * Position of element.
-     * @defaultValue bottom
+     * @defaultValue 'bottom'
      */
     position: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**
@@ -40,7 +40,7 @@ export interface DockProps {
     model?: MenuItem[] | undefined;
     /**
      * Position of element.
-     * @defaultValue bottom
+     * @defaultValue 'bottom'
      */
     position?: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**
