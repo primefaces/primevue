@@ -69,7 +69,6 @@ export interface AccordionTabSlots {
 
 /**
  * Defines valid emits in AcordionTab component.
- * @group Interfaces
  */
 export interface AccordionTabEmits {}
 

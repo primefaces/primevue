@@ -2,7 +2,7 @@
  *
  * Badge directive is a small status indicator for another element.
  *
- * - [Live Demo](https://primevue.org/badge)
+ * [Live Demo](https://primevue.org/badge)
  *
  * @module badgedirective
  */

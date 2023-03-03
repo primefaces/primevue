@@ -27,7 +27,7 @@ export interface DropdownChangeEvent {
 }
 
 /**
- * Custom filetr event.
+ * Custom filter event.
  * @see filter
  */
 export interface DropdownFilterEvent {

@@ -2,7 +2,7 @@
  *
  * Ripple directive adds ripple effect to the host element.
  *
- * - [Live Demo](https://primevue.org/ripple)
+ * [Live Demo](https://primevue.org/ripple)
  *
  * @module ripple
  */

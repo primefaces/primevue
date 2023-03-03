@@ -2,7 +2,7 @@
  *
  * Sidebar is a panel component displayed as an overlay at the edges of the screen.
  *
- * - [Live Demo](https://primevue.org/sidebar)
+ * [Live Demo](https://primevue.org/sidebar)
  *
  * @module sidebar
  *
