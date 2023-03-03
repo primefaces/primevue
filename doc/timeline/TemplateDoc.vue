@@ -23,7 +23,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
                             neque quas!
                         </p>
-                        <Button label="Read more" class="p-button-text"></Button>
+                        <Button label="Read more" text></Button>
                     </template>
                 </Card>
             </template>
@@ -64,7 +64,7 @@ export default {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
                     neque quas!
                 </p>
-                <Button label="Read more" class="p-button-text"></Button>
+                <Button label="Read more" text></Button>
             </template>
         </Card>
     </template>
@@ -92,7 +92,7 @@ export default {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
                             neque quas!
                         </p>
-                        <Button label="Read more" class="p-button-text"></Button>
+                        <Button label="Read more" text></Button>
                     </template>
                 </Card>
             </template>
@@ -159,7 +159,7 @@ export default {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
                             neque quas!
                         </p>
-                        <Button label="Read more" class="p-button-text"></Button>
+                        <Button label="Read more" text></Button>
                     </template>
                 </Card>
             </template>

@@ -7,7 +7,7 @@
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
                     <span class="text-xl text-900 font-bold">Products</span>
-                    <Button icon="pi pi-refresh" class="p-button-rounded p-button-raised" />
+                    <Button icon="pi pi-refresh" rounded raised />
                 </div>
             </template>
             <Column field="name" header="Name"></Column>
@@ -51,7 +51,7 @@ export default {
     <template #header>
         <div class="flex flex-wrap align-items-center justify-content-between gap-2">
             <span class="text-xl text-900 font-bold">Products</span>
-            <Button icon="pi pi-refresh" class="p-button-rounded p-button-raised" />
+            <Button icon="pi pi-refresh" rounded raised />
         </div>
     </template>
     <Column field="name" header="Name"></Column>
@@ -85,7 +85,7 @@ export default {
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
                     <span class="text-xl text-900 font-bold">Products</span>
-                    <Button icon="pi pi-refresh" class="p-button-rounded p-button-raised" />
+                    <Button icon="pi pi-refresh" rounded raised />
                 </div>
             </template>
             <Column field="name" header="Name"></Column>
@@ -156,7 +156,7 @@ export default {
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
                     <span class="text-xl text-900 font-bold">Products</span>
-                    <Button icon="pi pi-refresh" class="p-button-rounded p-button-raised" />
+                    <Button icon="pi pi-refresh" rounded raised />
                 </div>
             </template>
             <Column field="name" header="Name"></Column>

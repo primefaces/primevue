@@ -4,9 +4,9 @@
     </DocSectionText>
     <div class="card">
         <div class="py-2">
-            <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active1 = 1" class="p-button-text mr-2" label="Activate 2nd" />
-            <Button @click="active1 = 2" class="p-button-text mr-2" label="Activate 3rd" />
+            <Button @click="active1 = 0" text label="Activate 1st" />
+            <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
         <TabView ref="tabview2" v-model:activeIndex="active1">
@@ -41,9 +41,9 @@ export default {
             code: {
                 basic: `
 <div class="py-2">
-    <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
-    <Button @click="active1 = 1" class="p-button-text mr-2" label="Activate 2nd" />
-    <Button @click="active1 = 2" class="p-button-text mr-2" label="Activate 3rd" />
+    <Button @click="active1 = 0" text label="Activate 1st" />
+    <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
+    <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
 </div>
 
 <TabView ref="tabview2" v-model:activeIndex="active1">
@@ -71,9 +71,9 @@ export default {
 <template>
     <div class="card">
         <div class="py-2">
-            <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active1 = 1" class="p-button-text mr-2" label="Activate 2nd" />
-            <Button @click="active1 = 2" class="p-button-text mr-2" label="Activate 3rd" />
+            <Button @click="active1 = 0" text label="Activate 1st" />
+            <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
         <TabView ref="tabview2" v-model:activeIndex="active1">
@@ -113,9 +113,9 @@ export default {
 <template>
     <div class="card">
         <div class="py-2">
-            <Button @click="active1 = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active1 = 1" class="p-button-text mr-2" label="Activate 2nd" />
-            <Button @click="active1 = 2" class="p-button-text mr-2" label="Activate 3rd" />
+            <Button @click="active1 = 0" text label="Activate 1st" />
+            <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
         <TabView ref="tabview2" v-model:activeIndex="active1">

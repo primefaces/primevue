@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card">
         <Button label="Show" @click="addMessages()" />
-        <Button label="Clear" class="p-button-secondary ml-2" @click="clearMessages()" />
+        <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
         <transition-group name="p-message" tag="div">
             <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
         </transition-group>
@@ -20,11 +20,19 @@ export default {
             count: 0,
             code: {
                 basic: `
-<Message>Message Content</Message>`,
+<Button label="Show" @click="addMessages()" />
+<Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
+<transition-group name="p-message" tag="div">
+    <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
+</transition-group>`,
                 options: `
 <template>
     <div class="card">
-        <Message>Message Content</Message>
+        <Button label="Show" @click="addMessages()" />
+        <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
+        <transition-group name="p-message" tag="div">
+            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
+        </transition-group>
     </div>
 </template>
 
@@ -54,7 +62,11 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Message>Message Content</Message>
+        <Button label="Show" @click="addMessages()" />
+        <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
+        <transition-group name="p-message" tag="div">
+            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
+        </transition-group>
     </div>
 </template>
 

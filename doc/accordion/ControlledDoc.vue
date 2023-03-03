@@ -4,9 +4,9 @@
     </DocSectionText>
     <div class="card">
         <div class="pb-3">
-            <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
+            <Button @click="active = 0" text label="Activate 1st" />
+            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
         <Accordion v-model:activeIndex="active">
@@ -41,9 +41,9 @@ export default {
             code: {
                 basic: `
 <div class="pb-3">
-    <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-    <Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" />
-    <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
+    <Button @click="active = 0" text label="Activate 1st" />
+    <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+    <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
 </div>
 
 <Accordion v-model:activeIndex="active">
@@ -70,9 +70,9 @@ export default {
 <template>
     <div class="card">
         <div class="pb-3">
-            <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
+            <Button @click="active = 0" text label="Activate 1st" />
+            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
         <Accordion v-model:activeIndex="active">
@@ -111,9 +111,9 @@ export default {
 <template>
     <div class="card">
         <div class="pb-3">
-            <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
-            <Button @click="active = 1" class="p-button-text mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" class="p-button-text mr-2" label="Activate 3rd" />
+            <Button @click="active = 0" text label="Activate 1st" />
+            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
         <Accordion v-model:activeIndex="active">

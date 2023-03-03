@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-2">
-            <Button label="Multiple" class="p-button-warning" @click="showMultiple()" />
+            <Button label="Multiple" severity="warning" @click="showMultiple()" />
             <Button label="Clear" @click="clear()" />
         </div>
     </div>
@@ -19,7 +19,7 @@ export default {
                 basic: `
 <Toast />
 <div class="flex flex-wrap gap-2">
-    <Button label="Multiple" class="p-button-warning" @click="showMultiple()" />
+    <Button label="Multiple" severity="warning" @click="showMultiple()" />
     <Button label="Clear" @click="clear()" />
 </div>`,
                 options: `
@@ -27,7 +27,7 @@ export default {
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
-            <Button label="Multiple" class="p-button-warning" @click="showMultiple()" />
+            <Button label="Multiple" severity="warning" @click="showMultiple()" />
             <Button label="Clear" @click="clear()" />
         </div>
     </div>
@@ -52,7 +52,7 @@ export default {
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
-            <Button label="Multiple" class="p-button-warning" @click="showMultiple()" />
+            <Button label="Multiple" severity="warning" @click="showMultiple()" />
             <Button label="Clear" @click="clear()" />
         </div>
     </div>

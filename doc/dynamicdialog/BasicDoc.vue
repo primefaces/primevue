@@ -150,7 +150,7 @@ const showProducts = () => {
 <template>
 	<div>
         <div class="flex justify-content-end mt-1 mb-3">
-            <Button icon="pi pi-external-link" label="Nested Dialog" class="p-button-outlined p-button-success" @click="showInfo" />
+            <Button icon="pi pi-external-link" label="Nested Dialog" outlined severity="success" @click="showInfo" />
         </div>
         <DataTable :value="products">
 			<Column field="code" header="Code"></Column>
@@ -164,7 +164,7 @@ const showProducts = () => {
 			<Column field="quantity" header="Quantity"></Column>
             <Column style="width:5rem">
                 <template #body="slotProps">
-                    <Button type="button" icon="pi pi-plus" class="p-button-text p-button-rounded" @click="selectProduct(slotProps.data)"></Button>
+                    <Button type="button" icon="pi pi-plus" text rounded @click="selectProduct(slotProps.data)"></Button>
                 </template>
             </Column>
 		</DataTable>
@@ -244,7 +244,7 @@ export default {
 <template>
 	<div>
         <div class="flex justify-content-end mt-1 mb-3">
-            <Button icon="pi pi-external-link" label="Nested Dialog" class="p-button-outlined p-button-success" @click="showInfo" />
+            <Button icon="pi pi-external-link" label="Nested Dialog" outlined severity="success" @click="showInfo" />
         </div>
         <DataTable :value="products">
 			<Column field="code" header="Code"></Column>
@@ -258,7 +258,7 @@ export default {
 			<Column field="quantity" header="Quantity"></Column>
             <Column style="width:5rem">
                 <template #body="slotProps">
-                    <Button type="button" icon="pi pi-plus" class="p-button-text p-button-rounded" @click="selectProduct(slotProps.data)"></Button>
+                    <Button type="button" icon="pi pi-plus" text rounded @click="selectProduct(slotProps.data)"></Button>
                 </template>
             </Column>
 		</DataTable>

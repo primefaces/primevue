@@ -6,7 +6,7 @@
         <DataTable v-model:filters="filters" :value="customers" paginator showGridlines :rows="10" dataKey="id" filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-content-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -34,10 +34,10 @@
                     <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by country" />
                 </template>
                 <template #filterclear="{ filterCallback }">
-                    <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+                    <Button type="button" icon="pi pi-times" @click="filterCallback()" severity="secondary"></Button>
                 </template>
                 <template #filterapply="{ filterCallback }">
-                    <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+                    <Button type="button" icon="pi pi-check" @click="filterCallback()" severity="success"></Button>
                 </template>
                 <template #filterfooter>
                     <div class="px-3 pt-0 pb-3 text-center">Customized Buttons</div>
@@ -144,7 +144,7 @@ export default {
         filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
     <template #header>
         <div class="flex justify-content-between">
-            <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+            <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
             <span class="p-input-icon-left">
                 <i class="pi pi-search" />
                 <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -172,10 +172,10 @@ export default {
             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by country" />
         </template>
         <template #filterclear="{ filterCallback }">
-            <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+            <Button type="button" icon="pi pi-times" @click="filterCallback()" severity="secondary"></Button>
         </template>
         <template #filterapply="{ filterCallback }">
-            <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+            <Button type="button" icon="pi pi-check" @click="filterCallback()" severity="success"></Button>
         </template>
         <template #filterfooter>
             <div class="px-3 pt-0 pb-3 text-center">Customized Buttons</div>
@@ -256,7 +256,7 @@ export default {
                 filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-content-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -284,10 +284,10 @@ export default {
                     <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by country" />
                 </template>
                 <template #filterclear="{ filterCallback }">
-                    <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+                    <Button type="button" icon="pi pi-times" @click="filterCallback()" severity="secondary"></Button>
                 </template>
                 <template #filterapply="{ filterCallback }">
-                    <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+                    <Button type="button" icon="pi pi-check" @click="filterCallback()" severity="success"></Button>
                 </template>
                 <template #filterfooter>
                     <div class="px-3 pt-0 pb-3 text-center">Customized Buttons</div>
@@ -460,7 +460,7 @@ export default {
                 filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-content-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -488,10 +488,10 @@ export default {
                     <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by country" />
                 </template>
                 <template #filterclear="{ filterCallback }">
-                    <Button type="button" icon="pi pi-times" @click="filterCallback()" class="p-button-secondary"></Button>
+                    <Button type="button" icon="pi pi-times" @click="filterCallback()" severity="secondary"></Button>
                 </template>
                 <template #filterapply="{ filterCallback }">
-                    <Button type="button" icon="pi pi-check" @click="filterCallback()" class="p-button-success"></Button>
+                    <Button type="button" icon="pi pi-check" @click="filterCallback()" severity="success"></Button>
                 </template>
                 <template #filterfooter>
                     <div class="px-3 pt-0 pb-3 text-center">Customized Buttons</div>

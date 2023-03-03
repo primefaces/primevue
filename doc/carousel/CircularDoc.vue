@@ -15,9 +15,9 @@
                         <h6 class="mt-0 mb-3">${{ slotProps.data.price }}</h6>
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
                         <div class="mt-5">
-                            <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
-                            <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
-                            <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
+                            <Button icon="pi pi-search" rounded class="mr-2" />
+                            <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                            <Button icon="pi pi-cog" rounded severity="help" />
                         </div>
                     </div>
                 </div>
@@ -64,9 +64,9 @@ export default {
                 <h6 class="mt-0 mb-3">\${{ slotProps.data.price }}</h6>
                 <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
                 <div class="mt-5">
-                    <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
-                    <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
-                    <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
+                    <Button icon="pi pi-search" rounded class="mr-2" />
+                    <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                    <Button icon="pi pi-cog" rounded severity="help" />
                 </div>
             </div>
         </div>
@@ -86,9 +86,9 @@ export default {
                         <h6 class="mt-0 mb-3">\${{ slotProps.data.price }}</h6>
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
                         <div class="mt-5">
-                            <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
-                            <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
-                            <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
+                            <Button icon="pi pi-search" rounded class="mr-2" />
+                            <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                            <Button icon="pi pi-cog" rounded severity="help" />
                         </div>
                     </div>
                 </div>
@@ -159,9 +159,9 @@ export default {
                         <h6 class="mt-0 mb-3">\${{ slotProps.data.price }}</h6>
                         <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" />
                         <div class="mt-5">
-                            <Button icon="pi pi-search" class="p-button p-button-rounded mr-2" />
-                            <Button icon="pi pi-star-fill" class="p-button-success p-button-rounded mr-2" />
-                            <Button icon="pi pi-cog" class="p-button-help p-button-rounded" />
+                            <Button icon="pi pi-search" rounded class="mr-2" />
+                            <Button icon="pi pi-star-fill" rounded severity="success" class="mr-2" />
+                            <Button icon="pi pi-cog" rounded severity="help" />
                         </div>
                     </div>
                 </div>

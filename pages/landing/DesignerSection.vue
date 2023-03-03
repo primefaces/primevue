@@ -104,7 +104,7 @@
                             <span class="font-semibold mb-2 block mb-3 mt-5 p-component">Buttons</span>
                             <div class="flex align-items-center">
                                 <Button type="button" label="Save" icon="pi pi-check" class="mr-1"></Button>
-                                <Button type="button" label="Clear" icon="pi pi-times" class="p-button-outlined ml-1"></Button>
+                                <Button type="button" label="Clear" icon="pi pi-times" outlined class="ml-1"></Button>
                             </div>
                         </div>
                     </div>

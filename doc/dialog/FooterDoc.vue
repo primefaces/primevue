@@ -12,7 +12,7 @@
             </p>
 
             <template #footer>
-                <Button label="No" icon="pi pi-times" @click="visible = false" class="p-button-text" />
+                <Button label="No" icon="pi pi-times" @click="visible = false" text />
                 <Button label="Yes" icon="pi pi-check" @click="visible = false" autofocus />
             </template>
         </Dialog>
@@ -35,7 +35,7 @@ export default {
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
     <template #footer>
-        <Button label="No" icon="pi pi-times" @click="visible = false" class="p-button-text" />
+        <Button label="No" icon="pi pi-times" @click="visible = false" text />
         <Button label="Yes" icon="pi pi-check" @click="visible = false" autofocus />
     </template>
 </Dialog>`,
@@ -49,7 +49,7 @@ export default {
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <template #footer>
-                <Button label="No" icon="pi pi-times" @click="visible = false" class="p-button-text" />
+                <Button label="No" icon="pi pi-times" @click="visible = false" text />
                 <Button label="Yes" icon="pi pi-check" @click="visible = false" autofocus />
             </template>
         </Dialog>
@@ -75,7 +75,7 @@ export default {
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <template #footer>
-                <Button label="No" icon="pi pi-times" @click="visible = false" class="p-button-text" />
+                <Button label="No" icon="pi pi-times" @click="visible = false" text />
                 <Button label="Yes" icon="pi pi-check" @click="visible = false" autofocus />
             </template>
         </Dialog>

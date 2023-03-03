@@ -15,13 +15,13 @@
             currentPageReportTemplate="{first} to {last} of {totalRecords}"
         >
             <template #paginatorstart>
-                <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                <Button type="button" icon="pi pi-refresh" text />
             </template>
             <Column field="name" header="Name" expander></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
             <template #paginatorend>
-                <Button type="button" icon="pi pi-download" class="p-button-text" />
+                <Button type="button" icon="pi pi-download" text />
             </template>
         </TreeTable>
     </div>
@@ -39,13 +39,13 @@ export default {
     paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
     currentPageReportTemplate="{first} to {last} of {totalRecords}">
     <template #paginatorstart>
-        <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+        <Button type="button" icon="pi pi-refresh" text />
     </template>
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
     <template #paginatorend>
-        <Button type="button" icon="pi pi-download" class="p-button-text" />
+        <Button type="button" icon="pi pi-download" text />
     </template>
 </TreeTable>`,
                 options: `
@@ -55,13 +55,13 @@ export default {
             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
             currentPageReportTemplate="{first} to {last} of {totalRecords}">
             <template #paginatorstart>
-                <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                <Button type="button" icon="pi pi-refresh" text />
             </template>
             <Column field="name" header="Name" expander></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
             <template #paginatorend>
-                <Button type="button" icon="pi pi-download" class="p-button-text" />
+                <Button type="button" icon="pi pi-download" text />
             </template>
         </TreeTable>
     </div>
@@ -111,13 +111,13 @@ export default {
             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
             currentPageReportTemplate="{first} to {last} of {totalRecords}">
             <template #paginatorstart>
-                <Button type="button" icon="pi pi-refresh" class="p-button-text" />
+                <Button type="button" icon="pi pi-refresh" text />
             </template>
             <Column field="name" header="Name" expander></Column>
             <Column field="size" header="Size"></Column>
             <Column field="type" header="Type"></Column>
             <template #paginatorend>
-                <Button type="button" icon="pi pi-download" class="p-button-text" />
+                <Button type="button" icon="pi pi-download" text />
             </template>
         </TreeTable>
     </div>

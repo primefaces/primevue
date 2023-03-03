@@ -4,10 +4,10 @@
             <section class="mb-5">
                 <h3>Component Scale</h3>
                 <div class="flex align-items-center gap-2">
-                    <Button icon="pi pi-minus" @click="decrementScale" class="p-button-text p-button-rounded w-2rem h-2rem" :disabled="scale === scales[0]" />
+                    <Button icon="pi pi-minus" @click="decrementScale" text rounded class="w-2rem h-2rem" :disabled="scale === scales[0]" />
                     <i v-for="s in scales" :key="s" :class="['pi pi-circle-fill text-sm text-600', { 'text-lg text-primary': s === scale }]" />
 
-                    <Button icon="pi pi-plus" @click="incrementScale" class="p-button-text p-button-rounded w-2rem h-2rem" :disabled="scale === scales[scales.length - 1]" />
+                    <Button icon="pi pi-plus" @click="incrementScale" text rounded class="w-2rem h-2rem" :disabled="scale === scales[scales.length - 1]" />
                 </div>
             </section>
 

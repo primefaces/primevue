@@ -78,7 +78,7 @@
                     </Column>
                     <Column headerStyle="min-width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                         <template #body>
-                            <Button type="button" icon="pi pi-cog" class="p-button-text"></Button>
+                            <Button type="button" icon="pi pi-cog" text></Button>
                         </template>
                     </Column>
                 </DataTable>

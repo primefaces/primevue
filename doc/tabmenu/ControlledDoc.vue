@@ -3,7 +3,7 @@
         <p>Visibility of the content is specified with the <i>activeIndex</i> property that supports one or two-way binding.</p>
     </DocSectionText>
     <div class="card">
-        <Button @click="active = 0" class="p-button-text mb-2" label="Activate 1st" />
+        <Button @click="active = 0" text outlined class="mb-2" label="Activate 1st" />
         <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -38,12 +38,12 @@ export default {
             ],
             code: {
                 basic: `
-<Button @click="active = 0" class="p-button-text" label="Activate 1st" />
+<Button @click="active = 0" text outlined label="Activate 1st" />
 <TabMenu v-model:activeIndex="active" :model="items" />`,
                 options: `
 <template>
     <div class="card">
-        <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
+        <Button @click="active = 0" text outlined label="Activate 1st" />
         <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
 </template>
@@ -82,7 +82,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Button @click="active = 0" class="p-button-text" label="Activate 1st" />
+        <Button @click="active = 0" text outlined label="Activate 1st" />
         <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
 </template>

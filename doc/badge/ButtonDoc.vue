@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+        <Button type="button" label="Messages" icon="pi pi-users" severity="warning" badge="8" badgeClass="p-badge-danger" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -16,12 +16,12 @@ export default {
             code: {
                 basic: `
 <Button type="button" label="Emails" badge="8" />
-<Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />`,
+<Button type="button" label="Messages" icon="pi pi-users" severity="warning" badge="8" badgeClass="p-badge-danger" />`,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+        <Button type="button" label="Messages" icon="pi pi-users" severity="warning" badge="8" badgeClass="p-badge-danger" />
     </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
 <template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badgeClass="p-badge-danger" />
+        <Button type="button" label="Messages" icon="pi pi-users" severity="warning" badge="8" badgeClass="p-badge-danger" />
     </div>
 </template>
 

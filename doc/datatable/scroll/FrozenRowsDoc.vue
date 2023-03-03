@@ -10,7 +10,7 @@
             <Column field="status" header="Status"></Column>
             <Column style="flex: 0 0 4rem">
                 <template #body="{ data, frozenRow, index }">
-                    <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" class="p-button-sm p-button-text" @click="toggleLock(data, frozenRow, index)" />
+                    <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" text size="small" @click="toggleLock(data, frozenRow, index)" />
                 </template>
             </Column>
         </DataTable>
@@ -52,7 +52,7 @@ export default {
     <Column field="status" header="Status"></Column>
     <Column style="flex: 0 0 4rem">
         <template #body="{ data, frozenRow, index }">
-            <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" class="p-button-sm p-button-text" @click="toggleLock(data, frozenRow, index)" />
+            <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" text size="small" @click="toggleLock(data, frozenRow, index)" />
         </template>
     </Column>
 </DataTable>`,
@@ -66,7 +66,7 @@ export default {
             <Column field="status" header="Status"></Column>
             <Column style="flex: 0 0 4rem">
                 <template #body="{ data, frozenRow, index }">
-                    <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" class="p-button-sm p-button-text" @click="toggleLock(data, frozenRow, index)" />
+                    <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" text size="small" @click="toggleLock(data, frozenRow, index)" />
                 </template>
             </Column>
         </DataTable>
@@ -132,7 +132,7 @@ export default {
             <Column field="status" header="Status"></Column>
             <Column style="flex: 0 0 4rem">
                 <template #body="{ data, frozenRow, index }">
-                    <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" class="p-button-sm p-button-text" @click="toggleLock(data, frozenRow, index)" />
+                    <Button type="button" :icon="frozenRow ? 'pi pi-lock-open' : 'pi pi-lock'" :disabled="frozenRow ? false : lockedCustomers.length >= 2" text size="small" @click="toggleLock(data, frozenRow, index)" />
                 </template>
             </Column>
         </DataTable>

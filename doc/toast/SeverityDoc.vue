@@ -4,10 +4,10 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-2">
-            <Button label="Success" class="p-button-success" @click="showSuccess" />
-            <Button label="Info" class="p-button-info" @click="showInfo" />
-            <Button label="Warn" class="p-button-warning" @click="showWarn" />
-            <Button label="Error" class="p-button-danger" @click="showError" />
+            <Button label="Success" severity="success" @click="showSuccess" />
+            <Button label="Info" severity="info" @click="showInfo" />
+            <Button label="Warn" severity="warning" @click="showWarn" />
+            <Button label="Error" severity="danger" @click="showError" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -21,20 +21,20 @@ export default {
                 basic: `
 <Toast />
 <div class="flex flex-wrap gap-2">
-    <Button label="Success" class="p-button-success" @click="showSuccess" />
-    <Button label="Info" class="p-button-info" @click="showInfo" />
-    <Button label="Warn" class="p-button-warning" @click="showWarn" />
-    <Button label="Error" class="p-button-danger" @click="showError" />
+    <Button label="Success" severity="success" @click="showSuccess" />
+    <Button label="Info" severity="info" @click="showInfo" />
+    <Button label="Warn" severity="warning" @click="showWarn" />
+    <Button label="Error" severity="danger" @click="showError" />
 </div>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
-            <Button label="Success" class="p-button-success" @click="showSuccess" />
-            <Button label="Info" class="p-button-info" @click="showInfo" />
-            <Button label="Warn" class="p-button-warning" @click="showWarn" />
-            <Button label="Error" class="p-button-danger" @click="showError" />
+            <Button label="Success" severity="success" @click="showSuccess" />
+            <Button label="Info" severity="info" @click="showInfo" />
+            <Button label="Warn" severity="warning" @click="showWarn" />
+            <Button label="Error" severity="danger" @click="showError" />
         </div>
     </div>
 </template>
@@ -62,10 +62,10 @@ export default {
     <div class="card flex justify-content-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
-            <Button label="Success" class="p-button-success" @click="showSuccess" />
-            <Button label="Info" class="p-button-info" @click="showInfo" />
-            <Button label="Warn" class="p-button-warning" @click="showWarn" />
-            <Button label="Error" class="p-button-danger" @click="showError" />
+            <Button label="Success" severity="success" @click="showSuccess" />
+            <Button label="Info" severity="info" @click="showInfo" />
+            <Button label="Warn" severity="warning" @click="showWarn" />
+            <Button label="Error" severity="danger" @click="showError" />
         </div>
     </div>
 </template>

@@ -6,7 +6,7 @@
         <DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-content-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -94,7 +94,7 @@
             </Column>
             <Column headerStyle="width: 5rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                 <template #body>
-                    <Button type="button" icon="pi pi-cog" class="p-button-rounded" />
+                    <Button type="button" icon="pi pi-cog" rounded />
                 </template>
             </Column>
         </DataTable>
@@ -131,7 +131,7 @@ export default {
     :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
     <template #header>
         <div class="flex justify-content-between">
-            <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+            <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
             <span class="p-input-icon-left">
                 <i class="pi pi-search" />
                 <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -219,7 +219,7 @@ export default {
     </Column>
     <Column headerStyle="width: 5rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
         <template #body>
-            <Button type="button" icon="pi pi-cog" class="p-button-rounded" />
+            <Button type="button" icon="pi pi-cog" rounded />
         </template>
     </Column>
 </DataTable>`,
@@ -230,7 +230,7 @@ export default {
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-content-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -318,7 +318,7 @@ export default {
             </Column>
             <Column headerStyle="width: 5rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                 <template #body>
-                    <Button type="button" icon="pi pi-cog" class="p-button-rounded" />
+                    <Button type="button" icon="pi pi-cog" rounded />
                 </template>
             </Column>
         </DataTable>
@@ -420,7 +420,7 @@ export default {
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-content-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
                         <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
@@ -508,7 +508,7 @@ export default {
             </Column>
             <Column headerStyle="width: 5rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
                 <template #body>
-                    <Button type="button" icon="pi pi-cog" class="p-button-rounded" />
+                    <Button type="button" icon="pi pi-cog" rounded />
                 </template>
             </Column>
         </DataTable>

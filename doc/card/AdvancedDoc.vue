@@ -17,7 +17,7 @@
             </template>
             <template #footer>
                 <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: 0.5em" />
+                <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
             </template>
         </Card>
     </div>
@@ -44,7 +44,7 @@ export default {
     </template>
     <template #footer>
         <Button icon="pi pi-check" label="Save" />
-        <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: 0.5em" />
+        <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
     </template>
 </Card>`,
                 options: `
@@ -64,7 +64,7 @@ export default {
             </template>
             <template #footer>
                 <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: 0.5em" />
+                <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
             </template>
         </Card>
     </div>
@@ -89,7 +89,7 @@ export default {
             </template>
             <template #footer>
                 <Button icon="pi pi-check" label="Save" />
-                <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" style="margin-left: 0.5em" />
+                <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
             </template>
         </Card>
     </div>

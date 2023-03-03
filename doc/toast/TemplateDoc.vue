@@ -12,8 +12,8 @@
                         <p>{{ slotProps.message.detail }}</p>
                     </div>
                     <div class="flex gap-2">
-                        <Button class="p-button-success" label="Yes" @click="onConfirm()"></Button>
-                        <Button class="p-button-secondary" label="No" @click="onReject()"></Button>
+                        <Button severity="success" label="Yes" @click="onConfirm()"></Button>
+                        <Button severity="secondary" label="No" @click="onReject()"></Button>
                     </div>
                 </div>
             </template>
@@ -38,8 +38,8 @@ export default {
                 <p>{{ slotProps.message.detail }}</p>
             </div>
             <div class="flex gap-2">
-                <Button class="p-button-success" label="Yes" @click="onConfirm()"></Button>
-                <Button class="p-button-secondary" label="No" @click="onReject()"></Button>
+                <Button severity="success" label="Yes" @click="onConfirm()"></Button>
+                <Button severity="secondary" label="No" @click="onReject()"></Button>
             </div>
         </div>
     </template>
@@ -57,8 +57,8 @@ export default {
                         <p>{{ slotProps.message.detail }}</p>
                     </div>
                     <div class="flex gap-2">
-                        <Button class="p-button-success" label="Yes" @click="onConfirm()"></Button>
-                        <Button class="p-button-secondary" label="No" @click="onReject()"></Button>
+                        <Button severity="success" label="Yes" @click="onConfirm()"></Button>
+                        <Button severity="secondary" label="No" @click="onReject()"></Button>
                     </div>
                 </div>
             </template>
@@ -88,8 +88,8 @@ export default {
                         <p>{{ slotProps.message.detail }}</p>
                     </div>
                     <div class="flex gap-2">
-                        <Button class="p-button-success" label="Yes" @click="onConfirm()"></Button>
-                        <Button class="p-button-secondary" label="No" @click="onReject()"></Button>
+                        <Button severity="success" label="Yes" @click="onConfirm()"></Button>
+                        <Button severity="secondary" label="No" @click="onReject()"></Button>
                     </div>
                 </div>
             </template>

@@ -13,14 +13,14 @@
             <Column headerStyle="width: 10rem">
                 <template #body>
                     <div class="flex flex-wrap gap-2">
-                        <Button type="button" icon="pi pi-search" class="p-button-rounded" />
-                        <Button type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success" />
+                        <Button type="button" icon="pi pi-search" rounded />
+                        <Button type="button" icon="pi pi-pencil" rounded severity="success" />
                     </div>
                 </template>
             </Column>
             <template #footer>
                 <div class="flex justify-content-start">
-                    <Button icon="pi pi-refresh" label="Reload" class="p-button-warning" />
+                    <Button icon="pi pi-refresh" label="Reload" severity="warning" />
                 </div>
             </template>
         </TreeTable>
@@ -47,14 +47,14 @@ export default {
     <Column headerStyle="width: 10rem">
         <template #body>
             <div class="flex flex-wrap gap-2">
-                <Button type="button" icon="pi pi-search" class="p-button-rounded" />
-                <Button type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success" />
+                <Button type="button" icon="pi pi-search" rounded />
+                <Button type="button" icon="pi pi-pencil" rounded severity="success" />
             </div>
         </template>
     </Column>
     <template #footer>
         <div class="flex justify-content-start">
-            <Button icon="pi pi-refresh" label="Reload" class="p-button-warning" />
+            <Button icon="pi pi-refresh" label="Reload" severity="warning" />
         </div>
     </template>
 </TreeTable>`,
@@ -71,14 +71,14 @@ export default {
             <Column headerStyle="width: 10rem">
                 <template #body>
                     <div class="flex flex-wrap gap-2">
-                        <Button type="button" icon="pi pi-search" class="p-button-rounded p-button" />
-                        <Button type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success" />
+                        <Button type="button" icon="pi pi-search" rounded/>
+                        <Button type="button" icon="pi pi-pencil" rounded severity="success" />
                     </div>
                 </template>
             </Column>
             <template #footer>
                 <div class="flex justify-content-start">
-                    <Button icon="pi pi-refresh" label="Reload" class="p-button-warning" />
+                    <Button icon="pi pi-refresh" label="Reload" severity="warning" />
                 </div>
             </template>
         </TreeTable>
@@ -112,14 +112,14 @@ export default {
             <Column headerStyle="width: 10rem">
                 <template #body>
                     <div class="flex flex-wrap gap-2">
-                        <Button type="button" icon="pi pi-search" class="p-button-rounded p-button" />
-                        <Button type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success" />
+                        <Button type="button" icon="pi pi-search" rounded/>
+                        <Button type="button" icon="pi pi-pencil" rounded severity="success" />
                     </div>
                 </template>
             </Column>
             <template #footer>
                 <div class="flex justify-content-start">
-                    <Button icon="pi pi-refresh" label="Reload" class="p-button-warning" />
+                    <Button icon="pi pi-refresh" label="Reload" severity="warning" />
                 </div>
             </template>
         </TreeTable>

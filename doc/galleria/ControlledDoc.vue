@@ -5,7 +5,7 @@
     <div class="card flex flex-column md:align-items-center">
         <div class="mb-3 align-self-center">
             <Button icon="pi pi-minus" @click="prev" />
-            <Button icon="pi pi-plus" @click="next" class="p-button-secondary ml-2" />
+            <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>
 
         <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
@@ -46,7 +46,7 @@ export default {
                 basic: `
 <div>
     <Button icon="pi pi-minus" @click="prev" />
-    <Button icon="pi pi-plus" @click="next" class="p-button-secondary ml-2" />
+    <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
 </div>
 
 <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
@@ -62,7 +62,7 @@ export default {
     <div class="card flex flex-column md:align-items-center">
         <div class="mb-3 align-self-center">
             <Button icon="pi pi-minus" @click="prev" />
-            <Button icon="pi pi-plus" @click="next" class="p-button-secondary ml-2" />
+            <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>
 
         <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
@@ -118,7 +118,7 @@ export default {
     <div class="card flex flex-column md:align-items-center">
         <div class="mb-3 align-self-center">
             <Button icon="pi pi-minus" @click="prev" />
-            <Button icon="pi pi-plus" @click="next" class="p-button-secondary ml-2" />
+            <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>
 
         <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">

@@ -79,7 +79,7 @@
                         </div>
                         <span class="font-medium text-xl ml-auto">$12.45</span>
                     </div>
-                    <Button label="Add to Cart" icon="pi pi-shopping-cart" class="w-full p-button-outlined"></Button>
+                    <Button label="Add to Cart" icon="pi pi-shopping-cart" outlined class="w-full"></Button>
                 </div>
                 <div class="box p-4 mb-5">
                     <Tree :value="nodes" class="bg-transparent border-none p-0" />

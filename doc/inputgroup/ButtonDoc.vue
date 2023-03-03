@@ -10,13 +10,13 @@
 
         <div class="p-inputgroup flex-1">
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" class="p-button-warning" />
+            <Button icon="pi pi-search" severity="warning" />
         </div>
 
         <div class="p-inputgroup flex-1">
-            <Button icon="pi pi-check" class="p-button-success" />
+            <Button icon="pi pi-check" severity="success" />
             <InputText placeholder="Vote" />
-            <Button icon="pi pi-times" class="p-button-danger" />
+            <Button icon="pi pi-times" severity="danger" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -35,13 +35,13 @@ export default {
 
 <div class="p-inputgroup flex-1">
     <InputText placeholder="Keyword" />
-    <Button icon="pi pi-search" class="p-button-warning" />
+    <Button icon="pi pi-search" severity="warning" />
 </div>
 
 <div class="p-inputgroup flex-1">
-    <Button icon="pi pi-check" class="p-button-success" />
+    <Button icon="pi pi-check" severity="success" />
     <InputText placeholder="Vote" />
-    <Button icon="pi pi-times" class="p-button-danger" />
+    <Button icon="pi pi-times" severity="danger" />
 </div>`,
                 options: `
 <template>
@@ -53,13 +53,13 @@ export default {
 
         <div class="p-inputgroup flex-1">
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" class="p-button-warning" />
+            <Button icon="pi pi-search" severity="warning" />
         </div>
 
         <div class="p-inputgroup flex-1">
-            <Button icon="pi pi-check" class="p-button-success" />
+            <Button icon="pi pi-check" severity="success" />
             <InputText placeholder="Vote" />
-            <Button icon="pi pi-times" class="p-button-danger" />
+            <Button icon="pi pi-times" severity="danger" />
         </div>
     </div>
 </template>`,
@@ -73,13 +73,13 @@ export default {
 
         <div class="p-inputgroup flex-1">
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" class="p-button-warning" />
+            <Button icon="pi pi-search" severity="warning" />
         </div>
 
         <div class="p-inputgroup flex-1">
-            <Button icon="pi pi-check" class="p-button-success" />
+            <Button icon="pi pi-check" severity="success" />
             <InputText placeholder="Vote" />
-            <Button icon="pi pi-times" class="p-button-danger" />
+            <Button icon="pi pi-times" severity="danger" />
         </div>
     </div>
 </template>`

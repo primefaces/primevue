@@ -25,7 +25,7 @@
                             </div>
                             <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
                                 <span class="text-2xl font-semibold">${{ slotProps.data.price }}</span>
-                                <Button icon="pi pi-shopping-cart" class="p-button-rounded" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                                <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ export default {
                     </div>
                     <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
                         <span class="text-2xl font-semibold">\${{ slotProps.data.price }}</span>
-                        <Button icon="pi pi-shopping-cart" class="p-button-rounded" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                        <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ export default {
                             </div>
                             <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
                                 <span class="text-2xl font-semibold">\${{ slotProps.data.price }}</span>
-                                <Button icon="pi pi-shopping-cart" class="p-button-rounded" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                                <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@ export default {
                             </div>
                             <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
                                 <span class="text-2xl font-semibold">\${{ slotProps.data.price }}</span>
-                                <Button icon="pi pi-shopping-cart" class="p-button-rounded" :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                                <Button icon="pi pi-shopping-cart" rounded :disabled="slotProps.data.inventoryStatus === 'OUTOFSTOCK'"></Button>
                             </div>
                         </div>
                     </div>

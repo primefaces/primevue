@@ -5,8 +5,8 @@
     <div class="card flex justify-content-center">
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" class="mr-2" @click="showTopLeft" />
-            <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
-            <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
+            <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
+            <Button label="Bottom Right" severity="success" @click="showBottomRight" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -21,8 +21,8 @@ export default {
 <Toast />
 <div class="flex flex-wrap gap-2">
     <Button label="Top Left" class="mr-2" @click="showTopLeft" />
-    <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
-    <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
+    <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
+    <Button label="Bottom Right" severity="success" @click="showBottomRight" />
 </div>`,
                 options: `
 <template>
@@ -30,8 +30,8 @@ export default {
         <Toast />
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" class="mr-2" @click="showTopLeft" />
-            <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
-            <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
+            <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
+            <Button label="Bottom Right" severity="success" @click="showBottomRight" />
         </div>
     </div>
 </template>
@@ -57,8 +57,8 @@ export default {
         <Toast />
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" class="mr-2" @click="showTopLeft" />
-            <Button label="Bottom Left" class="p-button-warning" @click="showBottomLeft" />
-            <Button label="Bottom Right" class="p-button-success" @click="showBottomRight" />
+            <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
+            <Button label="Bottom Right" severity="success" @click="showBottomRight" />
         </div>
     </div>
 </template>

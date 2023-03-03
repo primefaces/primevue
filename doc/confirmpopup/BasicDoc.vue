@@ -5,7 +5,7 @@
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -19,7 +19,7 @@ export default {
 <ConfirmPopup></ConfirmPopup>
 <div class="card flex flex-wrap gap-2 justify-content-center">
     <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-    <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+    <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
 </div>`,
                 options: `
 <template>
@@ -27,7 +27,7 @@ export default {
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
     </div>
 </template>
 
@@ -70,7 +70,7 @@ export default {
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
         <Button @click="confirm1($event)" icon="pi pi-check" label="Confirm"></Button>
-        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" class="p-button-danger p-button-outlined"></Button>
+        <Button @click="confirm2($event)" icon="pi pi-times" label="Delete" outlined severity="danger"></Button>
     </div>
 </template>
 
