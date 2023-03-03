@@ -1,9 +1,19 @@
+/**
+ *
+ * TieredMenu displays submenus in nested overlays.
+ *
+ * [Live Demo](https://www.primevue.org/menu/)
+ *
+ * @module tieredmenu
+ *
+ */
 import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-type TieredMenuAppandToType = 'body' | 'self' | string | undefined | HTMLElement;
-
+/**
+ * Defines valid properties in TieredMenuMenu component.
+ */
 export interface TieredMenuProps {
     /**
      * An array of menuitems.
@@ -15,23 +25,22 @@ export interface TieredMenuProps {
     popup?: boolean | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * @see TieredMenuAppandToType
-     * Default value is 'body'.
+     * @defaultValue 'body'
      */
-    appendTo?: TieredMenuAppandToType;
+    appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Whether to automatically manage layering.
-     * Default value is true.
+     * @defaultValue true
      */
     autoZIndex?: boolean | undefined;
     /**
      * Base zIndex value to use in layering.
-     * Default value is 0.
+     * @defaultValue 0
      */
     baseZIndex?: number | undefined;
     /**
      * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
-     * Default value is true.
+     * @defaultValue true
      */
     exact?: boolean | undefined;
     /**
@@ -52,48 +61,66 @@ export interface TieredMenuProps {
     'aria-labelledby'?: string | undefined;
 }
 
+/**
+ * Defines valid slots in TieredMenuMenu component.
+ */
 export interface TieredMenuSlots {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
      */
-    item: (scope: {
+    item(scope: {
         /**
          * Menuitem instance
          */
         item: MenuItem;
-    }) => VNode[];
+    }): VNode[];
 }
 
-export declare type TieredMenuEmits = {
+/**
+ * Defines valid emits in TieredMenuMenu component.
+ */
+export interface TieredMenuEmits {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
      */
-    focus: (event: Event) => void;
+    focus(event: Event): void;
     /**
      * Callback to invoke when the component loses focus.
      * @param {Event} event - Browser event.
      */
-    blur: (event: Event) => void;
+    blur(event: Event): void;
     /**
      * Callback to invoke before the popup is shown.
      */
-    'before-show': () => void;
+    'before-show'(): void;
     /**
      * Callback to invoke before the popup is hidden.
      */
-    'before-hide': () => void;
+    'before-hide'(): void;
     /**
      * Callback to invoke when the popup is shown.
      */
-    show: () => void;
+    show(): void;
     /**
      * Callback to invoke when the popup is hidden.
      */
-    hide: () => void;
-};
+    hide(): void;
+}
 
+/**
+ * **PrimeVue - Menu**
+ *
+ * _TieredMenu displays submenus in nested overlays._
+ *
+ * [Live Demo](https://www.primevue.org/tieredmenu/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo.svg)
+ *
+ * @group Component
+ *
+ */
 declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits> {
     /**
      * Toggles the visibility of the overlay.
