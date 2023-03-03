@@ -3663,6 +3663,14 @@
                             "description": "Text of the button."
                         },
                         {
+                            "name": "link",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Add a link style to the button."
+                        },
+                        {
                             "name": "loading",
                             "optional": true,
                             "readonly": false,
@@ -3679,12 +3687,60 @@
                             "description": "Icon to display in loading state."
                         },
                         {
+                            "name": "outlined",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Add a border class without a background initially."
+                        },
+                        {
+                            "name": "raised",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Add a shadow to indicate elevation."
+                        },
+                        {
+                            "name": "rounded",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Add a circular border radius to the button."
+                        },
+                        {
+                            "name": "severity",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"success\" | \"info\" | \"warning\" | \"danger\" | \"secondary\"",
+                            "default": "",
+                            "description": "Defines the style of the button."
+                        },
+                        {
+                            "name": "size",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"small\" | \"large\"",
+                            "default": "",
+                            "description": "Defines the size of the button."
+                        },
+                        {
                             "name": "style",
                             "optional": true,
                             "readonly": false,
                             "type": "any",
                             "default": "",
                             "description": "Inline style of the button."
+                        },
+                        {
+                            "name": "text",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Add a textual class to the button without a background initially."
                         }
                     ],
                     "methods": [],
@@ -22219,7 +22275,7 @@
                             "name": "bottom",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "boolean",
                             "default": "false",
                             "description": "Bottom position for Tooltip."
                         },
@@ -22227,7 +22283,7 @@
                             "name": "focus",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "boolean",
                             "default": "true",
                             "description": "Focus event for Tooltip."
                         },
@@ -22235,7 +22291,7 @@
                             "name": "left",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "boolean",
                             "default": "false",
                             "description": "Left position for Tooltip."
                         },
@@ -22243,7 +22299,7 @@
                             "name": "right",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "boolean",
                             "default": "true",
                             "description": "Right position for Tooltip."
                         },
@@ -22251,7 +22307,7 @@
                             "name": "top",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "boolean",
                             "default": "false",
                             "description": "Top position for Tooltip."
                         }

@@ -3,13 +3,13 @@
         <p>Rounded buttons have a circular border radius.</p>
     </DocSectionText>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button label="Primary" class="p-button-rounded" />
-        <Button label="Secondary" class="p-button-rounded p-button-secondary" />
-        <Button label="Success" class="p-button-rounded p-button-success" />
-        <Button label="Info" class="p-button-rounded p-button-info" />
-        <Button label="Warning" class="p-button-rounded p-button-warning" />
-        <Button label="Help" class="p-button-rounded p-button-help" />
-        <Button label="Danger" class="p-button-rounded p-button-danger" />
+        <Button label="Primary" rounded />
+        <Button label="Secondary" severity="secondary" rounded />
+        <Button label="Success" severity="success" rounded />
+        <Button label="Info" severity="info" rounded />
+        <Button label="Warning" severity="warning" rounded />
+        <Button label="Help" severity="help" rounded />
+        <Button label="Danger" severity="danger" rounded />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -20,23 +20,23 @@ export default {
         return {
             code: {
                 basic: `
-<Button label="Primary" class="p-button-rounded" />
-<Button label="Secondary" class="p-button-rounded p-button-secondary" />
-<Button label="Success" class="p-button-rounded p-button-success" />
-<Button label="Info" class="p-button-rounded p-button-info" />
-<Button label="Warning" class="p-button-rounded p-button-warning" />
-<Button label="Help" class="p-button-rounded p-button-help" />
-<Button label="Danger" class="p-button-rounded p-button-danger" />`,
+<Button label="Primary" rounded />
+<Button label="Secondary" severity="secondary" rounded />
+<Button label="Success" severity="success" rounded />
+<Button label="Info" severity="info" rounded />
+<Button label="Warning" severity="warning" rounded />
+<Button label="Help" severity="help" rounded />
+<Button label="Danger" severity="danger" rounded />`,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button label="Primary" class="p-button-rounded" />
-        <Button label="Secondary" class="p-button-rounded p-button-secondary" />
-        <Button label="Success" class="p-button-rounded p-button-success" />
-        <Button label="Info" class="p-button-rounded p-button-info" />
-        <Button label="Warning" class="p-button-rounded p-button-warning" />
-        <Button label="Help" class="p-button-rounded p-button-help" />
-        <Button label="Danger" class="p-button-rounded p-button-danger" />
+        <Button label="Primary" rounded />
+        <Button label="Secondary" severity="secondary" rounded />
+        <Button label="Success" severity="success" rounded />
+        <Button label="Info" severity="info" rounded />
+        <Button label="Warning" severity="warning" rounded />
+        <Button label="Help" severity="help" rounded />
+        <Button label="Danger" severity="danger" rounded />
     </div>
 </template>
 
@@ -45,13 +45,13 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button label="Primary" class="p-button-rounded" />
-        <Button label="Secondary" class="p-button-rounded p-button-secondary" />
-        <Button label="Success" class="p-button-rounded p-button-success" />
-        <Button label="Info" class="p-button-rounded p-button-info" />
-        <Button label="Warning" class="p-button-rounded p-button-warning" />
-        <Button label="Help" class="p-button-rounded p-button-help" />
-        <Button label="Danger" class="p-button-rounded p-button-danger" />
+        <Button label="Primary" rounded />
+        <Button label="Secondary" severity="secondary" rounded />
+        <Button label="Success" severity="success" rounded />
+        <Button label="Info" severity="info" rounded />
+        <Button label="Warning" severity="warning" rounded />
+        <Button label="Help" severity="help" rounded />
+        <Button label="Danger" severity="danger" rounded />
     </div>
 </template>
 

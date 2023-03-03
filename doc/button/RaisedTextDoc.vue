@@ -3,13 +3,13 @@
         <p>Text buttons can be displayed as raised as well for elevation.</p>
     </DocSectionText>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button label="Primary" class="p-button-text p-button-raised" />
-        <Button label="Secondary" class="p-button-text p-button-raised p-button-secondary" />
-        <Button label="Success" class="p-button-text p-button-raised p-button-success" />
-        <Button label="Info" class="p-button-text p-button-raised p-button-info" />
-        <Button label="Warning" class="p-button-text p-button-raised p-button-warning" />
-        <Button label="Help" class="p-button-text p-button-raised p-button-help" />
-        <Button label="Danger" class="p-button-text p-button-raised p-button-danger" />
+        <Button label="Primary" text raised />
+        <Button label="Secondary" severity="secondary" text raised />
+        <Button label="Success" severity="success" text raised />
+        <Button label="Info" severity="info" text raised />
+        <Button label="Warning" severity="warning" text raised />
+        <Button label="Help" severity="help" text raised />
+        <Button label="Danger" severity="danger" text raised />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -20,23 +20,23 @@ export default {
         return {
             code: {
                 basic: `
-<Button label="Primary" class="p-button-text p-button-raised" />
-<Button label="Secondary" class="p-button-text p-button-raised p-button-secondary" />
-<Button label="Success" class="p-button-text p-button-raised p-button-success" />
-<Button label="Info" class="p-button-text p-button-raised p-button-info" />
-<Button label="Warning" class="p-button-text p-button-raised p-button-warning" />
-<Button label="Help" class="p-button-text p-button-raised p-button-help" />
-<Button label="Danger" class="p-button-text p-button-raised p-button-danger" />`,
+<Button label="Primary" text raised />
+<Button label="Secondary" severity="secondary" text raised />
+<Button label="Success" severity="success" text raised />
+<Button label="Info" severity="info" text raised />
+<Button label="Warning" severity="warning" text raised />
+<Button label="Help" severity="help" text raised />
+<Button label="Danger" severity="danger" text raised />`,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button label="Primary" class="p-button-text p-button-raised" />
-        <Button label="Secondary" class="p-button-text p-button-raised p-button-secondary" />
-        <Button label="Success" class="p-button-text p-button-raised p-button-success" />
-        <Button label="Info" class="p-button-text p-button-raised p-button-info" />
-        <Button label="Warning" class="p-button-text p-button-raised p-button-warning" />
-        <Button label="Help" class="p-button-text p-button-raised p-button-help" />
-        <Button label="Danger" class="p-button-text p-button-raised p-button-danger" />
+        <Button label="Primary" text raised />
+        <Button label="Secondary" severity="secondary" text raised />
+        <Button label="Success" severity="success" text raised />
+        <Button label="Info" severity="info" text raised />
+        <Button label="Warning" severity="warning" text raised />
+        <Button label="Help" severity="help" text raised />
+        <Button label="Danger" severity="danger" text raised />
     </div>
 </template>
 
@@ -45,13 +45,13 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
-        <Button label="Primary" class="p-button-text p-button-raised" />
-        <Button label="Secondary" class="p-button-text p-button-raised p-button-secondary" />
-        <Button label="Success" class="p-button-text p-button-raised p-button-success" />
-        <Button label="Info" class="p-button-text p-button-raised p-button-info" />
-        <Button label="Warning" class="p-button-text p-button-raised p-button-warning" />
-        <Button label="Help" class="p-button-text p-button-raised p-button-help" />
-        <Button label="Danger" class="p-button-text p-button-raised p-button-danger" />
+        <Button label="Primary" text raised />
+        <Button label="Secondary" severity="secondary" text raised />
+        <Button label="Success" severity="success" text raised />
+        <Button label="Info" severity="info" text raised />
+        <Button label="Warning" severity="warning" text raised />
+        <Button label="Help" severity="help" text raised />
+        <Button label="Danger" severity="danger" text raised />
     </div>
 </template>
 

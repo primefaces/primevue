@@ -5,52 +5,52 @@
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
             <Button icon="pi pi-check" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger" aria-label="Cancel" />
+            <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded" aria-label="Cancel" />
+            <Button icon="pi pi-check" rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-outlined" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-outlined" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-outlined" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-outlined" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-outlined" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-outlined" aria-label="Cancel" />
+            <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded outlined aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" rounded outlined aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" rounded outlined aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" rounded outlined aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" rounded outlined aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" rounded outlined aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-text p-button-raised" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text p-button-raised" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text p-button-raised" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text p-button-raised" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text p-button-raised" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text p-button-raised" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text p-button-raised" aria-label="Cancel" />
+            <Button icon="pi pi-check" text raised rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" text raised rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" text raised rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" text raised rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" text raised rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" text raised rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" text raised rounded aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-text" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text" aria-label="Cancel" />
+            <Button icon="pi pi-check" text rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" text rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" text rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" text rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" text rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" text rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -62,106 +62,96 @@ export default {
         return {
             code: {
                 basic: `
-<div class="flex flex-wrap justify-content-center gap-3 mb-4">
-    <Button icon="pi pi-check" aria-label="Filter" />
-    <Button icon="pi pi-bookmark" class="p-button-secondary" aria-label="Bookmark" />
-    <Button icon="pi pi-search" class="p-button-success" aria-label="Search" />
-    <Button icon="pi pi-user" class="p-button-info" aria-label="User" />
-    <Button icon="pi pi-bell" class="p-button-warning" aria-label="Notification" />
-    <Button icon="pi pi-heart" class="p-button-help" aria-label="Favorite" />
-    <Button icon="pi pi-times" class="p-button-danger" aria-label="Cancel" />
-</div>
+<Button icon="pi pi-check" aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" aria-label="Search" />
+<Button icon="pi pi-user" severity="info" aria-label="User" />
+<Button icon="pi pi-bell" severity="warning" aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
 
-<div class="flex flex-wrap justify-content-center gap-3 mb-4">
-    <Button icon="pi pi-check" class="p-button-rounded" aria-label="Filter" />
-    <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded" aria-label="Bookmark" />
-    <Button icon="pi pi-search" class="p-button-success p-button-rounded" aria-label="Search" />
-    <Button icon="pi pi-user" class="p-button-info p-button-rounded" aria-label="User" />
-    <Button icon="pi pi-bell" class="p-button-warning p-button-rounded" aria-label="Notification" />
-    <Button icon="pi pi-heart" class="p-button-help p-button-rounded" aria-label="Favorite" />
-    <Button icon="pi pi-times" class="p-button-danger p-button-rounded" aria-label="Cancel" />
-</div>
+<Button icon="pi pi-check" rounded aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
+<Button icon="pi pi-user" severity="info" rounded aria-label="User" />
+<Button icon="pi pi-bell" severity="warning" rounded aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" rounded aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
 
-<div class="flex flex-wrap justify-content-center gap-3 mb-4">
-    <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" aria-label="Filter" />
-    <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-outlined" aria-label="Bookmark" />
-    <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-outlined" aria-label="Search" />
-    <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-outlined" aria-label="User" />
-    <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-outlined" aria-label="Notification" />
-    <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-outlined" aria-label="Favorite" />
-    <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-outlined" aria-label="Cancel" />
-</div>
+<Button icon="pi pi-check" rounded outlined aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" rounded outlined aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" rounded outlined aria-label="Search" />
+<Button icon="pi pi-user" severity="info" rounded outlined aria-label="User" />
+<Button icon="pi pi-bell" severity="warning" rounded outlined aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" rounded outlined aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" rounded outlined aria-label="Cancel" />
 
-<div class="flex flex-wrap justify-content-center gap-3 mb-4">
-    <Button icon="pi pi-check" class="p-button-rounded p-button-text p-button-raised" aria-label="Filter" />
-    <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text p-button-raised" aria-label="Bookmark" />
-    <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text p-button-raised" aria-label="Search" />
-    <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text p-button-raised" aria-label="User" />
-    <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text p-button-raised" aria-label="Notification" />
-    <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text p-button-raised" aria-label="Favorite" />
-    <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text p-button-raised" aria-label="Cancel" />
-</div>
+<Button icon="pi pi-check" text raised rounded aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" text raised rounded aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" text raised rounded aria-label="Search" />
+<Button icon="pi pi-user" severity="info" text raised rounded aria-label="User" />
+<Button icon="pi pi-bell" severity="warning" text raised rounded aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" text raised rounded aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" text raised rounded aria-label="Cancel" />
 
-<div class="flex flex-wrap justify-content-center gap-3">
-    <Button icon="pi pi-check" class="p-button-rounded p-button-text" aria-label="Filter" />
-    <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text" aria-label="Bookmark" />
-    <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text" aria-label="Search" />
-    <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text" aria-label="User" />
-    <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text" aria-label="Notification" />
-    <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text" aria-label="Favorite" />
-    <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text" aria-label="Cancel" />
-</div>`,
+<Button icon="pi pi-check" text rounded aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" text rounded aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" text rounded aria-label="Search" />
+<Button icon="pi pi-user" severity="info" text rounded aria-label="User" />
+<Button icon="pi pi-bell" severity="warning" text rounded aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" text rounded aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" />`,
                 options: `
 <template>
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
             <Button icon="pi pi-check" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger" aria-label="Cancel" />
+            <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded" aria-label="Cancel" />
+            <Button icon="pi pi-check" rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-outlined" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-outlined" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-outlined" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-outlined" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-outlined" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-outlined" aria-label="Cancel" />
+            <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded outlined aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" rounded outlined aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" rounded outlined aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" rounded outlined aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" rounded outlined aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" rounded outlined aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-text p-button-raised" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text p-button-raised" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text p-button-raised" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text p-button-raised" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text p-button-raised" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text p-button-raised" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text p-button-raised" aria-label="Cancel" />
+            <Button icon="pi pi-check" text raised rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" text raised rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" text raised rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" text raised rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" text raised rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" text raised rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" text raised rounded aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-text" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text" aria-label="Cancel" />
+            <Button icon="pi pi-check" text rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" text rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" text rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" text rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" text rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" text rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" />
         </div>
     </div>
 </template>
@@ -173,52 +163,52 @@ export default {
     <div class="card">
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
             <Button icon="pi pi-check" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger" aria-label="Cancel" />
+            <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded" aria-label="Cancel" />
+            <Button icon="pi pi-check" rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-outlined" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-outlined" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-outlined" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-outlined" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-outlined" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-outlined" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-outlined" aria-label="Cancel" />
+            <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded outlined aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" rounded outlined aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" rounded outlined aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" rounded outlined aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" rounded outlined aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" rounded outlined aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3 mb-4">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-text p-button-raised" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text p-button-raised" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text p-button-raised" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text p-button-raised" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text p-button-raised" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text p-button-raised" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text p-button-raised" aria-label="Cancel" />
+            <Button icon="pi pi-check" text raised rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" text raised rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" text raised rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" text raised rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" text raised rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" text raised rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" text raised rounded aria-label="Cancel" />
         </div>
 
         <div class="flex flex-wrap justify-content-center gap-3">
-            <Button icon="pi pi-check" class="p-button-rounded p-button-text" aria-label="Filter" />
-            <Button icon="pi pi-bookmark" class="p-button-secondary p-button-rounded p-button-text" aria-label="Bookmark" />
-            <Button icon="pi pi-search" class="p-button-success p-button-rounded p-button-text" aria-label="Search" />
-            <Button icon="pi pi-user" class="p-button-info p-button-rounded p-button-text" aria-label="User" />
-            <Button icon="pi pi-bell" class="p-button-warning p-button-rounded p-button-text" aria-label="Notification" />
-            <Button icon="pi pi-heart" class="p-button-help p-button-rounded p-button-text" aria-label="Favorite" />
-            <Button icon="pi pi-times" class="p-button-danger p-button-rounded p-button-text" aria-label="Cancel" />
+            <Button icon="pi pi-check" text rounded aria-label="Filter" />
+            <Button icon="pi pi-bookmark" severity="secondary" text rounded aria-label="Bookmark" />
+            <Button icon="pi pi-search" severity="success" text rounded aria-label="Search" />
+            <Button icon="pi pi-user" severity="info" text rounded aria-label="User" />
+            <Button icon="pi pi-bell" severity="warning" text rounded aria-label="Notification" />
+            <Button icon="pi pi-heart" severity="help" text rounded aria-label="Favorite" />
+            <Button icon="pi pi-times" severity="danger" text rounded aria-label="Cancel" />
         </div>
     </div>
 </template>

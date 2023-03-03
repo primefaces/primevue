@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A button can be rendered as a link by adding <i>p-button-link</i> class.</p>
+        <p>A button can be rendered as a link as well.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Button label="Link" class="p-button-link" />
+        <Button label="Link" link />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -14,11 +14,11 @@ export default {
         return {
             code: {
                 basic: `
-<Button label="Link" class="p-button-link" />`,
+<Button label="Link" link />`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Button label="Link" class="p-button-link" />
+        <Button label="Link" link />
     </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Button label="Link" class="p-button-link" />
+        <Button label="Link" link />
     </div>
 </template>
 

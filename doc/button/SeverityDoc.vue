@@ -4,12 +4,12 @@
     </DocSectionText>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Button label="Primary" />
-        <Button label="Secondary" class="p-button-secondary" />
-        <Button label="Success" class="p-button-success" />
-        <Button label="Info" class="p-button-info" />
-        <Button label="Warning" class="p-button-warning" />
-        <Button label="Help" class="p-button-help" />
-        <Button label="Danger" class="p-button-danger" />
+        <Button label="Secondary" severity="secondary" />
+        <Button label="Success" severity="success" />
+        <Button label="Info" severity="info" />
+        <Button label="Warning" severity="warning" />
+        <Button label="Help" severity="help" />
+        <Button label="Danger" severity="danger" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -21,22 +21,22 @@ export default {
             code: {
                 basic: `
 <Button label="Primary" />
-<Button label="Secondary" class="p-button-secondary" />
-<Button label="Success" class="p-button-success" />
-<Button label="Info" class="p-button-info" />
-<Button label="Warning" class="p-button-warning" />
-<Button label="Help" class="p-button-help" />
-<Button label="Danger" class="p-button-danger" />`,
+<Button label="Secondary" severity="secondary" />
+<Button label="Success" severity="success" />
+<Button label="Info" severity="info" />
+<Button label="Warning" severity="warning" />
+<Button label="Help" severity="help" />
+<Button label="Danger" severity="danger" />`,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Button label="Primary" />
-        <Button label="Secondary" class="p-button-secondary" />
-        <Button label="Success" class="p-button-success" />
-        <Button label="Info" class="p-button-info" />
-        <Button label="Warning" class="p-button-warning" />
-        <Button label="Help" class="p-button-help" />
-        <Button label="Danger" class="p-button-danger" />
+        <Button label="Secondary" severity="secondary" />
+        <Button label="Success" severity="success" />
+        <Button label="Info" severity="info" />
+        <Button label="Warning" severity="warning" />
+        <Button label="Help" severity="help" />
+        <Button label="Danger" severity="danger" />
     </div>
 </template>
 
@@ -46,12 +46,12 @@ export default {
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
         <Button label="Primary" />
-        <Button label="Secondary" class="p-button-secondary" />
-        <Button label="Success" class="p-button-success" />
-        <Button label="Info" class="p-button-info" />
-        <Button label="Warning" class="p-button-warning" />
-        <Button label="Help" class="p-button-help" />
-        <Button label="Danger" class="p-button-danger" />
+        <Button label="Secondary" severity="secondary" />
+        <Button label="Success" severity="success" />
+        <Button label="Info" severity="info" />
+        <Button label="Warning" severity="warning" />
+        <Button label="Help" severity="help" />
+        <Button label="Danger" severity="danger" />
     </div>
 </template>
 
