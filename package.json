@@ -47,7 +47,6 @@
         "@fullcalendar/timegrid": "^5.11.0",
         "@fullcalendar/vue3": "^5.11.0",
         "@stackblitz/sdk": "^1.8.2",
-        "@vitejs/plugin-vue-jsx": "^2.0.1",
         "@vitest/coverage-istanbul": "^0.26.2",
         "@vue/test-utils": "^2.0.0",
         "chart.js": "3.3.2",

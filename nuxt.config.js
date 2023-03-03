@@ -1,5 +1,3 @@
-import vueJsx from '@vitejs/plugin-vue-jsx';
-
 import path from 'path';
 const baseUrl = '/';
 
@@ -70,7 +68,6 @@ export default defineNuxtConfig({
     },
     css: ['@/assets/styles/primevue.css', '/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css'],
     vite: {
-        plugins: [vueJsx()],
         resolve: {
             alias: {
                 'primevue/ripple': path.resolve(__dirname, './components/ripple/Ripple.js'),
