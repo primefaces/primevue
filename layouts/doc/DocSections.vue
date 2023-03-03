@@ -4,7 +4,7 @@
             <template v-if="doc.children">
                 <div :id="doc.id">
                     <DocSectionText :id="doc.id" :label="doc.label">
-                        {{ doc.description || null }}
+                        <p v-if="doc.description">{{ doc.description }}</p>
                     </DocSectionText>
                 </div>
                 <template v-for="comp of doc.children" :key="comp.label">
