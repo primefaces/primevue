@@ -58,6 +58,8 @@ export default {
                 let events = this.findEvents(values);
                 const interfaces = this.findOtherInterfaces(values, docName);
 
+                const options = this.findOptions(values, docName); // Only for MenuItem
+
                 if (props && props.props.length) {
                     newDoc.children.push({
                         id: `api.${moduleName}.props`,
@@ -109,7 +111,7 @@ export default {
                 }
 
                 if (interfaces && interfaces.length > 0) {
-                    const isValidDirective = this.checkDirectiveInterfaces(interfaces, docName);
+                    const isValidDirective = this.checkDirectiveInterfaces(interfaces);
 
                     if (!isValidDirective) return;
 
@@ -129,6 +131,15 @@ export default {
                         component: DocApiTable,
                         data: this.setTypesData(moduleName, types.values),
                         description: APIDocs[moduleName].interfaces.typeDescription || null
+                    });
+                }
+
+                if (options) {
+                    newDoc.children.push({
+                        id: `api.${moduleName}.options`,
+                        label: 'Options',
+                        component: DocApiTable,
+                        data: this.setPropsData(options[0].values.props)
                     });
                 }
 
@@ -270,7 +281,20 @@ export default {
 
             return interfaces;
         },
-        checkDirectiveInterfaces(interfaces, docName) {
+        findOptions(values, docName) {
+            if (docName !== 'MenuItem') return;
+
+            const options = [];
+
+            for (const key of Object.keys(values)) {
+                if (key === 'MenuItem') {
+                    options.push({ key, values: values[key] });
+                }
+            }
+
+            return options;
+        },
+        checkDirectiveInterfaces(interfaces) {
             const findMainInterface = interfaces.find((interfaceData) => interfaceData.key.includes('DirectiveBinding'));
 
             return !findMainInterface || findMainInterface.values.props.length > 0;

@@ -28,7 +28,6 @@ export interface MenuItemCommandEvent {
 
 /**
  * Defines model of MenuItem API.
- * @group Model
  */
 export interface MenuItem {
     /**
