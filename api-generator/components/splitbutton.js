@@ -58,6 +58,42 @@ const SplitButtonProps = [
         type: 'string',
         default: 'null',
         description: 'Name of the menu button icon.'
+    },
+    {
+        name: 'severity',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the style of the button, valid values are "secondary", "success", "info", "warning", "help", "danger".'
+    },
+    {
+        name: 'raised',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a shadow to indicate elevation.'
+    },
+    {
+        name: 'rounded',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a circular border radius to the button.'
+    },
+    {
+        name: 'text',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a textual class to the button without a background initially.'
+    },
+    {
+        name: 'outlined',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a border class without a background initially.'
+    },
+    {
+        name: 'size',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the size of the button, valid values are "small" and "large".'
     }
 ];
 

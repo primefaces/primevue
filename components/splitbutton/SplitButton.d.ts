@@ -68,6 +68,34 @@ export interface SplitButtonProps {
      * Name of the menu button icon.
      */
     menuButtonIcon?: string | undefined;
+    /**
+     * Defines the style of the button.
+     */
+    severity?: 'secondary' | 'success' | 'info' | 'warning' | 'help' | 'danger' | undefined;
+    /**
+     * Add a shadow to indicate elevation.
+     * @defaultValue false
+     */
+    raised?: boolean | undefined;
+    /**
+     * Add a circular border radius to the button.
+     * @defaultValue false
+     */
+    rounded?: boolean | undefined;
+    /**
+     * Add a textual class to the button without a background initially.
+     * @defaultValue false
+     */
+    text?: boolean | undefined;
+    /**
+     * Add a border class without a background initially.
+     * @defaultValue false
+     */
+    outlined?: boolean | undefined;
+    /**
+     * Defines the size of the button.
+     */
+    size?: 'small' | 'large' | undefined;
 }
 
 /**

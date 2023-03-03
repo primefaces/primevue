@@ -76,6 +76,30 @@ export default {
         menuButtonIcon: {
             type: String,
             default: 'pi pi-chevron-down'
+        },
+        severity: {
+            type: String,
+            default: null
+        },
+        raised: {
+            type: Boolean,
+            default: false
+        },
+        rounded: {
+            type: Boolean,
+            default: false
+        },
+        text: {
+            type: Boolean,
+            default: false
+        },
+        outlined: {
+            type: Boolean,
+            default: false
+        },
+        size: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -105,7 +129,19 @@ export default {
             return UniqueComponentId();
         },
         containerClass() {
-            return ['p-splitbutton p-component', this.class];
+            return [
+                'p-splitbutton p-component',
+                this.class,
+                {
+                    [`p-button-${this.severity}`]: this.severity,
+                    'p-button-raised': this.raised,
+                    'p-button-rounded': this.rounded,
+                    'p-button-text': this.text,
+                    'p-button-outlined': this.outlined,
+                    'p-button-sm': this.size === 'small',
+                    'p-button-lg': this.size === 'large'
+                }
+            ];
         }
     },
     components: {
