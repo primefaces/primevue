@@ -100,7 +100,6 @@ import TriStateCheckbox from '@/components/tristatecheckbox/TriStateCheckbox';
 import VirtualScroller from '@/components/virtualscroller/VirtualScroller';
 
 import CodeHighlight from '@/layouts/AppCodeHighlight';
-import AppDemoActions from '@/layouts/AppDemoActions';
 import AppInputStyleSwitch from '@/layouts/AppInputStyleSwitch';
 import DevelopmentSection from '@/layouts/DevelopmentSection';
 import DocApiSection from '@/layouts/doc/DocApiSection';
@@ -216,7 +215,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Galleria', Galleria);
     nuxtApp.vueApp.component('VirtualScroller', VirtualScroller);
 
-    nuxtApp.vueApp.component('AppDemoActions', AppDemoActions);
     nuxtApp.vueApp.component('AppInputStyleSwitch', AppInputStyleSwitch);
     nuxtApp.vueApp.component('DevelopmentSection', DevelopmentSection);
     nuxtApp.vueApp.component('DocSections', DocSections);
