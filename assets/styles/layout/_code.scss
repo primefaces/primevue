@@ -280,9 +280,11 @@ div.code-toolbar > .toolbar > .toolbar-item > span:focus {
 .layout-wrapper-dark {
     pre[class*="language-"] {
         code {
+            color: var(--text-color) !important;
+
             .token {
                 &.tag {
-                    color: var(--text-color) !important;
+                    color: rgb(141,219,140) !important;
                 }
                 &.keyword {
                     color: rgb(244,112,103) !important;
@@ -320,10 +322,6 @@ div.code-toolbar > .toolbar > .toolbar-item > span:focus {
     
                 &.function {
                     color: rgb(220,189,251) !important;
-                }
-    
-                &.class-name {
-                    color: rgb(141,219,140) !important;
                 }
     
                 &.operator {
