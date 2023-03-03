@@ -46,6 +46,48 @@ const ButtonProps = [
         type: 'string',
         default: 'pi pi-spinner pi-spin',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'link',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a link style to the button.'
+    },
+    {
+        name: 'severity',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the style of the button, valid values are "secondary", "success", "info", "warning", "danger".'
+    },
+    {
+        name: 'raised',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a shadow to indicate elevation.'
+    },
+    {
+        name: 'rounded',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a circular border radius to the button.'
+    },
+    {
+        name: 'text',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a textual class to the button without a background initially.'
+    },
+    {
+        name: 'outlined',
+        type: 'boolean',
+        default: 'false',
+        description: 'Add a border class without a background initially.'
+    },
+    {
+        name: 'size',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the size of the button, valid values are "small" and "large".'
     }
 ];
 

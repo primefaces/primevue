@@ -46,18 +46,56 @@ export default {
         loadingIcon: {
             type: String,
             default: 'pi pi-spinner pi-spin'
+        },
+        link: {
+            type: Boolean,
+            default: false
+        },
+        severity: {
+            type: String,
+            default: null
+        },
+        raised: {
+            type: Boolean,
+            default: false
+        },
+        rounded: {
+            type: Boolean,
+            default: false
+        },
+        text: {
+            type: Boolean,
+            default: false
+        },
+        outlined: {
+            type: Boolean,
+            default: false
+        },
+        size: {
+            type: String,
+            default: null
         }
     },
     computed: {
         buttonClass() {
-            return {
-                'p-button p-component': true,
-                'p-button-icon-only': this.icon && !this.label,
-                'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
-                'p-disabled': this.$attrs.disabled || this.loading,
-                'p-button-loading': this.loading,
-                'p-button-loading-label-only': this.loading && !this.icon && this.label
-            };
+            return [
+                'p-button p-component',
+                {
+                    'p-button-icon-only': this.icon && !this.label,
+                    'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
+                    'p-disabled': this.$attrs.disabled || this.loading,
+                    'p-button-loading': this.loading,
+                    'p-button-loading-label-only': this.loading && !this.icon && this.label,
+                    'p-button-link': this.link,
+                    [`p-button-${this.severity}`]: this.severity,
+                    'p-button-raised': this.raised,
+                    'p-button-rounded': this.rounded,
+                    'p-button-text': this.text,
+                    'p-button-outlined': this.outlined,
+                    'p-button-sm': this.size === 'small',
+                    'p-button-lg': this.size === 'large'
+                }
+            ];
         },
         iconStyleClass() {
             return [
