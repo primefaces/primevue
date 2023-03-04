@@ -51,7 +51,7 @@ if (project) {
             console.log('module', module);
         } */ // REMOVE
 
-        // if (name !== 'datatable') return; // REMOVE
+        /*  if (name !== 'autocomplete') return; */ // REMOVE
 
         const description = comment && comment.summary.map((s) => s.text || '').join(' ');
 
@@ -275,8 +275,7 @@ if (project) {
                         eventDescription: staticMessages['events'],
                         methodDescription: staticMessages['methods'],
                         typeDescription: staticMessages['types'],
-                        emitDescription: staticMessages['emits'],
-                        slotDescription: staticMessages['slots'],
+
                         values: {}
                     });
 
@@ -303,26 +302,38 @@ if (project) {
                     event_methods_group &&
                         event_methods_group.children.forEach((method) => {
                             const signature = method.getAllSignatures()[0];
+                            const isSlot = event.name.includes('Slots');
 
                             methods.push({
                                 name: signature.name,
                                 parameters: signature.parameters.map((param) => {
-                                    /*  let type = param.type.toString();
+                                    let type = param.type.toString();
 
-                                    if (param.type.declaration) {
+                                    if (param.type.declaration && isSlot) {
                                         type = '';
 
-                                        param.type.declaration.children.forEach((child) => {
-                                            type += ` \t ${child.name}: ${child.type.name}, // ${child.comment?.summary[0].text}\n `;
-                                        });
+                                        if (param.type.declaration.children) {
+                                            param.type.declaration.children.forEach((child) => {
+                                                if (child.signatures) {
+                                                    const childSinature = child.signatures[0];
+                                                    const parameters = childSinature.parameters.reduce((acc, { name, type }, index) => (index === 0 ? `${name}: ${type.name}` : `${acc}, ${name}: ${type.name}`), '');
+
+                                                    type += ` \t ${childSinature.name}(${parameters}): ${childSinature.type?.name}, // ${childSinature.comment?.summary[0]?.text}\n `;
+                                                } else {
+                                                    const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
+
+                                                    type += ` \t ${child.name}: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                                }
+                                            });
+                                        }
 
                                         type = `{\n ${type} }`;
-                                    } */
+                                    }
 
                                     return {
                                         name: param.name,
                                         optional: param.flags.isOptional,
-                                        type: param.type.toString(),
+                                        type: type,
                                         description: param.comment && param.comment.summary.map((s) => parseText(s.text || '')).join(' ')
                                     };
                                 }),

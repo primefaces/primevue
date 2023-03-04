@@ -152,12 +152,6 @@ export default {
             const data = [];
 
             for (const emit of emits) {
-                /*    const parameters = emit.parameters.reduce((acc, param) => {
-                    acc.push(`${param.name}: ${param.type}`);
-
-                    return acc;
-                }, []); */
-
                 data.push({
                     name: emit.name,
                     parameters: {
