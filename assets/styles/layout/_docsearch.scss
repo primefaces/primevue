@@ -83,16 +83,16 @@
     margin-bottom: .25rem;
 }
 
-.DocSearch-Hits mark {
-    color: var(--highlight-text-color);
-}
-
 .DocSearch-Hit-source {
     color: var(--primary-color);
 }
 
 .DocSearch-Logo .cls-1, .DocSearch-Logo .cls-2 {
     fill: var(--primary-color);
+}
+
+.DocSearch-Prefill {
+    color: var(--primary-color);
 }
 
 :root {
@@ -102,7 +102,6 @@
     --docsearch-searchbox-background: var(--surface-card);
     --docsearch-text-color: var(--text-color);
     --docsearch-modal-background: var(--surface-overlay);
-    --docsearch-highlight-color: var(--primary-color);
     --docsearch-key-gradient: var(--surface-ground);
     --docsearch-key-shadow: none;
     --docsearch-container-background: var(--maskbg);
@@ -110,6 +109,6 @@
     --docsearch-hit-shadow: none;
     --docsearch-spacing: 1rem;
     --docsearch-hit-color: var(--text-color);
-    --docsearch-highlight-color: var(--highlight-bg);
-    --docsearch-hit-active-color: var(--highlight-text-color);
+    --docsearch-highlight-color: var(--primary-color);
+    --docsearch-hit-active-color: var(--primary-color-text);
 }
