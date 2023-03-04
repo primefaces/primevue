@@ -171,7 +171,6 @@ export interface DataTableFilterEvent extends DataTableSortEvent {
 
 /**
  * Custom row click event.
- * @event
  */
 export interface DataTableRowClickEvent {
     /**
@@ -204,7 +203,7 @@ export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
 
 /**
  * Custom row select event.
- * @event
+ *
  */
 export interface DataTableRowSelectEvent {
     /**
@@ -234,7 +233,7 @@ export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
 
 /**
  * Custom row select all event.
- * @event
+ *
  */
 export interface DataTableRowSelectAllEvent {
     /**
@@ -249,7 +248,7 @@ export interface DataTableRowSelectAllEvent {
 
 /**
  * Custom row unselect all event.
- * @event
+ *
  */
 export interface DataTableRowUnselectAllEvent {
     /**
@@ -260,7 +259,7 @@ export interface DataTableRowUnselectAllEvent {
 
 /**
  * Custom row select all change event.
- * @event
+ *
  */
 export interface DataTableSelectAllChangeEvent {
     /**
@@ -275,7 +274,7 @@ export interface DataTableSelectAllChangeEvent {
 
 /**
  * Custom row resize end event.
- * @event
+ *
  */
 export interface DataTableColumnResizeEndEvent {
     /**
@@ -290,7 +289,7 @@ export interface DataTableColumnResizeEndEvent {
 
 /**
  * Custom row column reorder event.
- * @event
+ *
  */
 export interface DataTableColumnReorderEvent {
     /**
@@ -309,7 +308,7 @@ export interface DataTableColumnReorderEvent {
 
 /**
  * Custom row reorder event.
- * @event
+ *
  */
 export interface DataTableRowReorderEvent {
     /**
@@ -332,7 +331,7 @@ export interface DataTableRowReorderEvent {
 
 /**
  * Custom row expand event.
- * @event
+ *
  */
 export interface DataTableRowExpandEvent {
     /**
@@ -354,7 +353,7 @@ export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
 
 /**
  * Custom cell edit init event.
- * @event
+ *
  */
 export interface DataTableCellEditInitEvent {
     /**
@@ -378,14 +377,13 @@ export interface DataTableCellEditInitEvent {
 /**
  * Custom cell edit cancel event.
  * @see cell-edit-init
- * @todo
  * @extends DataTableCellEditInitEvent
  */
 export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent {}
 
 /**
  * Custom cell edit complete event.
- * @event
+ *
  */
 export interface DataTableCellEditCompleteEvent {
     /**
@@ -424,7 +422,7 @@ export interface DataTableCellEditCompleteEvent {
 
 /**
  * Custom row edit complete event.
- * @event
+ *
  */
 export interface DataTableRowEditInitEvent {
     /**
@@ -465,7 +463,7 @@ export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent {
 
 /**
  * Custom state event.
- * @event
+ *
  */
 export interface DataTableStateEvent {
     /**

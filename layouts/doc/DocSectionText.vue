@@ -1,5 +1,5 @@
 <template>
-    <component :is="$attrs.level === 2 ? 'h3' : 'h2'" class="doc-section-label">
+    <component :is="headerTag" class="doc-section-label">
         {{ $attrs.label }}
         <NuxtLink :id="$attrs.id" :to="`${checkRouteName}/#${$attrs.id}`" target="_self" @click="onClick"> # </NuxtLink>
     </component>
@@ -32,6 +32,15 @@ export default {
             }
 
             return path;
+        },
+        headerTag() {
+            if (this.$attrs.level === 3) {
+                return 'h4';
+            } else if (this.$attrs.level === 2) {
+                return 'h3';
+            }
+
+            return 'h2';
         }
     }
 };

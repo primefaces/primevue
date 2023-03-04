@@ -1,7 +1,7 @@
 <template>
     <section class="pt-3">
         <div :id="id">
-            <DocSectionText :id="id" :label="label">
+            <DocSectionText :id="id" :label="label" :level="componentLevel">
                 {{ description || null }}
                 <p v-if="relatedProp" class="inline-block">
                     See <i>{{ relatedProp }}</i>
@@ -30,8 +30,22 @@
                                         <i class="pi pi-link"></i>
                                     </NuxtLink>
                                 </span>
+                                <template v-else-if="k === 'type'">
+                                    <template v-for="(value, i) in getType(v)" :key="value">
+                                        {{ i !== 0 ? ' |' : '' }}
+                                        <NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link"> {{ value }} </NuxtLink>
+                                        <span v-else> {{ value }} </span>
+                                    </template>
+                                </template>
 
-                                <NuxtLink v-else-if="isLinkType(k, v)" :to="setLinkPath(v)" class="doc-option-link"> {{ v }} </NuxtLink>
+                                <template v-else-if="k === 'parameters'">
+                                    <span v-if="v.name"> {{ v.name }} : </span>
+                                    <template v-for="(value, i) in getType(v.type)" :key="value">
+                                        {{ i !== 0 ? ' |' : '' }}
+                                        <NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link"> {{ value }} </NuxtLink>
+                                        <span v-else> {{ value }} </span>
+                                    </template>
+                                </template>
 
                                 <span v-else :id="id + '.' + v">
                                     {{ v }}
@@ -45,7 +59,7 @@
 
         <template v-if="data[0].data && data[0].data.length > 0">
             <template v-for="childData in data" :key="childData">
-                <DocApiTable :id="childData.id" :data="childData.data" :label="childData.label" :description="childData.description" :relatedProp="childData.relatedProp" />
+                <DocApiTable :id="childData.id" :data="childData.data" :label="childData.label" :description="childData.description" :relatedProp="childData.relatedProp" :level="3" />
             </template>
         </template>
     </section>
@@ -68,20 +82,58 @@ export default {
         },
         relatedProp: {
             type: String
+        },
+        level: {
+            type: Number,
+            default: 1
+        },
+        header: {
+            type: String,
+            default: null
         }
     },
     methods: {
-        isLinkType(key, value) {
-            const primitiveTypes = ['string', 'number', 'boolean', 'object', 'array', 'function', 'symbol', 'null', 'undefined', 'any', 'Event'];
+        getType(value) {
+            const newValue = value?.split('|').map((item) => {
+                return item
+                    .replace(/"/g, '')
+                    .replace(/(\[|\]|<|>).*$/gm, '')
+                    .trim();
+            });
 
-            return key === 'type' && !primitiveTypes.includes(value);
+            return newValue;
+        },
+
+        getParameters(value) {
+            const newValue = value.split(':').map((item) => {
+                return item
+                    .replace(/"/g, '')
+                    .replace(/(\[|\]|<|>).*$/gm, '')
+                    .trim();
+            });
+
+            return this.getType(newValue[1]);
+        },
+        isLinkType(value) {
+            return value.includes(this.header);
         },
         setLinkPath(value) {
             const currentRoute = this.$router.currentRoute.value.name;
 
-            const definationType = value.includes('Type') ? 'types' : 'interfaces';
+            const definationType = value.includes('Type') ? 'types' : value.includes('Event') ? 'events' : 'interfaces';
 
             return `/${currentRoute}/#api.${currentRoute}.${definationType}.${value}`;
+        }
+    },
+    computed: {
+        componentLevel() {
+            if (this.label === 'Interfaces' || this.label === 'Events') {
+                return 2;
+            } else if (this.level === 3) {
+                return 3;
+            }
+
+            return this.data[0].data ? 1 : 2;
         }
     }
 };

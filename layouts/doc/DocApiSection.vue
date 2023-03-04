@@ -4,7 +4,7 @@
             <h1>{{ header }} API</h1>
             <p>API defines helper props, events and others for the PrimeVue {{ header }} module.</p>
         </div>
-        <DocSections :docs="docs" />
+        <DocSections :docs="docs" :header="header" />
     </div>
     <DocSectionNav :docs="docs" />
 </template>
@@ -152,15 +152,18 @@ export default {
             const data = [];
 
             for (const emit of emits) {
-                const parameters = emit.parameters.reduce((acc, param) => {
+                /*    const parameters = emit.parameters.reduce((acc, param) => {
                     acc.push(`${param.name}: ${param.type}`);
 
                     return acc;
-                }, []);
+                }, []); */
 
                 data.push({
                     name: emit.name,
-                    parameters: parameters.join(', '),
+                    parameters: {
+                        name: emit.parameters[0]?.name,
+                        type: emit.parameters[0]?.type
+                    },
                     returnType: emit.returnType,
                     description: emit.description
                 });
