@@ -72,8 +72,11 @@
         "rollup-plugin-vue": "^6.0.0-beta.9",
         "sass": "^1.45.0",
         "sass-loader": "^8.0.2",
-        "vitest": "^0.23.2",
         "typedoc": "0.23.23",
-        "typescript": "^4.9.4"
+        "typescript": "^4.9.4",
+        "vitest": "^0.23.2"
+    },
+    "dependencies": {
+        "@docsearch/js": "^3.3.3"
     }
 }

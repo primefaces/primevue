@@ -5,7 +5,9 @@
                 <i class="pi pi-bars"></i>
             </button>
 
-            <ul class="flex list-none m-0 p-0 ml-auto gap-2 align-items-center">
+            <div id="docsearch"></div>
+
+            <ul class="flex list-none m-0 p-0 gap-2 align-items-center">
                 <li>
                     <a
                         href="https://primefaces.github.io/primevue"
@@ -53,6 +55,7 @@
 
 <script>
 import pkg from '@/package.json';
+import docsearch from '@docsearch/js';
 
 export default {
     emits: ['menubutton-click', 'configbutton-click'],
@@ -77,6 +80,13 @@ export default {
     container: null,
     mounted() {
         this.bindScrollListener();
+
+        docsearch({
+            container: '#docsearch',
+            appId: '01CMUF4W4R',
+            indexName: 'primevue',
+            apiKey: '9bb5939e36897b26ff7de5b7b64d6c43'
+        });
     },
     beforeUnmount() {
         if (this.scrollListener) {
