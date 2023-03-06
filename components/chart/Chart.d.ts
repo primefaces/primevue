@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom select event.
- * @see select
+ * @see {@link ChartEmits.select}
  */
 export interface ChartSelectEvent {
     /**

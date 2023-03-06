@@ -53,7 +53,7 @@ export interface TreeTableFilterMeta {
 
 /**
  * Custom sort event.
- * @see sort
+ * @see {@link TreeTableEmits.sort}
  */
 export interface TreeTableSortEvent {
     /**
@@ -93,7 +93,7 @@ export interface TreeTableSortEvent {
 
 /**
  * Custom page event.
- * @see sort
+ * @see {@link TreeTableEmits.sort}
  * @extends TreeTableSortEvent
  */
 export interface TreeTablePageEvent extends TreeTableSortEvent {
@@ -109,7 +109,7 @@ export interface TreeTablePageEvent extends TreeTableSortEvent {
 
 /**
  * Custom filter event.
- * @see sort
+ * @see {@link TreeTableEmits.sort}
  * @extends TreeTableSortEvent
  */
 export interface TreeTableFilterEvent extends TreeTableSortEvent {

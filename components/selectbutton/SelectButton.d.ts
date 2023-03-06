@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom change event.
- * @see change
+ * @see {@link SelectButtonEmits.change}
  */
 export interface SelectButtonChangeEvent {
     /**

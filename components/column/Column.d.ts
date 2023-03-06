@@ -36,7 +36,6 @@ export interface ColumnFilterMatchModeOptions {
 
 /**
  * Custom column loading metadata.
- * @see {@link VirtualScrollerLoaderOptions}
  */
 export interface ColumnLoadingOptions extends VirtualScrollerLoaderOptions {
     /**

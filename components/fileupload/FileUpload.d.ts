@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom select event.
- * @see select
+ * @see {@link FileUploadEmits.select}
  */
 export interface FileUploadSelectEvent {
     /**
@@ -27,7 +27,7 @@ export interface FileUploadSelectEvent {
 
 /**
  * Custom before upload event.
- * @see before-upload
+ * @see {@link FileUploadEmits['before-upload']}
  */
 export interface FileUploadBeforeUploadEvent {
     /**
@@ -42,7 +42,7 @@ export interface FileUploadBeforeUploadEvent {
 
 /**
  * Custom progress event.
- * @see progress
+ * @see {@link FileUploadEmits.progress }
  */
 export interface FileUploadProgressEvent {
     /**
@@ -57,7 +57,7 @@ export interface FileUploadProgressEvent {
 
 /**
  * Custom upload event.
- * @see upload
+ * @see {@link FileUploadEmits.upload}
  */
 export interface FileUploadUploadEvent {
     /**
@@ -72,7 +72,7 @@ export interface FileUploadUploadEvent {
 
 /**
  * Custom uploader event.
- * @see uploader
+ * @see {@link FileUploadEmits.uploader}
  */
 export interface FileUploadUploaderEvent {
     /**
@@ -82,7 +82,7 @@ export interface FileUploadUploaderEvent {
 }
 /**
  * Custom error event.
- * @see error
+ * @see {@link FileUploadEmits.error}
  */
 export interface FileUploadErrorEvent {
     /**
@@ -96,7 +96,7 @@ export interface FileUploadErrorEvent {
 }
 /**
  * Custom before send event.
- * @see before-send
+ * @see {@link FileUploadEmits['before-send']}
  */
 export interface FileUploadBeforeSendEvent {
     /**
@@ -111,7 +111,7 @@ export interface FileUploadBeforeSendEvent {
 
 /**
  * Custom remove event.
- * @see remove
+ * @see {@link FileUploadEmits.remove}
  */
 export interface FileUploadRemoveEvent {
     /**
@@ -125,7 +125,7 @@ export interface FileUploadRemoveEvent {
 }
 /**
  * Custom remove upload file event.
- * @see removeUploadFile
+ * @see {@link FileUploadEmits['remove-uploaded-file']}
  */
 export interface FileUploadRemoveUploadedFile {
     /**

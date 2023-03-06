@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom reorder event
- * @see reorder
+ * @see {@link OrderListEmits.reorder}
  */
 export interface OrderListReorderEvent {
     /**
@@ -31,7 +31,7 @@ export interface OrderListReorderEvent {
 
 /**
  * Custom selection change event
- * @see selection-change
+ * @see {@link OrderListEmits['selection-change']}
  */
 export interface OrderListSelectionChangeEvent {
     /**

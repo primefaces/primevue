@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom change event
- * @see change
+ * @see {@link CascadeSelectEmits.change}
  */
 export interface CascadeSelectChangeEvent {
     /**
@@ -26,7 +26,7 @@ export interface CascadeSelectChangeEvent {
 }
 
 /**
- * @see change
+ * @see {@link CascadeSelectEmits.change}
  * @extends CascadeSelectChangeEvent
  */
 export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent {}

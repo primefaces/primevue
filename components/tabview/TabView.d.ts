@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom tab change event.
- * @see tab-change
+ * @see {@link TabViewEmits['tab-change']}
  */
 export interface TabViewChangeEvent {
     /**
@@ -27,9 +27,8 @@ export interface TabViewChangeEvent {
 
 /**
  * Custom tab change event.
- * @see tab-click
+ * @see {@link TabViewEmits['tab-click']}
  * @extends TabViewChangeEvent
-
  */
 export interface TabViewClickEvent extends TabViewChangeEvent {}
 

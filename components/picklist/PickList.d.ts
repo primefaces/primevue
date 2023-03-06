@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom reorder event.
- * @see reorder
+ * @see {@link PickListEmits.reorder}
  */
 export interface PickListReorderEvent {
     /**
@@ -35,7 +35,7 @@ export interface PickListReorderEvent {
 
 /**
  * Custom selection change event.
- * @see selection-change
+ * @see {@link PickListEmits['selection-change']}
  */
 export interface PickListSelectionChangeEvent {
     /**
@@ -50,7 +50,7 @@ export interface PickListSelectionChangeEvent {
 
 /**
  * Custom move-to-target event.
- * @see move-to-target
+ * @see {@link PickListEmits['move-to-target']}
  */
 export interface PickListMoveToTargetEvent {
     /**
@@ -65,21 +65,21 @@ export interface PickListMoveToTargetEvent {
 
 /**
  * Custom move-all-to-target event.
- * @see move-to-target
+ * @see {@link PickListEmits['move-all-to-target']}
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToTargetEvent extends PickListMoveToTargetEvent {}
 
 /**
  * Custom move-to-source event.
- * @see move-to-target
+ * @see {@link PickListEmits['move-all-to-target']}
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveToSourceEvent extends PickListMoveToTargetEvent {}
 
 /**
  * Custom move-all-to-source event.
- * @see move-to-target
+ * @see {@link PickListEmits['move-all-to-target']}
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent {}

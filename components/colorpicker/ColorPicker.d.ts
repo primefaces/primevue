@@ -11,7 +11,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom change event.
- * @see change
+ * @see {@link ColorPickerEmits.change}
  */
 export interface ColorPickerChangeEvent {
     /**

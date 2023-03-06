@@ -11,8 +11,8 @@ import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
- * Custom remove event.
- * @see remove
+ * Custom add event.
+ * @see {@link ChipsEmits.add}
  */
 export interface ChipsAddEvent {
     /**
@@ -27,7 +27,7 @@ export interface ChipsAddEvent {
 
 /**
  * Custom remove event.
- * @see remove
+ * @see {@link ChipsEmits.remove}
  * @extends ChipsAddEvent
  */
 export interface ChipsRemoveEvent extends ChipsAddEvent {}

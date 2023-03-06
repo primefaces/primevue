@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom toggle event.
- * @see toggle
+ * @see {@link FieldsetEmits.toggle}
  */
 export interface FieldsetToggleEvent {
     /**

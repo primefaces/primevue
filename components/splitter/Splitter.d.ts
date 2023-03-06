@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom resize start event.
- * @see resizestar
+ * @see {@link SplitterEmits.resizestar}
  */
 export interface SplitterResizeStartEvent {
     /**
@@ -27,7 +27,7 @@ export interface SplitterResizeStartEvent {
 
 /**
  * Custom resize end event.
- * @see resizeend
+ * @see {@link PickListEmits.resizeend}
  */
 export interface SplitterResizeEndEvent {
     /**

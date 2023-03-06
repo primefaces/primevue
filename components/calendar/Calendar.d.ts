@@ -26,7 +26,7 @@ export interface CalendarResponsiveOptions {
 
 /**
  * Custom Calendar month change event.
- * @see month-change
+ * @see {@link CalendarEmits['month-change']]}
  */
 export interface CalendarMonthChangeEvent {
     /**
@@ -41,7 +41,7 @@ export interface CalendarMonthChangeEvent {
 
 /**
  * Custom Calendar year change event.
- * @see year-change
+ * @see {@link CalendarEmits['year-change']]}
  */
 export interface CalendarYearChangeEvent {
     /**
@@ -56,7 +56,7 @@ export interface CalendarYearChangeEvent {
 
 /**
  * Custom Calendar blur event.
- * @see blur
+ * @see {@link CalendarEmits.blur}
  */
 export interface CalendarBlurEvent {
     /**

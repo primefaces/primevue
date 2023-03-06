@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom scroll index change event.
- * @see scroll-index-change
+ * @see {@link VirtualScrollerEmits['scroll-index-change']}
  */
 export interface VirtualScrollerScrollIndexChangeEvent {
     /**
@@ -27,14 +27,14 @@ export interface VirtualScrollerScrollIndexChangeEvent {
 
 /**
  * Custom lazy event.
- * @see scroll-index-change
+ * @see {@link VirtualScrollerEmits['scroll-index-change']}
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
 export interface VirtualScrollerLazyEvent extends VirtualScrollerScrollIndexChangeEvent {}
 
 /**
  * Custom virtualscroller viewport metadata.
- * @see scroll-index-change
+ * @see {@link VirtualScrollerEmits['scroll-index-change']}
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
 export interface VirtualScrollerViewport extends VirtualScrollerScrollIndexChangeEvent {}

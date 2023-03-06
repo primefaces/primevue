@@ -11,8 +11,8 @@ import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
- * Custom change event.
- * @see page
+ * Custom page event.
+ * @see {@link DataViewEmits.page}
  */
 export interface DataViewPageEvent {
     /**

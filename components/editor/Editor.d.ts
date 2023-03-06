@@ -12,7 +12,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom text change event.
- * @see text-change
+ * @see {@link EditorEmits['text-change']}
  */
 export interface EditorTextChangeEvent {
     /**
@@ -38,7 +38,7 @@ export interface EditorTextChangeEvent {
 }
 /**
  * Custom selection change event.
- * @see selection-change
+ * @see {@link EditorEmits['selection-change']}
  */
 export interface EditorSelectionChangeEvent {
     /**
@@ -68,7 +68,7 @@ export interface EditorSelectionChangeEvent {
 }
 /**
  * Custom load event.
- * @see load
+ * @see {@link EditorEmits.load}
  */
 export interface EditorLoadEvent {
     /**
