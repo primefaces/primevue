@@ -3,7 +3,7 @@
         <p>Cell editing is enabled by setting <i>editMode</i> as <i>cell</i>, defining input elements with <i>editor</i> templating of a Column and implementing <i>cell-edit-complete</i> to update the state.</p>
     </DocSectionText>
     <div class="card p-fluid">
-        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableStyle="min-width: 50rem">
+        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
                 <template #body="{ data, field }">
                     {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
@@ -19,7 +19,7 @@
             </Column>
         </DataTable>
     </div>
-    <DocSectionCode :code="code" :service="['ProductService']" />
+    <DocSectionCode :code="code" :service="['ProductService']" :dependencies="{ sass: '1.45.0', 'sass-loader': '8.0.2' }" />
 </template>
 
 <script>
@@ -37,7 +37,7 @@ export default {
             ],
             code: {
                 basic: `
-<DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableStyle="min-width: 50rem">
+<DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
         <template #body="{ data, field }">
             {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
@@ -55,7 +55,7 @@ export default {
                 options: `
 <template>
     <div class="card p-fluid">
-        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableStyle="min-width: 50rem">
+        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
                 <template #body="{ data, field }">
                     {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
@@ -128,11 +128,17 @@ export default {
     }
 };
 <\/script>
-`,
+
+<style lang="scss" scoped>
+::v-deep(.editable-cells-table td.p-cell-editing) {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</style>`,
                 composition: `
 <template>
     <div class="card p-fluid">
-        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableStyle="min-width: 50rem">
+        <DataTable :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
                 <template #body="{ data, field }">
                     {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
@@ -201,7 +207,13 @@ const formatCurrency = (value) => {
 }
 
 <\/script>
-`,
+
+<style lang="scss" scoped>
+::v-deep(.editable-cells-table td.p-cell-editing) {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</style>`,
                 data: `
 {
     id: '1000',
@@ -260,3 +272,10 @@ const formatCurrency = (value) => {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+::v-deep(.editable-cells-table td.p-cell-editing) {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</style>

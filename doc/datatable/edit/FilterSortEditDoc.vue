@@ -3,7 +3,7 @@
         <p>Cell Editing with Sorting and Filter</p>
     </DocSectionText>
     <div class="card p-fluid">
-        <DataTable v-model:filters="filters" :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
+        <DataTable v-model:filters="filters" :value="products" editMode="cell" @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableClass="editable-cells-table" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
                     <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
@@ -14,7 +14,7 @@
             </Column>
         </DataTable>
     </div>
-    <DocSectionCode :code="code" :service="['ProductService']" />
+    <DocSectionCode :code="code" :service="['ProductService']" :dependencies="{ sass: '1.45.0', 'sass-loader': '8.0.2' }" />
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
             },
             code: {
                 basic: `
-<DataTable v-model:filters="filters" :value="products" editMode="cell"
+<DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
         @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
         <template #filter="{ filterModel, filterCallback }">
@@ -48,7 +48,7 @@ export default {
                 options: `
 <template>
     <div class="card p-fluid">
-        <DataTable v-model:filters="filters" :value="products" editMode="cell"
+        <DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
                 @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
@@ -113,11 +113,18 @@ export default {
         }
     }
 };
-<\/script>`,
+<\/script>
+
+<style lang="scss" scoped>
+::v-deep(.editable-cells-table td.p-cell-editing) {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</style>`,
                 composition: `
 <template>
     <div class="card p-fluid">
-        <DataTable v-model:filters="filters" :value="products" editMode="cell"
+        <DataTable v-model:filters="filters" :value="products" editMode="cell" tableClass="editable-cells-table" 
                 @cell-edit-complete="onCellEditComplete" filterDisplay="row" tableStyle="min-width: 50rem">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
@@ -175,7 +182,14 @@ const onCellEditComplete = (event) => {
     }
 };
 
-<\/script>`
+<\/script>
+
+<style lang="scss" scoped>
+::v-deep(.editable-cells-table td.p-cell-editing) {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</style>`
             }
         };
     },
@@ -210,3 +224,10 @@ const onCellEditComplete = (event) => {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+::v-deep(.editable-cells-table td.p-cell-editing) {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+</style>
