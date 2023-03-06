@@ -6,7 +6,7 @@
         <MegaMenu :model="items" orientation="horizontal">
             <template #start>
                 <span class="flex align-items-center">
-                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="28" class="mr-2" />
+                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
                 </span>
             </template>
             <template #end>
@@ -141,7 +141,7 @@ export default {
                 basic: `
 <MegaMenu :model="items" orientation="horizontal">
     <template #start>
-        <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="28" class="mr-2" />
+        <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
     </template>
     <template #end>
         <InputText placeholder="Search" type="text" />
@@ -153,7 +153,7 @@ export default {
         <MegaMenu :model="items" orientation="horizontal">
             <template #start>
                 <span class="flex align-items-center">
-                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="28" class="mr-2" />
+                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
                 </span>
             </template>
             <template #end>
@@ -291,7 +291,7 @@ export default {
 <MegaMenu :model="items" orientation="horizontal">
     <template #start>
         <span class="flex align-items-center">
-            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="28" class="mr-2" />
+            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
         </span>
     </template>
     <template #end>
