@@ -2,7 +2,7 @@
     <DocSectionText :id="id" :label="label" :level="componentLevel">
         {{ description || null }}
         <p v-if="relatedProp" class="inline-block">
-            See <NuxtLink :to="setRelatedPropPath(relatedProp)" class="doc-option-link"> {{ relatedProp }} </NuxtLink>
+            See <NuxtLink :to="setRelatedPropPath(relatedProp)" class="doc-option-link"> {{ relatedPropValue(relatedProp) }} </NuxtLink>
         </p>
     </DocSectionText>
 
@@ -22,8 +22,8 @@
                     <td v-for="[k, v] in Object.entries(prop)" :key="k" :class="{ 'doc-option-type': k === 'type', 'doc-option-default': k === 'defaultValue' }">
                         <template v-if="k !== 'readonly' && k !== 'optional' && k !== 'deprecated'">
                             <span v-if="k === 'name'" :id="id + '.' + v" class="doc-option-name">
-                                {{ v }}
-                                <NuxtLink :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" class="doc-option-link">
+                                {{ v
+                                }}<NuxtLink :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" class="doc-option-link">
                                     <i class="pi pi-link"></i>
                                 </NuxtLink>
                             </span>
@@ -87,10 +87,7 @@ export default {
     methods: {
         getType(value) {
             const newValue = value?.split('|').map((item) => {
-                return item
-                    .replace(/"/g, '')
-                    .replace(/(\[|\]|<|>).*$/gm, '')
-                    .trim();
+                return item.replace(/(\[|\]|<|>).*$/gm, '').trim();
             });
 
             return newValue;
@@ -119,7 +116,19 @@ export default {
 
             return `/${currentRoute}/#api.${componentName}.${definationType}.${value}`;
         },
+        relatedPropValue(value) {
+            return this.findRelatedProps(value).secondPart;
+        },
         setRelatedPropPath(value) {
+            let { firstPart, secondPart } = this.findRelatedProps(value);
+
+            const docName = this.$route.name;
+
+            firstPart = firstPart.toLowerCase().replace(docName, '');
+
+            return this.setLinkPath(secondPart, firstPart);
+        },
+        findRelatedProps(value) {
             let firstPart = '';
             let secondPart = '';
 
@@ -136,11 +145,7 @@ export default {
                 secondPart = value.slice(start, end).trim();
             }
 
-            const docName = this.$route.name;
-
-            firstPart = firstPart.toLowerCase().replace(docName, '');
-
-            return this.setLinkPath(secondPart, firstPart);
+            return { firstPart, secondPart };
         }
     },
     computed: {
