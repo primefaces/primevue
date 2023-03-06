@@ -21,7 +21,7 @@ const FieldsetProps = [
         name: 'toggleButtonProps',
         type: 'string',
         default: 'null',
-        description: 'Uses to pass the custom value to read for the anchor inside the component.'
+        description: 'Uses to pass the custom value to read for the AnchorHTMLAttributes inside the component.'
     }
 ];
 

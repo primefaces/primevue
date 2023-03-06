@@ -7,7 +7,7 @@
  * @module fieldset
  *
  */
-import { VNode } from 'vue';
+import { AnchorHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
@@ -44,10 +44,9 @@ export interface FieldsetProps {
      */
     collapsed?: boolean | undefined;
     /**
-     * Uses to pass the custom value to read for the anchor inside the component.
-     * @todo
+     * Uses to pass the custom value to read for the AnchorHTMLAttributes inside the component.
      */
-    toggleButtonProps?: object | undefined;
+    toggleButtonProps?: AnchorHTMLAttributes | undefined;
 }
 
 /**
