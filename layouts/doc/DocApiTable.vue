@@ -112,7 +112,6 @@ export default {
             return value.toLowerCase().includes(this.$route.hash.replace('#api.', '').split('.')[0].toLowerCase());
         },
         setLinkPath(value, type) {
-            console.log('test');
             const currentRoute = this.$router.currentRoute.value.name;
             const componentName = this.$route.hash.replace('#api.', '').split('.')[0];
 
