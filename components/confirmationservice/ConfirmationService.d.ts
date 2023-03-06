@@ -1,19 +1,32 @@
+/**
+ *
+ * [Live Demo](https://www.primevue.org/confirmdialog/)
+ *
+ * @module confirmationservice
+ *
+ */
 import { Plugin } from 'vue';
 import { ConfirmationOptions } from '../confirmationoptions';
 
 declare const plugin: Plugin;
 export default plugin;
 
+/**
+ * Confirmation Service methods.
+ *
+ * @group Interfaces
+ *
+ */
 export interface ConfirmationServiceMethods {
     /**
      * Displays the dialog using the confirmation object options.
      * @param {ConfirmationOptions} options - Confirmation Object
      */
-    require(options: ConfirmationOptions): void;
+    require: (options: ConfirmationOptions) => void;
     /**
      * Hides the dialog without invoking accept or reject callbacks.
      */
-    close(): void;
+    close: () => void;
 }
 
 declare module 'vue/types/vue' {

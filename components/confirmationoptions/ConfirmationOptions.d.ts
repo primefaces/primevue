@@ -1,5 +1,16 @@
-type ConfirmationPositionType = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
+/**
+ *
+ * [Live Demo](https://www.primevue.org/confirmdialog/)
+ *
+ * @module confirmationoptions
+ *
+ */
 
+/**
+ * Confirmation Service options.
+ *
+ * @group Interfaces
+ */
 export interface ConfirmationOptions {
     /**
      * Element to align the overlay.
@@ -18,11 +29,10 @@ export interface ConfirmationOptions {
      */
     group?: string | undefined;
     /**
-     * Position of the dialog, options are 'center', 'top', 'bottom', 'left', 'right', 'topleft', 'topright', 'bottomleft' or 'bottomright'.
-     * @see ConfirmationPositionType
-     * Default value is 'center'.
+     * Position of the dialog.
+     * @defaultValue 'center'
      */
-    position?: ConfirmationPositionType;
+    position?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
     /**
      * Icon to display next to the message.
      */
@@ -34,15 +44,15 @@ export interface ConfirmationOptions {
     /**
      * Callback to execute when action is confirmed.
      */
-    accept?: () => void;
+    accept?(): void;
     /**
      * Callback to execute when action is rejected.
      */
-    reject?: () => void;
+    reject?(): void;
     /**
      * Callback to execute when dialog is hidden.
      */
-    onHide?: () => void;
+    onHide?(): void;
     /**
      * Label of the accept button. Defaults to PrimeVue Locale configuration.
      */
