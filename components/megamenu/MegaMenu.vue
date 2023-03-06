@@ -621,6 +621,10 @@ export default {
 </script>
 
 <style>
+.p-megamenu {
+    display: flex;
+}
+
 .p-megamenu-root-list {
     margin: 0;
     padding: 0;
@@ -662,13 +666,26 @@ export default {
 }
 
 /* Horizontal */
+.p-megamenu-horizontal {
+    align-items: center;
+}
+
 .p-megamenu-horizontal .p-megamenu-root-list {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
 
+.p-megamenu-horizontal .p-megamenu-end {
+    margin-left: auto;
+    align-self: center;
+}
+
 /* Vertical */
+.p-megamenu-vertical {
+    flex-direction: column;
+}
+
 .p-megamenu-vertical .p-megamenu-root-list {
     flex-direction: column;
 }
