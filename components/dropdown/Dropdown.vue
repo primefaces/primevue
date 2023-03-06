@@ -501,7 +501,7 @@ export default {
 
             !matched && (this.focusedOptionIndex = -1);
 
-            this.$emit('update:modelValue', value);
+            this.updateModel(event, value);
         },
         onContainerClick(event) {
             if (this.disabled || this.loading) {
