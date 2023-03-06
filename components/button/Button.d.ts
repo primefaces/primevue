@@ -90,6 +90,11 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * Defines the size of the button.
      */
     size?: 'small' | 'large' | undefined;
+    /**
+     * Add a plain textual class to the button without a background initially.
+     * @defaultValue false
+     */
+    plain?: boolean | undefined;
 }
 
 /**

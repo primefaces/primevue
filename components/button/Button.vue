@@ -74,6 +74,10 @@ export default {
         size: {
             type: String,
             default: null
+        },
+        plain: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
@@ -93,7 +97,8 @@ export default {
                     'p-button-text': this.text,
                     'p-button-outlined': this.outlined,
                     'p-button-sm': this.size === 'small',
-                    'p-button-lg': this.size === 'large'
+                    'p-button-lg': this.size === 'large',
+                    'p-button-plain': this.plain
                 }
             ];
         },
