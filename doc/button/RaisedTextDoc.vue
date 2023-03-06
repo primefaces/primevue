@@ -10,6 +10,7 @@
         <Button label="Warning" severity="warning" text raised />
         <Button label="Help" severity="help" text raised />
         <Button label="Danger" severity="danger" text raised />
+        <Button label="Plain" plain text raised />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -26,7 +27,8 @@ export default {
 <Button label="Info" severity="info" text raised />
 <Button label="Warning" severity="warning" text raised />
 <Button label="Help" severity="help" text raised />
-<Button label="Danger" severity="danger" text raised />`,
+<Button label="Danger" severity="danger" text raised />
+<Button label="Plain" plain text raised />`,
                 options: `
 <template>
     <div class="card flex justify-content-center flex-wrap gap-3">
@@ -37,6 +39,7 @@ export default {
         <Button label="Warning" severity="warning" text raised />
         <Button label="Help" severity="help" text raised />
         <Button label="Danger" severity="danger" text raised />
+        <Button label="Plain" plain text raised />
     </div>
 </template>
 
@@ -52,6 +55,7 @@ export default {
         <Button label="Warning" severity="warning" text raised />
         <Button label="Help" severity="help" text raised />
         <Button label="Danger" severity="danger" text raised />
+        <Button label="Plain" plain text raised />
     </div>
 </template>
 
