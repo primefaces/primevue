@@ -4,7 +4,7 @@
             <h1>{{ header }} API</h1>
             <p>API defines helper props, events and others for the PrimeVue {{ header }} module.</p>
         </div>
-        <DocSections :docs="docs" :header="header" />
+        <DocSections :docs="docs" />
     </div>
     <DocSectionNav :docs="docs" />
 </template>
@@ -44,7 +44,8 @@ export default {
                     id: `api.${moduleName}`,
                     label: docName,
                     description: APIDocs[moduleName]?.description.replace(regex, '') || null,
-                    children: []
+                    children: [],
+                    docName: docName
                 };
 
                 const values = APIDocs[moduleName].interfaces.values;
@@ -279,12 +280,14 @@ export default {
             return interfaces;
         },
         findOptions(values, docName) {
-            if (docName !== 'MenuItem') return;
+            const validOptionsDocNames = ['MenuItem', 'ConfirmationOptions'];
+
+            if (!validOptionsDocNames.includes(docName)) return;
 
             const options = [];
 
             for (const key of Object.keys(values)) {
-                if (key === 'MenuItem') {
+                if (key === 'MenuItem' || key === 'ConfirmationOptions') {
                     options.push({ key, values: values[key] });
                 }
             }

@@ -3,7 +3,7 @@
         <li v-for="doc of docs" :key="doc.label" :class="['navbar-item', { 'active-navbar-item': activeId === doc.id }]">
             <div class="navbar-item-content">
                 <NuxtLink :to="`${checkRouteName}/#${doc.id}`">
-                    <button class="p-link" @click="onButtonClick(doc)">{{ doc.label }}</button>
+                    <button class="p-link">{{ doc.label }}</button>
                 </NuxtLink>
             </div>
 
@@ -37,16 +37,13 @@ export default {
             topbarHeight: 0
         };
     },
+    watch: {
+        '$route.hash'() {
+            this.scrollCurrentUrl();
+        }
+    },
     mounted() {
-        const hash = window.location.hash.substring(1);
-        const hasHash = ObjectUtils.isNotEmpty(hash);
-        const id = hasHash ? hash : (this.docs[0] || {}).id;
-
-        this.activeId = id;
-        hasHash &&
-            setTimeout(() => {
-                this.scrollToLabelById(id);
-            }, 1);
+        this.scrollCurrentUrl();
 
         window.addEventListener('scroll', this.onScroll, { passive: true });
     },
@@ -57,6 +54,7 @@ export default {
         onScroll() {
             if (!this.isScrollBlocked) {
                 const labels = document.querySelectorAll(':is(h1,h2,h3).doc-section-label');
+
                 const windowScrollTop = DomHandler.getWindowScrollTop();
 
                 labels.forEach((label) => {
@@ -103,6 +101,17 @@ export default {
         },
         getIdOfTheSection(section) {
             return section.querySelector('a').getAttribute('id');
+        },
+        scrollCurrentUrl() {
+            const hash = window.location.hash.substring(1);
+            const hasHash = ObjectUtils.isNotEmpty(hash);
+            const id = hasHash ? hash : (this.docs[0] || {}).id;
+
+            this.activeId = id;
+            hasHash &&
+                setTimeout(() => {
+                    this.scrollToLabelById(id);
+                }, 1);
         }
     },
     computed: {

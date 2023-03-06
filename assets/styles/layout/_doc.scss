@@ -256,6 +256,7 @@
             border-bottom: 1px solid var(--surface-border);
             white-space: pre-wrap;
             line-height: 1.5;
+            scroll-margin-top: 6.5rem;
 
             &.doc-option-type {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;

@@ -8,8 +8,6 @@
 
 /**
  * Confirmation Service options.
- *
- * @group Interfaces
  */
 export interface ConfirmationOptions {
     /**

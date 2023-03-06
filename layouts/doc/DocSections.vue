@@ -8,8 +8,7 @@
                     </DocSectionText>
                 </div>
                 <template v-for="comp of doc.children" :key="comp.label">
-                    {{ comp.relatedProp }}
-                    <component :is="{ ...comp.component }" :id="comp.id" :label="comp.label" :data="comp.data" :description="comp.description" :level="2" :header="$attrs.header" />
+                    <component :is="{ ...comp.component }" :id="comp.id" :label="comp.label" :data="comp.data" :description="comp.description" :level="2" />
                 </template>
             </template>
 

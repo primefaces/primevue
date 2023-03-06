@@ -47,12 +47,6 @@ if (project) {
     project.children.forEach((module) => {
         const { name, comment } = module;
 
-        /*  if (name === 'knob') {
-            console.log('module', module);
-        } */ // REMOVE
-
-        /*  if (name !== 'autocomplete') return; */ // REMOVE
-
         const description = comment && comment.summary.map((s) => s.text || '').join(' ');
 
         doc[name] = {
@@ -265,7 +259,19 @@ if (project) {
         module_interfaces_group &&
             module_interfaces_group.children.forEach((event) => {
                 const event_props_description = event.comment && event.comment.summary.map((s) => s.text || '').join(' ');
-                const component_prop = event.comment && event.comment.getTag('@see') ? event.comment.getTag('@see').content[0].text : ''; // TODO: Check
+                let component_prop = '';
+
+                if (event.comment && event.comment.getTag('@see')) {
+                    const tag = event.comment.getTag('@see');
+                    const content = tag.content[0];
+
+                    if (content.text.includes("['")) {
+                        component_prop = `${content.target.name}${content.text}`;
+                    } else {
+                        component_prop = `${content.text === content.target?.name ? content.target.parent.name : content.target?.name}.${content.text}`;
+                    }
+                }
+
                 const event_extendedBy = event.extendedBy && event.extendedBy.toString();
                 const event_extendedTypes = event.extendedTypes && event.extendedTypes.toString();
 
