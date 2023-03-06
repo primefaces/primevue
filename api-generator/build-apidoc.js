@@ -324,11 +324,11 @@ if (project) {
                                                     const childSinature = child.signatures[0];
                                                     const parameters = childSinature.parameters.reduce((acc, { name, type }, index) => (index === 0 ? `${name}: ${type.name}` : `${acc}, ${name}: ${type.name}`), '');
 
-                                                    type += ` \t ${childSinature.name}(${parameters}): ${childSinature.type?.name}, // ${childSinature.comment?.summary[0]?.text}\n `;
+                                                    type += ` \t <b>${childSinature.name}(${parameters})</b>: ${childSinature.type?.name}, // ${childSinature.comment?.summary[0]?.text}\n `;
                                                 } else {
                                                     const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
 
-                                                    type += ` \t ${child.name}: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                                    type += ` \t <b>${child.name}</b>: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
                                                 }
                                             });
                                         }
