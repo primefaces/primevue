@@ -1,7 +1,17 @@
+/**
+ *
+ * [Live Demo](https://www.primevue.org/dynamicdialog/)
+ *
+ * @module dynamicdialogoptions
+ *
+ */
 import { DialogProps } from '../dialog';
 
-export type DynamicDialogCloseType = 'config-close' | 'dialog-close' | undefined;
-
+/**
+ * Custom dialog templates.
+ *
+ * @group Interfaces
+ */
 export interface DynamicDialogTemplates {
     /**
      * Custom header template.
@@ -13,6 +23,11 @@ export interface DynamicDialogTemplates {
     footer?: any;
 }
 
+/**
+ * Dynamic Dialog close method options.
+ *
+ * @group Interfaces
+ */
 export interface DynamicDialogCloseOptions {
     /**
      * Custom data object
@@ -20,20 +35,22 @@ export interface DynamicDialogCloseOptions {
     data?: any;
     /**
      * Close type
-     * @see DynamicDialogCloseType
      */
-    type: DynamicDialogCloseType;
+    type: 'config-close' | 'dialog-close' | undefined;
 }
 
+/**
+ * Custom Dynamic Dialog options.
+ *
+ * @group Interfaces
+ */
 export interface DynamicDialogOptions {
     /**
      * Dialog Props
-     * @see DialogProps
      */
     props?: DialogProps;
     /**
      * Dialog Slots
-     * @see DynamicDialogTemplates
      */
     templates?: DynamicDialogTemplates;
     /**
@@ -42,7 +59,6 @@ export interface DynamicDialogOptions {
     data?: any;
     /**
      * Closes the dialog.
-     * @see DynamicDialogCloseOptions
      */
     onClose?(options?: DynamicDialogCloseOptions): void;
     /**
@@ -51,6 +67,11 @@ export interface DynamicDialogOptions {
     [key: string]: any;
 }
 
+/**
+ * Custom Dynamic Dialog options.
+ *
+ * @group Interfaces
+ */
 export interface DynamicDialogInstance {
     /**
      * Dynamic component for content template
@@ -58,7 +79,6 @@ export interface DynamicDialogInstance {
     content: any;
     /**
      * Instance options
-     * @see DynamicDialogOptions
      */
     options: DynamicDialogOptions;
     /**

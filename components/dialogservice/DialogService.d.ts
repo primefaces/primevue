@@ -1,9 +1,22 @@
+/**
+ *
+ * [Live Demo](https://www.primevue.org/dynamicdialog/)
+ *
+ * @module dialogservice
+ *
+ */
 import { Plugin } from 'vue';
-import { DynamicDialogOptions, DynamicDialogInstance } from '../dynamicdialogoptions';
+import { DynamicDialogInstance, DynamicDialogOptions } from '../dynamicdialogoptions';
 
 declare const plugin: Plugin;
 export default plugin;
 
+/**
+ * Dynamic Dialog components methods.
+ *
+ * @group Interfaces
+ *
+ */
 export interface DialogServiceMethods {
     /**
      * Displays the dialog using the dynamic dialog object options.
