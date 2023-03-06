@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Terminal Component" header="Terminal" description="Terminal is a text based user interface." :componentDocs="docs" :apiDocs="['Terminal']" />
+    <DocComponent title="Vue Terminal Component" header="Terminal" description="Terminal is a text based user interface." :componentDocs="docs" :apiDocs="['Terminal', 'TerminalService']" />
 </template>
 
 <script>
