@@ -37,9 +37,10 @@ export default {
 export default {
     methods: {
         showMultiple() {
-            this.$toast.add({ severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 });
-            this.$toast.add({ severity: 'info', summary: 'Message 2', detail: 'Message 2 Content', life: 3000 });
-            this.$toast.add({ severity: 'info', summary: 'Message 3', detail: 'Message 3 Content', life: 3000 });
+            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
+            this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
+            this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
         },
         clear() {
             this.$toast.removeAllGroups();
@@ -63,9 +64,10 @@ import { useToast } from "primevue/usetoast";
 const toast = useToast();
 
 const showMultiple = () => {
-    toast.add({ severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 });
-    toast.add({ severity: 'info', summary: 'Message 2', detail: 'Message 2 Content', life: 3000 });
-    toast.add({ severity: 'info', summary: 'Message 3', detail: 'Message 3 Content', life: 3000 });
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
+    toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
+    toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
+    toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
 };
 
 const clear = () => {
@@ -77,9 +79,10 @@ const clear = () => {
     },
     methods: {
         showMultiple() {
-            this.$toast.add({ severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 });
-            this.$toast.add({ severity: 'info', summary: 'Message 2', detail: 'Message 2 Content', life: 3000 });
-            this.$toast.add({ severity: 'info', summary: 'Message 3', detail: 'Message 3 Content', life: 3000 });
+            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
+            this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
+            this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
         },
         clear() {
             this.$toast.removeAllGroups();

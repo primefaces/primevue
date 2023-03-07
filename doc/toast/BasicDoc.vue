@@ -31,7 +31,7 @@ export default {
 export default {
     methods: {
         show() {
-            this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
+            this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3000 });
         }
     }
 };
@@ -49,7 +49,7 @@ import { useToast } from "primevue/usetoast";
 const toast = useToast();
 
 const show = () => {
-    toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
+    toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3000 });
 };
 <\/script>`
             }
@@ -57,7 +57,7 @@ const show = () => {
     },
     methods: {
         show() {
-            this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
+            this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3000 });
         }
     }
 };

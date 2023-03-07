@@ -43,16 +43,16 @@ export default {
 export default {
     methods: {
         showSuccess() {
-            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
         },
         showInfo() {
-            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
         },
         showWarn() {
-            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
         },
         showError() {
-            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
         }
     }
 };
@@ -75,19 +75,19 @@ import { useToast } from "primevue/usetoast";
 const toast = useToast();
 
 const showSuccess = () => {
-    toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content' });
+    toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
 };
 
 const showInfo = () => {
-    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content' });
+    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
 };
 
 const showWarn = () => {
-    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content' });
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
 };
 
 const showError = () => {
-    toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content' });
+    toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
 };
 <\/script>`
             }
@@ -95,16 +95,16 @@ const showError = () => {
     },
     methods: {
         showSuccess() {
-            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
         },
         showInfo() {
-            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
         },
         showWarn() {
-            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
         },
         showError() {
-            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content' });
+            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
         }
     }
 };

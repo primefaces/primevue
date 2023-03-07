@@ -26,11 +26,11 @@ export default {
 
 <script>
 export default {
-  methods: {
-      showSticky() {
-          this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content', life: 3000 });
-      }
-  }
+    methods: {
+        showSticky() {
+            this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
+        }
+    }
 };
 <\/script>`,
                 composition: `
@@ -46,7 +46,7 @@ import { useToast } from "primevue/usetoast";
 const toast = useToast();
 
 const showSticky = () => {
-    toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content', life: 3000 });
+    toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
 };
 <\/script>`
             }
@@ -54,7 +54,7 @@ const showSticky = () => {
     },
     methods: {
         showSticky() {
-            this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content', life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content' });
         }
     }
 };

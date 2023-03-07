@@ -8,8 +8,7 @@
                 <div class="flex flex-column align-items-center" style="flex: 1">
                     <div class="text-center">
                         <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                        <h4>{{ slotProps.message.summary }}</h4>
-                        <p>{{ slotProps.message.detail }}</p>
+                        <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
                     </div>
                     <div class="flex gap-2">
                         <Button severity="success" label="Yes" @click="onConfirm()"></Button>
@@ -34,8 +33,7 @@ export default {
         <div class="flex flex-column align-items-center" style="flex: 1">
             <div class="text-center">
                 <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                <h4>{{ slotProps.message.summary }}</h4>
-                <p>{{ slotProps.message.detail }}</p>
+                <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
             </div>
             <div class="flex gap-2">
                 <Button severity="success" label="Yes" @click="onConfirm()"></Button>
@@ -53,8 +51,7 @@ export default {
                 <div class="flex flex-column align-items-center" style="flex: 1">
                     <div class="text-center">
                         <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                        <h4>{{ slotProps.message.summary }}</h4>
-                        <p>{{ slotProps.message.detail }}</p>
+                        <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
                     </div>
                     <div class="flex gap-2">
                         <Button severity="success" label="Yes" @click="onConfirm()"></Button>
@@ -84,8 +81,7 @@ export default {
                 <div class="flex flex-column align-items-center" style="flex: 1">
                     <div class="text-center">
                         <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                        <h4>{{ slotProps.message.summary }}</h4>
-                        <p>{{ slotProps.message.detail }}</p>
+                        <div class="font-bold text-xl my-3">{{ slotProps.message.summary }}</div>
                     </div>
                     <div class="flex gap-2">
                         <Button severity="success" label="Yes" @click="onConfirm()"></Button>
