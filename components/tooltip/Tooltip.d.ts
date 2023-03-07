@@ -31,7 +31,7 @@ export interface TooltipOptions {
      */
     class?: string | undefined;
     /**
-     * When present, it adds a custom id to the tooltip.
+     * By default the tooltip contents are not rendered as text. Set to true to support html tags in the content.
      * @defaultValue false
      */
     escape?: boolean | undefined;
