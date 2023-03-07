@@ -4,7 +4,7 @@
         header="Dynamic Dialog"
         description="Dynamic Dialog is a Dialog container to display content in an overlay window."
         :componentDocs="docs"
-        :apiDocs="['DynamicDialog', 'Dialog', 'DialogService', 'DynamicDialogOptions']"
+        :apiDocs="['DynamicDialog', 'Dialog', 'DialogService-UseDialog', 'DynamicDialogOptions']"
     />
 </template>
 

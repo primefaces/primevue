@@ -10554,7 +10554,7 @@
             }
         }
     },
-    "dialogservice": {
+    "dialogservice-usedialog": {
         "description": "[Live Demo](https://www.primevue.org/dynamicdialog/)",
         "model": {
             "DialogServiceMethods": {
@@ -22441,7 +22441,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "When present, it adds a custom id to the tooltip."
+                            "description": "By default the tooltip contents are not rendered as text. Set to true to support html tags in the content."
                         },
                         {
                             "name": "fitContent",
