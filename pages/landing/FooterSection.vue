@@ -67,7 +67,7 @@
 
         <hr class="section-divider mt-8" />
 
-        <div class="flex justify-content-between py-6">
+        <div class="flex flex-wrap justify-content-between py-6 gap-5">
             <span>
                 <img :src="'https://primefaces.org/cdn/primevue/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" />
             </span>
