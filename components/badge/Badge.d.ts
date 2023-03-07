@@ -17,15 +17,15 @@ export interface BadgeProps {
     /**
      * Value to display inside the badge.
      */
-    value?: any;
+    value?: string | number;
     /**
      * Severity type of the badge.
      */
-    severity?: 'info' | 'success' | 'warning' | 'danger' | undefined;
+    severity?: 'info' | 'success' | 'warning' | 'danger' | null | undefined;
     /**
      * Size of the badge, valid options are 'large' and 'xlarge'.
      */
-    size?: 'large' | 'xlarge' | undefined;
+    size?: 'large' | 'xlarge' | null | undefined;
 }
 
 /**

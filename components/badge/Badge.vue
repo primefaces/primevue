@@ -5,12 +5,23 @@
 </template>
 
 <script>
+import { ObjectUtils } from 'primevue/utils';
+
 export default {
     name: 'Badge',
     props: {
-        value: null,
-        severity: null,
-        size: null
+        value: {
+            type: [String, Number],
+            default: null
+        },
+        severity: {
+            type: String,
+            default: null
+        },
+        size: {
+            type: String,
+            default: null
+        }
     },
     computed: {
         containerClass() {
@@ -20,8 +31,8 @@ export default {
             return [
                 'p-badge p-component',
                 {
-                    'p-badge-no-gutter': this.value && String(this.value).length === 1,
-                    'p-badge-dot': !this.value && !this.$slots.default,
+                    'p-badge-no-gutter': ObjectUtils.isNotEmpty(this.value) && String(this.value).length === 1,
+                    'p-badge-dot': ObjectUtils.isEmpty(this.value) && !this.$slots.default,
                     'p-badge-lg': this.size === 'large',
                     'p-badge-xl': this.size === 'xlarge',
                     'p-badge-info': this.severity === 'info',

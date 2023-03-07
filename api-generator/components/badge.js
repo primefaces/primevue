@@ -1,7 +1,7 @@
 const BadgeProps = [
     {
         name: 'value',
-        type: 'any',
+        type: 'string | number',
         default: 'null',
         description: 'Value to display inside the badge.'
     },
