@@ -99,9 +99,11 @@ export default {
         },
         setLinkPath(value, type) {
             const currentRoute = this.$router.currentRoute.value.name;
-            const componentName = this.$route.hash.replace('#api.', '').split('.')[0];
+            const componentName = this.id.split('.')[1];
 
-            const definationType = type ? type : value.includes('Type') ? 'types' : value.includes('Event') ? 'events' : 'interfaces';
+            let definationType = type ? type : value.includes('Type') ? 'types' : value.includes('Event') ? 'events' : value.includes('MenuItem') ? 'options' : 'interfaces';
+
+            definationType = definationType === 'menuitem' ? 'options' : definationType; // This for the menuitem. @todo: need to update
 
             return `/${currentRoute}/#api.${componentName}.${definationType}.${value}`;
         },

@@ -15357,6 +15357,13 @@
                             "description": "Style class of the menuitem."
                         },
                         {
+                            "name": "command",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "disabled",
                             "optional": true,
                             "readonly": false,
@@ -15451,21 +15458,7 @@
                             "type": "any"
                         }
                     ],
-                    "methods": [
-                        {
-                            "name": "command",
-                            "parameters": [
-                                {
-                                    "name": "event",
-                                    "optional": false,
-                                    "type": "MenuItemCommandEvent",
-                                    "description": "Custom command event."
-                                }
-                            ],
-                            "returnType": "void",
-                            "description": "Callback to execute when item is clicked."
-                        }
-                    ]
+                    "methods": []
                 },
                 "MenuItemCommandEvent": {
                     "description": "Custom command event.",
