@@ -1,25 +1,20 @@
 <template>
-    <section
-        :class="['landing-hero flex align-items-center flex-column justify-content-center relative', { 'hero-animation': setAnimation }]">
+    <section :class="['landing-hero flex align-items-center flex-column justify-content-center relative', { 'hero-animation': setAnimation }]">
         <div class="hero-inner z-2 relative">
             <div class="flex flex-column md:align-items-center md:flex-row">
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center"
-                        @click="navigateTo('https://www.primefaces.org/store')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/store')">
                         <div class="flex flex-column align-items-center">
-                            <img src="https://primefaces.org/cdn/primevue/images/landing/templates-icon.svg"
-                                alt="primevue templates" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/templates-icon.svg" alt="primevue templates" />
                             <div class="name">
                                 <b>Templates</b>
                                 <span>Spectacular Designs</span>
                             </div>
                         </div>
                     </div>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center"
-                        @click="navigateTo('https://www.primefaces.org/designer-vue')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation ml-4 md:ml-0 md:mt-4 flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/designer-vue')">
                         <div class="flex flex-column align-items-center">
-                            <img src="https://primefaces.org/cdn/primevue/images/landing/designer-icon.svg"
-                                alt="primevue templates" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/designer-icon.svg" alt="primevue templates" />
                             <div class="name">
                                 <b>Theme Designer</b>
                                 <span>Create Your Own</span>
@@ -28,11 +23,9 @@
                     </div>
                 </div>
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center"
-                        @click="navigateTo('https://github.com/primefaces/primevue')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://github.com/primefaces/primevue')">
                         <div class="flex flex-column align-items-center">
-                            <img src="https://primefaces.org/cdn/primevue/images/landing/core-icon.svg"
-                                alt="primevue core" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/core-icon.svg" alt="primevue core" />
                             <div class="name">
                                 <b>Open Source</b>
                                 <span>90+ UI Components</span>
@@ -40,22 +33,18 @@
                         </div>
                     </div>
                     <router-link to="/installation">
-                        <div
-                            class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation logo hidden md:flex my-4 align-items-center justify-content-center">
+                        <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation logo hidden md:flex my-4 align-items-center justify-content-center">
                             <div class="hero-box-inner text-center">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/overview-icon.svg"
-                                    alt="primevue main" />
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/overview-icon.svg" alt="primevue main" />
                                 <div class="name">
                                     <b class="font-bold">NEXT-GEN VUE UI</b>
                                 </div>
                             </div>
                         </div>
                     </router-link>
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center"
-                        @click="navigateTo('https://www.primefaces.org/primeflex')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeflex')">
                         <div class="flex flex-column align-items-center">
-                            <img src="https://primefaces.org/cdn/primevue/images/landing/css-icon.svg"
-                                alt="primevue icons" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/css-icon.svg" alt="primevue icons" />
                             <div class="name">
                                 <b>CSS Utilities</b>
                                 <span>PrimeFlex CSS</span>
@@ -64,11 +53,9 @@
                     </div>
                 </div>
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center"
-                        @click="navigateTo('https://www.primefaces.org/primeblocks-vue')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeblocks-vue')">
                         <div class="flex flex-column align-items-center">
-                            <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg"
-                                alt="primevue templates" />
+                            <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <div class="name">
                                 <b>Prime Blocks</b>
                                 <span>400+ UI Blocks</span>
@@ -76,11 +63,9 @@
                         </div>
                     </div>
                     <router-link to="/icons">
-                        <div
-                            class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 md:mt-4 align-items-center justify-content-center">
+                        <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex ml-4 md:ml-0 md:mt-4 align-items-center justify-content-center">
                             <div class="flex flex-column align-items-center">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/icons-icon.svg"
-                                    alt="primevue templates" />
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/icons-icon.svg" alt="primevue templates" />
                                 <div class="name">
                                     <b>Icon Library</b>
                                     <span>200+ Icons</span>
@@ -96,15 +81,13 @@
         </div>
 
         <section class="landing-getstarted flex flex-column md:flex-row align-items-center justify-content-center mt-8 z-1">
-            <router-link to="/installation"
-                class="linkbox active font-semibold py-3 px-4 ml-0 md:ml-6 fadeinleft animation-duration-2000 animation-ease-out">
+            <router-link to="/installation" class="linkbox active font-semibold py-3 px-4 ml-0 md:ml-6 fadeinleft animation-duration-2000 animation-ease-out">
                 Get Started
                 <i class="pi pi-arrow-right ml-3"></i>
             </router-link>
-            <div class="box download-box w-14rem cursor-pointer font-medium p-3 px-4 mt-3 md:mt-0 md:ml-3 bg-transparent inline-flex align-items-center fadeinright animation-duration-2000 animation-ease-out"
-                @click="copyMe">
+            <div class="box download-box w-14rem cursor-pointer font-medium p-3 px-4 mt-3 md:mt-0 md:ml-3 bg-transparent inline-flex align-items-center fadeinright animation-duration-2000 animation-ease-out" @click="copyMe">
                 <i :class="npmIcon"></i>
-                <span class="font-bold" :style="{ fontFamily: 'monaco' }" >{{ npmText }}</span>
+                <span class="font-bold" :style="{ fontFamily: 'monaco' }">{{ npmText }}</span>
             </div>
         </section>
 
@@ -119,8 +102,8 @@
 export default {
     data() {
         return {
-            npmIcon:'download-icon pi pi-download mr-3',
-            npmText:'npm i primevue',
+            npmIcon: 'download-icon pi pi-download mr-3',
+            npmText: 'npm i primevue',
             setAnimation: false
         };
     },
@@ -129,12 +112,12 @@ export default {
     },
     methods: {
         copyMe() {
-            navigator.clipboard.writeText("npm i primevue");
-            this.npmText = 'copied!'
-            this.npmIcon = 'pi pi-copy download-icon mr-3'
+            navigator.clipboard.writeText('npm i primevue');
+            this.npmText = 'copied!';
+            this.npmIcon = 'pi pi-copy download-icon mr-3';
             setTimeout(() => {
-                this.npmIcon = 'download-icon pi pi-download mr-3'
-                this.npmText = "npm i primevue"
+                this.npmIcon = 'download-icon pi pi-download mr-3';
+                this.npmText = 'npm i primevue';
             }, 2000);
         },
         navigateTo(url) {

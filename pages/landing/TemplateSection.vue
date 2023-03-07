@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="flex my-4 md:flex-row flex-column gap-4 lg:gap-0">
-                <div class="template-block block-3 mr-2 lg:mb-0  flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('atlantis') }">
+                <div class="template-block block-3 mr-2 lg:mb-0 flex justify-content-center align-items-center" :style="{ backgroundImage: imageBg('atlantis') }">
                     <a class="templates-btn" target="_blank" href="https://www.primefaces.org/atlantis-vue/">Atlantis Preview</a>
                 </div>
                 <div class="template-block block-middle border-none box-shadow-none mr-2 hidden lg:flex justify-content-center align-items-center flex-column">

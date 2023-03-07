@@ -26,7 +26,7 @@
                                 <RadioButton id="size-small" v-model="size" value="small" name="sizevalue" />
                                 <label for="size-small" class="ml-2 font-medium">Small</label>
                             </div>
-                            <div class="flex align-items-center ">
+                            <div class="flex align-items-center">
                                 <RadioButton id="size-normal" v-model="size" value="normal" name="sizevalue" />
                                 <label for="size-normal" class="ml-2 font-medium">Normal</label>
                             </div>
