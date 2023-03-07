@@ -156,7 +156,6 @@ export default {
                 }
 
                 if (services) {
-                    console.log(services);
                     newDoc.children.push({
                         id: `api.${moduleName}.services`,
                         label: 'Services',

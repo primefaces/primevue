@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Dialog Component" header="Dialog" description="Dialog is a container to display content in an overlay window" :componentDocs="docs" :apiDocs="['Dialog', 'DialogService-UseDialog']" />
+    <DocComponent title="Vue Dialog Component" header="Dialog" description="Dialog is a container to display content in an overlay window" :componentDocs="docs" :apiDocs="['Dialog']" />
 </template>
 
 <script>

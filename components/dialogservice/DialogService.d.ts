@@ -1,9 +1,7 @@
 /**
  *
  * [Live Demo](https://www.primevue.org/dynamicdialog/)
- *
- * @module dialogservice-usedialog
- *
+ * @module dialogservice
  */
 import { Plugin } from 'vue';
 import { DynamicDialogInstance, DynamicDialogOptions } from '../dynamicdialogoptions';

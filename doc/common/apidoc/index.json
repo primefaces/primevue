@@ -10554,7 +10554,7 @@
             }
         }
     },
-    "dialogservice-usedialog": {
+    "dialogservice": {
         "description": "[Live Demo](https://www.primevue.org/dynamicdialog/)",
         "model": {
             "DialogServiceMethods": {
@@ -16917,7 +16917,14 @@
                 "OrganizationChartSlots": {
                     "description": "Defines valid slots in OrganizationChart component.",
                     "relatedProp": "",
-                    "props": [],
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function"
+                        }
+                    ],
                     "methods": [
                         {
                             "name": "default",
@@ -22832,7 +22839,14 @@
                 "TreeSlots": {
                     "description": "Defines valid slots in Tree component.",
                     "relatedProp": "",
-                    "props": [],
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function"
+                        }
+                    ],
                     "methods": []
                 }
             }
