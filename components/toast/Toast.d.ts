@@ -10,6 +10,9 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+/**
+ * Defines message options in Toast component.
+ */
 export interface ToastMessageOptions {
     /**
      * Severity level of the message.
@@ -48,6 +51,9 @@ export interface ToastMessageOptions {
     contentStyleClass?: any;
 }
 
+/**
+ * Defines breakpoints type in Toast component.
+ */
 export interface ToastBreakpointsType {
     /**
      * Breakpoint for responsive mode.
@@ -119,6 +125,9 @@ export interface ToastProps {
     closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
 
+/**
+ * Defines valid slot in Toast component.
+ */
 export interface ToastSlots {
     /**
      * Custom message template.
@@ -132,6 +141,9 @@ export interface ToastSlots {
     }): VNode[];
 }
 
+/**
+ * Defines valid emits in Toast component.
+ */
 export interface ToastEmits {}
 
 /**
