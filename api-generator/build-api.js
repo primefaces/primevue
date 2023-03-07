@@ -10,7 +10,7 @@ const pkg = require(path.resolve(rootDir, 'package.json'));
 const libraryName = 'PrimeVue';
 const libraryVersion = pkg.version;
 
-const showcaseURL = 'https://primefaces.org/primevue/showcase/#/';
+const showcaseURL = 'https://primevue.org/';
 
 const fileModules = {},
     veturTags = {},
