@@ -102,7 +102,7 @@ export interface OrganizationChartSlots {
      * Dynamic content template.
      * @todo
      */
-    // [key: string](node: any): VNode[];
+    [key: string]: (node: any) => VNode[];
 }
 
 /**

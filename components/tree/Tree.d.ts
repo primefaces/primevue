@@ -7,6 +7,7 @@
  * @module tree
  *
  */
+import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
@@ -167,12 +168,12 @@ export interface TreeSlots {
      * Optional slots.
      * @todo
      */
-    // [key: string](scope: {
-    /**
-     * Tree node instance
-     */
-    //     node: TreeNode;
-    // }):VNode[];
+    [key: string]: (scope: {
+        /**
+         * Tree node instance
+         */
+        node: TreeNode;
+    }) => VNode[];
 }
 
 /**
