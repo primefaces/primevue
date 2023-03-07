@@ -100,3 +100,17 @@
         padding-right: 2rem;
     }
 }
+
+.users-container {
+    max-width: 1250px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@media screen and (min-width: 1960px) {
+    .landing-footer{
+        width: 1650px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}

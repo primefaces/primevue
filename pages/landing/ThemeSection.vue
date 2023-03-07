@@ -9,7 +9,7 @@
             <a type="button" class="font-medium p-link linkbox mt-4" href="https://www.primefaces.org/designer-vue">more...</a>
         </div>
         <div
-            class="themes-main flex mt-7 justify-content-center pad-section"
+            class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"
             :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }"
         >
             <div class="box overflow-hidden z-1 p-5 table-container">

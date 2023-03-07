@@ -7,9 +7,13 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+    .landing-header-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     .landing-header-logo {
         height: 2.5rem;
@@ -96,5 +100,12 @@
                 }
             }
         }
+    }
+}
+@media screen and (min-width: 1960px) {
+    .landing-header-container{
+        width: 1650px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }

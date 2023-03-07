@@ -1,6 +1,7 @@
 <template>
-    <section :ref="containerRef" :class="['landing-header pad-section', { 'landing-header-active': menuActive }]">
-        <span>
+    <section :ref="containerRef" :class="['landing-header px-5 lg:px-8', { 'landing-header-active': menuActive }]">
+        <div class="landing-header-container">
+            <span>
             <img :src="'https://primefaces.org/cdn/primevue/images/primevue-logo-' + `${$appState.darkTheme ? 'light' : 'dark'}` + '.svg'" alt="primevue logo" class="landing-header-logo" />
         </span>
 
@@ -46,6 +47,8 @@
                 <i class="pi pi-bars"></i>
             </button>
         </div>
+        </div>
+      
     </section>
 </template>
 

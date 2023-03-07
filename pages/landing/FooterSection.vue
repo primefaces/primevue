@@ -1,5 +1,5 @@
 <template>
-    <section class="landing-footer pt-8 pad-section">
+    <section class="landing-footer pt-8 px-5 lg:px-8">
         <div class="flex flex-wrap z-1">
             <div class="w-6 lg:w-3 flex">
                 <ul class="list-none p-0 m-0">

@@ -193,6 +193,49 @@
         }
     }
 }
+@media screen and (max-width: $landingBreakpointXL) {
+    .landing-templates {
+        .templates {
+            .template-block {
+                width: 336px;
+                height: 171px;
+                border: none !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $landingBreakpointLG) {
+    .landing-templates {
+        .templates {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            .template-block {
+                width: 336px;
+                height: 171px;
+                border: none !important;
+                animation: none !important;
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+            }
+            .lines {
+                display: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: $landingBreakpointMD) {
+    .landing-templates {
+        .templates {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            .template-block {
+                width: 354px;
+                height: 180px;
+                
+            }
+        }
+    }
+}
+
 
 @keyframes animated-block-1 {
     to {

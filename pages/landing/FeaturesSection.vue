@@ -2,8 +2,9 @@
     <section class="landing-features py-8">
         <div class="section-header">Features</div>
         <p class="section-detail">PrimeVue is the most complete solution for your UI requirements.</p>
-        <div class="grid mt-7 pad-section" :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
-            <div class="col-12 md:col-6 xl:col-3 flex justify-content-center p-3">
+        <div class="mt-7 px-3 lg:px-8" :style="{ backgroundImage: `url('https://primefaces.org/cdn/primevue/images/landing/wave-${$appState.darkTheme ? 'dark-alt' : 'light-alt'}.svg')`, backgroundSize: 'cover' }">
+            <div class="features-container grid grid-nogutter">
+                <div class="col-12 md:col-6 xl:col-3 flex justify-content-center p-3">
                 <div class="box p-4 w-full">
                     <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-components.svg" alt="components icon" class="block mb-3" />
                     <div class="font-semibold mb-3 text-lg">90+ UI Components</div>
@@ -59,6 +60,8 @@
                     <p class="m-0 text-secondary font-medium">Top-notch support for Typescript with types and tooling assistance.</p>
                 </div>
             </div>
+            </div>
+           
         </div>
     </section>
 </template>
