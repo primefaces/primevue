@@ -144,7 +144,18 @@ export interface ToastSlots {
 /**
  * Defines valid emits in Toast component.
  */
-export interface ToastEmits {}
+export interface ToastEmits {
+    /**
+     * Callback to invoke when the toast is closed.
+     * @param {ToastMessageOptions} message - Toast message.
+     */
+    close(message: ToastMessageOptions): void;
+    /**
+     * Callback to invoke when the toast's timeout is over.
+     * @param {ToastMessageOptions} message - Toast message.
+     */
+    'life-end'(message: ToastMessageOptions): void;
+}
 
 /**
  * **PrimeVue - Toast**

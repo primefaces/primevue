@@ -31,6 +31,7 @@ var messageIdx = 0;
 export default {
     name: 'Toast',
     inheritAttrs: false,
+    emits: ['close', 'life-end'],
     props: {
         group: {
             type: String,
@@ -111,17 +112,18 @@ export default {
 
             this.messages = [...this.messages, message];
         },
-        remove(message) {
+        remove(params) {
             let index = -1;
 
             for (let i = 0; i < this.messages.length; i++) {
-                if (this.messages[i] === message) {
+                if (this.messages[i] === params.message) {
                     index = i;
                     break;
                 }
             }
 
             this.messages.splice(index, 1);
+            this.$emit(params.type, { message: params.message });
         },
         onAdd(message) {
             if (this.group == message.group) {

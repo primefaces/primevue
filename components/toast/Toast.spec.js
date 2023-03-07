@@ -44,8 +44,9 @@ describe('Toast.vue', () => {
     });
 
     it('should close toast', async () => {
-        await wrapper.vm.remove({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
+        await wrapper.vm.remove({ message: { severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 }, type: 'close' });
 
+        expect(wrapper.emitted()['close'][0][0].message).not.toBe({});
         expect(wrapper.find('.p-toast-message').exists()).toBe(false);
     });
 

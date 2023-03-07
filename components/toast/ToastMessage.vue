@@ -62,7 +62,7 @@ export default {
     mounted() {
         if (this.message.life) {
             this.closeTimeout = setTimeout(() => {
-                this.close();
+                this.close({ message: this.message, type: 'life-end' });
             }, this.message.life);
         }
     },
@@ -70,12 +70,12 @@ export default {
         this.clearCloseTimeout();
     },
     methods: {
-        close() {
-            this.$emit('close', this.message);
+        close(params) {
+            this.$emit('close', params);
         },
         onCloseClick() {
             this.clearCloseTimeout();
-            this.close();
+            this.close({ message: this.message, type: 'close' });
         },
         clearCloseTimeout() {
             if (this.closeTimeout) {

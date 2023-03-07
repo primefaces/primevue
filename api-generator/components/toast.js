@@ -31,6 +31,31 @@ const ToastProps = [
     }
 ];
 
+const ToastEvents = [
+    {
+        name: 'close',
+        description: 'Callback to invoke when the toast is closed.',
+        arguments: [
+            {
+                name: 'message',
+                type: 'any',
+                description: 'Message of toast.'
+            }
+        ]
+    },
+    {
+        name: 'life-end',
+        description: 'Callback to invoke when the toast timeout is over.',
+        arguments: [
+            {
+                name: 'message',
+                type: 'any',
+                description: 'Message of toast.'
+            }
+        ]
+    }
+];
+
 const ToastSlots = [
     {
         name: 'message',
@@ -43,6 +68,7 @@ module.exports = {
         name: 'Toast',
         description: 'Toast is used to display messages in an overlay.',
         props: ToastProps,
+        events: ToastEvents,
         slots: ToastSlots
     }
 };
