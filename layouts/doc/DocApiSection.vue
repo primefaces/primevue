@@ -48,18 +48,29 @@ export default {
                     docName: docName
                 };
 
-                const values = APIDocs[moduleName].interfaces.values;
+                const values = APIDocs[moduleName]?.interfaces?.values;
                 const componentValues = APIDocs[moduleName]?.components;
+                const modelValues = APIDocs[moduleName]?.model;
+                let props = null;
+                let emits = null;
+                let slots = null;
+                let events = null;
+                let options = null;
+                let interfaces = null;
 
-                const props = values[`${docName}Props`];
-                const emits = values[`${docName}Emits`];
-                const slots = values[`${docName}Slots`];
+                if (values) {
+                    props = values[`${docName}Props`];
+                    emits = values[`${docName}Emits`];
+                    slots = values[`${docName}Slots`];
+                    events = this.findEvents(values);
+                    options = this.findOptions(values, docName); //  MenuItem && ConfirmationOptions
+                    interfaces = this.findOtherInterfaces(values, docName);
+                }
+
                 const methods = componentValues ? componentValues['default'].methods : null;
                 const types = APIDocs[moduleName]['types'];
-                let events = this.findEvents(values);
-                const interfaces = this.findOtherInterfaces(values, docName);
 
-                const options = this.findOptions(values, docName); // Only for MenuItem
+                const services = modelValues; // (TerminalService && ConfirmationService && ToastService)
 
                 if (props && props.props.length) {
                     newDoc.children.push({
@@ -101,7 +112,7 @@ export default {
                     });
                 }
 
-                if (events && events.length) {
+                if (events && events.length > 0) {
                     newDoc.children.push({
                         id: `api.${moduleName}.events`,
                         label: 'Events',
@@ -141,6 +152,17 @@ export default {
                         label: 'Options',
                         component: DocApiTable,
                         data: this.setPropsData(options[0].values.props)
+                    });
+                }
+
+                if (services) {
+                    console.log(services);
+                    newDoc.children.push({
+                        id: `api.${moduleName}.services`,
+                        label: 'Services',
+                        component: DocApiTable,
+                        data: this.setServicesData(moduleName, services),
+                        description: Object.values(services)[0].description || null
                     });
                 }
 
@@ -253,6 +275,27 @@ export default {
                 });
 
                 data.push(typeData);
+            }
+
+            return data;
+        },
+        setServicesData(moduleName, services) {
+            const data = [];
+
+            for (const key of Object.keys(services)) {
+                const value = services[key];
+
+                value?.methods.values.forEach((method) => {
+                    data.push({
+                        name: method.name,
+                        parameters: {
+                            name: method.parameters[0]?.name,
+                            type: method.parameters[0]?.type
+                        },
+                        returnType: method.returnType,
+                        description: method.description
+                    });
+                });
             }
 
             return data;

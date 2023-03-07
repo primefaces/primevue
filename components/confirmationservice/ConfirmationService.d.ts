@@ -2,7 +2,7 @@
  *
  * [Live Demo](https://www.primevue.org/confirmdialog/)
  *
- * @module confirmationservice
+ * @module confirmationservice-useconfirm
  *
  */
 import { Plugin } from 'vue';
@@ -13,9 +13,7 @@ export default plugin;
 
 /**
  * Confirmation Service methods.
- *
- * @group Interfaces
- *
+ * @group Model
  */
 export interface ConfirmationServiceMethods {
     /**

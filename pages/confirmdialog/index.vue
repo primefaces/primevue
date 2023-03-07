@@ -4,7 +4,7 @@
         header="ConfirmDialog"
         description="ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API."
         :componentDocs="docs"
-        :apiDocs="['ConfirmDialog', 'ConfirmationService', 'ConfirmationOptions']"
+        :apiDocs="['ConfirmDialog', 'ConfirmationService-UseConfirm', 'ConfirmationOptions']"
     />
 </template>
 

@@ -2,8 +2,8 @@
  *
  * [Live Demo](https://www.primevue.org/toast/)
  *
- * @module toastservice
- *
+ * @module toastservice-usetoast
+ * @todo 'use' is not a valid name for a module. Next release will change.
  */
 import { Plugin } from 'vue';
 import { ToastMessageOptions } from '../toast';
@@ -14,7 +14,7 @@ export default plugin;
 /**
  * Toast Service methods.
  *
- * @group Interfaces
+ * @group Model
  *
  */
 export interface ToastServiceMethods {

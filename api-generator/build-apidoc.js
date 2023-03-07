@@ -167,6 +167,11 @@ if (project) {
                     description: '',
                     values: []
                 };
+
+                const methods = {
+                    description: '',
+                    values: []
+                };
                 const model_props_group = model.groups.find((g) => g.title === 'Properties');
 
                 model_props_group &&
@@ -181,9 +186,55 @@ if (project) {
                         });
                     });
 
+                const model_methods_group = model.groups.find((g) => g.title === 'Methods');
+
+                model_methods_group &&
+                    model_methods_group.children.forEach((method) => {
+                        const signature = method.getAllSignatures()[0];
+                        const isSlot = model.name.includes('Slots');
+
+                        methods.values.push({
+                            name: signature.name,
+                            parameters: signature.parameters.map((param) => {
+                                let type = param.type.toString();
+
+                                if (param.type.declaration && isSlot) {
+                                    type = '';
+
+                                    if (param.type.declaration.children) {
+                                        param.type.declaration.children.forEach((child) => {
+                                            if (child.signatures) {
+                                                const childSinature = child.signatures[0];
+                                                const parameters = childSinature.parameters.reduce((acc, { name, type }, index) => (index === 0 ? `${name}: ${type.name}` : `${acc}, ${name}: ${type.name}`), '');
+
+                                                type += ` \t ${childSinature.name}(${parameters}): ${childSinature.type?.name}, // ${childSinature.comment?.summary[0]?.text}\n `;
+                                            } else {
+                                                const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
+
+                                                type += ` \t ${child.name}: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                            }
+                                        });
+                                    }
+
+                                    type = `{\n ${type} }`;
+                                }
+
+                                return {
+                                    name: param.name,
+                                    optional: param.flags.isOptional,
+                                    type: type,
+                                    description: param.comment && param.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                                };
+                            }),
+                            returnType: signature.type.toString(),
+                            description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                        });
+                    });
+
                 doc[name]['model'][model.name] = {
                     description: event_props_description,
-                    props
+                    props,
+                    methods
                 };
             });
 

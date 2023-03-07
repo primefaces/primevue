@@ -41,8 +41,9 @@ export interface ConfirmationOptions {
     blockScroll?: boolean | undefined;
     /**
      * Callback to execute when action is confirmed.
+     * @todo Next release should be able to change
      */
-    accept?(): void;
+    accept?: () => void;
     /**
      * Callback to execute when action is rejected.
      */
@@ -50,7 +51,7 @@ export interface ConfirmationOptions {
     /**
      * Callback to execute when dialog is hidden.
      */
-    onHide?(): void;
+    onHide?: () => void;
     /**
      * Label of the accept button. Defaults to PrimeVue Locale configuration.
      */

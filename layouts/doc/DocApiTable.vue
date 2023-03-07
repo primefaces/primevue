@@ -95,7 +95,7 @@ export default {
         isLinkType(value) {
             if (this.label === 'Slots') return false;
 
-            return value.toLowerCase().includes(this.$route.hash.replace('#api.', '').split('.')[0].toLowerCase());
+            return value.toLowerCase().includes(this.id.split('.')[1]);
         },
         setLinkPath(value, type) {
             const currentRoute = this.$router.currentRoute.value.name;

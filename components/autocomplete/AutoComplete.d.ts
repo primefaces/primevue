@@ -278,6 +278,7 @@ export interface AutoCompleteProps {
 
 /**
  * Defines valid slots in AutoComplete component.
+ * @todo Next release we should complete types for all slots
  */
 export interface AutoCompleteSlots {
     /**

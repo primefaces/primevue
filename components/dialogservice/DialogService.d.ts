@@ -2,7 +2,7 @@
  *
  * [Live Demo](https://www.primevue.org/dynamicdialog/)
  *
- * @module dialogservice
+ * @module dialogservice-usedialog
  *
  */
 import { Plugin } from 'vue';
@@ -14,7 +14,7 @@ export default plugin;
 /**
  * Dynamic Dialog components methods.
  *
- * @group Interfaces
+ * @group Model
  *
  */
 export interface DialogServiceMethods {
@@ -24,7 +24,7 @@ export interface DialogServiceMethods {
      * @param {DynamicDialogOptions} options - DynamicDialog Object
      * @return {@link DynamicDialogInstance}
      */
-    open: (content: any, options?: DynamicDialogOptions) => DynamicDialogInstance;
+    open(content: any, options?: DynamicDialogOptions): DynamicDialogInstance;
 }
 
 declare module 'vue/types/vue' {

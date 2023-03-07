@@ -7,7 +7,7 @@
 /**
  * Confirmation Service methods.
  *
- * @group Interfaces
+ * @group Model
  *
  */
 export interface TerminalServiceOptions {
