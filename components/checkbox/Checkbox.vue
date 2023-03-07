@@ -95,7 +95,7 @@ export default {
     },
     methods: {
         onClick(event) {
-            if (!this.disabled) {
+            if (!this.disabled && !this.readonly) {
                 let newModelValue;
 
                 if (this.binary) {
