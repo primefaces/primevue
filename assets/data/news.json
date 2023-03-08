@@ -1,8 +1,8 @@
 {
-    "id": 30,
-    "content": "Introducing the all-new Apollo Vite Template",
-    "linkText": "View Demo",
-    "linkHref": "https://www.primefaces.org/apollo-vue",
+    "id": 35,
+    "content": "Up to 50% off now with Spring Sale!",
+    "linkText": "View Store",
+    "linkHref": "https://primefaces.org/store",
     "backgroundStyle": "background-color:#4f8ff7",
     "textStyle": "color:#ffffff;font-weight:500",
     "linkStyle": "color:#ffffff;font-weight:700;text-decoration: underline;"
