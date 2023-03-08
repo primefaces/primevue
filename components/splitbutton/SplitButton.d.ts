@@ -40,7 +40,7 @@ export interface SplitButtonProps {
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * Special keywords are 'body' for document body and 'self' for the element itself.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**

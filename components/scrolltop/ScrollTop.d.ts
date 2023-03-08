@@ -15,7 +15,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface ScrollTopProps {
     /**
      * Target of the ScrollTop.
-     * @defaultValue 'window'
+     * @defaultValue window
      */
     target?: 'window' | 'parent' | undefined;
     /**
@@ -25,12 +25,12 @@ export interface ScrollTopProps {
     threshold?: number | undefined;
     /**
      * Icon to display.
-     * @defaultValue 'pi pi-chevron-up'
+     * @defaultValue pi pi-chevron-up
      */
     icon?: string | undefined;
     /**
      * Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump.
-     * @defaultValue 'smooth'
+     * @defaultValue smooth
      */
     behavior?: string | undefined;
 }

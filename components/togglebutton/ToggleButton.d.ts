@@ -39,7 +39,7 @@ export interface ToggleButtonProps {
     offLabel?: string | undefined;
     /**
      * Position of the icon.
-     * @defaultValue 'left'
+     * @defaultValue left
      */
     iconPos?: 'left' | 'right' | undefined;
     /**

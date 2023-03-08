@@ -22,7 +22,7 @@ export interface ContextMenuProps {
     model?: MenuItem[] | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**

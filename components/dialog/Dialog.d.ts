@@ -103,7 +103,7 @@ export interface DialogProps {
     autoZIndex?: boolean | undefined;
     /**
      * Position of the dialog.
-     * @defaultValue 'center'
+     * @defaultValue center
      */
     position?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
     /**
@@ -137,7 +137,7 @@ export interface DialogProps {
     minY?: number | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the dialog gets attached.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
@@ -146,17 +146,17 @@ export interface DialogProps {
     style?: any;
     /**
      * Icon to display in the dialog close button.
-     * @defaultValue 'pi pi-times'
+     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dialog maximize button when dialog is not maximized.
-     * @defaultValue 'pi pi-window-maximize'
+     * @defaultValue pi pi-window-maximize
      */
     maximizeIcon?: string | undefined;
     /**
      * Icon to display in the dialog maximize button when dialog is maximized.
-     * @defaultValue 'pi pi-window-minimize'
+     * @defaultValue pi pi-window-minimize
      */
     minimizeIcon?: string | undefined;
 }

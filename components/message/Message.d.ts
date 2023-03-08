@@ -16,7 +16,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface MessageProps {
     /**
      * Severity level of the message.
-     * @defaultValue 'info'
+     * @defaultValue info
      */
     severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
     /**
@@ -40,7 +40,7 @@ export interface MessageProps {
     icon?: string | undefined;
     /**
      * Icon to display in the message close button.
-     * @defaultValue 'pi pi-times'
+     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**

@@ -109,27 +109,27 @@ export interface CalendarProps {
     showIcon?: boolean | undefined;
     /**
      * Icon of the calendar button.
-     * @defaultValue 'pi pi-calendar'
+     * @defaultValue pi pi-calendar
      */
     icon?: string | undefined;
     /**
      * Icon to show in the previous button.
-     * @defaultValue 'pi pi-chevron-left'
+     * @defaultValue pi pi-chevron-left
      */
     previousIcon?: string | undefined;
     /**
      * Icon to show in the next button.
-     * @defaultValue 'pi pi-chevron-right'
+     * @defaultValue pi pi-chevron-right
      */
     nextIcon?: string | undefined;
     /**
      * Icon to show in each of the increment buttons.
-     * @defaultValue 'pi pi-chevron-up'
+     * @defaultValue pi pi-chevron-up
      */
     incrementIcon?: string | undefined;
     /**
      * Icon to show in each of the decrement buttons.
-     * @defaultValue 'pi pi-chevron-down'
+     * @defaultValue pi pi-chevron-down
      */
     decrementIcon?: string | undefined;
     /**
@@ -143,7 +143,7 @@ export interface CalendarProps {
     responsiveOptions?: CalendarResponsiveOptions[];
     /**
      * Type of view to display.
-     * @defaultValue 'date'
+     * @defaultValue date
      */
     view?: 'date' | 'month' | 'year' | undefined;
     /**
@@ -214,7 +214,7 @@ export interface CalendarProps {
     showButtonBar?: boolean | undefined;
     /**
      * The cutoff year for determining the century for a date.
-     * @defaultValue '+10'
+     * @defaultValue +10
      */
     shortYearCutoff?: string | undefined;
     /**
@@ -264,7 +264,7 @@ export interface CalendarProps {
     hideOnRangeSelection?: boolean | undefined;
     /**
      * Separator of time selector.
-     * @defaultValue ':'
+     * @defaultValue :
      */
     timeSeparator?: string | undefined;
     /**
@@ -293,7 +293,7 @@ export interface CalendarProps {
     placeholder?: string | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**

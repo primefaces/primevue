@@ -59,17 +59,17 @@ export interface RatingProps {
     cancel?: boolean | undefined;
     /**
      * Icon for the on state.
-     * @defaultValue 'pi pi-star'
+     * @defaultValue pi pi-star
      */
     onIcon?: string | undefined;
     /**
      * Icon for the off state.
-     * @defaultValue 'pi pi-star-fill'
+     * @defaultValue pi pi-star-fill
      */
     offIcon?: string | undefined;
     /**
      * Icon for the cancelable state.
-     * @defaultValue 'pi pi-ban'
+     * @defaultValue pi pi-ban
      */
     cancelIcon?: string | undefined;
 }

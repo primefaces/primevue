@@ -24,12 +24,12 @@ export interface PasswordProps extends InputHTMLAttributes {
     promptLabel?: string | undefined;
     /**
      * Regex for a medium level password.
-     * @defaultValue '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})'
+     * @defaultValue ^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})
      */
     mediumRegex?: string | undefined;
     /**
      * Regex for a strong level password.
-     * @defaultValue '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})'
+     * @defaultValue ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})
      */
     strongRegex?: string | undefined;
     /**
@@ -51,7 +51,7 @@ export interface PasswordProps extends InputHTMLAttributes {
     feedback?: boolean | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
@@ -61,12 +61,12 @@ export interface PasswordProps extends InputHTMLAttributes {
     toggleMask?: boolean | undefined;
     /**
      * Icon to hide displaying the password as plain text.
-     * @defaultValue 'pi pi-eye-slash'
+     * @defaultValue pi pi-eye-slash
      */
     hideIcon?: string | undefined;
     /**
      * Icon to show displaying the password as plain text.
-     * @defaultValue 'pi pi-eye'
+     * @defaultValue pi pi-eye
      */
     showIcon?: string | undefined;
     /**

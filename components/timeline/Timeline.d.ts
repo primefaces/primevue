@@ -19,12 +19,12 @@ export interface TimelineProps {
     value?: any[] | undefined;
     /**
      * Position of the timeline bar relative to the content.
-     * @defaultValue 'left'
+     * @defaultValue left
      */
     align?: 'left' | 'right' | 'alternate' | 'top' | 'bottom' | undefined;
     /**
      * Orientation of the timeline.
-     * @defaultValue 'horizontal'
+     * @defaultValue horizontal
      */
     layout?: 'vertical' | 'horizontal' | undefined;
     /**

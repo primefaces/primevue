@@ -21,7 +21,7 @@ export interface SidebarProps {
     visible?: boolean | undefined;
     /**
      * Specifies the position of the sidebar.
-     * @defaultValue 'left'
+     * @defaultValue left
      */
     position?: 'left' | 'right' | 'top' | 'bottom' | 'full' | undefined;
     /**
@@ -46,7 +46,7 @@ export interface SidebarProps {
     showCloseIcon?: boolean | undefined;
     /**
      * Icon to display in the sidebar close button.
-     * @defaultValue 'pi pi-times'
+     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**

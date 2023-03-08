@@ -15,7 +15,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface SkeletonProps {
     /**
      * Shape of the element.
-     * @defaultValue 'rectangle'
+     * @defaultValue rectangle
      */
     shape?: 'rectangle' | 'circle' | undefined;
     /**
@@ -24,12 +24,12 @@ export interface SkeletonProps {
     size?: string | undefined;
     /**
      * Width of the element.
-     * @defaultValue '100%'
+     * @defaultValue 100%
      */
     width?: string | undefined;
     /**
      * Height of the element.
-     * @defaultValue '1rem'
+     * @defaultValue 1rem
      */
     height?: string | undefined;
     /**
@@ -38,7 +38,7 @@ export interface SkeletonProps {
     borderRadius?: string | undefined;
     /**
      * Type of the animation.
-     * @defaultValue 'wave'
+     * @defaultValue wave
      */
     animation?: 'wave' | 'none' | undefined;
 }

@@ -44,7 +44,7 @@ export interface ColorPickerProps {
     inline?: boolean | undefined;
     /**
      * Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'.
-     * @defaultValue 'hex'
+     * @defaultValue hex
      */
     format?: 'hex' | 'rgb' | 'hsb' | undefined;
     /**
@@ -72,7 +72,7 @@ export interface ColorPickerProps {
     panelClass?: any;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
 }

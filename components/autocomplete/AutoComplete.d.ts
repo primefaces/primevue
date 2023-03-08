@@ -113,7 +113,7 @@ export interface AutoCompleteProps {
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Maximum height of the suggestions panel.
-     * @defaultValue '200px'
+     * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
     /**
@@ -123,7 +123,7 @@ export interface AutoCompleteProps {
     dropdown?: boolean | undefined;
     /**
      * Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value.
-     * @defaultValue 'blank'
+     * @defaultValue blank
      */
     dropdownMode?: 'blank' | 'current' | undefined;
     /**
@@ -163,7 +163,7 @@ export interface AutoCompleteProps {
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * Special keywords are 'body' for document body and 'self' for the element itself.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
@@ -215,12 +215,12 @@ export interface AutoCompleteProps {
     dropdownClass?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue 'pi pi-spinner pi-spin'
+     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * @defaultValue 'pi pi-times-circle'
+     * @defaultValue pi pi-times-circle
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -244,22 +244,22 @@ export interface AutoCompleteProps {
     searchLocale?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue '{0} results are available'
+     * @defaultValue {0} results are available
      */
     searchMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue '{0} items selected'
+     * @defaultValue {0} items selected
      */
     selectionMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue 'No selected item'
+     * @defaultValue No selected item
      */
     emptySelectionMessage?: string | undefined;
     /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue 'No results found'
+     * @defaultValue No results found
      */
     emptySearchMessage?: string | undefined;
     /**

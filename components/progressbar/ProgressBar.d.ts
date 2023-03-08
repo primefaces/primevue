@@ -20,7 +20,7 @@ export interface ProgressBarProps {
     value?: number | undefined;
     /**
      * Defines the mode of the progress
-     * @defaultValue 'determinate'
+     * @defaultValue determinate
      */
     mode?: 'determinate' | 'indeterminate' | undefined;
     /**

@@ -22,7 +22,7 @@ export interface SpeedDialTooltipOptions {
     event: 'hover' | 'focus' | undefined;
     /**
      * Position of element.
-     * @defaultValue 'bottom'.
+     * @defaultValue bottom
      */
     position: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**
@@ -46,7 +46,7 @@ export interface SpeedDialProps {
     visible?: boolean | undefined;
     /**
      * Specifies the opening direction of actions.
-     * @defaultValue 'up'
+     * @defaultValue up
      */
     direction?: 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | undefined;
     /**
@@ -56,7 +56,7 @@ export interface SpeedDialProps {
     transitionDelay?: number | undefined;
     /**
      * Specifies the opening type of actions.
-     * @defaultValue 'linear'
+     * @defaultValue linear
      */
     type?: 'linear' | 'circle' | 'semi-circle' | 'quarter-circle' | undefined;
     /**
@@ -93,7 +93,7 @@ export interface SpeedDialProps {
     maskClass?: string | undefined;
     /**
      * Show icon of the button element.
-     * @defaultValue 'pi pi-plus'
+     * @defaultValue pi pi-plus
      */
     showIcon?: string | undefined;
     /**

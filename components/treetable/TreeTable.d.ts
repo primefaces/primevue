@@ -221,7 +221,7 @@ export interface TreeTableProps {
      * - JumpToPageInput
      * - CurrentPageReport
      *
-     * @defaultValue 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
+     * @defaultValue FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown
      */
     paginatorTemplate?: string | undefined;
     /**
@@ -243,7 +243,7 @@ export interface TreeTableProps {
      * - {last}
      * - {totalRecords}
      *
-     * @defaultValue '({currentPage} of {totalPages})'
+     * @defaultValue ({currentPage} of {totalPages})
      */
     currentPageReportTemplate?: string | undefined;
     /**
@@ -258,7 +258,7 @@ export interface TreeTableProps {
     loading?: boolean | undefined;
     /**
      * The icon to show while indicating data load is in progress.
-     * @defaultValue 'pi pi-spinner'
+     * @defaultValue pi pi-spinner
      */
     loadingIcon?: string | undefined;
     /**
@@ -290,7 +290,7 @@ export interface TreeTableProps {
     multiSortMeta?: TreeTableSortMeta[] | undefined | null;
     /**
      * Defines whether sorting works on single column or on multiple columns.
-     * @defaultValue 'single'
+     * @defaultValue single
      */
     sortMode?: 'single' | 'multiple' | undefined;
     /**
@@ -305,7 +305,7 @@ export interface TreeTableProps {
     filters?: TreeTableFilterMeta;
     /**
      * Mode for filtering.
-     * @defaultValue 'lenient'
+     * @defaultValue lenient
      */
     filterMode?: 'lenient' | 'strict' | undefined;
     /**
@@ -318,7 +318,7 @@ export interface TreeTableProps {
     resizableColumns?: boolean | undefined;
     /**
      * Defines whether the overall table width should change on column resize.
-     * @defaultValue 'fit'
+     * @defaultValue fit
      */
     columnResizeMode?: 'fit' | 'expand' | undefined;
     /**
@@ -342,12 +342,12 @@ export interface TreeTableProps {
     scrollHeight?: 'flex' | string | undefined;
     /**
      * Orientation of the scrolling.
-     * @defaultValue 'vertical'
+     * @defaultValue vertical
      */
     scrollDirection?: 'vertical' | 'horizontal' | 'both' | undefined;
     /**
      * Defines the responsive mode, currently only option is scroll.
-     * @defaultValue 'stack'
+     * @defaultValue stack
      */
     responsiveLayout?: 'stack' | 'scroll' | undefined;
     /**

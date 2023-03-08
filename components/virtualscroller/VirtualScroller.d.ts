@@ -188,7 +188,7 @@ export interface VirtualScrollerProps {
     onLazyLoad?(event: VirtualScrollerLazyEvent): void;
     /**
      * Index of the element in tabbing order.
-     * @defaultValue 0.
+     * @defaultValue 0
      */
     tabindex?: number | string | undefined;
     /**

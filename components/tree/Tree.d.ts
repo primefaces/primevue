@@ -121,7 +121,7 @@ export interface TreeProps {
     loading?: boolean | undefined;
     /**
      * Icon to display when tree is loading.
-     * @defaultValue 'pi pi-spin'
+     * @defaultValue pi pi-spin
      */
     loadingIcon?: string | undefined;
     /**
@@ -130,12 +130,12 @@ export interface TreeProps {
     filter?: boolean | undefined;
     /**
      * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.
-     * @defaultValue 'label'
+     * @defaultValue label
      */
     filterBy?: string | undefined;
     /**
      * Mode for filtering.
-     * @defaultValue 'lenient'
+     * @defaultValue lenient
      */
     filterMode?: 'lenient' | 'strict' | undefined;
     /**

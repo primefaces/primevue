@@ -75,7 +75,7 @@ export interface ChipsProps {
     inputProps?: InputHTMLAttributes | undefined;
     /**
      * Icon to display in chip remove action.
-     * @defaultValue 'pi pi-times-circle'
+     * @defaultValue pi pi-times-circle
      */
     removeTokenIcon?: string | undefined;
     /**

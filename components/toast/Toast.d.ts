@@ -16,7 +16,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface ToastMessageOptions {
     /**
      * Severity level of the message.
-     * @defaultValue 'info'
+     * @defaultValue info
      */
     severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
     /**

@@ -28,7 +28,7 @@ export interface ConfirmationOptions {
     group?: string | undefined;
     /**
      * Position of the dialog.
-     * @defaultValue 'center'
+     * @defaultValue center
      */
     position?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
     /**

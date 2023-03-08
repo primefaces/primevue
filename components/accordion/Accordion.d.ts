@@ -61,12 +61,12 @@ export interface AccordionProps {
     lazy?: boolean | undefined;
     /**
      * Icon of a collapsed tab.
-     * @defaultValue 'pi pi-chevron-right'
+     * @defaultValue pi pi-chevron-right
      */
     expandIcon?: string | undefined;
     /**
      * Icon of an expanded tab.
-     * @defaultValue 'pi pi-chevron-down'
+     * @defaultValue pi pi-chevron-down
      */
     collapseIcon?: string | undefined;
     /**

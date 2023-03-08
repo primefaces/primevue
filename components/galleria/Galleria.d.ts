@@ -100,12 +100,12 @@ export interface GalleriaProps {
     showThumbnails?: boolean | undefined;
     /**
      * Position of thumbnails.
-     * @defaultValue 'bottom'
+     * @defaultValue bottom
      */
     thumbnailsPosition?: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**
      * Height of the viewport in vertical thumbnail.
-     * @defaultValue '300px'
+     * @defaultValue 300px
      */
     verticalThumbnailViewPortHeight?: string | undefined;
     /**
@@ -120,7 +120,7 @@ export interface GalleriaProps {
     showIndicatorsOnItem?: boolean | undefined;
     /**
      * Position of indicators.
-     * @defaultValue 'bottom'
+     * @defaultValue bottom
      */
     indicatorsPosition?: 'bottom' | 'top' | 'left' | 'right' | undefined;
     /**

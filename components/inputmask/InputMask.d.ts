@@ -19,7 +19,7 @@ export interface InputMaskProps {
     modelValue?: string | undefined;
     /**
      * Placeholder character in mask, default is underscore.
-     * @defaultValue '_'
+     * @defaultValue _
      */
     slotChar?: string | undefined;
     /**

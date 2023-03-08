@@ -75,7 +75,7 @@ export interface DropdownProps {
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * @defaultValue '200px'
+     * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
     /**
@@ -92,7 +92,7 @@ export interface DropdownProps {
     filterLocale?: string | undefined;
     /**
      * Defines the filtering algorithm to use when searching the options.
-     * @defaultValue 'contains'
+     * @defaultValue contains
      */
     filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | undefined;
     /**
@@ -157,7 +157,7 @@ export interface DropdownProps {
     clearIconProps?: HTMLAttributes | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
-     * @defaultValue 'body'
+     * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
@@ -166,22 +166,22 @@ export interface DropdownProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in clear button.
-     * @defaultValue 'pi pi-times'
+     * @defaultValue pi pi-times
      */
     clearIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
-     * @defaultValue 'pi pi-chevron-down'
+     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * @defaultValue 'pi pi-search'
+     * @defaultValue pi pi-search
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue 'pi pi-spinner pi-spin'
+     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
@@ -209,27 +209,27 @@ export interface DropdownProps {
     selectOnFocus?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue '{0} results are available'
+     * @defaultValue {0} results are available
      */
     filterMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue '{0} items selected'
+     * @defaultValue {0} items selected
      */
     selectionMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue 'No selected item'
+     * @defaultValue No selected item
      */
     emptySelectionMessage?: string | undefined;
     /**
      * Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue 'No results found'
+     * @defaultValue No results found
      */
     emptyFilterMessage?: string | undefined;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue 'No results found'
+     * @defaultValue No results foun
      */
     emptyMessage?: string | undefined;
     /**

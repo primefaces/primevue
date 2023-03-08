@@ -15,7 +15,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface ProgressSpinnerProps {
     /**
      * Width of the circle stroke.
-     * @defaultValue '2'
+     * @defaultValue 2
      */
     strokeWidth?: string | undefined;
     /**
@@ -24,7 +24,7 @@ export interface ProgressSpinnerProps {
     fill?: string | undefined;
     /**
      * Duration of the rotate animation.
-     * @defaultValue '2s'
+     * @defaultValue 2s
      */
     animationDuration?: string | undefined;
 }
