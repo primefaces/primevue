@@ -2,8 +2,8 @@
     <DocSectionText id="accessibility" label="Accessibility" v-bind="$attrs">
         <h3>Screen Reader</h3>
         <p>
-            ScrollTop uses a button element with an <i>aria-label</i> that refers to the <i>aria.scrollTop</i> property of the <NuxtLink to="/locale">locale</NuxtLink> API by default, you may use your own aria roles and attributes as any valid
-            attribute is passed to the button element implicitly.
+            ScrollTop uses a button element with an <i>aria-label</i> that refers to the <i>aria.scrollTop</i> property of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API by default, you may use your own aria roles and attributes as
+            any valid attribute is passed to the button element implicitly.
         </p>
 
         <h3>Keyboard Support</h3>

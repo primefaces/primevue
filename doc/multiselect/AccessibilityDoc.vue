@@ -9,12 +9,12 @@
 
         <p>
             Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the <i>selectAll</i> and <i>unselectAll</i> keys of the <i>aria</i> property from the
-            <NuxtLink to="/locale">locale</NuxtLink> API.
+            <NuxtLink to="/configuration/#locale">locale</NuxtLink> API.
         </p>
 
         <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element.</p>
 
-        <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <NuxtLink to="/locale">locale</NuxtLink> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
+        <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
 
         <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz v-bind="$attrs" />
 
