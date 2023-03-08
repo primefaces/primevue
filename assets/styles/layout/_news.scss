@@ -33,6 +33,16 @@
         white-space: nowrap;
     }
 
+    .layout-news-link,
+    .layout-news-link:visited,
+    .layout-news-link:active {
+        color:#ffffff;
+        font-weight:700;
+    }
+    .layout-news-link:hover {
+        text-decoration: underline;
+    }
+
     .layout-news-close {
         line-height: 1.5;
         cursor: pointer;
