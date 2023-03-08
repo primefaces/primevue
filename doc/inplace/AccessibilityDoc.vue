@@ -7,8 +7,8 @@
             overriding the default role.
         </p>
         <p>
-            Closable inplace components displays a button with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <NuxtLink href="/locale">locale</NuxtLink> API by default, you may use <i>closeButtonProps</i> to customize the
-            element and override the default <i>aria-label</i>.
+            Closable inplace components displays a button with an <i>aria-label</i> that refers to the <i>aria.close</i> property of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API by default, you may use <i>closeButtonProps</i> to
+            customize the element and override the default <i>aria-label</i>.
         </p>
 
         <h3>View Mode Keyboard Support</h3>
