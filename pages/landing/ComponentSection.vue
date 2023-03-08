@@ -72,7 +72,7 @@
                     <div class="flex flex-column w-full gap-5 justify-content-start xl:w-24rem z-1">
                         <div class="box p-4">
                             <div class="surface-card mb-4 w-full text-center p-5" style="border-radius: '10px'">
-                                <img src="images/landing/brown-watch.png" alt="Watch" class="w-14rem" />
+                                <img src="https://primefaces.org/cdn/primevue/images//landing/brown-watch.png" alt="Watch" class="w-14rem" />
                             </div>
                             <div class="flex align-items-center mb-4">
                                 <div class="flex flex-column">
