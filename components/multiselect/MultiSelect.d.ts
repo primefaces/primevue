@@ -168,7 +168,7 @@ export interface MultiSelectProps {
     display?: 'comma' | 'chip' | undefined;
     /**
      * Label to display after exceeding max selected labels.
-     * @defaultValue {0} items selected
+     * @defaultValue '{0} items selected'
      */
     selectedItemsLabel?: string | undefined;
     /**
@@ -246,12 +246,12 @@ export interface MultiSelectProps {
     autoFilterFocus?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue {0} results are available
+     * @defaultValue '{0} results are available'
      */
     filterMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue {0} items selected
+     * @defaultValue '{0} items selected'
      */
     selectionMessage?: string | undefined;
     /**

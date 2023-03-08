@@ -116,7 +116,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-down'",
+                            "default": "pi pi-chevron-down",
                             "description": "Icon of an expanded tab."
                         },
                         {
@@ -124,7 +124,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-right'",
+                            "default": "pi pi-chevron-right",
                             "description": "Icon of a collapsed tab."
                         },
                         {
@@ -2628,7 +2628,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
                         },
                         {
@@ -2724,7 +2724,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"blank\" | \"current\"",
-                            "default": "'blank'",
+                            "default": "blank",
                             "description": "Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value."
                         },
                         {
@@ -2732,7 +2732,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found",
                             "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -2740,7 +2740,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No selected item'",
+                            "default": "No selected item",
                             "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -2796,7 +2796,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-spinner pi-spin'",
+                            "default": "pi pi-spinner pi-spin",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -2892,7 +2892,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times-circle'",
+                            "default": "pi pi-times-circle",
                             "description": "Icon to display in chip remove action."
                         },
                         {
@@ -2900,7 +2900,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'200px'",
+                            "default": "200px",
                             "description": "Maximum height of the suggestions panel."
                         },
                         {
@@ -3161,7 +3161,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"square\" | \"circle\"",
-                            "default": "'square'",
+                            "default": "square",
                             "description": "Shape of the element."
                         },
                         {
@@ -3169,7 +3169,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"normal\" | \"large\" | \"xlarge\"",
-                            "default": "'normal'",
+                            "default": "normal",
                             "description": "Size of the element."
                         }
                     ],
@@ -3968,7 +3968,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -4016,7 +4016,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-down'",
+                            "default": "pi pi-chevron-down",
                             "description": "Icon to show in each of the decrement buttons."
                         },
                         {
@@ -4072,7 +4072,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-calendar'",
+                            "default": "pi pi-calendar",
                             "description": "Icon of the calendar button."
                         },
                         {
@@ -4088,7 +4088,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-up'",
+                            "default": "pi pi-chevron-up",
                             "description": "Icon to show in each of the increment buttons."
                         },
                         {
@@ -4184,7 +4184,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-right'",
+                            "default": "pi pi-chevron-right",
                             "description": "Icon to show in the next button."
                         },
                         {
@@ -4232,7 +4232,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-left'",
+                            "default": "pi pi-chevron-left",
                             "description": "Icon to show in the previous button."
                         },
                         {
@@ -4272,7 +4272,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'+10'",
+                            "default": "+10",
                             "description": "The cutoff year for determining the century for a date."
                         },
                         {
@@ -4368,7 +4368,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "':'",
+                            "default": ":",
                             "description": "Separator of time selector."
                         },
                         {
@@ -4384,7 +4384,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"month\" | \"year\" | \"date\"",
-                            "default": "'date'",
+                            "default": "date",
                             "description": "Type of view to display."
                         },
                         {
@@ -4733,7 +4733,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'300px'",
+                            "default": "300px",
                             "description": "Height of the viewport in vertical layout."
                         }
                     ],
@@ -4987,7 +4987,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
                         {
@@ -5035,7 +5035,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-down'",
+                            "default": "pi pi-chevron-down",
                             "description": "Icon to display in the dropdown."
                         },
                         {
@@ -5043,7 +5043,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No available options'",
+                            "default": "No available options",
                             "description": "Text to be displayed when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -5051,7 +5051,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found",
                             "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -5059,7 +5059,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No selected item'",
+                            "default": "No selected item",
                             "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -5107,7 +5107,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-spinner pi-spin'",
+                            "default": "pi pi-spinner pi-spin",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -5139,7 +5139,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-angle-right'",
+                            "default": "pi pi-angle-right",
                             "description": "Icon to display in the option group."
                         },
                         {
@@ -5979,7 +5979,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times-circle'",
+                            "default": "pi pi-times-circle",
                             "description": "Icon to display in chip remove action."
                         },
                         {
@@ -6134,7 +6134,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
                         {
@@ -6174,7 +6174,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"rgb\" | \"hex\" | \"hsb\"",
-                            "default": "'hex'",
+                            "default": "hex",
                             "description": "Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'."
                         },
                         {
@@ -7051,7 +7051,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"center\" | \"left\" | \"top\" | \"bottom\" | \"right\" | \"topleft\" | \"topright\" | \"bottomleft\" | \"bottomright\"",
-                            "default": "'center'",
+                            "default": "center",
                             "description": "Position of the dialog."
                         },
                         {
@@ -7392,7 +7392,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -8589,7 +8589,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "({currentPage} of {totalPages})",
+                            "default": "'({currentPage} of {totalPages})'",
                             "description": "Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;\n\n- {currentPage}\n- {totalPages}\n- {rows}\n- {first}\n- {last}\n- {totalRecords}"
                         },
                         {
@@ -9932,7 +9932,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"grid\" | \"list\"",
-                            "default": "'list'",
+                            "default": "list",
                             "description": "Layout of the items, valid values are 'list' and 'grid'."
                         },
                         {
@@ -9964,7 +9964,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"both\" | \"top\" | \"bottom\"",
-                            "default": "'bottom'",
+                            "default": "bottom",
                             "description": "Position of the paginator, options are 'top','bottom' or 'both'."
                         },
                         {
@@ -10320,7 +10320,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the dialog gets attached."
                         },
                         {
@@ -10360,7 +10360,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times'",
+                            "default": "pi pi-times",
                             "description": "Icon to display in the dialog close button."
                         },
                         {
@@ -10448,7 +10448,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-window-maximize'",
+                            "default": "pi pi-window-maximize",
                             "description": "Icon to display in the dialog maximize button when dialog is not maximized."
                         },
                         {
@@ -10472,7 +10472,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-window-minimize'",
+                            "default": "pi pi-window-minimize",
                             "description": "Icon to display in the dialog maximize button when dialog is maximized."
                         },
                         {
@@ -10488,7 +10488,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"center\" | \"left\" | \"top\" | \"bottom\" | \"right\" | \"topleft\" | \"topright\" | \"bottomleft\" | \"bottomright\"",
-                            "default": "'center'",
+                            "default": "center",
                             "description": "Position of the dialog."
                         },
                         {
@@ -10629,7 +10629,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"horizontal\" | \"vertical\"",
-                            "default": "'horizontal'",
+                            "default": "horizontal",
                             "description": "Specifies the orientation, valid values are 'horizontal' and 'vertical'."
                         },
                         {
@@ -10637,7 +10637,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"dashed\" | \"dotted\" | \"solid\"",
-                            "default": "'solid'",
+                            "default": "solid",
                             "description": "Border style type."
                         }
                     ],
@@ -10766,7 +10766,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"left\" | \"top\" | \"bottom\" | \"right\"",
-                            "default": "'bottom'",
+                            "default": "bottom",
                             "description": "Position of element."
                         },
                         {
@@ -10846,7 +10846,7 @@
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | \"left\" | \"top\" | \"bottom\" | \"right\"",
-                            "default": "'bottom'",
+                            "default": "bottom",
                             "description": "Position of element."
                         },
                         {
@@ -11029,7 +11029,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -11069,7 +11069,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times'",
+                            "default": "pi pi-times",
                             "description": "Icon to display in clear button."
                         },
                         {
@@ -11101,7 +11101,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-down'",
+                            "default": "pi pi-chevron-down",
                             "description": "Icon to display in the dropdown."
                         },
                         {
@@ -11117,7 +11117,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found",
                             "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -11125,7 +11125,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results foun",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -11133,7 +11133,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No selected item'",
+                            "default": "No selected item",
                             "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -11157,7 +11157,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-search'",
+                            "default": "pi pi-search",
                             "description": "Icon to display in filter input."
                         },
                         {
@@ -11181,7 +11181,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"endsWith\" | \"startsWith\" | \"contains\"",
-                            "default": "'contains'",
+                            "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
                         {
@@ -11245,7 +11245,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-spinner pi-spin'",
+                            "default": "pi pi-spinner pi-spin",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -11349,7 +11349,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'200px'",
+                            "default": "200px",
                             "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
                         },
                         {
@@ -12361,7 +12361,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-fw pi-times'",
+                            "default": "pi pi-fw pi-times",
                             "description": "Icon of the cancel button."
                         },
                         {
@@ -12377,7 +12377,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-fw pi-plus'",
+                            "default": "pi pi-fw pi-plus",
                             "description": "Icon of the choose button."
                         },
                         {
@@ -12425,7 +12425,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'Maximum number of files to be uploaded is {0.}'",
+                            "default": "Maximum number of files to be uploaded is {0.}",
                             "description": "Message to display when number of files to be uploaded exceeeds the limit."
                         },
                         {
@@ -12433,7 +12433,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'{0}: Invalid file size, file size should be smaller than {1.}'",
+                            "default": ": Invalid file size, file size should be smaller than {1.}",
                             "description": "Message of the invalid fize size."
                         },
                         {
@@ -12457,7 +12457,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"basic\" | \"advanced\"",
-                            "default": "'advanced'",
+                            "default": "advanced",
                             "description": "Defines the UI of the component, possible values are 'advanced' and 'basic'."
                         },
                         {
@@ -12513,7 +12513,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-fw pi-upload'",
+                            "default": "pi pi-fw pi-upload",
                             "description": "Icon of the upload button."
                         },
                         {
@@ -12914,7 +12914,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"left\" | \"top\" | \"bottom\" | \"right\"",
-                            "default": "'bottom'",
+                            "default": "bottom",
                             "description": "Position of indicators."
                         },
                         {
@@ -13010,7 +13010,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"left\" | \"top\" | \"bottom\" | \"right\"",
-                            "default": "'bottom'",
+                            "default": "bottom",
                             "description": "Position of thumbnails."
                         },
                         {
@@ -13034,7 +13034,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'300px'",
+                            "default": "300px",
                             "description": "Height of the viewport in vertical thumbnail."
                         },
                         {
@@ -13263,7 +13263,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
-                            "default": "'info'",
+                            "default": "info",
                             "description": "Severity level of the message."
                         }
                     ],
@@ -13381,7 +13381,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times'",
+                            "default": "pi pi-times",
                             "description": "Icon to display in the close button."
                         },
                         {
@@ -13561,7 +13561,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'_'",
+                            "default": "_",
                             "description": "Placeholder character in mask, default is underscore."
                         },
                         {
@@ -13738,7 +13738,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"horizontal\" | \"vertical\" | \"stacked\"",
-                            "default": "'stacked'.",
+                            "default": "stacked",
                             "description": "Layout of the buttons."
                         },
                         {
@@ -13754,7 +13754,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'symbol'",
+                            "default": "symbol",
                             "description": "How to display the currency in currency formatting. Possible values are 'symbol' to use a localized currency symbol such as €, 'code' to use the ISO currency code, 'name' to use a localized currency name such as 'dollar'."
                         },
                         {
@@ -13770,7 +13770,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-angle-down'",
+                            "default": "pi pi-angle-down",
                             "description": "Style class of the decrement button."
                         },
                         {
@@ -13818,7 +13818,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-angle-up'",
+                            "default": "pi pi-angle-up",
                             "description": "Style class of the increment button."
                         },
                         {
@@ -13874,7 +13874,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"best fit\" | \"lookup\"",
-                            "default": "'best fit'",
+                            "default": "best fit",
                             "description": "The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'.\nSee [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details."
                         },
                         {
@@ -13914,7 +13914,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"decimal\" | \"currency\"",
-                            "default": "'decimal'.",
+                            "default": "decimal",
                             "description": "Defines the behavior of the component."
                         },
                         {
@@ -14314,7 +14314,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'var(--surface-border, LightGray)'",
+                            "default": "var(--surface-border, LightGray)",
                             "description": "Background color of the range."
                         },
                         {
@@ -14370,7 +14370,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'var(--text-color-secondary, Black)'",
+                            "default": "var(--text-color-secondary, Black)",
                             "description": "Color of the value text."
                         },
                         {
@@ -14378,7 +14378,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'var(--primary-color, Black)'",
+                            "default": "var(--primary-color, Black)",
                             "description": "Background of the value."
                         },
                         {
@@ -14585,7 +14585,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found",
                             "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -14593,7 +14593,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -14601,7 +14601,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No selected item'",
+                            "default": "No selected item",
                             "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -14625,7 +14625,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'ß'",
+                            "default": "ß",
                             "description": "Icon to display in filter input."
                         },
                         {
@@ -14649,7 +14649,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"endsWith\" | \"startsWith\" | \"contains\"",
-                            "default": "'contains'",
+                            "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
                         {
@@ -14982,7 +14982,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"horizontal\" | \"vertical\"",
-                            "default": "'horizontal'",
+                            "default": "horizontal",
                             "description": "Defines the orientation."
                         },
                         {
@@ -15126,7 +15126,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -15554,7 +15554,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times'",
+                            "default": "pi pi-times",
                             "description": "Icon to display in the message close button."
                         },
                         {
@@ -15578,7 +15578,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
-                            "default": "'info'",
+                            "default": "info",
                             "description": "Severity level of the message."
                         },
                         {
@@ -15837,7 +15837,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
                         },
                         {
@@ -15877,7 +15877,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-check'",
+                            "default": "pi pi-check",
                             "description": "Icon to display in the checkboxes."
                         },
                         {
@@ -15893,7 +15893,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times'",
+                            "default": "pi pi-times",
                             "description": "Icon to display in the dropdown close button."
                         },
                         {
@@ -15917,7 +15917,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"comma\" | \"chip\"",
-                            "default": "'comma'",
+                            "default": "comma",
                             "description": "Defines how the selected items are displayed."
                         },
                         {
@@ -15925,7 +15925,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-down'",
+                            "default": "pi pi-chevron-down",
                             "description": "Icon to display in the dropdown."
                         },
                         {
@@ -15933,7 +15933,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found",
                             "description": "Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -15941,7 +15941,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found'",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -15949,7 +15949,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No selected item'",
+                            "default": "No selected item",
                             "description": "Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -15973,7 +15973,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-search'",
+                            "default": "pi pi-search",
                             "description": "Icon to display in filter input."
                         },
                         {
@@ -15997,7 +15997,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"endsWith\" | \"startsWith\" | \"contains\"",
-                            "default": "'contains'",
+                            "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
                         {
@@ -16045,7 +16045,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-spinner pi-spin'",
+                            "default": "pi pi-spinner pi-spin",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -16149,7 +16149,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times-circle'",
+                            "default": "pi pi-times-circle",
                             "description": "Icon to display in chip remove action."
                         },
                         {
@@ -16165,7 +16165,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'200px'",
+                            "default": "200px",
                             "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
                         },
                         {
@@ -16460,7 +16460,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'960px'",
+                            "default": "960px",
                             "description": "The breakpoint to define the maximum width boundary when responsiveness is enabled."
                         },
                         {
@@ -17035,7 +17035,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -17666,7 +17666,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -17706,7 +17706,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-eye-slash'",
+                            "default": "pi pi-eye-slash",
                             "description": "Icon to hide displaying the password as plain text."
                         },
                         {
@@ -17754,7 +17754,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})'",
+                            "default": "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})",
                             "description": "Regex for a medium level password."
                         },
                         {
@@ -17826,7 +17826,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-eye'",
+                            "default": "pi pi-eye",
                             "description": "Icon to show displaying the password as plain text."
                         },
                         {
@@ -17842,7 +17842,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})'",
+                            "default": "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})",
                             "description": "Regex for a strong level password."
                         },
                         {
@@ -18516,7 +18516,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"indeterminate\" | \"determinate\"",
-                            "default": "'determinate'",
+                            "default": "determinate",
                             "description": "Defines the mode of the progress"
                         },
                         {
@@ -18586,7 +18586,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'2s'",
+                            "default": "2s",
                             "description": "Duration of the rotate animation."
                         },
                         {
@@ -18602,7 +18602,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'2'",
+                            "default": "2",
                             "description": "Width of the circle stroke."
                         }
                     ],
@@ -18891,7 +18891,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-ban'",
+                            "default": "pi pi-ban",
                             "description": "Icon for the cancelable state."
                         },
                         {
@@ -18923,7 +18923,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-star-fill'",
+                            "default": "pi pi-star-fill",
                             "description": "Icon for the off state."
                         },
                         {
@@ -18931,7 +18931,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-star'",
+                            "default": "pi pi-star",
                             "description": "Icon for the on state."
                         },
                         {
@@ -19137,7 +19137,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'smooth'",
+                            "default": "smooth",
                             "description": "Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump."
                         },
                         {
@@ -19145,7 +19145,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-chevron-up'",
+                            "default": "pi pi-chevron-up",
                             "description": "Icon to display."
                         },
                         {
@@ -19153,7 +19153,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"window\" | \"parent\"",
-                            "default": "'window'",
+                            "default": "window",
                             "description": "Target of the ScrollTop."
                         },
                         {
@@ -19466,7 +19466,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-times'",
+                            "default": "pi pi-times",
                             "description": "Icon to display in the sidebar close button."
                         },
                         {
@@ -19490,7 +19490,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"left\" | \"top\" | \"bottom\" | \"right\" | \"full\"",
-                            "default": "'left'",
+                            "default": "left",
                             "description": "Specifies the position of the sidebar."
                         },
                         {
@@ -19566,7 +19566,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"none\" | \"wave\"",
-                            "default": "'wave'",
+                            "default": "wave",
                             "description": "Type of the animation."
                         },
                         {
@@ -19582,7 +19582,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'1rem'",
+                            "default": "1rem",
                             "description": "Height of the element."
                         },
                         {
@@ -19590,7 +19590,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"circle\" | \"rectangle\"",
-                            "default": "'rectangle'",
+                            "default": "rectangle",
                             "description": "Shape of the element."
                         },
                         {
@@ -19606,7 +19606,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'100%'",
+                            "default": "100%",
                             "description": "Width of the element."
                         }
                     ],
@@ -19741,7 +19741,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"horizontal\" | \"vertical\"",
-                            "default": "'horizontal'",
+                            "default": "horizontal",
                             "description": "Orientation of the slider."
                         },
                         {
@@ -19919,7 +19919,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"left\" | \"right\" | \"up\" | \"down\" | \"up-left\" | \"up-right\" | \"down-left\" | \"down-right\"",
-                            "default": "'up'",
+                            "default": "up",
                             "description": "Specifies the opening direction of actions."
                         },
                         {
@@ -19999,7 +19999,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-plus'",
+                            "default": "pi pi-plus",
                             "description": "Show icon of the button element."
                         },
                         {
@@ -20031,7 +20031,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"linear\" | \"circle\" | \"semi-circle\" | \"quarter-circle\"",
-                            "default": "'linear'",
+                            "default": "linear",
                             "description": "Specifies the opening type of actions."
                         },
                         {
@@ -20095,7 +20095,7 @@
                             "optional": false,
                             "readonly": false,
                             "type": "undefined | \"left\" | \"top\" | \"bottom\" | \"right\"",
-                            "default": "'bottom'.",
+                            "default": "bottom",
                             "description": "Position of element."
                         },
                         {
@@ -20156,7 +20156,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached.\nSpecial keywords are 'body' for document body and 'self' for the element itself."
                         },
                         {
@@ -20405,7 +20405,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"local\" | \"session\"",
-                            "default": "'session'",
+                            "default": "session",
                             "description": "Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage."
                         },
                         {
@@ -21534,7 +21534,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -21667,7 +21667,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"alternate\" | \"left\" | \"top\" | \"bottom\" | \"right\"",
-                            "default": "'left'",
+                            "default": "left",
                             "description": "Position of the timeline bar relative to the content."
                         },
                         {
@@ -21683,7 +21683,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"horizontal\" | \"vertical\"",
-                            "default": "'horizontal'",
+                            "default": "horizontal",
                             "description": "Orientation of the timeline."
                         },
                         {
@@ -21870,7 +21870,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
-                            "default": "'info'",
+                            "default": "info",
                             "description": "Severity level of the message."
                         },
                         {
@@ -22168,7 +22168,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"left\" | \"right\"",
-                            "default": "'left'",
+                            "default": "left",
                             "description": "Position of the icon."
                         },
                         {
@@ -22730,7 +22730,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'label'",
+                            "default": "label",
                             "description": "When filtering is enabled, filterBy decides which field or fields (comma separated) to search against."
                         },
                         {
@@ -22746,7 +22746,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"strict\" | \"lenient\"",
-                            "default": "'lenient'",
+                            "default": "lenient",
                             "description": "Mode for filtering."
                         },
                         {
@@ -22770,7 +22770,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-spin'",
+                            "default": "pi pi-spin",
                             "description": "Icon to display when tree is loading."
                         },
                         {
@@ -22980,7 +22980,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | HTMLElement",
-                            "default": "'body'",
+                            "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
                         },
                         {
@@ -23012,7 +23012,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"comma\" | \"chip\"",
-                            "default": "'comma'",
+                            "default": "comma",
                             "description": "Defines how the selected items are displayed."
                         },
                         {
@@ -23020,7 +23020,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'No results found'",
+                            "default": "No results found",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -23100,7 +23100,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'200px'",
+                            "default": "200px",
                             "description": "Height of the viewport, a scrollbar is defined if height of list exceeds this value."
                         },
                         {
@@ -23666,7 +23666,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"fit\" | \"expand\"",
-                            "default": "'fit'",
+                            "default": "fit",
                             "description": "Defines whether the overall table width should change on column resize."
                         },
                         {
@@ -23706,7 +23706,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"strict\" | \"lenient\"",
-                            "default": "'lenient'",
+                            "default": "lenient",
                             "description": "Mode for filtering."
                         },
                         {
@@ -23754,7 +23754,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'pi pi-spinner'",
+                            "default": "pi pi-spinner",
                             "description": "The icon to show while indicating data load is in progress."
                         },
                         {
@@ -23802,7 +23802,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'",
+                            "default": "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
                             "description": "Template of the paginator. It can be customized using the template property using the predefined keys. Here are the available elements that can be placed inside a paginator in any order.\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
                         },
                         {
@@ -23826,7 +23826,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"scroll\" | \"stack\"",
-                            "default": "'stack'",
+                            "default": "stack",
                             "description": "Defines the responsive mode, currently only option is scroll."
                         },
                         {
@@ -23858,7 +23858,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"both\" | \"horizontal\" | \"vertical\"",
-                            "default": "'vertical'",
+                            "default": "vertical",
                             "description": "Orientation of the scrolling."
                         },
                         {
@@ -23914,7 +23914,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"multiple\" | \"single\"",
-                            "default": "'single'",
+                            "default": "single",
                             "description": "Defines whether sorting works on single column or on multiple columns."
                         },
                         {
@@ -24750,7 +24750,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | number",
-                            "default": "0.",
+                            "default": "0",
                             "description": "Index of the element in tabbing order."
                         }
                     ],

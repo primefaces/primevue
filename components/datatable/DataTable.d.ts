@@ -596,7 +596,7 @@ export interface DataTableProps {
      * - {first}
      * - {last}
      * - {totalRecords}
-     * @defaultValue ({currentPage} of {totalPages})
+     * @defaultValue '({currentPage} of {totalPages})'
      */
     currentPageReportTemplate?: string | undefined;
     /**

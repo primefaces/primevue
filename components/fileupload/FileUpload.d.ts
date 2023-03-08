@@ -190,7 +190,7 @@ export interface FileUploadProps {
     invalidFileLimitMessage?: string | undefined;
     /**
      * Message of the invalid fize type.
-     * @defaultValue {0}: Invalid file type.
+     * @defaultValue '{0}: Invalid file type.'
      */
     invalidFileTypeMessage?: string | undefined;
     /**
