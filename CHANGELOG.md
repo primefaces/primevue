@@ -1,5 +1,32 @@
 # Changelog
 
+## [3.24.0](https://github.com/primefaces/primevue/tree/3.24.0) (2023-03-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.23.0...3.24.0)
+
+**Breaking Changes:**
+
+- Removed TypeScript types [\#3696](https://github.com/primefaces/primevue/issues/3696)
+- DataTable CSS and responsive structure improvements [\#3682](https://github.com/primefaces/primevue/issues/3682)
+
+**Implemented New Features and Enhancements:**
+
+- SplitButton: New Styling properties [\#3697](https://github.com/primefaces/primevue/issues/3697)
+- Button: New Styling Properties [\#3695](https://github.com/primefaces/primevue/issues/3695)
+- Add appendOnly and inline properties to VirtualScroller [\#3683](https://github.com/primefaces/primevue/issues/3683)
+- Avatar - Image Alt text Accessibility [\#3593](https://github.com/primefaces/primevue/issues/3593)
+- Tab Menu: Add role to ink bar [\#3583](https://github.com/primefaces/primevue/issues/3583)
+- Toast: new `close` and `life-end` methods [\#2989](https://github.com/primefaces/primevue/issues/2989)
+
+**Fixed bugs:**
+
+- Dropdown: editable mode add change event [\#3692](https://github.com/primefaces/primevue/issues/3692)
+- DataTable: cannot uncheck when click the checkbox in column [\#3691](https://github.com/primefaces/primevue/issues/3691)
+- Checkbox: has an attribute that is not supported by input checkboxes.  [\#3678](https://github.com/primefaces/primevue/issues/3678)
+- Badge: do not render Zero correctly [\#3649](https://github.com/primefaces/primevue/issues/3649)
+- InputSwitch: invalid state defect [\#3646](https://github.com/primefaces/primevue/issues/3646)
+- MegaMenu templating defect [\#3621](https://github.com/primefaces/primevue/issues/3621)
+
 ## [3.23.0](https://github.com/primefaces/primevue/tree/3.23.0) (2023-01-30)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.22.4...3.23.0)
