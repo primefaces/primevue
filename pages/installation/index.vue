@@ -17,9 +17,13 @@
 
 <script>
 import DownloadDoc from '@/doc/installation/DownloadDoc';
+import ExamplesDoc from '@/doc/installation/ExamplesDoc';
+import NuxtIntegrationDoc from '@/doc/installation/NuxtIntegrationDoc';
+import PropCasesDoc from '@/doc/installation/PropCasesDoc';
 import StylesDoc from '@/doc/installation/StylesDoc';
 import UsageDoc from '@/doc/installation/UsageDoc';
 import CreateVueDoc from '@/doc/installation/videos/CreateVueDoc';
+import NuxtDoc from '@/doc/installation/videos/NuxtDoc';
 
 export default {
     data() {
@@ -41,6 +45,21 @@ export default {
                     component: UsageDoc
                 },
                 {
+                    id: 'propcases',
+                    label: 'Prop Cases',
+                    component: PropCasesDoc
+                },
+                {
+                    id: 'nuxtintegration',
+                    label: 'Nuxt Integration',
+                    component: NuxtIntegrationDoc
+                },
+                {
+                    id: 'examples',
+                    label: 'Examples',
+                    component: ExamplesDoc
+                },
+                {
                     id: 'videos',
                     label: 'Videos',
                     description: 'Video tutorials to take you through step-by-step.',
@@ -49,6 +68,11 @@ export default {
                             id: 'createvue',
                             label: 'CreateVue',
                             component: CreateVueDoc
+                        },
+                        {
+                            id: 'nuxt',
+                            label: 'Nuxt',
+                            component: NuxtDoc
                         }
                     ]
                 }

@@ -2,12 +2,12 @@
     <DocSectionText v-bind="$attrs">
         <p>PrimeVue can easily be used with Nuxt 3 using a custom plugin.</p>
 
-        <h6>nuxt.config.js</h6>
+        <h3>nuxt.config.js</h3>
         <p>Open the nuxt configuration file and add the css dependencies.</p>
 
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 
-        <h6>primevue.js</h6>
+        <h3>primevue.js</h3>
         <p>Create a file like <i>primevue.js</i> under the plugins directory for the configuration.</p>
 
         <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />

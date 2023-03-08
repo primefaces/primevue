@@ -40,7 +40,7 @@ export default {
                 },
                 {
                     id: 'builtinthemes',
-                    label: 'Buit-in Themes',
+                    label: 'Built-in Themes',
                     component: BuiltInThemesDoc
                 },
                 {

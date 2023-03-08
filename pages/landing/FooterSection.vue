@@ -56,7 +56,7 @@
                         <router-link to="/theming" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Guide</router-link>
                     </li>
                     <li class="mb-4">
-                        <a href="https://www.primefaces.org/designer/primevue" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Designer</a>
+                        <a href="https://designer.primevue.org" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Designer</a>
                     </li>
                     <li class="mb-4">
                         <router-link to="/colors" class="text-secondary font-medium hover:text-primary transition-colors transition-duration-150">Colors</router-link>

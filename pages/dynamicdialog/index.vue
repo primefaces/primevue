@@ -2,7 +2,7 @@
     <DocComponent
         title="Vue Dynamic Dialog Component"
         header="Dynamic Dialog"
-        description="Dynamic Dialog is a Dialog container to display content in an overlay window."
+        description="Dialogs can be created dynamically with any component as the content using a DialogService."
         :componentDocs="docs"
         :apiDocs="['DynamicDialog', 'Dialog', 'DialogService-UseDialog', 'DynamicDialogOptions']"
     />
@@ -10,9 +10,8 @@
 
 <script>
 import AccessibilityDoc from '@/doc/dynamicdialog/AccessibilityDoc';
-import BasicDoc from '@/doc/dynamicdialog/BasicDoc';
 import CloseDialogDoc from '@/doc/dynamicdialog/CloseDialogDoc';
-import CustomizingDialogDoc from '@/doc/dynamicdialog/CustomizingDialogDoc';
+import CustomizationDoc from '@/doc/dynamicdialog/CustomizationDoc';
 import DialogServiceDoc from '@/doc/dynamicdialog/DialogServiceDoc';
 import ImportDoc from '@/doc/dynamicdialog/ImportDoc';
 import OpenDialogDoc from '@/doc/dynamicdialog/OpenDialogDoc';
@@ -39,18 +38,13 @@ export default {
                     component: UsageDoc
                 },
                 {
-                    id: 'basic',
-                    label: 'Basic',
-                    component: BasicDoc
-                },
-                {
-                    id: 'opendialog',
-                    label: 'Opening a Dialog',
+                    id: 'open',
+                    label: 'Open',
                     component: OpenDialogDoc
                 },
                 {
-                    id: 'closedialog',
-                    label: 'Closing a Dialog',
+                    id: 'close',
+                    label: 'Close',
                     component: CloseDialogDoc
                 },
                 {
@@ -59,9 +53,9 @@ export default {
                     component: PassingDataDoc
                 },
                 {
-                    id: 'customizingdata',
-                    label: 'Customizing Dialog',
-                    component: CustomizingDialogDoc
+                    id: 'customization',
+                    label: 'Customization',
+                    component: CustomizationDoc
                 },
                 {
                     id: 'accessibility',

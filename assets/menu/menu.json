@@ -13,14 +13,6 @@
                     "to": "/configuration"
                 },
                 {
-                    "name": "FilterService",
-                    "to": "/filterservice"
-                },
-                {
-                    "name": "Locale",
-                    "to": "/locale"
-                },
-                {
                     "name": "Accessibility",
                     "to": "/accessibility"
                 }
@@ -444,10 +436,6 @@
                     "to": "/theming"
                 },
                 {
-                    "name": "Theme Designer",
-                    "href": "https://www.primefaces.org/designer/primevue"
-                },
-                {
                     "name": "Visual Editor",
                     "href": "https://designer.primevue.org"
                 },
@@ -487,9 +475,31 @@
             "href": "https://www.primefaces.org/primeflex"
         },
         {
+            "name": "Support",
+            "icon": "pi pi-question",
+            "children": [
+                {
+                    "name": "Discord Server",
+                    "href": "https://discord.gg/gzKFYnpmCY"
+                },
+                {
+                    "name": "Forum",
+                    "href": "https://forum.primefaces.org/viewforum.php?f=57"
+                },
+                {
+                    "name": "PRO Support",
+                    "to": "/support"
+                }
+            ]
+        },
+        {
             "name": "Discover",
             "icon": "pi pi-search",
             "children": [
+                {
+                    "name": "About Us",
+                    "to": "/team"
+                },
                 {
                     "name": "Roadmap",
                     "to": "/roadmap"
@@ -521,24 +531,6 @@
                 {
                     "name": "PrimeGear",
                     "href": "https://gear.primefaces.org"
-                }
-            ]
-        },
-        {
-            "name": "Support",
-            "icon": "pi pi-question",
-            "children": [
-                {
-                    "name": "Discord Server",
-                    "href": "https://discord.gg/gzKFYnpmCY"
-                },
-                {
-                    "name": "Forum",
-                    "href": "https://forum.primefaces.org/viewforum.php?f=57"
-                },
-                {
-                    "name": "PRO Support",
-                    "to": "/support"
                 }
             ]
         }

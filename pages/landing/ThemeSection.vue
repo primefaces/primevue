@@ -6,7 +6,7 @@
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'blue')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
-            <a type="button" class="font-medium p-link linkbox mt-4" href="https://www.primefaces.org/designer-vue">more...</a>
+            <a type="button" class="font-medium p-link linkbox mt-4" href="https://designer.primevue.org">more...</a>
         </div>
         <div
             class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"
@@ -52,8 +52,10 @@
                     </Column>
                     <Column header="Agent" sortable sortField="representative.name" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img :alt="data.representative.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + data.representative.image" width="32" style="vertical-align: middle" />
-                            <span>{{ data.representative.name }}</span>
+                            <div class="flex align-items-center gap-2">
+                                <img :alt="data.representative.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + data.representative.image" width="32" />
+                                <span>{{ data.representative.name }}</span>
+                            </div>
                         </template>
                     </Column>
                     <Column field="date" header="Date" sortable dataType="date" style="min-width: 8rem">

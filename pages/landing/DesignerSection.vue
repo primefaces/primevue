@@ -48,7 +48,7 @@
                             </div>
                         </div>
 
-                        <a href="https://www.primefaces.org/designer-vue" class="font-semibold p-3 border-round flex align-items-center linkbox active">
+                        <a href="https://designer.primevue.org" class="font-semibold p-3 border-round flex align-items-center linkbox active">
                             <span>View Full Version</span>
                             <i class="pi pi-arrow-right ml-auto"></i>
                         </a>
@@ -123,7 +123,7 @@ export default {
             fonts: [
                 { label: 'Arial', value: 'Arial,Helvetica Neue,Helvetica,sans-serif' },
                 { label: 'System', value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol' },
-                { label: 'Trebuches MS', value: 'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif' },
+                { label: 'Trebuchet MS', value: 'Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif' },
                 { label: 'Verdana', value: 'Verdana,Geneva,sans-serif' }
             ],
             selectedCity: null,

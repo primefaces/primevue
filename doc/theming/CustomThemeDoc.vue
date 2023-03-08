@@ -6,8 +6,12 @@
         </p>
         <p>
             There are 3 alternatives to create your own theme. First option is using the Visual Editor, second one is compiling a theme with command line sass and final alternative is embedding scss files within your project to let your build
-            environment do the compilation. In all cases, the generated theme file should be imported to your project.
+            environment do the compilation. In all cases, the generated theme file should be imported to your project. We've created a video tutorial that demonstrates all three options.
         </p>
+
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/iZp_l0Yl3Zw" frameborder="0" allowfullscreen></iframe>
+        </div>
 
         <h3>Visual Editor</h3>
         <p>

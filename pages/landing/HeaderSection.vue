@@ -16,15 +16,21 @@
                         </li>
                         <li class="mr-0 lg:mr-2">
                             <a href="https://www.primefaces.org/primeblocks-vue">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue templates" />
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue blocks" />
                                 <span>Blocks</span>
                             </a>
                         </li>
                         <li class="mr-0 lg:mr-2">
-                            <a href="https://www.primefaces.org/designer-vue">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/designer-icon.svg" alt="primevue templates" />
+                            <a href="https://designer.primevue.org">
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/designer-icon.svg" alt="primevue designer" />
                                 <span>Designer</span>
                             </a>
+                        </li>
+                        <li class="mr-0 lg:mr-2">
+                            <router-link to="/uikit">
+                                <img src="/images/landing/uikit-icon.svg" alt="primevue designer" width="30" />
+                                <span>UI Kit</span>
+                            </router-link>
                         </li>
                         <li class="mr-0 lg:mr-2">
                             <a href="https://www.primefaces.org/store/templates.xhtml">

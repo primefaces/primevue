@@ -18,8 +18,9 @@
 <script>
 import ImportDoc from '@/doc/configuration/ImportDoc';
 import InputStyleDoc from '@/doc/configuration/InputStyleDoc';
-import NuxtIntegrationDoc from '@/doc/configuration/NuxtIntegrationDoc';
-import PropCasesDoc from '@/doc/configuration/PropCasesDoc';
+import LocaleApiDoc from '@/doc/configuration/locale/LocaleApiDoc';
+import RepositoryDoc from '@/doc/configuration/locale/RepositoryDoc';
+import SetLocaleDoc from '@/doc/configuration/locale/SetLocaleDoc';
 import RippleDoc from '@/doc/configuration/RippleDoc';
 
 export default {
@@ -32,16 +33,6 @@ export default {
                     component: ImportDoc
                 },
                 {
-                    id: 'nuxtintegration',
-                    label: 'Nuxt Integration',
-                    component: NuxtIntegrationDoc
-                },
-                {
-                    id: 'propcases',
-                    label: 'Prop Cases',
-                    component: PropCasesDoc
-                },
-                {
                     id: 'ripple',
                     label: 'Ripple',
                     component: RippleDoc
@@ -50,6 +41,27 @@ export default {
                     id: 'inputstyle',
                     label: 'InputStyle',
                     component: InputStyleDoc
+                },
+                {
+                    id: 'locale',
+                    label: 'Locale',
+                    children: [
+                        {
+                            id: 'setlocale',
+                            label: 'Set Locale',
+                            component: SetLocaleDoc
+                        },
+                        {
+                            id: 'repository',
+                            label: 'Repository',
+                            component: RepositoryDoc
+                        },
+                        {
+                            id: 'localeapi',
+                            label: 'API',
+                            component: LocaleApiDoc
+                        }
+                    ]
                 }
             ]
         };

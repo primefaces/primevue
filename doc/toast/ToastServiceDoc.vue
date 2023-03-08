@@ -1,7 +1,6 @@
-//TODO:
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Toast messages are dynamically created using a <i>ToastService</i> that needs to be installed globally before the application instance is created.</p>
+        <p>Toast component is controlled via the <i>ToastService</i> that needs to be installed as an application plugin.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>

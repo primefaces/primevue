@@ -31,13 +31,7 @@
             </section>
 
             <section>
-                <h3>Free Themes</h3>
-                <p>
-                    Built-in component themes created by the
-                    <a href="https://www.primefaces.org/designer/primevue" class="text-primary hover:underline font-medium"> primevue Theme Designer </a>
-                    .
-                </p>
-
+                <h3>Themes</h3>
                 <h4>Bootstrap</h4>
                 <div class="grid free-themes">
                     <div class="col-3 flex flex-column align-items-center gap-2">

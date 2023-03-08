@@ -1,4 +1,5 @@
 <template>
+    <p class="line-height-3 bg-indigo-600 text-white p-3 text-lg" style="border-radius: 10px">PrimeVue has WCAG 2.1 AA level compliancy. Refer to the accessibility documentation of each component for detailed information.</p>
     <DocSectionText v-bind="$attrs">
         <p>
             According to the World Health Organization, 15% of the world population has a disability to some degree. As a result, accessibility features in any context such as a ramp for wheelchair users or a multimedia with captions are crucial to

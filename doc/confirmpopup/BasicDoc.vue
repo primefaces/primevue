@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ConfirmPopup is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup. <i>target</i> attribute is mandatory to align the popup to its caller.</p>
+        <p>ConfirmDialog is displayed by calling the <i>require</i> method of the <i>$confirm</i> instance by passing the options to customize the Popup. <i>target</i> attribute is mandatory to align the popup to its caller.</p>
     </DocSectionText>
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-content-center">
