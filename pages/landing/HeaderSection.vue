@@ -15,7 +15,7 @@
                             </router-link>
                         </li>
                         <li class="mr-0 lg:mr-2">
-                            <a href="https://www.primefaces.org/primeblocks-vue">
+                            <a href="https://blocks.primevue.org">
                                 <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue blocks" />
                                 <span>Blocks</span>
                             </a>

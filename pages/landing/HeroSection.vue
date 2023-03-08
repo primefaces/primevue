@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="p-2 flex flex-row md:flex-column">
-                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://www.primefaces.org/primeblocks-vue')">
+                    <div class="hero-box w-10rem h-10rem md:w-12rem md:h-12rem animation flex align-items-center justify-content-center" @click="navigateTo('https://blocks.primevue.org')">
                         <div class="flex flex-column align-items-center">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/blocks-icon.svg" alt="primevue templates" />
                             <div class="name">

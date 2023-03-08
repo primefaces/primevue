@@ -3,11 +3,11 @@
 [![npm version](https://badge.fury.io/js/primevue.svg)](https://badge.fury.io/js/primevue)
 [![Discord Chat](https://img.shields.io/discord/557940238991753223.svg?color=7289da&label=chat&logo=discord)](https://discord.gg/gzKFYnpmCY)
 
-[![PrimeVue Hero](https://user-images.githubusercontent.com/686247/138925407-2a7e916d-c674-4fb5-b721-1dd41a8eeebc.jpg)](https://www.primefaces.org/primevue)
+[![PrimeVue Hero](https://user-images.githubusercontent.com/686247/138925407-2a7e916d-c674-4fb5-b721-1dd41a8eeebc.jpg)](https://primevue.org/)
 
 # PrimeVue
 
-PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homepage](https://www.primefaces.org/primevue/) for live showcase and documentation.
+PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homepage](https://primevue.org/) for live showcase and documentation.
 
 ## Download
 
@@ -245,7 +245,7 @@ app.use(PrimeVue, {
 
 ## Locale
 
-PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https://www.primefaces.org/primevue/locale) documentation for more information.
+PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https://primevue.org/configuration/#locale) documentation for more information.
 
 ## Quickstart with Vue CLI
 

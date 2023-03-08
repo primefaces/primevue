@@ -103,7 +103,7 @@ export default {
             return false;
         },
         redirect() {
-            window.location.href = 'https://www.primefaces.org/primeblocks-vue';
+            window.location.href = 'https://blocks.primevue.org';
         },
         onConfigButtonClick() {
             this.appConfigActive = true;
