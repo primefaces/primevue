@@ -1,5 +1,5 @@
 <template>
-    <div class="content-section">
+    <div>
         <div class="doc-intro">
             <h1>Templates</h1>
             <p>Highly customizable application templates to get started in no time with style. Designed and implemented by PrimeTek.</p>

@@ -5,7 +5,7 @@
             <Meta name="description" content="Design files for PrimeVue Components." />
         </Head>
 
-        <div class="content-section">
+        <div>
             <div style="border-radius: 50px; max-height: 500px" class="overflow-hidden mb-5 flex align-items-center">
                 <img alt="PrimeVue Designer" :src="coverImage" class="w-full" />
             </div>
@@ -18,9 +18,9 @@
                     <div class="w-full md:w-6">
                         <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
                         <div class="text-900 text-5xl font-bold mb-3">Best Features of Figma</div>
-                        <p class="mb-3">PrimeOne for Figma uses the latest powerful features like components, variants, auto layout, styles and interactive components. It'll always follow the best practices.</p>
+                        <p class="mb-3 text-lg">PrimeOne for Figma uses the latest powerful features like components, variants, auto layout, styles and interactive components. It'll always follow the best practices.</p>
 
-                        <ul class="flex flex-wrap m-0 p-0">
+                        <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex align-items-center w-6 p-3">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Auto Layout</span>
@@ -48,9 +48,9 @@
                     <div class="w-full md:w-6">
                         <div class="text-primary font-bold mb-2">ENTERPRISE GRADE</div>
                         <div class="text-900 text-5xl font-bold mb-3">Powerful System</div>
-                        <p class="mb-3">Save countless hours on every project with a carefully designed system that uses Prime UI Suite components. Start producing design results in no time.</p>
+                        <p class="mb-3 text-lg">Save countless hours on every project with a carefully designed system that uses Prime UI Suite components. Start producing design results in no time.</p>
 
-                        <ul class="flex flex-wrap m-0 p-0">
+                        <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex align-items-center w-6 p-3">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Numerous Components</span>
@@ -80,9 +80,9 @@
                     <div class="w-full md:w-6">
                         <div class="text-primary font-bold mb-2">DARK MODE</div>
                         <div class="text-900 text-5xl font-bold mb-3">Two Themes</div>
-                        <p class="mb-3">PrimeOne is designed based on Lara Blue Light and Lara Blue Dark themes. Easily change the themes of your designs using Figma's Swap Library feature.</p>
+                        <p class="mb-3 text-lg">PrimeOne is designed based on Lara Blue Light and Lara Blue Dark themes. Easily change the themes of your designs using Figma's Swap Library feature.</p>
 
-                        <ul class="flex flex-wrap m-0 p-0">
+                        <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex align-items-center w-6 p-3">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Lara Light</span>
@@ -117,7 +117,7 @@
 
             <div class="card mb-5" style="border-radius: 50px">
                 <div class="text-900 font-bold text-5xl mb-4 text-center">Pricing</div>
-                <div class="mb-2 text-center line-height-3">Choose the right plan for your business. Whether you are an individual or a member of a team, UI Kit is available for affordable prices.</div>
+                <div class="mb-2 text-center line-height-3 text-lg">Choose the right plan for your business. Whether you are an individual or a member of a team, UI Kit is available for affordable prices.</div>
                 <a href="https://www.primefaces.org/uikit/licenses" class="mb-6 text-primary-500 no-underline hover:underline text-center block">View Licence Details</a>
 
                 <div class="grid">
@@ -132,7 +132,7 @@
                                     <span v-if="pricing.single.new" :class="pricing.single.new.class ? pricing.single.new.class : ''">{{ pricing.single.new.value || '' }}</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                                <ul class="list-none p-0 m-0 flex-grow-1">
+                                <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span class="font-bold">1 Designer</span>
@@ -173,7 +173,7 @@
                                     <span v-if="pricing.team.new" :class="pricing.team.new.class ? pricing.team.new.class : ''">{{ pricing.team.new.value || '' }}</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                                <ul class="list-none p-0 m-0 flex-grow-1">
+                                <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span class="font-bold">Up to 5 Designers</span>
@@ -213,7 +213,7 @@
                                     <span v-if="pricing.enterprise.new" :class="pricing.enterprise.new.class ? pricing.enterprise.new.class : ''">{{ pricing.enterprise.new.value || '' }}</span>
                                 </div>
                                 <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                                <ul class="list-none p-0 m-0 flex-grow-1">
+                                <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
                                     <li class="flex align-items-center mb-3">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span class="font-bold">Unlimited Designers</span>
@@ -247,44 +247,44 @@
                 <span class="block font-bold text-5xl mb-5 text-center text-900">Frequently Asked Questions</span>
                 <div class="grid">
                     <div class="col-12 lg:col-4 px-2 lg:px-5">
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">What do I get when I purchase a license?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">You'll be able to download two Figma files for light and dark themes.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">What do I get when I purchase a license?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">You'll be able to download two Figma files for light and dark themes.</p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">Is there a recurring fee or is the license perpetual?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">UI Kit license is perpetual so requires one time payment, not subscription based.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">Is there a recurring fee or is the license perpetual?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">UI Kit license is perpetual so requires one time payment, not subscription based.</p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">Can I use UI Kit license for commercial projects?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">Yes, your license allows you to sell your projects that utilize the UI Kit implementations.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">Can I use UI Kit license for commercial projects?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">Yes, your license allows you to sell your projects that utilize the UI Kit implementations.</p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">Can I create multiple projects for multiple clients?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">There is no limit, you are able to use UI Kit in multiple projects for multiple clients.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">Can I create multiple projects for multiple clients?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">There is no limit, you are able to use UI Kit in multiple projects for multiple clients.</p>
                     </div>
                     <div class="col-12 lg:col-4 px-2 lg:px-5">
                         <div class="text-xl text-900 line-height-3 mb-2 text-900">We're a reseller, are we able to purchase a license on behalf of our client?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">
                             Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="text-primary-500 no-underline hover:underline">contact us</a> so we can transfer the license to your client.
                         </p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">Does the enterprise license include contractors within the organization?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">Yes, contractors are also able to use the UI Kit within your company.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">Does the enterprise license include contractors within the organization?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">Yes, contractors are also able to use the UI Kit within your company.</p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">Can subsidiary company of a larger organization share the enterprise license?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">No, enterprise license is per company so each subsidiary company needs to purchase a separate license.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">Can subsidiary company of a larger organization share the enterprise license?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">No, enterprise license is per company so each subsidiary company needs to purchase a separate license.</p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">What does "free updates" mean?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">All updates will be totally free of charge for existing customers for an unlimited period.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">What does "free updates" mean?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">All updates will be totally free of charge for existing customers for an unlimited period.</p>
                     </div>
                     <div class="col-12 lg:col-4 px-2 lg:px-5">
                         <div class="text-xl text-900 line-height-3 mb-2 text-900">How can I get support?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">
                             Support is provided by PrimeTek via <a href="https://forum.primefaces.org/viewforum.php?f=159" class="text-primary-500 no-underline hover:underline">a dedicated forum channel monitored</a> by PrimeTek support staff.
                         </p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">What does lifetime support mean?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">Support service at the forum does not have a time limit.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">What does lifetime support mean?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">Support service at the forum does not have a time limit.</p>
 
-                        <div class="text-xl text-900 line-height-3 mb-2 text-900">Can I include UI Kit in an open source project?</div>
-                        <p class="mt-0 mb-6 p-0 line-height-3">Due to the license, it is not possible to use the UI Kit in an open source project where the design files are publicly available.</p>
+                        <div class="text-xl text-900 line-height-3 mb-2 font-medium text-900">Can I include UI Kit in an open source project?</div>
+                        <p class="mt-0 mb-6 p-0 line-height-3 text-lg text-800">Due to the license, it is not possible to use the UI Kit in an open source project where the design files are publicly available.</p>
                     </div>
                 </div>
             </div>
