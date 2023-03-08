@@ -84,8 +84,8 @@ export default {
             label && label.parentElement.scrollIntoView({ block: 'start', behavior });
         },
         onButtonClick(doc) {
-            this.activeId = doc.id;
             setTimeout(() => {
+                this.activeId = doc.id;
                 this.scrollToLabelById(doc.id, 'smooth');
                 this.isScrollBlocked = true;
             }, 1);
