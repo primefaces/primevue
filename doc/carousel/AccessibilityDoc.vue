@@ -7,16 +7,18 @@
         </p>
 
         <p>
-            A slide has a <i>group</i> role with an aria-label that refers to the <i>aria.slideNumber</i> property of the <NuxtLink to="/locale">locale</NuxtLink> API. Similarly <i>aria.slide</i> is used as the <i>aria-roledescription</i> of the
-            item. Inactive slides are hidden from the readers with <i>aria-hidden</i>.
+            A slide has a <i>group</i> role with an aria-label that refers to the <i>aria.slideNumber</i> property of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API. Similarly <i>aria.slide</i> is used as the
+            <i>aria-roledescription</i> of the item. Inactive slides are hidden from the readers with <i>aria-hidden</i>.
         </p>
 
         <p>
-            Next and Previous navigators are button elements with <i>aria-label</i> attributes referring to the <i>aria.prevPageLabel</i> and <i>aria.nextPageLabel</i> properties of the <NuxtLink to="/locale">locale</NuxtLink> API by default
-            respectively, you may still use your own aria roles and attributes as any valid attribute is passed to the button elements implicitly by using <i>nextButtonProps</i> and <i>prevButtonProps</i>.
+            Next and Previous navigators are button elements with <i>aria-label</i> attributes referring to the <i>aria.prevPageLabel</i> and <i>aria.nextPageLabel</i> properties of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API by
+            default respectively, you may still use your own aria roles and attributes as any valid attribute is passed to the button elements implicitly by using <i>nextButtonProps</i> and <i>prevButtonProps</i>.
         </p>
 
-        <p>Quick navigation elements are button elements with an <i>aria-label</i> attribute referring to the <i>aria.pageLabel</i> of the <NuxtLink to="/locale">locale</NuxtLink> API. Current page is marked with <i>aria-current</i>.</p>
+        <p>
+            Quick navigation elements are button elements with an <i>aria-label</i> attribute referring to the <i>aria.pageLabel</i> of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API. Current page is marked with <i>aria-current</i>.
+        </p>
 
         <h3>Next/Prev Keyboard Support</h3>
         <div class="doc-tablewrapper">

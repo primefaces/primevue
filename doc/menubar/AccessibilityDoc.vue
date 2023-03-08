@@ -9,8 +9,8 @@
 
         <p>
             In mobile viewports, a menu icon appears with a <i>button</i> role along with <i>aria-haspopup</i>, <i>aria-expanded</i> and <i>aria-controls</i> to manage the relation between the overlay menubar and the button. The value to describe the
-            button can be defined <i>aria-label</i> or <i>aria-labelledby</i> specified using <i>buttonProps</i>, by default <i>navigation</i> key of the <i>aria</i> property from the <router-link to="/locale">locale</router-link> API as the
-            <i>aria-label</i>.
+            button can be defined <i>aria-label</i> or <i>aria-labelledby</i> specified using <i>buttonProps</i>, by default <i>navigation</i> key of the <i>aria</i> property from the <router-link to="/configuration/#locale">locale</router-link> API
+            as the <i>aria-label</i>.
         </p>
 
         <h3>Keyboard Support</h3>
