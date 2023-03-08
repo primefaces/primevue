@@ -3629,7 +3629,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "\"left\" | \"top\" | \"bottom\" | \"right\"",
-                            "default": "'left'",
+                            "default": "left",
                             "description": "Position of the icon."
                         },
                         {
