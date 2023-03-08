@@ -7,9 +7,9 @@
                 <i class="pi pi-github absolute text-200" style="bottom: -50px; right: -50px; font-size: 200px; transform: rotateX(45deg) rotateY(0deg) rotateZ(-45deg)"></i>
                 <div class="text-xl text-900 font-semibold mb-3 relative">Community Support</div>
                 <p class="m-0 line-height-3 relative text-lg text-800">
-                    <a href="https://forum.primefaces.org/viewforum.php?f=110" class="font-bold hover:underline text-primary">Forum</a> and <a href="https://discord.gg/gzKFYnpmCY" class="font-bold hover:underline text-primary">Discord</a> are where
-                    the community users gather to seek support, post topics and discuss the technology. GitHub issue tracker is the channel where community users can create tickets however PrimeTek does not guarantee a response time although they are
-                    monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PRO support instead.
+                    <a href="https://forum.primefaces.org/viewforum.php?f=110" class="font-semibold hover:underline text-primary">Forum</a> and <a href="https://discord.gg/gzKFYnpmCY" class="font-semibold hover:underline text-primary">Discord</a> are
+                    where the community users gather to seek support, post topics and discuss the technology. GitHub issue tracker is the channel where community users can create tickets however PrimeTek does not guarantee a response time although
+                    they are monitored and maintained by our staff. If you need to secure our response within 1 business day, you may consider PRO support instead.
                 </p>
             </div>
             <div class="card m-0 xl:w-9 text-white bg-cover" style="background-image: url('https://primefaces.org/cdn/primevue/images/support/card-pro.jpg')">

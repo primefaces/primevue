@@ -8,8 +8,8 @@
         <div class="doc-intro">
             <h1>Roadmap</h1>
             <p>
-                At <a href="https://www.primetek.com.tr/" class="font-bold hover:underline text-primary">PrimeTek</a>, we are passionate about improving PrimeVue and would like to share our ideas for 2023 with the community. These are planned to be
-                implemented in parallel to the regular maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support. This page is updated on changes so please visit it to learn more about what is coming up next.
+                At <a href="https://www.primetek.com.tr/" class="font-semibold hover:underline text-primary">PrimeTek</a>, we are passionate about improving PrimeVue and would like to share our ideas for 2023 with the community. These are planned to
+                be implemented in parallel to the regular maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support. This page is updated on changes so please visit it to learn more about what is coming up next.
             </p>
         </div>
 
