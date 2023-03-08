@@ -9,7 +9,7 @@
             <li :class="{ 'doc-tabmenu-active': tab === 0 }">
                 <button type="button" @click="tab = 0">COMPONENT</button>
             </li>
-            <li :class="{ 'doc-tabmenu-active': tab === 1 }">
+            <li v-if="apiDocs && apiDocs.length > 0" :class="{ 'doc-tabmenu-active': tab === 1 }">
                 <button type="button" @click="tab = 1">API</button>
             </li>
         </ul>
