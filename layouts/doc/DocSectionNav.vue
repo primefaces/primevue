@@ -3,7 +3,7 @@
         <li v-for="doc of docs" :key="doc.label" :class="['navbar-item', { 'active-navbar-item': activeId === doc.id }]">
             <div class="navbar-item-content">
                 <NuxtLink :to="`${checkRouteName}/#${doc.id}`">
-                    <button class="p-link">{{ doc.label }}</button>
+                    <button class="p-link" @click="onButtonClick(doc)">{{ doc.label }}</button>
                 </NuxtLink>
             </div>
 
