@@ -35,20 +35,21 @@ export default {
 import { NodeService } from '@/service/NodeService';
 
 export default {
-data() {
-    return {
-        nodes: null
-    };
-},
-mounted() {
-    NodeService.getTreeNodes().then((data) => (this.nodes = data));
-},
-methods: {
-    onNodeSelect(node) {
-        this.$toast.add({ severity: 'success', summary: 'Node Selected', detail: node.label, life: 3000 });
+    data() {
+        return {
+            nodes: null
+        };
     },
-    onNodeUnselect(node) {
-        this.$toast.add({ severity: 'success', summary: 'Node Unselected', detail: node.label, life: 3000 });
+    mounted() {
+        NodeService.getTreeNodes().then((data) => (this.nodes = data));
+    },
+    methods: {
+        onNodeSelect(node) {
+            this.$toast.add({ severity: 'success', summary: 'Node Selected', detail: node.label, life: 3000 });
+        },
+        onNodeUnselect(node) {
+            this.$toast.add({ severity: 'success', summary: 'Node Unselected', detail: node.label, life: 3000 });
+        }
     }
 }
 <\/script>`,
