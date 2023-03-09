@@ -259,13 +259,13 @@ const CalendarProps = [
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
     {
         name: 'inputStyle',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the input field.'
     },
@@ -277,13 +277,13 @@ const CalendarProps = [
     },
     {
         name: 'panelClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the overlay panel.'
     },
     {
         name: 'panelStyle',
-        type: 'string',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the overlay panel.'
     },

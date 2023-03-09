@@ -37,11 +37,11 @@ export interface RadioButtonProps {
     /**
      * Inline style of the input field.
      */
-    inputStyle?: any;
+    inputStyle?: object | undefined;
     /**
      * Style class of the input field.
      */
-    inputClass?: any;
+    inputClass?: string | object | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */

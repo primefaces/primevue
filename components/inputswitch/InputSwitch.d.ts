@@ -35,11 +35,11 @@ export interface InputSwitchProps {
     /**
      * Style class of the input field.
      */
-    inputClass?: any | undefined;
+    inputClass?: string | object | undefined;
     /**
      * Inline style of the input field.
      */
-    inputStyle?: any | undefined;
+    inputStyle?: object | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */

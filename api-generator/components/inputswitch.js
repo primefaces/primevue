@@ -25,13 +25,13 @@ const InputSwitchProps = [
     },
     {
         name: 'inputStyle',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the input field.'
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },

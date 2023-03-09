@@ -133,7 +133,7 @@ const AutoCompleteProps = [
     },
     {
         name: 'inputClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -151,7 +151,7 @@ const AutoCompleteProps = [
     },
     {
         name: 'panelClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the overlay panel.'
     },

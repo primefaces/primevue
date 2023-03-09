@@ -97,13 +97,13 @@ const PasswordProps = [
     },
     {
         name: 'inputStyle',
-        type: 'any',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the input field.'
     },
     {
         name: 'inputClass',
-        type: 'any',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the input field.'
     },
@@ -121,13 +121,13 @@ const PasswordProps = [
     },
     {
         name: 'panelClass',
-        type: 'string',
+        type: 'string | object',
         default: 'null',
         description: 'Style class of the overlay panel.'
     },
     {
         name: 'panelStyle',
-        type: 'string',
+        type: 'object',
         default: 'null',
         description: 'Inline style of the overlay panel.'
     },

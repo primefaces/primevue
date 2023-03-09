@@ -90,11 +90,11 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Inline style of the input field.
      */
-    inputStyle?: any | undefined;
+    inputStyle?: object | undefined;
     /**
      * Style class of the input field.
      */
-    inputClass?: any | undefined;
+    inputClass?: string | object | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
@@ -106,11 +106,11 @@ export interface PasswordProps extends InputHTMLAttributes {
     /**
      * Style class of the overlay panel.
      */
-    panelClass?: any | undefined;
+    panelClass?: string | object | undefined;
     /**
      * Inline style of the overlay panel.
      */
-    panelStyle?: any | undefined;
+    panelStyle?: object | undefined;
     /**
      * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */

@@ -67,11 +67,11 @@ export interface CheckboxProps {
     /**
      * Style class of the input field.
      */
-    inputClass?: any | undefined;
+    inputClass?: object | undefined;
     /**
      * Inline style of the input field.
      */
-    inputStyle?: any | undefined;
+    inputStyle?: string | object | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */

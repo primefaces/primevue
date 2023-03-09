@@ -222,11 +222,11 @@ export default {
             default: null
         },
         inputStyle: {
-            type: null,
+            type: Object,
             default: null
         },
         inputClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         inputProps: {
@@ -234,11 +234,11 @@ export default {
             default: null
         },
         panelStyle: {
-            type: null,
+            type: Object,
             default: null
         },
         panelClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         panelProps: {
@@ -250,7 +250,7 @@ export default {
             default: 'pi pi-chevron-down'
         },
         dropdownClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         loadingIcon: {

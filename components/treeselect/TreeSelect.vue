@@ -128,11 +128,11 @@ export default {
             default: null
         },
         inputClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         inputStyle: {
-            type: null,
+            type: Object,
             default: null
         },
         inputProps: {
@@ -140,7 +140,7 @@ export default {
             default: null
         },
         panelClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         panelProps: {
