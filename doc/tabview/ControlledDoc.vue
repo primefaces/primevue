@@ -4,12 +4,12 @@
     </DocSectionText>
     <div class="card">
         <div class="py-2">
-            <Button @click="active1 = 0" text label="Activate 1st" />
-            <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
+            <Button @click="active = 0" text label="Activate 1st" />
+            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
-        <TabView ref="tabview2" v-model:activeIndex="active1">
+        <TabView v-model:activeIndex="active">
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -37,16 +37,16 @@
 export default {
     data() {
         return {
-            active1: 0,
+            active: 0,
             code: {
                 basic: `
 <div class="py-2">
-    <Button @click="active1 = 0" text label="Activate 1st" />
-    <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
-    <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
+    <Button @click="active = 0" text label="Activate 1st" />
+    <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+    <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
 </div>
 
-<TabView ref="tabview2" v-model:activeIndex="active1">
+<TabView v-model:activeIndex="active">
     <TabPanel header="Header I">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -65,18 +65,17 @@ export default {
             officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
         </p>
     </TabPanel>
-</TabView>
-              `,
+</TabView>`,
                 options: `
 <template>
     <div class="card">
         <div class="py-2">
-            <Button @click="active1 = 0" text label="Activate 1st" />
-            <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
+            <Button @click="active = 0" text label="Activate 1st" />
+            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
-        <TabView ref="tabview2" v-model:activeIndex="active1">
+        <TabView v-model:activeIndex="active">
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -103,22 +102,21 @@ export default {
 export default {
     data() {
         return {
-            active1: 0
+            active: 0
         };
     }
 };
-<\\/script>
-  `,
+<\/script>`,
                 composition: `
 <template>
     <div class="card">
         <div class="py-2">
-            <Button @click="active1 = 0" text label="Activate 1st" />
-            <Button @click="active1 = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active1 = 2" text class="mr-2" label="Activate 3rd" />
+            <Button @click="active = 0" text label="Activate 1st" />
+            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
+            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
         </div>
 
-        <TabView ref="tabview2" v-model:activeIndex="active1">
+        <TabView v-model:activeIndex="active">
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -144,9 +142,8 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const active1 = ref(0);
-<\\/script>
-  `
+const active = ref(0);
+<\/script>`
             }
         };
     }

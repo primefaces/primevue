@@ -27,11 +27,10 @@ export default {
     <TabPanel v-for="tab in tabs" :key="tab.title" :header="tab.title">
         <p>{{ tab.content }}</p>
     </TabPanel>
-</TabView>
-              `,
+</TabView>`,
                 options: `
 <template>
-  <div class="card">
+    <div class="card">
         <TabView>
             <TabPanel v-for="tab in tabs" :key="tab.title" :header="tab.title">
                 <p>{{ tab.content }}</p>
@@ -52,11 +51,10 @@ export default {
         };
     }
 };
-<\\/script>
-  `,
+<\/script>`,
                 composition: `
 <template>
-  <div class="card">
+    <div class="card">
         <TabView>
             <TabPanel v-for="tab in tabs" :key="tab.title" :header="tab.title">
                 <p>{{ tab.content }}</p>
@@ -73,8 +71,7 @@ const tabs = ref([
     { title: 'Tab 2', content: 'Tab 2 Content' },
     { title: 'Tab 3', content: 'Tab 3 Content' }
 ]);
-<\\/script>
-  `
+<\/script>`
             }
         };
     }

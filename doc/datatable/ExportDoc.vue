@@ -73,7 +73,7 @@ export default {
         }
     }
 }
-<\\/script>
+<\/script>
 `,
                 composition: `
 <template>
@@ -105,7 +105,7 @@ const products = ref();
 const exportCSV = () => {
     dt.value.exportCSV();
 };
-<\\/script>
+<\/script>
 `
             }
         };

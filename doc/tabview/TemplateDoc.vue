@@ -3,7 +3,7 @@
         <p>Custom content for the title section of a panel is defined using the header template.</p>
     </DocSectionText>
     <div class="card">
-        <TabView ref="tabview4" class="tabview-custom">
+        <TabView class="tabview-custom">
             <TabPanel>
                 <template #header>
                     <i class="pi pi-calendar mr-2"></i>
@@ -46,7 +46,7 @@ export default {
         return {
             code: {
                 basic: `
-<TabView ref="tabview4" class="tabview-custom">
+<TabView class="tabview-custom">
     <TabPanel>
         <template #header>
             <i class="pi pi-calendar mr-2"></i>
@@ -78,12 +78,11 @@ export default {
             officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
         </p>
     </TabPanel>
-</TabView>
-              `,
+</TabView>`,
                 options: `
 <template>
     <div class="card">
-        <TabView ref="tabview4" class="tabview-custom">
+        <TabView class="tabview-custom">
             <TabPanel>
                 <template #header>
                     <i class="pi pi-calendar mr-2"></i>
@@ -120,12 +119,11 @@ export default {
 </template>
 
 <script>
-<\\/script>
-  `,
+<\/script>`,
                 composition: `
 <template>
     <div class="card">
-        <TabView ref="tabview4" class="tabview-custom">
+        <TabView class="tabview-custom">
             <TabPanel>
                 <template #header>
                     <i class="pi pi-calendar ml-2"></i>
@@ -162,8 +160,7 @@ export default {
 </template>
 
 <script setup>
-<\\/script>
-  `
+<\/script>`
             }
         };
     }

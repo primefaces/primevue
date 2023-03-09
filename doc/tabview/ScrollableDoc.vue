@@ -23,11 +23,10 @@ export default {
     <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
         <p>{{ tab.content }}</p>
     </TabPanel>
-</TabView>
-              `,
+</TabView>`,
                 options: `
 <template>
-  <div class="card">
+    <div class="card">
         <TabView :scrollable="true">
             <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
                 <p>{{ tab.content }}</p>
@@ -44,11 +43,10 @@ export default {
         };
     }
 };
-<\\/script>
-  `,
+<\/script>`,
                 composition: `
 <template>
-  <div class="card">
+    <div class="card">
         <TabView :scrollable="true">
             <TabPanel v-for="tab in scrollableTabs" :key="tab.title" :header="tab.title">
                 <p>{{ tab.content }}</p>
@@ -61,8 +59,7 @@ export default {
 import { ref } from 'vue';
 
 const scrollableTabs = ref(Array.from({ length: 50 }, (_, i) => ({ title: \`Tab \${i + 1}\`, content: \`Tab \${i + 1} Content\` })));
-<\\/script>
-  `
+<\/script>`
             }
         };
     }

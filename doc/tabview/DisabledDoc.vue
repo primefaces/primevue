@@ -3,7 +3,7 @@
         <p>Enabling <i>disabled</i> property of a TabPanel prevents user interaction.</p>
     </DocSectionText>
     <div class="card">
-        <TabView ref="tabview3">
+        <TabView>
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -34,7 +34,7 @@ export default {
         return {
             code: {
                 basic: `
-<TabView ref="tabview3">
+<TabView>
     <TabPanel header="Header I">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -55,12 +55,11 @@ export default {
         </p>
     </TabPanel>
     <TabPanel header="Header IV" :disabled="true"></TabPanel>
-</TabView>
-              `,
+</TabView>`,
                 options: `
 <template>
     <div class="card">
-        <TabView ref="tabview3">
+        <TabView>
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -85,12 +84,11 @@ export default {
 </template>
 
 <script>
-<\\/script>
-  `,
+<\/script>`,
                 composition: `
 <template>
     <div class="card">
-        <TabView ref="tabview3">
+        <TabView>
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -115,8 +113,7 @@ export default {
 </template>
 
 <script setup>
-<\\/script>
-  `
+<\/script>`
             }
         };
     }

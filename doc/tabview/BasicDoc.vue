@@ -3,7 +3,7 @@
         <p>TabView consists of one or more TabPanel elements.</p>
     </DocSectionText>
     <div class="card">
-        <TabView ref="tabview1">
+        <TabView>
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -33,7 +33,7 @@ export default {
         return {
             code: {
                 basic: `
-<TabView ref="tabview1">
+<TabView>
     <TabPanel header="Header I">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -57,7 +57,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <TabView ref="tabview1">
+        <TabView>
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -81,12 +81,12 @@ export default {
 </template>
 
 <script>
-<\\/script>
+<\/script>
     `,
                 composition: `
 <template>
     <div class="card">
-        <TabView ref="tabview1">
+        <TabView>
             <TabPanel header="Header I">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -110,7 +110,7 @@ export default {
 </template>
 
 <script setup>
-<\\/script>
+<\/script>
     `
             }
         };
