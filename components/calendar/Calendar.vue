@@ -96,7 +96,7 @@
                                             {{ getYear(month) }}
                                         </button>
                                         <span v-if="currentView === 'year'" class="p-datepicker-decade">
-                                            <slot name="decade" :years="yearPickerValues.map((e) => e.value)"> {{ yearPickerValues[0].value }} - {{ yearPickerValues[yearPickerValues.length - 1].value }} </slot>
+                                            <slot name="decade" :years="yearPickerValues"> {{ yearPickerValues[0].value }} - {{ yearPickerValues[yearPickerValues.length - 1].value }} </slot>
                                         </span>
                                     </div>
                                     <button
@@ -161,11 +161,11 @@
                                 @click="onMonthSelect($event, { month: m, index: i })"
                                 @keydown="onMonthCellKeydown($event, { month: m, index: i })"
                                 class="p-monthpicker-month"
-                                :class="{ 'p-highlight': isMonthSelected(i), 'p-disabled': m.isDisabled }"
+                                :class="{ 'p-highlight': isMonthSelected(i), 'p-disabled': !m.selectable }"
                             >
-                                {{ m.label }}
+                                {{ m.value }}
                                 <div v-if="isMonthSelected(i)" class="p-hidden-accessible" aria-live="polite">
-                                    {{ m.label }}
+                                    {{ m.value }}
                                 </div>
                             </span>
                         </div>
@@ -177,7 +177,7 @@
                                 @click="onYearSelect($event, y)"
                                 @keydown="onYearCellKeydown($event, y)"
                                 class="p-yearpicker-year"
-                                :class="{ 'p-highlight': isYearSelected(y.value), 'p-disabled': y.isDisabled }"
+                                :class="{ 'p-highlight': isYearSelected(y.value), 'p-disabled': !y.selectable }"
                             >
                                 {{ y.value }}
                                 <div v-if="isYearSelected(y.value)" class="p-hidden-accessible" aria-live="polite">
@@ -1649,7 +1649,7 @@ export default {
             }
         },
         onMonthSelect(event, { month, index }) {
-            if (month.isDisabled) return;
+            // if (month.selectable) return;
 
             if (this.view === 'month') {
                 this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
@@ -1662,7 +1662,7 @@ export default {
             setTimeout(this.updateFocus, 0);
         },
         onYearSelect(event, year) {
-            if (year.isDisabled) return;
+            // if (year.isSelectable) return;
 
             if (this.view === 'year') {
                 this.onDateSelect(event, { year: year.value, month: 0, day: 1, selectable: true });
@@ -2898,21 +2898,30 @@ export default {
         monthPickerValues() {
             let monthPickerValues = [];
 
-            const fromYear = this.minDate?.getFullYear();
-            const fromMonth = this.minDate?.getMonth();
-            const toYear = this.maxDate?.getFullYear();
-            const toMonth = this.maxDate?.getMonth();
+            const isSelectableMonth = (baseMonth) => {
+                if (this.minDate) {
+                    const minMonth = this.minDate.getMonth();
+                    const minYear = this.minDate.getFullYear();
 
-            let monthStart = this.currentYear === fromYear ? fromMonth : 0;
-            const monthEnd = this.currentYear === toYear ? toMonth : 11;
+                    if (this.currentYear < minYear || (this.currentYear === minYear && baseMonth < minMonth)) {
+                        return false;
+                    }
+                }
+
+                if (this.maxDate) {
+                    const maxMonth = this.maxDate.getMonth();
+                    const maxYear = this.maxDate.getFullYear();
+
+                    if (this.currentYear > maxYear || (this.currentYear === maxYear && baseMonth > maxMonth)) {
+                        return false;
+                    }
+                }
+
+                return true;
+            };
 
             for (let i = 0; i <= 11; i++) {
-                const label = this.$primevue.config.locale.monthNamesShort[i];
-
-                monthPickerValues.push({
-                    label,
-                    isDisabled: this.currentYear < fromYear || this.currentYear > toYear || i < monthStart || i > monthEnd
-                });
+                monthPickerValues.push({ value: this.$primevue.config.locale.monthNamesShort[i], selectable: isSelectableMonth(i) });
             }
 
             return monthPickerValues;
@@ -2921,13 +2930,20 @@ export default {
             let yearPickerValues = [];
             let base = this.currentYear - (this.currentYear % 10);
 
-            for (let i = 0; i < 10; i++) {
-                const value = base + i;
+            const isSelectableYear = (baseYear) => {
+                if (this.minDate) {
+                    if (this.minDate.getFullYear() > baseYear) return false;
+                }
 
-                yearPickerValues.push({
-                    value,
-                    isDisabled: (this.minDate || this.maxDate) && (value < this.minDate?.getFullYear() || value > this.maxDate?.getFullYear())
-                });
+                if (this.maxDate) {
+                    if (this.maxDate.getFullYear() < baseYear) return false;
+                }
+
+                return true;
+            };
+
+            for (let i = 0; i < 10; i++) {
+                yearPickerValues.push({ value: base + i, selectable: isSelectableYear(base + i) });
             }
 
             return yearPickerValues;
