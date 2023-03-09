@@ -65,7 +65,7 @@ export interface SelectButtonProps {
     dataKey?: string | undefined;
     /**
      * Whether selection can be cleared.
-     * @defaultValue true
+     * @defaultValue false
      */
     unselectable?: boolean | undefined;
     /**

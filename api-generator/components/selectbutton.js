@@ -50,7 +50,7 @@ const SelectButtonProps = [
     {
         name: 'unselectable',
         type: 'boolean',
-        default: 'true',
+        default: 'false',
         description: 'Whether selection can be cleared.'
     },
     {

@@ -38,7 +38,7 @@ export default {
         multiple: Boolean,
         unselectable: {
             type: Boolean,
-            default: true
+            default: false
         },
         disabled: Boolean,
         dataKey: null,
