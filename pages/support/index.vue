@@ -28,7 +28,7 @@
                     <p class="m-0 line-height-3 mb-5 text-secondary text-lg text-800">1 Year Subscription</p>
                 </div>
                 <a
-                    href="mailto:primereact@primetek.com.tr"
+                    href="mailto:contact@primetek.com.tr"
                     class="flex align-items-center justify-content-center border-1 bg-indigo-500 border-round block p-3 mb-4 hover:bg-indigo-600 transition-all transition-duration-300 text-white font-medium text-lg"
                 >
                     Get a Quote
