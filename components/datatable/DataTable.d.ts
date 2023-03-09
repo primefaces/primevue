@@ -102,7 +102,7 @@ export interface DataTableExportCSVOptions {
 }
 
 /**
- * Custom tab open event.
+ * Custom sort event.
  * @see {@link DataTableEmits.sort}
  */
 export interface DataTableSortEvent {
@@ -158,8 +158,8 @@ export interface DataTablePageEvent extends DataTableSortEvent {
 }
 
 /**
- * Custom sort event.
- * @see {@link DataTableEmits.sort}
+ * Custom filter event.
+ * @see {@link DataTableEmits.filter}
  * @extends DataTableSortEvent
  */
 export interface DataTableFilterEvent extends DataTableSortEvent {
@@ -196,7 +196,7 @@ export interface DataTableRowClickEvent {
 export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent {}
 
 /**
- * Custom context menu event.
+ * Custom row context menu event.
  * @see {@link DataTableEmits['row-contextmenu']}
  * @extends DataTableRowClickEvent
  */
@@ -274,7 +274,7 @@ export interface DataTableSelectAllChangeEvent {
 }
 
 /**
- * Custom row resize end event.
+ * Custom column resize end event.
  * @see {@link DataTableEmits['column-resize-end']}
  */
 export interface DataTableColumnResizeEndEvent {
@@ -422,7 +422,7 @@ export interface DataTableCellEditCompleteEvent {
 }
 
 /**
- * Custom row edit complete event.
+ * Custom row edit init event.
  * @see {@link DataTableEmits['row-edit-init']}
  */
 export interface DataTableRowEditInitEvent {
@@ -449,8 +449,8 @@ export interface DataTableRowEditInitEvent {
 }
 
 /**
- * Custom row edit init event.
- * @see {@link DataTableEmits['row-edit-complete']}
+ * Custom row edit save event.
+ * @see {@link DataTableEmits['row-edit-save']}
  * @extends DataTableRowEditInitEvent
  */
 export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
