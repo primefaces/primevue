@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="React Sidebar Component" header="Sidebar" description="Sidebar, also known as Drawer, is a container component displayed as an overlay." :componentDocs="docs" :apiDocs="['Sidebar']" />
+    <DocComponent title="Vue Sidebar Component" header="Sidebar" description="Sidebar, also known as Drawer, is a container component displayed as an overlay." :componentDocs="docs" :apiDocs="['Sidebar']" />
 </template>
 
 <script>
