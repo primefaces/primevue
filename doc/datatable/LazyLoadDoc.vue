@@ -156,7 +156,7 @@ export default {
 </template>
 
 <script>
-import {CustomerService} from '@/service/CustomerService';
+import { CustomerService } from '@/service/CustomerService';
 
 export default {
     data() {
@@ -180,10 +180,6 @@ export default {
                 {field: 'representative.name', header: 'Representative'}
             ]
         }
-    },
-    customerService: null,
-    created() {
-        this.customerService = new CustomerService();
     },
     mounted() {
         this.loading = true;
@@ -280,7 +276,7 @@ export default {
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import {CustomerService} from '@/service/CustomerService';
+import { CustomerService } from '@/service/CustomerService';
 
 onMounted(() => {
     loading.value = true;
@@ -302,7 +298,6 @@ const totalRecords = ref(0);
 const customers = ref();
 const selectedCustomers = ref();
 const selectAll = ref(false);
-const customerService = ref(new CustomerService());
 const filters = ref({
     'name': {value: '', matchMode: 'contains'},
     'country.name': {value: '', matchMode: 'contains'},
@@ -321,10 +316,10 @@ const loadLazyData = () => {
     loading.value = true;
 
     setTimeout(() => {
-        CustomerService.getCustomers({ lazyEvent: JSON.stringify(this.lazyParams) }).then((data) => {
-            this.customers = data.customers;
-            this.totalRecords = data.totalRecords;
-            this.loading = false;
+        CustomerService.getCustomers({ lazyEvent: JSON.stringify(lazyParams.value) }).then((data) => {
+            customers.value = data.customers;
+            totalRecords.value = data.totalRecords;
+            loading.value = false;
         });
     }, Math.random() * 1000 + 250);
 };
