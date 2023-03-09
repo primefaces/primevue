@@ -87,7 +87,7 @@ export default {
     </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 
 const colorHEX = ref('6466f1');
