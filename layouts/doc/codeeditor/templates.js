@@ -334,7 +334,7 @@ routes: [{ path: "/", component: ${mainFileName} }]
 });`
         },
         [`${sourceFileName}`]: {
-            content: sources.replaceAll('<\\/script>', '</script>')
+            content: sources
         },
         'public/logo.svg': {
             content: `
