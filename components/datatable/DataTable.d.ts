@@ -422,7 +422,7 @@ export interface DataTableCellEditCompleteEvent {
 }
 
 /**
- * Custom row edit complete event.
+ * Custom row edit init event.
  * @see {@link DataTableEmits['row-edit-init']}
  */
 export interface DataTableRowEditInitEvent {
@@ -449,8 +449,8 @@ export interface DataTableRowEditInitEvent {
 }
 
 /**
- * Custom row edit init event.
- * @see {@link DataTableEmits['row-edit-complete']}
+ * Custom row edit save event.
+ * @see {@link DataTableEmits['row-edit-save']}
  * @extends DataTableRowEditInitEvent
  */
 export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
