@@ -10,7 +10,7 @@
             <ul class="flex list-none m-0 p-0 gap-2 align-items-center">
                 <li>
                     <a
-                        href="https://primefaces.github.io/primevue"
+                        href="https://github.com/primefaces/primevue"
                         class="flex p-link border-1 w-2rem h-2rem surface-border border-round surface-card align-items-center justify-content-center transition-all transition-duration-300 hover:border-primary"
                     >
                         <i class="pi pi-github text-700"></i>
