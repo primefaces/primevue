@@ -44,7 +44,7 @@ export default {
                     let next = this.$el.nextElementSibling;
 
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.left);
+                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
                     this.styleObject.right = right + 'px';
@@ -53,7 +53,7 @@ export default {
                     let prev = this.$el.previousElementSibling;
 
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left);
+                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
                     this.styleObject.left = left + 'px';
