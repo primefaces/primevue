@@ -19355,7 +19355,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true",
+                            "default": "false",
                             "description": "Whether selection can be cleared."
                         }
                     ],
