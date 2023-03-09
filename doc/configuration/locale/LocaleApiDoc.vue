@@ -222,7 +222,7 @@
                     </tr>
                     <tr>
                         <td>firstDayOfWeek</td>
-                        <td></td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>dateFormat</td>
