@@ -2707,7 +2707,7 @@
                             "name": "dropdownClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the dropdown button."
                         },
@@ -2763,7 +2763,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -2787,7 +2787,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -2859,7 +2859,7 @@
                             "name": "panelClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the overlay panel."
                         },
@@ -2875,7 +2875,7 @@
                             "name": "panelStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the overlay panel."
                         },
@@ -4103,7 +4103,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -4127,7 +4127,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -4199,7 +4199,7 @@
                             "name": "panelClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the overlay panel."
                         },
@@ -4215,7 +4215,7 @@
                             "name": "panelStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the overlay panel."
                         },
@@ -5066,7 +5066,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -5090,7 +5090,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -5178,7 +5178,7 @@
                             "name": "panelClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the overlay panel."
                         },
@@ -5194,7 +5194,7 @@
                             "name": "panelStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the overlay panel."
                         },
@@ -5592,7 +5592,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -5616,7 +5616,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -5922,7 +5922,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -5946,7 +5946,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -11204,7 +11204,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -11228,7 +11228,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -11308,7 +11308,7 @@
                             "name": "panelClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the overlay panel."
                         },
@@ -11324,7 +11324,7 @@
                             "name": "panelStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the overlay panel."
                         },
@@ -13833,7 +13833,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -13857,7 +13857,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -14101,7 +14101,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -14125,7 +14125,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -17713,7 +17713,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -17737,7 +17737,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -17769,7 +17769,7 @@
                             "name": "panelClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the overlay panel."
                         },
@@ -17793,7 +17793,7 @@
                             "name": "panelStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the overlay panel."
                         },
@@ -18712,7 +18712,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -18736,7 +18736,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -22175,7 +22175,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -22199,7 +22199,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
@@ -23027,7 +23027,7 @@
                             "name": "inputClass",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "string | object",
                             "default": "",
                             "description": "Style class of the input field."
                         },
@@ -23051,7 +23051,7 @@
                             "name": "inputStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "object",
                             "default": "",
                             "description": "Inline style of the input field."
                         },
