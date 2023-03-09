@@ -31,57 +31,15 @@ export default {
             default: false
         }
     },
+    watch: {
+        mask(newMask, oldMask) {
+            if (oldMask !== newMask) {
+                this.initMask();
+            }
+        }
+    },
     mounted() {
-        this.tests = [];
-        this.partialPosition = this.mask.length;
-        this.len = this.mask.length;
-        this.firstNonMaskPos = null;
-        this.defs = {
-            9: '[0-9]',
-            a: '[A-Za-z]',
-            '*': '[A-Za-z0-9]'
-        };
-
-        let ua = DomHandler.getUserAgent();
-
-        this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
-
-        let maskTokens = this.mask.split('');
-
-        for (let i = 0; i < maskTokens.length; i++) {
-            let c = maskTokens[i];
-
-            if (c === '?') {
-                this.len--;
-                this.partialPosition = i;
-            } else if (this.defs[c]) {
-                this.tests.push(new RegExp(this.defs[c]));
-
-                if (this.firstNonMaskPos === null) {
-                    this.firstNonMaskPos = this.tests.length - 1;
-                }
-
-                if (i < this.partialPosition) {
-                    this.lastRequiredNonMaskPos = this.tests.length - 1;
-                }
-            } else {
-                this.tests.push(null);
-            }
-        }
-
-        this.buffer = [];
-
-        for (let i = 0; i < maskTokens.length; i++) {
-            let c = maskTokens[i];
-
-            if (c !== '?') {
-                if (this.defs[c]) this.buffer.push(this.getPlaceholder(i));
-                else this.buffer.push(c);
-            }
-        }
-
-        this.defaultBuffer = this.buffer.join('');
-        this.updateValue(false);
+        this.initMask();
     },
     updated() {
         if (this.isValueUpdated()) {
@@ -499,6 +457,58 @@ export default {
 
                 this.focusText = this.$el.value;
             }
+        },
+        initMask() {
+            this.tests = [];
+            this.partialPosition = this.mask.length;
+            this.len = this.mask.length;
+            this.firstNonMaskPos = null;
+            this.defs = {
+                9: '[0-9]',
+                a: '[A-Za-z]',
+                '*': '[A-Za-z0-9]'
+            };
+
+            let ua = DomHandler.getUserAgent();
+
+            this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
+
+            let maskTokens = this.mask.split('');
+
+            for (let i = 0; i < maskTokens.length; i++) {
+                let c = maskTokens[i];
+
+                if (c === '?') {
+                    this.len--;
+                    this.partialPosition = i;
+                } else if (this.defs[c]) {
+                    this.tests.push(new RegExp(this.defs[c]));
+
+                    if (this.firstNonMaskPos === null) {
+                        this.firstNonMaskPos = this.tests.length - 1;
+                    }
+
+                    if (i < this.partialPosition) {
+                        this.lastRequiredNonMaskPos = this.tests.length - 1;
+                    }
+                } else {
+                    this.tests.push(null);
+                }
+            }
+
+            this.buffer = [];
+
+            for (let i = 0; i < maskTokens.length; i++) {
+                let c = maskTokens[i];
+
+                if (c !== '?') {
+                    if (this.defs[c]) this.buffer.push(this.getPlaceholder(i));
+                    else this.buffer.push(c);
+                }
+            }
+
+            this.defaultBuffer = this.buffer.join('');
+            this.updateValue(false);
         },
         isValueUpdated() {
             return this.unmask ? this.modelValue != this.getUnmaskedValue() : this.defaultBuffer !== this.$el.value && this.$el.value !== this.modelValue;
