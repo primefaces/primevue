@@ -7703,7 +7703,7 @@
                     "methods": []
                 },
                 "DataTableColumnResizeEndEvent": {
-                    "description": "Custom row resize end event.",
+                    "description": "Custom column resize end event.",
                     "relatedProp": "DataTableEmits['column-resize-end']",
                     "props": [
                         {
@@ -8290,8 +8290,8 @@
                     "methods": []
                 },
                 "DataTableFilterEvent": {
-                    "description": "Custom sort event.",
-                    "relatedProp": "DataTableEmits.sort",
+                    "description": "Custom filter event.",
+                    "relatedProp": "DataTableEmits.filter",
                     "props": [
                         {
                             "name": "filterMatchModes",
@@ -9088,7 +9088,7 @@
                     "extendedTypes": "DataTableRowExpandEvent"
                 },
                 "DataTableRowContextMenuEvent": {
-                    "description": "Custom context menu event.",
+                    "description": "Custom row context menu event.",
                     "relatedProp": "DataTableEmits['row-contextmenu']",
                     "props": [
                         {
@@ -9200,7 +9200,7 @@
                     "extendedTypes": "DataTableRowEditInitEvent"
                 },
                 "DataTableRowEditInitEvent": {
-                    "description": "Custom row edit complete event.",
+                    "description": "Custom row edit init event.",
                     "relatedProp": "DataTableEmits['row-edit-init']",
                     "props": [
                         {
@@ -9248,8 +9248,8 @@
                     "extendedBy": "DataTableRowEditSaveEvent,DataTableRowEditCancelEvent"
                 },
                 "DataTableRowEditSaveEvent": {
-                    "description": "Custom row edit init event.",
-                    "relatedProp": "DataTableEmits['row-edit-complete']",
+                    "description": "Custom row edit save event.",
+                    "relatedProp": "DataTableEmits['row-edit-save']",
                     "props": [
                         {
                             "name": "data",
@@ -9581,7 +9581,7 @@
                     ]
                 },
                 "DataTableSortEvent": {
-                    "description": "Custom tab open event.",
+                    "description": "Custom sort event.",
                     "relatedProp": "DataTableEmits.sort",
                     "props": [
                         {
