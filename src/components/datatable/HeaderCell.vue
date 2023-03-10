@@ -29,6 +29,9 @@ import ColumnSlot from './ColumnSlot.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
 import ColumnFilter from './ColumnFilter.vue';
 
+const ascIcon = 'pi-sort-amount-up';
+const descIcon = 'pi-sort-amount-down';
+
 export default {
     props: {
         column: {
@@ -217,17 +220,17 @@ export default {
             return [
                 'p-sortable-column-icon pi pi-fw', {
                     'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
+                    [ascIcon]: sorted && sortOrder > 0,
+                    [descIcon]: sorted && sortOrder < 0
                 }
             ];
         },
         ariaSort() {
             if (this.columnProp('sortable')) {
                 const sortIcon = this.sortableColumnIcon;
-                if (sortIcon[1]['pi-sort-amount-down'])
+                if (sortIcon[1][descIcon])
                     return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt'])
+                else if (sortIcon[1][ascIcon])
                     return 'ascending';
                 else
                     return 'none';
