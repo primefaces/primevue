@@ -222,7 +222,7 @@ export default {
             const selectAll = event.checked;
 
             if (selectAll) {
-                this.customerService.getCustomers().then(data => {
+                CustomerService.getCustomers().then(data => {
                     this.selectAll = true;
                     this.selectedCustomers = data.customers;
                 });
@@ -339,7 +339,7 @@ const onSelectAllChange = (event) => {
     const selectAll = event.checked;
 
     if (selectAll) {
-        customerService.value.getCustomers().then(data => {
+        CustomerService.getCustomers().then(data => {
             selectAll.value = true;
             selectedCustomers.value = data.customers;
         });
@@ -422,7 +422,7 @@ const onRowUnselect = () => {
             const selectAll = event.checked;
 
             if (selectAll) {
-                this.customerService.getCustomers().then((data) => {
+                CustomerService.getCustomers().then((data) => {
                     this.selectAll = true;
                     this.selectedCustomers = data.customers;
                 });
