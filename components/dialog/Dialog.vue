@@ -8,10 +8,20 @@
                             <span v-if="header" :id="ariaLabelledById" class="p-dialog-title">{{ header }}</span>
                         </slot>
                         <div class="p-dialog-header-icons">
-                            <button v-if="maximizable" :ref="maximizableRef" v-ripple :autofocus="focusable" class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'">
+                            <button v-if="maximizable" :ref="maximizableRef" v-ripple :autofocus="focusableMax" class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'">
                                 <span :class="maximizeIconClass"></span>
                             </button>
-                            <button v-if="closable" :ref="closeButtonRef" v-ripple :autofocus="focusable" class="p-dialog-header-icon p-dialog-header-close p-link" @click="close" :aria-label="closeAriaLabel" type="button" v-bind="closeButtonProps">
+                            <button
+                                v-if="closable"
+                                :ref="closeButtonRef"
+                                v-ripple
+                                :autofocus="focusableClose"
+                                class="p-dialog-header-icon p-dialog-header-close p-link"
+                                @click="close"
+                                :aria-label="closeAriaLabel"
+                                type="button"
+                                v-bind="closeButtonProps"
+                            >
                                 <span :class="['p-dialog-header-close-icon', closeIcon]"></span>
                             </button>
                         </div>
@@ -155,7 +165,8 @@ export default {
         return {
             containerVisible: this.visible,
             maximized: false,
-            focusable: false
+            focusableMax: null,
+            focusableClose: null
         };
     },
     documentKeydownListener: null,
@@ -218,7 +229,8 @@ export default {
         },
         onLeave() {
             this.$emit('hide');
-            this.focusable = false;
+            this.focusableClose = null;
+            this.focusableMax = null;
         },
         onAfterLeave() {
             if (this.autoZIndex) {
@@ -249,14 +261,19 @@ export default {
                     focusTarget = this.$slots.default && findFocusableElement(this.content);
 
                     if (!focusTarget) {
-                        focusTarget = findFocusableElement(this.container);
+                        if (this.maximizable) {
+                            this.focusableMax = true;
+                            focusTarget = this.maximizableButton;
+                        } else {
+                            this.focusableClose = true;
+                            focusTarget = this.closeButton;
+                        }
                     }
                 }
             }
 
             if (focusTarget) {
-                this.focusable = true;
-                focusTarget.focus();
+                DomHandler.focus(focusTarget);
             }
         },
         maximize(event) {
