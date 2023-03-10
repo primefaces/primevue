@@ -75,9 +75,11 @@ export default {
         show(event) {
             this.visible = true;
             this.target = event.currentTarget;
+            this.$emit("show");
         },
         hide() {
             this.visible = false;
+            this.$emit("hide");
         },
         onContentClick() {
             this.selfClick = true;
@@ -121,7 +123,7 @@ export default {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
                     if (this.visible && !this.selfClick && !this.isTargetClicked(event)) {
-                        this.visible = false;
+                        this.hide();
                     }
                     this.selfClick = false;
                 };
@@ -139,7 +141,7 @@ export default {
             if (!this.scrollHandler) {
                 this.scrollHandler = new ConnectedOverlayScrollHandler(this.target, () => {
                     if (this.visible) {
-                        this.visible = false;
+                        this.hide();
                     }
                 });
             }
@@ -155,7 +157,7 @@ export default {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
                     if (this.visible && !DomHandler.isAndroid()) {
-                        this.visible = false;
+                        this.hide();
                     }
                 };
                 window.addEventListener('resize', this.resizeListener);
