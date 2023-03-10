@@ -1,21 +1,21 @@
 // Filter
 export interface FilterMatchModeOptions {
-    readonly STARTS_WITH: 'startsWith',
-    readonly CONTAINS: 'contains',
-    readonly NOT_CONTAINS: 'notContains',
-    readonly ENDS_WITH: 'endsWith',
-    readonly EQUALS: 'equals',
-    readonly NOT_EQUALS: 'notEquals',
-    readonly IN: 'in',
-    readonly LESS_THAN: 'lt',
-    readonly LESS_THAN_OR_EQUAL_TO: 'lte',
-    readonly GREATER_THAN: 'gt',
-    readonly GREATER_THAN_OR_EQUAL_TO: 'gte',
-    readonly BETWEEN: 'between',
-    readonly DATE_IS: 'dateIs',
-    readonly DATE_IS_NOT: 'dateIsNot',
-    readonly DATE_BEFORE: 'dateBefore',
-    readonly DATE_AFTER: 'dateAfter'
+    readonly STARTS_WITH: 'startsWith';
+    readonly CONTAINS: 'contains';
+    readonly NOT_CONTAINS: 'notContains';
+    readonly ENDS_WITH: 'endsWith';
+    readonly EQUALS: 'equals';
+    readonly NOT_EQUALS: 'notEquals';
+    readonly IN: 'in';
+    readonly LESS_THAN: 'lt';
+    readonly LESS_THAN_OR_EQUAL_TO: 'lte';
+    readonly GREATER_THAN: 'gt';
+    readonly GREATER_THAN_OR_EQUAL_TO: 'gte';
+    readonly BETWEEN: 'between';
+    readonly DATE_IS: 'dateIs';
+    readonly DATE_IS_NOT: 'dateIsNot';
+    readonly DATE_BEFORE: 'dateBefore';
+    readonly DATE_AFTER: 'dateAfter';
 }
 
 export declare const FilterMatchMode: FilterMatchModeOptions;
