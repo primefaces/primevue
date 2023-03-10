@@ -2,7 +2,7 @@
     <div className="doc-main">
         <div className="doc-intro">
             <h1>{{ header }} API</h1>
-            <p>API defines helper props, events and others for the PrimeVue {{ header }} module.</p>
+            <p>{{ description }}</p>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -31,7 +31,6 @@ export default {
     mounted() {
         this.docs = this.createDocs();
     },
-
     methods: {
         createDocs() {
             const newDocs = [];
@@ -340,6 +339,12 @@ export default {
             const findMainInterface = interfaces.find((interfaceData) => interfaceData.key.includes('DirectiveBinding'));
 
             return !findMainInterface || findMainInterface.values.props.length > 0;
+        }
+    },
+
+    computed: {
+        description() {
+            return this.doc && this.doc.length > 0 ? `API defines helper props, events and others for the PrimeVue ${this.header} module.` : `${this.header} is a CSS feature so does not provide a Javascript API`;
         }
     }
 };
