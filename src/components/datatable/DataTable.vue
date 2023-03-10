@@ -7,7 +7,7 @@
         <div class="p-datatable-header" v-if="$scopedSlots.header">
             <slot name="header"></slot>
         </div>
-        <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="lazy ? 0 : d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+        <DTPaginator v-if="paginatorTop" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-top" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
             <template #start v-if="$scopedSlots.paginatorstart">
                 <slot name="paginatorstart"></slot>
@@ -47,7 +47,7 @@
                 <DTTableFooter :columnGroup="footerColumnGroup" :columns="columns" />
             </table>
         </div>
-        <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="lazy ? 0 : d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
+        <DTPaginator v-if="paginatorBottom" :rows="d_rows" :first="d_first" :totalRecords="totalRecordsLength" :pageLinkSize="pageLinkSize" :template="paginatorTemplate" :rowsPerPageOptions="rowsPerPageOptions"
                 :currentPageReportTemplate="currentPageReportTemplate" class="p-paginator-bottom" @page="onPage($event)" :alwaysShow="alwaysShowPaginator">
             <template #start v-if="$scopedSlots.paginatorstart">
                 <slot name="paginatorstart"></slot>
@@ -1875,7 +1875,7 @@ export default {
             const data = this.processedData;
 
             if (data && this.paginator) {
-                const first = this.lazy ? 0 : this.d_first;
+                const first = this.d_first;
                 return data.slice(first, first + this.d_rows);
             }
             else {
