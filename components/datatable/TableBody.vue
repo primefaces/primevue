@@ -14,7 +14,7 @@
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData) : true"
                     :key="getRowKey(rowData, getRowIndex(index))"
                     :class="getRowClass(rowData)"
-                    :style="rowStyle"
+                    :style="getRowStyle(rowData)"
                     :tabindex="setRowTabindex(index)"
                     role="row"
                     :aria-selected="selectionMode ? isSelected(rowData) : null"
@@ -310,6 +310,13 @@ export default {
             }
 
             return rowStyleClass;
+        },
+        getRowStyle(rowData) {
+            if (this.rowStyle instanceof Function) {
+                return this.rowStyle(rowData);
+            }
+
+            return this.rowStyle;
         },
         shouldRenderRowGroupFooter(value, rowData, i) {
             if (this.expandableRowGroups && !this.isRowGroupExpanded(rowData)) {
