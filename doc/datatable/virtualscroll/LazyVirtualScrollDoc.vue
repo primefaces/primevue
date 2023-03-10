@@ -265,7 +265,15 @@ const loadCarsLazy = (event) => {
         lazyLoading.value = false;
     }, Math.random() * 1000 + 250);
 };
-<\/script>`
+<\/script>`,
+                data: `
+{
+    id: 1
+    vin: tvACo,
+    brand: Norma,
+    color: Black,
+    year: 2002
+}`
             }
         };
     },

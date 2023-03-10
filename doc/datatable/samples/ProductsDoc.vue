@@ -189,7 +189,7 @@ export default {
                 basic: `
 <Toolbar class="mb-4">
     <template #start>
-        <Button label="New" icon="pi pi-plus" severity="success" class="mr-2 @click="openNew" />
+        <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
         <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
     </template>
     <template #end>
@@ -247,7 +247,7 @@ export default {
         <div class="card">
             <Toolbar class="mb-4">
                 <template #start>
-                    <Button label="New" icon="pi pi-plus" severity="success" class="mr-2 @click="openNew" />
+                    <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
                     <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                 </template>
 
@@ -535,7 +535,7 @@ export default {
         <div class="card">
             <Toolbar class="mb-4">
                 <template #start>
-                    <Button label="New" icon="pi pi-plus" severity="success" class="mr-2 @click="openNew" />
+                    <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
                     <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                 </template>
 
@@ -810,7 +810,21 @@ const getStatusLabel = (status) => {
 };
 
 <\/script>
-`
+`,
+                data: `
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...`
             }
         };
     },

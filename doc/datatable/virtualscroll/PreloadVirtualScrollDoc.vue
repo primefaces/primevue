@@ -83,7 +83,15 @@ const cars = ref();
 onMounted(() => {
     cars.value = Array.from({ length: 100000 }).map((_, i) => CarService.generateCar(i + 1));
 });
-<\/script>`
+<\/script>`,
+                data: `
+{
+    id: 1
+    vin: tvACo,
+    brand: Norma,
+    color: Black,
+    year: 2002
+}`
             }
         };
     },
