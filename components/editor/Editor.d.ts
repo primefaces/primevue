@@ -91,6 +91,7 @@ export interface EditorProps {
     placeholder?: string | undefined;
     /**
      * Whether to instantiate the editor to readonly mode.
+     * @defaultValue false
      */
     readonly?: boolean | undefined;
     /**

@@ -48,10 +48,12 @@ export interface TreeNode {
     styleClass?: string;
     /**
      * Whether the node is selectable when selection mode is enabled.
+     * @defaultValue false
      */
     selectable?: boolean;
     /**
      * Specifies if the node has children. Used in lazy loading.
+     * @defaultValue false
      */
     leaf?: boolean;
     /**
@@ -126,6 +128,7 @@ export interface TreeProps {
     loadingIcon?: string | undefined;
     /**
      * When specified, displays an input field to filter the items.
+     * @defaultValue false
      */
     filter?: boolean | undefined;
     /**

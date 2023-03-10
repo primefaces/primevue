@@ -46,11 +46,12 @@ export interface ChipsProps {
     max?: number | undefined;
     /**
      * Whether to add an item when the input loses focus.
+     * @defaultValue false
      */
     addOnBlur?: boolean | undefined;
     /**
      * Whether to allow duplicate values or not.
-     * @defaultValue true.
+     * @defaultValue true
      */
     allowDuplicate?: boolean | undefined;
     /**

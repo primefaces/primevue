@@ -16,6 +16,7 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface InputSwitchProps {
     /**
      * Specifies whether a inputswitch should be checked or not.
+     * @defaultValue false
      */
     modelValue?: boolean | string | undefined;
     /**

@@ -28,6 +28,7 @@ export interface RadioButtonProps {
     name?: string | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**

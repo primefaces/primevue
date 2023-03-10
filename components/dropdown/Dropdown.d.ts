@@ -80,6 +80,7 @@ export interface DropdownProps {
     scrollHeight?: string | undefined;
     /**
      * When specified, displays a filter input at header.
+     * @defaultValue false
      */
     filter?: boolean | undefined;
     /**
@@ -101,6 +102,7 @@ export interface DropdownProps {
     filterFields?: string[] | undefined;
     /**
      * When present, custom value instead of predefined options can be entered using the editable input field.
+     * @defaultValue false
      */
     editable?: boolean | undefined;
     /**
@@ -109,6 +111,7 @@ export interface DropdownProps {
     placeholder?: string | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**
@@ -117,6 +120,7 @@ export interface DropdownProps {
     dataKey?: string | undefined;
     /**
      * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
      */
     showClear?: boolean | undefined;
     /**
@@ -162,6 +166,7 @@ export interface DropdownProps {
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
      * Whether the dropdown is in loading state.
+     * @defaultValue false
      */
     loading?: boolean | undefined;
     /**
@@ -186,6 +191,7 @@ export interface DropdownProps {
     loadingIcon?: string | undefined;
     /**
      * Clears the filter value when hiding the dropdown.
+     * @defaultValue false
      */
     resetFilterOnHide?: boolean;
     /**

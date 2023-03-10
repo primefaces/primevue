@@ -37,6 +37,7 @@ export interface ConfirmationOptions {
     icon?: string | undefined;
     /**
      * Whether background scroll should be blocked when dialog is visible.
+     * @defaultValue false
      */
     blockScroll?: boolean | undefined;
     /**

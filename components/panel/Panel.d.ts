@@ -35,10 +35,12 @@ export interface PanelProps {
     header?: string;
     /**
      * Defines if content of panel can be expanded and collapsed.
+     * @defaultValue false
      */
     toggleable?: boolean;
     /**
      * Defines the initial state of panel content.
+     * @defaultValue false
      */
     collapsed?: boolean;
     /**

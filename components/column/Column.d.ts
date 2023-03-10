@@ -94,6 +94,7 @@ export interface ColumnProps {
     dataType?: string | undefined;
     /**
      * Defines if a column is sortable.
+     * @defaultValue false
      */
     sortable?: boolean | undefined;
     /**
@@ -177,6 +178,7 @@ export interface ColumnProps {
     maxConstraints?: number | undefined;
     /**
      * Whether to exclude from global filtering or not.
+     * @defaultValue false
      */
     excludeGlobalFilter?: boolean | undefined;
     /**
@@ -201,6 +203,7 @@ export interface ColumnProps {
     selectionMode?: 'single' | 'multiple' | undefined;
     /**
      * Displays an icon to toggle row expansion.
+     * @defaultValue false
      */
     expander?: boolean | undefined;
     /**
@@ -213,6 +216,7 @@ export interface ColumnProps {
     rowspan?: number | undefined;
     /**
      * Whether this column displays an icon to reorder the rows.
+     * @defaultValue false
      */
     rowReorder?: boolean | undefined;
     /**
@@ -222,14 +226,17 @@ export interface ColumnProps {
     rowReorderIcon?: string | undefined;
     /**
      * Defines if the column itself can be reordered with dragging.
+     * @defaultValue false
      */
     reorderableColumn?: boolean | undefined;
     /**
      * When enabled, column displays row editor controls.
+     * @defaultValue false
      */
     rowEditor?: boolean | undefined;
     /**
      * Whether the column is fixed in horizontal scrolling.
+     * @defaultValue false
      */
     frozen?: boolean | undefined;
     /**
@@ -239,6 +246,7 @@ export interface ColumnProps {
     alignFrozen?: 'left' | 'right' | undefined;
     /**
      * Whether the column is included in data export.
+     * @defaultValue false
      */
     exportable?: boolean | undefined;
     /**
@@ -255,6 +263,7 @@ export interface ColumnProps {
     filterMatchMode?: string | undefined;
     /**
      * Whether the column is rendered.
+     * @defaultValue false
      */
     hidden?: boolean | undefined;
 }

@@ -32,12 +32,12 @@ export interface OrganizationChartNode {
     data?: any;
     /**
      * Whether node is selectable when selection is enabled.
-     * Default value is true.
+     * @defaultValue true
      */
     selectable?: boolean;
     /**
      * Whether node is collapsible when node expansion is enabled.
-     * Default value is true.
+     * @defaultValue true
      */
     collapsible?: boolean;
     /**
@@ -86,6 +86,7 @@ export interface OrganizationChartProps {
     collapsedKeys?: OrganizationChartCollapsedKeys;
     /**
      * Whether the nodes can be expanded or toggled.
+     * @defaultValue false
      */
     collapsible?: boolean;
 }

@@ -12,6 +12,7 @@ export interface PortalProps {
     appendTo?: PortalAppendToType;
     /**
      * If disabled, the Portal feature is eliminated and the content is displayed directly.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
 }

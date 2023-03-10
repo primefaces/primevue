@@ -16,10 +16,12 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export interface BlockUIProps {
     /**
      * Controls the blocked state.
+     * @defaultValue false
      */
     blocked?: boolean | undefined;
     /**
      * When enabled, the whole document gets blocked.
+     * @defaultValue false
      */
     fullScreen?: boolean | undefined;
     /**

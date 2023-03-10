@@ -21,6 +21,7 @@ export interface TextareaProps extends TextareaHTMLAttributes {
     modelValue?: string | undefined;
     /**
      * When present, height of textarea changes as being typed.
+     * @defaultValue false
      */
     autoResize?: boolean | undefined;
 }

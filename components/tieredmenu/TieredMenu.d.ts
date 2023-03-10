@@ -21,6 +21,7 @@ export interface TieredMenuProps {
     model?: MenuItem[] | undefined;
     /**
      * Defines if menu would displayed as a popup.
+     * @defaultValue false
      */
     popup?: boolean | undefined;
     /**
@@ -45,6 +46,7 @@ export interface TieredMenuProps {
     exact?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
+     * @defaultValue false
      */
     disabled?: boolean | undefined;
     /**

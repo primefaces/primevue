@@ -196,6 +196,7 @@ export interface TreeTableProps {
     totalRecords?: number | undefined;
     /**
      * When specified as true, enables the pagination.
+     * @defaultValue false
      */
     paginator?: boolean | undefined;
     /**
@@ -314,6 +315,7 @@ export interface TreeTableProps {
     filterLocale?: string | undefined;
     /**
      * When enabled, columns can be resized using drag and drop.
+     * @defaultValue false
      */
     resizableColumns?: boolean | undefined;
     /**
