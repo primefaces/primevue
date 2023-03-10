@@ -3434,7 +3434,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Controls the blocked state."
                         },
                         {
@@ -3442,7 +3442,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, the whole document gets blocked."
                         }
                     ],
@@ -5883,7 +5883,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to add an item when the input loses focus."
                         },
                         {
@@ -5891,7 +5891,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "true.",
+                            "default": "true",
                             "description": "Whether to allow duplicate values or not."
                         },
                         {
@@ -6455,7 +6455,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to exclude from global filtering or not."
                         },
                         {
@@ -6463,7 +6463,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Displays an icon to toggle row expansion."
                         },
                         {
@@ -6487,7 +6487,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the column is included in data export."
                         },
                         {
@@ -6583,7 +6583,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the column is fixed in horizontal scrolling."
                         },
                         {
@@ -6615,7 +6615,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the column is rendered."
                         },
                         {
@@ -6631,7 +6631,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Defines if the column itself can be reordered with dragging."
                         },
                         {
@@ -6639,7 +6639,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, column displays row editor controls."
                         },
                         {
@@ -6647,7 +6647,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether this column displays an icon to reorder the rows."
                         },
                         {
@@ -6735,7 +6735,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Defines if a column is sortable."
                         },
                         {
@@ -6996,7 +6996,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether background scroll should be blocked when dialog is visible."
                         },
                         {
@@ -11093,7 +11093,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
@@ -11109,7 +11109,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, custom value instead of predefined options can be entered using the editable input field."
                         },
                         {
@@ -11141,7 +11141,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When specified, displays a filter input at header."
                         },
                         {
@@ -11237,7 +11237,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the dropdown is in loading state."
                         },
                         {
@@ -11341,7 +11341,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Clears the filter value when hiding the dropdown."
                         },
                         {
@@ -11373,7 +11373,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, a clear icon is displayed to clear the value."
                         },
                         {
@@ -11837,7 +11837,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to instantiate the editor to readonly mode."
                         }
                     ],
@@ -14134,7 +14134,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string | boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Specifies whether a inputswitch should be checked or not."
                         },
                         {
@@ -16796,8 +16796,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Whether node is collapsible when node expansion is enabled.\nDefault value is true."
+                            "default": "true",
+                            "description": "Whether node is collapsible when node expansion is enabled."
                         },
                         {
                             "name": "data",
@@ -16820,8 +16820,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Whether node is selectable when selection is enabled.\nDefault value is true."
+                            "default": "true",
+                            "description": "Whether node is selectable when selection is enabled."
                         },
                         {
                             "name": "styleClass",
@@ -16865,7 +16865,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the nodes can be expanded or toggled."
                         },
                         {
@@ -17353,7 +17353,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Defines the initial state of panel content."
                         },
                         {
@@ -17377,7 +17377,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Defines if content of panel can be expanded and collapsed."
                         }
                     ],
@@ -18454,7 +18454,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "If disabled, the Portal feature is eliminated and the content is displayed directly."
                         }
                     ],
@@ -18705,7 +18705,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
@@ -21420,7 +21420,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, height of textarea changes as being typed."
                         },
                         {
@@ -21574,7 +21574,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When present, it specifies that the component should be disabled."
                         },
                         {
@@ -21598,7 +21598,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Defines if menu would displayed as a popup."
                         },
                         {
@@ -22645,7 +22645,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Specifies if the node has children. Used in lazy loading."
                         },
                         {
@@ -22653,7 +22653,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether the node is selectable when selection mode is enabled."
                         },
                         {
@@ -22722,7 +22722,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When specified, displays an input field to filter the items."
                         },
                         {
@@ -23786,7 +23786,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When specified as true, enables the pagination."
                         },
                         {
@@ -23818,7 +23818,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "When enabled, columns can be resized using drag and drop."
                         },
                         {
