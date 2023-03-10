@@ -144,6 +144,9 @@ export default {
             this.focus();
         },
         onLeave() {
+            this.autoFocusAccept = null;
+            this.autoFocusReject = null;
+
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
