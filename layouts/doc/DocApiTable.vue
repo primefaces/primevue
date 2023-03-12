@@ -42,7 +42,7 @@
                                 </template>
                             </template>
 
-                            <span v-else :id="id + '.' + v">
+                            <span v-else :id="id + '.' + k">
                                 {{ v }}
                             </span>
                         </template>
@@ -94,18 +94,22 @@ export default {
         },
         isLinkType(value) {
             if (this.label === 'Slots') return false;
+            const validValues = ['confirmationoptions', 'toastmessageoptions'];
 
-            return value.toLowerCase().includes(this.id.split('.')[1]);
+            return value.toLowerCase().includes(this.id.split('.')[1]) || validValues.includes(value.toLowerCase());
         },
         setLinkPath(value, type) {
             const currentRoute = this.$router.currentRoute.value.name;
-            const componentName = this.id.split('.')[1];
+            let componentName = this.id.split('.')[1];
 
-            let definationType = type ? type : value.includes('Type') ? 'types' : value.includes('Event') ? 'events' : value.includes('MenuItem') ? 'options' : 'interfaces';
+            const validValues = ['menuitem', 'confirmationoptions'];
+            let definationType = type ? type : value.includes('Type') ? 'types' : value.includes('Event') ? 'events' : validValues.includes(value.toLowerCase()) ? 'options' : 'interfaces';
 
-            definationType = definationType === 'menuitem' ? 'options' : definationType; // This for the menuitem. @todo: need to update
+            if (componentName.includes('toast')) {
+                componentName = 'toast';
+            }
 
-            return `/${currentRoute}/#api.${componentName}.${definationType}.${value}`;
+            return definationType === 'options' ? `/${currentRoute}/#api.${definationType}.${value}` : `/${currentRoute}/#api.${componentName}.${definationType}.${value}`;
         },
         relatedPropValue(value) {
             return this.findRelatedProps(value).secondPart;

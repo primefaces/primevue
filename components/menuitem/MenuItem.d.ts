@@ -9,7 +9,7 @@ import { RouteLocationRaw } from 'vue-router';
 
 /**
  * Custom command event.
- * @see {@link MenuItem.command}
+ *  @todo next release should be able to change see menuItem.command
  */
 export interface MenuItemCommandEvent {
     /**

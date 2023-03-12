@@ -147,7 +147,7 @@ export default {
 
                 if (options) {
                     newDoc.children.push({
-                        id: `api.${moduleName}.options`,
+                        id: `api.options.${options[0].key}`,
                         label: 'Options',
                         component: DocApiTable,
                         data: this.setPropsData(options[0].values.props)
