@@ -15462,7 +15462,7 @@
                 },
                 "MenuItemCommandEvent": {
                     "description": "Custom command event.",
-                    "relatedProp": "MenuItem.command",
+                    "relatedProp": "",
                     "props": [
                         {
                             "name": "item",
