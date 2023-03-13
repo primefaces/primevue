@@ -262,3 +262,9 @@ A [sample application](https://github.com/primefaces/primevue-quickstart-nuxt3) 
 ## Quickstart with TypeScript
 
 Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample [typescript-primevue](https://github.com/primefaces/primevue-typescript-quickstart) application with Vue CLI is available as at github.
+
+## Contributors
+
+<a href="https://github.com/primefaces/primevue/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=primefaces/primevue" />
+</a>
