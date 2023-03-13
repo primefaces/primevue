@@ -8851,9 +8851,8 @@
                             "name": "rowStyle",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "A function that takes the row data as a parameter and returns the inline style for the corresponding row."
+                            "type": "Function",
+                            "default": ""
                         },
                         {
                             "name": "rows",
