@@ -13,6 +13,7 @@ import AccessibilityDoc from '@/doc/dynamicdialog/AccessibilityDoc';
 import CloseDialogDoc from '@/doc/dynamicdialog/CloseDialogDoc';
 import CustomizationDoc from '@/doc/dynamicdialog/CustomizationDoc';
 import DialogServiceDoc from '@/doc/dynamicdialog/DialogServiceDoc';
+import EmitsDoc from '@/doc/dynamicdialog/EmitsDoc';
 import ImportDoc from '@/doc/dynamicdialog/ImportDoc';
 import OpenDialogDoc from '@/doc/dynamicdialog/OpenDialogDoc';
 import PassingDataDoc from '@/doc/dynamicdialog/PassingDataDoc';
@@ -51,6 +52,11 @@ export default {
                     id: 'passingdata',
                     label: 'Passing Data',
                     component: PassingDataDoc
+                },
+                {
+                    id: 'emits',
+                    label: 'Emits',
+                    component: EmitsDoc
                 },
                 {
                     id: 'customization',

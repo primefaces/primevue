@@ -11,9 +11,9 @@ export default {
         return {
             code: {
                 basic: `
-import { h } from 'vue';
-import Button from 'primevue/button';
+import { markRaw } from 'vue';
 import ProductListDemo from './ProductListDemo';
+import FooterDemo from './FooterDemo';
 
 export default {
     methods:{
@@ -31,12 +31,7 @@ export default {
                     modal: true
                 },
                 templates: {
-                    footer: () => {
-                        return [
-                            h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close(), class: "p-button-text" }),
-                            h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close(), autofocus: true})
-                        ]
-                    }
+                    footer: markRaw(FooterDemo)
                 },
                 onClose: (options) => {
                     const data = options.data;

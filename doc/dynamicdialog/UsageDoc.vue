@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Button from 'primevue/button';
-import { h } from 'vue';
+import { markRaw } from 'vue';
+import FooterDemo from './demo/FooterDemo.vue';
 import ProductListDemo from './demo/ProductListDemo';
 
 export default {
@@ -37,8 +37,9 @@ export default {
 
 <script>
 import Button from 'primevue/button';
-import { h, defineAsyncComponent } from 'vue';
+import { markRaw, defineAsyncComponent } from 'vue';
 const ProductListDemo = defineAsyncComponent(() => import('./components/ProductListDemo.vue'));
+const FooterDemo = defineAsyncComponent(() => import('./components/FooterDemo.vue'));
 
 export default {
     methods: {
@@ -56,12 +57,7 @@ export default {
                     modal: true
                 },
                 templates: {
-                    footer: () => {
-                        return [
-                            h(Button, { label: 'No', icon: 'pi pi-times', onClick: () => dialogRef.close({ buttonType: 'No' }), class: 'p-button-text' }),
-                            h(Button, { label: 'Yes', icon: 'pi pi-check', onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true })
-                        ];
-                    }
+                    footer: markRaw(FooterDemo)
                 },
                 onClose: (options) => {
                     const data = options.data;
@@ -88,11 +84,12 @@ export default {
 </template>
 
 <script setup>
-import { h, defineAsyncComponent } from 'vue';
+import { markRaw, defineAsyncComponent } from 'vue';
 import { useDialog } from 'primevue/usedialog';
 import { useToast } from 'primevue/usetoast';
 import Button from 'primevue/button';
 const ProductListDemo = defineAsyncComponent(() => import('./components/ProductListDemo.vue'));
+const FooterDemo = defineAsyncComponent(() => import('./components/FooterDemo.vue'));
 
 const dialog = useDialog();
 const toast = useToast();
@@ -111,12 +108,7 @@ const showProducts = () => {
             modal: true
         },
         templates: {
-            footer: () => {
-                return [
-                    h(Button, { label: "No", icon: "pi pi-times", onClick: () => dialogRef.close({ buttonType: 'No' }), class: "p-button-text" }),
-                    h(Button, { label: "Yes", icon: "pi pi-check", onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true})
-                ]
-            }
+            footer: markRaw(FooterDemo)
         },
         onClose: (options) => {
             const data = options.data;
@@ -239,6 +231,24 @@ export default {
 }
 <\/script>
                             `
+                    },
+                    'src/components/FooterDemo.vue': {
+                        content: `
+<template>
+    <Button type="button" label="No" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
+    <Button type="button" label="Yes" icon="pi pi-check" @click="closeDialog({ buttonType: 'Yes' })" autofocus></Button>
+</template>
+
+<script>
+export default {
+    inject: ['dialogRef'],
+    methods: {
+        closeDialog(e) {
+            this.dialogRef.close(e);
+        }
+    }
+};
+<\/script>`
                     }
                 },
                 composition: {
@@ -329,6 +339,23 @@ const closeDialog = () => {
 };
 <\/script>
                             `
+                    },
+                    'src/components/FooterDemo.vue': {
+                        content: `
+<template>
+    <Button type="button" label="No" icon="pi pi-times" @click="closeDialog({ buttonType: 'No' })" text></Button>
+    <Button type="button" label="Yes" icon="pi pi-check" @click="closeDialog({ buttonType: 'Yes' })" autofocus></Button>
+</template>
+
+<script setup>
+import { inject } from "vue";
+
+const dialogRef = inject("dialogRef");
+
+const closeDialog = (e) => {
+    dialogRef.value.close(e);
+};
+<\/script>`
                     }
                 }
             }
@@ -349,12 +376,7 @@ const closeDialog = () => {
                     modal: true
                 },
                 templates: {
-                    footer: () => {
-                        return [
-                            h(Button, { label: 'No', icon: 'pi pi-times', onClick: () => dialogRef.close({ buttonType: 'No' }), class: 'p-button-text' }),
-                            h(Button, { label: 'Yes', icon: 'pi pi-check', onClick: () => dialogRef.close({ buttonType: 'Yes' }), autofocus: true })
-                        ];
-                    }
+                    footer: markRaw(FooterDemo)
                 },
                 onClose: (options) => {
                     const data = options.data;

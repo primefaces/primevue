@@ -6,7 +6,7 @@
     <div class="doc-section-description">
         <p><i>$dialog</i> is available as a property in the application instance for Options API. The service can be injected with the <i>useDialog</i> function for Composition API.</p>
     </div>
-    <DocSectionCode :code="code2" import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code2" importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>
