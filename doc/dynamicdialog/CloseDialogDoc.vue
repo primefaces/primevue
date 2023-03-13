@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>close</i> function of the <i>dialogRef</i> is used to hide a Dialog. The <i>dialogRef</i> is injected to the component that is loaded by the dialog.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>open</i> function of the <i>DialogService</i> is used to open a Dialog. First parameter is the component to load and second one is the configuration object to customize the Dialog.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" import hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code" importCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>
