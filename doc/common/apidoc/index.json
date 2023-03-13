@@ -364,112 +364,112 @@
                             "name": "BETWEEN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"between\"",
                             "default": ""
                         },
                         {
                             "name": "CONTAINS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"contains\"",
                             "default": ""
                         },
                         {
                             "name": "DATE_AFTER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"dateAfter\"",
                             "default": ""
                         },
                         {
                             "name": "DATE_BEFORE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"dateBefore\"",
                             "default": ""
                         },
                         {
                             "name": "DATE_IS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"dateIs\"",
                             "default": ""
                         },
                         {
                             "name": "DATE_IS_NOT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"dateIsNot\"",
                             "default": ""
                         },
                         {
                             "name": "ENDS_WITH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"endsWith\"",
                             "default": ""
                         },
                         {
                             "name": "EQUALS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"equals\"",
                             "default": ""
                         },
                         {
                             "name": "GREATER_THAN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"gt\"",
                             "default": ""
                         },
                         {
                             "name": "GREATER_THAN_OR_EQUAL_TO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"gte\"",
                             "default": ""
                         },
                         {
                             "name": "IN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"in\"",
                             "default": ""
                         },
                         {
                             "name": "LESS_THAN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"lt\"",
                             "default": ""
                         },
                         {
                             "name": "LESS_THAN_OR_EQUAL_TO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"lte\"",
                             "default": ""
                         },
                         {
                             "name": "NOT_CONTAINS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"notContains\"",
                             "default": ""
                         },
                         {
                             "name": "NOT_EQUALS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"notEquals\"",
                             "default": ""
                         },
                         {
                             "name": "STARTS_WITH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"startsWith\"",
                             "default": ""
                         }
                     ],
@@ -482,14 +482,14 @@
                             "name": "AND",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"and\"",
                             "default": ""
                         },
                         {
                             "name": "OR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"or\"",
                             "default": ""
                         }
                     ],
@@ -502,1806 +502,1806 @@
                             "name": "ALIGN_CENTER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-align-center\"",
                             "default": ""
                         },
                         {
                             "name": "ALIGN_JUSTIFY",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-align-justify\"",
                             "default": ""
                         },
                         {
                             "name": "ALIGN_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-align-left\"",
                             "default": ""
                         },
                         {
                             "name": "ALIGN_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-align-right\"",
                             "default": ""
                         },
                         {
                             "name": "AMAZON",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-amazon\"",
                             "default": ""
                         },
                         {
                             "name": "ANDROID",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-android\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_DOUBLE_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-double-down\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_DOUBLE_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-double-left\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_DOUBLE_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-double-right\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_DOUBLE_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-double-up\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-down\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-left\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-right\"",
                             "default": ""
                         },
                         {
                             "name": "ANGLE_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-angle-up\"",
                             "default": ""
                         },
                         {
                             "name": "APPLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-apple\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_A",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrows-alt\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_CIRCLE_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-circle-down\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_CIRCLE_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-circle-left\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_CIRCLE_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-circle-right\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_CIRCLE_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-circle-up\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-down\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_DOWN_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-down-left\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_DOWN_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-down-right\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_H",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrows-h\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-left\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-right\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_RIGHT_ARROW_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-right-arrow-left\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-up\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_UP_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-up-left\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_UP_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrow-up-right\"",
                             "default": ""
                         },
                         {
                             "name": "ARROW_V",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-arrows-v\"",
                             "default": ""
                         },
                         {
                             "name": "AT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-at\"",
                             "default": ""
                         },
                         {
                             "name": "BACKWARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-backward\"",
                             "default": ""
                         },
                         {
                             "name": "BAN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-ban\"",
                             "default": ""
                         },
                         {
                             "name": "BARS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-bars\"",
                             "default": ""
                         },
                         {
                             "name": "BELL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-bell\"",
                             "default": ""
                         },
                         {
                             "name": "BITCOIN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-bitcoin\"",
                             "default": ""
                         },
                         {
                             "name": "BOLT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-bolt\"",
                             "default": ""
                         },
                         {
                             "name": "BOOK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-book\"",
                             "default": ""
                         },
                         {
                             "name": "BOOKMARK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-bookmark\"",
                             "default": ""
                         },
                         {
                             "name": "BOOKMARK_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-bookmark-fill\"",
                             "default": ""
                         },
                         {
                             "name": "BOX",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-box\"",
                             "default": ""
                         },
                         {
                             "name": "BRIEFCASE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-briefcase\"",
                             "default": ""
                         },
                         {
                             "name": "BUILDING",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-building\"",
                             "default": ""
                         },
                         {
                             "name": "CALCULATOR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-calculator\"",
                             "default": ""
                         },
                         {
                             "name": "CALENDAR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-calendar\"",
                             "default": ""
                         },
                         {
                             "name": "CALENDAR_MINUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-calendar-minus\"",
                             "default": ""
                         },
                         {
                             "name": "CALENDAR_PLUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-calendar-plus\"",
                             "default": ""
                         },
                         {
                             "name": "CALENDAR_TIMES",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-calendar-times\"",
                             "default": ""
                         },
                         {
                             "name": "CAMERA",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-camera\"",
                             "default": ""
                         },
                         {
                             "name": "CAR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-car\"",
                             "default": ""
                         },
                         {
                             "name": "CARET_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-caret-down\"",
                             "default": ""
                         },
                         {
                             "name": "CARET_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-caret-left\"",
                             "default": ""
                         },
                         {
                             "name": "CARET_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-caret-right\"",
                             "default": ""
                         },
                         {
                             "name": "CARET_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-caret-up\"",
                             "default": ""
                         },
                         {
                             "name": "CART_PLUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-cart-plus\"",
                             "default": ""
                         },
                         {
                             "name": "CHART_BAR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chart-bar\"",
                             "default": ""
                         },
                         {
                             "name": "CHART_LINE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chart-line\"",
                             "default": ""
                         },
                         {
                             "name": "CHART_PIE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chart-pie\"",
                             "default": ""
                         },
                         {
                             "name": "CHECK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-check\"",
                             "default": ""
                         },
                         {
                             "name": "CHECK_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-check-circle\"",
                             "default": ""
                         },
                         {
                             "name": "CHECK_SQUARE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-check-square\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_CIRCLE_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-circle-down\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_CIRCLE_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-circle-left\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_CIRCLE_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-circle-right\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_CIRCLE_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-circle-up\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-down\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_LEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-left\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_RIGHT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-right\"",
                             "default": ""
                         },
                         {
                             "name": "CHEVRON_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-chevron-up\"",
                             "default": ""
                         },
                         {
                             "name": "CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-circle\"",
                             "default": ""
                         },
                         {
                             "name": "CIRCLE_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-circle-fill\"",
                             "default": ""
                         },
                         {
                             "name": "CLOCK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-clock\"",
                             "default": ""
                         },
                         {
                             "name": "CLONE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-clone\"",
                             "default": ""
                         },
                         {
                             "name": "CLOUD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-cloud\"",
                             "default": ""
                         },
                         {
                             "name": "CLOUD_DOWNLOAD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-cloud-download\"",
                             "default": ""
                         },
                         {
                             "name": "CLOUD_UPLOAD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-cloud-upload\"",
                             "default": ""
                         },
                         {
                             "name": "CODE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-code\"",
                             "default": ""
                         },
                         {
                             "name": "COG",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-cog\"",
                             "default": ""
                         },
                         {
                             "name": "COMMENT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-comment\"",
                             "default": ""
                         },
                         {
                             "name": "COMMENTS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-comments\"",
                             "default": ""
                         },
                         {
                             "name": "COMPASS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-compass\"",
                             "default": ""
                         },
                         {
                             "name": "COPY",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-copy\"",
                             "default": ""
                         },
                         {
                             "name": "CREDIT_CARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-credit-card\"",
                             "default": ""
                         },
                         {
                             "name": "DATABASE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-database\"",
                             "default": ""
                         },
                         {
                             "name": "DELETELEFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-delete-left\"",
                             "default": ""
                         },
                         {
                             "name": "DESKTOP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-desktop\"",
                             "default": ""
                         },
                         {
                             "name": "DIRECTIONS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-directions\"",
                             "default": ""
                         },
                         {
                             "name": "DIRECTIONS_ALT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-directions-alt\"",
                             "default": ""
                         },
                         {
                             "name": "DISCORD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-discord\"",
                             "default": ""
                         },
                         {
                             "name": "DOLLAR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-dollar\"",
                             "default": ""
                         },
                         {
                             "name": "DOWNLOAD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-download\"",
                             "default": ""
                         },
                         {
                             "name": "EJECT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-eject\"",
                             "default": ""
                         },
                         {
                             "name": "ELLIPSIS_H",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-ellipsis-h\"",
                             "default": ""
                         },
                         {
                             "name": "ELLIPSIS_V",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-ellipsis-v\"",
                             "default": ""
                         },
                         {
                             "name": "ENVELOPE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-envelope\"",
                             "default": ""
                         },
                         {
                             "name": "ERASER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-eraser\"",
                             "default": ""
                         },
                         {
                             "name": "EURO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-euro\"",
                             "default": ""
                         },
                         {
                             "name": "EXCLAMATION_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-exclamation-circle\"",
                             "default": ""
                         },
                         {
                             "name": "EXCLAMATION_TRIANGLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-exclamation-triangle\"",
                             "default": ""
                         },
                         {
                             "name": "EXTERNAL_LINK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-external-link\"",
                             "default": ""
                         },
                         {
                             "name": "EYE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-eye\"",
                             "default": ""
                         },
                         {
                             "name": "EYE_SLASH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-eye-slash\"",
                             "default": ""
                         },
                         {
                             "name": "FACEBOOK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-facebook\"",
                             "default": ""
                         },
                         {
                             "name": "FAST_BACKWARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-fast-backward\"",
                             "default": ""
                         },
                         {
                             "name": "FAST_FORWARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-fast-forward\"",
                             "default": ""
                         },
                         {
                             "name": "FILE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-file\"",
                             "default": ""
                         },
                         {
                             "name": "FILE_EDIT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-file-edit\"",
                             "default": ""
                         },
                         {
                             "name": "FILE_EXCEL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-file-excel\"",
                             "default": ""
                         },
                         {
                             "name": "FILE_EXPORT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-file-export\"",
                             "default": ""
                         },
                         {
                             "name": "FILE_IMPORT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-file-import\"",
                             "default": ""
                         },
                         {
                             "name": "FILE_PDF",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-file-pdf\"",
                             "default": ""
                         },
                         {
                             "name": "FILE_WORD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-file-word\"",
                             "default": ""
                         },
                         {
                             "name": "FILTER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-filter\"",
                             "default": ""
                         },
                         {
                             "name": "FILTER_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-filter-fill\"",
                             "default": ""
                         },
                         {
                             "name": "FILTER_SLASH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-filter-slash\"",
                             "default": ""
                         },
                         {
                             "name": "FLAG",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-flag\"",
                             "default": ""
                         },
                         {
                             "name": "FLAG_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-flag-fill\"",
                             "default": ""
                         },
                         {
                             "name": "FOLDER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-folder\"",
                             "default": ""
                         },
                         {
                             "name": "FOLDER_OPEN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-folder-open\"",
                             "default": ""
                         },
                         {
                             "name": "FORWARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-forward\"",
                             "default": ""
                         },
                         {
                             "name": "GIFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-gift\"",
                             "default": ""
                         },
                         {
                             "name": "GITHUB",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-github\"",
                             "default": ""
                         },
                         {
                             "name": "GLOBE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-globe\"",
                             "default": ""
                         },
                         {
                             "name": "GOOGLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-google\"",
                             "default": ""
                         },
                         {
                             "name": "HASHTAG",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-hashtag\"",
                             "default": ""
                         },
                         {
                             "name": "HEART",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-heart\"",
                             "default": ""
                         },
                         {
                             "name": "HEART_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-heart-fill\"",
                             "default": ""
                         },
                         {
                             "name": "HISTORY",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-history\"",
                             "default": ""
                         },
                         {
                             "name": "HOME",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-home\"",
                             "default": ""
                         },
                         {
                             "name": "HOURGLASS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-hourglass\"",
                             "default": ""
                         },
                         {
                             "name": "ID_CARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-id-card\"",
                             "default": ""
                         },
                         {
                             "name": "IMAGE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-image\"",
                             "default": ""
                         },
                         {
                             "name": "IMAGES",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-images\"",
                             "default": ""
                         },
                         {
                             "name": "INBOX",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-inbox\"",
                             "default": ""
                         },
                         {
                             "name": "INFO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-info\"",
                             "default": ""
                         },
                         {
                             "name": "INFO_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-info-circle\"",
                             "default": ""
                         },
                         {
                             "name": "INSTAGRAM",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-instagram\"",
                             "default": ""
                         },
                         {
                             "name": "KEY",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-key\"",
                             "default": ""
                         },
                         {
                             "name": "LANGUAGE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-language\"",
                             "default": ""
                         },
                         {
                             "name": "LINK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-link\"",
                             "default": ""
                         },
                         {
                             "name": "LINKEDIN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-linkedin\"",
                             "default": ""
                         },
                         {
                             "name": "LIST",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-list\"",
                             "default": ""
                         },
                         {
                             "name": "LOCK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-lock\"",
                             "default": ""
                         },
                         {
                             "name": "LOCK_OPEN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-lock-open\"",
                             "default": ""
                         },
                         {
                             "name": "MAP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-map\"",
                             "default": ""
                         },
                         {
                             "name": "MAP_MARKER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-map-marker\"",
                             "default": ""
                         },
                         {
                             "name": "MEGAPHONE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-megaphone\"",
                             "default": ""
                         },
                         {
                             "name": "MICREPHONE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-microphone\"",
                             "default": ""
                         },
                         {
                             "name": "MICROSOFT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-microsoft\"",
                             "default": ""
                         },
                         {
                             "name": "MINUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-minus\"",
                             "default": ""
                         },
                         {
                             "name": "MINUS_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-minus-circle\"",
                             "default": ""
                         },
                         {
                             "name": "MOBILE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-mobile\"",
                             "default": ""
                         },
                         {
                             "name": "MONEY_BILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-money-bill\"",
                             "default": ""
                         },
                         {
                             "name": "MOON",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-moon\"",
                             "default": ""
                         },
                         {
                             "name": "PALETTE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-palette\"",
                             "default": ""
                         },
                         {
                             "name": "PAPERCLIP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-paperclip\"",
                             "default": ""
                         },
                         {
                             "name": "PAUSE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-pause\"",
                             "default": ""
                         },
                         {
                             "name": "PAYPAL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-paypal\"",
                             "default": ""
                         },
                         {
                             "name": "PENCIL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-pencil\"",
                             "default": ""
                         },
                         {
                             "name": "PERCENTAGE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-percentage\"",
                             "default": ""
                         },
                         {
                             "name": "PHONE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-phone\"",
                             "default": ""
                         },
                         {
                             "name": "PLAY",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-play\"",
                             "default": ""
                         },
                         {
                             "name": "PLUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-plus\"",
                             "default": ""
                         },
                         {
                             "name": "PLUS_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-plus-circle\"",
                             "default": ""
                         },
                         {
                             "name": "POUND",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-pound\"",
                             "default": ""
                         },
                         {
                             "name": "POWER_OFF",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-power-off\"",
                             "default": ""
                         },
                         {
                             "name": "PRIME",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-prime\"",
                             "default": ""
                         },
                         {
                             "name": "PRINT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-print\"",
                             "default": ""
                         },
                         {
                             "name": "QRCODE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-qrcode\"",
                             "default": ""
                         },
                         {
                             "name": "QUESTION",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-question\"",
                             "default": ""
                         },
                         {
                             "name": "QUESTION_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-question-circle\"",
                             "default": ""
                         },
                         {
                             "name": "REDDIT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-reddit\"",
                             "default": ""
                         },
                         {
                             "name": "REFRESH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-refresh\"",
                             "default": ""
                         },
                         {
                             "name": "REPLAY",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-replay\"",
                             "default": ""
                         },
                         {
                             "name": "REPLY",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-reply\"",
                             "default": ""
                         },
                         {
                             "name": "SAVE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-save\"",
                             "default": ""
                         },
                         {
                             "name": "SEARCH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-search\"",
                             "default": ""
                         },
                         {
                             "name": "SEARCH_MINUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-search-minus\"",
                             "default": ""
                         },
                         {
                             "name": "SEARCH_PLUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-search-plus\"",
                             "default": ""
                         },
                         {
                             "name": "SEND",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-send\"",
                             "default": ""
                         },
                         {
                             "name": "SERVER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-server\"",
                             "default": ""
                         },
                         {
                             "name": "SHARE_ALT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-share-alt\"",
                             "default": ""
                         },
                         {
                             "name": "SHIELD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-shield\"",
                             "default": ""
                         },
                         {
                             "name": "SHOPPING_BAG",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-shopping-bag\"",
                             "default": ""
                         },
                         {
                             "name": "SHOPPING_CART",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-shopping-cart\"",
                             "default": ""
                         },
                         {
                             "name": "SIGN_IN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sign-in\"",
                             "default": ""
                         },
                         {
                             "name": "SIGN_OUT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sign-out\"",
                             "default": ""
                         },
                         {
                             "name": "SITEMAP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sitemap\"",
                             "default": ""
                         },
                         {
                             "name": "SLACK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-slack\"",
                             "default": ""
                         },
                         {
                             "name": "SLIDERS_H",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sliders-h\"",
                             "default": ""
                         },
                         {
                             "name": "SLIDERS_V",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sliders-v\"",
                             "default": ""
                         },
                         {
                             "name": "SORT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_ALPHA_ALT_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-alpha-alt-down\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_ALPHA_ALT_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-alpha-alt-up\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_ALPHA_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-alpha-down\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_ALPHA_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-alpha-up\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_ALT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-alt\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_ALT_SLASH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-slash\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_AMOUNT_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-amount-down\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_AMOUNT_DOWN_ALT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-amount-down-alt\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_AMOUNT_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-amount-up\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_AMOUNT_UP_ALT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-amount-up-alt\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-down\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_NUMERIC_ALT_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-numeric-alt-down\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_NUMERIC_ALT_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-numeric-alt-up\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_NUMERIC_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-numeric-down\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_NUMERIC_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-numeric-up\"",
                             "default": ""
                         },
                         {
                             "name": "SORT_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sort-up\"",
                             "default": ""
                         },
                         {
                             "name": "SPINNER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-spinner\"",
                             "default": ""
                         },
                         {
                             "name": "STAR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-star\"",
                             "default": ""
                         },
                         {
                             "name": "STAR_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-star-fill\"",
                             "default": ""
                         },
                         {
                             "name": "STEP_BACKWARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-step-backward\"",
                             "default": ""
                         },
                         {
                             "name": "STEP_BACKWARD_ALT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-step-backward-alt\"",
                             "default": ""
                         },
                         {
                             "name": "STEP_FORWARD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-step-forward\"",
                             "default": ""
                         },
                         {
                             "name": "STEP_FORWARD_ALT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-step-forward-alt\"",
                             "default": ""
                         },
                         {
                             "name": "STOP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-stop\"",
                             "default": ""
                         },
                         {
                             "name": "STOPWATCH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-stop-watch\"",
                             "default": ""
                         },
                         {
                             "name": "STOP_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-stop-circle\"",
                             "default": ""
                         },
                         {
                             "name": "SUN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sun\"",
                             "default": ""
                         },
                         {
                             "name": "SYNC",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-sync\"",
                             "default": ""
                         },
                         {
                             "name": "TABLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-table\"",
                             "default": ""
                         },
                         {
                             "name": "TABLET",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-tablet\"",
                             "default": ""
                         },
                         {
                             "name": "TAG",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-tag\"",
                             "default": ""
                         },
                         {
                             "name": "TAGS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-tags\"",
                             "default": ""
                         },
                         {
                             "name": "TELEGRAM",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-telegram\"",
                             "default": ""
                         },
                         {
                             "name": "THUMBS_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-thumbs-down\"",
                             "default": ""
                         },
                         {
                             "name": "THUMBS_DOWN_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-thumbs-down-fill\"",
                             "default": ""
                         },
                         {
                             "name": "THUMBS_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-thumbs-up\"",
                             "default": ""
                         },
                         {
                             "name": "THUMBS_UP_FILL",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-thumbs-up-fill\"",
                             "default": ""
                         },
                         {
                             "name": "TH_LARGE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-th-large\"",
                             "default": ""
                         },
                         {
                             "name": "TICKET",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-ticket\"",
                             "default": ""
                         },
                         {
                             "name": "TIMES",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-times\"",
                             "default": ""
                         },
                         {
                             "name": "TIMES_CIRCLE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-times-circle\"",
                             "default": ""
                         },
                         {
                             "name": "TRASH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-trash\"",
                             "default": ""
                         },
                         {
                             "name": "TRUCK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-truck\"",
                             "default": ""
                         },
                         {
                             "name": "TWITTER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-twitter\"",
                             "default": ""
                         },
                         {
                             "name": "UNDO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-undo\"",
                             "default": ""
                         },
                         {
                             "name": "UNLOCK",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-unlock\"",
                             "default": ""
                         },
                         {
                             "name": "UPLOAD",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-upload\"",
                             "default": ""
                         },
                         {
                             "name": "USER",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-user\"",
                             "default": ""
                         },
                         {
                             "name": "USERS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-users\"",
                             "default": ""
                         },
                         {
                             "name": "USER_EDIT",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-user-edit\"",
                             "default": ""
                         },
                         {
                             "name": "USER_MINUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-user-minus\"",
                             "default": ""
                         },
                         {
                             "name": "USER_PLUS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-user-plus\"",
                             "default": ""
                         },
                         {
                             "name": "VERIFIED",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-verified\"",
                             "default": ""
                         },
                         {
                             "name": "VIDEO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-video\"",
                             "default": ""
                         },
                         {
                             "name": "VIMEO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-vimeo\"",
                             "default": ""
                         },
                         {
                             "name": "VOLUME_DOWN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-volume-down\"",
                             "default": ""
                         },
                         {
                             "name": "VOLUME_OFF",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-volume-off\"",
                             "default": ""
                         },
                         {
                             "name": "VOLUME_UP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-volume-up\"",
                             "default": ""
                         },
                         {
                             "name": "WALLET",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-wallet\"",
                             "default": ""
                         },
                         {
                             "name": "WHATSAPP",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-whatsapp\"",
                             "default": ""
                         },
                         {
                             "name": "WIFI",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-wifi\"",
                             "default": ""
                         },
                         {
                             "name": "WINDOW_MAXIMIZE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-window-maximize\"",
                             "default": ""
                         },
                         {
                             "name": "WINDOW_MINIMIZE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-window-minimize\"",
                             "default": ""
                         },
                         {
                             "name": "WRENCH",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-wrench\"",
                             "default": ""
                         },
                         {
                             "name": "YOUTUBE",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"pi pi-youtube\"",
                             "default": ""
                         }
                     ],
@@ -2314,28 +2314,28 @@
                             "name": "ERROR",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"error\"",
                             "default": ""
                         },
                         {
                             "name": "INFO",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"info\"",
                             "default": ""
                         },
                         {
                             "name": "SUCCESS",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"success\"",
                             "default": ""
                         },
                         {
                             "name": "WARN",
                             "optional": false,
                             "readonly": true,
-                            "type": "string",
+                            "type": "\"warn\"",
                             "default": ""
                         }
                     ],
