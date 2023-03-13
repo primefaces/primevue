@@ -779,7 +779,7 @@ export interface DataTableProps {
     /**
      * A function that takes the row data as a parameter and returns the inline style for the corresponding row.
      */
-    rowStyle?: any;
+    rowStyle?: (data: any) => object | undefined;
     /**
      * When specified, enables horizontal and/or vertical scrolling.
      * @defaultValue false

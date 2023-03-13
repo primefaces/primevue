@@ -14,7 +14,7 @@
                     v-if="expandableRowGroups ? isRowGroupExpanded(rowData) : true"
                     :key="getRowKey(rowData, getRowIndex(index))"
                     :class="getRowClass(rowData)"
-                    :style="rowStyle"
+                    :style="getRowStyle(rowData)"
                     :tabindex="setRowTabindex(index)"
                     role="row"
                     :aria-selected="selectionMode ? isSelected(rowData) : null"
@@ -281,6 +281,11 @@ export default {
             const getItemOptions = this.getVirtualScrollerProp('getItemOptions');
 
             return getItemOptions ? getItemOptions(index).index : index;
+        },
+        getRowStyle(rowData) {
+            if (this.rowStyle) {
+                return this.rowStyle(rowData);
+            }
         },
         getRowClass(rowData) {
             let rowStyleClass = [];
