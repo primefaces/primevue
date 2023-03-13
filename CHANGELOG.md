@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.25.0](https://github.com/primefaces/primevue/tree/3.25.0) (2023-03-13)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.24.0...3.25.0)
+
+**Breaking Changes:**
+
+- SelectButton: inverse `unselectable` behaviour [\#3708](https://github.com/primefaces/primevue/issues/3708)
+
+**Implemented New Features and Enhancements:**
+
+- DynamicDialog: Improve `templates` option to use dynamic components in header and footer templates. [\#3736](https://github.com/primefaces/primevue/issues/3736)
+- Api: Type mismatch [\#3727](https://github.com/primefaces/primevue/issues/3727)
+- DynamicDialog: Add `emits` option to handle events emitted by the child component [\#3726](https://github.com/primefaces/primevue/issues/3726)
+
+**Fixed bugs:**
+
+- DataTable: rowStyle function doesn't work  [\#3738](https://github.com/primefaces/primevue/issues/3738)
+- Dialog: header buttons autofocus defect [\#3729](https://github.com/primefaces/primevue/issues/3729)
+- Class and Style properties type definition defects [\#3707](https://github.com/primefaces/primevue/issues/3707)
+- InputMask: Dynamic mask change issue [\#3698](https://github.com/primefaces/primevue/issues/3698)
+- Tooltip: cannot unbind events when tooltip value is cleared [\#3645](https://github.com/primefaces/primevue/issues/3645)
+- Calendar: Disable year and month when set minDate or maxDate [\#3589](https://github.com/primefaces/primevue/issues/3589)
+- DataTable frozen columns in footer not freezing [\#3190](https://github.com/primefaces/primevue/issues/3190)
+- ConfirmPopup: page scrolls up when the button is clicked a second time [\#3516](https://github.com/primefaces/primevue/issues/3516)
+
 ## [3.24.0](https://github.com/primefaces/primevue/tree/3.24.0) (2023-03-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.23.0...3.24.0)
