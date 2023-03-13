@@ -3,7 +3,7 @@
         <p>Particular rows and cells can be styled based on conditions. The <i>rowClass</i> receives a row data as a parameter to return a style class for a row whereas cells are customized using the <i>body</i> template.</p>
     </DocSectionText>
     <div class="card">
-        <DataTable :value="products" :rowClass="rowClass" tableStyle="min-width: 50rem">
+        <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -28,7 +28,7 @@ export default {
             products: null,
             code: {
                 basic: `
-<DataTable :value="products" :rowClass="rowClass" tableStyle="min-width: 50rem">
+<DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
     <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
@@ -43,7 +43,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <DataTable :value="products" :rowClass="rowClass" tableStyle="min-width: 50rem">
+        <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -74,6 +74,11 @@ export default {
         rowClass(data) {
             return [{ 'bg-primary': data.category === 'Fitness' }];
         },
+        rowStyle(data) {
+            if (data.quantity === 0) {
+                return { fontWeight: 'bold', fontStyle: 'italic' };
+            }
+        },
         stockClass(data) {
             return [
                 'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
@@ -90,7 +95,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <DataTable :value="products" :rowClass="rowClass" tableStyle="min-width: 50rem">
+        <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -117,6 +122,11 @@ const products = ref();
 
 const rowClass = (data) => {
     return [{ 'bg-primary': data.category === 'Fitness' }];
+};
+const rowStyle = (data) => {
+    if (data.quantity === 0) {
+        return { fontWeight: 'bold', fontStyle: 'italic' };
+    }
 };
 const stockClass = (data) => {
     return [
@@ -153,6 +163,11 @@ const stockClass = (data) => {
     methods: {
         rowClass(data) {
             return [{ 'bg-primary': data.category === 'Fitness' }];
+        },
+        rowStyle(data) {
+            if (data.quantity === 0) {
+                return { fontWeight: 'bold', fontStyle: 'italic' };
+            }
         },
         stockClass(data) {
             return [
