@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue BlockUI Component" header="Badge" description="BlockUI can either block other components or the whole page." :componentDocs="docs" :apiDocs="['BlockUI']" />
+    <DocComponent title="Vue BlockUI Component" header="BlockUI" description="BlockUI can either block other components or the whole page." :componentDocs="docs" :apiDocs="['BlockUI']" />
 </template>
 
 <script>
