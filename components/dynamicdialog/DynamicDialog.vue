@@ -4,7 +4,7 @@
             <template v-if="instance.options.templates && instance.options.templates.header" #header>
                 <component v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :is="header" :key="index + '_header'"></component>
             </template>
-            <component :is="instance.content"></component>
+            <component :is="instance.content" v-bind="instance.options.emits"></component>
             <template v-if="instance.options.templates && instance.options.templates.footer" #footer>
                 <component v-for="(footer, index) in getTemplateItems(instance.options.templates.footer)" :is="footer" :key="index + '_footer'"></component>
             </template>
