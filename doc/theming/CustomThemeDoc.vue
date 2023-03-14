@@ -23,12 +23,12 @@
         <h3>Theme SCSS</h3>
         <p>
             The theme scss is availabe as open source at <a href="http://github.com/primefaces/primevue-sass-theme">primevue-sass-theme</a> repository. The <i>theme-base</i> folder contains the theming structure of the components, themes under
-            <i>themes</i> folder import the base and define the SCSS variables. The <i>themes</i> folder also contains all the built-in themes so you can customize their code as well. 
+            <i>themes</i> folder import the base and define the SCSS variables. The <i>themes</i> folder also contains all the built-in themes so you can customize their code as well.
         </p>
         <p>
-            To create your own theme, <a href="https://github.com/primefaces/primevue-sass-theme/releases">download</a> the release matching your PrimeVue version and access the <i>themes/mytheme</i> folder. The sass variables to customize are available under the
-            <i>variables</i> folder. The <i>_fonts</i> file can be used to define a custom font for your project whereas the optional <i>_extensions</i> file is provided to add overrides to the components designs. The <i>theme.scss</i> file imports
-            the theme files along with the <i>theme-base</i> folder at the root to combine everything together. Next step would be compilation of the scss that can either be command line or within your project.
+            To create your own theme, <a href="https://github.com/primefaces/primevue-sass-theme/releases">download</a> the release matching your PrimeVue version and access the <i>themes/mytheme</i> folder. The sass variables to customize are
+            available under the <i>variables</i> folder. The <i>_fonts</i> file can be used to define a custom font for your project whereas the optional <i>_extensions</i> file is provided to add overrides to the components designs. The
+            <i>theme.scss</i> file imports the theme files along with the <i>theme-base</i> folder at the root to combine everything together. Next step would be compilation of the scss that can either be command line or within your project.
         </p>
 
         <h3>Compile SCSS Manually</h3>
@@ -42,9 +42,9 @@
 
         <h3>Build Time Compilation</h3>
         <p>
-            This approach eliminates the manual compilation by delegating it to your build environment that has the ability to compile SCSS. Copy the <i>theme-base</i> folder along with <i>themes/mytheme</i> folder to your application
-            where assets reside. At a suitable location like <i>main.js</i> or <i>App.vue</i>, import the <i>theme.scss</i> from <i>assets/themes/mytheme</i>. That would
-            be it, during build time, your project will compile the sass and import the theme. Any changes to your theme will be reflected instantly.
+            This approach eliminates the manual compilation by delegating it to your build environment that has the ability to compile SCSS. Copy the <i>theme-base</i> folder along with <i>themes/mytheme</i> folder to your application where assets
+            reside. At a suitable location like <i>main.js</i> or <i>App.vue</i>, import the <i>theme.scss</i> from <i>assets/themes/mytheme</i>. That would be it, during build time, your project will compile the sass and import the theme. Any
+            changes to your theme will be reflected instantly.
         </p>
     </DocSectionText>
 </template>
