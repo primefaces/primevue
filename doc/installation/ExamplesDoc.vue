@@ -15,5 +15,9 @@
             <img src="https://primefaces.org/cdn/primevue/images/logos/vue.svg" alt="Vue CLI" class="w-8rem h-8rem mb-3" />
             <span class="font-bold text-xl text-900">Vue-CLI</span>
         </a>
+        <a href="https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart" class="flex flex-column align-items-center">
+            <img src="https://primefaces.org/cdn/primevue/images/logos/astro.svg" alt="Astro.JS" class="w-8rem h-8rem mb-3" />
+            <span class="font-bold text-xl text-900">Astro</span>
+        </a>
     </div>
 </template>
