@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/inputtext/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
 import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
+import VeeValidateDoc from '@/doc/inputtext/form/VeeValidateDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
 import IconsDoc from '@/doc/inputtext/IconsDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
@@ -57,6 +58,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',
