@@ -5191,6 +5191,14 @@
                             "description": "Object literal to define widths per screen size."
                         },
                         {
+                            "name": "draggable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Enables dragging to change the position using header."
+                        },
+                        {
                             "name": "group",
                             "optional": true,
                             "readonly": false,
