@@ -19,6 +19,7 @@
 import DownloadDoc from '@/doc/installation/DownloadDoc';
 import ExamplesDoc from '@/doc/installation/ExamplesDoc';
 import NuxtIntegrationDoc from '@/doc/installation/NuxtIntegrationDoc';
+import PluginDoc from '@/doc/installation/PluginDoc';
 import PropCasesDoc from '@/doc/installation/PropCasesDoc';
 import StylesDoc from '@/doc/installation/StylesDoc';
 import UsageDoc from '@/doc/installation/UsageDoc';
@@ -33,6 +34,11 @@ export default {
                     id: 'download',
                     label: 'Download',
                     component: DownloadDoc
+                },
+                {
+                    id: 'plugin',
+                    label: 'Plugin',
+                    component: PluginDoc
                 },
                 {
                     id: 'styles',

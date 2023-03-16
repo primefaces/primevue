@@ -27,6 +27,7 @@ import PrimeFlexDoc from '@/doc/theming/PrimeFlexDoc';
 import ScaleDoc from '@/doc/theming/ScaleDoc';
 import ScopedCSSDoc from '@/doc/theming/ScopedCSSDoc';
 import UtilsDoc from '@/doc/theming/UtilsDoc';
+import CSSVariablesDoc from '../../doc/theming/CSSVariablesDoc';
 import SwitchThemesDoc from '../../doc/theming/SwitchThemesDoc';
 
 export default {
@@ -77,6 +78,11 @@ export default {
                     id: 'utils',
                     label: 'Utils',
                     component: UtilsDoc
+                },
+                {
+                    id: 'cssvariables',
+                    label: 'CSS Variables',
+                    component: CSSVariablesDoc
                 }
             ]
         };
