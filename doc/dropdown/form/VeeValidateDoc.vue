@@ -4,9 +4,11 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small id="ac-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
+            <span class="p-float-label">
+                <Dropdown id="dd" v-model="value" :options="cities" optionLabel="name" :class="['w-full md:w-14rem', { 'p-invalid': errorMessage }]" aria-describedby="dd-error" />
+                <label for="dd">Select a City</label>
+            </span>
+            <small id="dd-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
     </div>
@@ -25,15 +27,15 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'City is required.';
             }
 
             return true;
         }
 
         const onSubmit = handleSubmit((values) => {
-            if (values.value && values.value.length > 0) {
-                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+            if (values.value && values.value.name) {
+                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value.name, life: 3000 });
                 resetForm();
             }
         });
@@ -42,26 +44,39 @@ export default {
     },
     data() {
         return {
-            items: [],
+            cities: [
+                { name: 'New York', code: 'NY' },
+                { name: 'Rome', code: 'RM' },
+                { name: 'London', code: 'LDN' },
+                { name: 'Istanbul', code: 'IST' },
+                { name: 'Paris', code: 'PRS' }
+            ],
             code: {
                 basic: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <span class="p-float-label">
+                <Dropdown id="dd" v-model="value" :options="cities" optionLabel="name"
+                    :class="['w-full md:w-14rem', { 'p-invalid': errorMessage }]" aria-describedby="dd-error" />
+                <label for="dd">Select a City</label>
+            </span>
+            <small class="p-error" id="dd-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
+        <Toast />
     </div>
 </template>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <span class="p-float-label">
+                <Dropdown id="dd" v-model="value" :options="cities" optionLabel="name"
+                    :class="['w-full md:w-14rem', { 'p-invalid': errorMessage }]" aria-describedby="dd-error" />
+                <label for="dd">Select a City</label>
+            </span>
+            <small class="p-error" id="dd-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -80,15 +95,15 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'City is required.';
             }
 
             return true;
         }
 
         const onSubmit = handleSubmit((values) => {
-            if (values.value && values.value.length > 0) {
-                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+            if (values.value && values.value.name) {
+                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value.name, life: 3000 });
                 resetForm();
             }
         });
@@ -97,12 +112,13 @@ export default {
     },
     data() {
         return {
-            items: []
-        }
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
+            cities: [
+                { name: 'New York', code: 'NY' },
+                { name: 'Rome', code: 'RM' },
+                { name: 'London', code: 'LDN' },
+                { name: 'Istanbul', code: 'IST' },
+                { name: 'Paris', code: 'PRS' }
+            ]
         }
     }
 };
@@ -111,9 +127,12 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <span class="p-float-label">
+                <Dropdown id="dd" v-model="value" :options="cities" optionLabel="name"
+                    :class="['w-full md:w-14rem', { 'p-invalid': errorMessage }]" aria-describedby="dd-error" />
+                <label for="dd">Select a City</label>
+            </span>
+            <small class="p-error" id="dd-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -128,35 +147,32 @@ import { useField, useForm } from 'vee-validate';
 const { handleSubmit, resetForm } = useForm();
 const { value, errorMessage } = useField('value', validateField);
 const toast = useToast();
-const items = ref([]);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
 
 function validateField(value) {
     if (!value) {
-        return 'Value is required.';
+        return 'City is required.';
     }
 
     return true;
 }
 
 const onSubmit = handleSubmit((values) => {
-    if (values.value && values.value.length > 0) {
-        toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+    if (values.value && values.value.name) {
+        toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value.name, life: 3000 });
         resetForm();
     }
 });
-
-const search = (event) => {
-    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
-};
 <\/script>
 `
             }
         };
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
-        }
     }
 };
 </script>

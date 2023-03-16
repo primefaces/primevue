@@ -9,6 +9,7 @@ import ButtonBarDoc from '@/doc/calendar/ButtonBarDoc';
 import DateTemplateDoc from '@/doc/calendar/DateTemplateDoc';
 import DisabledDoc from '@/doc/calendar/DisabledDoc';
 import FloatLabelDoc from '@/doc/calendar/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/calendar/form/VeeValidateDoc.vue';
 import FormatDoc from '@/doc/calendar/FormatDoc';
 import IconDoc from '@/doc/calendar/IconDoc';
 import ImportDoc from '@/doc/calendar/ImportDoc';
@@ -123,6 +124,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

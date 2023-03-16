@@ -6,6 +6,7 @@
 import AccessibilityDoc from '@/doc/colorpicker/AccessibilityDoc';
 import BasicDoc from '@/doc/colorpicker/BasicDoc';
 import DisabledDoc from '@/doc/colorpicker/DisabledDoc';
+import VeeValidateDoc from '@/doc/colorpicker/form/VeeValidateDoc';
 import FormatDoc from '@/doc/colorpicker/FormatDoc';
 import ImportDoc from '@/doc/colorpicker/ImportDoc';
 import InlineDoc from '@/doc/colorpicker/InlineDoc';
@@ -39,6 +40,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

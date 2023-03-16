@@ -4,9 +4,8 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small id="ac-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
+            <InputMask v-model="value" mask="(999) 999-9999" placeholder="(999) 999-9999" :class="{ 'p-invalid': errorMessage }" aria-describedby="mask-error" />
+            <small id="mask-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
     </div>
@@ -25,7 +24,7 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'Phone is required.';
             }
 
             return true;
@@ -42,26 +41,26 @@ export default {
     },
     data() {
         return {
-            items: [],
             code: {
                 basic: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <InputMask v-model="value" mask="(999) 999-9999" placeholder="(999) 999-9999"
+                :class="{ 'p-invalid': errorMessage }" aria-describedby="mask-error" />
+            <small class="p-error" id="mask-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
+        <Toast />
     </div>
 </template>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <InputMask v-model="value" mask="(999) 999-9999" placeholder="(999) 999-9999"
+                :class="{ 'p-invalid': errorMessage }" aria-describedby="mask-error" />
+            <small class="p-error" id="mask-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -80,7 +79,7 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'Phone is required.';
             }
 
             return true;
@@ -94,16 +93,6 @@ export default {
         });
 
         return { value, handleSubmit, onSubmit, errorMessage };
-    },
-    data() {
-        return {
-            items: []
-        }
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
-        }
     }
 };
 <\/script>`,
@@ -111,9 +100,9 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <InputMask v-model="value" mask="(999) 999-9999" placeholder="(999) 999-9999"
+                :class="{ 'p-invalid': errorMessage }" aria-describedby="mask-error" />
+            <small class="p-error" id="mask-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -121,18 +110,16 @@ export default {
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 
 const { handleSubmit, resetForm } = useForm();
 const { value, errorMessage } = useField('value', validateField);
 const toast = useToast();
-const items = ref([]);
 
 function validateField(value) {
     if (!value) {
-        return 'Value is required.';
+        return 'Phone is required.';
     }
 
     return true;
@@ -144,19 +131,10 @@ const onSubmit = handleSubmit((values) => {
         resetForm();
     }
 });
-
-const search = (event) => {
-    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
-};
 <\/script>
 `
             }
         };
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
-        }
     }
 };
 </script>

@@ -10,6 +10,7 @@ import DisabledDoc from '@/doc/dropdown/DisabledDoc';
 import EditableDoc from '@/doc/dropdown/EditableDoc';
 import FilterDoc from '@/doc/dropdown/FilterDoc';
 import FloatLabelDoc from '@/doc/dropdown/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/dropdown/form/VeeValidateDoc';
 import GroupDoc from '@/doc/dropdown/GroupDoc';
 import ImportDoc from '@/doc/dropdown/ImportDoc';
 import InvalidDoc from '@/doc/dropdown/InvalidDoc';
@@ -87,6 +88,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

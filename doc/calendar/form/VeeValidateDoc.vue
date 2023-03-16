@@ -4,9 +4,9 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small id="ac-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="date">Date</label>
+            <Calendar id="date" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="date-error" />
+            <small id="date-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
     </div>
@@ -25,15 +25,15 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'Date is required.';
             }
 
             return true;
         }
 
         const onSubmit = handleSubmit((values) => {
-            if (values.value && values.value.length > 0) {
-                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+            if (values.value) {
+                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value.toLocaleDateString(), life: 3000 });
                 resetForm();
             }
         });
@@ -42,26 +42,26 @@ export default {
     },
     data() {
         return {
-            items: [],
             code: {
                 basic: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="date">Date</label>
+            <Calendar id="date" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="date-error" />
+            <small class="p-error" id="date-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
+        <Toast />
     </div>
 </template>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="date">Date</label>
+            <Calendar id="date" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="date-error" />
+            <small class="p-error" id="date-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -80,30 +80,20 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'Date is required.';
             }
 
             return true;
         }
 
         const onSubmit = handleSubmit((values) => {
-            if (values.value && values.value.length > 0) {
-                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+            if (values.value) {
+                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value.toLocaleDateString(), life: 3000 });
                 resetForm();
             }
         });
 
         return { value, handleSubmit, onSubmit, errorMessage };
-    },
-    data() {
-        return {
-            items: []
-        }
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
-        }
     }
 };
 <\/script>`,
@@ -111,9 +101,9 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="date">Date</label>
+            <Calendar id="date" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="date-error" />
+            <small class="p-error" id="date-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -121,42 +111,31 @@ export default {
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 
 const { handleSubmit, resetForm } = useForm();
 const { value, errorMessage } = useField('value', validateField);
 const toast = useToast();
-const items = ref([]);
 
 function validateField(value) {
     if (!value) {
-        return 'Value is required.';
+        return 'Date is required.';
     }
 
     return true;
 }
 
 const onSubmit = handleSubmit((values) => {
-    if (values.value && values.value.length > 0) {
-        toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+    if (values.value) {
+        toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value.toLocaleDateString(), life: 3000 });
         resetForm();
     }
 });
-
-const search = (event) => {
-    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
-};
 <\/script>
 `
             }
         };
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
-        }
     }
 };
 </script>

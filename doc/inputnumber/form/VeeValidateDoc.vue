@@ -4,9 +4,9 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small id="ac-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="year">Enter a year between 1960-2050.</label>
+            <InputNumber id="year" v-model="value" :class="{ 'p-invalid': errorMessage }" :useGrouping="false" aria-describedby="number-error" />
+            <small id="number-error" class="p-error">{{ errorMessage || (errors.length > 0 ? errors : '&nbsp;') }}</small>
             <Button type="submit" label="Submit" />
         </form>
     </div>
@@ -20,48 +20,50 @@ import { useField, useForm } from 'vee-validate';
 export default {
     setup() {
         const { handleSubmit, resetForm } = useForm();
-        const { value, errorMessage } = useField('value', validateField);
+        const { value, errorMessage, errors } = useField('value', validateField);
         const toast = useToast();
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'Year is required.';
             }
 
             return true;
         }
 
-        const onSubmit = handleSubmit((values) => {
-            if (values.value && values.value.length > 0) {
+        const onSubmit = handleSubmit((values, actions) => {
+            if (values.value && values.value >= 1960 && values.value <= 2050) {
                 toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
                 resetForm();
+            } else {
+                actions.setErrors({ value: 'Enter a valid year.' });
             }
         });
 
-        return { value, handleSubmit, onSubmit, errorMessage };
+        return { value, handleSubmit, onSubmit, errorMessage, errors };
     },
     data() {
         return {
-            items: [],
             code: {
                 basic: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="year">Enter a year between 1960-2050.</label>
+            <InputNumber id="year" v-model="value" :class="{ 'p-invalid': errorMessage }" :useGrouping="false" aria-describedby="number-error" />
+            <small class="p-error" id="number-error">{{ errorMessage || (errors.length > 0 ? errors : '&nbsp;') }}</small>
             <Button type="submit" label="Submit" />
         </form>
+        <Toast />
     </div>
 </template>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="year">Enter a year between 1960-2050.</label>
+            <InputNumber id="year" v-model="value" :class="{ 'p-invalid': errorMessage }" :useGrouping="false" aria-describedby="number-error" />
+            <small class="p-error" id="number-error">{{ errorMessage || (errors.length > 0 ? errors : '&nbsp;') }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -75,35 +77,27 @@ import { useField, useForm } from 'vee-validate';
 export default {
     setup() {
         const { handleSubmit, resetForm } = useForm();
-        const { value, errorMessage } = useField('value', validateField);
+        const { value, errorMessage, errors } = useField('value', validateField);
         const toast = useToast();
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'Year is required.';
             }
 
             return true;
         }
 
-        const onSubmit = handleSubmit((values) => {
-            if (values.value && values.value.length > 0) {
+        const onSubmit = handleSubmit((values, actions) => {
+            if (values.value && values.value >= 1960 && values.value <= 2050) {
                 toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
                 resetForm();
+            } else {
+                actions.setErrors({ value: 'Enter a valid year.' });
             }
         });
 
-        return { value, handleSubmit, onSubmit, errorMessage };
-    },
-    data() {
-        return {
-            items: []
-        }
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
-        }
+        return { value, handleSubmit, onSubmit, errorMessage, errors };
     }
 };
 <\/script>`,
@@ -111,9 +105,9 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
-            <label for="ac">Value</label>
-            <AutoComplete v-model="value" :inputClass="{ 'p-invalid': errorMessage }" inputId="ac" :suggestions="items" @complete="search" aria-describedby="ac-error" />
-            <small class="p-error" id="ac-error">{{ errorMessage || '&nbsp;' }}</small>
+            <label for="year">Enter a year between 1960-2050.</label>
+            <InputNumber id="year" v-model="value" :class="{ 'p-invalid': errorMessage }" :useGrouping="false" aria-describedby="number-error" />
+            <small class="p-error" id="number-error">{{ errorMessage || (errors.length > 0 ? errors : '&nbsp;') }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -121,42 +115,33 @@ export default {
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 
 const { handleSubmit, resetForm } = useForm();
-const { value, errorMessage } = useField('value', validateField);
+const { value, errorMessage, errors } = useField('value', validateField);
 const toast = useToast();
-const items = ref([]);
 
 function validateField(value) {
     if (!value) {
-        return 'Value is required.';
+        return 'Year is required.';
     }
 
     return true;
 }
 
-const onSubmit = handleSubmit((values) => {
-    if (values.value && values.value.length > 0) {
+const onSubmit = handleSubmit((values, actions) => {
+    if (values.value && values.value >= 1960 && values.value <= 2050) {
         toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
         resetForm();
+    } else {
+        actions.setErrors({ value: 'Enter a valid year.' });
     }
 });
-
-const search = (event) => {
-    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
-};
 <\/script>
 `
             }
         };
-    },
-    methods: {
-        search(event) {
-            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
-        }
     }
 };
 </script>

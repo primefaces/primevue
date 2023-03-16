@@ -8,6 +8,7 @@ import ButtonsDoc from '@/doc/inputnumber/ButtonsDoc';
 import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc';
 import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/inputnumber/form/VeeValidateDoc';
 import ImportDoc from '@/doc/inputnumber/ImportDoc';
 import InvalidDoc from '@/doc/inputnumber/InvalidDoc';
 import LocaleDoc from '@/doc/inputnumber/LocaleDoc';
@@ -64,6 +65,18 @@ export default {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'disabled',

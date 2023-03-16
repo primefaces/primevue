@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/cascadeselect/AccessibilityDoc';
 import BasicDoc from '@/doc/cascadeselect/BasicDoc';
 import DisabledDoc from '@/doc/cascadeselect/DisabledDoc';
 import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/cascadeselect/form/VeeValidateDoc';
 import ImportDoc from '@/doc/cascadeselect/ImportDoc';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc';
 import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc';
@@ -51,6 +52,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

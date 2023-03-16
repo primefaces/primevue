@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/chips/AccessibilityDoc';
 import BasicDoc from '@/doc/chips/BasicDoc';
 import DisabledDoc from '@/doc/chips/DisabledDoc';
 import FloatLabelDoc from '@/doc/chips/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/chips/form/VeeValidateDoc';
 import ImportDoc from '@/doc/chips/ImportDoc';
 import InvalidDoc from '@/doc/chips/InvalidDoc';
 import SeparatorDoc from '@/doc/chips/SeparatorDoc';
@@ -51,6 +52,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

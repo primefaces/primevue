@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/editor/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/editor/BasicDoc.vue';
+import VeeValidateDoc from '@/doc/editor/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/editor/ImportDoc.vue';
 import QuillDoc from '@/doc/editor/QuillDoc.vue';
 import ReadOnlyDoc from '@/doc/editor/ReadOnlyDoc.vue';
@@ -39,6 +40,18 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',
