@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue BreadCrumb Component" header="BreadCrumb" description="Breadcrumb provides contextual information about page hierarchy." :componentDocs="docs" :apiDocs="['BreadCrumb', 'MenuItem']" />
+    <DocComponent title="Vue Breadcrumb Component" header="Breadcrumb" description="Breadcrumb provides contextual information about page hierarchy." :componentDocs="docs" :apiDocs="['Breadcrumb', 'MenuItem']" />
 </template>
 
 <script>
