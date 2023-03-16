@@ -1,6 +1,6 @@
 <template>
     <DocComponent
-        title="Vue StyleClass Component"
+        title="Vue StyleClass Directive"
         header="StyleClass"
         description="StyleClass manages css classes declaratively to during enter/leave animations or just to toggle classes on an element."
         :componentDocs="docs"

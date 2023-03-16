@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Split Button Component" header="SplitButton" description="SplitButton groups a set of commands in an overlay with a default command." :componentDocs="docs" :apiDocs="['SplitButton']" />
+    <DocComponent title="Vue SplitButton Component" header="SplitButton" description="SplitButton groups a set of commands in an overlay with a default command." :componentDocs="docs" :apiDocs="['SplitButton']" />
 </template>
 
 <script>

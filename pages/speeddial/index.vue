@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Speed Dial Component" header="SpeedDial" description="When pressed, a floating action button can display multiple primary actions that can be performed on a page." :componentDocs="docs" :apiDocs="['SpeedDial']" />
+    <DocComponent title="Vue Speed Dial Component" header="Speed Dial" description="When pressed, a floating action button can display multiple primary actions that can be performed on a page." :componentDocs="docs" :apiDocs="['SpeedDial']" />
 </template>
 
 <script>

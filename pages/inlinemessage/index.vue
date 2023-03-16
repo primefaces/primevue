@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue InlineMessage Component" header="InlineMessage" description="Messages is used to display inline messages with various severities." :componentDocs="docs" :apiDocs="['InlineMessage']" />
+    <DocComponent title="Vue InlineMessage Component" header="InlineMessage" description="Inline Message component displays information related to another element such as invalid input." :componentDocs="docs" :apiDocs="['InlineMessage']" />
 </template>
 
 <script>
