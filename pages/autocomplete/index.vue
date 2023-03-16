@@ -9,6 +9,7 @@ import DisabledDoc from '@/doc/autocomplete/DisabledDoc';
 import DropdownDoc from '@/doc/autocomplete/DropdownDoc';
 import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc';
 import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc';
+import VeeValidateDoc from '@/doc/autocomplete/form/VeeValidateDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc';
 import ImportDoc from '@/doc/autocomplete/ImportDoc';
 import InvalidDoc from '@/doc/autocomplete/InvalidDoc';
@@ -81,6 +82,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',
