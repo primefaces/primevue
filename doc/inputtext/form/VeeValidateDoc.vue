@@ -24,8 +24,9 @@ export default {
         const { errors, useFieldModel, handleSubmit } = useForm();
         const value = useFieldModel('value');
 
-        const onInput = (e) => {
-            handleChange('e.target.value');
+        const onInput = (newValue) => {
+            handleChange(newValue);
+            onSubmit();
         };
 
         const onSubmit = handleSubmit((values, actions) => {
@@ -77,8 +78,9 @@ export default {
         const { errors, useFieldModel, handleSubmit } = useForm();
         const value = useFieldModel('value');
 
-        const onInput = (e) => {
-            handleChange('e.target.value');
+        const onInput = (newValue) => {
+            handleChange(newValue);
+            onSubmit();
         };
 
         const onSubmit = handleSubmit((values, actions) => {
@@ -113,8 +115,9 @@ const { handleChange } = useField();
 const { errors, useFieldModel, handleSubmit } = useForm();
 const value = useFieldModel('value');
 
-const onInput = (e) => {
-    handleChange('e.target.value');
+const onInput = (newValue) => {
+    handleChange(newValue);
+    onSubmit();
 };
 
 const onSubmit = handleSubmit((values, actions) => {
