@@ -3,12 +3,12 @@
         <p><a href="https://vee-validate.logaretm.com/v4/">VeeValidate</a> is a popular library for handling forms in Vue.</p>
     </DocSectionText>
     <div class="card flex justify-content-center p-fluid">
-        <form @submit="onSubmit" class="flex flex-column gap-2 w-16rem">
+        <form @submit="onSubmit" class="flex flex-column gap-2">
             <span class="p-float-label">
-                <InputText id="value" v-model="value" @input="onInput" type="text" :class="{ 'p-invalid': errors.value }" />
+                <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" />
                 <label for="value">Name - Surname</label>
             </span>
-            <small class="p-error">{{ errors.value || '&nbsp;' }}</small>
+            <small class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" @click="onSubmit" />
         </form>
     </div>
@@ -16,28 +16,31 @@
 </template>
 
 <script>
+import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 
 export default {
     setup() {
-        const { handleChange } = useField();
-        const { errors, useFieldModel, handleSubmit } = useForm();
-        const value = useFieldModel('value');
+        const { handleSubmit, resetForm } = useForm();
+        const { value, errorMessage } = useField('value', validateField);
+        const toast = useToast();
 
-        const onInput = (newValue) => {
-            handleChange(newValue);
-            onSubmit();
-        };
+        function validateField(value) {
+            if (!value) {
+                return 'Name - Surname is required.';
+            }
 
-        const onSubmit = handleSubmit((values, actions) => {
-            if (values.value === null || values.value === undefined || values.value === '') {
-                actions.setErrors({ value: 'Name - Surname is required.' });
-            } else {
-                actions.setErrors({});
+            return true;
+        }
+
+        const onSubmit = handleSubmit((values) => {
+            if (values.value && values.value.length > 0) {
+                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+                resetForm();
             }
         });
 
-        return { value, errors, handleSubmit, onInput, onSubmit };
+        return { value, handleSubmit, onSubmit, errorMessage };
     },
     data() {
         return {
@@ -45,86 +48,96 @@ export default {
                 basic: `
 <template>
     <div class="card flex justify-content-center p-fluid">
-        <form @submit="onSubmit" class="flex flex-column gap-2 w-16rem">
+        <form @submit="onSubmit" class="flex flex-column gap-2">
             <span class="p-float-label">
-                <InputText id="value" v-model="value" @input="onInput" type="text" :class="{ 'p-invalid': errors.value }" />
+                <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" />
                 <label for="value">Name - Surname</label>
             </span>
-            <small class="p-error">{{ errors.value || '&nbsp;' }}</small>
+            <small class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" @click="onSubmit" />
         </form>
+        <Toast />
     </div>
 </template>`,
                 options: `
 <template>
     <div class="card flex justify-content-center p-fluid">
-        <form @submit="onSubmit" class="flex flex-column gap-2 w-16rem">
+        <form @submit="onSubmit" class="flex flex-column gap-2">
             <span class="p-float-label">
-                <InputText id="value" v-model="value" @input="onInput" type="text" :class="{ 'p-invalid': errors.value }" />
+                <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" />
                 <label for="value">Name - Surname</label>
             </span>
-            <small class="p-error">{{ errors.value || '&nbsp;' }}</small>
+            <small class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" @click="onSubmit" />
         </form>
+        <Toast />
     </div>
 </template>
 
 <script>
+import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 
 export default {
     setup() {
-        const { handleChange } = useField();
-        const { errors, useFieldModel, handleSubmit } = useForm();
-        const value = useFieldModel('value');
+        const { handleSubmit, resetForm } = useForm();
+        const { value, errorMessage } = useField('value', validateField);
+        const toast = useToast();
 
-        const onInput = (newValue) => {
-            handleChange(newValue);
-            onSubmit();
-        };
+        function validateField(value) {
+            if (!value) {
+                return 'Name - Surname is required.';
+            }
 
-        const onSubmit = handleSubmit((values, actions) => {
-            if (values.value === null || values.value === undefined || values.value === '') {
-                actions.setErrors({ value: 'Name - Surname is required.' });
-            } else {
-                actions.setErrors({});
+            return true;
+        }
+
+        const onSubmit = handleSubmit((values) => {
+            if (values.value && values.value.length > 0) {
+                toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+                resetForm();
             }
         });
 
-        return { value, errors, handleSubmit, onInput, onSubmit };
+        return { value, handleSubmit, onSubmit, errorMessage };
     }
 };
 <\/script>`,
                 composition: `
 <template>
     <div class="card flex justify-content-center p-fluid">
-        <form @submit="onSubmit" class="flex flex-column gap-2 w-16rem">
+        <form @submit="onSubmit" class="flex flex-column gap-2">
             <span class="p-float-label">
-                <InputText id="value" v-model="value" @input="onInput" type="text" :class="{ 'p-invalid': errors.value }" />
+                <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" />
                 <label for="value">Name - Surname</label>
             </span>
-            <small class="p-error">{{ errors.value || '&nbsp;' }}</small>
+            <small class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" @click="onSubmit" />
         </form>
+        <Toast />
     </div>
 </template>
 
 <script setup>
+import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
-const { handleChange } = useField();
-const { errors, useFieldModel, handleSubmit } = useForm();
-const value = useFieldModel('value');
 
-const onInput = (newValue) => {
-    handleChange(newValue);
-    onSubmit();
-};
+const { handleSubmit, resetForm } = useForm();
+const { value, errorMessage } = useField('value', validateField);
+const toast = useToast();
 
-const onSubmit = handleSubmit((values, actions) => {
-    if (values.value === null || values.value === undefined || values.value === '') {
-        actions.setErrors({ value: 'Name - Surname is required.' });
-    } else {
-        actions.setErrors({});
+function validateField(value) {
+    if (!value) {
+        return 'Name - Surname is required.';
+    }
+
+    return true;
+}
+
+const onSubmit = handleSubmit((values) => {
+    if (values.value && values.value.length > 0) {
+        toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+        resetForm();
     }
 });
 <\/script>
