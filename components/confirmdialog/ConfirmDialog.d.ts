@@ -46,6 +46,11 @@ export interface ConfirmDialogProps {
      * @see ConfirmDialogBreakpoints
      */
     breakpoints?: ConfirmDialogBreakpoints;
+    /**
+     * Enables dragging to change the position using header.
+     * @defaultValue true
+     */
+    draggable?: boolean | undefined;
 }
 
 /**

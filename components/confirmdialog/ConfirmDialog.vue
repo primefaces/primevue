@@ -1,5 +1,17 @@
 <template>
-    <CDialog v-model:visible="visible" role="alertdialog" class="p-confirm-dialog" :modal="true" :header="header" :blockScroll="blockScroll" :position="position" :breakpoints="breakpoints" :closeOnEscape="closeOnEscape" @update:visible="onHide">
+    <CDialog
+        v-model:visible="visible"
+        role="alertdialog"
+        class="p-confirm-dialog"
+        :modal="true"
+        :header="header"
+        :blockScroll="blockScroll"
+        :position="position"
+        :breakpoints="breakpoints"
+        :closeOnEscape="closeOnEscape"
+        :draggable="draggable"
+        @update:visible="onHide"
+    >
         <template v-if="!$slots.message">
             <i v-if="confirmation.icon" :class="iconClass" />
             <span class="p-confirm-dialog-message">{{ message }}</span>
@@ -24,6 +36,10 @@ export default {
         breakpoints: {
             type: Object,
             default: null
+        },
+        draggable: {
+            type: Boolean,
+            default: true
         }
     },
     confirmListener: null,

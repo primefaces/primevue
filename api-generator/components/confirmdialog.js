@@ -10,6 +10,12 @@ const ConfirmDialogProps = [
         type: 'object',
         default: 'null',
         description: 'Object literal to define widths per screen size.'
+    },
+    {
+        name: 'draggable',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether the dialog can be relocated by dragging.'
     }
 ];
 
