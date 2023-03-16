@@ -718,7 +718,7 @@ export default {
             this.columnResizing = true;
             this.lastResizeHelperX = event.pageX - containerLeft + this.$el.scrollLeft;
 
-            this.bindColumnResizeEvents(event);
+            this.bindColumnResizeEvents();
         },
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
@@ -791,9 +791,9 @@ export default {
                 }
             }
         },
-        bindColumnResizeEvents(event) {
+        bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
-                this.documentColumnResizeListener = document.addEventListener('mousemove', () => {
+                this.documentColumnResizeListener = document.addEventListener('mousemove', (event) => {
                     if (this.columnResizing) {
                         this.onColumnResize(event);
                     }
