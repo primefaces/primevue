@@ -13,7 +13,7 @@
 
         <div class="flex-auto">
             <label for="phone">Phone</label>
-            <InputMask v-model="value2" date="phone" mask="(999) 999-9999" placeholder="(999) 999-9999" />
+            <InputMask id="phone" v-model="value2" mask="(999) 999-9999" placeholder="(999) 999-9999" />
         </div>
 
         <div class="flex-auto">
