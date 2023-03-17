@@ -15340,23 +15340,35 @@
                 "PanelEmits": {
                     "description": "Defines valid emits in Panel component.",
                     "relatedProp": "",
-                    "props": [
+                    "props": [],
+                    "methods": [
                         {
                             "name": "toggle",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "PanelToggleEvent",
+                                    "description": "Custom toggle event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a tab toggle."
                         },
                         {
                             "name": "update:collapsed",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "boolean",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the collapsed changes."
                         }
-                    ],
-                    "methods": []
+                    ]
                 },
                 "PanelProps": {
                     "description": "Defines valid properties in Panel component.",
