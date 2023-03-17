@@ -60,7 +60,7 @@ describe('Inplace.vue', () => {
             },
             slots: {
                 display: `{{'Click to Edit'}}`,
-                content: `<InputText autoFocus />`
+                content: `<InputText autofocus />`
             }
         });
 
@@ -90,7 +90,7 @@ describe('Inplace.vue', () => {
             },
             slots: {
                 display: `{{'Click to Edit'}}`,
-                content: `<InputText autoFocus />`
+                content: `<InputText autofocus />`
             }
         });
 

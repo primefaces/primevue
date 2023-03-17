@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" aria-live="polite">
+    <div v-focustrap :class="containerClass" aria-live="polite">
         <div v-if="!d_active" ref="display" :class="displayClass" :tabindex="$attrs.tabindex || '0'" role="button" @click="open" @keydown.enter="open" v-bind="displayProps">
             <slot name="display"></slot>
         </div>
@@ -12,6 +12,7 @@
 
 <script>
 import Button from 'primevue/button';
+import FocusTrap from 'primevue/focustrap';
 
 export default {
     name: 'Inplace',
@@ -84,6 +85,9 @@ export default {
     },
     components: {
         IPButton: Button
+    },
+    directives: {
+        focustrap: FocusTrap
     }
 };
 </script>
