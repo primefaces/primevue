@@ -73,7 +73,7 @@ export default {
                         newValue = null;
                         break;
 
-                    case null:
+                    default:
                         newValue = true;
                         break;
                 }
