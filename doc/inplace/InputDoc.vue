@@ -8,7 +8,7 @@
                 {{ text || 'Click to Edit' }}
             </template>
             <template #content>
-                <InputText v-model="text" autoFocus />
+                <InputText v-model="text" autofocus />
             </template>
         </Inplace>
     </div>
@@ -27,7 +27,7 @@ export default {
         {{ text || 'Click to Edit' }}
     </template>
     <template #content>
-        <InputText v-model="text" autoFocus />
+        <InputText v-model="text" autofocus />
     </template>
 </Inplace>`,
                 options: `
@@ -38,7 +38,7 @@ export default {
                 {{ text || 'Click to Edit' }}
             </template>
             <template #content>
-                <InputText v-model="text" autoFocus />
+                <InputText v-model="text" autofocus />
             </template>
         </Inplace>
     </div>
@@ -61,7 +61,7 @@ export default {
                 {{ text || 'Click to Edit' }}
             </template>
             <template #content>
-                <InputText v-model="text" autoFocus />
+                <InputText v-model="text" autofocus />
             </template>
         </Inplace>
     </div>
