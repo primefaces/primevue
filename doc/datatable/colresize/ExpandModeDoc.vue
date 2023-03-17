@@ -50,7 +50,7 @@ export default {
         };
     },
     mounted() {
-        ProductService.getProductsSmall().then((data) => (this.products = data));
+        ProductService.getProductsMini().then((data) => (this.products = data));
     }
 };
 <\/script>`,
@@ -71,7 +71,7 @@ import { ref, onMounted } from 'vue';
 import { ProductService } from '@/service/ProductService';
 
 onMounted(() => {
-    productService.value.getProductsSmall().then(data => products.value = data);
+    productService.value.getProductsMini().then(data => products.value = data);
 });
 
 const products = ref();
@@ -94,7 +94,7 @@ const products = ref();
         };
     },
     mounted() {
-        ProductService.getProductsSmall().then((data) => (this.products = data));
+        ProductService.getProductsMini().then((data) => (this.products = data));
     }
 };
 </script>
