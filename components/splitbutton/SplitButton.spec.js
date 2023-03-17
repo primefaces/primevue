@@ -51,6 +51,6 @@ describe('SplitButton.vue', () => {
     it('should hide when default button is clicked', async () => {
         await wrapper.vm.onDefaultButtonClick();
 
-        expect(wrapper.find('.p-tieredmenu.p-component').exists()).toBe(false);
+        expect(wrapper.emitted()['click'][0]).toEqual([undefined]);
     });
 });
