@@ -123,9 +123,11 @@ export default {
             }
         },
         onDefaultButtonClick(event) {
-            this.$refs.menu.hide(event);
+            if (this.isExpanded) {
+                this.$refs.menu.hide(event);
+            }
 
-            this.$emit('click');
+            this.$emit('click', event);
         }
     },
     computed: {
