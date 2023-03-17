@@ -16,6 +16,7 @@ import StepDoc from '@/doc/knob/StepDoc.vue';
 import StrokeDoc from '@/doc/knob/StrokeDoc.vue';
 import StyleDoc from '@/doc/knob/StyleDoc.vue';
 import TemplateDoc from '@/doc/knob/TemplateDoc.vue';
+import VeeValidateDoc from '@/doc/knob/form/VeeValidateDoc.vue';
 export default {
     data() {
         return {
@@ -74,6 +75,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

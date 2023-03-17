@@ -10,7 +10,7 @@ import ImportDoc from '@/doc/selectbutton/ImportDoc';
 import InvalidDoc from '@/doc/selectbutton/InvalidDoc';
 import MultipleDoc from '@/doc/selectbutton/MultipleDoc';
 import TemplateDoc from '@/doc/selectbutton/TemplateDoc';
-
+import VeeValidateDoc from '@/doc/selectbutton/form/VeeValidateDoc';
 export default {
     data() {
         return {
@@ -44,6 +44,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'accessibility',

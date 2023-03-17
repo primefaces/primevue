@@ -14,6 +14,7 @@ import MeterDoc from '@/doc/password/MeterDoc.vue';
 import StyleDoc from '@/doc/password/StyleDoc.vue';
 import TemplateDoc from '@/doc/password/TemplateDoc.vue';
 import ToggleMaskDoc from '@/doc/password/ToggleMaskDoc.vue';
+import VeeValidateDoc from '@/doc/password/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -63,6 +64,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

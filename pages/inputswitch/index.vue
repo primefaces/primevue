@@ -10,6 +10,7 @@ import ImportDoc from '@/doc/inputswitch/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputswitch/InvalidDoc.vue';
 import PreselectionDoc from '@/doc/inputswitch/PreselectionDoc.vue';
 import StyleDoc from '@/doc/inputswitch/StyleDoc.vue';
+import VeeValidateDoc from '@/doc/inputswitch/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -39,6 +40,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

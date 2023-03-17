@@ -11,6 +11,7 @@ import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc';
 import ImportDoc from '@/doc/textarea/ImportDoc';
 import InvalidDoc from '@/doc/textarea/InvalidDoc';
 import StyleDoc from '@/doc/textarea/StyleDoc';
+import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -45,6 +46,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

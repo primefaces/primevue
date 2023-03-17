@@ -9,6 +9,7 @@ import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
 import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
 import StyleDoc from '@/doc/togglebutton/StyleDoc.vue';
+import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -33,6 +34,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

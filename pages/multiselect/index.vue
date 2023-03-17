@@ -16,7 +16,7 @@ import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc';
 import StyleDoc from '@/doc/multiselect/StyleDoc';
 import TemplateDoc from '@/doc/multiselect/TemplateDoc';
 import VirtualScrollDoc from '@/doc/multiselect/VirtualScrollDoc';
-
+import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc';
 export default {
     data() {
         return {
@@ -75,6 +75,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

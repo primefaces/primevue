@@ -14,7 +14,7 @@ import MultipleDoc from '@/doc/listbox/MultipleDoc';
 import StyleDoc from '@/doc/listbox/StyleDoc';
 import TemplateDoc from '@/doc/listbox/TemplateDoc';
 import VirtualScrollDoc from '@/doc/listbox/VirtualScrollDoc';
-
+import VeeValidateDoc from '@/doc/listbox/form/VeeValidateDoc';
 export default {
     data() {
         return {
@@ -63,6 +63,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',

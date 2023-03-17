@@ -12,6 +12,7 @@ import ImportDoc from '@/doc/treeselect/ImportDoc';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc';
 import MultipleDoc from '@/doc/treeselect/MultipleDoc';
 import StyleDoc from '@/doc/treeselect/StyleDoc';
+import VeeValidateDoc from '@/doc/treeselect/form/VeeValidateDoc.vue';
 export default {
     data() {
         return {
@@ -50,6 +51,18 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    description: 'Compatibility with popular Vue form libraries.',
+                    children: [
+                        {
+                            id: 'vee-validate',
+                            label: 'Vee Validate',
+                            component: VeeValidateDoc
+                        }
+                    ]
                 },
                 {
                     id: 'style',
