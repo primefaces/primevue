@@ -75,12 +75,12 @@ export interface PanelEmits {
      * Emitted when the collapsed changes.
      * @param {boolean} value - New value.
      */
-    'update:collapsed': (value: boolean) => void;
+    'update:collapsed'(value: boolean): void;
     /**
      * Callback to invoke when a tab toggle.
      * @param {PanelToggleEvent} event - Custom toggle event.
      */
-    toggle: (event: PanelToggleEvent) => void;
+    toggle(event: PanelToggleEvent): void;
 }
 
 /**
