@@ -571,6 +571,9 @@ export default {
                     break;
 
                 case 'Enter':
+                    if (event.keyCode === 229) {
+                        break;
+                    }
                     this.onEnterKey(event);
                     break;
 
