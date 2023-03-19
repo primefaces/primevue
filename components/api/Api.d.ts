@@ -1,5 +1,5 @@
 // Filter
-export enum FilterMatchModeOptions {
+export const enum FilterMatchMode {
     STARTS_WITH = 'startsWith',
     CONTAINS = 'contains',
     NOT_CONTAINS = 'notContains',
@@ -18,14 +18,10 @@ export enum FilterMatchModeOptions {
     DATE_AFTER = 'dateAfter'
 }
 
-export declare const FilterMatchMode: FilterMatchModeOptions;
-
-export enum FilterOperatorOptions {
+export const enum FilterOperator {
     AND = 'and',
     OR = 'or'
 }
-
-export declare const FilterOperator: FilterOperatorOptions;
 
 export declare namespace FilterService {
     export function filter(value: any, fields: string[], filterValue: any, filterMatchMode: string, filterLocale?: string): any[];
@@ -51,7 +47,7 @@ export declare namespace FilterService {
 }
 
 // Icons
-export enum PrimeIconsOptions {
+export const enum PrimeIcons {
     ALIGN_CENTER = 'pi pi-align-center',
     ALIGN_JUSTIFY = 'pi pi-align-justify',
     ALIGN_LEFT = 'pi pi-align-left',
@@ -312,14 +308,10 @@ export enum PrimeIconsOptions {
     YOUTUBE = 'pi pi-youtube'
 }
 
-export declare const PrimeIcons: PrimeIconsOptions;
-
 // Severity
-export enum ToastSeverityOptions {
+export const enum ToastSeverity {
     SUCCESS = 'success',
     INFO = 'info',
     WARN = 'warn',
     ERROR = 'error'
 }
-
-export declare const ToastSeverity: ToastSeverityOptions;
