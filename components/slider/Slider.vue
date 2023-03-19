@@ -155,24 +155,12 @@ export default {
                     if (newValue < this.min) newValue = this.min;
                     else if (newValue >= this.max) newValue = this.max;
 
-                    if (newValue > modelValue[1]) {
-                        modelValue[1] = newValue;
-
-                        this.handleIndex = 1;
-                    } else {
-                        modelValue[0] = newValue;
-                    }
+                    modelValue[0] = newValue;
                 } else {
                     if (newValue > this.max) newValue = this.max;
                     else if (newValue <= this.min) newValue = this.min;
 
-                    if (newValue < modelValue[0]) {
-                        modelValue[0] = newValue;
-
-                        this.handleIndex = 0;
-                    } else {
-                        modelValue[1] = newValue;
-                    }
+                    modelValue[1] = newValue;
                 }
             } else {
                 if (newValue < this.min) newValue = this.min;
@@ -199,6 +187,7 @@ export default {
                 this.handleIndex = index;
             }
 
+            event.currentTarget.focus();
             event.preventDefault();
         },
         onDrag(event) {
