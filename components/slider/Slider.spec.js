@@ -18,7 +18,7 @@ describe('Slider.vue', () => {
     });
 
     it('should drag start and end', async () => {
-        await wrapper.vm.onDragStart({ preventDefault: () => {} });
+        await wrapper.vm.onDragStart({ preventDefault: () => {}, currentTarget: { focus: () => {} } });
 
         expect(wrapper.find('.p-slider').classes()).toContain('p-slider-sliding');
 
