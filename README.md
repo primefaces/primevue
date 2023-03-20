@@ -11,149 +11,97 @@ PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homep
 
 ## Download
 
-PrimeVue is available at npm, if you have an existing application run the following command to download it to your project.
+PrimeVue is available at [npm](https://www.npmjs.com/package/primevue).
 
 ````
-npm install primevue --save
-npm install primeicons --save
+// with npm
+npm install primevue primeicons
+
+// with yarn
+yarn add primevue primeicons
 ````
 
-or
+## Plugin
 
-```
-yarn add primevue
-yarn add primeicons
-```
-
-Next step is setting up PrimeVue configuration.
+PrimeVue plugin is required to be installed with the **use** function to set up the default [configuration](https://primevue.org/theming).
 
 ```javascript
 import {createApp} from 'vue';
-import App from './App.vue';
 import PrimeVue from 'primevue/config';
 const app = createApp(App);
 
 app.use(PrimeVue);
-```
-
-## Import
-
-### Module
-
-```javascript
-import {createApp} from 'vue';
-import App from './App.vue';
-import PrimeVue from 'primevue/config';
-import Dialog from 'primevue/dialog';
-const app = createApp(App);
-
-app.use(PrimeVue);
-
-app.component('Dialog', Dialog);
-```
-
-Finally you'll be able to utilize the component in your application. See the Styles section to apply styling.
-
-```vue
-<Dialog></Dialog>
-```
-
-### CDN
-
-```javascript
-<script src="https://unpkg.com/primevue/core/core.min.js"></script>
-<script src="https://unpkg.com/primevue/multiselect/multiselect.min.js"></script>
-```
-
-## Single File Components
-
-SFC files are available in the npm distribution and if you'd like to use SFCs directly, add ***/sfc*** as a suffix when referencing an import path. This will instruct your bundler to process the *.vue files in your local build instead of using the compiled output. One use case for this approach is optimizing for SSR by removing whitespaces.
-
-```javascript
-import Dialog from 'primevue/dialog/sfc';
-```
-
-## Script Tag
-
-Other alternative is utilizing the components directly within the browser with the ***iife*** build. Note that PrimeVue does not provide a ***umd*** build.
-
-```javascript
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>PrimeVue Demo</title>
-        <link href="https://unpkg.com/primevue/resources/themes/lara-light-blue/theme.css" rel="stylesheet">
-        <link href="https://unpkg.com/primevue/resources/primevue.min.css" rel="stylesheet">
-        <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet">
-
-        <script src="https://unpkg.com/vue@next"></script>
-        <script src="https://unpkg.com/primevue/core/core.min.js"></script>
-        <script src="https://unpkg.com/primevue/slider/slider.min.js"></script>
-    </head>
-
-    <body>
-        <div id="app">
-            <p-slider v-model="val"></p-slider>
-            <h6>{{val}}</h6>
-        </div>
-
-        <script>
-            const {createApp, ref} = Vue;
-
-            const App = {
-                setup() {
-                    const val = ref(null);
-
-                    return {
-                        val
-                    };
-                },
-                components: {
-                    'p-slider': primevue.slider
-                }
-            };
-
-            createApp(App).use(primevue.config.default).mount("#app");
-        </script>
-    </body>
-</html>
 ```
 
 ## Styles
 
-The css dependencies are as follows, note that you may change the theme with another one of your choice.
+Theme, core and icons are the necessary css files of the components, visit the [Themes](https://primevue.org/theming) section for the complete list of available themes to choose from.
 
-```css
-primevue/resources/themes/lara-light-blue/theme.css       //theme
-primevue/resources/primevue.min.css                 //core css
-primeicons/primeicons.css                           //icons
-```
-
-If you are using a bundler such as webpack with a css loader you may also import them to your main application component.
 
 ```javascript
+// theme
 import 'primevue/resources/themes/lara-light-blue/theme.css';
+
+// core
 import 'primevue/resources/primevue.min.css';
+
+// icons
 import 'primeicons/primeicons.css';
 ```
 
+Each PrimeVue theme has its own font family so it is suggested to apply it to your application for a unified look.
+
+```
+body {
+    font-family: (--font-family);
+}
+```
+
+
+
+## Usage
+
+Each component can be imported individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component.
+
+```javascript
+import Button from "primevue/button"
+
+const app = createApp(App);
+app.component('Button', Button);
+```
+
+
+## Prop Cases
+
+Component prop names are described as camel case throughout the documentation however kebap-case is also fully supported. Events on the other hand should always be kebap-case.
+
+```vue
+<Dialog :showHeader="false"></Dialog>
+
+<!-- can be written as -->
+
+<Dialog :show-header="false"></Dialog>
+```
+
+
 ## Nuxt Integration
 
-Nuxt 3 is currently in beta and an official module is planned after the final release. At the moment, PrimeVue can easily be used with Nuxt 3 using a custom plugin.
+PrimeVue can easily be used with Nuxt 3 using a custom plugin.
 
 **nuxt.config.js**
 
 Open the nuxt configuration file and add the css dependencies.
 
 ```javascript
-import { defineNuxtConfig } from 'nuxt3';
-
 export default defineNuxtConfig({
     css: [
-        'primevue/resources/themes/lara-light-blue/theme.css',
-        'primevue/resources/primevue.css',
-        'primeicons/primeicons.css'
-    ]
+        "primevue/resources/themes/lara-light-blue/theme.css",
+        "primevue/resources/primevue.css",
+        "primeicons/primeicons.css"
+    ],
+	build: {
+		transpile: ["primevue"]
+	}
 })
 ```
 
@@ -173,95 +121,25 @@ export default defineNuxtPlugin((nuxtApp) => {
 });
 ```
 
-## Configuration
+## Example
 
-### Dependencies
+We've created various samples for the popular options in the Vue ecosystem. Visit the [primevue-examples](https://github.com/primefaces/primevue-examples) repository for the samples.
 
-PrimeVue components are not wrappers and implemented natively with the Vue APIs. There are some exceptions having 3rd party dependencies such as Quill for Editor.
+### Vite
 
-In addition, components require PrimeIcons library for icons.
+[![Vite|112x112](https://primefaces.org/cdn/primevue/images/logos/vite.svg)](https://github.com/primefaces/primevue-examples/tree/main/vite-quickstart)
 
-```javascript
-dependencies: {
-    "vue": "^3.0.0",
-    "primeicons": "^6.0.0"
-}
-```
+### Nuxt
 
-## Prop Cases
+[![Nuxt|112x112](https://primefaces.org/cdn/primevue/images/logos/nuxt.svg)](https://github.com/primefaces/primevue-examples/tree/main/nuxt3-quickstart)
 
-Component prop names are described as camel case throughout the documentation however camel-case is also fully supported. Events on the other hand should always be camel-case.
+### Vue-CLI
 
-```vue
-<Dialog :showHeader="false"></Dialog>
+[![Vue-CLI|112x112](https://primefaces.org/cdn/primevue/images/logos/vue.svg)](https://github.com/primefaces/primevue-quickstart)
 
-<!-- can be written as -->
+### Astro
 
-<Dialog :show-header="false"></Dialog>
-```
-
-## Ripple
-
-Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup. 
-
-```javascript
-import {createApp} from 'vue';
-import PrimeVue from 'primevue/config';
-const app = createApp(App);
-
-app.use(PrimeVue, {ripple: true});
-```
-
-## Outlined vs Filled Input Styles
-
-Input fields come in two styles, default is ***outlined*** with borders around the field whereas ***filled*** alternative adds a background color to the field. Applying *p-input-filled* to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputStyle to 'filled' at PrimeVue configuration as well.
-
-```javascript
-import {createApp} from 'vue';
-import PrimeVue from 'primevue/config';
-const app = createApp(App);
-
-app.use(PrimeVue, {inputStyle: 'filled'});
-```
-
-## ZIndex Layering
-
-ZIndexes are managed automatically to make sure layering of overlay components work seamlessly when combining multiple components. Still there may be cases where you'd like to configure the configure default values such as a custom layout where header section is fixed. In a case like this, dropdown needs to be displayed below the application header but a modal dialog should be displayed above. PrimeVue configuration offers the ***zIndex*** property to customize the default values for components categories. Default values are described below and can be customized when setting up PrimeVue.
-
-```javascript
-import {createApp} from 'vue';
-import PrimeVue from 'primevue/config';
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    zIndex: {
-        modal: 1100,        //dialog, sidebar
-        overlay: 1000,      //dropdown, overlaypanel
-        menu: 1000,         //overlay menus
-        tooltip: 1100       //tooltip
-    }
-});
-```
-
-## Locale
-
-PrimeVue provides a Locale API to support i18n and l7n, visit the [Locale](https://primevue.org/configuration/#locale) documentation for more information.
-
-## Quickstart with Vue CLI
-
-An [example application](https://github.com/primefaces/primevue-quickstart) based on Vue CLI is available at github.
-
-## Quickstart with Vite
-
-A [starter application](https://github.com/primefaces/primevue-quickstart-vite) is also provided for Vite users.
-
-## Quickstart with Nuxt
-
-A [sample application](https://github.com/primefaces/primevue-quickstart-nuxt3) is created for Nuxt 3 users.
-
-## Quickstart with TypeScript
-
-Typescript is fully supported as type definition files are provided in the npm package of PrimeVue. A sample [typescript-primevue](https://github.com/primefaces/primevue-typescript-quickstart) application with Vue CLI is available as at github.
+[![Astro|112x112(https://primefaces.org/cdn/primevue/images/logos/astro.svg)](https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart) application with Vue CLI is available as at github.
 
 ## Contributors
 
