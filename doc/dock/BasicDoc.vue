@@ -27,19 +27,19 @@ export default {
             items: [
                 {
                     label: 'Finder',
-                    icon: 'images/dock/finder.svg'
+                    icon: 'https://primefaces.org/cdn/primevue/images/dock/finder.svg'
                 },
                 {
                     label: 'App Store',
-                    icon: 'images/dock/appstore.svg'
+                    icon: 'https://primefaces.org/cdn/primevue/images/dock/appstore.svg'
                 },
                 {
                     label: 'Photos',
-                    icon: 'images/dock/photos.svg'
+                    icon: 'https://primefaces.org/cdn/primevue/images/dock/photos.svg'
                 },
                 {
                     label: 'Trash',
-                    icon: 'images/dock/trash.png'
+                    icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png'
                 }
             ],
             position: 'bottom',
