@@ -19,8 +19,13 @@ import { useField, useForm } from 'vee-validate';
 export default {
     setup() {
         const { handleSubmit, resetForm } = useForm();
-        const { value, errorMessage } = useField('value', validateField);
+
+        const { value, errorMessage } = useField('value', validateField, {
+            validateOnValueUpdate: false
+        });
         const toast = useToast();
+
+        value.value = 0;
 
         function validateField(value) {
             if (!value) {
@@ -34,6 +39,8 @@ export default {
             if (values.value > 0) {
                 toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
                 resetForm();
+
+                value.value = 0;
             }
         });
 
@@ -71,8 +78,12 @@ import { useField, useForm } from 'vee-validate';
 export default {
     setup() {
         const { handleSubmit, resetForm } = useForm();
-        const { value, errorMessage } = useField('value', validateField);
+        const { value, errorMessage } = useField('value', validateField, {
+            validateOnValueUpdate: false
+        });
         const toast = useToast();
+
+        value.value = 0;
 
         function validateField(value) {
             if (!value) {
@@ -86,6 +97,8 @@ export default {
             if (values.value > 0) {
                 toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
                 resetForm();
+
+                value.value = 0;
             }
         });
 
@@ -110,8 +123,12 @@ import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 
 const { handleSubmit, resetForm } = useForm();
-const { value, errorMessage } = useField('value', validateField);
+const { value, errorMessage } = useField('value', validateField,{
+            validateOnValueUpdate: false
+        });
 const toast = useToast();
+
+value.value = 0;
 
 function validateField(value) {
     if (!value) {
@@ -125,6 +142,8 @@ const onSubmit = handleSubmit((values) => {
     if (values.value > 0) {
         toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
         resetForm();
+
+        value.value = 0;
     }
 });
 <\/script>
