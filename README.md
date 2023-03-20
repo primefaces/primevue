@@ -126,20 +126,24 @@ export default defineNuxtPlugin((nuxtApp) => {
 We've created various samples for the popular options in the Vue ecosystem. Visit the [primevue-examples](https://github.com/primefaces/primevue-examples) repository for the samples.
 
 ### Vite
-
-[![Vite|112](https://primefaces.org/cdn/primevue/images/logos/vite.svg)](https://github.com/primefaces/primevue-examples/tree/main/vite-quickstart)
+<a href="https://github.com/primefaces/primevue-examples/tree/main/vite-quickstart">
+  <img src="https://primefaces.org/cdn/primevue/images/logos/vite.svg" alt="vite" width="112" height="112">
+</a>
 
 ### Nuxt
-
-[![Nuxt|112](https://primefaces.org/cdn/primevue/images/logos/nuxt.svg)](https://github.com/primefaces/primevue-examples/tree/main/nuxt3-quickstart)
+<a href="https://github.com/primefaces/primevue-examples/tree/main/nuxt3-quickstart">
+  <img src="https://primefaces.org/cdn/primevue/images/logos/nuxt.svg" alt="nuxt" width="112" height="112">
+</a>
 
 ### Vue-CLI
-
-[![Vue-CLI|112](https://primefaces.org/cdn/primevue/images/logos/vue.svg)](https://github.com/primefaces/primevue-quickstart)
+<a href="https://github.com/primefaces/primevue-quickstart">
+  <img src="https://primefaces.org/cdn/primevue/images/logos/vue.svg" alt="vue-cli" width="112" height="112">
+</a>
 
 ### Astro
-
-[![Astro|112](https://primefaces.org/cdn/primevue/images/logos/astro.svg)](https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart) application with Vue CLI is available as at github.
+<a href="https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart">
+  <img src="https://primefaces.org/cdn/primevue/images/logos/nuxt.svg" alt="astro" width="112" height="112">
+</a>
 
 ## Contributors
 
