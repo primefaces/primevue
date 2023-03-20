@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>
-                    <button type="button" class="p-button flex border-1 w-2rem h-2rem p-0 align-items-center justify-content-center transition-all transition-duration-300" @click="onConfigButtonClick">
+                    <button type="button" class="p-button flex border-1 w-2rem h-2rem p-0 align-items-center justify-content-center transition-all transition-duration-300 min-w-0" @click="onConfigButtonClick">
                         <i class="pi pi-cog"></i>
                     </button>
                 </li>

@@ -88,6 +88,11 @@
             background-color: var(--highlight-bg);
             color: var(--highlight-text-color);
 
+            &:hover {
+                background-color: var(--highlight-bg);
+                color: var(--highlight-text-color);
+            }
+
             > .menu-icon {
                 i {
                     color: var(--highlight-text-color);
