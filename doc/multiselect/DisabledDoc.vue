@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
-    <div class="flex justify-content-center">
+    <div class="card flex justify-content-center">
         <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-20rem" />
     </div>
     <DocSectionCode :code="code" />
