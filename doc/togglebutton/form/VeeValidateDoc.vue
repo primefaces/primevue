@@ -3,9 +3,9 @@
         <p><a href="https://vee-validate.logaretm.com/v4/">VeeValidate</a> is a popular library for handling forms in Vue.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
-            <ToggleButton v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+        <form @submit="onSubmit" class="flex flex-column gap-2">
+            <ToggleButton v-model="value" :class="['w-8rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" />
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
     </div>
@@ -44,18 +44,18 @@ export default {
             code: {
                 basic: `
 <div class="card flex justify-content-center">
-    <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
-        <ToggleButton v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
-        <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+    <form @submit="onSubmit" class="flex flex-column gap-2">
+        <ToggleButton v-model="value" :class="['w-8rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" />
+        <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
         <Button type="submit" label="Submit" />
     </form>
 </div>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
-            <ToggleButton v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+        <form @submit="onSubmit" class="flex flex-column gap-2">
+            <ToggleButton v-model="value" :class="['w-8rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" />
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -94,9 +94,9 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
-            <ToggleButton v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+        <form @submit="onSubmit" class="flex flex-column gap-2">
+            <ToggleButton v-model="value" :class="['w-8rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" />
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />

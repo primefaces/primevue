@@ -6,7 +6,7 @@
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="item" :class="['flex justify-content-center', { 'p-error': errorMessage }]"> Engine State </label>
             <SelectButton id="item" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" :options="options" />
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
     </div>
@@ -48,7 +48,7 @@ export default {
     <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
         <label for="item" :class="['flex justify-content-center', { 'p-error': errorMessage }]"> Engine State </label>
         <SelectButton id="item" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" :options="options" />
-        <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+        <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
         <Button type="submit" label="Submit" />
     </form>
     <Toast />
@@ -59,7 +59,7 @@ export default {
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="item" :class="['flex justify-content-center', { 'p-error': errorMessage }]"> Engine State </label>
             <SelectButton id="item" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" :options="options" />
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -105,7 +105,7 @@ export default {
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="item" :class="['flex justify-content-center', { 'p-error': errorMessage }]"> Engine State </label>
             <SelectButton id="item" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" :options="options" />
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />

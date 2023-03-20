@@ -9,6 +9,7 @@ import ChipsDoc from '@/doc/multiselect/ChipsDoc';
 import DisabledDoc from '@/doc/multiselect/DisabledDoc';
 import FilterDoc from '@/doc/multiselect/FilterDoc';
 import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc';
 import GroupDoc from '@/doc/multiselect/GroupDoc';
 import ImportDoc from '@/doc/multiselect/ImportDoc';
 import InvalidDoc from '@/doc/multiselect/InvalidDoc';
@@ -16,7 +17,6 @@ import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc';
 import StyleDoc from '@/doc/multiselect/StyleDoc';
 import TemplateDoc from '@/doc/multiselect/TemplateDoc';
 import VirtualScrollDoc from '@/doc/multiselect/VirtualScrollDoc';
-import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc';
 export default {
     data() {
         return {
@@ -82,8 +82,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

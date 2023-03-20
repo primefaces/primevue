@@ -8,11 +8,11 @@ import BasicDoc from '@/doc/treeselect/BasicDoc';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/treeselect/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc';
 import MultipleDoc from '@/doc/treeselect/MultipleDoc';
 import StyleDoc from '@/doc/treeselect/StyleDoc';
-import VeeValidateDoc from '@/doc/treeselect/form/VeeValidateDoc.vue';
 export default {
     data() {
         return {
@@ -58,8 +58,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

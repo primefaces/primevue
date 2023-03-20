@@ -6,11 +6,11 @@
 import AccessibilityDoc from '@/doc/inputswitch/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputswitch/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputswitch/DisabledDoc.vue';
+import VeeValidateDoc from '@/doc/inputswitch/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/inputswitch/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputswitch/InvalidDoc.vue';
 import PreselectionDoc from '@/doc/inputswitch/PreselectionDoc.vue';
 import StyleDoc from '@/doc/inputswitch/StyleDoc.vue';
-import VeeValidateDoc from '@/doc/inputswitch/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -47,8 +47,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

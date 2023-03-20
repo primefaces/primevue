@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/password/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/password/BasicDoc.vue';
 import DisabledDoc from '@/doc/password/DisabledDoc.vue';
 import FloatLabelDoc from '@/doc/password/FloatLabelDoc.vue';
+import VeeValidateDoc from '@/doc/password/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/password/ImportDoc.vue';
 import InvalidDoc from '@/doc/password/InvalidDoc.vue';
 import LocaleDoc from '@/doc/password/LocaleDoc.vue';
@@ -14,7 +15,6 @@ import MeterDoc from '@/doc/password/MeterDoc.vue';
 import StyleDoc from '@/doc/password/StyleDoc.vue';
 import TemplateDoc from '@/doc/password/TemplateDoc.vue';
 import ToggleMaskDoc from '@/doc/password/ToggleMaskDoc.vue';
-import VeeValidateDoc from '@/doc/password/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -71,8 +71,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

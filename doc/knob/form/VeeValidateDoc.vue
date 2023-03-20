@@ -3,7 +3,7 @@
         <p><a href="https://vee-validate.logaretm.com/v4/">VeeValidate</a> is a popular library for handling forms in Vue.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <form @submit="onSubmit" class="flex flex-column gap-2">
+        <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <Knob v-model="value" aria-describedby="text-error" />
             <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
@@ -24,7 +24,7 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'The value must be greater than zero.';
             }
 
             return true;
@@ -76,7 +76,7 @@ export default {
 
         function validateField(value) {
             if (!value) {
-                return 'Value is required.';
+                return 'The value must be greater than zero.';
             }
 
             return true;
@@ -115,7 +115,7 @@ const toast = useToast();
 
 function validateField(value) {
     if (!value) {
-        return 'Value is required.';
+        return 'The value must be greater than zero.';
     }
 
     return true;

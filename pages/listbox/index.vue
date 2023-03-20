@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/listbox/AccessibilityDoc';
 import BasicDoc from '@/doc/listbox/BasicDoc';
 import DisabledDoc from '@/doc/listbox/DisabledDoc';
 import FilterDoc from '@/doc/listbox/FilterDoc';
+import VeeValidateDoc from '@/doc/listbox/form/VeeValidateDoc';
 import GroupDoc from '@/doc/listbox/GroupDoc';
 import ImportDoc from '@/doc/listbox/ImportDoc';
 import InvalidDoc from '@/doc/listbox/InvalidDoc';
@@ -14,7 +15,6 @@ import MultipleDoc from '@/doc/listbox/MultipleDoc';
 import StyleDoc from '@/doc/listbox/StyleDoc';
 import TemplateDoc from '@/doc/listbox/TemplateDoc';
 import VirtualScrollDoc from '@/doc/listbox/VirtualScrollDoc';
-import VeeValidateDoc from '@/doc/listbox/form/VeeValidateDoc';
 export default {
     data() {
         return {
@@ -70,8 +70,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

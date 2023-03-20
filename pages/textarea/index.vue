@@ -8,10 +8,10 @@ import AutoResizeDoc from '@/doc/textarea/AutoResizeDoc';
 import BasicDoc from '@/doc/textarea/BasicDoc';
 import DisabledDoc from '@/doc/textarea/DisabledDoc';
 import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc';
+import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc';
 import InvalidDoc from '@/doc/textarea/InvalidDoc';
 import StyleDoc from '@/doc/textarea/StyleDoc';
-import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -53,8 +53,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

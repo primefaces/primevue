@@ -7,9 +7,9 @@ import AccessibilityDoc from '@/doc/togglebutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/togglebutton/BasicDoc.vue';
 import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
 import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
+import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
 import StyleDoc from '@/doc/togglebutton/StyleDoc.vue';
-import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -41,8 +41,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

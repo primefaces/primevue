@@ -6,10 +6,10 @@
 import AccessibilityDoc from '@/doc/tristatecheckbox/AccessibilityDoc';
 import BasicDoc from '@/doc/tristatecheckbox/BasicDoc';
 import DisabledDoc from '@/doc/tristatecheckbox/DisabledDoc';
+import VeeValidateDoc from '@/doc/tristatecheckbox/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/tristatecheckbox/ImportDoc';
 import InvalidDoc from '@/doc/tristatecheckbox/InvalidDoc';
 import StyleDoc from '@/doc/tristatecheckbox/StyleDoc';
-import VeeValidateDoc from '@/doc/tristatecheckbox/form/VeeValidateDoc.vue';
 
 export default {
     data() {
@@ -41,8 +41,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

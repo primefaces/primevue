@@ -6,11 +6,11 @@
 import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc';
 import BasicDoc from '@/doc/selectbutton/BasicDoc';
 import DisabledDoc from '@/doc/selectbutton/DisabledDoc';
+import VeeValidateDoc from '@/doc/selectbutton/form/VeeValidateDoc';
 import ImportDoc from '@/doc/selectbutton/ImportDoc';
 import InvalidDoc from '@/doc/selectbutton/InvalidDoc';
 import MultipleDoc from '@/doc/selectbutton/MultipleDoc';
 import TemplateDoc from '@/doc/selectbutton/TemplateDoc';
-import VeeValidateDoc from '@/doc/selectbutton/form/VeeValidateDoc';
 export default {
     data() {
         return {
@@ -51,8 +51,8 @@ export default {
                     description: 'Compatibility with popular Vue form libraries.',
                     children: [
                         {
-                            id: 'vee-validate',
-                            label: 'Vee Validate',
+                            id: 'veevalidate',
+                            label: 'VeeValidate',
                             component: VeeValidateDoc
                         }
                     ]

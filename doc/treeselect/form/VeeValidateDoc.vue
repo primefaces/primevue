@@ -4,9 +4,8 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2 w-full md:w-20rem">
-            <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" />
-
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+            <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" placeholder="Select Item" />
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
     </div>
@@ -47,9 +46,8 @@ export default {
                 basic: `
 <div class="card flex justify-content-center">
     <form @submit="onSubmit" class="flex flex-column align-items-center gap-2 w-full md:w-20rem">
-        <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" />
-
-        <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+        <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" placeholder="Select Item" />
+        <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
         <Button type="submit" label="Submit" />
     </form>
 </div>`,
@@ -57,9 +55,8 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2 w-full md:w-20rem">
-            <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" />
-
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+            <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" placeholder="Select Item" />
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />
@@ -107,9 +104,8 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2 w-full md:w-20rem">
-            <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" />
-
-            <small id="text-error" class="p-error my-2">{{ errorMessage || '&nbsp;' }}</small>
+            <TreeSelect v-model="value" :class="['w-full md:w-20rem', { 'p-invalid': errorMessage }]" aria-describedby="text-error" :options="nodes" placeholder="Select Item" />
+            <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>
         <Toast />

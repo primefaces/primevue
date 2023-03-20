@@ -6,7 +6,6 @@
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <label for="value">Password</label>
             <Password id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
-
             <small id="text-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
             <Button type="submit" label="Submit" />
         </form>

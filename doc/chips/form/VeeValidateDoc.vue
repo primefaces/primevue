@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p><a href="https://vee-validate.logaretm.com/v4/">VeeValidate</a> is a popular library for handling forms in Vue.</p>
     </DocSectionText>
-    <div class="card">
+    <div class="card p-fluid">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <Chips v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="chips-error" />
             <small id="chips-error" class="p-error">{{ errorMessage || '&nbsp;' }}</small>
@@ -44,7 +44,7 @@ export default {
             code: {
                 basic: `
 <template>
-    <div class="card">
+    <div class="card p-fluid">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <Chips v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="chips-error" />
             <small class="p-error" id="chips-error">{{ errorMessage || '&nbsp;' }}</small>
@@ -55,7 +55,7 @@ export default {
 </template>`,
                 options: `
 <template>
-    <div class="card">
+    <div class="card p-fluid">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <Chips v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="chips-error" />
             <small class="p-error" id="chips-error">{{ errorMessage || '&nbsp;' }}</small>
@@ -96,7 +96,7 @@ export default {
 <\/script>`,
                 composition: `
 <template>
-    <div class="card">
+    <div class="card p-fluid">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <Chips v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="chips-error" />
             <small class="p-error" id="chips-error">{{ errorMessage || '&nbsp;' }}</small>
