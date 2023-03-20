@@ -127,19 +127,19 @@ We've created various samples for the popular options in the Vue ecosystem. Visi
 
 ### Vite
 
-[![Vite|112x112](https://primefaces.org/cdn/primevue/images/logos/vite.svg)](https://github.com/primefaces/primevue-examples/tree/main/vite-quickstart)
+[![Vite|112](https://primefaces.org/cdn/primevue/images/logos/vite.svg)](https://github.com/primefaces/primevue-examples/tree/main/vite-quickstart)
 
 ### Nuxt
 
-[![Nuxt|112x112](https://primefaces.org/cdn/primevue/images/logos/nuxt.svg)](https://github.com/primefaces/primevue-examples/tree/main/nuxt3-quickstart)
+[![Nuxt|112](https://primefaces.org/cdn/primevue/images/logos/nuxt.svg)](https://github.com/primefaces/primevue-examples/tree/main/nuxt3-quickstart)
 
 ### Vue-CLI
 
-[![Vue-CLI|112x112](https://primefaces.org/cdn/primevue/images/logos/vue.svg)](https://github.com/primefaces/primevue-quickstart)
+[![Vue-CLI|112](https://primefaces.org/cdn/primevue/images/logos/vue.svg)](https://github.com/primefaces/primevue-quickstart)
 
 ### Astro
 
-[![Astro|112x112(https://primefaces.org/cdn/primevue/images/logos/astro.svg)](https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart) application with Vue CLI is available as at github.
+[![Astro|112](https://primefaces.org/cdn/primevue/images/logos/astro.svg)](https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart) application with Vue CLI is available as at github.
 
 ## Contributors
 
