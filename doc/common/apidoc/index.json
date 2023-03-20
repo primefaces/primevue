@@ -19888,7 +19888,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
-                            "default": "3000",
+                            "default": "",
                             "description": "Delay in milliseconds to close the message automatically."
                         },
                         {
