@@ -34,7 +34,6 @@ export interface ToastMessageOptions {
     closable?: boolean | undefined;
     /**
      * Delay in milliseconds to close the message automatically.
-     * @defaultValue 3000
      */
     life?: number | undefined;
     /**
