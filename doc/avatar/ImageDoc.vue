@@ -13,7 +13,7 @@
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <Avatar v-badge.danger="4" class="p-overlay-badge" image="/images/organization/walter.jpg" size="xlarge" />
+                <Avatar v-badge.danger="4" class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
             </div>
 
             <div class="flex-auto">

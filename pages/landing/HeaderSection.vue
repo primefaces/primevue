@@ -28,7 +28,7 @@
                         </li>
                         <li class="mr-0 lg:mr-2">
                             <router-link to="/uikit">
-                                <img src="/images/landing/uikit-icon.svg" alt="primevue designer" width="30" />
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/uikit-icon.svg" alt="primevue designer" width="30" />
                                 <span>UI Kit</span>
                             </router-link>
                         </li>
