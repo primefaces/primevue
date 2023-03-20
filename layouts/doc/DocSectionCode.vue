@@ -3,14 +3,14 @@
         <div class="flex surface-card align-items-center justify-content-end absolute z-2" :style="{ right: '.75rem', top: '.75rem', gap: '.75rem' }">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
-                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'javascript' }]"
-                    label="Options API"
-                    @click="codeLang = 'options'"
-                ></Button>
-                <Button
                     :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'typescript' }]"
                     label="Composition API"
                     @click="codeLang = 'composition'"
+                ></Button>
+                <Button
+                    :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'javascript' }]"
+                    label="Options API"
+                    @click="codeLang = 'options'"
                 ></Button>
             </template>
 
@@ -18,7 +18,7 @@
                 <Button
                     v-tooltip.bottom="{ value: 'Toggle Full Code', class: 'doc-section-code-tooltip' }"
                     type="button"
-                    @click="toggleCodeMode('options')"
+                    @click="toggleCodeMode('composition')"
                     class="p-button-rounded p-button-text p-button-plain h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center"
                     icon="pi pi-code"
                 ></Button>
@@ -155,7 +155,7 @@ export default {
     data() {
         return {
             codeMode: 'basic',
-            codeLang: this.code['options'] ? 'options' : 'basic'
+            codeLang: this.code['options'] ? 'composition' : 'basic'
         };
     },
     methods: {
