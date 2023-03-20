@@ -408,9 +408,11 @@ export default {
                 isFocus && DomHandler.focus(this.$refs.focusInput);
             };
 
-            setTimeout(() => {
-                _hide();
-            }, 0); // For ScreenReaders
+            if (!this.overlayVisible) {
+                setTimeout(() => {
+                    _hide();
+                }, 0); // For ScreenReaders
+            }
         },
         onFocus(event) {
             if (this.disabled) {
@@ -429,6 +431,7 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event) {
+            this.overlayVisible = false;
             this.dirty = false;
             this.focused = false;
             this.focusedOptionIndex = -1;
@@ -727,21 +730,28 @@ export default {
                     this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
                 }
 
+                this.overlayVisible = false;
                 this.hide();
             }
 
             event.preventDefault();
         },
         onEscapeKey(event) {
-            this.overlayVisible && this.hide(true);
+            this.overlayVisible = false;
+
+            this.hide(true);
             event.preventDefault();
         },
         onTabKey(event) {
             if (this.focusedOptionIndex !== -1) {
                 this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+
+                this.overlayVisible = false;
+
+                event.preventDefault();
             }
 
-            this.overlayVisible && this.hide();
+            this.hide();
         },
         onBackspaceKey(event) {
             if (this.multiple) {
@@ -1182,5 +1192,9 @@ export default {
 
 .p-fluid .p-autocomplete-dd .p-autocomplete-input {
     width: 1%;
+}
+
+.p-autocomplete-empty-message {
+    padding: 0.75rem 1.25rem;
 }
 </style>
