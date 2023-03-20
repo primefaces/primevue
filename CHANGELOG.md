@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.26.0](https://github.com/primefaces/primevue/tree/3.26.0) (2023-03-20)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.25.0...3.26.0)
+
+**Implemented New Features and Enhancements:**
+
+- TriStateCheckbox: case of modelValue undefined [\#3762](https://github.com/primefaces/primevue/issues/3762)
+- Inplace: FocusTrap support [\#3760](https://github.com/primefaces/primevue/issues/3760)
+- ConfirmDialog: Add draggable property [\#3753](https://github.com/primefaces/primevue/issues/3753)
+- Inplace editing does not focus on input element as expected [\#2348](https://github.com/primefaces/primevue/issues/2348)
+
+**Fixed bugs:**
+
+- Slider: Accessibility issue [\#3768](https://github.com/primefaces/primevue/issues/3768)
+- TreeTable: Column Resizing defect [\#3754](https://github.com/primefaces/primevue/issues/3754)
+- Api: Typing mismatch [\#3751](https://github.com/primefaces/primevue/issues/3751)
+- SplitButton/OverlayPanel: OverlayPanel won't open from default call by SplitButton [\#3750](https://github.com/primefaces/primevue/issues/3750)
+- Slider: Focus on slider on mouse click [\#3748](https://github.com/primefaces/primevue/issues/3748)
+- Dropdown preselected disabled option is not shown [\#3541](https://github.com/primefaces/primevue/issues/3541)
+
 ## [3.25.0](https://github.com/primefaces/primevue/tree/3.25.0) (2023-03-13)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.24.0...3.25.0)
