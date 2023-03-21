@@ -1,10 +1,10 @@
 <template>
-    <div :class="containerClass">
-        <div class="p-panel-header">
+    <div :class="containerClass" v-bind="ptm('root')">
+        <div class="p-panel-header" v-bind="ptm('header')">
             <slot name="header">
-                <span v-if="header" :id="ariaId + '_header'" class="p-panel-title">{{ header }}</span>
+                <span v-if="header" :id="ariaId + '_header'" class="p-panel-title" v-bind="ptm('title')">{{ header }}</span>
             </slot>
-            <div class="p-panel-icons">
+            <div class="p-panel-icons" v-bind="ptm('icons')">
                 <slot name="icons"></slot>
                 <button
                     v-if="toggleable"
@@ -12,21 +12,21 @@
                     v-ripple
                     type="button"
                     role="button"
-                    class="p-panel-header-icon p-panel-toggler p-link"
+                    class="p-panel-toggler p-link"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="ariaId + '_content'"
                     :aria-expanded="!d_collapsed"
                     @click="toggle"
                     @keydown="onKeyDown"
-                    v-bind="toggleButtonProps"
+                    v-bind="(toggleButtonProps, ptm('toggler'))"
                 >
-                    <span :class="{ 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }"></span>
+                    <span :class="['p-panel-header-icon', { 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }]" v-bind="ptm('headericon')"></span>
                 </button>
             </div>
         </div>
         <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'">
-                <div class="p-panel-content">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div class="p-panel-content" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
             </div>
@@ -35,11 +35,13 @@
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Panel',
+    extends: ComponentBase,
     emits: ['update:collapsed', 'toggle'],
     props: {
         header: String,
