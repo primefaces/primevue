@@ -103,6 +103,7 @@ export interface PanelProps {
     collapsed?: boolean;
     /**
      * Uses to pass the custom value to read for the button inside the component.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     toggleButtonProps?: ButtonHTMLAttributes | undefined;
     /**
