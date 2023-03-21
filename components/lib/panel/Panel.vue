@@ -18,7 +18,7 @@
                     :aria-expanded="!d_collapsed"
                     @click="toggle"
                     @keydown="onKeyDown"
-                    v-bind="(toggleButtonProps, ptm('toggler'))"
+                    v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
                 >
                     <span :class="['p-panel-header-icon', { 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }]" v-bind="ptm('headericon')"></span>
                 </button>
