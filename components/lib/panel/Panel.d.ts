@@ -74,7 +74,7 @@ export interface PanelPassThroughAttributes {
 }
 
 /**
- * Defines current inline states in Panel component.
+ * Defines current inline state in Panel component.
  */
 export interface PanelState {
     /**
