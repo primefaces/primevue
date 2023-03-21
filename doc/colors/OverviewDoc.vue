@@ -59,7 +59,7 @@
             </tbody>
         </table>
     </div>
-    <div class="card flex justify-content-center gap-3">
+    <div class="card flex justify-content-center gap-3 text-center">
         <div :style="{ backgroundColor: 'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem' }">Highlighted Item</div>
         <div :style="{ backgroundColor: 'var(--primary-color)', color: 'var(--primary-color-text)', borderRadius: 'var(--border-radius)', padding: '3rem' }">Primary Color</div>
     </div>
