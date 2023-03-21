@@ -18,10 +18,12 @@
 
 </code></pre>
 
-    <p class="doc-section-description">
-        A fancy checkbox with css animations might look more appealing but accessibility might be lacking. Checkbox below may display a checked font icon with animations however it is not tabbable, cannot be checked with space key and cannot be read
-        by a reader.
-    </p>
+    <div class="doc-section-description">
+        <p>
+            A fancy checkbox with css animations might look more appealing but accessibility might be lacking. Checkbox below may display a checked font icon with animations however it is not tabbable, cannot be checked with space key and cannot be
+            read by a reader.
+        </p>
+    </div>
     <pre v-code.script><code>
 &lt;div class="fancy-checkbox"&gt;
     &lt;i class="checked-icon" v-if="checked"&gt;&lt;/i&gt;
@@ -29,7 +31,9 @@
 
 </code></pre>
 
-    <p class="doc-section-description">One alternative is using ARIA roles for readers and use javascript for keyboard support. Notice the usage of <i>aria-labelledby</i> as a replacement of the <i>label</i> tag with for.</p>
+    <div class="doc-section-description">
+        <p>One alternative is using ARIA roles for readers and use javascript for keyboard support. Notice the usage of <i>aria-labelledby</i> as a replacement of the <i>label</i> tag with for.</p>
+    </div>
     <pre v-code.script><code>
 &lt;span id="chk-label"&gt;Remember Me&lt;/span&gt;
 &lt;div class="fancy-checkbox" role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="chk-label"
@@ -39,11 +43,13 @@
 
 </code></pre>
 
-    <p class="doc-section-description">
-        However the best practice is combining semantic HTML for accessibility while keeping the design for UX. This approach involves hiding a native checkbox for accessibility and using javascript events to update its state. Notice the usage of
-        <i>p-sr-only</i>
-        that hides the elements from the user but not from the screen reader.
-    </p>
+    <div class="doc-section-description">
+        <p>
+            However the best practice is combining semantic HTML for accessibility while keeping the design for UX. This approach involves hiding a native checkbox for accessibility and using javascript events to update its state. Notice the usage of
+            <i>p-sr-only</i>
+            that hides the elements from the user but not from the screen reader.
+        </p>
+    </div>
     <pre v-code.script><code>
 &lt;label for="chkbox"&gt;Remember Me&lt;/label&gt;
 &lt;div class="fancy-checkbox" @click="toggle"&gt;
@@ -54,7 +60,9 @@
 
 </code></pre>
 
-    <p class="doc-section-description">A working sample is the PrimeVue checkbox that is tabbable, keyboard accessible and is compliant with a screen reader. Instead of ARIA roles it relies on a hidden native checkbox.</p>
+    <div class="doc-section-description">
+        <p>A working sample is the PrimeVue checkbox that is tabbable, keyboard accessible and is compliant with a screen reader. Instead of ARIA roles it relies on a hidden native checkbox.</p>
+    </div>
 
     <div class="card flex align-items-center justify-content-center">
         <label for="binary" class="mr-2">Remember Me</label>

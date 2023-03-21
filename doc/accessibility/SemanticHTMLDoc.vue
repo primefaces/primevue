@@ -26,7 +26,9 @@
 
 </code></pre>
 
-    <p class="doc-section-description">Same layout can be achieved using the semantic elements with screen reader support built-in.</p>
+    <div class="doc-section-description">
+        <p>Same layout can be achieved using the semantic elements with screen reader support built-in.</p>
+    </div>
     <pre v-code.script><code>
 &lt;header&gt;
     &lt;h1&gt;Header&lt;/h1&gt;
