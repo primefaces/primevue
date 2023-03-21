@@ -10,6 +10,8 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: { props: PanelProps; state: PanelState }) => PanelPassThroughAttributes) | null | undefined;
+
 /**
  * Custom toggle event.
  * @see {@link PanelEmits.toggle}
@@ -23,6 +25,62 @@ export interface PanelToggleEvent {
      * Collapsed state as a boolean
      */
     value: boolean;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link PanelProps.pt}
+ */
+export interface PanelPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the title's DOM element.
+     */
+    title?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the title's DOM element.
+     */
+    icons?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the toggler's DOM element.
+     */
+    toggler?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the headericon's DOM element.
+     */
+    headericon?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the toggleablecontent's DOM element.
+     */
+    toggleablecontent?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: PanelPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface PanelPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline states in Panel component.
+ */
+export interface PanelState {
+    /**
+     * Current collapsed state as a boolean
+     */
+    d_collapsed: boolean;
 }
 
 /**
@@ -47,6 +105,11 @@ export interface PanelProps {
      * Uses to pass the custom value to read for the button inside the component.
      */
     toggleButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {PanelPassThroughOptions}
+     */
+    pt?: PanelPassThroughOptions;
 }
 
 /**
@@ -65,6 +128,16 @@ export interface PanelSlots {
      * Custom icons template.
      */
     icons(): VNode[];
+    /**
+     * Custom header icon template of panel.
+     * @param {Object} scope - header icon slot's params.
+     */
+    headericon(scope: {
+        /**
+         * Collapsed state as a boolean
+         */
+        collapsed: boolean;
+    }): VNode[];
 }
 
 /**

@@ -17407,6 +17407,90 @@
                         }
                     ]
                 },
+                "PanelPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "PanelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "PanelProps.pt",
+                    "props": [
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headericon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the headericon's DOM element."
+                        },
+                        {
+                            "name": "icons",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the title's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "title",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the title's DOM element."
+                        },
+                        {
+                            "name": "toggleablecontent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggleablecontent's DOM element."
+                        },
+                        {
+                            "name": "toggler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggler's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "PanelProps": {
                     "description": "Defines valid properties in Panel component.",
                     "relatedProp": "",
@@ -17426,6 +17510,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Header text of the panel."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         },
                         {
                             "name": "toggleButtonProps",
@@ -17464,12 +17556,40 @@
                             "description": "Custom header template."
                         },
                         {
+                            "name": "headericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>collapsed</b>: boolean, // Collapsed state as a boolean\n  }",
+                                    "description": "header icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom header icon template of panel."
+                        },
+                        {
                             "name": "icons",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom icons template."
                         }
                     ]
+                },
+                "PanelState": {
+                    "description": "Defines current inline states in Panel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_collapsed",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current collapsed state as a boolean"
+                        }
+                    ],
+                    "methods": []
                 },
                 "PanelToggleEvent": {
                     "description": "Custom toggle event.",
@@ -17493,6 +17613,14 @@
                         }
                     ],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "PanelPassThroughOptionType": {
+                    "values": "PanelPassThroughAttributes | Function | null | undefined"
                 }
             }
         }

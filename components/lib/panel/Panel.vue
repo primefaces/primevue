@@ -12,7 +12,7 @@
                     v-ripple
                     type="button"
                     role="button"
-                    class="p-panel-toggler p-link"
+                    class="p-panel-header-icon p-panel-toggler p-link"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="ariaId + '_content'"
                     :aria-expanded="!d_collapsed"
@@ -20,7 +20,9 @@
                     @keydown="onKeyDown"
                     v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
                 >
-                    <span :class="['p-panel-header-icon', { 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }]" v-bind="ptm('headericon')"></span>
+                    <slot name="headericon" :collapsed="d_collapsed">
+                        <span :class="{ 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }" v-bind="ptm('headericon')"></span>
+                    </slot>
                 </button>
             </div>
         </div>
