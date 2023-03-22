@@ -10,19 +10,33 @@
             <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="maskClass" :aria-modal="maskVisible" @click="onMaskClick" @keydown="onMaskKeydown">
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button" :aria-label="rightAriaLabel">
-                        <i class="pi pi-refresh"></i>
+                        <slot name="refresh">
+                            <i class="pi pi-refresh"></i>
+                        </slot>
                     </button>
+
                     <button class="p-image-action p-link" @click="rotateLeft" type="button" :aria-label="leftAriaLabel">
-                        <i class="pi pi-undo"></i>
+                        <slot name="undo">
+                            <i class="pi pi-undo"></i>
+                        </slot>
                     </button>
+
                     <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="zoomDisabled" :aria-label="zoomOutAriaLabel">
-                        <i class="pi pi-search-minus"></i>
+                        <slot name="zoomout">
+                            <i class="pi pi-search-minus"></i>
+                        </slot>
                     </button>
+
                     <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="zoomDisabled" :aria-label="zoomInAriaLabel">
-                        <i class="pi pi-search-plus"></i>
+                        <slot name="zoomin">
+                            <i class="pi pi-search-plus"></i>
+                        </slot>
                     </button>
+
                     <button class="p-image-action p-link" type="button" @click="hidePreview" :aria-label="closeAriaLabel" autofocus>
-                        <i class="pi pi-times"></i>
+                        <slot name="close">
+                            <i class="pi pi-times"></i>
+                        </slot>
                     </button>
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
