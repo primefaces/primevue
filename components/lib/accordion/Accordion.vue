@@ -1,7 +1,7 @@
 <template>
-    <div class="p-accordion p-component">
-        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="getTabClass(i)" :data-index="i">
-            <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="getTabProp(tab, 'headerProps')">
+    <div class="p-accordion p-component" v-bind="ptm('root')">
+        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="getTabClass(i)" :data-index="i" v-bind="getTabPT(tab, 'root')">
+            <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'tabheader') }">
                 <a
                     :id="getTabHeaderActionId(i)"
                     class="p-accordion-header-link p-accordion-header-action"
@@ -40,11 +40,13 @@
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Accordion',
+    extends: ComponentBase,
     emits: ['update:activeIndex', 'tab-open', 'tab-close', 'tab-click'],
     props: {
         multiple: {
@@ -111,6 +113,15 @@ export default {
         },
         getTabContentId(index) {
             return `${this.id}_${index}_content`;
+        },
+        getTabPT(tab, key) {
+            return this.ptmo(this.getTabProp(tab, 'pt'), key, {
+                props: tab.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
         },
         onTabClick(event, tab, index) {
             this.changeActiveIndex(event, tab, index);

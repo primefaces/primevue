@@ -12,6 +12,9 @@ export default {
     methods: {
         ptm(key = '', params = {}) {
             return ObjectUtils.getItemValue((this.pt || {})[key.toLowerCase()], { props: this.$props, state: this.$data, ...params });
+        },
+        ptmo(obj = {}, key = '', params = {}) {
+            return ObjectUtils.getItemValue(obj[key.toLowerCase()], params);
         }
     }
 };
