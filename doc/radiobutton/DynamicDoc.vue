@@ -6,7 +6,7 @@
         <div class="flex flex-column gap-3">
             <div v-for="(category, index) in categories" :key="category.key" class="flex align-items-center">
                 <RadioButton v-model="selectedCategory" :inputId="category.key + index" name="pizza" :value="category.name" />
-                <label :for="category.key" class="ml-2">{{ category.name }}</label>
+                <label :for="category.key + index" class="ml-2">{{ category.name }}</label>
             </div>
         </div>
     </div>
