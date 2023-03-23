@@ -10,7 +10,15 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: { props: PanelProps; state: PanelState }) => PanelPassThroughAttributes) | null | undefined;
+export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface PanelPassThroughMethodOptions {
+    props: PanelProps;
+    state: PanelState;
+}
 
 /**
  * Custom toggle event.

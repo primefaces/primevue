@@ -1,7 +1,7 @@
 <template>
     <div class="p-accordion p-component" v-bind="ptm('root')">
         <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="getTabClass(i)" :data-index="i" v-bind="getTabPT(tab, 'root')">
-            <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'tabheader') }">
+            <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'header') }">
                 <a
                     :id="getTabHeaderActionId(i)"
                     class="p-accordion-header-link p-accordion-header-action"
@@ -12,10 +12,11 @@
                     :aria-controls="getTabContentId(i)"
                     @click="onTabClick($event, tab, i)"
                     @keydown="onTabKeyDown($event, tab, i)"
-                    v-bind="getTabProp(tab, 'headerActionProps')"
+                    v-bind="{ ...getTabProp(tab, 'headeractionprops'), ...getTabPT(tab, 'headeraction') }"
                 >
-                    <span :class="getTabHeaderIconClass(i)" aria-hidden="true"></span>
-                    <span v-if="tab.props && tab.props.header" class="p-accordion-header-text">{{ tab.props.header }}</span>
+                    <component v-if="tab.children && tab.children.headericon" :is="tab.children.headericon" :isTabActive="isTabActive(i)" :index="i"></component>
+                    <span v-else :class="getTabHeaderIconClass(i)" aria-hidden="true" v-bind="getTabPT(tab, 'headericon')"></span>
+                    <span v-if="tab.props && tab.props.header" class="p-accordion-header-text" v-bind="getTabPT(tab, 'headertitle')">{{ tab.props.header }}</span>
                     <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
             </div>
@@ -28,9 +29,9 @@
                     :class="getTabContentClass(tab)"
                     role="region"
                     :aria-labelledby="getTabHeaderActionId(i)"
-                    v-bind="getTabProp(tab, 'contentProps')"
+                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'toggleablecontent') }"
                 >
-                    <div class="p-accordion-content">
+                    <div class="p-accordion-content" v-bind="getTabPT(tab, 'content')">
                         <component :is="tab"></component>
                     </div>
                 </div>
