@@ -73,30 +73,37 @@ export interface AccordionTabProps {
     header?: string | undefined;
     /**
      * Inline style of the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerStyle?: any;
     /**
      * Style class of the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerClass?: any;
     /**
      * Uses to pass all properties of the HTMLDivElement to the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerProps?: HTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerActionProps?: AnchorHTMLAttributes | undefined;
     /**
      * Inline style of the tab content.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentStyle?: any;
     /**
      * Style class of the tab content.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentClass?: any;
     /**
      * Uses to pass all properties of the HTMLDivElement to the tab content.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
@@ -104,6 +111,11 @@ export interface AccordionTabProps {
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {AccordionTabPassThroughOptions}
+     */
+    pt?: AccordionTabPassThroughOptions;
 }
 
 /**
