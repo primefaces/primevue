@@ -10,6 +10,8 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type TabViewPassThroughOptionType = TabViewPassThroughAttributes | ((options: { props: TabViewProps; state: TabViewState }) => TabViewPassThroughAttributes) | null | undefined;
+
 /**
  * Custom tab change event.
  * @see {@link TabViewEmits['tab-change']}
@@ -31,6 +33,86 @@ export interface TabViewChangeEvent {
  * @extends TabViewChangeEvent
  */
 export interface TabViewClickEvent extends TabViewChangeEvent {}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TabViewProps.pt}
+ */
+export interface TabViewPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nav container's DOM element.
+     */
+    navcontainer?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nav content's DOM element.
+     */
+    navcontent?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    nav?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list items' DOM element.
+     */
+    tabheader?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the inkbar's DOM element.
+     */
+    inkbar?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the previous button's DOM element.
+     */
+    prevbutton?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the previous button icon's DOM element.
+     */
+    previcon?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nex button's DOM element.
+     */
+    nextbutton?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the next button icon's DOM element.
+     */
+    nexticon?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panelcontent?: TabViewPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TabViewPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in TabView component.
+ */
+export interface TabViewState {
+    /**
+     * Current collapsed state as a boolean.
+     */
+    d_activeIndex: number;
+    /**
+     * Unique id for the TabView component.
+     */
+    id: string;
+    /**
+     * Current state of previous button.
+     */
+    isPrevButtonDisabled: boolean;
+    /**
+     * Current state of the next button.
+     */
+    isNextButtonDisabled: boolean;
+}
 
 /**
  * Defines valid properties in TabView component.
@@ -63,12 +145,19 @@ export interface TabViewProps {
     selectOnFocus?: boolean | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the previous button.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     previousButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the next button.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TabViewPassThroughOptions}
+     */
+    pt?: TabViewPassThroughOptions;
 }
 
 /**
@@ -79,6 +168,14 @@ export interface TabViewSlots {
      * Default slot to detect TabPanel components.
      */
     default(): VNode[];
+    /**
+     * Previous button icon template for the scrollable component.
+     */
+    previcon(): VNode[];
+    /**
+     * Next button icon template for the scrollable component.
+     */
+    nexticon(): VNode[];
 }
 
 /**

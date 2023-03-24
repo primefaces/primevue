@@ -8,7 +8,49 @@
  *
  */
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
+import { TabViewPassThroughOptions } from '../tabview';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TabPanelPassThroughMethodOptions {
+    props: TabPanelProps;
+    parent: TabViewPassThroughOptions;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TabPanelProps.pt}
+ */
+export interface TabPanelPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: TabPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: TabPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header action's DOM element.
+     */
+    headeraction?: TabPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the title's DOM element.
+     */
+    headertitle?: TabPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    content?: TabPanelPassThroughOptionType;
+}
+
+export interface TabPanelPassThroughAttributes {
+    [key: string]: any;
+}
 
 /**
  * Defines valid properties in TabPanel component.
@@ -20,30 +62,37 @@ export interface TabPanelProps {
     header?: string | undefined;
     /**
      * Inline style of the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerStyle?: any;
     /**
      * Style class of the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerClass?: any;
     /**
      * Uses to pass all properties of the HTMLLiElement to the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerProps?: LiHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerActionProps?: AnchorHTMLAttributes | undefined;
     /**
      * Inline style of the tab content.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentStyle?: any;
     /**
      * Style class of the tab content.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentClass?: any;
     /**
      * Uses to pass all properties of the HTMLDivElement to the tab content.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
@@ -51,6 +100,11 @@ export interface TabPanelProps {
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TabPanelPassThroughOptions}
+     */
+    pt?: TabPanelPassThroughOptions;
 }
 /**
  * Defines valid slots in TabPanel slots.

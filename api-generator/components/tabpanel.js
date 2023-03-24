@@ -52,6 +52,12 @@ const TabPanelProps = [
         type: 'boolean',
         default: 'null',
         description: 'Whether the tab is disabled.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

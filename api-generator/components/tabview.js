@@ -40,6 +40,12 @@ const TabViewProps = [
         type: 'any',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLButtonElement to the next button.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -78,11 +84,27 @@ const TabViewEvents = [
     }
 ];
 
+const TabViewSlots = [
+    {
+        name: 'default',
+        description: 'Default slot to detect TabPanel components.'
+    },
+    {
+        name: 'previcon',
+        description: 'Previous button icon template for the scrollable component.'
+    },
+    {
+        name: 'nexticon',
+        description: 'Next button icon template for the scrollable component.'
+    }
+];
+
 module.exports = {
     tabview: {
         name: 'TabView',
         description: 'TabView is a container component to group content with tabs.',
         props: TabViewProps,
-        event: TabViewEvents
+        event: TabViewEvents,
+        slots: TabViewSlots
     }
 };
