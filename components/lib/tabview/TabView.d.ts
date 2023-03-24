@@ -97,7 +97,7 @@ export interface TabViewPassThroughAttributes {
  */
 export interface TabViewState {
     /**
-     * Current collapsed state as a boolean.
+     * Current active index state.
      */
     d_activeIndex: number;
     /**
@@ -106,10 +106,12 @@ export interface TabViewState {
     id: string;
     /**
      * Current state of previous button.
+     * @defaultValue true
      */
     isPrevButtonDisabled: boolean;
     /**
      * Current state of the next button.
+     * @defaultValue false
      */
     isNextButtonDisabled: boolean;
 }

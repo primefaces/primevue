@@ -86,7 +86,8 @@ export interface PanelPassThroughAttributes {
  */
 export interface PanelState {
     /**
-     * Current collapsed state as a boolean
+     * Current collapsed state as a boolean.
+     * @defaultValue false
      */
     d_collapsed: boolean;
 }

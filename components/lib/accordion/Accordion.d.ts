@@ -76,9 +76,9 @@ export interface AccordionState {
      */
     id: string;
     /**
-     * Current active index state as a boolean
+     * Current active index state.
      */
-    d_activeIndex: boolean;
+    d_activeIndex: number | number[];
 }
 
 /**
