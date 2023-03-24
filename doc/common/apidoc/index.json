@@ -11236,10 +11236,40 @@
                     "props": [],
                     "methods": [
                         {
+                            "name": "close",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close template."
+                        },
+                        {
                             "name": "indicator",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
+                        },
+                        {
+                            "name": "refresh",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom refresh template."
+                        },
+                        {
+                            "name": "undo",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom undo template."
+                        },
+                        {
+                            "name": "zoomin",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom zoomin template."
+                        },
+                        {
+                            "name": "zoomout",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom zoomout template."
                         }
                     ]
                 }
