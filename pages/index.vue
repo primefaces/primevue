@@ -1,12 +1,12 @@
 <template>
     <div :class="landingClass">
         <Intro @change:theme="onThemeToggle"></Intro>
+        <UsersSection />
         <ComponentSection />
         <ThemeSection :theme="tableTheme" @table-theme-change="onTableThemeChange" />
         <BlockSection />
         <DesignerSection />
         <TemplateSection />
-        <UsersSection />
         <FeaturesSection />
         <FooterSection />
     </div>

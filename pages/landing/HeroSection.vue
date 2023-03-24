@@ -79,18 +79,7 @@
             <div class="hero-border-left hidden md:block"></div>
             <div class="hero-border-right hidden md:block"></div>
         </div>
-
-        <section class="landing-getstarted flex flex-column md:flex-row align-items-center justify-content-center mt-8 z-1">
-            <router-link to="/installation" class="linkbox active font-semibold py-3 px-4 ml-0 md:ml-6 fadeinleft animation-duration-2000 animation-ease-out">
-                Get Started
-                <i class="pi pi-arrow-right ml-3"></i>
-            </router-link>
-            <div class="box download-box w-14rem cursor-pointer font-medium p-3 px-4 mt-3 md:mt-0 md:ml-3 bg-transparent inline-flex align-items-center fadeinright animation-duration-2000 animation-ease-out" @click="copyMe">
-                <i :class="npmIcon"></i>
-                <span class="font-bold" :style="{ fontFamily: 'monaco' }">{{ npmText }}</span>
-            </div>
-        </section>
-
+        <GetStartedSection />
         <div class="hero-bg absolute top-0 left-0 right-0 bottom-0 z-0">
             <div class="hero-strip-top"></div>
             <div class="hero-strip-left"></div>
@@ -99,11 +88,11 @@
 </template>
 
 <script>
+import GetStartedSection from './GetStartedSection';
+
 export default {
     data() {
         return {
-            npmIcon: 'download-icon pi pi-download mr-3',
-            npmText: 'npm i primevue',
             setAnimation: false
         };
     },
@@ -111,18 +100,12 @@ export default {
         this.setAnimation = true;
     },
     methods: {
-        copyMe() {
-            navigator.clipboard.writeText('npm i primevue');
-            this.npmText = 'copied!';
-            this.npmIcon = 'pi pi-copy download-icon mr-3';
-            setTimeout(() => {
-                this.npmIcon = 'download-icon pi pi-download mr-3';
-                this.npmText = 'npm i primevue';
-            }, 2000);
-        },
         navigateTo(url) {
             window.location.href = url;
         }
+    },
+    components: {
+        GetStartedSection: GetStartedSection
     }
 };
 </script>

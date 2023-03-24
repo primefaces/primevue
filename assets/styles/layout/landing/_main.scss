@@ -18,11 +18,11 @@
 
     .linkbox {
         font-family: var(--font-family);
-        transition: background-color .3s;
+        transition: background-color 0.3s;
         display: inline-flex;
         align-items: center;
         color: var(--home-linkbox-text-color);
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
         border: var(--home-linkbox-border);
         background-color: var(--home-linkbox-bg);
         border-radius: 10px;
@@ -75,42 +75,110 @@
     background-color: var(--surface-hover);
 }
 
-.pad-section {
-    padding-left: 12rem;
-    padding-right: 12rem;
-}
-
-@media screen and (max-width: $landingBreakpointXL) {
-    .pad-section {
-        padding-left: 8rem;
-        padding-right: 8rem;
-    }
-}
-
-@media screen and (max-width: $landingBreakpointLG) {
-    .pad-section {
-        padding-left: 4rem;
-        padding-right: 4rem;
-    }
-}
-
-@media screen and (max-width: $landingBreakpointMD) {
-    .pad-section {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-}
-
-.users-container {
-    max-width: 1250px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
 @media screen and (min-width: 1960px) {
-    .landing-footer{
+    .landing-footer {
         width: 1650px !important;
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+}
+
+.animated-text {
+    position: relative;
+    color: var(--home-text-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    width: 14.45rem;
+
+    &::before {
+        border-radius: var(--border-radius);
+        animation: color-animation 2s linear infinite;
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        content: "";
+        width: 14.45rem;
+        height: 1.5rem;
+        position: absolute;
+        z-index: 0;
+        background-image: linear-gradient(-225deg, var(--blue-400) 30%, var(--cyan-400) 60%, var(--purple-400) 80%);
+        filter: blur(24px);
+        opacity: 0.6;
+    }
+
+    > span {
+        position: relative;
+        z-index: 3;
+        background-image: linear-gradient(-225deg, var(--blue-400) 30%, var(--cyan-400) 60%, var(--purple-400) 80%);
+        animation: color-animation 2s linear infinite;
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        background-clip: text;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+@keyframes color-animation {
+    40%,
+    100% {
+        background-position: -200% center;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(calc(-100% - 3rem));
+    }
+}
+
+.landing-users {
+    .section-detail {
+        max-width: 1250px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .users-container {
+        max-width: 1250px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        .marquee-wrapper {
+            user-select: none;
+            gap: 3rem;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .marquee {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 3rem;
+            min-width: 100%;
+            animation: scroll 20s linear infinite;
+
+            > div {
+                max-width: clamp(10rem, 1rem + 28vmin, 20rem);
+                aspect-ratio: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 8rem;
+            }
+
+            &.marquee-reverse{
+                animation-direction: reverse;
+                animation-delay: calc(20s / -2);
+            }
+        }
     }
 }
