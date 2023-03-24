@@ -22,6 +22,12 @@ const PanelProps = [
         type: 'string',
         default: 'null',
         description: 'Uses to pass the custom value to read for the anchor inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -52,6 +58,10 @@ const PanelSlots = [
     {
         name: 'icons',
         description: "Custom content for the header's icon"
+    },
+    {
+        name: 'headericon',
+        description: 'Custom header icon template of panel'
     }
 ];
 

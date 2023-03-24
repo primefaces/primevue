@@ -52,6 +52,23 @@ const AccordionTabProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether the tab is disabled.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
+    }
+];
+
+const AccordionTabSlots = [
+    {
+        name: 'header',
+        description: 'Custom content for the title section of a AccordionTab is defined using the header template.'
+    },
+    {
+        name: 'headericon',
+        description: 'Custom icon for the header section of a AccordionTab is defined using the headericon template.'
     }
 ];
 
@@ -59,6 +76,7 @@ module.exports = {
     accordiontab: {
         name: 'AccordionTab',
         description: 'Accordion element consists of one or more AccordionTab elements.',
-        props: AccordionTabProps
+        props: AccordionTabProps,
+        slots: AccordionTabSlots
     }
 };
