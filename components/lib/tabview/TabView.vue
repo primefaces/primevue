@@ -63,7 +63,7 @@
                 </slot>
             </button>
         </div>
-        <div class="p-tabview-panels" v-bind="ptm('panelcontent')">
+        <div class="p-tabview-panels" v-bind="ptm('panelcontainer')">
             <template v-for="(tab, i) of tabs" :key="getKey(tab, i)">
                 <div
                     v-if="lazy ? isTabActive(i) : true"

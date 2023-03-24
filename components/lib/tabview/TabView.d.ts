@@ -82,7 +82,7 @@ export interface TabViewPassThroughOptions {
     /**
      * Uses to pass attributes to the panel's DOM element.
      */
-    panelcontent?: TabViewPassThroughOptionType;
+    panelcontainer?: TabViewPassThroughOptionType;
 }
 
 /**
