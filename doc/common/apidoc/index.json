@@ -11220,6 +11220,14 @@
                             "description": "Inline style of the image element."
                         },
                         {
+                            "name": "indicatorIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "pi pi-eye",
+                            "description": "Custom indicator icon."
+                        },
+                        {
                             "name": "preview",
                             "optional": true,
                             "readonly": false,
