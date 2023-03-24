@@ -3,7 +3,7 @@
         <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
         <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="previewButtonProps">
             <slot name="indicator">
-                <i class="p-image-preview-icon pi pi-eye"></i>
+                <i :class="['p-image-preview-icon', indicatorIcon]"></i>
             </slot>
         </button>
         <Portal>
@@ -82,6 +82,10 @@ export default {
         previewButtonProps: {
             type: null,
             default: null
+        },
+        indicatorIcon: {
+            type: String,
+            default: 'pi pi-eye'
         }
     },
     mask: null,

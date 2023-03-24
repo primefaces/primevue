@@ -27,6 +27,11 @@ export interface ImageProps {
      * Style class of the image element.
      */
     imageClass?: any;
+    /**
+     * Custom indicator icon.
+     * @defaultValue pi pi-eye
+     */
+    indicatorIcon?: string;
 }
 
 /**
