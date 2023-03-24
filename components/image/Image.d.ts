@@ -37,6 +37,26 @@ export interface ImageSlots {
      * Custom indicator template.
      */
     indicator(): VNode[];
+    /**
+     * Custom refresh template.
+     */
+    refresh(): VNode[];
+    /**
+     * Custom undo template.
+     */
+    undo(): VNode[];
+    /**
+     * Custom zoomout template.
+     */
+    zoomout(): VNode[];
+    /**
+     * Custom zoomin template.
+     */
+    zoomin(): VNode[];
+    /**
+     * Custom close template.
+     */
+    close(): VNode[];
 }
 
 export interface ImageEmits {}
