@@ -10,7 +10,55 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export interface DeferredContentProps {}
+export declare type DeferredContentPassThroughOptionType = DeferredContentPassThroughAttributes | ((options: DeferredContentPassThroughMethodOptions) => DeferredContentPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface DeferredContentPassThroughMethodOptions {
+    props: DeferredContentProps;
+    state: DeferredContentState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link DeferredContentProps.pt}
+ */
+export interface DeferredContentPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: DeferredContentPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface DeferredContentPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in DeferredContent component.
+ */
+export interface DeferredContentState {
+    /**
+     * Current loaded state as a boolean.
+     * @defaultValue false
+     */
+    loaded?: boolean;
+}
+
+/**
+ * Defines valid props in DeferredContent component.
+ */
+export interface DeferredContentProps {
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {DeferredContentPassThroughOptions}
+     */
+    pt?: DeferredContentPassThroughOptions;
+}
 
 /**
  * Defines valid slots in DeferredContent component.

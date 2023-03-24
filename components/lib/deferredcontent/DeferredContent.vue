@@ -1,12 +1,15 @@
 <template>
-    <div ref="container">
+    <div ref="container" v-bind="ptm('root')">
         <slot v-if="loaded"></slot>
     </div>
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
+
 export default {
     name: 'DeferredContent',
+    extends: ComponentBase,
     emits: ['load'],
     data() {
         return {
