@@ -4,6 +4,12 @@ const ImageProps = [
         type: 'boolean',
         default: 'false',
         description: 'Controls the preview functionality.'
+    },
+    {
+        name: 'indicatorIcon',
+        type: 'string',
+        default: 'pi pi-eye',
+        description: 'Custom indicator icon.'
     }
 ];
 
