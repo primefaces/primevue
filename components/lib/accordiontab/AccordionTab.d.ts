@@ -73,12 +73,10 @@ export interface AccordionTabProps {
     header?: string | undefined;
     /**
      * Inline style of the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerStyle?: any;
     /**
      * Style class of the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerClass?: any;
     /**
@@ -93,12 +91,10 @@ export interface AccordionTabProps {
     headerActionProps?: AnchorHTMLAttributes | undefined;
     /**
      * Inline style of the tab content.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentStyle?: any;
     /**
      * Style class of the tab content.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentClass?: any;
     /**
