@@ -13,7 +13,7 @@
 
         <p>Editable cells use custom templating so you need to manage aria roles and attributes manually if required.</p>
 
-        <p>Paginator is a standalone component used inside the DataTable, refer to the <NuxtLink to="/paginator">paginator</NuxtLink> for more information about the accessibility features.</p>
+        <p>Paginator is a standalone component used inside the DataTable, refer to the <PrimeVueNuxtLink to="/paginator">paginator</PrimeVueNuxtLink> for more information about the accessibility features.</p>
 
         <h3>Sortable Headers Keyboard Support</h3>
         <div class="doc-tablewrapper">

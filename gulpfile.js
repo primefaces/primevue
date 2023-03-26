@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 
 gulp.task('build-css', function () {
     return gulp
-        .src(['./components/common/Common.css', './components/**/*.css'])
+        .src(['./components/lib/common/Common.css', './components/**/*.css'])
         .pipe(concat('primevue.css'))
         .pipe(gulp.dest('dist/resources'))
         .pipe(uglifycss({ uglyComments: true }))
@@ -21,7 +21,7 @@ gulp.task('build-themes', function () {
 });
 
 gulp.task('images', function () {
-    return gulp.src(['./components/**/images/*.png', './components/**/images/*.gif']).pipe(flatten()).pipe(gulp.dest('dist/resources/images'));
+    return gulp.src(['./components/lib/**/images/*.png', './components/lib/**/images/*.gif']).pipe(flatten()).pipe(gulp.dest('dist/resources/images'));
 });
 
 //Building project with run sequence

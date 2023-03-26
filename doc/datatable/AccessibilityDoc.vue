@@ -29,7 +29,7 @@
             <i>aria-label</i>.
         </p>
 
-        <p>Paginator is a standalone component used inside the DataTable, refer to the <NuxtLink to="/paginator">paginator</NuxtLink> for more information about the accessibility features.</p>
+        <p>Paginator is a standalone component used inside the DataTable, refer to the <PrimeVueNuxtLink to="/paginator">paginator</PrimeVueNuxtLink> for more information about the accessibility features.</p>
 
         <h3>Keyboard Support</h3>
         <p>Any button element inside the DataTable used for cases like filter, row expansion, edit are tabbable and can be used with <i>space</i> and <i>enter</i> keys.</p>

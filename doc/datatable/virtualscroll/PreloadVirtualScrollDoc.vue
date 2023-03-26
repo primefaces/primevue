@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             Virtual Scrolling is an efficient way to render large amount data. Usage is similar to regular scrolling with the addition of <i>virtualScrollerOptions</i> property to define a fixed <i>itemSize</i>. Internally,
-            <NuxtLink to="/virtualscroller">VirtualScroller</NuxtLink> component is utilized so refer to the API of VirtualScroller for more information about the available options.
+            <PrimeVueNuxtLink to="/virtualscroller">VirtualScroller</PrimeVueNuxtLink> component is utilized so refer to the API of VirtualScroller for more information about the available options.
         </p>
         <p>In this example, <strong>100000</strong> preloaded records are rendered by the Table.</p>
     </DocSectionText>

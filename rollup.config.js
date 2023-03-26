@@ -50,7 +50,7 @@ function addEntry(folder, inFile, outFile) {
     let useCorePlugin = Object.keys(coreDependencies).some((d) => d.replace('primevue/', '') === outFile);
 
     entries.push({
-        input: 'components/' + folder + '/' + inFile,
+        input: 'components/lib/' + folder + '/' + inFile,
         output: [
             {
                 format: 'cjs',
@@ -71,7 +71,7 @@ function addEntry(folder, inFile, outFile) {
     });
 
     entries.push({
-        input: 'components/' + folder + '/' + inFile,
+        input: 'components/lib/' + folder + '/' + inFile,
         output: [
             {
                 format: 'cjs',
@@ -139,10 +139,10 @@ function addCore() {
 }
 
 function addSFC() {
-    fs.readdirSync(path.resolve(__dirname, './components'), { withFileTypes: true })
+    fs.readdirSync(path.resolve(__dirname, './components/lib'), { withFileTypes: true })
         .filter((dir) => dir.isDirectory())
         .forEach(({ name: folderName }) => {
-            fs.readdirSync(path.resolve(__dirname, './components/' + folderName)).forEach((file) => {
+            fs.readdirSync(path.resolve(__dirname, './components/lib/' + folderName)).forEach((file) => {
                 let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
 
                 if (/\.vue$/.test(file) && name === folderName) {

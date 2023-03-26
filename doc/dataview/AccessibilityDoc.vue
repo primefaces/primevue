@@ -6,7 +6,7 @@
             derived from the <i>aria.listView</i> and <i>aria.gridView</i> properties of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API respectively.
         </p>
 
-        <p>Refer to <NuxtLink to="/paginator">paginator</NuxtLink> accessibility documentation for the paginator of the component.</p>
+        <p>Refer to <PrimeVueNuxtLink to="/paginator">paginator</PrimeVueNuxtLink> accessibility documentation for the paginator of the component.</p>
 
         <h3>Keyboard Support</h3>
         <div class="doc-tablewrapper">

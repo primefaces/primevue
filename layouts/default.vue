@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import DomHandler from '@/components/utils/DomHandler';
+import DomHandler from '@/components/lib/utils/DomHandler';
 import AppConfigurator from './AppConfigurator.vue';
 import AppFooter from './AppFooter.vue';
 import AppMenu from './AppMenu.vue';

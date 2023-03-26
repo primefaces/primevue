@@ -24,7 +24,7 @@ app.options.addReader(new TypeDoc.TypeDocReader());
 app.bootstrap({
     // typedoc options here
     name: 'PrimeVue',
-    entryPoints: [`components`],
+    entryPoints: [`components/lib`],
     entryPointStrategy: 'expand',
     hideGenerator: true,
     excludeExternals: true,
@@ -32,7 +32,7 @@ app.bootstrap({
     searchInComments: true,
     disableSources: true,
     logLevel: 'Error',
-    exclude: ['node_modules', 'components/**/*.js']
+    exclude: ['node_modules', 'components/lib/**/*.js']
 });
 
 const project = app.convert();

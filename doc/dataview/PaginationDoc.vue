@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Pagination is enabled with the <i>paginator</i> and <i>rows</i> properties. Refer to the <NuxtLink to="/paginator">Paginator</NuxtLink> for more information about customizing the paginator.</p>
+        <p>Pagination is enabled with the <i>paginator</i> and <i>rows</i> properties. Refer to the <PrimeVueNuxtLink to="/paginator">Paginator</PrimeVueNuxtLink> for more information about customizing the paginator.</p>
     </DocSectionText>
     <div class="card">
         <DataView :value="products" paginator :rows="5">

@@ -1,8 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Paginator UI is customized using the <i>paginatorTemplate</i> property. Each element can also be customized further with your own UI to replace the default one, refer to the <NuxtLink to="/paginator">Paginator</NuxtLink> component for
-            more information about the advanced customization options.
+            Paginator UI is customized using the <i>paginatorTemplate</i> property. Each element can also be customized further with your own UI to replace the default one, refer to the
+            <PrimeVueNuxtLink to="/paginator">Paginator</PrimeVueNuxtLink> component for more information about the advanced customization options.
         </p>
     </DocSectionText>
     <div class="card">

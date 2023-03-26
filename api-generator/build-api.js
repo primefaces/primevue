@@ -156,6 +156,8 @@ Object.keys(fileModules).forEach((p) => {
     createVeturAttributes(fileModules[p][p]);
 });
 
+!fs.existsSync(distDir) && fs.mkdirSync(distDir);
+
 const webTypesJson = JSON.stringify(webTypes, null, 2);
 
 fs.writeFileSync(path.resolve(distDir, 'web-types.json'), webTypesJson);
