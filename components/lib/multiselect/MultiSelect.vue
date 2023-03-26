@@ -1093,9 +1093,10 @@ export default {
                     const filtered = [];
 
                     optionGroups.forEach((group) => {
-                        const filteredItems = group.items.filter((item) => filteredOptions.includes(item));
+                        const groupChildren = this.getOptionGroupChildren(group);
+                        const filteredItems = groupChildren.filter((item) => filteredOptions.includes(item));
 
-                        if (filteredItems.length > 0) filtered.push({ ...group, items: [...filteredItems] });
+                        if (filteredItems.length > 0) filtered.push({ ...group, [typeof this.optionGroupChildren === 'string' ? this.optionGroupChildren : 'items']: [...filteredItems] });
                     });
 
                     return this.flatOptions(filtered);
