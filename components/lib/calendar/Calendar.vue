@@ -637,7 +637,7 @@ export default {
     updated() {
         if (this.overlay) {
             this.preventFocus = true;
-            this.updateFocus();
+            setTimeout(this.updateFocus, 0);
         }
 
         if (this.input && this.selectionStart != null && this.selectionEnd != null) {

@@ -21,7 +21,7 @@
                 <tr v-for="prop in data" :key="prop">
                     <td v-for="[k, v] in Object.entries(prop)" :key="k" :class="{ 'doc-option-type': k === 'type', 'doc-option-default': k === 'defaultValue' }">
                         <template v-if="k !== 'readonly' && k !== 'optional' && k !== 'deprecated'">
-                            <span v-if="k === 'name'" :id="id + '.' + v" class="doc-option-name">
+                            <span v-if="k === 'name'" :id="id + '.' + v" class="doc-option-name" :class="{ 'line-through cursor-pointer': !!prop.deprecated }" :title="prop.deprecated">
                                 {{ v
                                 }}<NuxtLink :to="`/${$router.currentRoute.value.name}/#${id}.${v}`" class="doc-option-link">
                                     <i class="pi pi-link"></i>
