@@ -34,7 +34,7 @@
                 v-bind="virtualScrollerOptions"
                 :items="processedData"
                 :columns="columns"
-                :style="{ height: scrollHeight !== 'flex' ? scrollHeight : undefined }"
+                :style="scrollHeight !== 'flex' ? { height: scrollHeight } : undefined"
                 :scrollHeight="scrollHeight !== 'flex' ? undefined : '100%'"
                 :disabled="virtualScrollerDisabled"
                 loaderDisabled
