@@ -18,7 +18,7 @@ export interface InlineMessageProps {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
 }
 /**
  * Defines valid slots in InlineMessage slots.

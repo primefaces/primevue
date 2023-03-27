@@ -151,7 +151,7 @@ export interface MultiSelectProps {
      * Defines the filtering algorithm to use when searching the options.
      * @defaultValue contains
      */
-    filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | undefined;
+    filterMatchMode?: 'contains' | 'startsWith' | 'endsWith' | string | undefined;
     /**
      * Fields used when filtering the options, defaults to optionLabel.
      */

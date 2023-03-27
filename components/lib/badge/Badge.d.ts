@@ -21,7 +21,7 @@ export interface BadgeProps {
     /**
      * Severity type of the badge.
      */
-    severity?: 'info' | 'success' | 'warning' | 'danger' | null | undefined;
+    severity?: 'info' | 'success' | 'warning' | 'danger' | string | null | undefined;
     /**
      * Size of the badge, valid options are 'large' and 'xlarge'.
      */
