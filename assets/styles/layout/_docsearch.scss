@@ -19,28 +19,57 @@
     }
 
     .DocSearch-Button-Keys {
-        background: transparent;
         border-radius: var(--border-radius);
         overflow: hidden;
         min-width: auto;
         height: 1.5rem;
+        background: var(--docsearch-key-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        padding: .28rem .35rem;
+        gap: 2px;
 
         .DocSearch-Button-Key {
+            background: transparent;
+            display: flex;
             padding: 0;
             margin: 0;
             top: 0;
             border-radius: 0;
             height: auto;
             font-family: var(--font-family);
-            width: 1.25rem;
+            width: auto;
 
             &:first-child {
                 justify-content: end;
+                font-size: 0.8rem;
+                font-weight: 700;
+                line-height: 13.5px;
+                svg{
+                    height: 14.5px;
+                }
             }
 
             &:last-child {
                 justify-content: start;
-                padding-left: 2px;
+                align-items: center;
+                font-size: 0.8rem;
+                position: relative;
+                &::before {
+                    content: "\e90d";
+                    display: flex;
+                    color: var(--text-color);
+                    font-family: "primeicons";
+                    font-size: .4rem;
+                    opacity: .7;
+                    margin-right: 2px;
+                    height: 13.5px;
+                    align-items: center;
+                    font-weight: 700;
+
+                }
             }
         }        
     }
