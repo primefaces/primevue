@@ -1,8 +1,14 @@
 <template>
     <tbody :ref="bodyRef" class="p-datatable-tbody" role="rowgroup" :style="bodyStyle">
         <template v-if="!empty">
-            <template v-for="(rowData, index) of value" :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'">
-                <tr v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))" class="p-rowgroup-header" :style="rowGroupHeaderStyle" role="row">
+            <template v-for="(rowData, index) of value">
+                <tr
+                    v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))"
+                    :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'"
+                    class="p-rowgroup-header"
+                    :style="rowGroupHeaderStyle"
+                    role="row"
+                >
                     <td :colspan="columnsLength - 1">
                         <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button">
                             <span :class="rowGroupTogglerIcon(rowData)"></span>
@@ -30,9 +36,10 @@
                     @dragend="onRowDragEnd($event)"
                     @drop="onRowDrop($event)"
                 >
-                    <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
+                    <template v-for="(col, i) of columns">
                         <DTBodyCell
                             v-if="shouldRenderBodyCell(value, col, getRowIndex(index))"
+                            :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i"
                             :rowData="rowData"
                             :column="col"
                             :rowIndex="getRowIndex(index)"
@@ -143,6 +150,10 @@ export default {
         expandedRowGroups: {
             type: Array,
             default: null
+        },
+        first: {
+            type: Number,
+            default: 0
         },
         dataKey: {
             type: String,
@@ -275,12 +286,12 @@ export default {
             }
         },
         getRowKey(rowData, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey) : index;
+            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey) : this.getRowIndex(index);
         },
         getRowIndex(index) {
             const getItemOptions = this.getVirtualScrollerProp('getItemOptions');
 
-            return getItemOptions ? getItemOptions(index).index : index;
+            return getItemOptions ? getItemOptions(index).index : this.first + index;
         },
         getRowStyle(rowData) {
             if (this.rowStyle) {
