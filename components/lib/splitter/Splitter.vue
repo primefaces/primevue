@@ -2,17 +2,8 @@
     <div :class="containerClass">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
-            <div
-                v-if="i !== panels.length - 1"
-                class="p-splitter-gutter"
-                role="separator"
-                tabindex="-1"
-                @mousedown="onGutterMouseDown($event, i)"
-                @touchstart="onGutterTouchStart($event, i)"
-                @touchmove="onGutterTouchMove($event, i)"
-                @touchend="onGutterTouchEnd($event, i)"
-            >
-                <div class="p-splitter-gutter-handle" tabindex="0" :style="gutterStyle" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)"></div>
+            <div v-if="i !== panels.length - 1" class="p-splitter-gutter" @mousedown="onGutterMouseDown($event, i)" @touchstart="onGutterTouchStart($event, i)" @touchmove="onGutterTouchMove($event, i)" @touchend="onGutterTouchEnd($event, i)">
+                <div class="p-splitter-gutter-handle" tabindex="0" :style="gutterStyle" role="separator" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)"></div>
             </div>
         </template>
     </div>
