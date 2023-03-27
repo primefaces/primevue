@@ -21,7 +21,7 @@ export interface TagProps {
     /**
      * Severity type of the tag.
      */
-    severity?: 'success' | 'info' | 'warning' | 'danger' | undefined;
+    severity?: 'success' | 'info' | 'warning' | 'danger' | string | undefined;
     /**
      * Whether the corners of the tag are rounded.
      * @defaultValue false

@@ -18,7 +18,7 @@ export interface ToastMessageOptions {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
     /**
      * Summary content of the message.
      */
