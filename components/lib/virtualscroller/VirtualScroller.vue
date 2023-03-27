@@ -231,7 +231,7 @@ export default {
         },
         scrollTo(options) {
             this.lastScrollPos = this.both ? { top: 0, left: 0 } : 0;
-            this.element?.scrollTo(options);
+            this.element && this.element.scrollTo(options);
         },
         scrollToIndex(index, behavior = 'auto') {
             const both = this.isBoth();

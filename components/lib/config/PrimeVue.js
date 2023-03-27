@@ -160,7 +160,7 @@ function switchTheme(currentTheme, newTheme, linkElementId, callback) {
             callback();
         }
     });
-    linkElement.parentNode?.insertBefore(cloneLinkElement, linkElement.nextSibling);
+    linkElement.parentNode && linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
 }
 
 export default {
