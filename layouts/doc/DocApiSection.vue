@@ -180,7 +180,8 @@ export default {
                         type: emit.parameters[0]?.type
                     },
                     returnType: emit.returnType,
-                    description: emit.description
+                    description: emit.description,
+                    deprecated: emit.deprecated
                 });
             }
 
@@ -194,7 +195,8 @@ export default {
                     name: prop.name,
                     type: prop.type,
                     default: prop.default,
-                    description: prop.description
+                    description: prop.description,
+                    deprecated: prop.deprecated
                 });
             }
 

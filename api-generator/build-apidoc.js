@@ -227,7 +227,8 @@ if (project) {
                                 };
                             }),
                             returnType: signature.type.toString(),
-                            description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                            description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' '),
+                            deprecated: signature.comment && signature.comment.getTag('@deprecated') ? parseText(signature.comment.getTag('@deprecated').content[0].text) : undefined
                         });
                     });
 
@@ -350,7 +351,8 @@ if (project) {
                                 readonly: prop.flags.isReadonly,
                                 type: prop.type.toString(),
                                 default: prop.comment && prop.comment.getTag('@defaultValue') ? prop.comment.getTag('@defaultValue').content[0].text : '', // TODO: Check
-                                description: prop.comment && prop.comment.summary.map((s) => s.text || '').join(' ')
+                                description: prop.comment && prop.comment.summary.map((s) => s.text || '').join(' '),
+                                deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0].text) : undefined
                             });
                         });
 
@@ -395,7 +397,8 @@ if (project) {
                                     };
                                 }),
                                 returnType: signature.type.toString(),
-                                description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' ')
+                                description: signature.comment && signature.comment.summary.map((s) => parseText(s.text || '')).join(' '),
+                                deprecated: signature.comment && signature.comment.getTag('@deprecated') ? parseText(signature.comment.getTag('@deprecated').content[0].text) : undefined
                             });
                         });
                 }
