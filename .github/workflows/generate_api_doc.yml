@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - '**/**/*.d.ts'
+      - '/api-generator/build-apidoc.js'
 
 permissions:
   contents: write

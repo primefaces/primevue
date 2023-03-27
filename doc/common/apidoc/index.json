@@ -2653,7 +2653,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": ""
+                            "description": "",
+                            "deprecated": "since v3.16.0\nHighlights automatically the first item of the dropdown to be selected."
                         },
                         {
                             "name": "autoOptionFocus",
@@ -2749,7 +2750,8 @@
                             "readonly": false,
                             "type": "string | Function",
                             "default": "",
-                            "description": ""
+                            "description": "",
+                            "deprecated": "since v3.16.0. Use 'optionLabel' property instead.\nProperty name or getter function of a suggested object to resolve and display."
                         },
                         {
                             "name": "forceSelection",
@@ -3036,7 +3038,8 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": ""
+                            "description": "",
+                            "deprecated": "since v3.16.0\nCustom content for each item."
                         },
                         {
                             "name": "loader",
@@ -4177,7 +4180,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Whether the month should be rendered as a dropdown instead of text."
+                            "description": "Whether the month should be rendered as a dropdown instead of text.",
+                            "deprecated": "since version 3.9.0, Navigator is always on."
                         },
                         {
                             "name": "nextIcon",
@@ -4393,7 +4397,8 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Whether the year should be rendered as a dropdown instead of text."
+                            "description": "Whether the year should be rendered as a dropdown instead of text.",
+                            "deprecated": "since version 3.9.0, Navigator is always on."
                         },
                         {
                             "name": "yearRange",
@@ -4401,7 +4406,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "false",
-                            "description": "The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020)."
+                            "description": "The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020).",
+                            "deprecated": "since version 3.9.0, Years are based on decades by default."
                         }
                     ],
                     "methods": []
