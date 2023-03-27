@@ -350,7 +350,2000 @@
             }
         }
     },
-    "api/Api": {},
+    "api/Api": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "FilterMatchModeOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "BETWEEN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CONTAINS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DATE_AFTER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DATE_BEFORE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DATE_IS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DATE_IS_NOT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ENDS_WITH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EQUALS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "GREATER_THAN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "GREATER_THAN_OR_EQUAL_TO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "IN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LESS_THAN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LESS_THAN_OR_EQUAL_TO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "NOT_CONTAINS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "NOT_EQUALS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STARTS_WITH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "FilterOperatorOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "AND",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "OR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "PrimeIconsOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "ALIGN_CENTER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ALIGN_JUSTIFY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ALIGN_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ALIGN_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "AMAZON",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANDROID",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_DOUBLE_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_DOUBLE_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_DOUBLE_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_DOUBLE_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ANGLE_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "APPLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_A",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_CIRCLE_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_CIRCLE_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_CIRCLE_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_CIRCLE_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_DOWN_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_DOWN_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_H",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_RIGHT_ARROW_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_UP_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_UP_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROW_V",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "AT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BACKWARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BAN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BARS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BELL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BITCOIN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BOLT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BOOK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BOOKMARK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BOOKMARK_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BOX",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BRIEFCASE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BUILDING",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CALCULATOR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CALENDAR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CALENDAR_MINUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CALENDAR_PLUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CALENDAR_TIMES",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CAMERA",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CAR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CARET_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CARET_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CARET_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CARET_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CART_PLUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHART_BAR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHART_LINE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHART_PIE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHECK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHECK_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHECK_SQUARE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_CIRCLE_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_CIRCLE_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_CIRCLE_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_CIRCLE_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_LEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_RIGHT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHEVRON_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CIRCLE_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CLOCK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CLONE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CLOUD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CLOUD_DOWNLOAD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CLOUD_UPLOAD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CODE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "COG",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "COMMENT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "COMMENTS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "COMPASS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "COPY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CREDIT_CARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DATABASE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DELETELEFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DESKTOP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DIRECTIONS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DIRECTIONS_ALT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DISCORD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DOLLAR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "DOWNLOAD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EJECT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ELLIPSIS_H",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ELLIPSIS_V",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ENVELOPE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ERASER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EURO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EXCLAMATION_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EXCLAMATION_TRIANGLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EXTERNAL_LINK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EYE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "EYE_SLASH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FACEBOOK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FAST_BACKWARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FAST_FORWARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_EDIT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_EXCEL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_EXPORT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_IMPORT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_PDF",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_WORD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILTER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILTER_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILTER_SLASH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FLAG",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FLAG_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FOLDER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FOLDER_OPEN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FORWARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "GIFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "GITHUB",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "GLOBE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "GOOGLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HASHTAG",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HEART",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HEART_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HISTORY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HOME",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HOURGLASS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ID_CARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "IMAGE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "IMAGES",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "INBOX",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "INFO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "INFO_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "INSTAGRAM",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "KEY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LANGUAGE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LINK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LINKEDIN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LIST",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LOCK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LOCK_OPEN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MAP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MAP_MARKER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MEGAPHONE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MICREPHONE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MICROSOFT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MINUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MINUS_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MOBILE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MONEY_BILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MOON",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PALETTE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PAPERCLIP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PAUSE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PAYPAL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PENCIL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PERCENTAGE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PHONE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PLAY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PLUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PLUS_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "POUND",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "POWER_OFF",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PRIME",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PRINT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "QRCODE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "QUESTION",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "QUESTION_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "REDDIT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "REFRESH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "REPLAY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "REPLY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SAVE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SEARCH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SEARCH_MINUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SEARCH_PLUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SEND",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SERVER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SHARE_ALT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SHIELD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SHOPPING_BAG",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SHOPPING_CART",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SIGN_IN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SIGN_OUT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SITEMAP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SLACK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SLIDERS_H",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SLIDERS_V",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_ALPHA_ALT_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_ALPHA_ALT_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_ALPHA_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_ALPHA_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_ALT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_ALT_SLASH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_AMOUNT_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_AMOUNT_DOWN_ALT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_AMOUNT_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_AMOUNT_UP_ALT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_NUMERIC_ALT_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_NUMERIC_ALT_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_NUMERIC_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_NUMERIC_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SORT_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SPINNER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STAR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STAR_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STEP_BACKWARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STEP_BACKWARD_ALT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STEP_FORWARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STEP_FORWARD_ALT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STOP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STOPWATCH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STOP_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SUN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SYNC",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TABLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TABLET",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TAG",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TAGS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TELEGRAM",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "THUMBS_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "THUMBS_DOWN_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "THUMBS_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "THUMBS_UP_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TH_LARGE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TICKET",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TIMES",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TIMES_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TRASH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TRUCK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TWITTER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "UNDO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "UNLOCK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "UPLOAD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "USER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "USERS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "USER_EDIT",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "USER_MINUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "USER_PLUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "VERIFIED",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "VIDEO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "VIMEO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "VOLUME_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "VOLUME_OFF",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "VOLUME_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WALLET",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WHATSAPP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WIFI",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WINDOW_MAXIMIZE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WINDOW_MINIMIZE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WRENCH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "YOUTUBE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ToastSeverityOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "ERROR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "INFO",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SUCCESS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WARN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        }
+    },
     "autocomplete": {
         "description": "AutoComplete is an input component that provides real-time suggestions while being typed.\n\n[Live Demo](https://www.primevue.org/autocomplete/)",
         "components": {
@@ -1267,7 +3260,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"success\" | \"info\" | \"warning\" | \"danger\"",
+                            "type": "null | string",
                             "default": "",
                             "description": "Severity type of the badge."
                         },
@@ -1707,7 +3700,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"success\" | \"help\" | \"info\" | \"warning\" | \"danger\" | \"secondary\"",
+                            "type": "string",
                             "default": "",
                             "description": "Defines the style of the button."
                         },
@@ -6312,7 +8305,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -6405,7 +8398,7 @@
                             "name": "matchMode",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Filter match mode"
                         },
@@ -6451,7 +8444,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -7602,7 +9595,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -9194,7 +11187,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"endsWith\" | \"startsWith\" | \"contains\"",
+                            "type": "string",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -11314,7 +13307,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
+                            "type": "string",
                             "default": "info",
                             "description": "Severity level of the message."
                         }
@@ -12700,7 +14693,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"endsWith\" | \"startsWith\" | \"contains\"",
+                            "type": "string",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -13629,7 +15622,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
+                            "type": "string",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -14048,7 +16041,7 @@
                             "name": "filterMatchMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"endsWith\" | \"startsWith\" | \"contains\"",
+                            "type": "string",
                             "default": "contains",
                             "description": "Defines the filtering algorithm to use when searching the options."
                         },
@@ -18339,7 +20332,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"success\" | \"help\" | \"info\" | \"warning\" | \"danger\" | \"secondary\"",
+                            "type": "string",
                             "default": "",
                             "description": "Defines the style of the button."
                         },
@@ -19290,7 +21283,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"success\" | \"info\" | \"warning\" | \"danger\"",
+                            "type": "string",
                             "default": "",
                             "description": "Severity type of the tag."
                         },
@@ -19933,7 +21926,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
+                            "type": "string",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -21486,7 +23479,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -21579,7 +23572,7 @@
                             "name": "matchMode",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Filter match mode"
                         },
@@ -21625,7 +23618,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Match modes per field"
                         },
@@ -22074,7 +24067,7 @@
                             "name": "filterMatchModes",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"endsWith\" | \"startsWith\" | \"contains\" | \"in\" | \"notContains\" | \"equals\" | \"notEquals\" | \"lt\" | \"lte\" | \"gt\" | \"gte\" | \"between\" | \"dateIs\" | \"dateIsNot\" | \"dateBefore\" | \"dateAfter\"",
+                            "type": "undefined | string",
                             "default": "",
                             "description": "Match modes per field"
                         },
