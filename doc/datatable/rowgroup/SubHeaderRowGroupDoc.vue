@@ -31,9 +31,7 @@
             </Column>
             <Column field="date" header="Date" style="min-width: 200px"></Column>
             <template #groupfooter="slotProps">
-                <td colspan="5">
-                    <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
-                </td>
+                <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
             </template>
         </DataTable>
     </div>
@@ -75,9 +73,7 @@ export default {
         </div>
     </template>
     <template #groupfooter="slotProps">
-        <td colspan="5">
-            <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
-        </td>
+        <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
     </template>
 </DataTable>`,
                 options: `
@@ -109,9 +105,7 @@ export default {
                 </div>
             </template>
             <template #groupfooter="slotProps">
-                <td colspan="5">
-                    <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
-                </td>
+                <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
             </template>
         </DataTable>
     </div>
@@ -193,9 +187,7 @@ export default {
                 </div>
             </template>
             <template #groupfooter="slotProps">
-                <td colspan="5">
-                    <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
-                </td>
+                <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
             </template>
         </DataTable>
     </div>
