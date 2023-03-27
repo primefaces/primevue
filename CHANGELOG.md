@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.26.1](https://github.com/primefaces/primevue/tree/3.26.1) (2023-03-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.26.0...3.26.1)
+
+**Implemented New Features and Enhancements:**
+
+- Improve folder structure for nuxt configurations [\#3802](https://github.com/primefaces/primevue/issues/3802)
+- Image: Add Additional Toolbar Buttons To Preview [\#3771](https://github.com/primefaces/primevue/issues/3771)
+- Image: indicator icon property[\#3492](https://github.com/primefaces/primevue/issues/3492)
+
+**Fixed bugs:**
+
+- The esm builds throw an exception due to optional chaining [\#3809](https://github.com/primefaces/primevue/issues/3809)
+- Filtering: doesn't respect optionGroupChildren [\#3807](https://github.com/primefaces/primevue/issues/3807)
+- Api: Typing mismatch [\#3806](https://github.com/primefaces/primevue/issues/3806)
+- DataTable: Row edits when enabled doesn't work with pagination [\#3801](https://github.com/primefaces/primevue/issues/3801)
+- Calendar: Page scrolls to top when clicked on calendar icon [\#3791](https://github.com/primefaces/primevue/issues/3791)
+- Splitter: a couple of errors related to aria-* attributes [\#3783](https://github.com/primefaces/primevue/issues/3783)
+- DataTable: Group Rows do not span all Columns with Selection Mode set and group-by not in the Column list  [\#3781](https://github.com/primefaces/primevue/issues/3781)
+- DataTable: the table disappears when using scrollHeight="flex" and virtual scrolling [\#3772](https://github.com/primefaces/primevue/issues/3772)
+
 ## [3.26.0](https://github.com/primefaces/primevue/tree/3.26.0) (2023-03-20)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.25.0...3.26.0)
