@@ -10,6 +10,33 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type SplitterPanelPassThroughOptionType = SplitterPanelPassThroughAttributes | ((options: SplitterPanelPassThroughMethodOptions) => SplitterPanelPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SplitterPanelPassThroughMethodOptions {
+    props: SplitterPanelProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link PanelProps.pt}
+ */
+export interface SplitterPanelPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SplitterPanelPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SplitterPanelPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in SplitterPanel component.
  */
@@ -22,6 +49,11 @@ export interface SplitterPanelProps {
      * Minimum size of the element relative to 100%.
      */
     minSize?: number | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SplitterPanelPassThroughOptions}
+     */
+    pt?: SplitterPanelPassThroughOptions;
 }
 
 /**
