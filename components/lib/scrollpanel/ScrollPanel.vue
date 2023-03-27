@@ -1,7 +1,7 @@
 <template>
-    <div class="p-scrollpanel p-component">
-        <div class="p-scrollpanel-wrapper">
-            <div ref="content" class="p-scrollpanel-content" @scroll="onScroll" @mouseenter="moveBar">
+    <div class="p-scrollpanel p-component" v-bind="ptm('root')">
+        <div class="p-scrollpanel-wrapper" v-bind="ptm('wrapper')">
+            <div ref="content" class="p-scrollpanel-content" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
                 <slot></slot>
             </div>
         </div>
@@ -17,6 +17,7 @@
             @keyup="onKeyUp"
             @focus="onFocus"
             @blur="onBlur"
+            v-bind="ptm('barx')"
         ></div>
         <div
             ref="yBar"
@@ -29,15 +30,18 @@
             @keydown="onKeyDown($event)"
             @keyup="onKeyUp"
             @focus="onFocus"
+            v-bind="ptm('bary')"
         ></div>
     </div>
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'ScrollPanel',
+    extends: ComponentBase,
     props: {
         step: {
             type: Number,
