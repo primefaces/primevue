@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Component prop names are described as camel case throughout the documentation however kebap-case is also fully supported. Events on the other hand should always be kebap-case.</p>
+        <p>Component prop names are described as camel case throughout the documentation however kebab-case is also fully supported. Events on the other hand should always be kebab-case.</p>
 
         <DocSectionCode :code="code" hideToggleCode hideCodeSandbox hideStackBlitz />
     </DocSectionText>
