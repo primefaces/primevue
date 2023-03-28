@@ -321,7 +321,7 @@ export default {
             visible: false,
             scale: 14,
             scales: [12, 13, 14, 15, 16],
-            inputStyle: 'filled',
+            inputStyle: 'outlined',
             ripple: true
         };
     },
@@ -330,7 +330,7 @@ export default {
             this.visible = value;
         },
         inputStyle(value) {
-            this.$primevue.config.inputStyle = value === 'filled';
+            this.$primevue.config.inputStyle = value;
         },
         ripple(value) {
             this.$primevue.config.ripple = value;
