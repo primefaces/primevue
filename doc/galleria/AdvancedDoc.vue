@@ -14,7 +14,7 @@
             :showItemNavigators="true"
             :showItemNavigatorsOnHover="true"
             :circular="true"
-            :autoPlay="true"
+            :autoPlay="isPlayed"
             :transitionInterval="3000"
         >
             <template #item="slotProps">
@@ -28,6 +28,7 @@
             <template #footer>
                 <div class="custom-galleria-footer">
                     <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
                     <span v-if="images" class="title-container">
                         <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
                         <span class="title">{{ images[activeIndex].title }}</span>
@@ -52,10 +53,11 @@ export default {
             showThumbnails: false,
             isAutoPlayActive: true,
             fullScreen: false,
+            isPlayed: true,
             code: {
                 basic: `
 <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
-    :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="true" :transitionInterval="3000">
+    :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isPlayed" :transitionInterval="3000">
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
     </template>
@@ -67,6 +69,7 @@ export default {
     <template #footer>
         <div class="custom-galleria-footer">
             <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
+            <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
             <span v-if="images" class="title-container">
                 <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
                 <span class="title">{{ images[activeIndex].title }}</span>
@@ -80,7 +83,7 @@ export default {
 <template>
     <div class="card flex justify-content-center galleria demo">
         <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
-            :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="true" :transitionInterval="3000">
+            :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isPlayed" :transitionInterval="3000">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
             </template>
@@ -92,6 +95,7 @@ export default {
             <template #footer>
                 <div class="custom-galleria-footer">
                     <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
                     <span v-if="images" class="title-container">
                         <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
                         <span class="title">{{ images[activeIndex].title }}</span>
@@ -114,6 +118,7 @@ export default {
             activeIndex: 0,
             showThumbnails: false,
             fullScreen: false,
+            isPlayed: true,
         };
     },
     mounted() {
@@ -121,6 +126,9 @@ export default {
         this.bindDocumentListeners();
     },
     methods: {
+        toggleAutoSlide() {
+            this.isPlayed = !this.isPlayed;
+        },
         onThumbnailButtonClick() {
             this.showThumbnails = !this.showThumbnails;
         },
@@ -175,6 +183,9 @@ export default {
         }
     },
     computed: {
+        slideButtonIcon() {
+            return this.isPlayed ? 'pi pi-pause' : 'pi pi-play';
+        },
         galleriaClass() {
             return ['custom-galleria', { fullscreen: this.fullScreen }];
         },
@@ -251,7 +262,7 @@ export default {
 <template>
     <div class="card flex justify-content-center galleria demo">
         <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
-            :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="true" :transitionInterval="3000">
+            :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isPlayed" :transitionInterval="3000">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
             </template>
@@ -263,6 +274,7 @@ export default {
             <template #footer>
                 <div class="custom-galleria-footer">
                     <Button icon="pi pi-list" @click="onThumbnailButtonClick" />
+                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" />
                     <span v-if="images" class="title-container">
                         <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
                         <span class="title">{{ images[activeIndex].title }}</span>
@@ -289,7 +301,11 @@ const images = ref();
 const activeIndex = ref(0);
 const showThumbnails = ref(false);
 const fullScreen = ref(false);
+const isPlayed = ref(true);
 
+const toggleAutoSlide = () => {
+    isPlayed.value  = !isPlayed.value ;
+};
 const onThumbnailButtonClick = () => {
     showThumbnails.value  = !showThumbnails.value ;
 };
@@ -350,6 +366,9 @@ const galleriaClass = computed(() => {
 });
 const fullScreenIcon = computed(() => {
     return \`pi \${fullScreen.value ? 'pi-window-minimize' : 'pi-window-maximize'}\`;
+});
+const slideButtonIcon = computed(() => {
+    return \`pi \${isPlayed.value ? 'pi-pause' : 'pi-play'}\`;
 });
 <\/script>
 
@@ -433,6 +452,9 @@ const fullScreenIcon = computed(() => {
         this.bindDocumentListeners();
     },
     methods: {
+        toggleAutoSlide() {
+            this.isPlayed = !this.isPlayed;
+        },
         onThumbnailButtonClick() {
             this.showThumbnails = !this.showThumbnails;
         },
@@ -487,6 +509,9 @@ const fullScreenIcon = computed(() => {
         }
     },
     computed: {
+        slideButtonIcon() {
+            return this.isPlayed ? 'pi pi-pause' : 'pi pi-play';
+        },
         galleriaClass() {
             return ['custom-galleria', { fullscreen: this.fullScreen }];
         },
