@@ -24,7 +24,7 @@ app.options.addReader(new TypeDoc.TypeDocReader());
 app.bootstrap({
     // typedoc options here
     name: 'PrimeVue',
-    entryPoints: [`components/lib`],
+    entryPoints: [`components/lib/`],
     entryPointStrategy: 'expand',
     hideGenerator: true,
     excludeExternals: true,
@@ -52,7 +52,7 @@ if (project) {
         doc[name] = {
             description
         };
-
+        
         const module_component_group = module.groups.find((g) => g.title === 'Component');
         let methods = {
             description: staticMessages['methods'],
@@ -441,6 +441,24 @@ if (project) {
                     });
 
                 let values = event.type.toString();
+
+                if (values.includes('Function') && event.type.types) {
+                    values = '';
+
+                    for (const [i, type] of event.type.types.entries()) {
+                        if (type.declaration && type.declaration.signatures) {
+                            const signature = type.declaration.signatures[0];
+                            const parameters = signature.parameters.reduce((acc, { name, type }, index) => (index === 0 ? `${name}: ${type.name}` : `${acc}, ${name}: ${type.name}`), '');
+
+                            values += i === 0 ? `(${parameters}) => ${signature.type?.name}` : ` | (${parameters}) => ${signature.type?.name}`;
+                        } else {
+                            const typeName = type.name || type.value;
+
+                            values += i === 0 ? `${typeName}` : ` | ${typeName}`;
+                        }
+                    }
+                }
+
                 const declaration = event.type.declaration;
 
                 if (declaration) {
