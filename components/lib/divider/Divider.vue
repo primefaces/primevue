@@ -1,14 +1,16 @@
 <template>
-    <div :class="containerClass" role="separator" :aria-orientation="layout">
-        <div v-if="$slots.default" class="p-divider-content">
+    <div :class="containerClass" role="separator" :aria-orientation="layout" v-bind="ptm('root')">
+        <div v-if="$slots.default" class="p-divider-content" v-bind="ptm('content')">
             <slot></slot>
         </div>
     </div>
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
 export default {
     name: 'Divider',
+    extends: ComponentBase,
     props: {
         align: {
             type: String,

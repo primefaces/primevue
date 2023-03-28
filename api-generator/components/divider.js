@@ -16,6 +16,12 @@ const DividerProps = [
         type: 'string',
         default: 'solid',
         description: 'Border style type, default is "solid" and other options are "dashed" and "dotted".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
