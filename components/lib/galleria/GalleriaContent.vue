@@ -76,6 +76,9 @@ export default {
         },
         '$attrs.numVisible': function (newVal) {
             this.numVisible = newVal;
+        },
+        '$attrs.autoPlay': function (newVal) {
+            newVal ? this.startSlideShow() : this.stopSlideShow();
         }
     },
     updated() {
