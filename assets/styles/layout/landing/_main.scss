@@ -54,7 +54,7 @@
         text-align: center;
         color: var(--home-secondary-text-color);
         font-weight: 500;
-        font-size: 1.143rem;
+        font-size: 1.25rem;
         margin: 1.5rem 0 0 0;
         padding: 0 2rem;
     }
@@ -164,7 +164,7 @@
             justify-content: space-around;
             gap: 3rem;
             min-width: 100%;
-            animation: scroll 20s linear infinite;
+            animation: scroll 30s linear infinite;
 
             > div {
                 max-width: clamp(10rem, 1rem + 28vmin, 20rem);
@@ -177,7 +177,7 @@
 
             &.marquee-reverse{
                 animation-direction: reverse;
-                animation-delay: calc(20s / -2);
+                animation-delay: calc(30s / -2);
             }
         }
     }

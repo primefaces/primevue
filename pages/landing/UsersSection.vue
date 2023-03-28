@@ -2,8 +2,7 @@
     <section class="landing-users py-8 px-3 lg:px-8">
         <div class="section-header">Who Uses</div>
         <p class="section-detail">
-            PrimeTek's open-source products are utilized by passionate developers and companies alike. With over
-            <span class="font-semibold animated-text relative white-space-nowrap"> <span>100 Million Downloads </span>🎉 </span> on npm, we continue to develop every day, while our community grows larger by the day.
+            PrimeTek libraries have reached over <span class="font-semibold animated-text relative white-space-nowrap"> <span>110 Million Downloads </span> </span> on npm! Join the PrimeLand community and experience the difference yourself.
         </p>
         <div class="flex justify-content-center align-items-center mt-4">
             <span class="ml-2"> </span>
