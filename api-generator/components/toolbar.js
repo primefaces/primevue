@@ -4,6 +4,12 @@ const ToolbarProps = [
         type: 'string',
         default: 'null',
         description: 'Defines a string value that labels an interactive element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
