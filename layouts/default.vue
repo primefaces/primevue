@@ -3,7 +3,7 @@
         <app-news v-if="$appState.newsActive" />
         <app-topbar @menubutton-click="onMenuButtonClick" @configbutton-click="onConfigButtonClick" />
         <app-menu :active="sidebarActive" />
-        <app-configurator v-model="appConfigActive" />
+        <app-configurator :configActive="appConfigActive" @updateConfigActive="onUpdateConfigActive" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
         <div class="layout-content">
             <div class="layout-content-inner">
@@ -107,6 +107,9 @@ export default {
         },
         onConfigButtonClick() {
             this.appConfigActive = true;
+        },
+        onUpdateConfigActive() {
+            this.appConfigActive = false;
         }
     },
     computed: {

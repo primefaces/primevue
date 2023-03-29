@@ -15,11 +15,11 @@
                 <h3>Input Style</h3>
                 <div class="flex gap-5">
                     <div class="flex align-items-center gap-2">
-                        <RadioButton v-model="inputStyle" name="inputStyle" value="outlined" inputId="outlined_input"></RadioButton>
+                        <RadioButton :modelValue="inputStyle" name="inputStyle" value="outlined" inputId="outlined_input" @update:modelValue="onInputStyleChange"></RadioButton>
                         <label for="outlined_input">Outlined</label>
                     </div>
                     <div class="flex align-items-center gap-2">
-                        <RadioButton v-model="inputStyle" name="inputStyle" value="filled" inputId="filled_input"></RadioButton>
+                        <RadioButton :modelValue="inputStyle" name="inputStyle" value="filled" inputId="filled_input" @update:modelValue="onInputStyleChange"></RadioButton>
                         <label for="filled_input">Filled</label>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
 
             <section class="mb-5">
                 <h3>Ripple Effect</h3>
-                <InputSwitch v-model="ripple" />
+                <InputSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
             </section>
 
             <section>
@@ -312,28 +312,23 @@
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
-    emits: ['update:modelValue'],
+    emits: ['updateConfigActive'],
     props: {
-        modelValue: Boolean
+        configActive: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
             visible: false,
             scale: 14,
-            scales: [12, 13, 14, 15, 16],
-            inputStyle: 'outlined',
-            ripple: true
+            scales: [12, 13, 14, 15, 16]
         };
     },
     watch: {
-        modelValue(value) {
+        configActive(value) {
             this.visible = value;
-        },
-        inputStyle(value) {
-            this.$primevue.config.inputStyle = value;
-        },
-        ripple(value) {
-            this.$primevue.config.ripple = value;
         }
     },
     outsideClickListener: null,
@@ -354,7 +349,7 @@ export default {
     methods: {
         onSidebarHide() {
             this.visible = false;
-            this.$emit('update:modelValue', false);
+            this.$emit('updateConfigActive', false);
         },
         changeTheme(theme, dark) {
             EventBus.emit('theme-change', { theme: theme, dark: dark });
@@ -369,6 +364,20 @@ export default {
         },
         applyScale() {
             document.documentElement.style.fontSize = this.scale + 'px';
+        },
+        onInputStyleChange(value) {
+            this.$primevue.config.inputStyle = value;
+        },
+        onRippleChange(value) {
+            this.$primevue.config.ripple = value;
+        }
+    },
+    computed: {
+        inputStyle() {
+            return this.$primevue.config.inputStyle;
+        },
+        rippleActive() {
+            return this.$primevue.config.ripple;
         }
     }
 };
