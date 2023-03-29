@@ -49,7 +49,6 @@ export interface ToolbarPassThroughAttributes {
     [key: string]: any;
 }
 
-
 /**
  * Defines valid properties in Toolbar component.
  */

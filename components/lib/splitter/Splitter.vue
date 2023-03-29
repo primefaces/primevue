@@ -14,7 +14,6 @@
                 v-bind="ptm('gutter')"
             >
                 <div class="p-splitter-gutter-handle" tabindex="0" :style="gutterStyle" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterhandler')"></div>
-
             </div>
         </template>
     </div>

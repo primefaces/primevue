@@ -52,7 +52,7 @@ if (project) {
         doc[name] = {
             description
         };
-        
+
         const module_component_group = module.groups.find((g) => g.title === 'Component');
         let methods = {
             description: staticMessages['methods'],
