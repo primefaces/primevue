@@ -11,7 +11,7 @@
         </Panel>
     </div>
     <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-    <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code2" hideToggleCode hideCodeSandbox hideStackBlitz />
 </template>
 
 <script>

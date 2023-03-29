@@ -13,7 +13,7 @@
         <p>Consider the following case of a native checkbox. It has built-in keyboard and screen reader support.</p>
     </DocSectionText>
 
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;input type="checkbox" value="Prime" name="ui" checked&gt;
 
 </code></pre>
@@ -24,7 +24,7 @@
             read by a reader.
         </p>
     </div>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;div class="fancy-checkbox"&gt;
     &lt;i class="checked-icon" v-if="checked"&gt;&lt;/i&gt;
 &lt;/div&gt;
@@ -34,7 +34,7 @@
     <div class="doc-section-description">
         <p>One alternative is using ARIA roles for readers and use javascript for keyboard support. Notice the usage of <i>aria-labelledby</i> as a replacement of the <i>label</i> tag with for.</p>
     </div>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;span id="chk-label"&gt;Remember Me&lt;/span&gt;
 &lt;div class="fancy-checkbox" role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="chk-label"
     @click="toggle" @keydown="onKeyDown(event)"&gt;
@@ -50,7 +50,7 @@
             that hides the elements from the user but not from the screen reader.
         </p>
     </div>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;label for="chkbox"&gt;Remember Me&lt;/label&gt;
 &lt;div class="fancy-checkbox" @click="toggle"&gt;
     &lt;input class="p-sr-only" type="checkbox" id="chkbox" @focus="updateParentVisuals" @blur="updateParentVisuals"

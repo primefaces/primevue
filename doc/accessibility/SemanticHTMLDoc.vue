@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
 
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;div class="header"&gt;
     &lt;div class="header-text"&gt;Header&lt;/div&gt;
 &lt;/div&gt;
@@ -29,7 +29,7 @@
     <div class="doc-section-description">
         <p>Same layout can be achieved using the semantic elements with screen reader support built-in.</p>
     </div>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;header&gt;
     &lt;h1&gt;Header&lt;/h1&gt;
 &lt;/header&gt;

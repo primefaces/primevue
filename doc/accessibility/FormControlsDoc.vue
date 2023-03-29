@@ -5,7 +5,7 @@
             space key as well to trigger.
         </p>
     </DocSectionText>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;button @click="onButtonClick(event)"&gt;Click&lt;/button&gt;
         
 </code></pre>
@@ -13,7 +13,7 @@
     <div class="doc-section-description">
         <p>On the other hand, a fancy css based button using a div has no keyboard or screen reader support.</p>
     </div>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;div class="fancy-button" @click="onButtonClick(event)"&gt;Click&lt;/div&gt;
 
 </code></pre>
@@ -24,7 +24,7 @@
             controls should be preferred.
         </p>
     </div>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;div class="fancy-button" @click="onClick(event)" @keydown="onKeyDown(event)" tabindex="0"&gt;Click&lt;/div&gt;
 
 </code></pre>
@@ -32,7 +32,7 @@
     <div class="doc-section-description">
         <p>Form components must be related to another element that describes what the form element is used for. This is usually achieved with the <i>label</i> element.</p>
     </div>
-    <pre v-code.script><code>
+    <pre v-code><code>
 &lt;label for="myinput"&gt;Username:&lt;/label&gt;
 &lt;input id="myinput" type="text" name="username" /&gt;
 

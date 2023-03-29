@@ -14,7 +14,7 @@
     <div class="doc-section-description">
         <p>In a Vite based project like <a href="https://github.com/vuejs/create-vue">create-vue</a>, the link can be placed at index.html.</p>
     </div>
-    <DocSectionCode :code="code4" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
+    <DocSectionCode :code="code4" hideToggleCode hideCodeSandbox hideStackBlitz />
     <div class="doc-section-description">
         <p><a href="https://nuxtjs.org/">Nuxt</a> applications can configure the link element using <i>nuxt.config.js</i>.</p>
     </div>
