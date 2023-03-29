@@ -899,6 +899,7 @@ export default {
 
             if (this.currentView === 'month') {
                 this.decrementYear();
+                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear })
             } else if (this.currentView === 'year') {
                 this.decrementDecade();
             } else {
@@ -925,6 +926,7 @@ export default {
 
             if (this.currentView === 'month') {
                 this.incrementYear();
+                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear })
             } else if (this.currentView === 'year') {
                 this.incrementDecade();
             } else {
