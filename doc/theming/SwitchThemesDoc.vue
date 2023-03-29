@@ -33,7 +33,7 @@ primevue.changeTheme(currentTheme: string, newTheme: string, linkElementId: stri
             code2: {
                 basic: `
 // Options API
-this.$primevue.changeTheme('md-dark-indigo', 'md-dark-indigo', 'theme-link', () => {});
+this.$primevue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {});
         `
             },
             code3: {
@@ -42,7 +42,7 @@ this.$primevue.changeTheme('md-dark-indigo', 'md-dark-indigo', 'theme-link', () 
 import { usePrimeVue } from 'primevue/config';
 
 const PrimeVue = usePrimeVue();
-PrimeVue.changeTheme('md-dark-indigo', 'md-dark-indigo', 'theme-link', () => {});
+PrimeVue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {});
         `
             },
             code4: {
