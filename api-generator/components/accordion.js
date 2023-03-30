@@ -40,6 +40,12 @@ const AccordionProps = [
         type: 'boolean',
         default: 'false',
         description: 'When enabled, the focused tab is activated.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

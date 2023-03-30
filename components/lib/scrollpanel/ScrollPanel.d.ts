@@ -10,6 +10,75 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAttributes | ((options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ScrollPanelPassThroughMethodOptions {
+    props: ScrollPanelProps;
+    state: ScrollPanelState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ScrollPanelProps.pt}
+ */
+export interface ScrollPanelPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ScrollPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: ScrollPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: ScrollPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the horizontal panel's DOM element.
+     */
+    barx?: ScrollPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the vertical panel's DOM element.
+     */
+    bary?: ScrollPanelPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ScrollPanelPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Panel component.
+ */
+export interface ScrollPanelState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current scrollpanel orientation.
+     * @defaultValue vertical
+     */
+    orientation: string;
+    /**
+     * Latest scroll top position.
+     * @defaultValue 0
+     */
+    lastScrollTop: number;
+    /**
+     * Latest scroll left position.
+     * @defaultValue 0
+     */
+    lastScrollLeft: number;
+}
+
 /**
  * Defines valid properties in ScrollPanel component.
  */
@@ -19,6 +88,11 @@ export interface ScrollPanelProps {
      * @defaultValue 5
      */
     step?: number | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ScrollPanelPassThroughOptions}
+     */
+    pt?: ScrollPanelPassThroughOptions;
 }
 
 /**

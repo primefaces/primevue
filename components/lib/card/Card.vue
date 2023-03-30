@@ -1,15 +1,19 @@
 <template>
-    <div class="p-card p-component">
-        <div v-if="$slots.header" class="p-card-header">
+    <div class="p-card p-component" v-bind="ptm('root')">
+        <div v-if="$slots.header" class="p-card-header" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
-        <div class="p-card-body">
-            <div v-if="$slots.title" class="p-card-title"><slot name="title"></slot></div>
-            <div v-if="$slots.subtitle" class="p-card-subtitle"><slot name="subtitle"></slot></div>
-            <div class="p-card-content">
+        <div class="p-card-body" v-bind="ptm('body')">
+            <div v-if="$slots.title" class="p-card-title" v-bind="ptm('title')">
+                <slot name="title"></slot>
+            </div>
+            <div v-if="$slots.subtitle" class="p-card-subtitle" v-bind="ptm('subtitle')">
+                <slot name="subtitle"></slot>
+            </div>
+            <div class="p-card-content" v-bind="ptm('content')">
                 <slot name="content"></slot>
             </div>
-            <div v-if="$slots.footer" class="p-card-footer">
+            <div v-if="$slots.footer" class="p-card-footer" v-bind="ptm('footer')">
                 <slot name="footer"></slot>
             </div>
         </div>
@@ -17,13 +21,10 @@
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
+
 export default {
-    name: 'Card'
+    name: 'Card',
+    extends: ComponentBase
 };
 </script>
-
-<style>
-.p-card-header img {
-    width: 100%;
-}
-</style>

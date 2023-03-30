@@ -1,6 +1,6 @@
 <template>
-    <div :class="contentClasses">
-        <div class="p-tabview-nav-container">
+    <div :class="contentClasses" v-bind="ptm('root')">
+        <div class="p-tabview-nav-container" v-bind="ptm('navcontainer')">
             <button
                 v-if="scrollable && !isPrevButtonDisabled"
                 ref="prevBtn"
@@ -10,13 +10,23 @@
                 :tabindex="tabindex"
                 :aria-label="prevButtonAriaLabel"
                 @click="onPrevButtonClick"
-                v-bind="previousButtonProps"
+                v-bind="{ ...previousButtonProps, ...ptm('prevbutton') }"
             >
-                <span class="pi pi-chevron-left" aria-hidden="true"></span>
+                <slot name="previcon">
+                    <span class="pi pi-chevron-left" aria-hidden="true" v-bind="ptm('previcon')"></span>
+                </slot>
             </button>
-            <div ref="content" class="p-tabview-nav-content" @scroll="onScroll">
-                <ul ref="nav" class="p-tabview-nav" role="tablist">
-                    <li v-for="(tab, i) of tabs" :key="getKey(tab, i)" :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" role="presentation" :data-index="i" v-bind="getTabProp(tab, 'headerProps')">
+            <div ref="content" class="p-tabview-nav-content" @scroll="onScroll" v-bind="ptm('navcontent')">
+                <ul ref="nav" class="p-tabview-nav" role="tablist" v-bind="ptm('nav')">
+                    <li
+                        v-for="(tab, i) of tabs"
+                        :key="getKey(tab, i)"
+                        :style="getTabProp(tab, 'headerStyle')"
+                        :class="getTabHeaderClass(tab, i)"
+                        role="presentation"
+                        :data-index="i"
+                        v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root'), ...getTabPT(tab, 'header') }"
+                    >
                         <a
                             :id="getTabHeaderActionId(i)"
                             v-ripple
@@ -28,13 +38,13 @@
                             :aria-controls="getTabContentId(i)"
                             @click="onTabClick($event, tab, i)"
                             @keydown="onTabKeyDown($event, tab, i)"
-                            v-bind="getTabProp(tab, 'headerActionProps')"
+                            v-bind="{ ...getTabProp(tab, 'headerActionProps'), ...getTabPT(tab, 'headeraction') }"
                         >
-                            <span v-if="tab.props && tab.props.header" class="p-tabview-title">{{ tab.props.header }}</span>
+                            <span v-if="tab.props && tab.props.header" class="p-tabview-title" v-bind="getTabPT(tab, 'headertitle')">{{ tab.props.header }}</span>
                             <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                         </a>
                     </li>
-                    <li ref="inkbar" class="p-tabview-ink-bar" role="presentation" aria-hidden="true"></li>
+                    <li ref="inkbar" class="p-tabview-ink-bar" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></li>
                 </ul>
             </div>
             <button
@@ -46,12 +56,14 @@
                 :tabindex="tabindex"
                 :aria-label="nextButtonAriaLabel"
                 @click="onNextButtonClick"
-                v-bind="nextButtonProps"
+                v-bind="{ ...nextButtonProps, ...ptm('nextbutton') }"
             >
-                <span class="pi pi-chevron-right" aria-hidden="true"></span>
+                <slot name="nexticon">
+                    <span class="pi pi-chevron-right" aria-hidden="true" v-bind="ptm('nexticon')"></span>
+                </slot>
             </button>
         </div>
-        <div class="p-tabview-panels">
+        <div class="p-tabview-panels" v-bind="ptm('panelcontainer')">
             <template v-for="(tab, i) of tabs" :key="getKey(tab, i)">
                 <div
                     v-if="lazy ? isTabActive(i) : true"
@@ -60,7 +72,7 @@
                     :class="getTabContentClass(tab)"
                     role="tabpanel"
                     :aria-labelledby="getTabHeaderActionId(i)"
-                    v-bind="getTabProp(tab, 'contentProps')"
+                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root'), ...getTabPT(tab, 'content') }"
                 >
                     <component :is="tab"></component>
                 </div>
@@ -70,11 +82,13 @@
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'TabView',
+    extends: ComponentBase,
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     props: {
         activeIndex: {
@@ -151,6 +165,15 @@ export default {
         },
         getTabContentId(index) {
             return `${this.id}_${index}_content`;
+        },
+        getTabPT(tab, key) {
+            return this.ptmo(this.getTabProp(tab, 'pt'), key, {
+                props: tab.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
         },
         onScroll(event) {
             this.scrollable && this.updateButtonState();

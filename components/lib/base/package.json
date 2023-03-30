@@ -1,0 +1,8 @@
+{
+  "main": "./componentbase.cjs.js",
+  "module": "./componentbase.esm.js",
+  "unpkg": "./componentbase.min.js",
+  "browser": {
+    "./sfc": "./ComponentBase.vue"
+  }
+}

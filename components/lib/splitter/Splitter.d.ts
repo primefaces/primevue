@@ -10,6 +10,16 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type SplitterPassThroughOptionType = SplitterPassThroughAttributes | ((options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SplitterPassThroughMethodOptions {
+    props: SplitterProps;
+    state: SplitterState;
+}
+
 /**
  * Custom resize start event.
  * @see {@link SplitterEmits.resizestar}
@@ -41,6 +51,42 @@ export interface SplitterResizeEndEvent {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link SplitterProps.pt}
+ */
+export interface SplitterPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SplitterPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the gutter's DOM element.
+     */
+    gutter?: SplitterPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the gutter handler's DOM element.
+     */
+    gutterhandler?: SplitterPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SplitterPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Panel component.
+ */
+export interface SplitterState {
+    /**
+     * Previous size state as a number.
+     */
+    prevSize: number;
+}
+
+/**
  * Defines valid properties in Splitter component.
  */
 export interface SplitterProps {
@@ -68,6 +114,11 @@ export interface SplitterProps {
      * @defaultValue 1
      */
     step?: number | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SplitterPassThroughOptions}
+     */
+    pt?: SplitterPassThroughOptions;
 }
 
 /**

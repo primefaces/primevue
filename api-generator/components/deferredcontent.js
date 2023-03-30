@@ -1,3 +1,12 @@
+const DeferredContentProps = [
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
+    }
+];
+
 const DeferredContentEvents = [
     {
         name: 'load',
@@ -16,6 +25,7 @@ module.exports = {
     deferredcontent: {
         name: 'DeferredContent',
         description: 'DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.',
+        props: DeferredContentProps,
         events: DeferredContentEvents
     }
 };

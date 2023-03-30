@@ -10,6 +10,45 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ToolbarPassThroughOptionType = ToolbarPassThroughAttributes | ((options: ToolbarPassThroughMethodOptions) => ToolbarPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ToolbarPassThroughMethodOptions {
+    props: ToolbarProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ToolbarProps.pt}
+ */
+export interface ToolbarPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ToolbarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the groupleft's DOM element.
+     */
+    groupleft?: ToolbarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the groupcenter's DOM element.
+     */
+    groupcenter?: ToolbarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the groupright's DOM element.
+     */
+    groupright?: ToolbarPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ToolbarPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Toolbar component.
  */
@@ -18,6 +57,11 @@ export interface ToolbarProps {
      * Defines a string value that labels an interactive element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ToolbarPassThroughOptions}
+     */
+    pt?: ToolbarPassThroughOptions;
 }
 
 /**

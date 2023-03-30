@@ -23,6 +23,7 @@ export default {
             'primevue/utils': path.resolve(__dirname, './components/lib/utils/Utils.js'),
             'primevue/api': path.resolve(__dirname, './components/lib/api/Api.js'),
             'primevue/portal': path.resolve(__dirname, './components/lib/portal/Portal.vue'),
+            'primevue/base': path.resolve(__dirname, './components/lib/base/ComponentBase.vue'),
             'primevue/button': path.resolve(__dirname, './components/lib/button/Button.vue'),
             'primevue/inputtext': path.resolve(__dirname, './components/lib/inputtext/InputText.vue'),
             'primevue/dialog': path.resolve(__dirname, './components/lib/dialog/Dialog.vue'),

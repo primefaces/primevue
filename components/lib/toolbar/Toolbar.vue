@@ -1,20 +1,22 @@
 <template>
-    <div class="p-toolbar p-component" role="toolbar" :aria-labelledby="ariaLabelledby">
-        <div class="p-toolbar-group-start p-toolbar-group-left">
+    <div class="p-toolbar p-component" role="toolbar" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')">
+        <div class="p-toolbar-group-start p-toolbar-group-left" v-bind="ptm('groupleft')">
             <slot name="start"></slot>
         </div>
-        <div class="p-toolbar-group-center">
+        <div class="p-toolbar-group-center" v-bind="ptm('groupcenter')">
             <slot name="center"></slot>
         </div>
-        <div class="p-toolbar-group-end p-toolbar-group-right">
+        <div class="p-toolbar-group-end p-toolbar-group-right" v-bind="ptm('groupright')">
             <slot name="end"></slot>
         </div>
     </div>
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
 export default {
     name: 'Toolbar',
+    extends: ComponentBase,
     props: {
         'aria-labelledby': {
             type: String,

@@ -22,6 +22,12 @@ const FieldsetProps = [
         type: 'string',
         default: 'null',
         description: 'Uses to pass the custom value to read for the AnchorHTMLAttributes inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -47,7 +53,11 @@ const FieldsetEvents = [
 const FieldsetSlots = [
     {
         name: 'legend',
-        description: "Custom content for the component's header"
+        description: 'Custom legend template.'
+    },
+    {
+        name: 'togglericon',
+        description: 'Custom toggler icon template.'
     }
 ];
 

@@ -1,8 +1,8 @@
 <template>
-    <fieldset :class="['p-fieldset p-component', { 'p-fieldset-toggleable': toggleable }]">
-        <legend class="p-fieldset-legend">
+    <fieldset :class="['p-fieldset p-component', { 'p-fieldset-toggleable': toggleable }]" v-bind="ptm('root')">
+        <legend class="p-fieldset-legend" v-bind="ptm('legend')">
             <slot v-if="!toggleable" name="legend">
-                <span :id="ariaId + '_header'" class="p-fieldset-legend-text">{{ legend }}</span>
+                <span :id="ariaId + '_header'" class="p-fieldset-legend-text" v-bind="ptm('legendtitle')">{{ legend }}</span>
             </slot>
             <a
                 v-if="toggleable"
@@ -15,17 +15,19 @@
                 :aria-label="buttonAriaLabel"
                 @click="toggle"
                 @keydown="onKeyDown"
-                v-bind="toggleButtonProps"
+                v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
             >
-                <span :class="iconClass"></span>
+                <slot name="togglericon" :collapsed="d_collapsed">
+                    <span :class="iconClass" v-bind="ptm('togglericon')"></span>
+                </slot>
                 <slot name="legend">
-                    <span class="p-fieldset-legend-text">{{ legend }}</span>
+                    <span class="p-fieldset-legend-text" v-bind="ptm('legendtitle')">{{ legend }}</span>
                 </slot>
             </a>
         </legend>
         <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'">
-                <div class="p-fieldset-content">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div class="p-fieldset-content" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
             </div>
@@ -34,11 +36,13 @@
 </template>
 
 <script>
+import ComponentBase from 'primevue/base';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Fieldset',
+    extends: ComponentBase,
     emits: ['update:collapsed', 'toggle'],
     props: {
         legend: String,

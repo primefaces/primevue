@@ -28,6 +28,12 @@ const SplitterProps = [
         type: 'number',
         default: '5',
         description: 'Step factor to increment/decrement the size of the panels while pressing the arrow keys.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
