@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/base';
+import ComponentBase from 'primevue/componentbase';
 
 export default {
     name: 'SplitterPanel',

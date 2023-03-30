@@ -15,6 +15,7 @@ let coreDependencies = {
     'primevue/config': 'primevue.config',
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
+    'primevue/componentbase': 'primevue.componentbase',
     'primevue/tooltip': 'primevue.tooltip',
     'primevue/focustrap': 'primevue.focustrap',
     'primevue/virtualscroller': 'primevue.virtualscroller',

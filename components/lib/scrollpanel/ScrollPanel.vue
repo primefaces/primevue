@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/base';
+import ComponentBase from 'primevue/componentbase';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {

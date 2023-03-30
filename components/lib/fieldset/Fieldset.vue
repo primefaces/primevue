@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/base';
+import ComponentBase from 'primevue/componentbase';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/base';
+import ComponentBase from 'primevue/componentbase';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
