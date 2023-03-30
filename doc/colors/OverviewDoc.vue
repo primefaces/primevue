@@ -3,7 +3,7 @@
         <p>Colors are exported as CSS variables and used with the standard <i>var</i> syntax such as <i>var(--text-color)</i>. Following is the list of general variables used in a theme.</p>
     </DocSectionText>
 
-    <div className="doc-tablewrapper">
+    <div class="doc-tablewrapper">
         <table class="doc-table">
             <thead>
                 <tr>

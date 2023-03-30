@@ -18,7 +18,7 @@ export default {
 <InputText type="text" v-model="value" />`,
                 options: `
 <template>
-    <div className="card flex justify-content-center">
+    <div class="card flex justify-content-center">
         <InputText type="text" v-model="value" />
     </div>
 </template>
@@ -35,7 +35,7 @@ export default {
         `,
                 composition: `
 <template>
-    <div className="card flex justify-content-center">
+    <div class="card flex justify-content-center">
         <InputText type="text" v-model="value" />
     </div>
 </template>

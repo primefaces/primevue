@@ -1,6 +1,6 @@
 <template>
-    <div className="doc-main">
-        <div className="doc-intro">
+    <div class="doc-main">
+        <div class="doc-intro">
             <h1>{{ header }} API</h1>
             <p>{{ description }}</p>
         </div>

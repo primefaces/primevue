@@ -3,7 +3,7 @@
         <p>A floating label appears on top of the input field when focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <span className="p-float-label">
+        <span class="p-float-label">
             <label for="ssn">SSN</label>
             <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
         </span>
@@ -18,14 +18,14 @@ export default {
             value: '',
             code: {
                 basic: `
-<span className="p-float-label">
+<span class="p-float-label">
     <label for="ssn">SSN</label>
     <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
 </span>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <span className="p-float-label">
+        <span class="p-float-label">
             <label for="ssn">SSN</label>
             <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
         </span>
@@ -45,7 +45,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <span className="p-float-label">
+        <span class="p-float-label">
             <label for="ssn">SSN</label>
             <InputMask id="ssn" v-model="val2" mask="999-99-9999" placeholder="999-99-9999" />
         </span>
