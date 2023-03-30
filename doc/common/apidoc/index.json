@@ -99,6 +99,55 @@
                         }
                     ]
                 },
+                "AccordionPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "AccordionPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AccordionProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AccordionState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "AccordionPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "AccordionProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "AccordionProps": {
                     "description": "Defines valid properties in Accordion component.",
                     "relatedProp": "",
@@ -144,6 +193,14 @@
                             "description": "When enabled, multiple tabs can be activated at the same time."
                         },
                         {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
                             "name": "selectOnFocus",
                             "optional": true,
                             "readonly": false,
@@ -174,6 +231,29 @@
                             "description": "Default slot to detect AccordionTab components."
                         }
                     ]
+                },
+                "AccordionState": {
+                    "description": "Defines current inline state in Accordion component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_activeIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number | number[]",
+                            "default": "",
+                            "description": "Current active index state."
+                        },
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string"
+                        }
+                    ],
+                    "methods": []
                 },
                 "AccordionTabCloseEvent": {
                     "description": "Custom tab close event.",
@@ -224,6 +304,14 @@
                     "extendedBy": "AccordionTabCloseEvent,AccordionClickEvent"
                 }
             }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "AccordionPassThroughOptionType": {
+                    "values": "AccordionPassThroughAttributes | (options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | null | undefined"
+                }
+            }
         }
     },
     "accordiontab": {
@@ -249,6 +337,103 @@
                     "props": [],
                     "methods": []
                 },
+                "AccordionTabPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "AccordionTabPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AccordionPassThroughOptions",
+                            "default": ""
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AccordionTabProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "AccordionTabPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "AccordionTabProps.pt",
+                    "props": [
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headeraction",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the headeraction's DOM element."
+                        },
+                        {
+                            "name": "headericon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the headericon's DOM element."
+                        },
+                        {
+                            "name": "headertitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the headertitle's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "toggleablecontent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggleablecontent's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "AccordionTabProps": {
                     "description": "Defines valid properties in AccordionTab component.",
                     "relatedProp": "",
@@ -267,7 +452,8 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content."
+                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "contentStyle",
@@ -299,7 +485,8 @@
                             "readonly": false,
                             "type": "AnchorHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header."
+                            "description": "Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "headerClass",
@@ -315,7 +502,8 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLDivElement to the tab header."
+                            "description": "Uses to pass all properties of the HTMLDivElement to the tab header.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "headerStyle",
@@ -324,6 +512,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Inline style of the tab header."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -343,9 +539,30 @@
                             "name": "header",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom content for the title section of a panel is defined using the header template."
+                            "description": "Custom content for the title section of a AccordionTab is defined using the header template."
+                        },
+                        {
+                            "name": "headericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>index</b>: number, // Index of the tab\n  \t <b>isTabActive(i: number)</b>: void, // Whether the tab is active\n  }",
+                                    "description": "header slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icon for the header section of a AccordionTab is defined using the headericon template."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "AccordionTabPassThroughOptionType": {
+                    "values": "AccordionTabPassThroughAttributes | (options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -4527,10 +4744,87 @@
                     "props": [],
                     "methods": []
                 },
+                "CardPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "CardPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "CardProps.pt",
+                    "props": [
+                        {
+                            "name": "body",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the body's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "subtitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the subtitle's DOM element."
+                        },
+                        {
+                            "name": "title",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the title's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CardProps": {
                     "description": "Defines valid properties in Card component.",
                     "relatedProp": "",
-                    "props": [],
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        }
+                    ],
                     "methods": []
                 },
                 "CardSlots": {
@@ -4569,6 +4863,14 @@
                             "description": "Custom title template."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "CardPassThroughOptionType": {
+                    "values": "CardPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -10196,9 +10498,68 @@
                         }
                     ]
                 },
-                "DeferredContentProps": {
+                "DeferredContentPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
-                    "props": [],
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DeferredContentPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DeferredContentProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DeferredContentState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "DeferredContentPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "DeferredContentProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DeferredContentPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "DeferredContentProps": {
+                    "description": "Defines valid props in DeferredContent component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DeferredContentPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        }
+                    ],
                     "methods": []
                 },
                 "DeferredContentSlots": {
@@ -10213,6 +10574,29 @@
                             "description": "Default content slot."
                         }
                     ]
+                },
+                "DeferredContentState": {
+                    "description": "Defines current inline state in DeferredContent component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "loaded",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current loaded state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "DeferredContentPassThroughOptionType": {
+                    "values": "DeferredContentPassThroughAttributes | (options: DeferredContentPassThroughMethodOptions) => DeferredContentPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -10625,6 +11009,56 @@
                     "props": [],
                     "methods": []
                 },
+                "DividerPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DividerPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DividerProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "DividerPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "DividerProps.pt",
+                    "props": [
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DividerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DividerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "DividerProps": {
                     "description": "Defines valid properties in Divider component.",
                     "relatedProp": "",
@@ -10644,6 +11078,14 @@
                             "type": "\"horizontal\" | \"vertical\"",
                             "default": "horizontal",
                             "description": "Specifies the orientation, valid values are 'horizontal' and 'vertical'."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DividerPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         },
                         {
                             "name": "type",
@@ -10668,6 +11110,14 @@
                             "description": "Default content slot."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "DividerPassThroughOptionType": {
+                    "values": "DividerPassThroughAttributes | (options: DividerPassThroughMethodOptions) => DividerPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -12025,6 +12475,103 @@
                         }
                     ]
                 },
+                "FieldsetPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "FieldsetPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "FieldsetProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "FieldsetState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "FieldsetPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "FieldsetProps.pt",
+                    "props": [
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "legend",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the legend's DOM element."
+                        },
+                        {
+                            "name": "legendtitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the legend title's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "toggleablecontent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggleable content's DOM element."
+                        },
+                        {
+                            "name": "toggler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggler's DOM element."
+                        },
+                        {
+                            "name": "togglericon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggler icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "FieldsetProps": {
                     "description": "Defines valid properties in Fieldset component.",
                     "relatedProp": "",
@@ -12046,12 +12593,21 @@
                             "description": "Header text of the fieldset."
                         },
                         {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
                             "name": "toggleButtonProps",
                             "optional": true,
                             "readonly": false,
                             "type": "AnchorHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass the custom value to read for the AnchorHTMLAttributes inside the component."
+                            "description": "Uses to pass the custom value to read for the AnchorHTMLAttributes inside the component.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "toggleable",
@@ -12081,6 +12637,28 @@
                             "readonly": false,
                             "type": "Function",
                             "default": ""
+                        },
+                        {
+                            "name": "togglericon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "FieldsetState": {
+                    "description": "Defines current inline state in Fieldset component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_collapsed",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current collapsed state as a boolean."
                         }
                     ],
                     "methods": []
@@ -12107,6 +12685,14 @@
                         }
                     ],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "FieldsetPassThroughOptionType": {
+                    "values": "FieldsetPassThroughAttributes | (options: FieldsetPassThroughMethodOptions) => FieldsetPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -17420,6 +18006,27 @@
                     ],
                     "methods": []
                 },
+                "PanelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PanelProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PanelState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "PanelPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "PanelProps.pt",
@@ -17525,7 +18132,8 @@
                             "readonly": false,
                             "type": "ButtonHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass the custom value to read for the button inside the component."
+                            "description": "Uses to pass the custom value to read for the button inside the component.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "toggleable",
@@ -17577,7 +18185,7 @@
                     ]
                 },
                 "PanelState": {
-                    "description": "Defines current inline states in Panel component.",
+                    "description": "Defines current inline state in Panel component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -17585,8 +18193,8 @@
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
-                            "description": "Current collapsed state as a boolean"
+                            "default": "false",
+                            "description": "Current collapsed state as a boolean."
                         }
                     ],
                     "methods": []
@@ -17620,7 +18228,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "PanelPassThroughOptionType": {
-                    "values": "PanelPassThroughAttributes | Function | null | undefined"
+                    "values": "PanelPassThroughAttributes | (options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -19264,10 +19872,99 @@
                     "props": [],
                     "methods": []
                 },
+                "ScrollPanelPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ScrollPanelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ScrollPanelProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ScrollPanelState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ScrollPanelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ScrollPanelProps.pt",
+                    "props": [
+                        {
+                            "name": "barx",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ScrollPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the horizontal panel's DOM element."
+                        },
+                        {
+                            "name": "bary",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ScrollPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the vertical panel's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ScrollPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ScrollPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "wrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ScrollPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the wrapper's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ScrollPanelProps": {
                     "description": "Defines valid properties in ScrollPanel component.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ScrollPanelPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
                         {
                             "name": "step",
                             "optional": true,
@@ -19292,6 +19989,53 @@
                         }
                     ],
                     "methods": []
+                },
+                "ScrollPanelState": {
+                    "description": "Defines current inline state in Panel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "lastScrollLeft",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Latest scroll left position."
+                        },
+                        {
+                            "name": "lastScrollTop",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Latest scroll top position."
+                        },
+                        {
+                            "name": "orientation",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "vertical",
+                            "description": "Current scrollpanel orientation."
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ScrollPanelPassThroughOptionType": {
+                    "values": "ScrollPanelPassThroughAttributes | (options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -20563,6 +21307,71 @@
                         }
                     ]
                 },
+                "SplitterPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitterPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitterProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitterState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitterPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "SplitterProps.pt",
+                    "props": [
+                        {
+                            "name": "gutter",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitterPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the gutter's DOM element."
+                        },
+                        {
+                            "name": "gutterhandler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitterPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the gutter handler's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitterPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SplitterProps": {
                     "description": "Defines valid properties in Splitter component.",
                     "relatedProp": "",
@@ -20582,6 +21391,14 @@
                             "type": "\"horizontal\" | \"vertical\"",
                             "default": "horizontal",
                             "description": "Orientation of the panels."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitterPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         },
                         {
                             "name": "stateKey",
@@ -20668,6 +21485,29 @@
                             "description": "Default slot to detect SplitterPanel components."
                         }
                     ]
+                },
+                "SplitterState": {
+                    "description": "Defines current inline state in Panel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "prevSize",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Previous size state as a number."
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "SplitterPassThroughOptionType": {
+                    "values": "SplitterPassThroughAttributes | (options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -20694,6 +21534,48 @@
                     "props": [],
                     "methods": []
                 },
+                "SplitterPanelPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitterPanelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitterPanelProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitterPanelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "undefined.PanelProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitterPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SplitterPanelProps": {
                     "description": "Defines valid properties in SplitterPanel component.",
                     "relatedProp": "",
@@ -20705,6 +21587,14 @@
                             "type": "number",
                             "default": "",
                             "description": "Minimum size of the element relative to 100%."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitterPanelPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         },
                         {
                             "name": "size",
@@ -20730,6 +21620,14 @@
                         }
                     ],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "SplitterPanelPassThroughOptionType": {
+                    "values": "SplitterPanelPassThroughAttributes | (options: SplitterPanelPassThroughMethodOptions) => SplitterPanelPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -21077,6 +21975,86 @@
                     "props": [],
                     "methods": []
                 },
+                "TabPanelPassThroughAttributes": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPanelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptions",
+                            "default": ""
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabPanelProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabPanelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TabPanelProps.pt",
+                    "props": [
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headeraction",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header action's DOM element."
+                        },
+                        {
+                            "name": "headertitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the title's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TabPanelProps": {
                     "description": "Defines valid properties in TabPanel component.",
                     "relatedProp": "",
@@ -21087,7 +22065,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Style class of the tab content."
+                            "description": "Style class of the tab content.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "contentProps",
@@ -21095,7 +22074,8 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content."
+                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "contentStyle",
@@ -21103,7 +22083,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Inline style of the tab content."
+                            "description": "Inline style of the tab content.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "disabled",
@@ -21127,7 +22108,8 @@
                             "readonly": false,
                             "type": "AnchorHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header."
+                            "description": "Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "headerClass",
@@ -21135,7 +22117,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Style class of the tab header."
+                            "description": "Style class of the tab header.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "headerProps",
@@ -21143,7 +22126,8 @@
                             "readonly": false,
                             "type": "LiHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLLiElement to the tab header."
+                            "description": "Uses to pass all properties of the HTMLLiElement to the tab header.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "headerStyle",
@@ -21151,7 +22135,16 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Inline style of the tab header."
+                            "description": "Inline style of the tab header.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -21176,6 +22169,14 @@
                         }
                     ],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TabPanelPassThroughOptionType": {
+                    "values": "TabPanelPassThroughAttributes | (options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -21291,6 +22292,114 @@
                         }
                     ]
                 },
+                "TabViewPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabViewPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TabViewProps.pt",
+                    "props": [
+                        {
+                            "name": "inkbar",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the inkbar's DOM element."
+                        },
+                        {
+                            "name": "nav",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "navcontainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nav container's DOM element."
+                        },
+                        {
+                            "name": "navcontent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nav content's DOM element."
+                        },
+                        {
+                            "name": "nextbutton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nex button's DOM element."
+                        },
+                        {
+                            "name": "nexticon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next button icon's DOM element."
+                        },
+                        {
+                            "name": "panelcontainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "prevbutton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous button's DOM element."
+                        },
+                        {
+                            "name": "previcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous button icon's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "tabheader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list items' DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TabViewProps": {
                     "description": "Defines valid properties in TabView component.",
                     "relatedProp": "",
@@ -21317,7 +22426,8 @@
                             "readonly": false,
                             "type": "ButtonHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLButtonElement to the next button."
+                            "description": "Uses to pass all properties of the HTMLButtonElement to the next button.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "previousButtonProps",
@@ -21325,7 +22435,16 @@
                             "readonly": false,
                             "type": "ButtonHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLButtonElement to the previous button."
+                            "description": "Uses to pass all properties of the HTMLButtonElement to the previous button.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabViewPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         },
                         {
                             "name": "scrollable",
@@ -21364,8 +22483,67 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Default slot to detect TabPanel components."
+                        },
+                        {
+                            "name": "nexticon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Next button icon template for the scrollable component."
+                        },
+                        {
+                            "name": "previcon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Previous button icon template for the scrollable component."
                         }
                     ]
+                },
+                "TabViewState": {
+                    "description": "Defines current inline state in TabView component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_activeIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current active index state."
+                        },
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Unique id for the TabView component."
+                        },
+                        {
+                            "name": "isNextButtonDisabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current state of the next button."
+                        },
+                        {
+                            "name": "isPrevButtonDisabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Current state of previous button."
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TabViewPassThroughOptionType": {
+                    "values": "TabViewPassThroughAttributes | (options: undefined) => TabViewPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -22477,6 +23655,72 @@
                     "props": [],
                     "methods": []
                 },
+                "ToolbarPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ToolbarPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ToolbarProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ToolbarPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ToolbarProps.pt",
+                    "props": [
+                        {
+                            "name": "groupcenter",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToolbarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the groupcenter's DOM element."
+                        },
+                        {
+                            "name": "groupleft",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToolbarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the groupleft's DOM element."
+                        },
+                        {
+                            "name": "groupright",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToolbarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the groupright's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToolbarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ToolbarProps": {
                     "description": "Defines valid properties in Toolbar component.",
                     "relatedProp": "",
@@ -22488,6 +23732,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Defines a string value that labels an interactive element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToolbarPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -22516,6 +23768,14 @@
                             "description": "Custom start template."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ToolbarPassThroughOptionType": {
+                    "values": "ToolbarPassThroughAttributes | (options: ToolbarPassThroughMethodOptions) => ToolbarPassThroughAttributes | null | undefined"
                 }
             }
         }
