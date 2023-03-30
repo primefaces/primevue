@@ -899,7 +899,7 @@ export default {
 
             if (this.currentView === 'month') {
                 this.decrementYear();
-                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear })
+                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear });
             } else if (this.currentView === 'year') {
                 this.decrementDecade();
             } else {
@@ -926,7 +926,7 @@ export default {
 
             if (this.currentView === 'month') {
                 this.incrementYear();
-                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear })
+                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear });
             } else if (this.currentView === 'year') {
                 this.incrementDecade();
             } else {
@@ -1651,8 +1651,6 @@ export default {
             }
         },
         onMonthSelect(event, { month, index }) {
-            // if (month.selectable) return;
-
             if (this.view === 'month') {
                 this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
             } else {
@@ -1664,8 +1662,6 @@ export default {
             setTimeout(this.updateFocus, 0);
         },
         onYearSelect(event, year) {
-            // if (year.isSelectable) return;
-
             if (this.view === 'year') {
                 this.onDateSelect(event, { year: year.value, month: 0, day: 1, selectable: true });
             } else {
