@@ -152,10 +152,10 @@ export interface PanelSlots {
          */
         collapsed: boolean;
     }): VNode[];
-     /**
+    /**
      * Custom footer template.
      */
-     footer(): VNode[];
+    footer(): VNode[];
 }
 
 /**

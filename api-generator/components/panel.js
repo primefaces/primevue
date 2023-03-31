@@ -66,7 +66,7 @@ const PanelSlots = [
     {
         name: 'fooetr',
         description: "Custom content for the component's footer."
-    },
+    }
 ];
 
 module.exports = {
