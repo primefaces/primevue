@@ -43,7 +43,6 @@ let coreDependencies = {
 
 let globalDependencies = {
     vue: 'Vue',
-    '@fullcalendar/core': 'FullCalendar',
     ...coreDependencies
 };
 
