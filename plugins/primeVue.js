@@ -38,7 +38,6 @@ import Editor from '@/components/lib/editor/Editor';
 import Fieldset from '@/components/lib/fieldset/Fieldset';
 import FileUpload from '@/components/lib/fileupload/FileUpload';
 import FocusTrap from '@/components/lib/focustrap/FocusTrap';
-import FullCalendar from '@/components/lib/fullcalendar/FullCalendar';
 import Galleria from '@/components/lib/galleria/Galleria';
 import Image from '@/components/lib/image/Image';
 import InlineMessage from '@/components/lib/inlinemessage/InlineMessage';
@@ -157,7 +156,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Editor', Editor);
     nuxtApp.vueApp.component('Fieldset', Fieldset);
     nuxtApp.vueApp.component('FileUpload', FileUpload);
-    nuxtApp.vueApp.component('FullCalendar', FullCalendar);
     nuxtApp.vueApp.component('Image', Image);
     nuxtApp.vueApp.component('InlineMessage', InlineMessage);
     nuxtApp.vueApp.component('Inplace', Inplace);
