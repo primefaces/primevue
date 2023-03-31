@@ -22,6 +22,10 @@ export interface CardPassThroughOptions {
      */
     root?: CardPassThroughOptionType;
     /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: CardPassThroughOptionType;
+    /**
      * Uses to pass attributes to the body's DOM element.
      */
     body?: CardPassThroughOptionType;

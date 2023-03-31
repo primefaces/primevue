@@ -56,10 +56,6 @@ export interface TabViewPassThroughOptions {
      */
     nav?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list items' DOM element.
-     */
-    tabheader?: TabViewPassThroughOptionType;
-    /**
      * Uses to pass attributes to the inkbar's DOM element.
      */
     inkbar?: TabViewPassThroughOptionType;
