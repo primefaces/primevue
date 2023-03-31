@@ -32,7 +32,9 @@ app.bootstrap({
     searchInComments: true,
     disableSources: true,
     logLevel: 'Error',
-    exclude: ['node_modules', 'components/lib/**/*.js']
+    sort: ['source-order'],
+    exclude: ['node_modules', 'components/lib/**/*.js'],
+
 });
 
 const project = app.convert();

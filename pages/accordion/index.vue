@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Accordion Component" header="Accordion" description="Accordion groups a collection of contents in tabs." :componentDocs="docs" :apiDocs="['Accordion', 'AccordionTab']" />
+    <DocComponent title="Vue Accordion Component" header="Accordion" description="Accordion groups a collection of contents in tabs." :componentDocs="docs" :apiDocs="['Accordion', 'AccordionTab']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,7 +11,7 @@ import ImportDoc from '@/doc/accordion/ImportDoc';
 import MultipleDoc from '@/doc/accordion/MultipleDoc.vue';
 import StyleDoc from '@/doc/accordion/StyleDoc';
 import TemplateDoc from '@/doc/accordion/TemplateDoc.vue';
-
+import PTComponent from '@/doc/accordion/pt/index.vue';
 export default {
     data() {
         return {
@@ -56,7 +56,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

@@ -2,20 +2,16 @@
     <ul ref="nav" class="doc-section-nav">
         <li v-for="doc of docs" :key="doc.label" :class="['navbar-item', { 'active-navbar-item': activeId === doc.id }]">
             <div class="navbar-item-content">
-                <NuxtLink :to="`${checkRouteName}/#${doc.id}`">
-                    <button class="p-link" @click="onButtonClick(doc)">{{ doc.label }}</button>
-                </NuxtLink>
+                <button class="p-link" @click="onButtonClick(doc)">{{ doc.label }}</button>
             </div>
 
             <template v-if="doc.children">
                 <ul>
                     <li v-for="child of doc.children" :key="child.label" :class="['navbar-item', { 'active-navbar-item': activeId === child.id }]">
                         <div class="navbar-item-content">
-                            <NuxtLink :to="`${checkRouteName}/#${child.id}`">
-                                <button class="p-link" @click="onButtonClick(child)">
-                                    {{ child.label }}
-                                </button>
-                            </NuxtLink>
+                            <button class="p-link" @click="onButtonClick(child)">
+                                {{ child.label }}
+                            </button>
                         </div>
                     </li>
                 </ul>
@@ -84,6 +80,7 @@ export default {
             label && label.parentElement.scrollIntoView({ block: 'start', behavior });
         },
         onButtonClick(doc) {
+            this.$router.push(`${this.checkRouteName}/#${doc.id}`);
             setTimeout(() => {
                 this.activeId = doc.id;
                 this.scrollToLabelById(doc.id, 'smooth');

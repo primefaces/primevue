@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Panel Component" header="Panel" description="Panel is a grouping component providing with content toggle feature." :componentDocs="docs" :apiDocs="['Panel']" />
+    <DocComponent title="Vue Panel Component" header="Panel" description="Panel is a grouping component providing with content toggle feature." :componentDocs="docs" :apiDocs="['Panel']" :ptTabComponent="ptComponent" />
 </template>
 <script>
 import AccessibilityDoc from '@/doc/panel/AccessibilityDoc.vue';
@@ -8,6 +8,7 @@ import ImportDoc from '@/doc/panel/ImportDoc.vue';
 import StyleDoc from '@/doc/panel/StyleDoc.vue';
 import TemplateDoc from '@/doc/panel/TemplateDoc.vue';
 import ToggleableDoc from '@/doc/panel/ToggleableDoc.vue';
+import PTComponent from '@/doc/panel/pt/index.vue';
 export default {
     data() {
         return {
@@ -42,7 +43,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

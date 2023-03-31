@@ -12,6 +12,9 @@
             <li :class="{ 'doc-tabmenu-active': tab === 1 }">
                 <button type="button" @click="tab = 1">API</button>
             </li>
+            <li v-if="ptTabComponent" :class="{ 'doc-tabmenu-active': tab === 2 }">
+                <button type="button" @click="tab = 2">Pass Through</button>
+            </li>
         </ul>
 
         <div class="doc-tabpanels">
@@ -29,13 +32,17 @@
             <div v-show="tab === 1" class="doc-tabpanel">
                 <DocApiSection :doc="apiDocs" :header="header" />
             </div>
+
+            <div v-if="tab === 2" class="doc-tabpanel">
+                <component :is="{ ...ptTabComponent }" />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['title', 'header', 'description', 'componentDocs', 'apiDocs', 'className'],
+    props: ['title', 'header', 'description', 'componentDocs', 'apiDocs', 'className', 'ptTabComponent'],
     data() {
         return {
             tab: 0
