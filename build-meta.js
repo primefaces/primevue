@@ -11,6 +11,16 @@ fs.readdirSync(path.resolve(__dirname, './components/lib/'), { withFileTypes: tr
         });
     });
 
+fs.readdirSync(path.resolve(__dirname, './components/lib/icon/'), { withFileTypes: true })
+    .filter((dir) => dir.isDirectory())
+    .forEach(({ name: folderName }) => {
+        fs.readdirSync(path.resolve(__dirname, './components/lib/icon/' + folderName)).forEach((file) => {
+            if (file === 'package.json' || file.endsWith('d.ts') || file.endsWith('vue')) {
+                fs.copySync(path.resolve(__dirname, './components/lib/icon/' + folderName) + '/' + file, 'dist/icon/' + folderName + '/' + file);
+            }
+        });
+    });
+
 fs.copySync(path.resolve(__dirname, './components/lib/ts-helpers.d.ts'), 'dist/ts-helpers.d.ts');
 fs.copySync(path.resolve(__dirname, './package-build.json'), 'dist/package.json');
 fs.copySync(path.resolve(__dirname, './README.md'), 'dist/README.md');
