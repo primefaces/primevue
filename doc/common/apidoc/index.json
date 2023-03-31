@@ -13708,6 +13708,91 @@
             }
         }
     },
+    "icon": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "IconEmits": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                },
+                "IconProps": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "spin",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "IconSlots": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                }
+            }
+        }
+    },
+    "icon/angledoubledown": {},
+    "icon/angledoubleleft": {},
+    "icon/angledoubleright": {},
+    "icon/angledoubleup": {},
+    "icon/angledown": {},
+    "icon/angleleft": {},
+    "icon/angleright": {},
+    "icon/angleup": {},
+    "icon/arrowdown": {},
+    "icon/arrowup": {},
+    "icon/ban": {},
+    "icon/bars": {},
+    "icon/calendar": {},
+    "icon/check": {},
+    "icon/chevrondown": {},
+    "icon/chevronleft": {},
+    "icon/chevronright": {},
+    "icon/chevronup": {},
+    "icon/exclamationtriangle": {},
+    "icon/eye": {},
+    "icon/eyeslash": {},
+    "icon/filter": {},
+    "icon/filterslash": {},
+    "icon/infocircle": {},
+    "icon/minus": {},
+    "icon/pencil": {},
+    "icon/plus": {},
+    "icon/refresh": {},
+    "icon/search": {},
+    "icon/searchminus": {},
+    "icon/searchplus": {},
+    "icon/sortalt": {},
+    "icon/sortamountdown": {},
+    "icon/sortamountupalt": {},
+    "icon/spinner": {},
+    "icon/star": {},
+    "icon/starfill": {},
+    "icon/thlarge": {},
+    "icon/times": {},
+    "icon/timescircle": {},
+    "icon/trash": {},
+    "icon/undo": {},
+    "icon/upload": {},
+    "icon/windowmaximize": {},
+    "icon/windowminimize": {},
     "image": {
         "description": "Displays an image with preview and tranformation options. For multiple image, see Galleria.\n\n[Live Demo](https://www.primevue.org/image/)",
         "components": {
