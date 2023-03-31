@@ -4786,6 +4786,14 @@
                             "description": "Uses to pass attributes to the footer's DOM element."
                         },
                         {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CardPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
@@ -22388,14 +22396,6 @@
                             "type": "TabViewPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
-                        },
-                        {
-                            "name": "tabheader",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TabViewPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the list items' DOM element."
                         }
                     ],
                     "methods": []
