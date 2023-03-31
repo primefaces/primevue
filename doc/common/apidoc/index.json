@@ -18048,6 +18048,14 @@
                             "description": "Uses to pass attributes to the content's DOM element."
                         },
                         {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
                             "name": "header",
                             "optional": true,
                             "readonly": false,
@@ -18164,6 +18172,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template."
+                        },
+                        {
+                            "name": "footer",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom footer template."
                         },
                         {
                             "name": "header",
