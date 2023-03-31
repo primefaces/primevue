@@ -64,7 +64,7 @@ const PanelSlots = [
         description: "Custom content for the component's header icon."
     },
     {
-        name: 'fooetr',
+        name: 'footer',
         description: "Custom content for the component's footer."
     }
 ];
