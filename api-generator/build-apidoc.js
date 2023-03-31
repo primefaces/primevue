@@ -33,8 +33,7 @@ app.bootstrap({
     disableSources: true,
     logLevel: 'Error',
     sort: ['source-order'],
-    exclude: ['node_modules', 'components/lib/**/*.js'],
-
+    exclude: ['node_modules', 'components/lib/**/*.js']
 });
 
 const project = app.convert();
