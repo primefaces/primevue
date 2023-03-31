@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Splitter',
-    extends: ComponentBase,
+    extends: BaseComponent,
     emits: ['resizestart', 'resizeend'],
     props: {
         layout: {

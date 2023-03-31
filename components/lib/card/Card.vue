@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'Card',
-    extends: ComponentBase
+    extends: BaseComponent
 };
 </script>

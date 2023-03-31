@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 export default {
     name: 'TabPanel',
-    extends: ComponentBase,
+    extends: BaseComponent,
     props: {
         header: null,
         headerStyle: null,

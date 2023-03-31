@@ -41,13 +41,13 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Accordion',
-    extends: ComponentBase,
+    extends: BaseComponent,
     emits: ['update:activeIndex', 'tab-open', 'tab-close', 'tab-click'],
     props: {
         multiple: {

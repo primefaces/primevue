@@ -2,7 +2,7 @@
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
-    name: 'ComponentBase',
+    name: 'BaseComponent',
     props: {
         pt: {
             type: Object,

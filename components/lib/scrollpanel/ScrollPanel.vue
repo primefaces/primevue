@@ -36,12 +36,12 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'ScrollPanel',
-    extends: ComponentBase,
+    extends: BaseComponent,
     props: {
         step: {
             type: Number,

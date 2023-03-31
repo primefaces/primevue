@@ -82,13 +82,13 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'TabView',
-    extends: ComponentBase,
+    extends: BaseComponent,
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
     props: {
         activeIndex: {

@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'SplitterPanel',
-    extends: ComponentBase,
+    extends: BaseComponent,
     props: {
         size: {
             type: Number,

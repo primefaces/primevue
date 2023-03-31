@@ -40,13 +40,13 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Panel',
-    extends: ComponentBase,
+    extends: BaseComponent,
     emits: ['update:collapsed', 'toggle'],
     props: {
         header: String,

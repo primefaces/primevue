@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 export default {
     name: 'Divider',
-    extends: ComponentBase,
+    extends: BaseComponent,
     props: {
         align: {
             type: String,

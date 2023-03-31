@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import ComponentBase from 'primevue/componentbase';
+import BaseComponent from 'primevue/basecomponent';
 export default {
     name: 'Toolbar',
-    extends: ComponentBase,
+    extends: BaseComponent,
     props: {
         'aria-labelledby': {
             type: String,
