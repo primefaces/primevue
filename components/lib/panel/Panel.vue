@@ -31,6 +31,9 @@
                 <div class="p-panel-content" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
+                <div v-if="$slots.footer" class="p-panel-footer" v-bind="ptm('footer')">
+                    <slot name="footer"></slot>
+                </div>
             </div>
         </transition>
     </div>

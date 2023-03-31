@@ -4021,15 +4021,19 @@
   border: 1px solid #e5e7eb;
   background: #ffffff;
   color: #3f3f46;
+  border-top: 0 none;
+}
+.p-panel .p-panel-content:last-child {
   border-bottom-right-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
-  border-top: 0 none;
 }
 .p-panel .p-panel-footer {
   padding: 0.75rem 1.25rem;
   border: 1px solid #e5e7eb;
   background: #ffffff;
   color: #3f3f46;
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
   border-top: 0 none;
 }
 

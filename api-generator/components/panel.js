@@ -53,16 +53,20 @@ const PanelEvents = [
 const PanelSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'icons',
-        description: "Custom content for the header's icon"
+        description: "Custom content for the header's icon."
     },
     {
         name: 'headericon',
-        description: 'Custom header icon template of panel'
-    }
+        description: "Custom content for the component's header icon."
+    },
+    {
+        name: 'fooetr',
+        description: "Custom content for the component's footer."
+    },
 ];
 
 module.exports = {

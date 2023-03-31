@@ -4018,15 +4018,19 @@
   border: 2px solid #263238;
   background: #161d21;
   color: rgba(255, 255, 255, 0.87);
+  border-top: 0 none;
+}
+.p-panel .p-panel-content:last-child {
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
-  border-top: 0 none;
 }
 .p-panel .p-panel-footer {
   padding: 0.5rem 1rem;
   border: 2px solid #263238;
   background: #161d21;
   color: rgba(255, 255, 255, 0.87);
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
   border-top: 0 none;
 }
 

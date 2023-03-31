@@ -3961,15 +3961,19 @@
   border: 1px solid #dadada;
   background: #ffffff;
   color: #666666;
+  border-top: 0 none;
+}
+.p-panel .p-panel-content:last-child {
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
-  border-top: 0 none;
 }
 .p-panel .p-panel-footer {
   padding: 0.571rem 1rem;
   border: 1px solid #dadada;
   background: #ffffff;
   color: #666666;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
   border-top: 0 none;
 }
 

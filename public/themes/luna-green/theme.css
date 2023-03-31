@@ -3973,15 +3973,19 @@
   border: 1px solid #191919;
   background: #323232;
   color: #dedede;
+  border-top: 0 none;
+}
+.p-panel .p-panel-content:last-child {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  border-top: 0 none;
 }
 .p-panel .p-panel-footer {
   padding: 0.571rem 1rem;
   border: 1px solid #191919;
   background: #323232;
   color: #dedede;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
   border-top: 0 none;
 }
 

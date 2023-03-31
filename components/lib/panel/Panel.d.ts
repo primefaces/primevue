@@ -72,6 +72,10 @@ export interface PanelPassThroughOptions {
      * Uses to pass attributes to the content's DOM element.
      */
     content?: PanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footer's DOM element.
+     */
+    footer?: PanelPassThroughOptionType;
 }
 
 /**
@@ -148,6 +152,10 @@ export interface PanelSlots {
          */
         collapsed: boolean;
     }): VNode[];
+     /**
+     * Custom footer template.
+     */
+     footer(): VNode[];
 }
 
 /**

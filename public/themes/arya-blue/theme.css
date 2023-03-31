@@ -3986,15 +3986,19 @@
   border: 1px solid #383838;
   background: #1e1e1e;
   color: rgba(255, 255, 255, 0.87);
+  border-top: 0 none;
+}
+.p-panel .p-panel-content:last-child {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  border-top: 0 none;
 }
 .p-panel .p-panel-footer {
   padding: 0.5rem 1rem;
   border: 1px solid #383838;
   background: #1e1e1e;
   color: rgba(255, 255, 255, 0.87);
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
   border-top: 0 none;
 }
 

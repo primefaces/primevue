@@ -3985,15 +3985,19 @@
   border: 1px solid #3e4053;
   background: #282936;
   color: rgba(255, 255, 255, 0.87);
+  border-top: 0 none;
+}
+.p-panel .p-panel-content:last-child {
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
-  border-top: 0 none;
 }
 .p-panel .p-panel-footer {
   padding: 0.75rem 1.25rem;
   border: 1px solid #3e4053;
   background: #282936;
   color: rgba(255, 255, 255, 0.87);
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
   border-top: 0 none;
 }
 
