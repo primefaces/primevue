@@ -9,13 +9,63 @@ let entries = [];
 
 let core = {};
 
+let coreIconDependencies = {
+    'primevue/baseicon': 'primevue.baseicon',
+    'primevue/icon/angledoubledown': 'primevue.icon.angledoubledown',
+    'primevue/icon/angledoubleleft': 'primevue.icon.angledoubleleft',
+    'primevue/icon/angledoubleright': 'primevue.icon.angledoubleright',
+    'primevue/icon/angledoubleup': 'primevue.icon.angledoubleup',
+    'primevue/icon/angledown': 'primevue.icon.angledown',
+    'primevue/icon/angleleft': 'primevue.icon.angleleft',
+    'primevue/icon/angleright': 'primevue.icon.angleright',
+    'primevue/icon/angleup': 'primevue.icon.angleup',
+    'primevue/icon/arrowdown': 'primevue.icon.arrowdown',
+    'primevue/icon/arrowup': 'primevue.icon.arrowup',
+    'primevue/icon/ban': 'primevue.icon.ban',
+    'primevue/icon/bars': 'primevue.icon.bars',
+    'primevue/icon/calendar': 'primevue.icon.calendar',
+    'primevue/icon/check': 'primevue.icon.check',
+    'primevue/icon/chevrondown': 'primevue.icon.chevrondown',
+    'primevue/icon/chevronleft': 'primevue.icon.chevronleft',
+    'primevue/icon/chevronright': 'primevue.icon.chevronright',
+    'primevue/icon/chevronup': 'primevue.icon.chevronup',
+    'primevue/icon/exclamationtriangle': 'primevue.icon.exclamationtriangle',
+    'primevue/icon/eye': 'primevue.icon.eye',
+    'primevue/icon/eyeslash': 'primevue.icon.eyeslash',
+    'primevue/icon/filter': 'primevue.icon.filter',
+    'primevue/icon/filterslash': 'primevue.icon.filterslash',
+    'primevue/icon/infocircle': 'primevue.icon.infocircle',
+    'primevue/icon/minus': 'primevue.icon.minus',
+    'primevue/icon/pencil': 'primevue.icon.pencil',
+    'primevue/icon/plus': 'primevue.icon.plus',
+    'primevue/icon/refresh': 'primevue.icon.refresh',
+    'primevue/icon/search': 'primevue.icon.search',
+    'primevue/icon/searchminus': 'primevue.icon.searchminus',
+    'primevue/icon/searchplus': 'primevue.icon.searchplus',
+    'primevue/icon/sortalt': 'primevue.icon.sortalt',
+    'primevue/icon/sortamountdown': 'primevue.icon.sortamountdown',
+    'primevue/icon/sortamountupalt': 'primevue.icon.sortamountupalt',
+    'primevue/icon/spinner': 'primevue.icon.spinner',
+    'primevue/icon/star': 'primevue.icon.star',
+    'primevue/icon/starfill': 'primevue.icon.starfill',
+    'primevue/icon/thlarge': 'primevue.icon.thlarge',
+    'primevue/icon/times': 'primevue.icon.times',
+    'primevue/icon/timescircle': 'primevue.icon.timescircle',
+    'primevue/icon/trash': 'primevue.icon.trash',
+    'primevue/icon/undo': 'primevue.icon.undo',
+    'primevue/icon/upload': 'primevue.icon.upload',
+    'primevue/icon/windowmaximize': 'primevue.icon.windowmaximize',
+    'primevue/icon/windowminimize': 'primevue.icon.windowminimize'
+};
+
 let coreDependencies = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
     'primevue/config': 'primevue.config',
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
-    'primevue/componentbase': 'primevue.componentbase',
+    'primevue/basecomponent': 'primevue.basecomponent',
+    ...coreIconDependencies,
     'primevue/tooltip': 'primevue.tooltip',
     'primevue/focustrap': 'primevue.focustrap',
     'primevue/virtualscroller': 'primevue.virtualscroller',
@@ -47,7 +97,7 @@ let globalDependencies = {
 };
 
 function addEntry(folder, inFile, outFile) {
-    let useCorePlugin = Object.keys(coreDependencies).some((d) => d.replace('primevue/', '') === outFile);
+    let useCorePlugin = Object.keys(coreDependencies).some((d) => d.replace('primevue/', '') === folder);
 
     entries.push({
         input: 'components/lib/' + folder + '/' + inFile,
@@ -62,7 +112,7 @@ function addEntry(folder, inFile, outFile) {
             },
             {
                 format: 'iife',
-                name: 'primevue.' + folder,
+                name: 'primevue.' + folder.replaceAll('/', '.'),
                 file: 'dist/' + folder + '/' + outFile + '.js',
                 globals: globalDependencies
             }
@@ -83,7 +133,7 @@ function addEntry(folder, inFile, outFile) {
             },
             {
                 format: 'iife',
-                name: 'primevue.' + folder,
+                name: 'primevue.' + folder.replaceAll('/', '.'),
                 file: 'dist/' + folder + '/' + outFile + '.min.js',
                 globals: globalDependencies
             }
@@ -96,13 +146,15 @@ function corePlugin() {
     return {
         name: 'corePlugin',
         generateBundle(outputOptions, bundle) {
-            if (outputOptions.format === 'iife') {
+            const { name, format } = outputOptions;
+
+            if (format === 'iife') {
                 Object.keys(bundle).forEach((id) => {
                     const chunk = bundle[id];
-                    const name = id.replace('.min.js', '').replace('.js', '');
+                    const folderName = name.replace('primevue.', '').replaceAll('.', '/');
                     const filePath = `./dist/core/core${id.indexOf('.min.js') > 0 ? '.min.js' : '.js'}`;
 
-                    core[filePath] ? (core[filePath][name] = chunk.code) : (core[filePath] = { [`${name}`]: chunk.code });
+                    core[filePath] ? (core[filePath][folderName] = chunk.code) : (core[filePath] = { [`${folderName}`]: chunk.code });
                 });
             }
         }
@@ -152,6 +204,18 @@ function addSFC() {
         });
 }
 
+function addIcon() {
+    fs.readdirSync(path.resolve(__dirname, './components/lib/icon'), { withFileTypes: true })
+        .filter((dir) => dir.isDirectory())
+        .forEach(({ name: folderName }) => {
+            fs.readdirSync(path.resolve(__dirname, './components/lib/icon/' + folderName)).forEach((file) => {
+                if (/\.vue$/.test(file)) {
+                    addEntry('icon/' + folderName, 'index.vue', 'index');
+                }
+            });
+        });
+}
+
 function addDirectives() {
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
     addEntry('ripple', 'Ripple.js', 'ripple');
@@ -192,6 +256,7 @@ addConfig();
 addDirectives();
 addServices();
 addSFC();
+addIcon();
 addCore();
 
 export default entries;

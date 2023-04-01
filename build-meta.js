@@ -1,25 +1,20 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-fs.readdirSync(path.resolve(__dirname, './components/lib/'), { withFileTypes: true })
-    .filter((dir) => dir.isDirectory())
-    .forEach(({ name: folderName }) => {
-        fs.readdirSync(path.resolve(__dirname, './components/lib/' + folderName)).forEach((file) => {
-            if (file === 'package.json' || file.endsWith('d.ts') || file.endsWith('vue')) {
-                fs.copySync(path.resolve(__dirname, './components/lib/' + folderName) + '/' + file, 'dist/' + folderName + '/' + file);
-            }
+function copyDependencies(inFolder, outFolder) {
+    fs.readdirSync(path.resolve(__dirname, inFolder), { withFileTypes: true })
+        .filter((dir) => dir.isDirectory())
+        .forEach(({ name: folderName }) => {
+            fs.readdirSync(path.resolve(__dirname, inFolder + folderName)).forEach((file) => {
+                if (file === 'package.json' || file.endsWith('d.ts') || file.endsWith('vue')) {
+                    fs.copySync(path.resolve(__dirname, inFolder + folderName) + '/' + file, outFolder + folderName + '/' + file);
+                }
+            });
         });
-    });
+}
 
-fs.readdirSync(path.resolve(__dirname, './components/lib/icon/'), { withFileTypes: true })
-    .filter((dir) => dir.isDirectory())
-    .forEach(({ name: folderName }) => {
-        fs.readdirSync(path.resolve(__dirname, './components/lib/icon/' + folderName)).forEach((file) => {
-            if (file === 'package.json' || file.endsWith('d.ts') || file.endsWith('vue')) {
-                fs.copySync(path.resolve(__dirname, './components/lib/icon/' + folderName) + '/' + file, 'dist/icon/' + folderName + '/' + file);
-            }
-        });
-    });
+copyDependencies('./components/lib/', 'dist/');
+copyDependencies('./components/lib/icon/', 'dist/icon/');
 
 fs.copySync(path.resolve(__dirname, './components/lib/ts-helpers.d.ts'), 'dist/ts-helpers.d.ts');
 fs.copySync(path.resolve(__dirname, './package-build.json'), 'dist/package.json');
