@@ -49,7 +49,7 @@ export default {
     methods: {
         onScroll() {
             if (!this.isScrollBlocked) {
-                const labels = document.querySelectorAll(':is(h1,h2,h3).doc-section-label');
+                const labels = [...document.querySelectorAll(':is(h1,h2,h3).doc-section-label')].filter((el) => DomHandler.isVisible(el));
 
                 const windowScrollTop = DomHandler.getWindowScrollTop();
 
