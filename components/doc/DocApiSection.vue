@@ -12,6 +12,7 @@
 <script>
 import APIDocs from '@/doc/common/apidoc/index.json';
 import DocApiTable from './DocApiTable.vue';
+
 export default {
     props: {
         header: {

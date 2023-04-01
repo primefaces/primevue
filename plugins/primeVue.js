@@ -98,14 +98,14 @@ import TreeTable from '@/components/lib/treetable/TreeTable';
 import TriStateCheckbox from '@/components/lib/tristatecheckbox/TriStateCheckbox';
 import VirtualScroller from '@/components/lib/virtualscroller/VirtualScroller';
 
-import CodeHighlight from '@/layouts/AppCodeHighlight';
-import DevelopmentSection from '@/layouts/DevelopmentSection';
-import DocApiSection from '@/layouts/doc/DocApiSection';
-import DocComponent from '@/layouts/doc/DocComponent';
-import DocSectionCode from '@/layouts/doc/DocSectionCode';
-import DocSectionNav from '@/layouts/doc/DocSectionNav';
-import DocSections from '@/layouts/doc/DocSections';
-import DocSectionText from '@/layouts/doc/DocSectionText';
+import DocApiSection from '@/components/doc/DocApiSection';
+import DocComponent from '@/components/doc/DocComponent';
+import DocSectionCode from '@/components/doc/DocSectionCode';
+import DocSectionNav from '@/components/doc/DocSectionNav';
+import DocSections from '@/components/doc/DocSections';
+import DocSectionText from '@/components/doc/DocSectionText';
+import CodeHighlight from '@/components/layout/CodeHighlight';
+import DevelopmentSection from '@/components/layout/DevelopmentSection';
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -118,8 +118,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.directive('tooltip', Tooltip);
     nuxtApp.vueApp.directive('ripple', Ripple);
     nuxtApp.vueApp.directive('styleclass', StyleClass);
-    nuxtApp.vueApp.directive('code', CodeHighlight);
     nuxtApp.vueApp.directive('focustrap', FocusTrap);
+    nuxtApp.vueApp.directive('code', CodeHighlight);
 
     nuxtApp.vueApp.component('Accordion', Accordion);
     nuxtApp.vueApp.component('AccordionTab', AccordionTab);
@@ -212,11 +212,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Galleria', Galleria);
     nuxtApp.vueApp.component('VirtualScroller', VirtualScroller);
 
-    nuxtApp.vueApp.component('DevelopmentSection', DevelopmentSection);
     nuxtApp.vueApp.component('DocSections', DocSections);
     nuxtApp.vueApp.component('DocSectionText', DocSectionText);
     nuxtApp.vueApp.component('DocSectionCode', DocSectionCode);
     nuxtApp.vueApp.component('DocSectionNav', DocSectionNav);
     nuxtApp.vueApp.component('DocApiSection', DocApiSection);
     nuxtApp.vueApp.component('DocComponent', DocComponent);
+
+    nuxtApp.vueApp.component('DevelopmentSection', DevelopmentSection);
 });

@@ -10,10 +10,11 @@
 </template>
 
 <script>
-import { getPTOption } from '@/layouts/doc/helpers/PTHelper.js';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
 import PtDoc from './PTDoc.vue';
 import PTImage from './PTImage.vue';
-import DocApiTable from '@/layouts/doc/DocApiTable.vue';
+
 export default {
     data() {
         return {
