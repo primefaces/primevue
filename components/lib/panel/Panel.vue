@@ -21,7 +21,7 @@
                     v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
                 >
                     <slot name="headericon" :collapsed="d_collapsed">
-                        <span :class="{ 'pi pi-minus': !d_collapsed, 'pi pi-plus': d_collapsed }" v-bind="ptm('headericon')"></span>
+                        <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" v-bind="ptm('headericon')" />
                     </slot>
                 </button>
             </div>
@@ -41,6 +41,8 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import MinusIcon from 'primevue/icon/minus';
+import PlusIcon from 'primevue/icon/plus';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 
@@ -93,6 +95,10 @@ export default {
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.header;
         }
+    },
+    components: {
+        PlusIcon,
+        MinusIcon
     },
     directives: {
         ripple: Ripple
