@@ -193,7 +193,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-right",
+                            "default": "",
                             "description": "Icon of a collapsed tab."
                         },
                         {
@@ -201,7 +201,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-down",
+                            "default": "",
                             "description": "Icon of an expanded tab."
                         },
                         {
