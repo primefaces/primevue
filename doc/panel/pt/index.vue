@@ -21,21 +21,18 @@ export default {
             docs: [
                 {
                     id: 'pt.image',
-                    label: 'Image',
-                    description: 'Pass Through Image',
+                    label: 'WireFrame',
                     component: PTImage
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Panel PT Options',
-                    description: 'Pass Through Doc',
+                    label: 'Panel Elements',
                     component: DocApiTable,
                     data: getPTOption('Panel')
                 },
                 {
                     id: 'pt.demo',
-                    label: 'Demo',
-                    description: 'Pass Through Demo',
+                    label: 'Example',
                     component: PtDoc
                 }
             ]

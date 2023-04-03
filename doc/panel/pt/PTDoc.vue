@@ -1,7 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs">
-        <p>A simple Panel is created with a <i>header</i> property along with the content as children.</p>
-    </DocSectionText>
+    <DocSectionText v-bind="$attrs" :level="2" />
     <div class="card">
         <Panel header="Header" :pt="{ header: { style: 'background:#3B82F6' }, title: { style: 'color:#fff' }, toggler: { style: 'color:#fff' } }" toggleable>
             <p class="m-0">

@@ -13,7 +13,7 @@
                 <button type="button" @click="tab = 1">API</button>
             </li>
             <li v-if="ptTabComponent" :class="{ 'doc-tabmenu-active': tab === 2 }">
-                <button type="button" @click="tab = 2">Pass Through</button>
+                <button type="button" @click="tab = 2">PASS THROUGH</button>
             </li>
         </ul>
 
