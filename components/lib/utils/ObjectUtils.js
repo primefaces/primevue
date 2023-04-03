@@ -205,6 +205,11 @@ export default {
         return null;
     },
 
+    convertToFlatCase(str) {
+        // convert snake, kebab, camel and pascal cases to flat case
+        return this.isNotEmpty(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+    },
+
     isEmpty(value) {
         return value === null || value === undefined || value === '' || (Array.isArray(value) && value.length === 0) || (!(value instanceof Date) && typeof value === 'object' && Object.keys(value).length === 0);
     },
