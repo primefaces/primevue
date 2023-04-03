@@ -12515,14 +12515,6 @@
                             "description": "Uses to pass attributes to the legend's DOM element."
                         },
                         {
-                            "name": "legendtitle",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FieldsetPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the legend title's DOM element."
-                        },
-                        {
                             "name": "toggler",
                             "optional": true,
                             "readonly": false,
@@ -12537,6 +12529,14 @@
                             "type": "FieldsetPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the toggler icon's DOM element."
+                        },
+                        {
+                            "name": "legendtitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the legend title's DOM element."
                         },
                         {
                             "name": "toggleablecontent",
