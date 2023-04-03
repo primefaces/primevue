@@ -15,7 +15,8 @@
                     v-bind="{ ...getTabProp(tab, 'headeractionprops'), ...getTabPT(tab, 'headeraction') }"
                 >
                     <component v-if="tab.children && tab.children.headericon" :is="tab.children.headericon" :isTabActive="isTabActive(i)" :index="i"></component>
-                    <span v-else :class="getTabHeaderIconClass(i)" aria-hidden="true" v-bind="getTabPT(tab, 'headericon')"></span>
+                    <component v-else-if="isTabActive(i)" :is="collapseIcon ? 'span' : 'ChevronDownIcon'" :class="['p-accordion-toggle-icon', collapseIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon')" />
+                    <component v-else :is="expandIcon ? 'span' : 'ChevronRightIcon'" :class="['p-accordion-toggle-icon', expandIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon')" />
                     <span v-if="tab.props && tab.props.header" class="p-accordion-header-text" v-bind="getTabPT(tab, 'headertitle')">{{ tab.props.header }}</span>
                     <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
@@ -42,6 +43,8 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
@@ -64,11 +67,11 @@ export default {
         },
         expandIcon: {
             type: String,
-            default: 'pi pi-chevron-right'
+            default: undefined
         },
         collapseIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         tabindex: {
             type: Number,
@@ -252,9 +255,6 @@ export default {
                 }
             ];
         },
-        getTabHeaderIconClass(i) {
-            return ['p-accordion-toggle-icon', this.isTabActive(i) ? this.collapseIcon : this.expandIcon];
-        },
         getTabContentClass(tab) {
             return ['p-toggleable-content', this.getTabProp(tab, 'contentClass')];
         }
@@ -275,6 +275,10 @@ export default {
                 return tabs;
             }, []);
         }
+    },
+    components: {
+        ChevronDownIcon,
+        ChevronRightIcon
     },
     directives: {
         ripple: Ripple

@@ -20,13 +20,13 @@ const AccordionProps = [
     {
         name: 'expandIcon',
         type: 'string',
-        default: 'pi-chevron-right',
+        default: 'null',
         description: 'Icon of a collapsed tab.'
     },
     {
         name: 'collapseIcon',
         type: 'string',
-        default: 'pi-chevron-down',
+        default: 'null',
         description: 'Icon of a expanded tab.'
     },
     {
