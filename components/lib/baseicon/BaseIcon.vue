@@ -25,6 +25,7 @@ export default {
                     }
                 ],
                 role: !isLabelEmpty ? 'img' : undefined,
+                'aria-label': !isLabelEmpty ? this.label : undefined,
                 'aria-hidden': isLabelEmpty
             };
         }
