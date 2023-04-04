@@ -21,7 +21,12 @@
             @invalid="onInvalid"
             v-bind="inputProps"
         />
-        <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
+        <slot v-if="toggleMask && unmasked" name="hideicon">
+            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="hideIcon" @click="onMaskToggle" />
+        </slot>
+        <slot v-if="toggleMask && !unmasked" name="showicon">
+            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="showIcon" @click="onMaskToggle" />
+        </slot>
         <span class="p-hidden-accessible" aria-live="polite">
             {{ infoText }}
         </span>
@@ -43,6 +48,8 @@
 </template>
 
 <script>
+import EyeIcon from 'primevue/icon/eye';
+import EyeSlashIcon from 'primevue/icon/eyeslash';
 import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -91,11 +98,11 @@ export default {
         },
         hideIcon: {
             type: String,
-            default: 'pi pi-eye-slash'
+            default: undefined
         },
         showIcon: {
             type: String,
-            default: 'pi pi-eye'
+            default: undefined
         },
         disabled: {
             type: Boolean,
@@ -383,9 +390,6 @@ export default {
                 }
             ];
         },
-        toggleIconClass() {
-            return this.unmasked ? this.hideIcon : this.showIcon;
-        },
         strengthClass() {
             return `p-password-strength ${this.meter ? this.meter.strength : ''}`;
         },
@@ -413,7 +417,9 @@ export default {
     },
     components: {
         PInputText: InputText,
-        Portal: Portal
+        Portal: Portal,
+        EyeSlashIcon: EyeSlashIcon,
+        EyeIcon: EyeIcon
     }
 };
 </script>

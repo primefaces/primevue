@@ -61,12 +61,10 @@ export interface PasswordProps extends InputHTMLAttributes {
     toggleMask?: boolean | undefined;
     /**
      * Icon to hide displaying the password as plain text.
-     * @defaultValue pi pi-eye-slash
      */
     hideIcon?: string | undefined;
     /**
      * Icon to show displaying the password as plain text.
-     * @defaultValue pi pi-eye
      */
     showIcon?: string | undefined;
     /**
@@ -141,6 +139,14 @@ export interface PasswordSlots {
      * Custom content template.
      */
     content(): VNode[];
+    /**
+     * Custom hide icon template.
+     */
+    hideicon(): VNode[];
+    /**
+     * Custom show icon template.
+     */
+    showicon(): VNode[];
 }
 
 /**

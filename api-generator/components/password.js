@@ -68,13 +68,13 @@ const PasswordProps = [
     {
         name: 'hideIcon',
         type: 'string',
-        default: 'pi pi-eye-slash',
+        default: 'null',
         description: 'Icon to hide displaying the password as plain text.'
     },
     {
         name: 'showIcon',
         type: 'string',
-        default: 'pi pi-eye',
+        default: 'null',
         description: 'Icon to show displaying the password as plain text.'
     },
     {
@@ -142,15 +142,23 @@ const PasswordProps = [
 const PasswordSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'content',
-        description: 'Custom content for the component'
+        description: 'Custom content for the component.'
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
+    },
+    {
+        name: 'hideicon',
+        description: 'Custom content for the hide icon.'
+    },
+    {
+        name: 'showicon',
+        description: 'Custom content for the show icon.'
     }
 ];
 
