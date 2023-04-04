@@ -28,7 +28,9 @@
                 <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{ val }}</span>
                 </slot>
-                <span :class="['p-chips-token-icon', removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true"></span>
+                <slot name="removetokenicon">
+                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-chips-token-icon', removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true" />
+                </slot>
             </li>
             <li class="p-chips-input-token" role="option">
                 <input
@@ -52,6 +54,7 @@
 </template>
 
 <script>
+import TimesCircleIcon from 'primevue/icon/timescircle';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
@@ -104,7 +107,7 @@ export default {
         },
         removeTokenIcon: {
             type: String,
-            default: 'pi pi-times-circle'
+            default: undefined
         },
         'aria-labelledby': {
             type: String,
@@ -309,6 +312,9 @@ export default {
         focusedOptionId() {
             return this.focusedIndex !== null ? `${this.id}_chips_item_${this.focusedIndex}` : null;
         }
+    },
+    components: {
+        TimesCircleIcon: TimesCircleIcon
     }
 };
 </script>

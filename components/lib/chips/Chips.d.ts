@@ -76,7 +76,6 @@ export interface ChipsProps {
     inputProps?: InputHTMLAttributes | undefined;
     /**
      * Icon to display in chip remove action.
-     * @defaultValue pi pi-times-circle
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -110,6 +109,10 @@ export interface ChipsSlots {
          */
         value: any;
     }): VNode[];
+    /**
+     * Custom remove token icon template.
+     */
+    removetokenicon(): VNode[];
 }
 /**
  * Defines valid emits in Chips component.

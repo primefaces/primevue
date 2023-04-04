@@ -106,6 +106,10 @@ const ChipsSlots = [
     {
         name: 'chips',
         description: 'Custom content for the chips'
+    },
+    {
+        name: 'removetokenicon',
+        description: 'Custom remove token icon template.'
     }
 ];
 
