@@ -53,7 +53,9 @@
                 <slot name="chip" :value="option">
                     <span class="p-autocomplete-token-label">{{ getOptionLabel(option) }}</span>
                 </slot>
-                <span :class="['p-autocomplete-token-icon', removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true"></span>
+                <slot name="removetokenicon">
+                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-autocomplete-token-icon', removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" />
+                </slot>
             </li>
             <li class="p-autocomplete-input-token" role="option">
                 <input
@@ -83,8 +85,14 @@
                 />
             </li>
         </ul>
-        <i v-if="searching" :class="loadingIconClass" aria-hidden="true"></i>
-        <Button v-if="dropdown" ref="dropdownButton" type="button" :icon="dropdownIcon" :class="['p-autocomplete-dropdown', dropdownClass]" tabindex="-1" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" />
+        <slot v-if="searching" name="loadingicon">
+            <component :is="loadingIcon ? 'i' : 'SpinnerIcon'" :class="['p-autocomplete-loader', loadingIcon]" spin aria-hidden="true" />
+        </slot>
+        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="['p-autocomplete-dropdown', dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick">
+            <slot name="dropdownicon">
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" />
+            </slot>
+        </Button>
         <span role="status" aria-live="polite" class="p-hidden-accessible">
             {{ searchResultMessageText }}
         </span>
@@ -140,6 +148,9 @@
 
 <script>
 import Button from 'primevue/button';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import SpinnerIcon from 'primevue/icon/spinner';
+import TimesCircleIcon from 'primevue/icon/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -247,7 +258,7 @@ export default {
         },
         dropdownIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         dropdownClass: {
             type: [String, Object],
@@ -255,11 +266,11 @@ export default {
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner'
+            default: undefined
         },
         removeTokenIcon: {
             type: String,
-            default: 'pi pi-times-circle'
+            default: undefined
         },
         virtualScrollerOptions: {
             type: Object,
@@ -1020,9 +1031,6 @@ export default {
                 }
             ];
         },
-        loadingIconClass() {
-            return ['p-autocomplete-loader pi-spin', this.loadingIcon];
-        },
         visibleOptions() {
             return this.optionGroupLabel ? this.flatOptions(this.suggestions) : this.suggestions || [];
         },
@@ -1079,7 +1087,10 @@ export default {
     components: {
         Button: Button,
         VirtualScroller: VirtualScroller,
-        Portal: Portal
+        Portal: Portal,
+        ChevronDownIcon: ChevronDownIcon,
+        SpinnerIcon: SpinnerIcon,
+        TimesCircleIcon: TimesCircleIcon
     },
     directives: {
         ripple: Ripple

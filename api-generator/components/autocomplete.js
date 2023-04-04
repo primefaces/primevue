@@ -162,10 +162,28 @@ const AutoCompleteProps = [
         description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
     },
     {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the dropdown.'
+    },
+    {
+        name: 'dropdownClass',
+        type: 'string',
+        default: 'null',
+        description: 'Style class of the dropdown button.'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
-        default: 'pi pi-spinner',
+        default: 'null',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'removeTokenIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in chip remove action.'
     },
     {
         name: 'virtualScrollerOptions',
@@ -396,6 +414,18 @@ const AutoCompleteSlots = [
     {
         name: 'empty',
         description: 'Custom empty template when there is no data to display.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'removetokenicon',
+        description: 'Custom remove token icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
     }
 ];
 

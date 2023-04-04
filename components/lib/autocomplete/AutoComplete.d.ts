@@ -206,7 +206,6 @@ export interface AutoCompleteProps {
     panelProps?: HTMLAttributes | undefined;
     /**
      * Icon to display in the dropdown.
-     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
@@ -215,12 +214,10 @@ export interface AutoCompleteProps {
     dropdownClass?: string | object | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * @defaultValue pi pi-times-circle
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -406,6 +403,18 @@ export interface AutoCompleteSlots {
      * Custom empty template when there is no data to display.
      */
     empty(): VNode[];
+    /**
+     * Custom dropdown icon template.
+     */
+    dropdownicon(): VNode[];
+    /**
+     * Custom remove token icon template in multiple mode.
+     */
+    removetokenicon(): VNode[];
+    /**
+     * Custom loading icon template.
+     */
+    loadingicon(): VNode[];
 }
 
 /**
