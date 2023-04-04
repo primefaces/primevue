@@ -26,16 +26,34 @@
             v-bind="inputProps"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" class="p-inputnumber-button-group">
-            <INButton :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" />
-            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" />
+            <INButton :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+                <slot name="incrementbuttonicon">
+                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
+                </slot>
+            </INButton>
+            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+                <slot name="decrementbuttonicon">
+                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
+                </slot>
+            </INButton>
         </span>
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" />
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" />
+        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+            <slot name="incrementbuttonicon">
+                <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
+            </slot>
+        </INButton>
+        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+            <slot name="decrementbuttonicon">
+                <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
+            </slot>
+        </INButton>
     </span>
 </template>
 
 <script>
 import Button from 'primevue/button';
+import AngleDownIcon from 'primevue/icon/angledown';
+import AngleUpIcon from 'primevue/icon/angleup';
 import InputText from 'primevue/inputtext';
 import { DomHandler } from 'primevue/utils';
 
@@ -69,11 +87,11 @@ export default {
         },
         incrementButtonIcon: {
             type: String,
-            default: 'pi pi-angle-up'
+            default: undefined
         },
         decrementButtonIcon: {
             type: String,
-            default: 'pi pi-angle-down'
+            default: undefined
         },
         locale: {
             type: String,
@@ -1097,7 +1115,9 @@ export default {
     },
     components: {
         INInputText: InputText,
-        INButton: Button
+        INButton: Button,
+        AngleUpIcon: AngleUpIcon,
+        AngleDownIcon: AngleDownIcon
     }
 };
 </script>

@@ -7,7 +7,7 @@
  * @module inputnumber
  *
  */
-import { ButtonHTMLAttributes, InputHTMLAttributes } from 'vue';
+import { ButtonHTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
 /**
@@ -73,12 +73,10 @@ export interface InputNumberProps {
     decrementButtonClass?: string | undefined;
     /**
      * Style class of the increment button.
-     * @defaultValue pi pi-angle-up
      */
     incrementButtonIcon?: string | undefined;
     /**
      * Style class of the decrement button.
-     * @defaultValue pi pi-angle-down
      */
     decrementButtonIcon?: string | undefined;
     /**
@@ -203,7 +201,16 @@ export interface InputNumberProps {
 /**
  * Defines valid slots in InputNumber component.
  */
-export interface InputNumberSlots {}
+export interface InputNumberSlots {
+    /**
+     * Custom increment button icon template.
+     */
+    incrementbuttonicon(): VNode[];
+    /**
+     * Custom decrement button icon template.
+     */
+    decrementbuttonicon(): VNode[];
+}
 
 /**
  * Defines valid emits in InputNumber component.

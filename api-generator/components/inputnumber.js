@@ -231,11 +231,23 @@ const InputNumberEvents = [
     }
 ];
 
+const InputNumberSlots = [
+    {
+        name: 'incrementbuttonicon',
+        description: 'Custom increment button icon template.'
+    },
+    {
+        name: 'decrementbuttonicon',
+        description: 'Custom decrement button icon template.'
+    }
+];
+
 module.exports = {
     inputnumber: {
         name: 'InputNumber',
         description: 'InputNumber is an input component to provide numerical input.',
         props: InputNumberProps,
-        events: InputNumberEvents
+        events: InputNumberEvents,
+        slots: InputNumberSlots
     }
 };
