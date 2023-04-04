@@ -236,35 +236,39 @@ const ListboxEvents = [
 const ListboxSlots = [
     {
         name: 'option',
-        description: "Custom content for the item's option"
+        description: "Custom content for the item's option."
     },
     {
         name: 'optiongroup',
-        description: "Custom content for the item's optiongroup"
+        description: "Custom content for the item's optiongroup."
     },
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
     },
     {
         name: 'emptyfilter',
-        description: 'Custom content when there is no filtered data to display'
+        description: 'Custom content when there is no filtered data to display.'
     },
     {
         name: 'empty',
-        description: 'Custom content when there is no data to display'
+        description: 'Custom content when there is no data to display.'
     },
     {
         name: 'content',
-        description: 'Custom content for the virtual scroller'
+        description: 'Custom content for the virtual scroller.'
     },
     {
         name: 'loader',
-        description: 'Custom content for the virtual scroller loader items'
+        description: 'Custom content for the virtual scroller loader items.'
+    },
+    {
+        name: 'filtericon',
+        description: 'Custom filter icon template.'
     }
 ];
 

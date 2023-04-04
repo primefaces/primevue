@@ -285,6 +285,10 @@ export interface ListboxSlots {
          */
         options: any[];
     }): VNode[];
+    /**
+     * Custom filter icon template.
+     */
+    filtericon(): VNode[];
 }
 
 /**

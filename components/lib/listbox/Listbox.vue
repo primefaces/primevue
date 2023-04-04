@@ -20,7 +20,10 @@
                     @keydown="onFilterKeyDown"
                     v-bind="filterInputProps"
                 />
-                <span :class="['p-listbox-filter-icon', filterIcon]" />
+
+                <slot name="filtericon">
+                    <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="['p-listbox-filter-icon', filterIcon]" />
+                </slot>
             </div>
             <span role="status" aria-live="polite" class="p-hidden-accessible">
                 {{ filterResultMessageText }}
@@ -95,6 +98,7 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import SearchIcon from 'primevue/icon/search';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
@@ -161,7 +165,7 @@ export default {
         },
         filterIcon: {
             type: String,
-            default: 'pi pi-search'
+            default: undefined
         },
         tabindex: {
             type: Number,
@@ -753,7 +757,8 @@ export default {
         ripple: Ripple
     },
     components: {
-        VirtualScroller: VirtualScroller
+        VirtualScroller: VirtualScroller,
+        SearchIcon: SearchIcon
     }
 };
 </script>
