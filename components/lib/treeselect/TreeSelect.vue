@@ -39,12 +39,12 @@
         </div>
         <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
             <slot name="indicator">
-                <span class="p-treeselect-trigger-icon pi pi-chevron-down"></span>
+                <component :is="'ChevronDownIcon'" class="p-treeselect-trigger-icon" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" v-bind="panelProps" @keydown="onOverlayKeydown">
+                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" @keydown="onOverlayKeydown" v-bind="panelProps">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
                         <TSTree
@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import ChevronDownIcon from 'primevue/icon/chevrondown';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -514,7 +515,8 @@ export default {
     },
     components: {
         TSTree: Tree,
-        Portal: Portal
+        Portal: Portal,
+        ChevronDownIcon: ChevronDownIcon
     },
     directives: {
         ripple: Ripple
