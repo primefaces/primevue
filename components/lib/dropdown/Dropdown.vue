@@ -47,10 +47,13 @@
         >
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
-        <i v-if="showClear && modelValue != null" :class="['p-dropdown-clear-icon', clearIcon]" @click="onClearClick" v-bind="clearIconProps"></i>
+        <slot v-if="showClear && modelValue != null" name="clearicon">
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" :class="['p-dropdown-clear-icon', clearIcon]" @click="onClearClick" v-bind="clearIconProps" />
+        </slot>
         <div class="p-dropdown-trigger">
             <slot name="indicator">
-                <span :class="dropdownIconClass" aria-hidden="true"></span>
+                <component v-if="loading" :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-dropdown-trigger-icon', loadingIcon]" aria-hidden="true" />
+                <component v-else :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-dropdown-trigger-icon', dropdownIcon]" aria-hidden="true" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
@@ -76,7 +79,9 @@
                                 @input="onFilterChange"
                                 v-bind="filterInputProps"
                             />
-                            <span :class="['p-dropdown-filter-icon', filterIcon]" />
+                            <slot name="filtericon">
+                                <component :is="filterIcon ? 'span' : 'FilterIcon'" :class="['p-dropdown-filter-icon', filterIcon]" />
+                            </slot>
                         </div>
                         <span role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
@@ -137,6 +142,10 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import FilterIcon from 'primevue/icon/filter';
+import SpinnerIcon from 'primevue/icon/spinner';
+import TimesIcon from 'primevue/icon/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -229,19 +238,19 @@ export default {
         },
         clearIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         dropdownIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         filterIcon: {
             type: String,
-            default: 'pi pi-search'
+            default: undefined
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner pi-spin'
+            default: undefined
         },
         resetFilterOnHide: {
             type: Boolean,
@@ -964,9 +973,6 @@ export default {
                 }
             ];
         },
-        dropdownIconClass() {
-            return ['p-dropdown-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
-        },
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
@@ -1047,7 +1053,11 @@ export default {
     },
     components: {
         VirtualScroller: VirtualScroller,
-        Portal: Portal
+        Portal: Portal,
+        TimesIcon: TimesIcon,
+        ChevronDownIcon: ChevronDownIcon,
+        SpinnerIcon: SpinnerIcon,
+        FilterIcon: FilterIcon
     }
 };
 </script>
