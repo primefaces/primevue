@@ -108,10 +108,22 @@ const CascadeSelectProps = [
         description: 'Whether the multiselect is in loading state.'
     },
     {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the dropdown.'
+    },
+    {
         name: 'loadingIcon',
         type: 'string',
-        default: 'pi pi-spinner pi-spin',
+        default: 'null',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'optionGroupIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the option group.'
     },
     {
         name: 'autoOptionFocus',
@@ -262,15 +274,19 @@ const CascadeSelectEvents = [
 const CascadeSelectSlots = [
     {
         name: 'value',
-        description: "Custom content for the item's value"
+        description: "Custom content for the item's value."
     },
     {
         name: 'option',
-        description: "Custom content for the item's option"
+        description: "Custom content for the item's option."
     },
     {
         name: 'indicator',
-        description: 'Custom content for the dropdown indicator'
+        description: 'Custom content for the dropdown indicator.'
+    },
+    {
+        name: 'optiongroupicon',
+        description: 'Custom content for the option group icon.'
     }
 ];
 

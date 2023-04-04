@@ -116,17 +116,14 @@ export interface CascadeSelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in the dropdown.
-     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in the option group.
-     * @defaultValue pi pi-angle-right
      */
     optionGroupIcon?: string | undefined;
     /**
@@ -214,6 +211,10 @@ export interface CascadeSelectSlots {
      * Custom indicator template.
      */
     indicator(): VNode[];
+    /**
+     * Custom option group icon template.
+     */
+    optiongroupicon(): VNode[];
 }
 
 /**

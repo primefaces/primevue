@@ -31,7 +31,8 @@
         </span>
         <div class="p-cascadeselect-trigger" role="button" tabindex="-1" aria-hidden="true">
             <slot name="indicator">
-                <span :class="dropdownIconClass"></span>
+                <component v-if="loading" :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-cascadeselect-trigger-icon', loadingIcon]" aria-hidden="true" />
+                <component v-else :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-cascadeselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
             </slot>
         </div>
         <span role="status" aria-live="polite" class="p-hidden-accessible">
@@ -71,6 +72,9 @@
 </template>
 
 <script>
+import AngleRightIcon from 'primevue/icon/angleright';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import SpinnerIcon from 'primevue/icon/spinner';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -128,15 +132,15 @@ export default {
         },
         dropdownIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner pi-spin'
+            default: undefined
         },
         optionGroupIcon: {
             type: String,
-            default: 'pi pi-angle-right'
+            default: undefined
         },
         autoOptionFocus: {
             type: Boolean,
@@ -802,9 +806,6 @@ export default {
                 }
             ];
         },
-        dropdownIconClass() {
-            return ['p-cascadeselect-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
-        },
         hasSelectedOption() {
             return ObjectUtils.isNotEmpty(this.modelValue);
         },
@@ -858,7 +859,10 @@ export default {
     },
     components: {
         CascadeSelectSub: CascadeSelectSub,
-        Portal: Portal
+        Portal: Portal,
+        ChevronDownIcon: ChevronDownIcon,
+        SpinnerIcon: SpinnerIcon,
+        AngleRightIcon: AngleRightIcon
     }
 };
 </script>
