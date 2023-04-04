@@ -28,6 +28,24 @@ const RatingProps = [
         type: 'boolean',
         default: 'true',
         description: 'When specified a cancel icon is displayed to allow clearing the value.'
+    },
+    {
+        name: 'onIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon for the on state.'
+    },
+    {
+        name: 'offIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon for the off state.'
+    },
+    {
+        name: 'cancelIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon for the cancelable state.'
     }
 ];
 

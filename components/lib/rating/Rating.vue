@@ -5,7 +5,7 @@
                 <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="cancelAriaLabel()" @focus="onFocus($event, 0)" @blur="onBlur" @change="onChange($event, 0)" />
             </span>
             <slot name="cancelicon">
-                <span :class="cancelIconClass" />
+                <component :is="cancelIcon ? 'span' : 'BanIcon'" :class="['p-rating-icon p-rating-cancel', cancelIcon]" />
             </slot>
         </div>
         <template v-for="value in stars" :key="value">
@@ -25,10 +25,10 @@
                     />
                 </span>
                 <slot v-if="value <= modelValue" name="onicon" :value="value">
-                    <span :class="onIconClass" />
+                    <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="['p-rating-icon', onIcon]" />
                 </slot>
                 <slot v-else name="officon" :value="value">
-                    <span :class="offIconClass" />
+                    <component :is="onIcon ? 'span' : 'StarIcon'" :class="['p-rating-icon', offIcon]" />
                 </slot>
             </div>
         </template>
@@ -36,6 +36,9 @@
 </template>
 
 <script>
+import BanIcon from 'primevue/icon/ban';
+import StarIcon from 'primevue/icon/star';
+import StarFillIcon from 'primevue/icon/starfill';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
@@ -64,15 +67,15 @@ export default {
         },
         onIcon: {
             type: String,
-            default: 'pi pi-star-fill'
+            default: undefined
         },
         offIcon: {
             type: String,
-            default: 'pi pi-star'
+            default: undefined
         },
         cancelIcon: {
             type: String,
-            default: 'pi pi-ban'
+            default: undefined
         }
     },
     data() {
@@ -133,16 +136,12 @@ export default {
                     'p-disabled': this.disabled
                 }
             ];
-        },
-        cancelIconClass() {
-            return ['p-rating-icon p-rating-cancel', this.cancelIcon];
-        },
-        onIconClass() {
-            return ['p-rating-icon', this.onIcon];
-        },
-        offIconClass() {
-            return ['p-rating-icon', this.offIcon];
         }
+    },
+    components: {
+        StarFillIcon: StarFillIcon,
+        StarIcon: StarIcon,
+        BanIcon: BanIcon
     }
 };
 </script>
