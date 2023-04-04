@@ -2922,7 +2922,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-down",
+                            "default": "",
                             "description": "Icon to display in the dropdown."
                         },
                         {
@@ -2938,7 +2938,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-spinner pi-spin",
+                            "default": "",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -2946,7 +2946,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times-circle",
+                            "default": "",
                             "description": "Icon to display in chip remove action."
                         },
                         {
@@ -3155,6 +3155,24 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom empty template when there is no data to display."
+                        },
+                        {
+                            "name": "dropdownicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom dropdown icon template."
+                        },
+                        {
+                            "name": "removetokenicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom remove token icon template in multiple mode."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
                         }
                     ]
                 },
@@ -5346,7 +5364,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-down",
+                            "default": "",
                             "description": "Icon to display in the dropdown."
                         },
                         {
@@ -5354,7 +5372,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-spinner pi-spin",
+                            "default": "",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -5362,7 +5380,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-angle-right",
+                            "default": "",
                             "description": "Icon to display in the option group."
                         },
                         {
@@ -5492,6 +5510,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
+                        },
+                        {
+                            "name": "optiongroupicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom option group icon template."
                         }
                     ]
                 },
@@ -5939,7 +5963,21 @@
                 "CheckboxSlots": {
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "icon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>checked</b>: boolean, // State of the checkbox.\n  }",
+                                    "description": "icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icon template."
+                        }
+                    ]
                 },
                 "CheckboxEmits": {
                     "description": "Defines valid emits in Checkbox component.",
@@ -6249,7 +6287,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times-circle",
+                            "default": "",
                             "description": "Icon to display in chip remove action."
                         },
                         {
@@ -6304,6 +6342,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom chip template."
+                        },
+                        {
+                            "name": "removetokenicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom remove token icon template."
                         }
                     ]
                 },
@@ -14390,7 +14434,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-angle-up",
+                            "default": "",
                             "description": "Style class of the increment button."
                         },
                         {
@@ -14398,7 +14442,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-angle-down",
+                            "default": "",
                             "description": "Style class of the decrement button."
                         },
                         {
@@ -14616,7 +14660,20 @@
                     "description": "Defines valid slots in InputNumber component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "incrementbuttonicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom increment button icon template."
+                        },
+                        {
+                            "name": "decrementbuttonicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom decrement button icon template."
+                        }
+                    ]
                 },
                 "InputNumberEmits": {
                     "description": "Defines valid emits in InputNumber component.",
@@ -15492,6 +15549,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom loader template."
+                        },
+                        {
+                            "name": "filtericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom filter icon template."
                         }
                     ]
                 },
@@ -16655,7 +16718,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-check",
+                            "default": "",
                             "description": "Icon to display in the checkboxes."
                         },
                         {
@@ -16663,7 +16726,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times",
+                            "default": "",
                             "description": "Icon to display in the dropdown close button."
                         },
                         {
@@ -16671,7 +16734,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-down",
+                            "default": "",
                             "description": "Icon to display in the dropdown."
                         },
                         {
@@ -16679,7 +16742,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-search",
+                            "default": "",
                             "description": "Icon to display in filter input."
                         },
                         {
@@ -16687,7 +16750,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-spinner pi-spin",
+                            "default": "",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -16695,7 +16758,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times-circle",
+                            "default": "",
                             "description": "Icon to display in chip remove action."
                         },
                         {
@@ -16931,6 +16994,50 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom loader template."
+                        },
+                        {
+                            "name": "removetokenicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom remove token icon template."
+                        },
+                        {
+                            "name": "headercheckboxicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>allSelected</b>: boolean, // Options of the loader items for virtualscroller\n  }",
+                                    "description": "header checkbox icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom header checkbox icon template."
+                        },
+                        {
+                            "name": "filtericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom filter icon template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
+                        },
+                        {
+                            "name": "itemcheckboxicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>selected</b>: boolean, // Options of the loader items for virtualscroller\n  }",
+                                    "description": "header checkbox icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom item checkbox icon template."
                         }
                     ]
                 },
@@ -18589,7 +18696,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-eye-slash",
+                            "default": "",
                             "description": "Icon to hide displaying the password as plain text."
                         },
                         {
@@ -18597,7 +18704,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-eye",
+                            "default": "",
                             "description": "Icon to show displaying the password as plain text."
                         },
                         {
@@ -18730,6 +18837,18 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template."
+                        },
+                        {
+                            "name": "hideicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom hide icon template."
+                        },
+                        {
+                            "name": "showicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom show icon template."
                         }
                     ]
                 },
@@ -19735,7 +19854,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-star",
+                            "default": "",
                             "description": "Icon for the on state."
                         },
                         {
@@ -19743,7 +19862,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-star-fill",
+                            "default": "",
                             "description": "Icon for the off state."
                         },
                         {
@@ -19751,7 +19870,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-ban",
+                            "default": "",
                             "description": "Icon for the cancelable state."
                         }
                     ],
@@ -25691,7 +25810,26 @@
                     "description": "Defines valid slots in TriStateCheckbox component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "checkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom check icon template."
+                        },
+                        {
+                            "name": "uncheckicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom uncheck icon template."
+                        },
+                        {
+                            "name": "nullableicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom nullable icon template."
+                        }
+                    ]
                 },
                 "TriStateCheckboxEmits": {
                     "description": "Defines valid emits in TriStateCheckbox component.",
