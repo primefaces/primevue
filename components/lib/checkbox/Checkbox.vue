@@ -20,12 +20,15 @@
             />
         </div>
         <div ref="box" :class="['p-checkbox-box', inputClass, { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" :style="inputStyle">
-            <span :class="['p-checkbox-icon', { 'pi pi-check': checked }]"></span>
+            <slot name="icon" :checked="checked">
+                <component :is="checked ? 'CheckIcon' : null" class="p-checkbox-icon" />
+            </slot>
         </div>
     </div>
 </template>
 
 <script>
+import CheckIcon from 'primevue/icon/check';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
@@ -135,6 +138,9 @@ export default {
                 }
             ];
         }
+    },
+    components: {
+        CheckIcon: CheckIcon
     }
 };
 </script>

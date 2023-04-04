@@ -7,7 +7,7 @@
  * @module checkbox
  *
  */
-import { InputHTMLAttributes } from 'vue';
+import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
@@ -86,7 +86,18 @@ export interface CheckboxProps {
     'aria-label'?: string | undefined;
 }
 
-export interface CheckboxSlots {}
+export interface CheckboxSlots {
+    /**
+     * Custom icon template.
+     * @param {Object} scope - icon slot's params.
+     */
+    icon(scope: {
+        /**
+         * State of the checkbox.
+         */
+        checked: boolean;
+    }): VNode[];
+}
 
 /**
  * Defines valid emits in Checkbox component.

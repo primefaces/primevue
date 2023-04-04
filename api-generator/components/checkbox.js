@@ -106,11 +106,19 @@ const CheckboxEvents = [
     }
 ];
 
+const CheckboxSlots = [
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    }
+];
+
 module.exports = {
     checkbox: {
         name: 'Checkbox',
         description: 'Checkbox is an extension to standard checkbox element with theming.',
         props: CheckboxProps,
-        events: CheckboxEvents
+        events: CheckboxEvents,
+        slots: CheckboxSlots
     }
 };
