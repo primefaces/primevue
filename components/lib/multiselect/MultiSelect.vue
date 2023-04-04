@@ -33,7 +33,9 @@
                             <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <span v-if="!disabled" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)"></span>
+                            <slot v-if="!disabled" name="removetokenicon">
+                                <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)" />
+                            </slot>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
@@ -42,7 +44,8 @@
         </div>
         <div class="p-multiselect-trigger">
             <slot name="indicator">
-                <span :class="dropdownIconClass" aria-hidden="true"></span>
+                <component v-if="loading" :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-multiselect-trigger-icon', loadingIcon]" aria-hidden="true" />
+                <component v-else :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
@@ -56,7 +59,9 @@
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" />
                             </div>
                             <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]">
-                                <span :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]"></span>
+                                <slot name="headercheckboxicon" :allSelected="allSelected">
+                                    <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]" />
+                                </slot>
                             </div>
                         </div>
                         <div v-if="filter" class="p-multiselect-filter-container">
@@ -76,13 +81,17 @@
                                 @input="onFilterChange"
                                 v-bind="filterInputProps"
                             />
-                            <span :class="['p-multiselect-filter-icon', filterIcon]" />
+                            <slot name="filtericon">
+                                <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="['p-multiselect-filter-icon', filterIcon]" />
+                            </slot>
                         </div>
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible">
                             {{ filterResultMessageText }}
                         </span>
                         <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
-                            <span :class="['p-multiselect-close-icon', closeIcon]" />
+                            <slot name="closeicon">
+                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-multiselect-close-icon', closeIcon]" />
+                            </slot>
                         </button>
                     </div>
                     <div class="p-multiselect-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }">
@@ -110,7 +119,9 @@
                                         >
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]">
-                                                    <span :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]"></span>
+                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)">
+                                                        <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]" />
+                                                    </slot>
                                                 </div>
                                             </div>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
@@ -147,6 +158,12 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import CheckIcon from 'primevue/icon/check';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import SearchIcon from 'primevue/icon/search';
+import SpinnerIcon from 'primevue/icon/spinner';
+import TimesIcon from 'primevue/icon/times';
+import TimesCircleIcon from 'primevue/icon/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -240,27 +257,27 @@ export default {
         },
         checkboxIcon: {
             type: String,
-            default: 'pi pi-check'
+            default: undefined
         },
         closeIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         dropdownIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         filterIcon: {
             type: String,
-            default: 'pi pi-search'
+            default: undefined
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner pi-spin'
+            default: undefined
         },
         removeTokenIcon: {
             type: String,
-            default: 'pi pi-times-circle'
+            default: undefined
         },
         selectAll: {
             type: Boolean,
@@ -1060,9 +1077,6 @@ export default {
                 }
             ];
         },
-        dropdownIconClass() {
-            return ['p-multiselect-trigger-icon', this.loading ? this.loadingIcon : this.dropdownIcon];
-        },
         panelStyleClass() {
             return [
                 'p-multiselect-panel p-component',
@@ -1191,7 +1205,13 @@ export default {
     },
     components: {
         VirtualScroller: VirtualScroller,
-        Portal: Portal
+        Portal: Portal,
+        TimesIcon: TimesIcon,
+        SearchIcon: SearchIcon,
+        TimesCircleIcon: TimesCircleIcon,
+        ChevronDownIcon: ChevronDownIcon,
+        SpinnerIcon: SpinnerIcon,
+        CheckIcon: CheckIcon
     }
 };
 </script>

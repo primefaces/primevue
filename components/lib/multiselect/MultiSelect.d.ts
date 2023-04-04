@@ -191,32 +191,26 @@ export interface MultiSelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in the checkboxes.
-     * @defaultValue pi pi-check
      */
     checkboxIcon?: string | undefined;
     /**
      * Icon to display in the dropdown close button.
-     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
-     * @defaultValue pi pi-chevron-down
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * @defaultValue pi pi-search
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * @defaultValue pi pi-times-circle
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -413,6 +407,38 @@ export interface MultiSelectSlots {
          * Options of the loader items for virtualscroller
          */
         options: any[];
+    }): VNode[];
+    /**
+     * Custom remove token icon template.
+     */
+    removetokenicon(): VNode[];
+    /**
+     * Custom header checkbox icon template.
+     * @param {Object} scope - header checkbox icon slot's params.
+     */
+    headercheckboxicon(scope: {
+        /**
+         * Options of the loader items for virtualscroller
+         */
+        allSelected: boolean;
+    }): VNode[];
+    /**
+     * Custom filter icon template.
+     */
+    filtericon(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
+    /**
+     * Custom item checkbox icon template.
+     * @param {Object} scope - header checkbox icon slot's params.
+     */
+    itemcheckboxicon(scope: {
+        /**
+         * Options of the loader items for virtualscroller
+         */
+        selected: boolean;
     }): VNode[];
 }
 

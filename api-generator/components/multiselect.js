@@ -182,8 +182,38 @@ const MultiSelectProps = [
     {
         name: 'loadingIcon',
         type: 'string',
-        default: 'pi pi-spinner pi-spin',
+        default: 'null',
         description: 'Icon to display in loading state.'
+    },
+    {
+        name: 'checkboxIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the checkboxes.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the dropdown close button.'
+    },
+    {
+        name: 'dropdownIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in the dropdown.'
+    },
+    {
+        name: 'filterIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in filter input.'
+    },
+    {
+        name: 'removeTokenIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to display in chip remove action.'
     },
     {
         name: 'selectAll',
@@ -357,7 +387,7 @@ const MultiSelectEvents = [
 const MultiSelectSlots = [
     {
         name: 'value',
-        description: 'Custom content for the item value'
+        description: 'Custom content for the item value.'
     },
     {
         name: 'chip',
@@ -365,39 +395,59 @@ const MultiSelectSlots = [
     },
     {
         name: 'indicator',
-        description: 'Custom content for the dropdown indicator'
+        description: 'Custom content for the dropdown indicator.'
     },
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
     },
     {
         name: 'option',
-        description: "Custom content for the item's option"
+        description: "Custom content for the item's option."
     },
     {
         name: 'optiongroup',
-        description: "Custom content for the item's optiongroup"
+        description: "Custom content for the item's optiongroup."
     },
     {
         name: 'emptyfilter',
-        description: 'Custom content when there is no filtered data to display'
+        description: 'Custom content when there is no filtered data to display.'
     },
     {
         name: 'empty',
-        description: 'Custom content when there is no data to display'
+        description: 'Custom content when there is no data to display.'
     },
     {
         name: 'content',
-        description: 'Custom content for the virtual scroller'
+        description: 'Custom content for the virtual scroller.'
     },
     {
         name: 'loader',
-        description: 'Custom content for the virtual scroller loader items'
+        description: 'Custom content for the virtual scroller loader items.'
+    },
+    {
+        name: 'removetokenicon',
+        description: 'Custom remove token icon template.'
+    },
+    {
+        name: 'headercheckboxicon',
+        description: 'Custom header checkbox icon template.'
+    },
+    {
+        name: 'filtericon',
+        description: 'Custom filter icon template.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
+    },
+    {
+        name: 'itemcheckboxicon',
+        description: 'Custom item checkbox icon template.'
     }
 ];
 
