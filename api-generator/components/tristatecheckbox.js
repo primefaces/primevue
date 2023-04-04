@@ -43,10 +43,26 @@ const TriStateCheckboxProps = [
     }
 ];
 
+const TriStateCheckboxSlots = [
+    {
+        name: 'checkicon',
+        description: 'Custom check icon template.'
+    },
+    {
+        name: 'uncheckicon',
+        description: 'Custom uncheck icon template.'
+    },
+    {
+        name: 'nullableicon',
+        description: 'Custom nullable icon template.'
+    }
+];
+
 module.exports = {
     tristatecheckbox: {
         name: 'TriStateCheckbox',
         description: 'TriStateCheckbox is used to select either "true", "false" or "null" as the value.',
-        props: TriStateCheckboxProps
+        props: TriStateCheckboxProps,
+        slots: TriStateCheckboxSlots
     }
 };

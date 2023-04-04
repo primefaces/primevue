@@ -7,7 +7,7 @@
  * @module tristatecheckbox
  *
  */
-import { InputHTMLAttributes } from 'vue';
+import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
 /**
@@ -49,7 +49,20 @@ export interface TriStateCheckboxProps {
 /**
  * Defines valid slots in TriStateCheckbox component.
  */
-export interface TriStateCheckboxSlots {}
+export interface TriStateCheckboxSlots {
+    /**
+     * Custom check icon template.
+     */
+    checkicon(): VNode[];
+    /**
+     * Custom uncheck icon template.
+     */
+    uncheckicon(): VNode[];
+    /**
+     * Custom nullable icon template.
+     */
+    nullableicon(): VNode[];
+}
 
 /**
  * Defines valid emits in TriStateCheckbox component.

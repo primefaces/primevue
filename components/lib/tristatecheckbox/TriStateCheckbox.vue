@@ -18,12 +18,21 @@
         </div>
         <span class="p-sr-only" aria-live="polite">{{ ariaValueLabel }}</span>
         <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]">
-            <span :class="['p-checkbox-icon', icon]"></span>
+            <slot v-if="modelValue === true" name="checkicon">
+                <component :is="'CheckIcon'" class="p-checkbox-icon" />
+            </slot>
+            <slot v-else-if="modelValue === false" name="uncheckicon">
+                <component :is="'TimesIcon'" class="p-checkbox-icon" />
+            </slot>
+            <slot v-else name="nullableicon" />
         </div>
     </div>
 </template>
 
 <script>
+import CheckIcon from 'primevue/icon/check';
+import TimesIcon from 'primevue/icon/times';
+
 export default {
     name: 'TriStateCheckbox',
     emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
@@ -136,6 +145,10 @@ export default {
         ariaValueLabel() {
             return this.modelValue ? this.$primevue.config.locale.aria.trueLabel : this.modelValue === false ? this.$primevue.config.locale.aria.falseLabel : this.$primevue.config.locale.aria.nullLabel;
         }
+    },
+    components: {
+        CheckIcon: CheckIcon,
+        TimesIcon: TimesIcon
     }
 };
 </script>
