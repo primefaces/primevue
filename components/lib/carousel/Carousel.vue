@@ -81,6 +81,8 @@
 </template>
 
 <script>
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
@@ -653,6 +655,10 @@ export default {
         attributeSelector() {
             return UniqueComponentId();
         }
+    },
+    components: {
+        ChevronRightIcon,
+        ChevronDownIcon
     },
     directives: {
         ripple: Ripple

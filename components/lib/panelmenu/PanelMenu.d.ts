@@ -80,6 +80,15 @@ export interface PanelMenuSlots {
          */
         item: MenuItem;
     }): VNode[];
+    /**
+     * Custom submenu icon template.
+     */
+    submenuicon(scope: {
+        /**
+         * Whether item is active
+         */
+        active: boolean;
+    }): VNode[];
 }
 
 /**

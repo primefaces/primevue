@@ -23,7 +23,9 @@
                                 </a>
                             </router-link>
                             <a v-else :href="getItemProp(item, 'url')" :class="getHeaderActionClass(item)" :tabindex="-1">
-                                <span v-if="getItemProp(item, 'items')" :class="getHeaderToggleIconClass(item)"></span>
+                                <slot v-if="getItemProp(item, 'items')" name="submenuicon" :active="isItemActive(item)">
+                                    <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" />
+                                </slot>
                                 <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
                                 <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
                             </a>
@@ -34,7 +36,7 @@
                 <transition name="p-toggleable-content">
                     <div v-show="isItemActive(item)" :id="getContentId(index)" class="p-toggleable-content" role="region" :aria-labelledby="getHeaderId(index)">
                         <div v-if="getItemProp(item, 'items')" class="p-panelmenu-content">
-                            <PanelMenuList :panelId="getPanelId(index)" :items="getItemProp(item, 'items')" :template="$slots.item" :expandedKeys="expandedKeys" @item-toggle="changeExpandedKeys" @header-focus="updateFocusedHeader" :exact="exact" />
+                            <PanelMenuList :panelId="getPanelId(index)" :items="getItemProp(item, 'items')" :template="$slots" :expandedKeys="expandedKeys" @item-toggle="changeExpandedKeys" @header-focus="updateFocusedHeader" :exact="exact" />
                         </div>
                     </div>
                 </transition>
@@ -44,6 +46,8 @@
 </template>
 
 <script>
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import PanelMenuList from './PanelMenuList.vue';
 
@@ -253,13 +257,12 @@ export default {
         },
         getHeaderIconClass(item) {
             return ['p-menuitem-icon', this.getItemProp(item, 'icon')];
-        },
-        getHeaderToggleIconClass(item) {
-            return ['p-submenu-icon', this.isItemActive(item) ? 'pi pi-chevron-down' : 'pi pi-chevron-right'];
         }
     },
     components: {
-        PanelMenuList: PanelMenuList
+        PanelMenuList: PanelMenuList,
+        ChevronRightIcon: ChevronRightIcon,
+        ChevronDownIcon: ChevronDownIcon
     }
 };
 </script>

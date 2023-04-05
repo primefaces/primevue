@@ -22,7 +22,11 @@ const PanelMenuProps = [
 const PanelMenuSlots = [
     {
         name: 'item',
-        description: 'Template of a menuitem.'
+        description: 'Custom item template.'
+    },
+    {
+        name: 'submenuicon',
+        description: 'Custom submenu icon template.'
     }
 ];
 

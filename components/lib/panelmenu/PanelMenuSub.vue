@@ -14,7 +14,7 @@
                 :aria-posinset="getAriaPosInset(index)"
             >
                 <div class="p-menuitem-content" @click="onItemClick($event, processedItem)">
-                    <template v-if="!template">
+                    <template v-if="!template.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
                             <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
                                 <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
@@ -22,12 +22,14 @@
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
-                            <span v-if="isItemGroup(processedItem)" :class="getItemToggleIconClass(processedItem)"></span>
+                            <slot v-if="isItemGroup(processedItem)" name="submenuicon">
+                                <component :is="template.submenuicon || (isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-submenu-icon" :active="isItemActive(processedItem)" />
+                            </slot>
                             <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>
-                    <component v-else :is="template" :item="processedItem.item"></component>
+                    <component v-else :is="template.item" :item="processedItem.item"></component>
                 </div>
                 <transition name="p-toggleable-content">
                     <div v-show="isItemActive(processedItem)" class="p-toggleable-content">
@@ -53,6 +55,8 @@
 </template>
 
 <script>
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
 
@@ -77,7 +81,7 @@ export default {
             default: 0
         },
         template: {
-            type: Function,
+            type: Object,
             default: null
         },
         activeItemPath: {
@@ -155,12 +159,13 @@ export default {
         getItemIconClass(processedItem) {
             return ['p-menuitem-icon', this.getItemProp(processedItem, 'icon')];
         },
-        getItemToggleIconClass(processedItem) {
-            return ['p-submenu-icon', this.isItemActive(processedItem) ? 'pi pi-fw pi-chevron-down' : 'pi pi-fw pi-chevron-right'];
-        },
         getSeparatorItemClass(processedItem) {
             return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
         }
+    },
+    components: {
+        ChevronRightIcon: ChevronRightIcon,
+        ChevronDownIcon: ChevronDownIcon
     },
     directives: {
         ripple: Ripple

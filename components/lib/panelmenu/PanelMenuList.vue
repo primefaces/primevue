@@ -35,7 +35,7 @@ export default {
             default: null
         },
         template: {
-            type: Function,
+            type: Object,
             default: null
         },
         expandedKeys: {
