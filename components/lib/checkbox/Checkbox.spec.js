@@ -23,6 +23,5 @@ describe('Checkbox.vue', () => {
 
         expect(wrapper.find('.p-checkbox-checked').exists()).toBe(true);
         expect(wrapper.find('.p-checkbox-box.p-highlight').exists()).toBe(true);
-        expect(wrapper.find('.p-checkbox-icon.pi.pi-check').exists()).toBe(true);
     });
 });

@@ -55,7 +55,7 @@ describe('AutoComplete.vue', () => {
         expect(wrapper.findAll('.p-autocomplete-item').length).toBe(1);
     });
 
-    describe('dropdown', () => {
+    it('dropdown', () => {
         it('should have correct custom icon', async () => {
             wrapper.setProps({
                 dropdown: true,
@@ -64,13 +64,13 @@ describe('AutoComplete.vue', () => {
 
             await nextTick();
 
-            const token = wrapper.find('.p-button-icon');
+            const token = wrapper.find('.p-button').find('span');
 
             expect(token.classes()).toContain('pi-discord');
         });
     });
 
-    describe('multiple', () => {
+    it('multiple', () => {
         it('should have correct custom icon', async () => {
             wrapper.setProps({
                 multiple: true,

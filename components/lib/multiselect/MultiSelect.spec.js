@@ -1,5 +1,5 @@
-import PrimeVue from 'primevue/config';
 import { mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import MultiSelect from './MultiSelect.vue';
 
 describe('MultiSelect.vue', () => {
@@ -37,7 +37,7 @@ describe('MultiSelect.vue', () => {
 
         expect(wrapper.findAll('li.p-multiselect-item').length).toBe(5);
         expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['aria-label']).toBe('New York');
-        expect(wrapper.findAll('li.p-multiselect-item')[0].findAll('span')[1].text()).toBe('New York');
+        expect(wrapper.findAll('li.p-multiselect-item')[0].text()).toBe('New York');
     });
 
     it('should select an item', async () => {

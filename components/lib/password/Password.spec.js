@@ -53,7 +53,7 @@ describe('Password.vue', () => {
     });
 
     it('should toggle mask', async () => {
-        await wrapper.setProps({ toggleMask: true });
+        await wrapper.setProps({ toggleMask: true, showIcon: 'pi pi-eye', hideIcon: 'pi pi-eye-slash' });
 
         expect(wrapper.find('.pi.pi-eye').exists()).toBe(true);
 
