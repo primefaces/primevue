@@ -3783,6 +3783,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item template."
+                        },
+                        {
+                            "name": "separator",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom separator template."
                         }
                     ]
                 },
@@ -7790,6 +7796,18 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item template."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu icon template."
                         }
                     ]
                 },
@@ -15742,6 +15760,18 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item template."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu icon template."
                         }
                     ]
                 },
@@ -16074,6 +16104,24 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item template."
+                        },
+                        {
+                            "name": "baricon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom bar icon template."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>root</b>: boolean, // Whether item is root\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu icon template."
                         }
                     ]
                 },
@@ -23116,6 +23164,18 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content for each item."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu icon template."
                         }
                     ]
                 },
