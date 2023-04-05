@@ -41,6 +41,10 @@ const TieredMenuSlots = [
     {
         name: 'item',
         description: 'Template of a menuitem.'
+    },
+    {
+        name: 'submenuicon',
+        description: 'Custom submenu icon template.'
     }
 ];
 
