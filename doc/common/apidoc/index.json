@@ -18206,12 +18206,12 @@
                             "description": "Uses to pass attributes to the toggler's DOM element."
                         },
                         {
-                            "name": "headericon",
+                            "name": "togglericon",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the headericon's DOM element."
+                            "description": "Uses to pass attributes to the togglericon's DOM element."
                         },
                         {
                             "name": "toggleablecontent",
@@ -18340,17 +18340,17 @@
                             "description": "Custom icons template."
                         },
                         {
-                            "name": "headericon",
+                            "name": "togglericon",
                             "parameters": [
                                 {
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n  \t <b>collapsed</b>: boolean, // Collapsed state as a boolean\n  }",
-                                    "description": "header icon slot's params."
+                                    "description": "toggler icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom header icon template of panel."
+                            "description": "Custom toggler icon template of panel."
                         },
                         {
                             "name": "footer",
