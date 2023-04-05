@@ -40,7 +40,11 @@ const ContextMenuProps = [
 const ContextMenuSlots = [
     {
         name: 'item',
-        description: 'Template of a menuitem.'
+        description: 'Custom item template.'
+    },
+    {
+        name: 'submenuicon',
+        description: 'Custom submenu icon template.'
     }
 ];
 

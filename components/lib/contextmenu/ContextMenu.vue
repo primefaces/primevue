@@ -14,7 +14,7 @@
                     :menuId="id"
                     :focusedItemId="focused ? focusedItemId : undefined"
                     :items="processedItems"
-                    :template="$slots.item"
+                    :template="$slots"
                     :activeItemPath="activeItemPath"
                     :exact="exact"
                     :aria-labelledby="ariaLabelledby"
