@@ -61,9 +61,9 @@ export interface PanelPassThroughOptions {
      */
     toggler?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the headericon's DOM element.
+     * Uses to pass attributes to the togglericon's DOM element.
      */
-    headericon?: PanelPassThroughOptionType;
+    togglericon?: PanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the toggleablecontent's DOM element.
      */
@@ -143,10 +143,10 @@ export interface PanelSlots {
      */
     icons(): VNode[];
     /**
-     * Custom header icon template of panel.
-     * @param {Object} scope - header icon slot's params.
+     * Custom toggler icon template of panel.
+     * @param {Object} scope - toggler icon slot's params.
      */
-    headericon(scope: {
+    togglericon(scope: {
         /**
          * Collapsed state as a boolean
          */

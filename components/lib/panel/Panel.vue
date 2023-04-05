@@ -20,8 +20,8 @@
                     @keydown="onKeyDown"
                     v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
                 >
-                    <slot name="headericon" :collapsed="d_collapsed">
-                        <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" v-bind="ptm('headericon')" />
+                    <slot name="togglericon" :collapsed="d_collapsed">
+                        <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" v-bind="ptm('togglericon')" />
                     </slot>
                 </button>
             </div>
