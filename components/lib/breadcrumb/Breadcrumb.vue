@@ -4,7 +4,9 @@
             <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
             <template v-for="(item, i) of model" :key="item.label">
                 <li v-if="home || i !== 0" class="p-menuitem-separator">
-                    <span class="pi pi-chevron-right" aria-hidden="true"></span>
+                    <slot name="separator">
+                        <ChevronRightIcon aria-hidden="true" />
+                    </slot>
                 </li>
                 <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
             </template>
@@ -13,6 +15,7 @@
 </template>
 
 <script>
+import ChevronRightIcon from 'primevue/icon/chevronright';
 import BreadcrumbItem from './BreadcrumbItem.vue';
 
 export default {
@@ -32,7 +35,8 @@ export default {
         }
     },
     components: {
-        BreadcrumbItem: BreadcrumbItem
+        BreadcrumbItem: BreadcrumbItem,
+        ChevronRightIcon: ChevronRightIcon
     }
 };
 </script>

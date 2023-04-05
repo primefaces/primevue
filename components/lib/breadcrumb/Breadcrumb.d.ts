@@ -52,6 +52,10 @@ export interface BreadcrumbSlots {
          */
         item: MenuItem;
     }): VNode[];
+    /**
+     * Custom separator template.
+     */
+    separator(): VNode[];
 }
 
 /**

@@ -22,7 +22,11 @@ const BreadcrumbProps = [
 const BreadcrumbSlots = [
     {
         name: 'item',
-        description: 'Template of a menuitem.'
+        description: 'Custom item template.'
+    },
+    {
+        name: 'separator',
+        description: 'Custom separator template.'
     }
 ];
 
