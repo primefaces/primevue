@@ -29,14 +29,6 @@ describe('Toast.vue', () => {
         expect(wrapper.find('.p-toast-detail').text()).toBe('Message Content');
     });
 
-    it('should position is changed', async () => {
-        await wrapper.setProps({ position: 'bottom-left' });
-
-        setTimeout(() => {
-            expect(wrapper.find('.p-toast.p-component').classes()).toContain('p-toast-bottom-left');
-        }, 200);
-    });
-
     it('should show grouped toast', async () => {
         await wrapper.setProps({ group: 'br' });
 

@@ -20,7 +20,7 @@
         "format": "prettier --write \"**/*.{js,vue,d.ts}\"",
         "format:check": "prettier --check \"**/*.{js,vue,d.ts}\"",
         "test:unit": "vitest",
-        "test:coverage": "vitest --coverage",
+        "test:coverage": "vitest run --coverage",
         "lint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
         "lint:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
         "apidoc": "node ./api-generator/build-apidoc.js",
@@ -42,7 +42,7 @@
     "devDependencies": {
         "@babel/eslint-parser": "^7.18.9",
         "@stackblitz/sdk": "^1.8.2",
-        "@vitest/coverage-istanbul": "^0.26.2",
+        "@vitest/coverage-istanbul": "^0.29.8",
         "@vue/test-utils": "^2.0.0",
         "@vitejs/plugin-vue": "4.1.0",
         "chart.js": "3.3.2",
@@ -70,7 +70,7 @@
         "sass-loader": "^8.0.2",
         "typedoc": "0.23.23",
         "typescript": "^4.9.4",
-        "vitest": "^0.23.2"
+        "vitest": "^0.29.8"
     },
     "dependencies": {
         "@docsearch/js": "^3.3.3",

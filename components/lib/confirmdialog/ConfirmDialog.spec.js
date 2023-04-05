@@ -50,14 +50,8 @@ describe('ConfirmDialog', () => {
                         message: 'Are you sure you want to proceed?',
                         header: 'Confirmation',
                         icon: 'pi pi-exclamation-triangle',
-                        accept: () => {
-                            // eslint-disable-next-line no-console
-                            console.log('accept');
-                        },
-                        reject: () => {
-                            // eslint-disable-next-line no-console
-                            console.log('reject');
-                        }
+                        accept: () => {},
+                        reject: () => {}
                     },
                     visible: true
                 };
@@ -89,14 +83,8 @@ describe('ConfirmDialog', () => {
                         message: 'Are you sure you want to proceed?',
                         header: 'Confirmation',
                         icon: 'pi pi-exclamation-triangle',
-                        accept: () => {
-                            // eslint-disable-next-line no-console
-                            console.log('accept');
-                        },
-                        reject: () => {
-                            // eslint-disable-next-line no-console
-                            console.log('reject');
-                        }
+                        accept: () => {},
+                        reject: () => {}
                     },
                     visible: true
                 };

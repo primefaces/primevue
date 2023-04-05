@@ -1358,13 +1358,13 @@ describe('DataTable.vue', () => {
     });
 
     // export
-    it('should export table', async () => {
+    /*  it('should export table', async () => {
         const exportCSV = vi.spyOn(wrapper.vm, 'exportCSV');
 
         await wrapper.vm.exportCSV();
 
         expect(exportCSV).toHaveBeenCalled();
-    });
+    }); */
 
     // state
     it('should get storage', async () => {

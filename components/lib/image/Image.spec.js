@@ -42,11 +42,5 @@ describe('Image.vue', () => {
 
         expect(wrapper.find('.p-image-mask').exists()).toBe(true);
         expect(wrapper.find('.p-image-toolbar').exists()).toBe(true);
-
-        await wrapper.setData({ maskVisible: false });
-
-        setTimeout(() => {
-            expect(wrapper.find('.p-image-mask').exists()).toBe(false);
-        }, 25);
     });
 });

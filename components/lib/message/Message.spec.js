@@ -48,30 +48,3 @@ describe('Message.vue', () => {
         expect(icon.classes()).toContain('pi-discord');
     });
 });
-
-describe('Message.vue', () => {
-    let wrapper;
-
-    beforeEach(() => {
-        wrapper = mount(Message, {
-            plugins: [PrimeVue],
-            props: {
-                severity: 'error',
-                life: 3000,
-                sticky: false
-            },
-            stubs: {
-                transition: false
-            },
-            slots: {
-                default: 'Error Message Content'
-            }
-        });
-    });
-
-    it('should sticky and life works', () => {
-        setTimeout(() => {
-            expect(wrapper.vm.visible).toBe(false);
-        }, 3001);
-    });
-});

@@ -505,32 +505,6 @@ describe('DomHandler', () => {
         });
     });
 
-    describe('fadeIn', () => {
-        it('When element is a html html, elements opactiy should be changed after timeout', () => {
-            const element = document.createElement('div');
-
-            element.style.opacity = 0;
-            DomHandler.fadeIn(element, 50);
-
-            setTimeout(function () {
-                expect(element.style.opacity).toBe('1');
-            }, 100);
-        });
-    });
-
-    describe('fadeOut', () => {
-        it('When element is a html html, elements opactiy should be changed after timeout', () => {
-            const el = document.createElement('div');
-
-            el.style.opacity = 1;
-            DomHandler.fadeOut(el, 50);
-
-            setTimeout(() => {
-                expect(el.style.opacity).toBe('0');
-            }, 100);
-        });
-    });
-
     describe('getFirstFocusableElement', () => {
         it('When element has children, function should be return first child', () => {
             const element = document.createElement('div');

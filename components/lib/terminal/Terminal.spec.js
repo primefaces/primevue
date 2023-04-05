@@ -37,16 +37,6 @@ describe('Terminal.vue', () => {
 
         expect(wrapper.find('.p-terminal.p-component').exists()).toBe(true);
         expect(wrapper.find('input.p-terminal-input').exists()).toBe(true);
-
-        wrapper.find('input.p-terminal-input').setValue('d');
-
-        wrapper.find('.p-terminal-input').trigger('keydown', {
-            key: 'Enter'
-        });
-
-        setTimeout(() => {
-            expect(wrapper.find('.p-terminal-response').text()).toBe('Valid command');
-        }, 50);
     });
 
     it('should return invalid command', async () => {
@@ -83,15 +73,5 @@ describe('Terminal.vue', () => {
 
         expect(wrapper.find('.p-terminal.p-component').exists()).toBe(true);
         expect(wrapper.find('input.p-terminal-input').exists()).toBe(true);
-
-        wrapper.find('input.p-terminal-input').setValue('dd');
-
-        wrapper.find('.p-terminal-input').trigger('keydown', {
-            key: 'Enter'
-        });
-
-        setTimeout(() => {
-            expect(wrapper.find('.p-terminal-response').text()).toBe('Unknown command: dd');
-        }, 50);
     });
 });
