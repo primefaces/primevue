@@ -18586,6 +18586,18 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content for each item."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu icon template."
                         }
                     ]
                 },
