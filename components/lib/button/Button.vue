@@ -85,7 +85,7 @@ export default {
             return [
                 'p-button p-component',
                 {
-                    'p-button-icon-only': (this.icon && !this.label) || this.$slots.default,
+                    'p-button-icon-only': this.icon && !this.label,
                     'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
                     'p-disabled': this.$attrs.disabled || this.loading,
                     'p-button-loading': this.loading,
