@@ -17940,7 +17940,7 @@
         }
     },
     "paginator": {
-        "description": "Paginator is a generic component to display content in paged format.\n\n- [Paginator](https://primevue.org/paginator)",
+        "description": "Paginator is a generic component to display content in paged format.\n\n[Live Demo](https://primevue.org/paginator)",
         "components": {
             "default": {
                 "description": "Paginator is a generic widget to display content in paged format.",
