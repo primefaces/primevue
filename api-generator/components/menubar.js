@@ -16,15 +16,23 @@ const MenubarProps = [
 const MenubarSlots = [
     {
         name: 'start',
-        description: 'Custom content before the content'
+        description: 'Custom content before the content.'
     },
     {
         name: 'end',
-        description: 'Custom content after the content'
+        description: 'Custom content after the content.'
     },
     {
         name: 'item',
-        description: 'Template of a menuitem.'
+        description: 'Custom menuitem template.'
+    },
+    {
+        name: 'baricon',
+        description: 'Custom bar icon template.'
+    },
+    {
+        name: 'submenuicon',
+        description: 'Custom submenu icon template.'
     }
 ];
 

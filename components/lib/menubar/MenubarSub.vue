@@ -16,7 +16,7 @@
                 :aria-posinset="getAriaPosInset(index)"
             >
                 <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)">
-                    <template v-if="!template">
+                    <template v-if="!template.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
                             <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
                                 <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
@@ -26,10 +26,12 @@
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
                             <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
-                            <span v-if="getItemProp(processedItem, 'items')" :class="getSubmenuIcon()"></span>
+                            <slot v-if="getItemProp(processedItem, 'items')" name="submenuicon">
+                                <component :is="template.submenuicon || (root ? 'AngleDownIcon' : 'AngleRightIcon')" :root="root" :active="isItemActive(processedItem)" class="p-submenu-icon" />
+                            </slot>
                         </a>
                     </template>
-                    <component v-else :is="template" :item="processedItem.item"></component>
+                    <component v-else :is="template.item" :item="processedItem.item"></component>
                 </div>
                 <MenubarSub
                     v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
@@ -53,6 +55,8 @@
 </template>
 
 <script>
+import AngleDownIcon from 'primevue/icon/angledown';
+import AngleRightIcon from 'primevue/icon/angleright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
 
@@ -77,7 +81,7 @@ export default {
             default: false
         },
         template: {
-            type: Function,
+            type: Object,
             default: null
         },
         exact: {
@@ -171,15 +175,16 @@ export default {
         },
         getSeparatorItemClass(processedItem) {
             return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
-        },
-        getSubmenuIcon() {
-            return ['p-submenu-icon pi', { 'pi-angle-right': !this.root, 'pi-angle-down': this.root }];
         }
     },
     computed: {
         containerClass() {
             return { 'p-submenu-list': !this.root, 'p-menubar-root-list': this.root };
         }
+    },
+    components: {
+        AngleRightIcon: AngleRightIcon,
+        AngleDownIcon: AngleDownIcon
     },
     directives: {
         ripple: Ripple

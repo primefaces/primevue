@@ -17,7 +17,9 @@
             @keydown="menuButtonKeydown($event)"
             v-bind="buttonProps"
         >
-            <i class="pi pi-bars" />
+            <slot name="baricon">
+                <component :is="'BarsIcon'" />
+            </slot>
         </a>
         <MenubarSub
             :ref="menubarRef"
@@ -25,7 +27,7 @@
             class="p-menubar-root-list"
             role="menubar"
             :items="processedItems"
-            :template="$slots.item"
+            :template="$slots"
             :root="true"
             :mobileActive="mobileActive"
             tabindex="0"
@@ -50,6 +52,7 @@
 </template>
 
 <script>
+import BarsIcon from 'primevue/icon/bars';
 import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import MenubarSub from './MenubarSub.vue';
 
@@ -605,7 +608,8 @@ export default {
         }
     },
     components: {
-        MenubarSub: MenubarSub
+        MenubarSub: MenubarSub,
+        BarsIcon: BarsIcon
     }
 };
 </script>

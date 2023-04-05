@@ -60,6 +60,23 @@ export interface MenubarSlots {
          */
         item: MenuItem;
     }): VNode[];
+    /**
+     * Custom bar icon template.
+     */
+    baricon(): VNode[];
+    /**
+     * Custom submenu icon template.
+     */
+    submenuicon(scope: {
+        /**
+         * Whether item is root
+         */
+        root: boolean;
+        /**
+         * Whether item is active
+         */
+        active: boolean;
+    }): VNode[];
 }
 
 /**
