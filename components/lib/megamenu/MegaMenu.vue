@@ -18,7 +18,7 @@
             :focusedItemId="focused ? focusedItemId : undefined"
             :items="processedItems"
             :horizontal="horizontal"
-            :template="$slots.item"
+            :template="$slots"
             :activeItem="activeItem"
             :exact="exact"
             :level="0"
