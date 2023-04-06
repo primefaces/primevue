@@ -44,8 +44,32 @@ const CalendarProps = [
     {
         name: 'icon',
         type: 'string',
-        default: 'pi pi-calendar',
+        default: 'null',
         description: 'Icon of the calendar button.'
+    },
+    {
+        name: 'previousIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in the previous button.'
+    },
+    {
+        name: 'nextIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in the next button.'
+    },
+    {
+        name: 'incrementIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in each of the increment buttons.'
+    },
+    {
+        name: 'decrementIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon to show in each of the decrement buttons.'
     },
     {
         name: 'numberOfMonths',
@@ -436,6 +460,26 @@ const CalendarSlots = [
     {
         name: 'decade',
         description: 'Custom content for the calendar decade.'
+    },
+    {
+        name: 'triggericon',
+        description: 'Custom trigger icon template.'
+    },
+    {
+        name: 'previcon',
+        description: 'Custom previous icon template.'
+    },
+    {
+        name: 'nexticon',
+        description: 'Custom next icon template.'
+    },
+    {
+        name: 'incrementicon',
+        description: 'Custom increment icon template.'
+    },
+    {
+        name: 'decrementicon',
+        description: 'Custom decrement icon template.'
     }
 ];
 

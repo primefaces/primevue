@@ -29,7 +29,6 @@
         />
         <CalendarButton
             v-if="showIcon"
-            :icon="icon"
             class="p-datepicker-trigger"
             :disabled="disabled"
             @click="onButtonClick"
@@ -38,7 +37,11 @@
             aria-haspopup="dialog"
             :aria-expanded="overlayVisible"
             :aria-controls="panelId"
-        />
+        >
+            <slot name="triggericon">
+                <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" />
+            </slot>
+        </CalendarButton>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">
                 <div
@@ -70,7 +73,9 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                     >
-                                        <span :class="['p-datepicker-prev-icon', previousIcon]" />
+                                        <slot name="previcon">
+                                            <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="['p-datepicker-prev-icon', previousIcon]" />
+                                        </slot>
                                     </button>
                                     <div class="p-datepicker-title">
                                         <button
@@ -109,7 +114,9 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.nextDecade : currentView === 'month' ? $primevue.config.locale.nextYear : $primevue.config.locale.nextMonth"
                                     >
-                                        <span :class="['p-datepicker-next-icon', nextIcon]" />
+                                        <slot name="nexticon">
+                                            <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="['p-datepicker-next-icon', nextIcon]" />
+                                        </slot>
                                     </button>
                                 </div>
                                 <div v-if="currentView === 'date'" class="p-datepicker-calendar-container">
@@ -202,7 +209,9 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span :class="incrementIcon" />
+                                <slot name="incrementicon">
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" />
+                                </slot>
                             </button>
                             <span>{{ formattedCurrentHour }}</span>
                             <button
@@ -219,7 +228,9 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span :class="decrementIcon" />
+                                <slot name="decrementicon">
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" />
+                                </slot>
                             </button>
                         </div>
                         <div class="p-separator">
@@ -241,7 +252,9 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span :class="incrementIcon" />
+                                <slot name="incrementicon">
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" />
+                                </slot>
                             </button>
                             <span>{{ formattedCurrentMinute }}</span>
                             <button
@@ -259,7 +272,9 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span :class="decrementIcon" />
+                                <slot name="decrementicon">
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" />
+                                </slot>
                             </button>
                         </div>
                         <div v-if="showSeconds" class="p-separator">
@@ -281,7 +296,9 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span :class="incrementIcon" />
+                                <slot name="incrementicon">
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" />
+                                </slot>
                             </button>
                             <span>{{ formattedCurrentSecond }}</span>
                             <button
@@ -299,7 +316,9 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                             >
-                                <span :class="decrementIcon" />
+                                <slot name="decrementicon">
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" />
+                                </slot>
                             </button>
                         </div>
                         <div v-if="hourFormat == '12'" class="p-separator">
@@ -307,11 +326,15 @@
                         </div>
                         <div v-if="hourFormat == '12'" class="p-ampm-picker">
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled">
-                                <span :class="incrementIcon" />
+                                <slot name="incrementicon">
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" />
+                                </slot>
                             </button>
                             <span>{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
                             <button v-ripple class="p-link" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled">
-                                <span :class="decrementIcon" />
+                                <slot name="decrementicon">
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" />
+                                </slot>
                             </button>
                         </div>
                     </div>
@@ -328,6 +351,11 @@
 
 <script>
 import Button from 'primevue/button';
+import CalendarIcon from 'primevue/icon/calendar';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronLeftIcon from 'primevue/icon/chevronleft';
+import ChevronRightIcon from 'primevue/icon/chevronright';
+import ChevronUpIcon from 'primevue/icon/chevronup';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -364,23 +392,23 @@ export default {
         },
         icon: {
             type: String,
-            default: 'pi pi-calendar'
+            default: undefined
         },
         previousIcon: {
             type: String,
-            default: 'pi pi-chevron-left'
+            default: undefined
         },
         nextIcon: {
             type: String,
-            default: 'pi pi-chevron-right'
+            default: undefined
         },
         incrementIcon: {
             type: String,
-            default: 'pi pi-chevron-up'
+            default: undefined
         },
         decrementIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         numberOfMonths: {
             type: Number,
@@ -2979,7 +3007,12 @@ export default {
     },
     components: {
         CalendarButton: Button,
-        Portal: Portal
+        Portal: Portal,
+        CalendarIcon: CalendarIcon,
+        ChevronLeftIcon: ChevronLeftIcon,
+        ChevronRightIcon: ChevronRightIcon,
+        ChevronUpIcon: ChevronUpIcon,
+        ChevronDownIcon: ChevronDownIcon
     },
     directives: {
         ripple: Ripple

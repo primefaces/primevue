@@ -109,27 +109,22 @@ export interface CalendarProps {
     showIcon?: boolean | undefined;
     /**
      * Icon of the calendar button.
-     * @defaultValue pi pi-calendar
      */
     icon?: string | undefined;
     /**
      * Icon to show in the previous button.
-     * @defaultValue pi pi-chevron-left
      */
     previousIcon?: string | undefined;
     /**
      * Icon to show in the next button.
-     * @defaultValue pi pi-chevron-right
      */
     nextIcon?: string | undefined;
     /**
      * Icon to show in each of the increment buttons.
-     * @defaultValue pi pi-chevron-up
      */
     incrementIcon?: string | undefined;
     /**
      * Icon to show in each of the decrement buttons.
-     * @defaultValue pi pi-chevron-down
      */
     decrementIcon?: string | undefined;
     /**
@@ -368,6 +363,26 @@ export interface CalendarSlots {
          */
         years: string[] | undefined;
     }): VNode[];
+    /**
+     * Custom trigger icon template.
+     */
+    triggericon(): VNode[];
+    /**
+     * Custom previous icon template.
+     */
+    previcon(): VNode[];
+    /**
+     * Custom next icon template.
+     */
+    nexticon(): VNode[];
+    /**
+     * Custom increment icon template.
+     */
+    incrementicon(): VNode[];
+    /**
+     * Custom decrement icon template.
+     */
+    decrementicon(): VNode[];
 }
 
 /**
