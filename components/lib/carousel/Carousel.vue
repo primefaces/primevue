@@ -15,7 +15,9 @@
                     @click="navBackward"
                     v-bind="prevButtonProps"
                 >
-                    <span :class="['p-carousel-prev-icon pi', { 'pi-chevron-left': !isVertical(), 'pi-chevron-up': isVertical() }]"></span>
+                    <slot name="previcon">
+                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" class="p-carousel-next-icon" />
+                    </slot>
                 </button>
 
                 <div class="p-carousel-items-content" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
@@ -65,7 +67,9 @@
                     @click="navForward"
                     v-bind="nextButtonProps"
                 >
-                    <span :class="['p-carousel-prev-icon pi', { 'pi-chevron-right': !isVertical(), 'pi-chevron-down': isVertical() }]"></span>
+                    <slot name="nexticon">
+                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-carousel-prev-icon" />
+                    </slot>
                 </button>
             </div>
             <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="indicatorsContentClasses" @keydown="onIndicatorKeydown">
@@ -82,7 +86,9 @@
 
 <script>
 import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronLeftIcon from 'primevue/icon/chevronleft';
 import ChevronRightIcon from 'primevue/icon/chevronright';
+import ChevronUpIcon from 'primevue/icon/chevronup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
@@ -658,7 +664,9 @@ export default {
     },
     components: {
         ChevronRightIcon,
-        ChevronDownIcon
+        ChevronDownIcon,
+        ChevronLeftIcon,
+        ChevronUpIcon
     },
     directives: {
         ripple: Ripple

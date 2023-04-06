@@ -130,6 +130,14 @@ export interface CarouselSlots {
      * Custom footer template.
      */
     footer(): VNode[];
+    /**
+     * Custom previous icon template.
+     */
+    previcon(): VNode[];
+    /**
+     * Custom next icon template.
+     */
+    nexticon(): VNode[];
 }
 
 /**
