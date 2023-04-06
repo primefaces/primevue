@@ -266,7 +266,7 @@ export default {
         },
         autoFilterFocus: {
             type: Boolean,
-            default: false
+            default: true
         },
         selectOnFocus: {
             type: Boolean,
