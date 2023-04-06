@@ -3,7 +3,7 @@
         <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
         <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="previewButtonProps">
             <slot name="indicator">
-                <i :class="['p-image-preview-icon', indicatorIcon]"></i>
+                <component :is="indicatorIcon ? 'i' : 'EyeIcon'" class="p-image-preview-icon" />
             </slot>
         </button>
         <Portal>
@@ -11,31 +11,31 @@
                 <div class="p-image-toolbar">
                     <button class="p-image-action p-link" @click="rotateRight" type="button" :aria-label="rightAriaLabel">
                         <slot name="refresh">
-                            <i class="pi pi-refresh"></i>
+                            <RefreshIcon />
                         </slot>
                     </button>
 
                     <button class="p-image-action p-link" @click="rotateLeft" type="button" :aria-label="leftAriaLabel">
                         <slot name="undo">
-                            <i class="pi pi-undo"></i>
+                            <UndoIcon />
                         </slot>
                     </button>
 
                     <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="zoomDisabled" :aria-label="zoomOutAriaLabel">
                         <slot name="zoomout">
-                            <i class="pi pi-search-minus"></i>
+                            <SearchMinusIcon />
                         </slot>
                     </button>
 
                     <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="zoomDisabled" :aria-label="zoomInAriaLabel">
                         <slot name="zoomin">
-                            <i class="pi pi-search-plus"></i>
+                            <SearchPlusIcon />
                         </slot>
                     </button>
 
                     <button class="p-image-action p-link" type="button" @click="hidePreview" :aria-label="closeAriaLabel" autofocus>
                         <slot name="close">
-                            <i class="pi pi-times"></i>
+                            <TimesIcon />
                         </slot>
                     </button>
                 </div>
@@ -51,6 +51,12 @@
 
 <script>
 import FocusTrap from 'primevue/focustrap';
+import EyeIcon from 'primevue/icon/eye';
+import RefreshIcon from 'primevue/icon/refresh';
+import SearchMinusIcon from 'primevue/icon/searchminus';
+import SearchPlusIcon from 'primevue/icon/searchplus';
+import TimesIcon from 'primevue/icon/times';
+import UndoIcon from 'primevue/icon/undo';
 import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
@@ -85,7 +91,7 @@ export default {
         },
         indicatorIcon: {
             type: String,
-            default: 'pi pi-eye'
+            default: undefined
         }
     },
     mask: null,
@@ -227,7 +233,13 @@ export default {
         }
     },
     components: {
-        Portal: Portal
+        Portal: Portal,
+        EyeIcon: EyeIcon,
+        RefreshIcon: RefreshIcon,
+        UndoIcon: UndoIcon,
+        SearchMinusIcon: SearchMinusIcon,
+        SearchPlusIcon: SearchPlusIcon,
+        TimesIcon: TimesIcon
     },
     directives: {
         focustrap: FocusTrap
