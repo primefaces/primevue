@@ -18,7 +18,10 @@ export default {
         return {
             code: {
                 basic: `
-<Toast />
+<Toast position="top-left" group="tl" />
+<Toast position="bottom-left" group="bl" />
+<Toast position="bottom-right" group="br" />
+
 <div class="flex flex-wrap gap-2">
     <Button label="Top Left" class="mr-2" @click="showTopLeft" />
     <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
@@ -27,7 +30,10 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Toast />
+        <Toast position="top-left" group="tl" />
+        <Toast position="bottom-left" group="bl" />
+        <Toast position="bottom-right" group="br" />
+
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" class="mr-2" @click="showTopLeft" />
             <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
@@ -54,7 +60,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Toast />
+        <Toast position="top-left" group="tl" />
+        <Toast position="bottom-left" group="bl" />
+        <Toast position="bottom-right" group="br" />
+        
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" class="mr-2" @click="showTopLeft" />
             <Button label="Bottom Left" severity="warning" @click="showBottomLeft" />
