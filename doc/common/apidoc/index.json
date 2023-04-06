@@ -4166,7 +4166,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-calendar",
+                            "default": "",
                             "description": "Icon of the calendar button."
                         },
                         {
@@ -4174,7 +4174,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-left",
+                            "default": "",
                             "description": "Icon to show in the previous button."
                         },
                         {
@@ -4182,7 +4182,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-right",
+                            "default": "",
                             "description": "Icon to show in the next button."
                         },
                         {
@@ -4190,7 +4190,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-up",
+                            "default": "",
                             "description": "Icon to show in each of the increment buttons."
                         },
                         {
@@ -4198,7 +4198,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-down",
+                            "default": "",
                             "description": "Icon to show in each of the decrement buttons."
                         },
                         {
@@ -4591,6 +4591,36 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom decade template."
+                        },
+                        {
+                            "name": "triggericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom trigger icon template."
+                        },
+                        {
+                            "name": "previcon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom previous icon template."
+                        },
+                        {
+                            "name": "nexticon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom next icon template."
+                        },
+                        {
+                            "name": "incrementicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom increment icon template."
+                        },
+                        {
+                            "name": "decrementicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom decrement icon template."
                         }
                     ]
                 },
@@ -5118,6 +5148,18 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom footer template."
+                        },
+                        {
+                            "name": "previcon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom previous icon template."
+                        },
+                        {
+                            "name": "nexticon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom next icon template."
                         }
                     ]
                 },
@@ -13731,6 +13773,36 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom thumbnail template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
+                        },
+                        {
+                            "name": "previtemicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom navigator previous item icon template."
+                        },
+                        {
+                            "name": "nextitemicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom navigator next item icon template."
+                        },
+                        {
+                            "name": "prevthumbnailicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom thumbnail previous icon template."
+                        },
+                        {
+                            "name": "nextthumbnailicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom thumbnail next item template."
                         }
                     ]
                 },
