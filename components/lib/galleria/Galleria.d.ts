@@ -205,6 +205,26 @@ export interface GalleriaSlots {
          */
         item: any;
     }): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
+    /**
+     * Custom navigator previous item icon template.
+     */
+    previtemicon(): VNode[];
+    /**
+     * Custom navigator next item icon template.
+     */
+    nextitemicon(): VNode[];
+    /**
+     * Custom thumbnail previous icon template.
+     */
+    prevthumbnailicon(): VNode[];
+    /**
+     * Custom thumbnail next item template.
+     */
+    nextthumbnailicon(): VNode[];
 }
 
 /**

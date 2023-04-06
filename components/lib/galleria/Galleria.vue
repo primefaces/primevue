@@ -2,11 +2,11 @@
     <Portal v-if="fullScreen">
         <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass" :role="fullScreen ? 'dialog' : 'region'" :aria-modal="fullScreen ? 'true' : undefined">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
-                <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap v-bind="$props" @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" />
+                <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" v-bind="$props" />
             </transition>
         </div>
     </Portal>
-    <GalleriaContent v-else v-bind="$props" :templates="$slots" @activeitem-change="onActiveItemChange" />
+    <GalleriaContent v-else :templates="$slots" @activeitem-change="onActiveItemChange" v-bind="$props" />
 </template>
 
 <script>

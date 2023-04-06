@@ -2,13 +2,17 @@
     <div class="p-galleria-item-wrapper">
         <div class="p-galleria-item-container">
             <button v-if="showItemNavigators" v-ripple type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
-                <span class="p-galleria-item-prev-icon pi pi-chevron-left"></span>
+                <slot name="itemprevicon">
+                    <component :is="templates.itemprevicon || 'ChevronLeftIcon'" class="p-galleria-item-prev-icon" />
+                </slot>
             </button>
             <div :id="id + '_item_' + activeIndex" class="p-galleria-item" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel">
                 <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
             <button v-if="showItemNavigators" v-ripple type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
-                <span class="p-galleria-item-next-icon pi pi-chevron-right"></span>
+                <slot name="itemnexticon">
+                    <component :is="templates.itemnexticon || 'ChevronRightIcon'" class="p-galleria-item-next-icon" />
+                </slot>
             </button>
             <div v-if="templates['caption']" class="p-galleria-caption">
                 <component v-if="templates.caption" :is="templates.caption" :item="activeItem" />
@@ -35,6 +39,8 @@
 </template>
 
 <script>
+import ChevronLeftIcon from 'primevue/icon/chevronleft';
+import ChevronRightIcon from 'primevue/icon/chevronright';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -190,6 +196,10 @@ export default {
         ariaSlideLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slide : undefined;
         }
+    },
+    components: {
+        ChevronLeftIcon: ChevronLeftIcon,
+        ChevronRightIcon: ChevronRightIcon
     },
     directives: {
         ripple: Ripple

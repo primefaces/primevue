@@ -1,7 +1,9 @@
 <template>
     <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="galleriaClass" :style="$attrs.containerStyle" v-bind="$attrs.containerProps">
         <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" class="p-galleria-close p-link" :aria-label="closeAriaLabel" @click="$emit('mask-hide')">
-            <span class="p-galleria-close-icon pi pi-times"></span>
+            <slot name="closeicon">
+                <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" class="p-galleria-close-icon" />
+            </slot>
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
             <component :is="$attrs.templates['header']" />
@@ -47,6 +49,7 @@
 </template>
 
 <script>
+import TimesIcon from 'primevue/icon/times';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 import GalleriaItem from './GalleriaItem.vue';
@@ -142,7 +145,8 @@ export default {
     },
     components: {
         GalleriaItem: GalleriaItem,
-        GalleriaThumbnails: GalleriaThumbnails
+        GalleriaThumbnails: GalleriaThumbnails,
+        TimesIcon: TimesIcon
     },
     directives: {
         ripple: Ripple

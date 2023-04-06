@@ -148,27 +148,47 @@ const GalleriaProps = [
 const GalleriaSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'footer',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's footer."
     },
     {
         name: 'item',
-        description: 'Custom content for the item'
+        description: 'Custom content for the item.'
     },
     {
         name: 'caption',
-        description: 'Custom caption content'
+        description: 'Custom caption content.'
     },
     {
         name: 'thumbnail',
-        description: 'Custom thumbnail content'
+        description: 'Custom thumbnail content.'
     },
     {
         name: 'indicator',
-        description: 'Custom indicator content'
+        description: 'Custom indicator content.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
+    },
+    {
+        name: 'previtemicon',
+        description: 'Custom navigator previous item icon template.'
+    },
+    {
+        name: 'nextitemicon',
+        description: 'Custom navigator next item icon template.'
+    },
+    {
+        name: 'prevthumbnailicon',
+        description: 'Custom thumbnail previous icon template.'
+    },
+    {
+        name: 'nextthumbnailicon',
+        description: 'Custom thumbnail next icon template.'
     }
 ];
 
