@@ -14094,6 +14094,14 @@
                             "type": "string",
                             "default": "info",
                             "description": "Severity level of the message."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Display a custom icon for the message."
                         }
                     ],
                     "methods": []
@@ -14108,6 +14116,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Default custom slot."
+                        },
+                        {
+                            "name": "messageicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom message icon template."
                         }
                     ]
                 },
