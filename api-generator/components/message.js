@@ -26,7 +26,7 @@ const MessageProps = [
     {
         name: 'icon',
         type: 'string',
-        default: 'null',
+        default: 'undefined',
         description: 'Display a custom icon for the message.'
     }
 ];

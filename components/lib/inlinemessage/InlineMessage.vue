@@ -1,17 +1,27 @@
 <template>
     <div aria-live="polite" :class="containerClass">
-        <span :class="iconClass"></span>
+        <slot name="messageicon">
+            <component :is="icon ? 'i' : iconComponent" :class="['p-inline-message-icon', icon]"></component>
+        </slot>
         <span class="p-inline-message-text"><slot>&nbsp;</slot></span>
     </div>
 </template>
 
 <script>
+import InfoCircleIcon from 'primevue/icon/infocircle';
+import CheckIcon from 'primevue/icon/check';
+import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
+import TimesCircleIcon from 'primevue/icon/timescircle';
 export default {
     name: 'InlineMessage',
     props: {
         severity: {
             type: String,
             default: 'error'
+        },
+        icon: {
+            type: String,
+            default: undefined
         }
     },
     timeout: null,
@@ -31,16 +41,13 @@ export default {
         containerClass() {
             return ['p-inline-message p-component p-inline-message-' + this.severity, { 'p-inline-message-icon-only': !this.$slots.default }];
         },
-        iconClass() {
-            return [
-                'p-inline-message-icon pi',
-                {
-                    'pi-info-circle': this.severity === 'info',
-                    'pi-check': this.severity === 'success',
-                    'pi-exclamation-triangle': this.severity === 'warn',
-                    'pi-times-circle': this.severity === 'error'
-                }
-            ];
+        iconComponent() {
+            return {
+                info: InfoCircleIcon,
+                success: CheckIcon,
+                warn: ExclamationTriangleIcon,
+                error: TimesCircleIcon
+            }[this.severity];
         }
     }
 };

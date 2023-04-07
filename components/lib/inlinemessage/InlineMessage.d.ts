@@ -19,6 +19,10 @@ export interface InlineMessageProps {
      * @defaultValue info
      */
     severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
+    /**
+     * Display a custom icon for the message.
+     */
+    icon?: string | undefined;
 }
 /**
  * Defines valid slots in InlineMessage slots.
@@ -28,6 +32,10 @@ export interface InlineMessageSlots {
      * Default custom slot.
      */
     default(): VNode[];
+    /**
+     * Custom message icon template.
+     */
+    messageicon(): VNode[];
 }
 
 export interface InlineMessageEmits {}
