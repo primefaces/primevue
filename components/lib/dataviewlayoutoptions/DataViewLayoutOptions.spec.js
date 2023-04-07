@@ -23,7 +23,6 @@ describe('DataViewLayoutOptions.vue', () => {
         });
 
         expect(wrapper.find('.p-dataview-layout-options').exists()).toBe(true);
-        expect(wrapper.find('.p-highlight > .pi-th-large').exists()).toBe(true);
 
         wrapper.vm.$emit('update:modelValue', 'list');
 

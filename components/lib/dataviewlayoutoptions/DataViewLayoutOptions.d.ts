@@ -7,6 +7,7 @@
  * @module dataviewlayoutoptions
  *
  */
+import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
@@ -20,9 +21,18 @@ export interface DataViewLayoutOptionsProps {
 }
 
 /**
- * Defines valid propslotserties in DataViewLayoutOptions component.
+ * Defines valid slots in DataViewLayoutOptions component.
  */
-export interface DataViewLayoutOptionsSlots {}
+export interface DataViewLayoutOptionsSlots {
+    /**
+     * Custom list icon template.
+     */
+    listicon(): VNode[];
+    /**
+     * Custom grid icon template.
+     */
+    gridicon(): VNode[];
+}
 
 /**
  * Defines valid emits in DataViewLayoutOptions component.

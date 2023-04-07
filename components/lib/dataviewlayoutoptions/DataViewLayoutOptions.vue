@@ -1,15 +1,22 @@
 <template>
     <div class="p-dataview-layout-options p-selectbutton p-buttonset" role="group">
         <button :aria-label="listViewAriaLabel" :class="buttonListClass" @click="changeLayout('list')" type="button" :aria-pressed="isListButtonPressed">
-            <i class="pi pi-bars"></i>
+            <slot name="listicon">
+                <BarsIcon />
+            </slot>
         </button>
         <button :aria-label="gridViewAriaLabel" :class="buttonGridClass" @click="changeLayout('grid')" type="button" :aria-pressed="isGridButtonPressed">
-            <i class="pi pi-th-large"></i>
+            <slot name="gridicon">
+                <ThLargeIcon />
+            </slot>
         </button>
     </div>
 </template>
 
 <script>
+import BarsIcon from 'primevue/icon/bars';
+import ThLargeIcon from 'primevue/icon/thlarge';
+
 export default {
     name: 'DataViewLayoutOptions',
     emits: ['update:modelValue'],
@@ -48,6 +55,10 @@ export default {
         gridViewAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.gridView : undefined;
         }
+    },
+    components: {
+        BarsIcon: BarsIcon,
+        ThLargeIcon: ThLargeIcon
     }
 };
 </script>
