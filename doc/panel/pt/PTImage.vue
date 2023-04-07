@@ -3,6 +3,6 @@
         <p>{{ $attrs.description }}</p>
     </DocSectionText>
     <div>
-        <img class="w-full" src="@/assets/ptimages/panel.png" />
+        <img class="w-full" src="/images/pt/panel.jpg" />
     </div>
 </template>

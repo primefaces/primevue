@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs" :level="2" />
     <div class="card">
-        <Panel header="Header" :pt="{ header: { style: 'background:#3B82F6' }, title: { style: 'color:#fff' }, toggler: { style: 'color:#fff' } }" toggleable>
+        <Panel header="Header" :pt="{ header: { class: 'bg-blue-500' }, title: { class: 'text-white' }, toggler: { class: 'text-white hover:bg-blue-400' } }" toggleable>
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -17,7 +17,12 @@ export default {
         return {
             code: {
                 basic: `
-<Panel header="Header" :pt="{header:{style:'background:#3B82F6'}, title: {style:'color:#fff'}, toggler:{style:'color:#fff'}}" toggleable>
+<Panel header="Header" toggleable
+    :pt="{
+        header: { class: 'bg-blue-500' },
+        title: { class: 'text-white' },
+        toggler: { class: 'text-white hover:bg-blue-400' }
+    }">
     <p class="m-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -25,28 +30,38 @@ export default {
 </Panel>`,
                 options: `
 <template>
-  <div class="card">
-      <Panel header="Header">
-          <p class="m-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-      </Panel>
-  </div>
+    <div class="card">
+        <Panel header="Header" toggleable
+            :pt="{
+                header: { class: 'bg-blue-500' },
+                title: { class: 'text-white' },
+                toggler: { class: 'text-white hover:bg-blue-400' }
+            }">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Panel>
+    </div>
 </template>
 
 <script>
 <\/script>`,
                 composition: `
 <template>
-  <div class="card">
-      <Panel header="Header">
-          <p class="m-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-      </Panel>
-  </div>
+    <div class="card">
+        <Panel header="Header" toggleable
+            :pt="{
+                header: { class: 'bg-blue-500' },
+                title: { class: 'text-white' },
+                toggler: { class: 'text-white hover:bg-blue-400' }
+            }">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Panel>
+    </div>
 </template>
 
 <script setup>
