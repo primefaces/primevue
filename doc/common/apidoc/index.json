@@ -18055,7 +18055,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the message close button."
+                            "description": "Icon to display in the overlaypanel close button."
                         }
                     ],
                     "methods": []
@@ -20870,7 +20870,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times",
+                            "default": "",
                             "description": "Icon to display in the sidebar close button."
                         },
                         {
@@ -20908,6 +20908,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom header template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
                         }
                     ]
                 },
