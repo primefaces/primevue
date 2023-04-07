@@ -7,6 +7,7 @@
  * @module scrolltop
  *
  */
+import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
@@ -25,7 +26,6 @@ export interface ScrollTopProps {
     threshold?: number | undefined;
     /**
      * Icon to display.
-     * @defaultValue pi pi-chevron-up
      */
     icon?: string | undefined;
     /**
@@ -38,7 +38,12 @@ export interface ScrollTopProps {
 /**
  * Defines valid slots in ScrollTop component.
  */
-export interface ScrollTopSlots {}
+export interface ScrollTopSlots {
+    /**
+     * Custom scrolltop icon template.
+     */
+    icon(): VNode[];
+}
 
 /**
  * Defines valid emits in ScrollTop component.

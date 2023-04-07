@@ -14,7 +14,7 @@ const ScrollTopProps = [
     {
         name: 'icon',
         type: 'string',
-        default: 'pi pi-chevron-up',
+        default: 'undefined',
         description: 'Icon to display.'
     },
     {
@@ -25,10 +25,18 @@ const ScrollTopProps = [
     }
 ];
 
+const ScrollTopSlots = [
+    {
+        name: 'icon',
+        description: 'Custom scrolltop icon template.'
+    }
+];
+
 module.exports = {
     scrolltop: {
         name: 'ScrollTop',
         description: 'ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.',
-        props: ScrollTopProps
+        props: ScrollTopProps,
+        slots: ScrollTopSlots
     }
 };

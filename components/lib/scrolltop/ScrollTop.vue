@@ -1,14 +1,16 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
         <button v-if="visible" :ref="containerRef" :class="containerClass" @click="onClick" type="button" :aria-label="scrollTopAriaLabel">
-            <span :class="iconClass"></span>
+            <slot name="icon">
+                <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="['p-scrolltop-icon', icon]"></component>
+            </slot>
         </button>
     </transition>
 </template>
 
 <script>
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
-
+import ChevronUpIcon from 'primevue/icon/chevronup';
 export default {
     name: 'ScrollTop',
     scrollListener: null,
@@ -24,7 +26,7 @@ export default {
         },
         icon: {
             type: String,
-            default: 'pi pi-chevron-up'
+            default: undefined
         },
         behavior: {
             type: String,
@@ -102,12 +104,12 @@ export default {
         containerClass() {
             return ['p-scrolltop p-link p-component', { 'p-scrolltop-sticky': this.target !== 'window' }];
         },
-        iconClass() {
-            return ['p-scrolltop-icon', this.icon];
-        },
         scrollTopAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.scrollTop : undefined;
         }
+    },
+    components: {
+        ChevronUpIcon
     }
 };
 </script>
