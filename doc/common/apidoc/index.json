@@ -10552,10 +10552,23 @@
                     "methods": []
                 },
                 "DataViewLayoutOptionsSlots": {
-                    "description": "Defines valid propslotserties in DataViewLayoutOptions component.",
+                    "description": "Defines valid slots in DataViewLayoutOptions component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "listicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom list icon template."
+                        },
+                        {
+                            "name": "gridicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom grid icon template."
+                        }
+                    ]
                 },
                 "DataViewLayoutOptionsEmits": {
                     "description": "Defines valid emits in DataViewLayoutOptions component.",
@@ -17514,6 +17527,30 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom controls end template."
+                        },
+                        {
+                            "name": "moveupicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move up icon template."
+                        },
+                        {
+                            "name": "movetopicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move top icon template."
+                        },
+                        {
+                            "name": "movedownicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move down icon template."
+                        },
+                        {
+                            "name": "movebottomicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move bottom icon template."
                         }
                     ]
                 },
@@ -17759,6 +17796,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template."
+                        },
+                        {
+                            "name": "togglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>expanded</b>: boolean, // Curent state of the node\n  }",
+                                    "description": "togglericon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom toggler icon template."
                         }
                     ]
                 },
@@ -18168,6 +18218,30 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom end template."
+                        },
+                        {
+                            "name": "firstpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom first page link icon template."
+                        },
+                        {
+                            "name": "prevpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom previous page link icon template."
+                        },
+                        {
+                            "name": "nextpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom finextrst page link icon template."
+                        },
+                        {
+                            "name": "lastpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom last page link icon template."
                         }
                     ]
                 },
@@ -19428,6 +19502,54 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom target controls end template."
+                        },
+                        {
+                            "name": "moveupicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move up icon template."
+                        },
+                        {
+                            "name": "movetopicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move top icon template."
+                        },
+                        {
+                            "name": "movedownicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move down icon template."
+                        },
+                        {
+                            "name": "movebottomicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move bottom icon template."
+                        },
+                        {
+                            "name": "movetotargeticon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move to target icon template."
+                        },
+                        {
+                            "name": "movealltotargeticon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move all to target icon template."
+                        },
+                        {
+                            "name": "movetosourceicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move to source icon template."
+                        },
+                        {
+                            "name": "movealltosourceicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom move all to source icon template."
                         }
                     ]
                 },
@@ -24526,7 +24648,44 @@
                             "type": "Function"
                         }
                     ],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "loadingicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
+                        },
+                        {
+                            "name": "searchicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom search icon template."
+                        },
+                        {
+                            "name": "togglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>node</b>: TreeNode, // Tree node instance\n  \t <b>expanded</b>: boolean, // Expanded state of the node\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom toggler icon template."
+                        },
+                        {
+                            "name": "checkboxicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>checked</b>: boolean, // Check state of the node\n  \t <b>partialChecked</b>: boolean, // Partial check state of the node\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom checkbox icon"
+                        }
+                    ]
                 },
                 "TreeEmits": {
                     "description": "Defines valid slots in Tree component.",
@@ -26622,6 +26781,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom loader template."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
                         }
                     ]
                 },
