@@ -142,7 +142,7 @@ We've created various samples for the popular options in the Vue ecosystem. Visi
 
 ### Astro
 <a href="https://github.com/primefaces/primevue-examples/tree/main/astro-quickstart">
-  <img src="https://primefaces.org/cdn/primevue/images/logos/nuxt.svg" alt="astro" width="112" height="112">
+  <img src="https://primefaces.org/cdn/primevue/images/logos/astro.svg" alt="astro" width="112" height="112">
 </a>
 
 ## Contributors
