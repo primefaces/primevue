@@ -52,6 +52,12 @@ const SidebarProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether background scroll should be blocked when sidebar is visible.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'undefined',
+        description: 'Icon to display in the sidebar close button.'
     }
 ];
 
@@ -63,6 +69,10 @@ const SidebarEvents = [
     {
         name: 'show',
         description: 'Callback to invoke when sidebar gets shown.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 

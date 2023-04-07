@@ -46,7 +46,6 @@ export interface SidebarProps {
     showCloseIcon?: boolean | undefined;
     /**
      * Icon to display in the sidebar close button.
-     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
@@ -73,6 +72,10 @@ export interface SidebarSlots {
      * Custom header template.
      */
     header(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
 }
 
 /**

@@ -66,7 +66,7 @@ export interface OverlayPanelProps {
      */
     breakpoints?: OverlayPanelBreakpoints;
     /**
-     * Icon to display in the message close button.
+     * Icon to display in the overlaypanel close button.
      */
     closeIcon?: string | undefined;
 }

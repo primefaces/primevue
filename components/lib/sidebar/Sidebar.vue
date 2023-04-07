@@ -8,7 +8,9 @@
                             <slot name="header"></slot>
                         </div>
                         <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
-                            <span :class="['p-sidebar-close-icon', closeIcon]" />
+                            <slot name="closeicon">
+                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-sidebar-close-icon ', closeIcon]"></component>
+                            </slot>
                         </button>
                     </div>
                     <div :ref="contentRef" class="p-sidebar-content">
@@ -25,6 +27,7 @@ import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import TimesIcon from 'primevue/icon/times';
 
 export default {
     name: 'Sidebar',
@@ -57,7 +60,7 @@ export default {
         },
         closeIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         modal: {
             type: Boolean,
@@ -246,7 +249,8 @@ export default {
         ripple: Ripple
     },
     components: {
-        Portal: Portal
+        Portal: Portal,
+        TimesIcon
     }
 };
 </script>
