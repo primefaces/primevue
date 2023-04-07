@@ -65,6 +65,10 @@ export interface OverlayPanelProps {
      * Object literal to define widths per screen size.
      */
     breakpoints?: OverlayPanelBreakpoints;
+    /**
+     * Icon to display in the message close button.
+     */
+    closeIcon?: string | undefined;
 }
 
 /**
@@ -75,6 +79,10 @@ export interface OverlayPanelSlots {
      * Custom content template.
      */
     default(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
 }
 
 /**

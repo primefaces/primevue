@@ -6,7 +6,9 @@
                     <slot></slot>
                 </div>
                 <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown">
-                    <span class="p-overlaypanel-close-icon pi pi-times"></span>
+                    <slot name="closeicon">
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-overlaypanel-close-icon ', closeIcon]"></component>
+                    </slot>
                 </button>
             </div>
         </transition>
@@ -19,6 +21,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import TimesIcon from 'primevue/icon/times';
 
 export default {
     name: 'OverlayPanel',
@@ -48,6 +51,10 @@ export default {
         breakpoints: {
             type: Object,
             default: null
+        },
+        closeIcon: {
+            type: String,
+            default: undefined
         }
     },
     data() {
@@ -315,7 +322,8 @@ export default {
         ripple: Ripple
     },
     components: {
-        Portal: Portal
+        Portal: Portal,
+        TimesIcon
     }
 };
 </script>

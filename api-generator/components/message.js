@@ -28,6 +28,12 @@ const MessageProps = [
         type: 'string',
         default: 'undefined',
         description: 'Display a custom icon for the message.'
+    },
+    {
+        name: 'closeIcon',
+        type: 'string',
+        default: 'undefined',
+        description: 'Display a custom close icon for the message.'
     }
 ];
 
