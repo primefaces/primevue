@@ -75,12 +75,10 @@
     background-color: var(--surface-hover);
 }
 
-@media screen and (min-width: 1960px) {
-    .landing-footer {
-        width: 1650px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
+.landing-footer-container {
+    max-width: 1250px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .animated-text {
@@ -140,6 +138,12 @@
 }
 
 .landing-users {
+    .fade-right {
+        background: linear-gradient(to left, var(--home-bg), transparent);
+    }
+    .fade-left {
+        background: linear-gradient(to right, var(--home-bg), transparent);
+    }
     .section-detail {
         max-width: 1250px !important;
         margin-left: auto !important;

@@ -8,7 +8,7 @@
             <span class="ml-2"> </span>
         </div>
         <div v-for="(x, i) in users" :key="i" class="logo-section relative w-full md:w-8 mt-6 users-container">
-            <div class="fade-left h-6rem w-6rem block absolute top-0 left-0 z-2" style="background: 'linear-gradient(to right, var(--home-bg), transparent)'"></div>
+            <div class="fade-left h-6rem w-6rem block absolute top-0 left-0 z-2"></div>
             <div class="marquee-wrapper overflow-hidden flex">
                 <div v-for="i of [1, 2, 3]" :key="i" :class="`marquee${x.reverse ? ' marquee-reverse' : ''}`">
                     <template v-for="user of x.slicedUsers" :key="user">
@@ -18,7 +18,7 @@
                     </template>
                 </div>
             </div>
-            <div class="fade-right h-6rem w-6rem block absolute top-0 right-0 z-2" style="background: 'linear-gradient(to left, var(--home-bg), transparent)'"></div>
+            <div class="fade-right h-6rem w-6rem block absolute top-0 right-0 z-2"></div>
         </div>
     </section>
 </template>
