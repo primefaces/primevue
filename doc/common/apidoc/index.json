@@ -16441,7 +16441,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times",
+                            "default": "",
                             "description": "Icon to display in the message close button."
                         },
                         {
@@ -16465,6 +16465,18 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Default custom slot."
+                        },
+                        {
+                            "name": "messageicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom message icon template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
                         }
                     ]
                 },
