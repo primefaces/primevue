@@ -2,12 +2,16 @@
     <transition name="p-message" appear>
         <div v-show="visible" :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="p-message-wrapper">
-                <span :class="iconClass"></span>
+                <slot name="messageicon">
+                    <component :is="icon ? 'i' : iconComponent" :class="['p-message-icon', icon]"></component>
+                </slot>
                 <div class="p-message-text">
                     <slot></slot>
                 </div>
                 <button v-if="closable" v-ripple class="p-message-close p-link" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="closeButtonProps">
-                    <i :class="['p-message-close-icon', closeIcon]" />
+                    <slot name="closeicon">
+                        <component :is="closeIcon ? 'i' : 'TimesIcon'" :class="['p-message-close-icon', closeIcon]"></component>
+                    </slot>
                 </button>
             </div>
         </div>
@@ -16,6 +20,11 @@
 
 <script>
 import Ripple from 'primevue/ripple';
+import TimesIcon from 'primevue/icon/times';
+import InfoCircleIcon from 'primevue/icon/infocircle';
+import CheckIcon from 'primevue/icon/check';
+import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
+import TimesCircleIcon from 'primevue/icon/timescircle';
 
 export default {
     name: 'Message',
@@ -39,11 +48,11 @@ export default {
         },
         icon: {
             type: String,
-            default: null
+            default: undefined
         },
         closeIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         closeButtonProps: {
             type: null,
@@ -58,7 +67,7 @@ export default {
     },
     mounted() {
         if (!this.sticky) {
-            this.x();
+            this.closeAfterDelay();
         }
     },
     methods: {
@@ -66,7 +75,7 @@ export default {
             this.visible = false;
             this.$emit('close', event);
         },
-        x() {
+        closeAfterDelay() {
             setTimeout(() => {
                 this.visible = false;
             }, this.life);
@@ -76,18 +85,13 @@ export default {
         containerClass() {
             return 'p-message p-component p-message-' + this.severity;
         },
-        iconClass() {
-            return [
-                'p-message-icon pi',
-                this.icon
-                    ? this.icon
-                    : {
-                          'pi-info-circle': this.severity === 'info',
-                          'pi-check': this.severity === 'success',
-                          'pi-exclamation-triangle': this.severity === 'warn',
-                          'pi-times-circle': this.severity === 'error'
-                      }
-            ];
+        iconComponent() {
+            return {
+                info: InfoCircleIcon,
+                success: CheckIcon,
+                warn: ExclamationTriangleIcon,
+                error: TimesCircleIcon
+            }[this.severity];
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
@@ -95,6 +99,13 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        TimesIcon,
+        InfoCircleIcon,
+        CheckIcon,
+        ExclamationTriangleIcon,
+        TimesCircleIcon
     }
 };
 </script>

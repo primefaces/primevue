@@ -40,7 +40,6 @@ export interface MessageProps {
     icon?: string | undefined;
     /**
      * Icon to display in the message close button.
-     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
@@ -57,6 +56,14 @@ export interface MessageSlots {
      * Default custom slot.
      */
     default(): VNode[];
+    /**
+     * Custom message icon template.
+     */
+    messageicon(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
 }
 
 /**
