@@ -26,9 +26,7 @@
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
                             <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
-                            <slot v-if="getItemProp(processedItem, 'items')" name="submenuicon">
-                                <component :is="template.submenuicon || 'AngleRightIcon'" class="p-submenu-icon" :active="isItemActive(processedItem)" />
-                            </slot>
+                            <component v-if="getItemProp(processedItem, 'items')" :is="template.submenuicon || 'AngleRightIcon'" class="p-submenu-icon" :active="isItemActive(processedItem)" />
                         </a>
                     </template>
                     <component v-else :is="template.item" :item="processedItem.item"></component>

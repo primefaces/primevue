@@ -15,9 +15,12 @@
                 <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
                     <span v-else class="p-cascadeselect-item-text">{{ getOptionLabelToRender(processedOption) }}</span>
-                    <slot v-if="isOptionGroup(processedOption)" name="optiongroupicon">
-                        <component :is="templates['optiongroupicon'] ? templates['optiongroupicon'] : optionGroupIcon ? 'span' : 'AngleRightIcon'" :class="['p-cascadeselect-group-icon', optionGroupIcon]" aria-hidden="true" />
-                    </slot>
+                    <component
+                        v-if="isOptionGroup(processedOption)"
+                        :is="templates['optiongroupicon'] ? templates['optiongroupicon'] : optionGroupIcon ? 'span' : 'AngleRightIcon'"
+                        :class="['p-cascadeselect-group-icon', optionGroupIcon]"
+                        aria-hidden="true"
+                    />
                 </div>
                 <CascadeSelectSub
                     v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)"

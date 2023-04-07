@@ -2,9 +2,7 @@
     <div class="p-galleria-thumbnail-wrapper">
         <div class="p-galleria-thumbnail-container">
             <button v-if="showThumbnailNavigators" v-ripple :class="navBackwardClass" :disabled="isNavBackwardDisabled()" type="button" :aria-label="ariaPrevButtonLabel" @click="navBackward($event)" v-bind="prevButtonProps">
-                <slot name="prevthumbnailicon">
-                    <component :is="templates.prevthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" class="p-galleria-thumbnail-prev-icon" />
-                </slot>
+                <component :is="templates.prevthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" class="p-galleria-thumbnail-prev-icon" />
             </button>
             <div class="p-galleria-thumbnail-items-container" :style="{ height: isVertical ? contentHeight : '' }">
                 <div ref="itemsContainer" class="p-galleria-thumbnail-items" role="tablist" @transitionend="onTransitionEnd" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)">
@@ -32,9 +30,7 @@
                 </div>
             </div>
             <button v-if="showThumbnailNavigators" v-ripple :class="navForwardClass" :disabled="isNavForwardDisabled()" type="button" :aria-label="ariaNextButtonLabel" @click="navForward($event)" v-bind="nextButtonProps">
-                <slot name="nextthumbnailicon">
-                    <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-galleria-thumbnail-prev-icon" />
-                </slot>
+                <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-galleria-thumbnail-prev-icon" />
             </button>
         </div>
     </div>

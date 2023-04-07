@@ -1,9 +1,7 @@
 <template>
     <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="galleriaClass" :style="$attrs.containerStyle" v-bind="$attrs.containerProps">
         <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" class="p-galleria-close p-link" :aria-label="closeAriaLabel" @click="$emit('mask-hide')">
-            <slot name="closeicon">
-                <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" class="p-galleria-close-icon" />
-            </slot>
+            <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" class="p-galleria-close-icon" />
         </button>
         <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header">
             <component :is="$attrs.templates['header']" />
