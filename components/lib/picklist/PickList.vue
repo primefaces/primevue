@@ -2,10 +2,26 @@
     <div :class="containerClass">
         <div v-if="showSourceControls" class="p-picklist-buttons p-picklist-source-controls">
             <slot name="sourcecontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" v-bind="moveUpButtonProps" type="button" icon="pi pi-angle-up" @click="moveUp($event, 0)"></PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" v-bind="moveTopButtonProps" type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 0)"></PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" v-bind="moveDownButtonProps" type="button" icon="pi pi-angle-down" @click="moveDown($event, 0)"></PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" v-bind="moveBottomButtonProps" type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 0)"></PLButton>
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" v-bind="moveUpButtonProps">
+                <slot name="moveupicon">
+                    <AngleUpIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveTop($event, 0)" v-bind="moveTopButtonProps">
+                <slot name="movetopicon">
+                    <AngleDoubleUpIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveDown($event, 0)" v-bind="moveDownButtonProps">
+                <slot name="movedownicon">
+                    <AngleDownIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveBottom($event, 0)" v-bind="moveBottomButtonProps">
+                <slot name="movebottomicon">
+                    <AngleDoubleDownIcon />
+                </slot>
+            </PLButton>
             <slot name="sourcecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
@@ -47,10 +63,26 @@
         </div>
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
             <slot name="movecontrolsstart"></slot>
-            <PLButton :aria-label="moveToTargetAriaLabel" type="button" icon="pi pi-angle-right" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps"></PLButton>
-            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" icon="pi pi-angle-double-right" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps"></PLButton>
-            <PLButton :aria-label="moveToSourceAriaLabel" type="button" icon="pi pi-angle-left" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps"></PLButton>
-            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" icon="pi pi-angle-double-left" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps"></PLButton>
+            <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps">
+                <slot name="movetotargeticon">
+                    <AngleRightIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps">
+                <slot name="movealltotargeticon">
+                    <AngleDoubleRightIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps">
+                <slot name="movetosourceicon">
+                    <AngleLeftIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps">
+                <slot name="movealltosourceicon">
+                    <AngleDoubleLeftIcon />
+                </slot>
+            </PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
         <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
@@ -93,10 +125,26 @@
         </div>
         <div v-if="showTargetControls" class="p-picklist-buttons p-picklist-target-controls">
             <slot name="targetcontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" v-bind="moveUpButtonProps" type="button" icon="pi pi-angle-up" @click="moveUp($event, 1)"></PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" v-bind="moveTopButtonProps" type="button" icon="pi pi-angle-double-up" @click="moveTop($event, 1)"></PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" v-bind="moveDownButtonProps" type="button" icon="pi pi-angle-down" @click="moveDown($event, 1)"></PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" v-bind="moveBottomButtonProps" type="button" icon="pi pi-angle-double-down" @click="moveBottom($event, 1)"></PLButton>
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" v-bind="moveUpButtonProps">
+                <slot name="moveupicon">
+                    <AngleUpIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveTop($event, 1)" v-bind="moveTopButtonProps">
+                <slot name="movetopicon">
+                    <AngleDoubleUpIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveDown($event, 1)" v-bind="moveDownButtonProps">
+                <slot name="movedownicon">
+                    <AngleDownIcon />
+                </slot>
+            </PLButton>
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveBottom($event, 1)" v-bind="moveBottomButtonProps">
+                <slot name="movebottomicon">
+                    <AngleDoubleDownIcon />
+                </slot>
+            </PLButton>
             <slot name="targetcontrolsend"></slot>
         </div>
     </div>
@@ -104,6 +152,14 @@
 
 <script>
 import Button from 'primevue/button';
+import AngleDoubleDownIcon from 'primevue/icon/angledoubledown';
+import AngleDoubleLeftIcon from 'primevue/icon/angledoubleleft';
+import AngleDoubleRightIcon from 'primevue/icon/angledoubleright';
+import AngleDoubleUpIcon from 'primevue/icon/angledoubleup';
+import AngleDownIcon from 'primevue/icon/angledown';
+import AngleLeftIcon from 'primevue/icon/angleleft';
+import AngleRightIcon from 'primevue/icon/angleright';
+import AngleUpIcon from 'primevue/icon/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
@@ -854,7 +910,15 @@ export default {
         }
     },
     components: {
-        PLButton: Button
+        PLButton: Button,
+        AngleRightIcon: AngleRightIcon,
+        AngleLeftIcon: AngleLeftIcon,
+        AngleDownIcon: AngleDownIcon,
+        AngleUpIcon: AngleUpIcon,
+        AngleDoubleRightIcon: AngleDoubleRightIcon,
+        AngleDoubleLeftIcon: AngleDoubleLeftIcon,
+        AngleDoubleDownIcon: AngleDoubleDownIcon,
+        AngleDoubleUpIcon: AngleDoubleUpIcon
     },
     directives: {
         ripple: Ripple

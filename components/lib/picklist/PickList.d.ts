@@ -236,6 +236,38 @@ export interface PickListSlots {
      * Custom target controls end template.
      */
     targetcontrolsend(): VNode[];
+    /**
+     * Custom move up icon template.
+     */
+    moveupicon(): VNode[];
+    /**
+     * Custom move top icon template.
+     */
+    movetopicon(): VNode[];
+    /**
+     * Custom move down icon template.
+     */
+    movedownicon(): VNode[];
+    /**
+     * Custom move bottom icon template.
+     */
+    movebottomicon(): VNode[];
+    /**
+     * Custom move to target icon template.
+     */
+    movetotargeticon(): VNode[];
+    /**
+     * Custom move all to target icon template.
+     */
+    movealltotargeticon(): VNode[];
+    /**
+     * Custom move to source icon template.
+     */
+    movetosourceicon(): VNode[];
+    /**
+     * Custom move all to source icon template.
+     */
+    movealltosourceicon(): VNode[];
 }
 
 /**
