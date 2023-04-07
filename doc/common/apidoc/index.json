@@ -18048,6 +18048,14 @@
                             "type": "OverlayPanelBreakpoints",
                             "default": "",
                             "description": "Object literal to define widths per screen size."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in the message close button."
                         }
                     ],
                     "methods": []
@@ -18062,6 +18070,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
                         }
                     ]
                 },
