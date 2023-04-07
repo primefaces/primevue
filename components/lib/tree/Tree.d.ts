@@ -168,15 +168,45 @@ export interface TreeProps {
  */
 export interface TreeSlots {
     /**
-     * Optional slots.
-     * @todo
+     * Custom loading icon template.
      */
-    [key: string]: (scope: {
+    loadingicon(): VNode[];
+    /**
+     * Custom search icon template.
+     */
+    searchicon(): VNode[];
+    /**
+     * Custom toggler icon template.
+     */
+    togglericon(scope: {
         /**
          * Tree node instance
          */
         node: TreeNode;
-    }) => VNode[];
+        /**
+         * Expanded state of the node
+         */
+        expanded: boolean;
+    }): VNode[];
+    /**
+     * Custom checkbox icon
+     */
+    checkboxicon(scope: {
+        /**
+         * Check state of the node
+         */
+        checked: boolean;
+        /**
+         * Partial check state of the node
+         */
+        partialChecked: boolean;
+    }): VNode[];
+    /**
+     * Optional slots.
+     * @todo
+     */
+
+    [key: string]: (node: any) => VNode[];
 }
 
 /**

@@ -15,11 +15,11 @@
     >
         <div :class="contentClass" @click="onClick" @touchend="onTouchEnd" :style="node.style">
             <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" aria-hidden="true">
-                <span :class="toggleIcon"></span>
+                <component :is="templates['togglericon'] ? templates['togglericon'] : expanded ? node.expandedIcon || 'ChevronDownIcon' : node.collapsedIcon || 'ChevronRightIcon'" :node="node" :expanded="expanded" class="p-tree-toggler-icon pi-fw" />
             </button>
             <div v-if="checkboxMode" class="p-checkbox p-component" aria-hidden="true">
                 <div :class="checkboxClass" role="checkbox">
-                    <span :class="checkboxIcon"></span>
+                    <component :is="templates['checkboxicon'] ? templates['checkboxicon'] : checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
                 </div>
             </div>
             <span :class="icon"></span>
@@ -47,6 +47,10 @@
 </template>
 
 <script>
+import CheckIcon from 'primevue/icon/check';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
+import MinusIcon from 'primevue/icon/minus';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
 
@@ -408,14 +412,8 @@ export default {
         icon() {
             return ['p-treenode-icon', this.node.icon];
         },
-        toggleIcon() {
-            return ['p-tree-toggler-icon pi pi-fw', this.expanded ? this.node.expandedIcon || 'pi-chevron-down' : this.node.collapsedIcon || 'pi-chevron-right'];
-        },
         checkboxClass() {
             return ['p-checkbox-box', { 'p-highlight': this.checked, 'p-indeterminate': this.partialChecked }];
-        },
-        checkboxIcon() {
-            return ['p-checkbox-icon', { 'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked }];
         },
         checkboxMode() {
             return this.selectionMode === 'checkbox' && this.node.selectable !== false;
@@ -432,6 +430,12 @@ export default {
         ariaSelected() {
             return this.checkboxMode ? this.checked : undefined;
         }
+    },
+    components: {
+        ChevronDownIcon: ChevronDownIcon,
+        ChevronRightIcon: ChevronRightIcon,
+        CheckIcon: CheckIcon,
+        MinusIcon: MinusIcon
     },
     directives: {
         ripple: Ripple

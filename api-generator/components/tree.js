@@ -127,11 +127,31 @@ const TreeEvents = [
     }
 ];
 
+const TreeSlots = [
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'searchicon',
+        description: 'Custom search icon template.'
+    },
+    {
+        name: 'togglericon',
+        description: 'Custom toggler icon template.'
+    },
+    {
+        name: 'checkboxicon',
+        description: 'Custom checkbox icon template.'
+    }
+];
+
 module.exports = {
     tree: {
         name: 'Tree',
         description: 'Tree is used to display hierarchical data.',
         props: TreeProps,
-        events: TreeEvents
+        events: TreeEvents,
+        slots: TreeSlots
     }
 };

@@ -2,12 +2,16 @@
     <div :class="containerClass">
         <template v-if="loading">
             <div class="p-tree-loading-overlay p-component-overlay">
-                <i :class="loadingIconClass" />
+                <slot name="loadingicon">
+                    <component :is="loadingIcon ? 'i' : 'SpinnerIcon'" spin :class="['p-tree-loading-icon', loadingIcon]" />
+                </slot>
             </div>
         </template>
         <div v-if="filter" class="p-tree-filter-container">
             <input v-model="filterValue" type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" />
-            <span class="p-tree-filter-icon pi pi-search"></span>
+            <slot name="searchicon">
+                <SearchIcon class="p-tree-filter-icon" />
+            </slot>
         </div>
         <div class="p-tree-wrapper" :style="{ maxHeight: scrollHeight }">
             <ul class="p-tree-container" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
@@ -31,6 +35,8 @@
 </template>
 
 <script>
+import SearchIcon from 'primevue/icon/search';
+import SpinnerIcon from 'primevue/icon/spinner';
 import { ObjectUtils } from 'primevue/utils';
 import TreeNode from './TreeNode.vue';
 
@@ -64,7 +70,7 @@ export default {
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner'
+            default: undefined
         },
         filter: {
             type: Boolean,
@@ -275,9 +281,6 @@ export default {
                 }
             ];
         },
-        loadingIconClass() {
-            return ['p-tree-loading-icon pi-spin', this.loadingIcon];
-        },
         filteredValue() {
             let filteredNodes = [];
             const searchFields = this.filterBy.split(',');
@@ -304,7 +307,9 @@ export default {
         }
     },
     components: {
-        TreeNode: TreeNode
+        TreeNode: TreeNode,
+        SearchIcon: SearchIcon,
+        SpinnerIcon: SpinnerIcon
     }
 };
 </script>
