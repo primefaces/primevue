@@ -31,7 +31,9 @@
                         <slot name="loader" :options="getLoaderOptions(index, isBoth() && { numCols: d_numItemsInViewport.cols })"></slot>
                     </template>
                 </template>
-                <i v-else class="p-virtualscroller-loading-icon pi pi-spinner pi-spin"></i>
+                <slot name="loadingicon">
+                    <SpinnerIcon spin class="p-virtualscroller-loading-icon" />
+                </slot>
             </div>
         </div>
     </template>
@@ -42,6 +44,7 @@
 </template>
 
 <script>
+import SpinnerIcon from 'primevue/icon/spinner';
 import { DomHandler } from 'primevue/utils';
 
 export default {
@@ -742,6 +745,9 @@ export default {
 
             return this.columns;
         }
+    },
+    components: {
+        SpinnerIcon: SpinnerIcon
     }
 };
 </script>

@@ -153,15 +153,19 @@ const VirtualScrollerEvents = [
 const VirtualScrollerSlots = [
     {
         name: 'item',
-        description: 'Content for the item'
+        description: 'Content for the item.'
     },
     {
         name: 'content',
-        description: 'Custom content for the component'
+        description: 'Custom content for the component.'
     },
     {
         name: 'loader',
-        description: 'Custom content for the loader items'
+        description: 'Custom content for the loader items.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
     }
 ];
 

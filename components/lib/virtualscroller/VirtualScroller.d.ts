@@ -308,6 +308,10 @@ export interface VirtualScrollerSlots {
          */
         options: VirtualScrollerLoaderOptions;
     }): VNode[];
+    /**
+     * Custom loading icon template.
+     */
+    loadingicon(): VNode[];
 }
 
 /**
