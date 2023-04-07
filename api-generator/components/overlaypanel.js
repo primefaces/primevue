@@ -49,7 +49,7 @@ const OverlayPanelProps = [
     }
 ];
 
-const MessageSlots = [
+const OverlayPanelSlots = [
     {
         name: 'closeicon',
         description: 'Custom close icon template.'
@@ -72,7 +72,7 @@ module.exports = {
         name: 'OverlayPanel',
         description: 'OverlayPanel is a container component positioned as connected to its target.',
         props: OverlayPanelProps,
-        slots: MessageSlots,
+        slots: OverlayPanelSlots,
         events: OverlayPanelEvents
     }
 };
