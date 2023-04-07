@@ -1,14 +1,21 @@
 <template>
     <button v-ripple :class="containerClass" type="button">
-        <span class="p-paginator-icon pi pi-angle-double-right"></span>
+        <component :is="template || 'AngleDoubleRightIcon'" class="p-paginator-icon" />
     </button>
 </template>
 
 <script>
+import AngleDoubleRightIcon from 'primevue/icon/angledoubleright';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'LastPageLink',
+    props: {
+        template: {
+            type: Function,
+            default: null
+        }
+    },
     computed: {
         containerClass() {
             return [
@@ -18,6 +25,9 @@ export default {
                 }
             ];
         }
+    },
+    components: {
+        AngleDoubleRightIcon: AngleDoubleRightIcon
     },
     directives: {
         ripple: Ripple

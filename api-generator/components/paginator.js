@@ -81,11 +81,27 @@ const PaginatorEvents = [
 const PaginatorSlots = [
     {
         name: 'left',
-        description: "Custom content for the component's left side"
+        description: "Custom content for the component's left side."
     },
     {
         name: 'right',
-        description: "Custom content for the component's right side"
+        description: "Custom content for the component's right side."
+    },
+    {
+        name: 'firstpagelinkicon',
+        description: 'Custom first page link icon template.'
+    },
+    {
+        name: 'prevpagelinkicon',
+        description: 'Custom previous page link icon template.'
+    },
+    {
+        name: 'nextpagelinkicon',
+        description: 'Custom next page link icon template.'
+    },
+    {
+        name: 'lastpagelinkicon',
+        description: 'Custom last page link icon template.'
     }
 ];
 

@@ -1,14 +1,21 @@
 <template>
     <button v-ripple :class="containerClass" type="button">
-        <span class="p-paginator-icon pi pi-angle-left"></span>
+        <component :is="template || 'AngleLeftIcon'" class="p-paginator-icon" />
     </button>
 </template>
 
 <script>
+import AngleLeftIcon from 'primevue/icon/angleleft';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'PrevPageLink',
+    props: {
+        template: {
+            type: Function,
+            default: null
+        }
+    },
     computed: {
         containerClass() {
             return [
@@ -18,6 +25,9 @@ export default {
                 }
             ];
         }
+    },
+    components: {
+        AngleLeftIcon: AngleLeftIcon
     },
     directives: {
         ripple: Ripple

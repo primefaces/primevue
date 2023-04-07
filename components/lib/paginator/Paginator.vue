@@ -5,10 +5,10 @@
                 <slot name="start" :state="currentState"></slot>
             </div>
             <template v-for="item in value" :key="item">
-                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-                <PrevPageLink v-else-if="item === 'PrevPageLink'" :aria-label="getAriaLabel('prevPageLabel')" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-                <NextPageLink v-else-if="item === 'NextPageLink'" :aria-label="getAriaLabel('nextPageLabel')" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-                <LastPageLink v-else-if="item === 'LastPageLink'" :aria-label="getAriaLabel('lastPageLabel')" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
+                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" :template="$slots.firstpagelinkicon" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
+                <PrevPageLink v-else-if="item === 'PrevPageLink'" :aria-label="getAriaLabel('prevPageLabel')" :template="$slots.prevpagelinkicon" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
+                <NextPageLink v-else-if="item === 'NextPageLink'" :aria-label="getAriaLabel('nextPageLabel')" :template="$slots.nextpagelinkicon" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
+                <LastPageLink v-else-if="item === 'LastPageLink'" :aria-label="getAriaLabel('lastPageLabel')" :template="$slots.lastpagelinkicon" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
                 <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" />
                 <CurrentPageReport
                     v-else-if="item === 'CurrentPageReport'"

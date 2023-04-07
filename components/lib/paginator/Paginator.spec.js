@@ -20,8 +20,6 @@ describe('Paginator.vue', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-paginator.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-paginator-icon.pi-angle-double-left').exists()).toBe(true);
-        expect(wrapper.find('.p-paginator-icon.pi-angle-right').exists()).toBe(true);
         expect(wrapper.findAll('.p-paginator-page.p-paginator-element').length).toBe(5);
         expect(wrapper.find('.p-dropdown.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-dropdown-label').text()).toBe('10');
