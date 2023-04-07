@@ -93,19 +93,35 @@ const OrderListEvents = [
 const OrderListSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'item',
-        description: 'Custom content for the item'
+        description: 'Custom content for the item.'
     },
     {
         name: 'controlsstart',
-        description: 'Custom content before the buttons'
+        description: 'Custom content before the buttons.'
     },
     {
         name: 'controlsend',
-        description: 'Custom content after the buttons'
+        description: 'Custom content after the buttons.'
+    },
+    {
+        name: 'movetopicon',
+        description: 'Custom move top icon template.'
+    },
+    {
+        name: 'moveupicon',
+        description: 'Custom move up icon template.'
+    },
+    {
+        name: 'movedownicon',
+        description: 'Custom move down icon template.'
+    },
+    {
+        name: 'movebottomicon',
+        description: 'Custom move bottom icon template.'
     }
 ];
 

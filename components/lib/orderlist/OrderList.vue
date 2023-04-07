@@ -2,10 +2,26 @@
     <div :class="containerClass">
         <div class="p-orderlist-controls">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" icon="pi pi-angle-up" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-up" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-down" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps"></OLButton>
-            <OLButton type="button" icon="pi pi-angle-double-down" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps"></OLButton>
+            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps">
+                <slot>
+                    <component :is="$slots.moveupicon || 'AngleUpIcon'" />
+                </slot>
+            </OLButton>
+            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps">
+                <slot name="movetopicon">
+                    <AngleDoubleUpIcon />
+                </slot>
+            </OLButton>
+            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps">
+                <slot name="movedownicon">
+                    <AngleDownIcon />
+                </slot>
+            </OLButton>
+            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps">
+                <slot name="movebottomicon">
+                    <AngleDoubleDownIcon />
+                </slot>
+            </OLButton>
             <slot name="controlsend"></slot>
         </div>
         <div class="p-orderlist-list-container">
@@ -42,6 +58,10 @@
 
 <script>
 import Button from 'primevue/button';
+import AngleDoubleDownIcon from 'primevue/icon/angledoubledown';
+import AngleDoubleUpIcon from 'primevue/icon/angledoubleup';
+import AngleDownIcon from 'primevue/icon/angledown';
+import AngleUpIcon from 'primevue/icon/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
@@ -578,7 +598,11 @@ export default {
         }
     },
     components: {
-        OLButton: Button
+        OLButton: Button,
+        AngleUpIcon: AngleUpIcon,
+        AngleDownIcon: AngleDownIcon,
+        AngleDoubleUpIcon: AngleDoubleUpIcon,
+        AngleDoubleDownIcon: AngleDoubleDownIcon
     },
     directives: {
         ripple: Ripple

@@ -149,6 +149,22 @@ export interface OrderListSlots {
      * Custom controls end template.
      */
     controlsend(): VNode[];
+    /**
+     * Custom move up icon template.
+     */
+    moveupicon(): VNode[];
+    /**
+     * Custom move top icon template.
+     */
+    movetopicon(): VNode[];
+    /**
+     * Custom move down icon template.
+     */
+    movedownicon(): VNode[];
+    /**
+     * Custom move bottom icon template.
+     */
+    movebottomicon(): VNode[];
 }
 
 /**
