@@ -20559,7 +20559,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-up",
+                            "default": "",
                             "description": "Icon to display."
                         },
                         {
@@ -20577,7 +20577,14 @@
                     "description": "Defines valid slots in ScrollTop component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "icon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom scrolltop icon template."
+                        }
+                    ]
                 },
                 "ScrollTopEmits": {
                     "description": "Defines valid emits in ScrollTop component.",
