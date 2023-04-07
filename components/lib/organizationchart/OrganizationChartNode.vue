@@ -6,7 +6,7 @@
                     <div :class="nodeContentClass" @click="onNodeClick">
                         <component :is="templates[node.type] || templates['default']" :node="node" />
                         <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown="onKeydown">
-                            <i class="p-node-toggler-icon pi" :class="{ 'pi-chevron-down': expanded, 'pi-chevron-up': !expanded }"></i>
+                            <component :is="templates.togglericon || (expanded ? 'ChevronDownIcon' : 'ChevronUpIcon')" :expanded="expanded" class="p-node-toggler-icon" />
                         </a>
                     </div>
                 </td>
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronUpIcon from 'primevue/icon/chevronup';
 import { DomHandler } from 'primevue/utils';
 
 export default {
@@ -132,6 +134,10 @@ export default {
         toggleable() {
             return this.collapsible && this.node.collapsible !== false && !this.leaf;
         }
+    },
+    components: {
+        ChevronDownIcon: ChevronDownIcon,
+        ChevronUpIcon: ChevronUpIcon
     }
 };
 </script>

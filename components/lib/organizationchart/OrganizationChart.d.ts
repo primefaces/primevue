@@ -104,6 +104,16 @@ export interface OrganizationChartSlots {
      * @todo
      */
     [key: string]: (node: any) => VNode[];
+    /**
+     * Custom toggler icon template.
+     * @param {Object} scope - togglericon slot's params.
+     */
+    togglericon(scope: {
+        /**
+         * Curent state of the node
+         */
+        expanded: boolean;
+    }): VNode[];
 }
 
 /**

@@ -78,11 +78,19 @@ const OrganizationChartEvents = [
     }
 ];
 
+const OrganizationChartSlots = [
+    {
+        name: 'togglericon',
+        description: 'Custom toggler icon template.'
+    }
+];
+
 module.exports = {
     organizationchart: {
         name: 'OrganizationChart',
         description: 'OrganizationChart visualizes hierarchical organization data.',
         props: OrganizationChartProps,
-        events: OrganizationChartEvents
+        events: OrganizationChartEvents,
+        slots: OrganizationChartSlots
     }
 };

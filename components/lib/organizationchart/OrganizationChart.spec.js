@@ -124,20 +124,17 @@ describe('OrganizationChart.vue', () => {
         expect(wrapper.find('.p-organizationchart.p-component').exists()).toBe(true);
         expect(wrapper.find('table.p-organizationchart-table').exists()).toBe(true);
         expect(wrapper.findAll('.p-node-toggler-icon').length).toBe(5);
-        expect(wrapper.find('.p-node-toggler-icon').classes()).toContain('pi-chevron-down');
     });
 
     it('should collapsed and expand', async () => {
         await wrapper.vm.onNodeToggle(wrapper.vm.value);
 
-        expect(wrapper.find('.p-node-toggler-icon').classes()).toContain('pi-chevron-up');
         expect(wrapper.emitted()['node-collapse'][0]).toEqual([wrapper.vm.value]);
         expect(wrapper.emitted()['update:collapsedKeys'][0]).toEqual([{ 0: true }]);
         expect(wrapper.vm.d_collapsedKeys).toEqual({ 0: true });
 
         await wrapper.vm.onNodeToggle(wrapper.vm.value);
 
-        expect(wrapper.find('.p-node-toggler-icon').classes()).toContain('pi-chevron-down');
         expect(wrapper.emitted()['node-expand'][0]).toEqual([wrapper.vm.value]);
         expect(wrapper.emitted()['update:collapsedKeys'][0]).toEqual([{}]);
         expect(wrapper.vm.d_collapsedKeys).toEqual({});
