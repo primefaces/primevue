@@ -9,6 +9,7 @@ import ImportDoc from '@/doc/tooltip/ImportDoc';
 import PositionDoc from '@/doc/tooltip/PositionDoc';
 import StyleDoc from '@/doc/tooltip/StyleDoc';
 import TemplateDoc from '@/doc/tooltip/TemplateDoc';
+import DelayDoc from '@/doc/tooltip/DelayDoc';
 
 export default {
     data() {
@@ -33,6 +34,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'delay',
+                    label: 'Delay',
+                    component: DelayDoc
                 },
                 {
                     id: 'style',
