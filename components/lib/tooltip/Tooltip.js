@@ -47,54 +47,90 @@ function unbindScrollListener(el) {
 }
 
 function onMouseEnter(event) {
-    show(event.currentTarget);
+    const el = event.currentTarget;
+    const showDelay = el.$_ptooltipShowDelay;
+
+    show(event.currentTarget, showDelay);
 }
 
 function onMouseLeave(event) {
-    hide(event.currentTarget);
+    const el = event.currentTarget;
+    const hideDelay = el.$_ptooltipHideDelay;
+
+    hide(event.currentTarget, hideDelay);
 }
 
 function onFocus(event) {
-    show(event.currentTarget);
+    const el = event.currentTarget;
+    const showDelay = el.$_ptooltipShowDelay;
+
+    console.log('focus', showDelay);
+    show(event.currentTarget, showDelay);
 }
 
 function onBlur(event) {
-    hide(event.currentTarget);
+    const el = event.currentTarget;
+    const hideDelay = el.$_ptooltipHideDelay;
+
+    hide(event.currentTarget, hideDelay);
 }
 
 function onClick(event) {
-    hide(event.currentTarget);
+    const el = event.currentTarget;
+    const hideDelay = el.$_ptooltipHideDelay;
+
+    hide(event.currentTarget, hideDelay);
 }
 
 function onKeydown(event) {
-    event.code === 'Escape' && hide(event.currentTarget);
+    event.code === 'Escape' && hide(event.currentTarget, hideDelay);
 }
 
-function show(el) {
-    if (el.$_ptooltipDisabled) {
-        return;
-    }
+let timer;
 
-    let tooltipElement = create(el);
-
-    align(el);
-    DomHandler.fadeIn(tooltipElement, 250);
-
-    window.addEventListener('resize', function onWindowResize() {
-        if (!DomHandler.isTouchDevice()) {
-            hide(el);
+function show(el, showDelay) {
+    function tooltipActions() {
+        if (el.$_ptooltipDisabled) {
+            return;
         }
 
-        this.removeEventListener('resize', onWindowResize);
-    });
+        let tooltipElement = create(el);
 
-    bindScrollListener(el);
-    ZIndexUtils.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
+        align(el);
+        DomHandler.fadeIn(tooltipElement, 250);
+
+        window.addEventListener('resize', function onWindowResize() {
+            if (!DomHandler.isTouchDevice()) {
+                hide(el);
+            }
+
+            this.removeEventListener('resize', onWindowResize);
+        });
+
+        bindScrollListener(el);
+        ZIndexUtils.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
+    }
+
+    if (showDelay !== undefined) {
+        timer = setTimeout(tooltipActions, showDelay);
+    } else {
+        tooltipActions();
+    }
 }
 
-function hide(el) {
-    remove(el);
-    unbindScrollListener(el);
+function hide(el, hideDelay) {
+    function tooltipRemoval() {
+        remove(el);
+        unbindScrollListener(el);
+    }
+
+    clearTimeout(timer);
+
+    if (hideDelay !== undefined) {
+        setTimeout(tooltipRemoval, hideDelay);
+    } else {
+        tooltipRemoval();
+    }
 }
 
 function getTooltipElement(el) {
@@ -332,6 +368,8 @@ const Tooltip = {
                 target.$_ptooltipClass = options.value.class;
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
                 target.$_ptooltipIdAttr = options.value.id || '';
+                target.$_ptooltipShowDelay = options.value.showDelay || 0;
+                target.$_ptooltipHideDelay = options.value.hideDelay || 0;
             }
         }
 
