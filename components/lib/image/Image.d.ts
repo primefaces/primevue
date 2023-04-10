@@ -32,6 +32,16 @@ export interface ImageProps {
      * @defaultValue pi pi-eye
      */
     indicatorIcon?: string;
+    /**
+     * Disable the zoom-in button
+     * @defaultValue false
+     */
+    zoomInDisabled?: boolean | undefined;
+    /**
+     * Disable the zoom-out button
+     * @defaultValue false
+     */
+    zoomOutDisabled?: boolean | undefined;
 }
 
 /**
