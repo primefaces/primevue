@@ -1,5 +1,7 @@
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
+let timer;
+
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
 
@@ -86,50 +88,48 @@ function onKeydown(event) {
     event.code === 'Escape' && hide(event.currentTarget, hideDelay);
 }
 
-let timer;
-
-function show(el, showDelay) {
-    function tooltipActions() {
-        if (el.$_ptooltipDisabled) {
-            return;
-        }
-
-        let tooltipElement = create(el);
-
-        align(el);
-        DomHandler.fadeIn(tooltipElement, 250);
-
-        window.addEventListener('resize', function onWindowResize() {
-            if (!DomHandler.isTouchDevice()) {
-                hide(el);
-            }
-
-            this.removeEventListener('resize', onWindowResize);
-        });
-
-        bindScrollListener(el);
-        ZIndexUtils.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
+function tooltipActions(el) {
+    if (el.$_ptooltipDisabled) {
+        return;
     }
 
+    let tooltipElement = create(el);
+
+    align(el);
+    DomHandler.fadeIn(tooltipElement, 250);
+
+    window.addEventListener('resize', function onWindowResize() {
+        if (!DomHandler.isTouchDevice()) {
+            hide(el);
+        }
+
+        this.removeEventListener('resize', onWindowResize);
+    });
+
+    bindScrollListener(el);
+    ZIndexUtils.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
+}
+
+function show(el, showDelay) {
     if (showDelay !== undefined) {
-        timer = setTimeout(tooltipActions, showDelay);
+        timer = setTimeout(() => tooltipActions(el), showDelay);
     } else {
-        tooltipActions();
+        tooltipActions(el);
     }
 }
 
-function hide(el, hideDelay) {
-    function tooltipRemoval() {
-        remove(el);
-        unbindScrollListener(el);
-    }
+function tooltipRemoval(el) {
+    remove(el);
+    unbindScrollListener(el);
+}
 
+function hide(el, hideDelay) {
     clearTimeout(timer);
 
     if (hideDelay !== undefined) {
-        setTimeout(tooltipRemoval, hideDelay);
+        setTimeout(() => tooltipRemoval(el), hideDelay);
     } else {
-        tooltipRemoval();
+        tooltipRemoval(el);
     }
 }
 
