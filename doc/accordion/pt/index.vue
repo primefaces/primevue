@@ -1,6 +1,6 @@
 <template>
-    <div className="doc-main">
-        <div className="doc-intro">
+    <div class="doc-main">
+        <div class="doc-intro">
             <h1>Panel Pass Through</h1>
             <p>Description</p>
         </div>
