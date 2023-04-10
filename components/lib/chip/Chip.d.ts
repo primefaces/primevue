@@ -33,7 +33,6 @@ export interface ChipProps {
     removable?: boolean;
     /**
      * Icon of the remove element.
-     * @defaultValue pi pi-times-circle
      */
     removeIcon?: string;
 }
@@ -46,6 +45,20 @@ export interface ChipSlots {
      * Content can easily be customized with the default slot instead of using the built-in modes.
      */
     default(): VNode[];
+    /**
+     * Custom remove icon template of chip component.
+     * @param {Object} scope - remove icon slot's params.
+     */
+    removeicon(scope: {
+        /**
+         * Remove icon click event
+         */
+        click(): void;
+        /**
+         * Remove icon keydown event
+         */
+        keydown(): void;
+    }): VNode[];
 }
 
 /**

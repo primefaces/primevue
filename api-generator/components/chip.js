@@ -45,11 +45,19 @@ const ChipEvents = [
     }
 ];
 
+const ChipSlots = [
+    {
+        name: 'removeicon',
+        description: 'Custom remove icon template of chip component.'
+    }
+];
+
 module.exports = {
     chip: {
         name: 'Chip',
         description: 'Chip represents entities using icons, labels and images',
         props: ChipProps,
-        events: ChipEvents
+        events: ChipEvents,
+        slots: ChipSlots
     }
 };

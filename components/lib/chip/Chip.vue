@@ -5,11 +5,14 @@
             <span v-else-if="icon" :class="iconClass"></span>
             <div v-if="label" class="p-chip-text">{{ label }}</div>
         </slot>
-        <span v-if="removable" tabindex="0" :class="removeIconClass" @click="close" @keydown="onKeydown"></span>
+        <slot name="removeicon" :click="close" :keydown="onKeydown">
+            <component v-if="removable" :is="removeIcon ? 'span' : 'TimesCircleIcon'" tabindex="0" :class="['p-chip-remove-icon', removeIcon]" @click="close" @keydown="onKeydown"></component>
+        </slot>
     </div>
 </template>
 
 <script>
+import TimesCircleIcon from 'primevue/icon/timescircle';
 export default {
     name: 'Chip',
     emits: ['remove'],
@@ -32,7 +35,7 @@ export default {
         },
         removeIcon: {
             type: String,
-            default: 'pi pi-times-circle'
+            default: undefined
         }
     },
     data() {
@@ -62,10 +65,10 @@ export default {
         },
         iconClass() {
             return ['p-chip-icon', this.icon];
-        },
-        removeIconClass() {
-            return ['p-chip-remove-icon', this.removeIcon];
         }
+    },
+    components: {
+        TimesCircleIcon
     }
 };
 </script>
