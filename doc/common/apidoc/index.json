@@ -21721,6 +21721,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Button part of the content can easily be customized with the default slot instead of using the built-in modes."
+                        },
+                        {
+                            "name": "menubuttonicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom menu button icon template."
                         }
                     ]
                 },
