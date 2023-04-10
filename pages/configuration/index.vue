@@ -22,6 +22,7 @@ import LocaleApiDoc from '@/doc/configuration/locale/LocaleApiDoc';
 import RepositoryDoc from '@/doc/configuration/locale/RepositoryDoc';
 import SetLocaleDoc from '@/doc/configuration/locale/SetLocaleDoc';
 import RippleDoc from '@/doc/configuration/RippleDoc';
+import ZIndexDoc from '@/doc/configuration/ZIndexDoc';
 
 export default {
     data() {
@@ -41,6 +42,11 @@ export default {
                     id: 'inputstyle',
                     label: 'InputStyle',
                     component: InputStyleDoc
+                },
+                {
+                    id: 'zindex',
+                    label: 'ZIndex',
+                    component: ZIndexDoc
                 },
                 {
                     id: 'locale',
