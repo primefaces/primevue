@@ -117,11 +117,19 @@ const SplitButtonEvents = [
     }
 ];
 
+const SplitButtonSlots = [
+    {
+        name: 'menubuttonicon',
+        description: 'Custom menu button icon template.'
+    }
+];
+
 module.exports = {
     splitbutton: {
         name: 'SplitButton',
         description: 'SplitButton groups a set of commands in an overlay with a default command.',
         props: SplitButtonProps,
-        events: SplitButtonEvents
+        events: SplitButtonEvents,
+        slots: SplitButtonSlots
     }
 };

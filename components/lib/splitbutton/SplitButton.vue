@@ -7,7 +7,6 @@
             ref="button"
             type="button"
             class="p-splitbutton-menubutton"
-            :icon="menuButtonIcon"
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
@@ -15,13 +14,18 @@
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
             v-bind="menuButtonProps"
-        />
+        >
+            <slot name="menubuttonicon">
+                <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="menuButtonIcon" />
+            </slot>
+        </PVSButton>
         <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
     </div>
 </template>
 
 <script>
 import Button from 'primevue/button';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
 import TieredMenu from 'primevue/tieredmenu';
 import { UniqueComponentId } from 'primevue/utils';
 
@@ -75,7 +79,7 @@ export default {
         },
         menuButtonIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         severity: {
             type: String,
@@ -152,7 +156,8 @@ export default {
     },
     components: {
         PVSButton: Button,
-        PVSMenu: TieredMenu
+        PVSMenu: TieredMenu,
+        ChevronDownIcon: ChevronDownIcon
     }
 };
 </script>

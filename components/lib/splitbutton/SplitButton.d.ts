@@ -111,6 +111,10 @@ export interface SplitButtonSlots {
      * Button part of the content can easily be customized with the default slot instead of using the built-in modes.
      */
     default(): VNode[];
+    /**
+     * Custom menu button icon template.
+     */
+    menubuttonicon(): VNode[];
 }
 
 /**

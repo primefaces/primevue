@@ -4,7 +4,6 @@
             <SDButton
                 type="button"
                 :class="buttonClassName"
-                :icon="iconClassName"
                 @click="onClick($event)"
                 :disabled="disabled"
                 @keydown="onTogglerKeydown"
@@ -13,7 +12,10 @@
                 :aria-controls="id + '_list'"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-            />
+            >
+                <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" />
+                <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" />
+            </SDButton>
         </slot>
         <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1">
             <template v-for="(item, index) of model" :key="index">
@@ -45,6 +47,7 @@
 
 <script>
 import Button from 'primevue/button';
+import PlusIcon from 'primevue/icon/plus';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
@@ -91,9 +94,12 @@ export default {
         maskClass: null,
         showIcon: {
             type: String,
-            default: 'pi pi-plus'
+            default: undefined
         },
-        hideIcon: null,
+        hideIcon: {
+            type: String,
+            default: undefined
+        },
         rotateAnimation: {
             type: Boolean,
             default: true
@@ -509,9 +515,6 @@ export default {
                 this.buttonClass
             ];
         },
-        iconClassName() {
-            return this.d_visible && !!this.hideIcon ? this.hideIcon : this.showIcon;
-        },
         maskClassName() {
             return [
                 'p-speeddial-mask',
@@ -526,7 +529,8 @@ export default {
         }
     },
     components: {
-        SDButton: Button
+        SDButton: Button,
+        PlusIcon: PlusIcon
     },
     directives: {
         ripple: Ripple,
