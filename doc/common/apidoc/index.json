@@ -6147,7 +6147,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times-circle",
+                            "default": "",
                             "description": "Icon of the remove element."
                         }
                     ],
@@ -6163,6 +6163,19 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Content can easily be customized with the default slot instead of using the built-in modes."
+                        },
+                        {
+                            "name": "removeicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>click()</b>: void, // Remove icon click event\n  \t <b>keydown()</b>: void, // Remove icon keydown event\n  }",
+                                    "description": "remove icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom remove icon template of chip component."
                         }
                     ]
                 },
