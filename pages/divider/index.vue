@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Divider Component" header="Divider" description="Divider is used to separate contents." :componentDocs="docs" :apiDocs="['Divider']" />
+    <DocComponent title="Vue Divider Component" header="Divider" description="Divider is used to separate contents." :componentDocs="docs" :apiDocs="['Divider']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ import LoginDoc from '@/doc/divider/LoginDoc.vue';
 import StyleDoc from '@/doc/divider/StyleDoc.vue';
 import TypeDoc from '@/doc/divider/TypeDoc.vue';
 import VerticalDoc from '@/doc/divider/VerticalDoc.vue';
+import PTComponent from '@/doc/divider/pt/index.vue';
 
 export default {
     data() {
@@ -56,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
