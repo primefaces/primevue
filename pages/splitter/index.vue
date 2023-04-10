@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Splitter Component" header="Splitter" description="Splitter is utilized to separate and resize panels." :componentDocs="docs" :apiDocs="['Splitter', 'SplitterPanel']" />
+    <DocComponent title="Vue Splitter Component" header="Splitter" description="Splitter is utilized to separate and resize panels." :componentDocs="docs" :apiDocs="['Splitter', 'SplitterPanel']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -10,6 +10,7 @@ import NestedDoc from '@/doc/splitter/NestedDoc.vue';
 import SizeDoc from '@/doc/splitter/SizeDoc.vue';
 import StyleDoc from '@/doc/splitter/StyleDoc';
 import VerticalDoc from '@/doc/splitter/VerticalDoc.vue';
+import PTComponent from '@/doc/splitter/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +51,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
