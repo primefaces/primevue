@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Tabs Component" header="TabView" description="TabView is a container component to group content with tabs." :componentDocs="docs" :apiDocs="['TabView', 'TabPanel']" />
+    <DocComponent title="Vue Tabs Component" header="TabView" description="TabView is a container component to group content with tabs." :componentDocs="docs" :apiDocs="['TabView', 'TabPanel']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -12,6 +12,8 @@ import ImportDoc from '@/doc/tabview/ImportDoc.vue';
 import ScrollableDoc from '@/doc/tabview/ScrollableDoc.vue';
 import StyleDoc from '@/doc/tabview/StyleDoc.vue';
 import TemplateDoc from '@/doc/tabview/TemplateDoc.vue';
+import PTComponent from '@/doc/tabview/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -61,7 +63,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
