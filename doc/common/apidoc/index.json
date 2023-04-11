@@ -10962,7 +10962,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times",
+                            "default": "",
                             "description": "Icon to display in the dialog close button."
                         },
                         {
@@ -10970,7 +10970,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-window-maximize",
+                            "default": "",
                             "description": "Icon to display in the dialog maximize button when dialog is not maximized."
                         },
                         {
@@ -10978,7 +10978,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-window-minimize",
+                            "default": "",
                             "description": "Icon to display in the dialog maximize button when dialog is maximized."
                         }
                     ],
@@ -11006,6 +11006,25 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom footer template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
+                        },
+                        {
+                            "name": "maximizeicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>maximized</b>: boolean, // Maximized state as a boolean\n  }",
+                                    "description": "maximizeicon icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom maximizeicon icon template of dialog."
                         }
                     ]
                 },
