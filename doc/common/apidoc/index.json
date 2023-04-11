@@ -23825,40 +23825,16 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times",
+                            "default": "",
                             "description": "Icon to display in the toast close button."
                         },
                         {
-                            "name": "infoIcon",
+                            "name": "icon",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-info-circle",
-                            "description": "Icon to display in the toast with info severity."
-                        },
-                        {
-                            "name": "warnIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "pi pi-exclamation-triangle",
-                            "description": "Icon to display in the toast with warn severity."
-                        },
-                        {
-                            "name": "errorIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "pi pi-times",
-                            "description": "Icon to display in the toast with error severity."
-                        },
-                        {
-                            "name": "successIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "pi pi-check",
-                            "description": "Icon to display in the toast with success severity."
+                            "default": "",
+                            "description": "Icon to display in the toast."
                         },
                         {
                             "name": "closeButtonProps",
@@ -23888,6 +23864,18 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom message template."
+                        },
+                        {
+                            "name": "icon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icon template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
                         }
                     ]
                 },
