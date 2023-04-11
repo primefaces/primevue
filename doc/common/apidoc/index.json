@@ -10209,7 +10209,7 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Invoked when a stateful table saves the state."
+                            "description": "Invoked when a stateful table restores the state."
                         },
                         {
                             "name": "state-save",
@@ -10222,7 +10222,7 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Invoked when a stateful table restores the state."
+                            "description": "Invoked when a stateful table saves the state."
                         }
                     ]
                 }
