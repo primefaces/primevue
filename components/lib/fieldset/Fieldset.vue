@@ -18,7 +18,7 @@
                 v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
             >
                 <slot name="togglericon" :collapsed="d_collapsed">
-                    <span :class="iconClass" v-bind="ptm('togglericon')"></span>
+                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" v-bind="ptm('togglericon')" class="p-fieldset-toggler" />
                 </slot>
                 <slot name="legend">
                     <span class="p-fieldset-legend-text" v-bind="ptm('legendtitle')">{{ legend }}</span>
@@ -38,6 +38,8 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
+import MinusIcon from 'primevue/icon/minus';
+import PlusIcon from 'primevue/icon/plus';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
@@ -80,15 +82,6 @@ export default {
         }
     },
     computed: {
-        iconClass() {
-            return [
-                'p-fieldset-toggler pi ',
-                {
-                    'pi-minus': !this.d_collapsed,
-                    'pi-plus': this.d_collapsed
-                }
-            ];
-        },
         ariaId() {
             return UniqueComponentId();
         },
@@ -98,6 +91,10 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        PlusIcon,
+        MinusIcon
     }
 };
 </script>
