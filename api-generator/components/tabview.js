@@ -42,6 +42,18 @@ const TabViewProps = [
         description: 'Uses to pass all properties of the HTMLButtonElement to the next button.'
     },
     {
+        name: 'prevIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Prev icon of the scrollable tabview.'
+    },
+    {
+        name: 'nextIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Next icon of the scrollable tabview.'
+    },
+    {
         name: 'pt',
         type: 'any',
         default: 'null',

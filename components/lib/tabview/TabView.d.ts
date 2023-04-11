@@ -152,6 +152,14 @@ export interface TabViewProps {
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
     /**
+     * Prev icon of the scrollable tabview.
+     */
+    prevIcon?: string | undefined;
+    /**
+     * Next icon of the scrollable tabview.
+     */
+    nextIcon?: string | undefined;
+    /**
      * Uses to pass attributes to DOM elements inside the component.
      * @type {TabViewPassThroughOptions}
      */

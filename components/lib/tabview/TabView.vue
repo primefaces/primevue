@@ -13,7 +13,7 @@
                 v-bind="{ ...previousButtonProps, ...ptm('prevbutton') }"
             >
                 <slot name="previcon">
-                    <span class="pi pi-chevron-left" aria-hidden="true" v-bind="ptm('previcon')"></span>
+                    <component :is="prevIcon ? prevIcon : 'ChevronLeftIcon'" v-bind="ptm('previcon')" aria-hidden="true" />
                 </slot>
             </button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll" v-bind="ptm('navcontent')">
@@ -59,7 +59,7 @@
                 v-bind="{ ...nextButtonProps, ...ptm('nextbutton') }"
             >
                 <slot name="nexticon">
-                    <span class="pi pi-chevron-right" aria-hidden="true" v-bind="ptm('nexticon')"></span>
+                    <component :is="nextIcon ? nextIcon : 'ChevronRightIcon'" v-bind="ptm('nexticon')" aria-hidden="true" />
                 </slot>
             </button>
         </div>
@@ -85,7 +85,8 @@
 import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
-
+import ChevronLeftIcon from 'primevue/icon/chevronleft';
+import ChevronRightIcon from 'primevue/icon/chevronright';
 export default {
     name: 'TabView',
     extends: BaseComponent,
@@ -118,6 +119,14 @@ export default {
         nextButtonProps: {
             type: null,
             default: null
+        },
+        prevIcon: {
+            type: String,
+            default: undefined
+        },
+        nextIcon: {
+            type: String,
+            default: undefined
         }
     },
     data() {
@@ -391,6 +400,10 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        ChevronLeftIcon,
+        ChevronRightIcon
     }
 };
 </script>
