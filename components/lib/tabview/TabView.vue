@@ -83,10 +83,10 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import Ripple from 'primevue/ripple';
-import { DomHandler, UniqueComponentId } from 'primevue/utils';
 import ChevronLeftIcon from 'primevue/icon/chevronleft';
 import ChevronRightIcon from 'primevue/icon/chevronright';
+import Ripple from 'primevue/ripple';
+import { DomHandler, UniqueComponentId } from 'primevue/utils';
 export default {
     name: 'TabView',
     extends: BaseComponent,
@@ -191,7 +191,7 @@ export default {
         },
         onPrevButtonClick() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
+            const width = DomHandler.getWidth(content);
             const pos = content.scrollLeft - width;
 
             content.scrollLeft = pos <= 0 ? 0 : pos;
