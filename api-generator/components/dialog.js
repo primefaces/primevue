@@ -189,6 +189,14 @@ const DialogSlots = [
     {
         name: 'footer',
         description: "Custom content for the component's footer"
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
+    },
+    {
+        name: 'maximizeicon',
+        description: 'Custom maximizeicon icon template of dialog.'
     }
 ];
 

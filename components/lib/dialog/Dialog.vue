@@ -9,7 +9,9 @@
                         </slot>
                         <div class="p-dialog-header-icons">
                             <button v-if="maximizable" :ref="maximizableRef" v-ripple :autofocus="focusableMax" class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'">
-                                <span :class="maximizeIconClass"></span>
+                                <slot name="maximizeicon" :maximized="maximized">
+                                    <component :is="maximizeIconComponent" :class="maximizeIconClass" />
+                                </slot>
                             </button>
                             <button
                                 v-if="closable"
@@ -22,7 +24,9 @@
                                 type="button"
                                 v-bind="closeButtonProps"
                             >
-                                <span :class="['p-dialog-header-close-icon', closeIcon]"></span>
+                                <slot name="closeicon">
+                                    <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-dialog-header-close-icon', closeIcon]"></component>
+                                </slot>
                             </button>
                         </div>
                     </div>
@@ -44,6 +48,9 @@ import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import { computed } from 'vue';
+import TimesIcon from 'primevue/icon/times';
+import WindowMaximizeIcon from 'primevue/icon/windowmaximize';
+import WindowMinimizeIcon from 'primevue/icon/windowminimize';
 
 export default {
     name: 'Dialog',
@@ -140,15 +147,15 @@ export default {
         },
         closeIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         maximizeIcon: {
             type: String,
-            default: 'pi pi-window-maximize'
+            default: undefined
         },
         minimizeIcon: {
             type: String,
-            default: 'pi pi-window-minimize'
+            default: undefined
         },
         closeButtonProps: {
             type: null,
@@ -169,20 +176,6 @@ export default {
             focusableClose: null
         };
     },
-    documentKeydownListener: null,
-    container: null,
-    mask: null,
-    content: null,
-    headerContainer: null,
-    footerContainer: null,
-    maximizableButton: null,
-    closeButton: null,
-    styleElement: null,
-    dragging: null,
-    documentDragListener: null,
-    documentDragEndListener: null,
-    lastPageX: null,
-    lastPageY: null,
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -475,14 +468,13 @@ export default {
                 }
             ];
         },
+        maximizeIconComponent() {
+            return this.maximized ? (this.minimizeIcon ? 'span' : 'WindowMinimizeIcon') : this.maximizeIcon ? 'span' : 'WindowMaximizeIcon';
+        },
         maximizeIconClass() {
-            return [
-                'p-dialog-header-maximize-icon',
-                {
-                    [this.maximizeIcon]: !this.maximized,
-                    [this.minimizeIcon]: this.maximized
-                }
-            ];
+            const maximizeClasses = this.maximized ? this.minimizeIcon : this.maximizeIcon;
+
+            return `p-dialog-header-maximize-icon ${maximizeClasses}`;
         },
         ariaId() {
             return UniqueComponentId();
@@ -500,12 +492,29 @@ export default {
             return ['p-dialog-content', this.contentClass];
         }
     },
+    documentKeydownListener: null,
+    container: null,
+    mask: null,
+    content: null,
+    headerContainer: null,
+    footerContainer: null,
+    maximizableButton: null,
+    closeButton: null,
+    styleElement: null,
+    dragging: null,
+    documentDragListener: null,
+    documentDragEndListener: null,
+    lastPageX: null,
+    lastPageY: null,
     directives: {
         ripple: Ripple,
         focustrap: FocusTrap
     },
     components: {
-        Portal: Portal
+        Portal: Portal,
+        WindowMinimizeIcon,
+        WindowMaximizeIcon,
+        TimesIcon
     }
 };
 </script>

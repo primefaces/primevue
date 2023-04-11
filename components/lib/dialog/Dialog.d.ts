@@ -146,17 +146,14 @@ export interface DialogProps {
     style?: any;
     /**
      * Icon to display in the dialog close button.
-     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dialog maximize button when dialog is not maximized.
-     * @defaultValue pi pi-window-maximize
      */
     maximizeIcon?: string | undefined;
     /**
      * Icon to display in the dialog maximize button when dialog is maximized.
-     * @defaultValue pi pi-window-minimize
      */
     minimizeIcon?: string | undefined;
 }
@@ -177,6 +174,20 @@ export interface DialogSlots {
      * Custom footer template.
      */
     footer(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
+    /**
+     * Custom maximizeicon icon template of dialog.
+     * @param {Object} scope - maximizeicon icon slot's params.
+     */
+    maximizeicon(scope: {
+        /**
+         * Maximized state as a boolean
+         */
+        maximized: boolean;
+    }): VNode[];
 }
 
 /**

@@ -13,7 +13,7 @@
                 v-bind="{ ...previousButtonProps, ...ptm('prevbutton') }"
             >
                 <slot name="previcon">
-                    <component :is="prevIcon ? prevIcon : 'ChevronLeftIcon'" v-bind="ptm('previcon')" aria-hidden="true" />
+                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" v-bind="ptm('previcon')" aria-hidden="true" :class="prevIcon" />
                 </slot>
             </button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll" v-bind="ptm('navcontent')">
@@ -59,7 +59,7 @@
                 v-bind="{ ...nextButtonProps, ...ptm('nextbutton') }"
             >
                 <slot name="nexticon">
-                    <component :is="nextIcon ? nextIcon : 'ChevronRightIcon'" v-bind="ptm('nexticon')" aria-hidden="true" />
+                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" v-bind="ptm('nexticon')" aria-hidden="true" :class="nextIcon" />
                 </slot>
             </button>
         </div>
