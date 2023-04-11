@@ -26,7 +26,7 @@
                     @node-toggle="onNodeToggle"
                     @node-click="onNodeClick"
                     :selectionMode="selectionMode"
-                    :selectionKeys="selectionKeys"
+                    :selectionKeys="selectionMode == 'checkbox'?selectionItems:selectionKeys"
                     @checkbox-change="onCheckboxChange"
                 ></TreeNode>
             </ul>
@@ -123,7 +123,7 @@ export default {
     methods: {
         onNodeToggle(node) {
             const key = node.key;
-
+            
             if (this.d_expandedKeys[key]) {
                 delete this.d_expandedKeys[key];
                 this.$emit('node-collapse', node);
@@ -131,7 +131,7 @@ export default {
                 this.d_expandedKeys[key] = true;
                 this.$emit('node-expand', node);
             }
-
+            
             this.d_expandedKeys = { ...this.d_expandedKeys };
             this.$emit('update:expandedKeys', this.d_expandedKeys);
         },
@@ -140,11 +140,11 @@ export default {
                 const metaSelection = event.nodeTouched ? false : this.metaKeySelection;
                 const _selectionKeys = metaSelection ? this.handleSelectionWithMetaKey(event) : this.handleSelectionWithoutMetaKey(event);
 
-                this.$emit('update:selectionKeys', _selectionKeys);
+                this.$emit('update:selectionKeys', Object.keys(_selectionKeys));
             }
         },
         onCheckboxChange(event) {
-            this.$emit('update:selectionKeys', event.selectionKeys);
+            this.$emit('update:selectionKeys', Object.keys(event.selectionKeys));
 
             if (event.check) this.$emit('node-select', event.node);
             else this.$emit('node-unselect', event.node);
@@ -268,7 +268,43 @@ export default {
             }
 
             return matched;
-        }
+        },
+        returnSelectionKeysAsObject(values){
+            let newItems = {}
+
+            const parentItems = values.map(i => i.key )
+
+            for(const item of this.selectionKeys ){
+                if(parentItems.includes(item)){
+                    const children = values.filter(i=>i.key == item)[0].children
+
+                    if(!children || children.length == 0) {
+                        newItems[item] = { "checked": true, "partialChecked": false }                        
+                        continue
+                    }
+                    
+                    const [results, countItemChecked] = this.returnSelectionKeysAsObject(children) 
+                    
+                    if (ObjectUtils.arrayContainsAllValues(children.map(i=>i.key),this.selectionKeys)){
+
+                        if(countItemChecked.length == ObjectUtils.flattenNodes(children).length){
+                            newItems[item] = { "checked": true, "partialChecked": false }
+                        }
+                        else {
+                            newItems[item] = { "checked": false, "partialChecked": true }
+                        }
+                    }
+
+                    else if (ObjectUtils.arrayContainsSomeValues(children.map(i=>i.key),this.selectionKeys)){
+                        newItems[item] = { "checked": false, "partialChecked": true }
+                    }
+
+                    newItems = {...newItems, ...results}
+                }
+            }
+
+            return [newItems,Object.entries(newItems).filter(i=>i[1].checked).map(i=>i[0])]
+        },
     },
     computed: {
         containerClass() {
@@ -304,6 +340,9 @@ export default {
         valueToRender() {
             if (this.filterValue && this.filterValue.trim().length > 0) return this.filteredValue;
             else return this.value;
+        },
+        selectionItems(){
+            return this.returnSelectionKeysAsObject(this.value)[0]
         }
     },
     components: {

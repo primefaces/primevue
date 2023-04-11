@@ -256,5 +256,28 @@ export default {
         }
 
         return index;
+    },
+
+    arrayContainsAllValues(array1, array2) {
+        return array1.every(element => array2.includes(element));
+    },
+    
+    arrayContainsSomeValues(array1, array2) {
+        return array1.some(element => array2.includes(element));
+    },
+    flattenNodes(nodes) {
+        let flattenedNodes = [];
+      
+        nodes.forEach(node => {
+          flattenedNodes.push(node);
+      
+          if (node.children) {
+            const children = this.flattenNodes(node.children)
+
+            flattenedNodes = flattenedNodes.concat(children)
+          }
+        })
+      
+        return flattenedNodes;
     }
 };
