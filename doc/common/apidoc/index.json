@@ -22957,6 +22957,22 @@
                             "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
+                            "name": "prevIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Prev icon of the scrollable tabview."
+                        },
+                        {
+                            "name": "nextIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Next icon of the scrollable tabview."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
