@@ -3,7 +3,7 @@
     <div class="card">
         <TabView>
             <TabPanel
-                v-for="(tab, index) in scrollableTabs"
+                v-for="(tab, index) in tabs"
                 :key="tab.title"
                 :header="tab.title"
                 :pt="{
@@ -23,14 +23,14 @@
 export default {
     data() {
         return {
-            scrollableTabs: Array.from({ length: 3 }, (_, i) => ({
+            tabs: Array.from({ length: 3 }, (_, i) => ({
                 title: `Header ${i + 1}`,
                 content: `Tab ${i + 1} Content`
             })),
             code: {
                 basic: `
 <TabView>
-    <TabPanel v-for="(tab, index) in scrollableTabs" :key="tab.title" :header="tab.title"
+    <TabPanel v-for="(tab, index) in tabs" :key="tab.title" :header="tab.title"
         :pt="{
             headeraction: ({ props, parent }) => ({
                 class: panelClass(props, parent, index)
@@ -43,7 +43,7 @@ export default {
 <template>
     <div class="card">
         <TabView>
-            <TabPanel v-for="(tab, index) in scrollableTabs" :key="tab.title" :header="tab.title"
+            <TabPanel v-for="(tab, index) in tabs" :key="tab.title" :header="tab.title"
                 :pt="{
                     headeraction: ({ props, parent }) => ({
                         class: panelClass(props, parent, index)
@@ -59,7 +59,7 @@ export default {
 export default {
     data() {
         return {
-            scrollableTabs: Array.from({ length: 3 }, (_, i) => ({
+            tabs: Array.from({ length: 3 }, (_, i) => ({
                 title: \`Header \${i + 1}\`,
                 content: \`Tab \${i + 1} Content\`
             }))
@@ -80,7 +80,7 @@ export default {
 <template>
     <div class="card">
         <TabView>
-            <TabPanel v-for="(tab, index) in scrollableTabs" :key="tab.title" :header="tab.title"
+            <TabPanel v-for="(tab, index) in tabs" :key="tab.title" :header="tab.title"
                 :pt="{
                     headeraction: ({ props, parent }) => ({
                         class: panelClass(props, parent, index)
@@ -95,7 +95,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const scrollableTabs = ref(Array.from({ length: 3 }, (_, i) => ({
+const tabs = ref(Array.from({ length: 3 }, (_, i) => ({
     title: \`Header \${i + 1}\`,
     content: \`Tab \${i + 1} Content\`
 })));

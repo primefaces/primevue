@@ -7,11 +7,13 @@ import AccessibilityDoc from '@/doc/accordion/AccessibilityDoc';
 import BasicDoc from '@/doc/accordion/BasicDoc';
 import ControlledDoc from '@/doc/accordion/ControlledDoc.vue';
 import Disabled from '@/doc/accordion/DisabledDoc.vue';
+import DynamicDoc from '@/doc/accordion/DynamicDoc';
 import ImportDoc from '@/doc/accordion/ImportDoc';
 import MultipleDoc from '@/doc/accordion/MultipleDoc.vue';
 import StyleDoc from '@/doc/accordion/StyleDoc';
 import TemplateDoc from '@/doc/accordion/TemplateDoc.vue';
 import PTComponent from '@/doc/accordion/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -25,6 +27,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'dynamic',
+                    label: 'Dynamic',
+                    component: DynamicDoc
                 },
                 {
                     id: 'multiple',
