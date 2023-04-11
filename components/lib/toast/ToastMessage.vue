@@ -2,7 +2,9 @@
     <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="p-toast-message-content" :class="message.contentStyleClass">
             <template v-if="!template">
-                <span :class="iconClass"></span>
+                <slot name="icon">
+                    <component :is="icon ? 'span' : iconComponent" :class="['p-toast-message-icon', icon]"></component>
+                </slot>
                 <div class="p-toast-message-text">
                     <span class="p-toast-summary">{{ message.summary }}</span>
                     <div class="p-toast-detail">{{ message.detail }}</div>
@@ -11,7 +13,9 @@
             <component v-else :is="template" :message="message"></component>
             <div v-if="message.closable !== false">
                 <button v-ripple class="p-toast-icon-close p-link" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="closeButtonProps">
-                    <span :class="['p-toast-icon-close-icon', closeIcon]" />
+                    <slot name="closeIcon">
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-toast-icon-close-icon', closeIcon]"></component>
+                    </slot>
                 </button>
             </div>
         </div>
@@ -20,7 +24,11 @@
 
 <script>
 import Ripple from 'primevue/ripple';
-
+import TimesIcon from 'primevue/icon/times';
+import InfoCircleIcon from 'primevue/icon/infocircle';
+import CheckIcon from 'primevue/icon/check';
+import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
+import TimesCircleIcon from 'primevue/icon/timescircle';
 export default {
     name: 'ToastMessage',
     emits: ['close'],
@@ -35,23 +43,11 @@ export default {
         },
         closeIcon: {
             type: String,
-            default: null
+            default: undefined
         },
-        infoIcon: {
+        icon: {
             type: String,
-            default: null
-        },
-        warnIcon: {
-            type: String,
-            default: null
-        },
-        errorIcon: {
-            type: String,
-            default: null
-        },
-        successIcon: {
-            type: String,
-            default: null
+            default: undefined
         },
         closeButtonProps: {
             type: null,
@@ -97,20 +93,24 @@ export default {
                 }
             ];
         },
-        iconClass() {
-            return [
-                'p-toast-message-icon',
-                {
-                    [this.infoIcon]: this.message.severity === 'info',
-                    [this.warnIcon]: this.message.severity === 'warn',
-                    [this.errorIcon]: this.message.severity === 'error',
-                    [this.successIcon]: this.message.severity === 'success'
-                }
-            ];
+        iconComponent() {
+            return {
+                info: InfoCircleIcon,
+                success: CheckIcon,
+                warn: ExclamationTriangleIcon,
+                error: TimesCircleIcon
+            }[this.message.severity];
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
+    },
+    components: {
+        TimesIcon,
+        InfoCircleIcon,
+        CheckIcon,
+        ExclamationTriangleIcon,
+        TimesCircleIcon
     },
     directives: {
         ripple: Ripple

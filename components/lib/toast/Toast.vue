@@ -2,19 +2,14 @@
     <Portal>
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
-                <ToastMessage
-                    v-for="msg of messages"
-                    :key="msg.id"
-                    :message="msg"
-                    :template="$slots.message"
-                    :closeIcon="closeIcon"
-                    :infoIcon="infoIcon"
-                    :warnIcon="warnIcon"
-                    :errorIcon="errorIcon"
-                    :successIcon="successIcon"
-                    :closeButtonProps="closeButtonProps"
-                    @close="remove($event)"
-                />
+                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" :template="$slots.message" :closeIcon="closeIcon" :icon="msg.icon || icon" :closeButtonProps="closeButtonProps" @close="remove($event)">
+                    <template #closeIcon>
+                        <slot name="closeIcon" />
+                    </template>
+                    <template #icon>
+                        <slot name="icon" />
+                    </template>
+                </ToastMessage>
             </transition-group>
         </div>
     </Portal>
@@ -55,23 +50,11 @@ export default {
         },
         closeIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
-        infoIcon: {
+        icon: {
             type: String,
-            default: 'pi pi-info-circle'
-        },
-        warnIcon: {
-            type: String,
-            default: 'pi pi-exclamation-triangle'
-        },
-        errorIcon: {
-            type: String,
-            default: 'pi pi-times'
-        },
-        successIcon: {
-            type: String,
-            default: 'pi pi-check'
+            default: undefined
         },
         closeButtonProps: {
             type: null,

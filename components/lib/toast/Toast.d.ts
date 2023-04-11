@@ -95,29 +95,12 @@ export interface ToastProps {
     breakpoints?: ToastBreakpointsType;
     /**
      * Icon to display in the toast close button.
-     * @defaultValue pi pi-times
      */
     closeIcon?: string | undefined;
     /**
-     * Icon to display in the toast with info severity.
-     * @defaultValue pi pi-info-circle
+     * Icon to display in the toast.
      */
-    infoIcon?: string | undefined;
-    /**
-     * Icon to display in the toast with warn severity.
-     * @defaultValue pi pi-exclamation-triangle
-     */
-    warnIcon?: string | undefined;
-    /**
-     * Icon to display in the toast with error severity.
-     * @defaultValue pi pi-times
-     */
-    errorIcon?: string | undefined;
-    /**
-     * Icon to display in the toast with success severity.
-     * @defaultValue pi pi-check
-     */
-    successIcon?: string | undefined;
+    icon?: string | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the close button.
      */
@@ -138,6 +121,14 @@ export interface ToastSlots {
          */
         message: any;
     }): VNode[];
+    /**
+     * Custom icon template.
+     */
+    icon(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
 }
 
 /**
