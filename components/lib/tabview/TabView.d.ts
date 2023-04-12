@@ -189,10 +189,10 @@ export interface TabViewSlots {
  */
 export interface TabViewEmits {
     /**
-     * Emitted when the value changes.
-     * @param {number} value - New value.
+     * Emitted when the activeIndex changes.
+     * @param {number} index - Current activeIndex.
      */
-    'update:modelValue'(value: number): void;
+    'update:activeIndex'(index: number): void;
     /**
      * Callback to invoke when an active tab is changed.
      * @param {TabViewChangeEvent} event - Custom tab change event.

@@ -80,7 +80,6 @@ export interface TabPanelProps {
     headerActionProps?: AnchorHTMLAttributes | undefined;
     /**
      * Inline style of the tab content.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentStyle?: any;
     /**
@@ -89,6 +88,7 @@ export interface TabPanelProps {
     contentClass?: any;
     /**
      * Uses to pass all properties of the HTMLDivElement to the tab content.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
