@@ -22596,8 +22596,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Inline style of the tab header.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "description": "Inline style of the tab header."
                         },
                         {
                             "name": "headerClass",
@@ -22605,8 +22604,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Style class of the tab header.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "description": "Style class of the tab header."
                         },
                         {
                             "name": "headerProps",
@@ -22641,8 +22639,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Style class of the tab content.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "description": "Style class of the tab content."
                         },
                         {
                             "name": "contentProps",
@@ -22650,8 +22647,7 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content."
                         },
                         {
                             "name": "disabled",
