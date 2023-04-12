@@ -113,11 +113,11 @@ export interface TabPanelSlots {
     /**
      * Custom content template.
      */
-    default: () => VNode[];
+    default(): VNode[];
     /**
      * Custom header template.
      */
-    header: () => VNode[];
+    header(): VNode[];
 }
 
 export interface TabPanelEmits {}
