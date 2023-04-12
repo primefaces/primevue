@@ -22630,8 +22630,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Inline style of the tab content.",
-                            "deprecated": "since v3.26.0. Use 'pt' property instead."
+                            "description": "Inline style of the tab content."
                         },
                         {
                             "name": "contentClass",
@@ -22647,7 +22646,8 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content."
+                            "description": "Uses to pass all properties of the HTMLDivElement to the tab content.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "disabled",
@@ -23027,17 +23027,17 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "update:modelValue",
+                            "name": "update:activeIndex",
                             "parameters": [
                                 {
-                                    "name": "value",
+                                    "name": "index",
                                     "optional": false,
                                     "type": "number",
-                                    "description": "New value."
+                                    "description": "Current activeIndex."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Emitted when the value changes."
+                            "description": "Emitted when the activeIndex changes."
                         },
                         {
                             "name": "tab-change",
