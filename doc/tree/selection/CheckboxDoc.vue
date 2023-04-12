@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Selection of multiple nodes via checkboxes is enabled by configuring <i>selectionMode</i> as <i>checkbox</i>.</p>
         <p>
-            In checkbox selection mode, value binding should be a array of string where string is the node key <br> 
+            In checkbox selection mode, value binding should be an array of string where string is the node key <br> 
             for example: <i><code>selectedKey:[ "0", "1", "0-0"]</code></i>.
         </p>
     </DocSectionText>
