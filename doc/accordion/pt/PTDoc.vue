@@ -113,8 +113,6 @@ const panelClass = (props, parent, index) => {
     },
     methods: {
         panelClass(props, parent, index) {
-            console.log(props, parent);
-
             return [
                 {
                     'bg-primary': parent.state.d_activeIndex === index
