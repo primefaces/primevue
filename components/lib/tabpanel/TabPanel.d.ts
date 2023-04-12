@@ -62,12 +62,10 @@ export interface TabPanelProps {
     header?: string | undefined;
     /**
      * Inline style of the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerStyle?: any;
     /**
      * Style class of the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerClass?: any;
     /**
@@ -87,12 +85,10 @@ export interface TabPanelProps {
     contentStyle?: any;
     /**
      * Style class of the tab content.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentClass?: any;
     /**
      * Uses to pass all properties of the HTMLDivElement to the tab content.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
