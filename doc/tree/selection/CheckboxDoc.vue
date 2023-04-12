@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Selection of multiple nodes via checkboxes is enabled by configuring <i>selectionMode</i> as <i>checkbox</i>.</p>
         <p>
-            In checkbox selection mode, value binding should be a key-value pair where key is the node key and value is an object that has <i>checked</i> and <i>partialChecked</i> properties to represent the checked state of a node obje to indicate
-            selection.
+            In checkbox selection mode, value binding should be a array of string where string is the node key <br> 
+            for example: <i><code>selectedKey:[ "0", "1", "0-0"]</code></i>.
         </p>
     </DocSectionText>
     <div class="card flex justify-content-center">
@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             nodes: null,
-            selectedKey: null,
+            selectedKey: [ "0", "1", "0-0", "0-0-0", "0-0-1", "1-0", "1-1", "1-2" ],
             code: {
                 basic: `
 <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-30rem"></Tree>`,
@@ -37,7 +37,8 @@ import { NodeService } from '@/service/NodeService';
 export default {
     data() {
         return {
-            nodes: null
+            nodes: null,
+            selectedKey: [ "0", "1", "0-0", "0-0-0", "0-0-1", "1-0", "1-1", "1-2" ]
         };
     },
     mounted() {
@@ -67,7 +68,7 @@ import { NodeService } from '@/service/NodeService';
 import { useToast } from "primevue/usetoast";
 
 const nodes = ref(null);
-const selectedKey = ref(null);
+const selectedKey = ref([ "0", "1", "0-0", "0-0-0", "0-0-1", "1-0", "1-1", "1-2" ]);
 const toast = useToast();
 
 onMounted(() => {
