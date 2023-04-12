@@ -22675,23 +22675,21 @@
                 "TabPanelSlots": {
                     "description": "Defines valid slots in TabPanel slots.",
                     "relatedProp": "",
-                    "props": [
+                    "props": [],
+                    "methods": [
                         {
                             "name": "default",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom content template."
                         },
                         {
                             "name": "header",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom header template."
                         }
-                    ],
-                    "methods": []
+                    ]
                 },
                 "TabPanelEmits": {
                     "relatedProp": "",
