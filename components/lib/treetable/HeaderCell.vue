@@ -4,7 +4,7 @@
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
         <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
         <span v-if="columnProp('sortable')">
-            <component :is="templates ? templates : findSortIcon" :sorted="sortableColumnIcon[1].sorted" :sortOrder="sortableColumnIcon[1].sortOrder" class="p-sortable-column-icon pi-fw" />
+            <component :is="(column.children && column.children.sorticon) || findSortIcon" :sorted="sortableColumnIcon[1].sorted" :sortOrder="sortableColumnIcon[1].sortOrder" class="p-sortable-column-icon pi-fw" />
         </span>
         <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
@@ -43,10 +43,6 @@ export default {
         sortMode: {
             type: String,
             default: 'single'
-        },
-        templates: {
-            type: Function,
-            default: null
         }
     },
     data() {

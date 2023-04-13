@@ -67,7 +67,7 @@ export default {
             default: false
         },
         templates: {
-            type: null,
+            type: Object,
             default: null
         }
     },

@@ -108,7 +108,7 @@ export default {
             default: null
         },
         templates: {
-            type: null,
+            type: Object,
             default: null
         }
     },

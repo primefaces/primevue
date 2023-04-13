@@ -40,13 +40,13 @@
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
             <button v-if="!d_editing" v-ripple class="p-row-editor-init p-link" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit">
-                <component :is="(column.children && !column.children.roweditoriniticon) || 'PencilIcon'" class="p-row-editor-init-icon pi-fw" />
+                <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" class="p-row-editor-init-icon pi-fw" />
             </button>
             <button v-if="d_editing" v-ripple class="p-row-editor-save p-link" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave">
-                <component :is="(column.children && !column.children.roweditorsaveicon) || 'CheckIcon'" class="p-row-editor-save-icon pi-fw" />
+                <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" class="p-row-editor-save-icon pi-fw" />
             </button>
             <button v-if="d_editing" v-ripple class="p-row-editor-cancel p-link" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel">
-                <component :is="(column.children && !column.children.roweditorcancelicon) || 'TimesIcon'" class="p-row-editor-cancel-icon pi-fw" />
+                <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" class="p-row-editor-cancel-icon pi-fw" />
             </button>
         </template>
         <template v-else>{{ resolveFieldData() }}</template>

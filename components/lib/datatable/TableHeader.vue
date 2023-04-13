@@ -209,7 +209,7 @@ export default {
             default: null
         },
         headerCheckboxIconTemplate: {
-            type: null,
+            type: Function,
             default: null
         }
     },

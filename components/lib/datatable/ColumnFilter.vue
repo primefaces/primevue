@@ -176,15 +176,42 @@ export default {
             type: Number,
             default: 2
         },
-        filterElement: null,
-        filterHeaderTemplate: null,
-        filterFooterTemplate: null,
-        filterClearTemplate: null,
-        filterApplyTemplate: null,
-        filterIconTemplate: null,
-        filterAddIconTemplate: null,
-        filterRemoveIconTemplate: null,
-        filterClearIconTemplate: null,
+        filterElement: {
+            type: Function,
+            default: null
+        },
+        filterHeaderTemplate: {
+            type: Function,
+            default: null
+        },
+        filterFooterTemplate: {
+            type: Function,
+            default: null
+        },
+        filterClearTemplate: {
+            type: Function,
+            default: null
+        },
+        filterApplyTemplate: {
+            type: Function,
+            default: null
+        },
+        filterIconTemplate: {
+            type: Function,
+            default: null
+        },
+        filterAddIconTemplate: {
+            type: Function,
+            default: null
+        },
+        filterRemoveIconTemplate: {
+            type: Function,
+            default: null
+        },
+        filterClearIconTemplate: {
+            type: Function,
+            default: null
+        },
         filters: {
             type: Object,
             default: null

@@ -20,7 +20,7 @@ export default {
         checked: null,
         disabled: null,
         headerCheckboxIconTemplate: {
-            type: null,
+            type: Function,
             default: null
         }
     },

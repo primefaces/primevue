@@ -27,7 +27,7 @@ export default {
             default: null
         },
         columns: {
-            type: null,
+            type: Object,
             default: null
         }
     },

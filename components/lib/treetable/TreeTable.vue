@@ -43,7 +43,6 @@
                                 :sortOrder="d_sortOrder"
                                 :multiSortMeta="d_multiSortMeta"
                                 :sortMode="sortMode"
-                                :templates="$slots['sorticon']"
                                 @column-click="onColumnHeaderClick"
                                 @column-resizestart="onColumnResizeStart"
                             ></TTHeaderCell>

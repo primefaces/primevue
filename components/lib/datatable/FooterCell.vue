@@ -12,7 +12,7 @@ export default {
     name: 'FooterCell',
     props: {
         column: {
-            type: null,
+            type: Object,
             default: null
         }
     },

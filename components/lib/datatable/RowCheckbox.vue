@@ -20,7 +20,7 @@ export default {
         value: null,
         checked: null,
         rowCheckboxIconTemplate: {
-            type: null,
+            type: Function,
             default: null
         }
     },
