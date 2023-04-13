@@ -1,15 +1,21 @@
 <template>
     <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled">
-        <slot>
-            <span v-if="loading && !icon" :class="iconStyleClass"></span>
-            <span v-if="icon" :class="iconStyleClass"></span>
+        <slot></slot>
+        <template v-if="!$slots.default">
+            <slot v-if="loading" name="loadingicon" :class="iconStyleClass">
+                <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" :class="iconStyleClass" spin />
+            </slot>
+            <slot v-else name="icon" :class="iconStyleClass">
+                <span v-if="icon" :class="iconStyleClass"></span>
+            </slot>
             <span class="p-button-label">{{ label || '&nbsp;' }}</span>
             <span v-if="badge" :class="badgeStyleClass">{{ badge }}</span>
-        </slot>
+        </template>
     </button>
 </template>
 
 <script>
+import SpinnerIcon from 'primevue/icon/spinner';
 import Ripple from 'primevue/ripple';
 
 export default {
@@ -45,7 +51,7 @@ export default {
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner pi-spin'
+            default: undefined
         },
         link: {
             type: Boolean,
@@ -85,11 +91,11 @@ export default {
             return [
                 'p-button p-component',
                 {
-                    'p-button-icon-only': this.icon && !this.label,
+                    'p-button-icon-only': this.hasIcon && !this.label,
                     'p-button-vertical': (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label,
                     'p-disabled': this.$attrs.disabled || this.loading,
                     'p-button-loading': this.loading,
-                    'p-button-loading-label-only': this.loading && !this.icon && this.label,
+                    'p-button-loading-label-only': this.loading && !this.hasIcon && this.label,
                     'p-button-link': this.link,
                     [`p-button-${this.severity}`]: this.severity,
                     'p-button-raised': this.raised,
@@ -104,7 +110,7 @@ export default {
         },
         iconStyleClass() {
             return [
-                this.loading ? 'p-button-loading-icon ' + this.loadingIcon : this.icon,
+                this.loading ? 'p-button-loading-icon ' + (this.loadingIcon || '') : this.icon,
                 'p-button-icon',
                 this.iconClass,
                 {
@@ -129,7 +135,13 @@ export default {
         },
         defaultAriaLabel() {
             return this.label ? this.label + (this.badge ? ' ' + this.badge : '') : this.$attrs['aria-label'];
+        },
+        hasIcon() {
+            return this.icon || this.$slots.icon;
         }
+    },
+    components: {
+        SpinnerIcon
     },
     directives: {
         ripple: Ripple

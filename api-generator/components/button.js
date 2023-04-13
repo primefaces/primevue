@@ -97,10 +97,25 @@ const ButtonProps = [
     }
 ];
 
+const ButtonEvents = [];
+
+const ButtonSlots = [
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    }
+];
+
 module.exports = {
     button: {
         name: 'Button',
         description: 'Button is an extension to standard button element with icons and theming.',
-        props: ButtonProps
+        props: ButtonProps,
+        events: ButtonEvents,
+        slots: ButtonSlots
     }
 };

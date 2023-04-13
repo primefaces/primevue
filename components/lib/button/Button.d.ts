@@ -54,7 +54,6 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     loading?: boolean | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
@@ -105,6 +104,26 @@ export interface ButtonSlots {
      * Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.
      */
     default(): VNode[];
+    /**
+     * Custom icon template.
+     * @param {Object} scope - icon slot's params.
+     */
+    icon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom loading icon template.
+     * @param {Object} scope - loading icon slot's params.
+     */
+    loadingicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**
