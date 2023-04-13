@@ -5,7 +5,13 @@
         </div>
         <div v-else class="p-inplace-content">
             <slot name="content"></slot>
-            <IPButton v-if="closable" :icon="closeIcon" :aria-label="closeAriaLabel" @click="close" v-bind="closeButtonProps" />
+            <IPButton v-if="closable" :aria-label="closeAriaLabel" @click="close" v-bind="closeButtonProps">
+                <template #icon>
+                    <slot name="closeicon">
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="closeIcon"></component>
+                    </slot>
+                </template>
+            </IPButton>
         </div>
     </div>
 </template>
@@ -13,7 +19,7 @@
 <script>
 import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
-
+import TimesIcon from 'primevue/icon/times';
 export default {
     name: 'Inplace',
     emits: ['open', 'close', 'update:active'],
@@ -32,7 +38,7 @@ export default {
         },
         closeIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         displayProps: {
             type: null,
@@ -84,7 +90,8 @@ export default {
         }
     },
     components: {
-        IPButton: Button
+        IPButton: Button,
+        TimesIcon
     },
     directives: {
         focustrap: FocusTrap
