@@ -25911,6 +25911,36 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom empty template."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
+                        },
+                        {
+                            "name": "togglericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom toggler icon template."
+                        },
+                        {
+                            "name": "checkboxicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom checkbox icon template."
+                        },
+                        {
+                            "name": "sorticon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>sorted</b>: TreeNode, // Whether or not column is sorted\n  \t <b>sortOrder</b>: boolean, // Current sort order\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom sort icon template."
                         }
                     ]
                 },
