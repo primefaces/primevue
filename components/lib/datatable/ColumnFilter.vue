@@ -16,9 +16,11 @@
             @click="toggleMenu()"
             @keydown="onToggleButtonKeyDown($event)"
         >
-            <span class="pi pi-filter-icon pi-filter"></span>
+            <component :is="filterIconTemplate || 'FilterIcon'" />
         </button>
-        <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()"><span class="pi pi-filter-slash"></span></button>
+        <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()">
+            <component :is="filterClearIconTemplate || 'FilterSlashIcon'" />
+        </button>
         <Portal>
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
                 <div
@@ -78,19 +80,20 @@
                                 ></CFDropdown>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
                                 <div>
-                                    <CFButton
-                                        v-if="showRemoveIcon"
-                                        type="button"
-                                        icon="pi pi-trash"
-                                        class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm"
-                                        @click="removeConstraint(i)"
-                                        :label="removeRuleButtonLabel"
-                                    ></CFButton>
+                                    <CFButton v-if="showRemoveIcon" type="button" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel">
+                                        <template #icon>
+                                            <component :is="filterRemoveIconTemplate || 'TrashIcon'" class="p-button-icon-left" />
+                                        </template>
+                                    </CFButton>
                                 </div>
                             </div>
                         </div>
                         <div v-if="isShowAddConstraint" class="p-column-filter-add-rule">
-                            <CFButton type="button" :label="addRuleButtonLabel" icon="pi pi-plus" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()"></CFButton>
+                            <CFButton type="button" :label="addRuleButtonLabel" iconPos="left" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()">
+                                <template #icon>
+                                    <component :is="filterAddIconTemplate || 'PlusIcon'" class="p-button-icon-left" />
+                                </template>
+                            </CFButton>
                         </div>
                         <div class="p-column-filter-buttonbar">
                             <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" :label="clearButtonLabel" @click="clearFilter"></CFButton>
@@ -113,6 +116,10 @@ import { FilterOperator } from 'primevue/api';
 import Button from 'primevue/button';
 import Dropdown from 'primevue/dropdown';
 import FocusTrap from 'primevue/focustrap';
+import FilterIcon from 'primevue/icon/filter';
+import FilterSlashIcon from 'primevue/icon/filterslash';
+import PlusIcon from 'primevue/icon/plus';
+import TrashIcon from 'primevue/icon/trash';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -174,6 +181,10 @@ export default {
         filterFooterTemplate: null,
         filterClearTemplate: null,
         filterApplyTemplate: null,
+        filterIconTemplate: null,
+        filterAddIconTemplate: null,
+        filterRemoveIconTemplate: null,
+        filterClearIconTemplate: null,
         filters: {
             type: Object,
             default: null
@@ -590,7 +601,11 @@ export default {
     components: {
         CFDropdown: Dropdown,
         CFButton: Button,
-        Portal: Portal
+        Portal: Portal,
+        FilterSlashIcon: FilterSlashIcon,
+        FilterIcon: FilterIcon,
+        TrashIcon: TrashIcon,
+        PlusIcon: PlusIcon
     },
     directives: {
         focustrap: FocusTrap

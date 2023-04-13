@@ -19,25 +19,34 @@
         <component v-else-if="column.children && column.children.body && !column.children.editor && d_editing" :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" />
         <template v-else-if="columnProp('selectionMode')">
             <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" />
-            <DTCheckbox v-else-if="columnProp('selectionMode') === 'multiple'" :value="rowData" :checked="selected" :aria-selected="selected ? true : undefined" @change="toggleRowWithCheckbox($event, rowIndex)" />
+            <DTCheckbox
+                v-else-if="columnProp('selectionMode') === 'multiple'"
+                :value="rowData"
+                :checked="selected"
+                :rowCheckboxIconTemplate="column.children && column.children.rowcheckboxicon"
+                :aria-selected="selected ? true : undefined"
+                @change="toggleRowWithCheckbox($event, rowIndex)"
+            />
         </template>
         <template v-else-if="columnProp('rowReorder')">
-            <i :class="['p-datatable-reorderablerow-handle', columnProp('rowReorderIcon') || 'pi pi-bars']"></i>
+            <component :is="column.children && column.children.rowreordericon ? column.children.rowreordericon : columnProp('rowReorderIcon') ? 'i' : 'BarsIcon'" :class="['p-datatable-reorderablerow-handle', columnProp('rowReorderIcon')]" />
         </template>
         <template v-else-if="columnProp('expander')">
             <button v-ripple class="p-row-toggler p-link" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow">
-                <span :class="rowTogglerIcon"></span>
+                <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :rowExpanded="isRowExpanded" />
+                <component v-else-if="column.children && !column.children.rowtogglericon && isRowExpanded" :is="expandedRowIcon ? 'span' : 'ChevronDownIcon'" class="p-row-toggler-icon" />
+                <component v-else-if="column.children && !column.children.rowtogglericon && !isRowExpanded" :is="collapsedRowIcon ? 'span' : 'ChevronRightIcon'" class="p-row-toggler-icon" />
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
             <button v-if="!d_editing" v-ripple class="p-row-editor-init p-link" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit">
-                <span class="p-row-editor-init-icon pi pi-fw pi-pencil"></span>
+                <component :is="(column.children && !column.children.roweditoriniticon) || 'PencilIcon'" class="p-row-editor-init-icon pi-fw" />
             </button>
             <button v-if="d_editing" v-ripple class="p-row-editor-save p-link" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave">
-                <span class="p-row-editor-save-icon pi pi-fw pi-check"></span>
+                <component :is="(column.children && !column.children.roweditorsaveicon) || 'CheckIcon'" class="p-row-editor-save-icon pi-fw" />
             </button>
             <button v-if="d_editing" v-ripple class="p-row-editor-cancel p-link" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel">
-                <span class="p-row-editor-cancel-icon pi pi-fw pi-times"></span>
+                <component :is="(column.children && !column.children.roweditorcancelicon) || 'TimesIcon'" class="p-row-editor-cancel-icon pi-fw" />
             </button>
         </template>
         <template v-else>{{ resolveFieldData() }}</template>
@@ -45,6 +54,12 @@
 </template>
 
 <script>
+import BarsIcon from 'primevue/icon/bars';
+import CheckIcon from 'primevue/icon/check';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
+import PencilIcon from 'primevue/icon/pencil';
+import TimesIcon from 'primevue/icon/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
@@ -75,9 +90,9 @@ export default {
             type: Number,
             default: null
         },
-        rowTogglerIcon: {
-            type: Array,
-            default: null
+        isRowExpanded: {
+            type: Boolean,
+            default: false
         },
         selected: {
             type: Boolean,
@@ -110,6 +125,14 @@ export default {
         name: {
             type: String,
             default: null
+        },
+        expandedRowIcon: {
+            type: String,
+            default: null
+        },
+        collapsedRowIcon: {
+            type: String,
+            default: null
         }
     },
     documentEditListener: null,
@@ -118,8 +141,7 @@ export default {
     data() {
         return {
             d_editing: this.editing,
-            styleObject: {},
-            isRowExpanded: false
+            styleObject: {}
         };
     },
     watch: {
@@ -162,7 +184,6 @@ export default {
             return ObjectUtils.resolveFieldData(this.rowData, this.field);
         },
         toggleRow(event) {
-            this.isRowExpanded = !this.isRowExpanded;
             this.$emit('row-toggle', {
                 originalEvent: event,
                 data: this.rowData
@@ -453,7 +474,13 @@ export default {
     },
     components: {
         DTRadioButton: RowRadioButton,
-        DTCheckbox: RowCheckbox
+        DTCheckbox: RowCheckbox,
+        ChevronDownIcon: ChevronDownIcon,
+        ChevronRightIcon: ChevronRightIcon,
+        BarsIcon: BarsIcon,
+        PencilIcon: PencilIcon,
+        CheckIcon: CheckIcon,
+        TimesIcon: TimesIcon
     },
     directives: {
         ripple: Ripple

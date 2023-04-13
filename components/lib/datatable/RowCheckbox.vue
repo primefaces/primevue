@@ -4,12 +4,13 @@
             <input ref="input" type="checkbox" :checked="checked" :disabled="$attrs.disabled" :tabindex="$attrs.disabled ? null : '0'" :aria-label="checkboxAriaLabel" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeydown" />
         </div>
         <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]">
-            <span :class="['p-checkbox-icon', { 'pi pi-check': checked }]"></span>
+            <component :is="rowCheckboxIconTemplate || 'CheckIcon'" :checked="checked" class="p-checkbox-icon" />
         </div>
     </div>
 </template>
 
 <script>
+import CheckIcon from 'primevue/icon/check';
 import { DomHandler } from 'primevue/utils';
 
 export default {
@@ -17,7 +18,11 @@ export default {
     emits: ['change'],
     props: {
         value: null,
-        checked: null
+        checked: null,
+        rowCheckboxIconTemplate: {
+            type: null,
+            default: null
+        }
     },
     data() {
         return {
@@ -60,6 +65,9 @@ export default {
         checkboxAriaLabel() {
             return this.$primevue.config.locale.aria ? (this.checked ? this.$primevue.config.locale.aria.selectRow : this.$primevue.config.locale.aria.unselectRow) : undefined;
         }
+    },
+    components: {
+        CheckIcon: CheckIcon
     }
 };
 </script>

@@ -486,6 +486,78 @@ export interface ColumnSlots {
          */
         loadingOptions: ColumnLoadingOptions;
     }): VNode[];
+    /**
+     * Custom row toggler icon template.
+     * @param {Object} scope - row toggler icon slot's params.
+     */
+    rowtogglericon(scope: {
+        /**
+         * Current row expanded state.
+         */
+        rowExpanded: boolean;
+    }): VNode[];
+    /**
+     * Custom row checkbox icon template.
+     * @param {Object} scope - header row icon slot's params.
+     */
+    rowcheckboxicon(scope: {
+        /**
+         * Current check state.
+         */
+        checked: boolean;
+    }): VNode[];
+    /**
+     * Custom row editor init icon template.
+     */
+    roweditoriniticon(): VNode[];
+    /**
+     * Custom row editor save icon template.
+     */
+    roweditorsaveicon(): VNode[];
+    /**
+     * Custom row editor cancel icon template.
+     */
+    roweditorcancelicon(): VNode[];
+    /**
+     * Custom filter icon template.
+     */
+    filtericon(): VNode[];
+    /**
+     * Custom filter clear icon template.
+     */
+    filterclearicon(): VNode[];
+    /**
+     * Custom filter remove icon template.
+     */
+    filterremoveicon(): VNode[];
+    /**
+     * Custom filter add icon template.
+     */
+    filteraddicon(): VNode[];
+    /**
+     * Custom sort icon template.
+     * @param {Object} scope - sort icon slot's params.
+     */
+    sorticon(scope: {
+        /**
+         * Current sort state.
+         */
+        sorted: boolean;
+        /**
+         * Current sort order state.
+         */
+        sortOrder: boolean;
+    }): VNode[];
+    /**
+     * Custom header checkbox icon template.
+     * @param {Object} scope - header checkbox icon slot's params.
+     */
+    headercheckboxicon(scope: {
+        /**
+         * Current check state.
+         */
+        checked: boolean;
+    }): VNode[];
 }
 
 export interface ColumnEmits {}

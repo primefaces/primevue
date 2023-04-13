@@ -3,7 +3,7 @@
         <slot></slot>
         <div v-if="loading" class="p-datatable-loading-overlay p-component-overlay">
             <slot v-if="$slots.loading" name="loading"></slot>
-            <i v-else :class="loadingIconClass"></i>
+            <component v-else :is="$slots.loadingicon ? $slots.loadingicon : loadingIcon ? 'i' : 'SpinnerIcon'" spin :class="['p-datatable-loading-icon', loadingIcon]" />
         </div>
         <div v-if="$slots.header" class="p-datatable-header">
             <slot name="header"></slot>
@@ -62,6 +62,7 @@
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
                             :filterInputProps="filterInputProps"
+                            :headerCheckboxIconTemplate="$slots.headercheckboxicon"
                             @column-click="onColumnHeaderClick($event)"
                             @column-mousedown="onColumnHeaderMouseDown($event)"
                             @filter-change="onFilterChange"
@@ -215,13 +216,20 @@
             </template>
         </DTPaginator>
         <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
-        <span v-if="reorderableColumns" ref="reorderIndicatorUp" class="pi pi-arrow-down p-datatable-reorder-indicator-up" style="position: absolute; display: none" />
-        <span v-if="reorderableColumns" ref="reorderIndicatorDown" class="pi pi-arrow-up p-datatable-reorder-indicator-down" style="position: absolute; display: none" />
+        <span v-if="reorderableColumns" ref="reorderIndicatorUp" class="p-datatable-reorder-indicator-up" style="position: absolute; display: none">
+            <component :is="$slots.reorderindicatorupicon || 'ArrowDownIcon'" />
+        </span>
+        <span v-if="reorderableColumns" ref="reorderIndicatorDown" class="p-datatable-reorder-indicator-down" style="position: absolute; display: none">
+            <component :is="$slots.reorderindicatordownicon || 'ArrowUpIcon'" />
+        </span>
     </div>
 </template>
 
 <script>
 import { FilterMatchMode, FilterOperator, FilterService } from 'primevue/api';
+import ArrowDownIcon from 'primevue/icon/arrowdown';
+import ArrowUpIcon from 'primevue/icon/arrowup';
+import SpinnerIcon from 'primevue/icon/spinner';
 import Paginator from 'primevue/paginator';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
@@ -330,7 +338,7 @@ export default {
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner'
+            default: undefined
         },
         sortField: {
             type: [String, Function],
@@ -434,11 +442,11 @@ export default {
         },
         expandedRowIcon: {
             type: String,
-            default: 'pi-chevron-down'
+            default: undefined
         },
         collapsedRowIcon: {
             type: String,
-            default: 'pi-chevron-right'
+            default: undefined
         },
         rowGroupMode: {
             type: String,
@@ -2251,9 +2259,6 @@ export default {
         sorted() {
             return this.d_sortField || (this.d_multiSortMeta && this.d_multiSortMeta.length > 0);
         },
-        loadingIconClass() {
-            return ['p-datatable-loading-icon pi-spin', this.loadingIcon];
-        },
         allRowsSelected() {
             if (this.selectAll !== null) {
                 return this.selectAll;
@@ -2278,7 +2283,10 @@ export default {
         DTTableHeader: TableHeader,
         DTTableBody: TableBody,
         DTTableFooter: TableFooter,
-        DTVirtualScroller: VirtualScroller
+        DTVirtualScroller: VirtualScroller,
+        ArrowDownIcon: ArrowDownIcon,
+        ArrowUpIcon: ArrowUpIcon,
+        SpinnerIcon: SpinnerIcon
     }
 };
 </script>

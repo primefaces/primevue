@@ -11,7 +11,9 @@
                 >
                     <td :colspan="columnsLength - 1">
                         <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button">
-                            <span :class="rowGroupTogglerIcon(rowData)"></span>
+                            <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
+                            <component v-else-if="!templates['rowgrouptogglericon'] && isRowGroupExpanded(rowData)" :is="expandedRowIcon ? 'span' : 'ChevronDownIcon'" class="p-row-toggler-icon" />
+                            <component v-else-if="!templates['rowgrouptogglericon'] && !isRowGroupExpanded(rowData)" :is="collapsedRowIcon ? 'span' : 'ChevronRightIcon'" class="p-row-toggler-icon" />
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
@@ -45,7 +47,6 @@
                             :rowIndex="getRowIndex(index)"
                             :index="i"
                             :selected="isSelected(rowData)"
-                            :rowTogglerIcon="columnProp(col, 'expander') ? rowTogglerIcon(rowData) : null"
                             :frozenRow="frozenRow"
                             :rowspan="rowGroupMode === 'rowspan' ? calculateRowGroupSize(value, col, getRowIndex(index)) : null"
                             :editMode="editMode"
@@ -55,6 +56,9 @@
                             :virtualScrollerContentProps="virtualScrollerContentProps"
                             :ariaControls="expandedRowId + '_' + index + '_expansion'"
                             :name="nameAttributeSelector"
+                            :isRowExpanded="isRowExpanded(rowData)"
+                            :expandedRowIcon="expandedRowIcon"
+                            :collapsedRowIcon="collapsedRowIcon"
                             @radio-change="onRadioChange($event)"
                             @checkbox-change="onCheckboxChange($event)"
                             @row-toggle="onRowToggle($event)"
@@ -89,6 +93,8 @@
 </template>
 
 <script>
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
@@ -389,16 +395,6 @@ export default {
                 return null;
             }
         },
-        rowTogglerIcon(rowData) {
-            const icon = this.isRowExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
-
-            return ['p-row-toggler-icon pi', icon];
-        },
-        rowGroupTogglerIcon(rowData) {
-            const icon = this.isRowGroupExpanded(rowData) ? this.expandedRowIcon : this.collapsedRowIcon;
-
-            return ['p-row-toggler-icon pi', icon];
-        },
         isGrouped(column) {
             if (this.groupRowsBy && this.columnProp(column, 'field')) {
                 if (Array.isArray(this.groupRowsBy)) return this.groupRowsBy.indexOf(column.props.field) > -1;
@@ -593,7 +589,9 @@ export default {
         }
     },
     components: {
-        DTBodyCell: BodyCell
+        DTBodyCell: BodyCell,
+        ChevronDownIcon: ChevronDownIcon,
+        ChevronRightIcon: ChevronRightIcon
     }
 };
 </script>

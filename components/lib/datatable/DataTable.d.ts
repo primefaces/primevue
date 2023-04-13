@@ -611,7 +611,6 @@ export interface DataTableProps {
     loading?: boolean | undefined;
     /**
      * The icon to show while indicating data load is in progress.
-     * @defaultValue pi pi-spinner
      */
     loadingIcon?: string | undefined;
     /**
@@ -730,12 +729,10 @@ export interface DataTableProps {
     expandedRows?: any[] | DataTableExpandedRows | null;
     /**
      * Icon of the row toggler to display the row as expanded.
-     * @defaultValue pi-chevron-down
      */
     expandedRowIcon?: string | undefined;
     /**
      * Icon of the row toggler to display the row as collapsed.
-     * @defaultValue pi-chevron-right
      */
     collapsedRowIcon?: string | undefined;
     /**
@@ -899,6 +896,28 @@ export interface DataTableSlots {
          * Row index
          */
         index: number;
+    }): VNode[];
+    /**
+     * Custom loading icon template.
+     */
+    loadingicon(): VNode[];
+    /**
+     * Custom reorder indicator up icon template.
+     */
+    reorderindicatorupicon(): VNode[];
+    /**
+     * Custom reorder indicator down icon template.
+     */
+    reorderindicatordownicon(): VNode[];
+    /**
+     * Custom rowgroup toggler icon template.
+     * @param {Object} scope - rowgroup toggler icon slot's params.
+     */
+    rowgrouptogglericon(scope: {
+        /**
+         * Current rowgroup's expanded state.
+         */
+        expanded: boolean;
     }): VNode[];
 }
 /**

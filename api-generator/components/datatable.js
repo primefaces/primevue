@@ -1120,31 +1120,43 @@ const DataTableEvents = [
 const DataTableSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'paginatorstart',
-        description: "Custom content for the component paginator's left side"
+        description: "Custom content for the component paginator's left side."
     },
     {
         name: 'paginatorend',
-        description: "Custom content for the component paginator's right side"
+        description: "Custom content for the component paginator's right side."
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
     },
     {
         name: 'groupheader',
-        description: "Custom content for the component's subgroup header"
+        description: "Custom content for the component's subgroup header."
     },
     {
         name: 'groupfooter',
-        description: "Custom content for the component's subgroup footer"
+        description: "Custom content for the component's subgroup footer."
     },
     {
-        name: 'expansion',
-        description: "Custom content for the component's expanded content"
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'reorderindicatorupicon',
+        description: 'Custom reorder indicator up icon template.'
+    },
+    {
+        name: 'reorderindicatordownicon',
+        description: 'Custom reorder indicator down icon template.'
+    },
+    {
+        name: 'rowgrouptogglericon',
+        description: 'Custom rowgroup toggler icon template.'
     }
 ];
 

@@ -19,9 +19,11 @@
         <div class="p-column-header-content">
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
             <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
-            <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
+            <span v-if="columnProp('sortable')">
+                <component :is="(column.children && column.children.sorticon) || findSortIcon" :sorted="sortableColumnIcon[1].sorted" :sortOrder="sortableColumnIcon[1].sortOrder" class="p-sortable-column-icon pi-fw" />
+            </span>
             <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getBadgeValue() }}</span>
-            <DTHeaderCheckbox v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'" :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" />
+            <DTHeaderCheckbox v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'" :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" :headerCheckboxIconTemplate="headerCheckboxIconTemplate" />
             <DTColumnFilter
                 v-if="filterDisplay === 'menu' && column.children && column.children.filter"
                 :field="columnProp('filterField') || columnProp('field')"
@@ -33,6 +35,10 @@
                 :filterFooterTemplate="column.children && column.children.filterfooter"
                 :filterClearTemplate="column.children && column.children.filterclear"
                 :filterApplyTemplate="column.children && column.children.filterapply"
+                :filterIconTemplate="column.children && column.children.filtericon"
+                :filterAddIconTemplate="column.children && column.children.filteraddicon"
+                :filterRemoveIconTemplate="column.children && column.children.filterremoveicon"
+                :filterClearIconTemplate="column.children && column.children.filterclearicon"
                 :filters="filters"
                 :filtersStore="filtersStore"
                 :filterInputProps="filterInputProps"
@@ -58,6 +64,9 @@
 </template>
 
 <script>
+import SortAltIcon from 'primevue/icon/sortalt';
+import SortAmountDownIcon from 'primevue/icon/sortamountdown';
+import SortAmountUpAltIcon from 'primevue/icon/sortamountupalt';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 import ColumnFilter from './ColumnFilter.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
@@ -144,6 +153,10 @@ export default {
             default: false
         },
         filterInputProps: {
+            type: null,
+            default: null
+        },
+        headerCheckboxIconTemplate: {
             type: null,
             default: null
         }
@@ -284,20 +297,28 @@ export default {
             }
 
             return [
-                'p-sortable-column-icon pi pi-fw',
                 {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
+                    SortAltIcon: !sorted,
+                    SortAmountUpAltIcon: sorted && sortOrder > 0,
+                    SortAmountDownIcon: sorted && sortOrder < 0
+                },
+                {
+                    sorted,
+                    sortOrder
                 }
             ];
         },
+        findSortIcon() {
+            const sortIcon = this.sortableColumnIcon[0];
+
+            return Object.keys(sortIcon).find((key) => sortIcon[key] === true);
+        },
         ariaSort() {
             if (this.columnProp('sortable')) {
-                const sortIcon = this.sortableColumnIcon;
+                const sortIcon = this.sortableColumnIcon[0];
 
-                if (sortIcon[1]['pi-sort-amount-down']) return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt']) return 'ascending';
+                if (sortIcon['SortAmountDownIcon']) return 'descending';
+                else if (sortIcon['SortAmountUpAltIcon']) return 'ascending';
                 else return 'none';
             } else {
                 return null;
@@ -306,7 +327,10 @@ export default {
     },
     components: {
         DTHeaderCheckbox: HeaderCheckbox,
-        DTColumnFilter: ColumnFilter
+        DTColumnFilter: ColumnFilter,
+        SortAltIcon: SortAltIcon,
+        SortAmountUpAltIcon: SortAmountUpAltIcon,
+        SortAmountDownIcon: SortAmountDownIcon
     }
 };
 </script>
