@@ -443,23 +443,39 @@ const TreeTableEvents = [
 const TreeTableSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'paginatorstart',
-        description: "Custom content for the component paginator's left side"
+        description: "Custom content for the component paginator's left side."
     },
     {
         name: 'paginatorend',
-        description: "Custom content for the component paginator's right side"
+        description: "Custom content for the component paginator's right side."
     },
     {
         name: 'empty',
-        description: 'Custom content when there is no data to display'
+        description: 'Custom content when there is no data to display.'
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'togglericon',
+        description: 'Custom toggler icon template.'
+    },
+    {
+        name: 'checkboxicon',
+        description: 'Custom checkbox icon template.'
+    },
+    {
+        name: 'sorticon',
+        description: 'Custom sort icon template.'
     }
 ];
 

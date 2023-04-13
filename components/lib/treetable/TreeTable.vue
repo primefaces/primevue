@@ -2,7 +2,9 @@
     <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body" role="table">
         <div v-if="loading" class="p-treetable-loading">
             <div class="p-treetable-loading-overlay p-component-overlay">
-                <i :class="loadingIconClass"></i>
+                <slot name="loadingicon">
+                    <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-treetable-loading-icon', loadingIcon]" />
+                </slot>
             </div>
         </div>
         <div v-if="$slots.header" class="p-treetable-header">
@@ -41,6 +43,7 @@
                                 :sortOrder="d_sortOrder"
                                 :multiSortMeta="d_multiSortMeta"
                                 :sortMode="sortMode"
+                                :templates="$slots['sorticon']"
                                 @column-click="onColumnHeaderClick"
                                 @column-resizestart="onColumnResizeStart"
                             ></TTHeaderCell>
@@ -69,6 +72,7 @@
                             :ariaSetSize="dataToRender.length"
                             :ariaPosInset="index + 1"
                             :tabindex="setTabindex(node, index)"
+                            :templates="$slots"
                             @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
@@ -118,6 +122,7 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import SpinnerIcon from 'primevue/icon/spinner';
 import Paginator from 'primevue/paginator';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 import FooterCell from './FooterCell.vue';
@@ -214,7 +219,7 @@ export default {
         },
         loadingIcon: {
             type: String,
-            default: 'pi pi-spinner'
+            default: undefined
         },
         rowHover: {
             type: Boolean,
@@ -970,16 +975,14 @@ export default {
 
                 return data ? data.length : 0;
             }
-        },
-        loadingIconClass() {
-            return ['p-treetable-loading-icon pi-spin', this.loadingIcon];
         }
     },
     components: {
         TTRow: TreeTableRow,
         TTPaginator: Paginator,
         TTHeaderCell: HeaderCell,
-        TTFooterCell: FooterCell
+        TTFooterCell: FooterCell,
+        SpinnerIcon: SpinnerIcon
     }
 };
 </script>

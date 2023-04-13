@@ -382,6 +382,31 @@ export interface TreeTableSlots {
      * Custom empty template.
      */
     empty(): VNode[];
+    /**
+     * Custom loading icon template.
+     */
+    loadingicon(): VNode[];
+    /**
+     * Custom toggler icon template.
+     */
+    togglericon(): VNode[];
+    /**
+     * Custom checkbox icon template.
+     */
+    checkboxicon(): VNode[];
+    /**
+     * Custom sort icon template.
+     */
+    sorticon(scope: {
+        /**
+         * Whether or not column is sorted
+         */
+        sorted: TreeNode;
+        /**
+         * Current sort order
+         */
+        sortOrder: boolean;
+    }): VNode[];
 }
 
 /**

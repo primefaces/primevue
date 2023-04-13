@@ -27,6 +27,7 @@
                 :selectionMode="selectionMode"
                 :checked="checked"
                 :partialChecked="partialChecked"
+                :templates="templates"
                 @node-toggle="$emit('node-toggle', $event)"
                 @checkbox-toggle="toggleCheckbox"
             ></TTBodyCell>
@@ -46,6 +47,7 @@
             :indentation="indentation"
             :ariaPosInset="node.children.indexOf(childNode) + 1"
             :ariaSetSize="node.children.length"
+            :templates="templates"
             @node-toggle="$emit('node-toggle', $event)"
             @node-click="$emit('node-click', $event)"
             @checkbox-change="onCheckboxChange"
@@ -103,6 +105,10 @@ export default {
         },
         ariaPosInset: {
             type: Number,
+            default: null
+        },
+        templates: {
+            type: null,
             default: null
         }
     },

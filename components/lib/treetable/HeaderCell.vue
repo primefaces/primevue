@@ -3,12 +3,17 @@
         <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart"></span>
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
         <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
-        <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
+        <span v-if="columnProp('sortable')">
+            <component :is="templates ? templates : findSortIcon" :sorted="sortableColumnIcon[1].sorted" :sortOrder="sortableColumnIcon[1].sortOrder" class="p-sortable-column-icon pi-fw" />
+        </span>
         <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
 </template>
 
 <script>
+import SortAltIcon from 'primevue/icon/sortalt';
+import SortAmountDownIcon from 'primevue/icon/sortamountdown';
+import SortAmountUpAltIcon from 'primevue/icon/sortamountupalt';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
@@ -38,6 +43,10 @@ export default {
         sortMode: {
             type: String,
             default: 'single'
+        },
+        templates: {
+            type: Function,
+            default: null
         }
     },
     data() {
@@ -163,25 +172,38 @@ export default {
             }
 
             return [
-                'p-sortable-column-icon pi pi-fw',
                 {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
+                    SortAltIcon: !sorted,
+                    SortAmountUpAltIcon: sorted && sortOrder > 0,
+                    SortAmountDownIcon: sorted && sortOrder < 0
+                },
+                {
+                    sorted,
+                    sortOrder
                 }
             ];
         },
+        findSortIcon() {
+            const sortIcon = this.sortableColumnIcon[0];
+
+            return Object.keys(sortIcon).find((key) => sortIcon[key] === true);
+        },
         ariaSort() {
             if (this.columnProp('sortable')) {
-                const sortIcon = this.sortableColumnIcon;
+                const sortIcon = this.sortableColumnIcon[0];
 
-                if (sortIcon[1]['pi-sort-amount-down']) return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt']) return 'ascending';
+                if (sortIcon['SortAmountDownIcon']) return 'descending';
+                else if (sortIcon['SortAmountUpAltIcon']) return 'ascending';
                 else return 'none';
             } else {
                 return null;
             }
         }
+    },
+    components: {
+        SortAltIcon: SortAltIcon,
+        SortAmountUpAltIcon: SortAmountUpAltIcon,
+        SortAmountDownIcon: SortAmountDownIcon
     }
 };
 </script>

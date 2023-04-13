@@ -1,24 +1,28 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell">
         <button v-if="columnProp('expander')" v-ripple type="button" class="p-treetable-toggler p-link" @click="toggle" :style="togglerStyle" tabindex="-1">
-            <i :class="togglerIcon"></i>
+            <component :is="templates['togglericon'] ? templates['togglericon'] : expanded ? 'ChevronDownIcon' : 'ChevronRightIcon'" :expanded="expanded" class="p-treetable-toggler-icon" />
         </button>
         <div v-if="checkboxSelectionMode && columnProp('expander')" :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox">
             <div class="p-hidden-accessible">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" />
             </div>
             <div ref="checkboxEl" :class="checkboxClass">
-                <span :class="checkboxIcon"></span>
+                <component :is="templates['checkboxicon'] ? templates['checkboxicon'] : checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
             </div>
         </div>
         <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
-        <template v-else
-            ><span>{{ resolveFieldData(node.data, columnProp('field')) }}</span></template
-        >
+        <template v-else>
+            <span>{{ resolveFieldData(node.data, columnProp('field')) }}</span>
+        </template>
     </td>
 </template>
 
 <script>
+import CheckIcon from 'primevue/icon/check';
+import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronRightIcon from 'primevue/icon/chevronright';
+import MinusIcon from 'primevue/icon/minus';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
@@ -61,6 +65,10 @@ export default {
         partialChecked: {
             type: Boolean,
             default: false
+        },
+        templates: {
+            type: null,
+            default: null
         }
     },
     data() {
@@ -146,18 +154,18 @@ export default {
                 visibility: this.leaf ? 'hidden' : 'visible'
             };
         },
-        togglerIcon() {
-            return ['p-treetable-toggler-icon pi', { 'pi-chevron-right': !this.expanded, 'pi-chevron-down': this.expanded }];
-        },
         checkboxSelectionMode() {
             return this.selectionMode === 'checkbox';
         },
         checkboxClass() {
             return ['p-checkbox-box', { 'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked }];
-        },
-        checkboxIcon() {
-            return ['p-checkbox-icon', { 'pi pi-check': this.checked, 'pi pi-minus': this.partialChecked }];
         }
+    },
+    components: {
+        ChevronRightIcon: ChevronRightIcon,
+        ChevronDownIcon: ChevronDownIcon,
+        CheckIcon: CheckIcon,
+        MinusIcon: MinusIcon
     },
     directives: {
         ripple: Ripple
