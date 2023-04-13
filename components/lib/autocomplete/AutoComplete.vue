@@ -89,9 +89,11 @@
             <component :is="loadingIcon ? 'i' : 'SpinnerIcon'" :class="['p-autocomplete-loader', loadingIcon]" spin aria-hidden="true" />
         </slot>
         <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="['p-autocomplete-dropdown', dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick">
-            <slot name="dropdownicon">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" />
-            </slot>
+            <template #icon>
+                <slot name="dropdownicon">
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" />
+                </slot>
+            </template>
         </Button>
         <span role="status" aria-live="polite" class="p-hidden-accessible">
             {{ searchResultMessageText }}
