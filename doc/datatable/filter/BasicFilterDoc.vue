@@ -18,18 +18,12 @@
             </template>
             <template #empty> No customers found. </template>
             <template #loading> Loading customers data. Please wait. </template>
-            <template #filtericon>
-                <i class="pi pi-discord" />
-            </template>
             <Column field="name" header="Name" style="min-width: 12rem">
                 <template #body="{ data }">
                     {{ data.name }}
                 </template>
                 <template #filter="{ filterModel, filterCallback }">
                     <InputText v-model="filterModel.value" type="text" @input="filterCallback()" class="p-column-filter" placeholder="Search by name" />
-                </template>
-                <template #filtericon>
-                    <i class="pi pi-discord" />
                 </template>
             </Column>
             <Column header="Country" filterField="country.name" style="min-width: 12rem">
