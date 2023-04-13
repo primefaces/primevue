@@ -7325,6 +7325,100 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom loading template."
+                        },
+                        {
+                            "name": "rowtogglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>rowExpanded</b>: boolean, // Current row expanded state.\n  }",
+                                    "description": "row toggler icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom row toggler icon template."
+                        },
+                        {
+                            "name": "rowcheckboxicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>checked</b>: boolean, // Current check state.\n  }",
+                                    "description": "header row icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom row checkbox icon template."
+                        },
+                        {
+                            "name": "roweditoriniticon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom row editor init icon template."
+                        },
+                        {
+                            "name": "roweditorsaveicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom row editor save icon template."
+                        },
+                        {
+                            "name": "roweditorcancelicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom row editor cancel icon template."
+                        },
+                        {
+                            "name": "filtericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom filter icon template."
+                        },
+                        {
+                            "name": "filterclearicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom filter clear icon template."
+                        },
+                        {
+                            "name": "filterremoveicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom filter remove icon template."
+                        },
+                        {
+                            "name": "filteraddicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom filter add icon template."
+                        },
+                        {
+                            "name": "sorticon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>sorted</b>: boolean, // Current sort state.\n  \t <b>sortOrder</b>: boolean, // Current sort order state.\n  }",
+                                    "description": "sort icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom sort icon template."
+                        },
+                        {
+                            "name": "headercheckboxicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>checked</b>: boolean, // Current check state.\n  }",
+                                    "description": "header checkbox icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom header checkbox icon template."
                         }
                     ]
                 },
@@ -9278,7 +9372,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-spinner",
+                            "default": "",
                             "description": "The icon to show while indicating data load is in progress."
                         },
                         {
@@ -9478,7 +9572,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi-chevron-down",
+                            "default": "",
                             "description": "Icon of the row toggler to display the row as expanded."
                         },
                         {
@@ -9486,7 +9580,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi-chevron-right",
+                            "default": "",
                             "description": "Icon of the row toggler to display the row as collapsed."
                         },
                         {
@@ -9749,6 +9843,37 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom expansion template."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
+                        },
+                        {
+                            "name": "reorderindicatorupicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom reorder indicator up icon template."
+                        },
+                        {
+                            "name": "reorderindicatordownicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom reorder indicator down icon template."
+                        },
+                        {
+                            "name": "rowgrouptogglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>expanded</b>: boolean, // Current rowgroup's expanded state.\n  }",
+                                    "description": "rowgroup toggler icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom rowgroup toggler icon template."
                         }
                     ]
                 },
