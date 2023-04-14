@@ -5465,7 +5465,7 @@
 .p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {
   font-size: 2rem;
 }
-.p-toast .p-toast-message .p-toast-message-content .p-icon {
+.p-toast .p-toast-message .p-toast-message-content .p-icon:not(.p-toast-icon-close-icon) {
   width: 2rem;
   height: 2rem;
 }
