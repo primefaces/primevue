@@ -24,7 +24,9 @@
             <slot v-else-if="modelValue === false" name="uncheckicon">
                 <component :is="'TimesIcon'" class="p-checkbox-icon" />
             </slot>
-            <slot v-else name="nullableicon" />
+            <slot v-else name="nullableicon">
+                <span class="p-checkbox-icon"></span>
+            </slot>
         </div>
     </div>
 </template>
@@ -113,25 +115,6 @@ export default {
         }
     },
     computed: {
-        icon() {
-            let icon;
-
-            switch (this.modelValue) {
-                case true:
-                    icon = 'pi pi-check';
-                    break;
-
-                case false:
-                    icon = 'pi pi-times';
-                    break;
-
-                case null:
-                    icon = null;
-                    break;
-            }
-
-            return icon;
-        },
         containerClass() {
             return [
                 'p-checkbox p-component',
