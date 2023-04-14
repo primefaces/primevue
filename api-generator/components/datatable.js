@@ -1157,6 +1157,22 @@ const DataTableSlots = [
     {
         name: 'rowgrouptogglericon',
         description: 'Custom rowgroup toggler icon template.'
+    },
+    {
+        name: 'paginatorfirstpagelinkicon',
+        description: 'Custom paginator first page link icon template.'
+    },
+    {
+        name: 'paginatorprevpagelinkicon',
+        description: 'Custom paginator prev page link icon template.'
+    },
+    {
+        name: 'paginatornextpagelinkicon',
+        description: 'Custom paginator next page link icon template.'
+    },
+    {
+        name: 'paginatorlastpagelinkicon',
+        description: 'Custom paginator last page link icon template.'
     }
 ];
 

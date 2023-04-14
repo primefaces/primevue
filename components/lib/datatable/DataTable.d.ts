@@ -919,6 +919,22 @@ export interface DataTableSlots {
          */
         expanded: boolean;
     }): VNode[];
+    /**
+     * Custom paginator first page link icon template.
+     */
+    paginatorfirstpagelinkicon(): VNode[];
+    /**
+     * Custom paginator previous page link icon template.
+     */
+    paginatorprevpagelinkicon(): VNode[];
+    /**
+     * Custom paginator next page link icon template.
+     */
+    paginatornextpagelinkicon(): VNode[];
+    /**
+     * Custom paginator last page link icon template.
+     */
+    paginatorlastpagelinkicon(): VNode[];
 }
 /**
  * Defines valid emits in Datatable component.

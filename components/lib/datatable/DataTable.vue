@@ -27,6 +27,18 @@
             <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
+            <template v-if="$slots.paginatorfirstpagelinkicon" #firstpagelinkicon>
+                <slot name="paginatorfirstpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorprevpagelinkicon" #prevpagelinkicon>
+                <slot name="paginatorprevpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatornextpagelinkicon" #nextpagelinkicon>
+                <slot name="paginatornextpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
+                <slot name="paginatorlastpagelinkicon"></slot>
+            </template>
         </DTPaginator>
         <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
             <DTVirtualScroller
@@ -213,6 +225,18 @@
             </template>
             <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
+            </template>
+            <template v-if="$slots.paginatorfirstpagelinkicon" #firstpagelinkicon>
+                <slot name="paginatorfirstpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorprevpagelinkicon" #prevpagelinkicon>
+                <slot name="paginatorprevpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatornextpagelinkicon" #nextpagelinkicon>
+                <slot name="paginatornextpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
+                <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </DTPaginator>
         <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
