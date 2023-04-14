@@ -29,6 +29,18 @@
             <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
             </template>
+            <template v-if="$slots.paginatorfirstpagelinkicon" #firstpagelinkicon>
+                <slot name="paginatorfirstpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorprevpagelinkicon" #prevpagelinkicon>
+                <slot name="paginatorprevpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatornextpagelinkicon" #nextpagelinkicon>
+                <slot name="paginatornextpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
+                <slot name="paginatorlastpagelinkicon"></slot>
+            </template>
         </TTPaginator>
         <div class="p-treetable-wrapper" :style="{ maxHeight: scrollHeight }">
             <table ref="table" role="table" v-bind="tableProps">
@@ -110,6 +122,18 @@
             </template>
             <template v-if="$slots.paginatorend" #end>
                 <slot name="paginatorend"></slot>
+            </template>
+            <template v-if="$slots.paginatorfirstpagelinkicon" #firstpagelinkicon>
+                <slot name="paginatorfirstpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorprevpagelinkicon" #prevpagelinkicon>
+                <slot name="paginatorprevpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatornextpagelinkicon" #nextpagelinkicon>
+                <slot name="paginatornextpagelinkicon"></slot>
+            </template>
+            <template v-if="$slots.paginatorlastpagelinkicon" #lastpagelinkicon>
+                <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </TTPaginator>
         <div v-if="$slots.footer" class="p-treetable-footer">

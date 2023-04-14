@@ -476,6 +476,22 @@ const TreeTableSlots = [
     {
         name: 'sorticon',
         description: 'Custom sort icon template.'
+    },
+    {
+        name: 'paginatorfirstpagelinkicon',
+        description: 'Custom paginator first page link icon template.'
+    },
+    {
+        name: 'paginatorprevpagelinkicon',
+        description: 'Custom paginator prev page link icon template.'
+    },
+    {
+        name: 'paginatornextpagelinkicon',
+        description: 'Custom paginator next page link icon template.'
+    },
+    {
+        name: 'paginatorlastpagelinkicon',
+        description: 'Custom paginator last page link icon template.'
     }
 ];
 
