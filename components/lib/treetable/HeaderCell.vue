@@ -4,7 +4,7 @@
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
         <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
         <span v-if="columnProp('sortable')">
-            <component :is="(column.children && column.children.sorticon) || findSortIcon" :sorted="sortableColumnIcon[1].sorted" :sortOrder="sortableColumnIcon[1].sortOrder" class="p-sortable-column-icon" />
+            <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState[0].sorted" :sortOrder="sortState[0].sortOrder" class="p-sortable-column-icon" />
         </span>
         <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
@@ -151,7 +151,7 @@ export default {
 
             return this.columnProp('frozen') ? [columnStyle, headerStyle, this.styleObject] : [columnStyle, headerStyle];
         },
-        sortableColumnIcon() {
+        sortState() {
             let sorted = false;
             let sortOrder = null;
 
@@ -169,27 +169,26 @@ export default {
 
             return [
                 {
-                    SortAltIcon: !sorted,
-                    SortAmountUpAltIcon: sorted && sortOrder > 0,
-                    SortAmountDownIcon: sorted && sortOrder < 0
-                },
-                {
                     sorted,
                     sortOrder
                 }
             ];
         },
-        findSortIcon() {
-            const sortIcon = this.sortableColumnIcon[0];
+        sortableColumnIcon() {
+            const { sorted, sortOrder } = this.sortState;
 
-            return Object.keys(sortIcon).find((key) => sortIcon[key] === true);
+            if (!sorted) return SortAltIcon;
+            else if (sorted && sortOrder > 0) return SortAmountUpAltIcon;
+            else if (sorted && sortOrder < 0) return SortAmountDownIcon;
+
+            return null;
         },
         ariaSort() {
             if (this.columnProp('sortable')) {
-                const sortIcon = this.sortableColumnIcon[0];
+                const { sorted, sortOrder } = this.sortState;
 
-                if (sortIcon['SortAmountDownIcon']) return 'descending';
-                else if (sortIcon['SortAmountUpAltIcon']) return 'ascending';
+                if (sorted && sortOrder < 0) return 'descending';
+                else if (sorted && sortOrder > 0) return 'ascending';
                 else return 'none';
             } else {
                 return null;
