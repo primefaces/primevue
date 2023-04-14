@@ -123,7 +123,6 @@ export interface TreeProps {
     loading?: boolean | undefined;
     /**
      * Icon to display when tree is loading.
-     * @defaultValue pi pi-spin
      */
     loadingIcon?: string | undefined;
     /**

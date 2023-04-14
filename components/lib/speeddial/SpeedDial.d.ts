@@ -93,7 +93,6 @@ export interface SpeedDialProps {
     maskClass?: string | undefined;
     /**
      * Show icon of the button element.
-     * @defaultValue pi pi-plus
      */
     showIcon?: string | undefined;
     /**

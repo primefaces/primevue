@@ -259,7 +259,6 @@ export interface TreeTableProps {
     loading?: boolean | undefined;
     /**
      * The icon to show while indicating data load is in progress.
-     * @defaultValue pi pi-spinner
      */
     loadingIcon?: string | undefined;
     /**

@@ -221,7 +221,6 @@ export interface ColumnProps {
     rowReorder?: boolean | undefined;
     /**
      * Icon of the drag handle to reorder rows.
-     * @defaultValue pi pi-bars
      */
     rowReorderIcon?: string | undefined;
     /**
