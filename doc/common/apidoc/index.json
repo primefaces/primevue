@@ -23863,7 +23863,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "\"error\" | \"success\" | \"info\" | \"warn\"",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -23992,12 +23992,36 @@
                             "description": "Icon to display in the toast close button."
                         },
                         {
-                            "name": "icon",
+                            "name": "infoIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the toast."
+                            "description": "Icon to display in the toast with info severity."
+                        },
+                        {
+                            "name": "warnIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in the toast with warn severity."
+                        },
+                        {
+                            "name": "errorIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in the toast with error severity."
+                        },
+                        {
+                            "name": "successIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in the toast with success severity."
                         },
                         {
                             "name": "closeButtonProps",
