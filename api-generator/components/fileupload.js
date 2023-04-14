@@ -279,6 +279,18 @@ const FileUploadSlots = [
     {
         name: 'empty',
         description: 'Custom content when there is no selected file'
+    },
+    {
+        name: 'chooseicon',
+        description: 'Custom choose icon template.'
+    },
+    {
+        name: 'uploadicon',
+        description: 'Custom upload icon template.'
+    },
+    {
+        name: 'cancelicon',
+        description: 'Custom cancel icon template.'
     }
 ];
 

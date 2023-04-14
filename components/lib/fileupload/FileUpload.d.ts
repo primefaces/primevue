@@ -236,17 +236,14 @@ export interface FileUploadProps {
     showCancelButton?: boolean | undefined;
     /**
      * Icon of the choose button.
-     * @defaultValue pi pi-fw pi-plus
      */
     chooseIcon?: string | undefined;
     /**
      * Icon of the upload button.
-     * @defaultValue pi pi-fw pi-upload
      */
     uploadIcon?: string | undefined;
     /**
      * Icon of the cancel button.
-     * @defaultValue pi pi-fw pi-times
      */
     cancelIcon?: string | undefined;
     /**
@@ -321,6 +318,18 @@ export interface FileUploadSlots {
      * Custom content when there is no selected file.
      */
     empty(): VNode[];
+    /**
+     * Custom choose icon template.
+     */
+    chooseicon(): VNode[];
+    /**
+     * Custom upload icon template.
+     */
+    uploadicon(): VNode[];
+    /**
+     * Custom cancel icon template.
+     */
+    cancelicon(): VNode[];
 }
 
 export interface FileUploadEmits {

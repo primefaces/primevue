@@ -4,11 +4,25 @@
         <div class="p-fileupload-buttonbar">
             <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
                 <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
-                    <span :class="advancedChooseIconClass"></span>
+                    <slot name="chooseicon">
+                        <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left pi-fw', chooseIcon]" aria-hidden="true" />
+                    </slot>
                     <span class="p-button-label">{{ chooseButtonLabel }}</span>
                 </span>
-                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" :icon="uploadIcon" @click="upload" :disabled="uploadDisabled" />
-                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" :icon="cancelIcon" @click="clear" :disabled="cancelDisabled" />
+                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled">
+                    <template #icon="iconProps">
+                        <slot name="uploadicon">
+                            <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" />
+                        </slot>
+                    </template>
+                </FileUploadButton>
+                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" @click="clear" :disabled="cancelDisabled">
+                    <template #icon="iconProps">
+                        <slot name="cancelicon">
+                            <component :is="cancelIcon ? 'span' : 'TimesIcon'" :class="[iconProps.class, cancelIcon]" aria-hidden="true" />
+                        </slot>
+                    </template>
+                </FileUploadButton>
             </slot>
         </div>
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
@@ -26,7 +40,12 @@
     <div v-else-if="isBasic" class="p-fileupload p-fileupload-basic p-component">
         <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
         <span v-ripple :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
-            <span :class="basicChooseButtonIconClass"></span>
+            <slot v-if="!hasFiles || auto" name="uploadicon">
+                <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="['p-button-icon p-button-icon-left', uploadIcon]" aria-hidden="true" />
+            </slot>
+            <slot v-else name="chooseicon">
+                <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left', chooseIcon]" aria-hidden="true" />
+            </slot>
             <span class="p-button-label">{{ basicChooseButtonLabel }}</span>
             <input v-if="!hasFiles" ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" />
         </span>
@@ -35,6 +54,9 @@
 
 <script>
 import Button from 'primevue/button';
+import PlusIcon from 'primevue/icon/plus';
+import TimesIcon from 'primevue/icon/times';
+import UploadIcon from 'primevue/icon/upload';
 import Message from 'primevue/message';
 import ProgressBar from 'primevue/progressbar';
 import Ripple from 'primevue/ripple';
@@ -127,15 +149,15 @@ export default {
         },
         chooseIcon: {
             type: String,
-            default: 'pi pi-plus'
+            default: undefined
         },
         uploadIcon: {
             type: String,
-            default: 'pi pi-upload'
+            default: undefined
         },
         cancelIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         style: null,
         class: null
@@ -450,12 +472,6 @@ export default {
                 }
             ];
         },
-        advancedChooseIconClass() {
-            return ['p-button-icon p-button-icon-left pi-fw', this.chooseIcon];
-        },
-        basicChooseButtonIconClass() {
-            return ['p-button-icon p-button-icon-left', !this.hasFiles || this.auto ? this.uploadIcon : this.chooseIcon];
-        },
         basicChooseButtonLabel() {
             return this.auto ? this.chooseButtonLabel : this.hasFiles ? this.files.map((f) => f.name).join(', ') : this.chooseButtonLabel;
         },
@@ -494,7 +510,10 @@ export default {
         FileUploadButton: Button,
         FileUploadProgressBar: ProgressBar,
         FileUploadMessage: Message,
-        FileContent
+        FileContent,
+        PlusIcon,
+        UploadIcon,
+        TimesIcon
     },
     directives: {
         ripple: Ripple
