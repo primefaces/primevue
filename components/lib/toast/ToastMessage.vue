@@ -13,7 +13,7 @@
             <component v-else :is="template" :message="message"></component>
             <div v-if="message.closable !== false">
                 <button v-ripple class="p-toast-icon-close p-link" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="closeButtonProps">
-                    <slot name="closeIcon">
+                    <slot name="closeicon">
                         <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-toast-icon-close-icon', closeIcon]"></component>
                     </slot>
                 </button>
@@ -23,12 +23,13 @@
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
-import TimesIcon from 'primevue/icon/times';
-import InfoCircleIcon from 'primevue/icon/infocircle';
 import CheckIcon from 'primevue/icon/check';
 import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
+import InfoCircleIcon from 'primevue/icon/infocircle';
+import TimesIcon from 'primevue/icon/times';
 import TimesCircleIcon from 'primevue/icon/timescircle';
+import Ripple from 'primevue/ripple';
+
 export default {
     name: 'ToastMessage',
     emits: ['close'],

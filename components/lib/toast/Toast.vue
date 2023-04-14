@@ -3,8 +3,8 @@
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
                 <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" :template="$slots.message" :closeIcon="closeIcon" :icon="msg.icon || icon" :closeButtonProps="closeButtonProps" @close="remove($event)">
-                    <template #closeIcon>
-                        <slot name="closeIcon" />
+                    <template #closeicon>
+                        <slot name="closeicon" />
                     </template>
                     <template #icon>
                         <slot name="icon" />
