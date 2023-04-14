@@ -13390,7 +13390,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-fw pi-plus",
+                            "default": "",
                             "description": "Icon of the choose button."
                         },
                         {
@@ -13398,7 +13398,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-fw pi-upload",
+                            "default": "",
                             "description": "Icon of the upload button."
                         },
                         {
@@ -13406,7 +13406,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-fw pi-times",
+                            "default": "",
                             "description": "Icon of the cancel button."
                         },
                         {
@@ -13462,6 +13462,24 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content when there is no selected file."
+                        },
+                        {
+                            "name": "chooseicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom choose icon template."
+                        },
+                        {
+                            "name": "uploadicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom upload icon template."
+                        },
+                        {
+                            "name": "cancelicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom cancel icon template."
                         }
                     ]
                 },
