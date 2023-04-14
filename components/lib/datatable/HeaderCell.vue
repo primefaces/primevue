@@ -20,7 +20,7 @@
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
             <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
             <span v-if="columnProp('sortable')">
-                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState[0].sorted" :sortOrder="sortState[0].sortOrder" class="p-sortable-column-icon" />
+                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" class="p-sortable-column-icon" />
             </span>
             <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getBadgeValue() }}</span>
             <DTHeaderCheckbox v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'" :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" :headerCheckboxIconTemplate="headerCheckboxIconTemplate" />
