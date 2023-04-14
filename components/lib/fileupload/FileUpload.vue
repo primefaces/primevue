@@ -5,7 +5,7 @@
             <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
                 <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
                     <slot name="chooseicon">
-                        <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left pi-fw', chooseIcon]" aria-hidden="true" />
+                        <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left', chooseIcon]" aria-hidden="true" />
                     </slot>
                     <span class="p-button-label">{{ chooseButtonLabel }}</span>
                 </span>

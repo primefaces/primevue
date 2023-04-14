@@ -22,7 +22,7 @@
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
-                            <component v-if="isItemGroup(processedItem)" :is="template.submenuicon || (isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-submenu-icon pi-fw" :active="isItemActive(processedItem)" />
+                            <component v-if="isItemGroup(processedItem)" :is="template.submenuicon || (isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-submenu-icon" :active="isItemActive(processedItem)" />
                             <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
                         </a>

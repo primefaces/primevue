@@ -15,7 +15,7 @@
     >
         <div :class="contentClass" @click="onClick" @touchend="onTouchEnd" :style="node.style">
             <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" aria-hidden="true">
-                <component :is="templates['togglericon'] ? templates['togglericon'] : expanded ? node.expandedIcon || 'ChevronDownIcon' : node.collapsedIcon || 'ChevronRightIcon'" :node="node" :expanded="expanded" class="p-tree-toggler-icon pi-fw" />
+                <component :is="templates['togglericon'] ? templates['togglericon'] : expanded ? node.expandedIcon || 'ChevronDownIcon' : node.collapsedIcon || 'ChevronRightIcon'" :node="node" :expanded="expanded" class="p-tree-toggler-icon" />
             </button>
             <div v-if="checkboxMode" class="p-checkbox p-component" aria-hidden="true">
                 <div :class="checkboxClass" role="checkbox">
