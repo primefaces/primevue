@@ -3,7 +3,7 @@
         <div v-show="visible" :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="p-message-wrapper">
                 <slot name="messageicon">
-                    <component :is="icon ? 'i' : iconComponent" :class="['p-message-icon', icon]"></component>
+                    <component :is="icon ? 'span' : iconComponent" :class="['p-message-icon', icon]"></component>
                 </slot>
                 <div class="p-message-text">
                     <slot></slot>
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import Ripple from 'primevue/ripple';
-import TimesIcon from 'primevue/icon/times';
-import InfoCircleIcon from 'primevue/icon/infocircle';
 import CheckIcon from 'primevue/icon/check';
 import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
+import InfoCircleIcon from 'primevue/icon/infocircle';
+import TimesIcon from 'primevue/icon/times';
 import TimesCircleIcon from 'primevue/icon/timescircle';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Message',

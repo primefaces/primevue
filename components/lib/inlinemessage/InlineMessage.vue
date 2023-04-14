@@ -1,17 +1,18 @@
 <template>
     <div aria-live="polite" :class="containerClass">
         <slot name="messageicon">
-            <component :is="icon ? 'i' : iconComponent" :class="['p-inline-message-icon', icon]"></component>
+            <component :is="icon ? 'span' : iconComponent" :class="['p-inline-message-icon', icon]"></component>
         </slot>
         <span class="p-inline-message-text"><slot>&nbsp;</slot></span>
     </div>
 </template>
 
 <script>
-import InfoCircleIcon from 'primevue/icon/infocircle';
 import CheckIcon from 'primevue/icon/check';
 import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
+import InfoCircleIcon from 'primevue/icon/infocircle';
 import TimesCircleIcon from 'primevue/icon/timescircle';
+
 export default {
     name: 'InlineMessage',
     props: {
