@@ -256,5 +256,55 @@ export default {
         }
 
         return index;
+    },
+
+    /*
+    Usage:
+        await sleep(300);
+    */
+    sleep(duration){
+        return new Promise(resolve => setTimeout(resolve, duration))
+    },
+
+    /*  
+    Usage:
+        await pooling({
+            timetravel: 100,
+            onValidate: () => {
+                return (username == 'john');
+            },
+            onSuccess : () => {
+                console.log('Do something here');
+            }
+        });
+    */
+    pooling: async function({ timetravel = 2500, onValidate, onSuccess }){
+        const resolver = async (resolve, reject) => {
+            try{ 
+                const result = await onSuccess();
+                const valid = onValidate(result);
+    
+                if(valid === true){
+                    resolve(result);
+                }else if(valid === false){
+                    setTimeout(resolver, timetravel, resolve, reject);
+                }
+            }catch(e){
+                reject(e);
+            }
+        };
+        return new Promise(resolver);
+    },
+
+    /*  
+    Usage:
+        let sampleArray = [
+            { name: 'John', age: 56, sequence: 0 },
+            { name: 'Michael', age: 23, , sequence: 1 }
+        ];
+        groupArrayByKey(sampleArray, 'sequence');
+    */
+    groupArrayByKey(dataset, key){
+        return dataset.reduce((acc, item) => ((acc[item[key] ?? 'nogroup'] = [...(acc[item[key] ?? 'nogroup'] || []), item]), acc), {});
     }
 };
