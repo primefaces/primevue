@@ -44,13 +44,13 @@
 
 <script>
 import FocusTrap from 'primevue/focustrap';
+import TimesIcon from 'primevue/icon/times';
+import WindowMaximizeIcon from 'primevue/icon/windowmaximize';
+import WindowMinimizeIcon from 'primevue/icon/windowminimize';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import { computed } from 'vue';
-import TimesIcon from 'primevue/icon/times';
-import WindowMaximizeIcon from 'primevue/icon/windowmaximize';
-import WindowMinimizeIcon from 'primevue/icon/windowminimize';
 
 export default {
     name: 'Dialog',
@@ -176,6 +176,20 @@ export default {
             focusableClose: null
         };
     },
+    documentKeydownListener: null,
+    container: null,
+    mask: null,
+    content: null,
+    headerContainer: null,
+    footerContainer: null,
+    maximizableButton: null,
+    closeButton: null,
+    styleElement: null,
+    dragging: null,
+    documentDragListener: null,
+    documentDragEndListener: null,
+    lastPageX: null,
+    lastPageY: null,
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -492,20 +506,6 @@ export default {
             return ['p-dialog-content', this.contentClass];
         }
     },
-    documentKeydownListener: null,
-    container: null,
-    mask: null,
-    content: null,
-    headerContainer: null,
-    footerContainer: null,
-    maximizableButton: null,
-    closeButton: null,
-    styleElement: null,
-    dragging: null,
-    documentDragListener: null,
-    documentDragEndListener: null,
-    lastPageX: null,
-    lastPageY: null,
     directives: {
         ripple: Ripple,
         focustrap: FocusTrap

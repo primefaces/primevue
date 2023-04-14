@@ -13,6 +13,7 @@
 
 <script>
 import TimesCircleIcon from 'primevue/icon/timescircle';
+
 export default {
     name: 'Chip',
     emits: ['remove'],

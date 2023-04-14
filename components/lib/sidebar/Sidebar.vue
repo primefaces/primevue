@@ -24,10 +24,10 @@
 
 <script>
 import FocusTrap from 'primevue/focustrap';
+import TimesIcon from 'primevue/icon/times';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
-import TimesIcon from 'primevue/icon/times';
 
 export default {
     name: 'Sidebar',

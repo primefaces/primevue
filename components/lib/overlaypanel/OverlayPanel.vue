@@ -17,11 +17,11 @@
 
 <script>
 import FocusTrap from 'primevue/focustrap';
+import TimesIcon from 'primevue/icon/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
-import TimesIcon from 'primevue/icon/times';
 
 export default {
     name: 'OverlayPanel',
