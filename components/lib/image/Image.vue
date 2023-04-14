@@ -272,10 +272,6 @@ export default {
     transition: opacity 0.3s;
 }
 
-.p-image-preview-icon {
-    font-size: 1.5rem;
-}
-
 .p-image-preview-container:hover > .p-image-preview-indicator {
     opacity: 1;
     cursor: pointer;
