@@ -27,25 +27,33 @@
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" class="p-inputnumber-button-group">
             <INButton :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+                <template #icon>
+                    <slot name="incrementbuttonicon">
+                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
+                    </slot>
+                </template>
+            </INButton>
+            <INButton :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+                <template #icon>
+                    <slot name="decrementbuttonicon">
+                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
+                    </slot>
+                </template>
+            </INButton>
+        </span>
+        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+            <template #icon>
                 <slot name="incrementbuttonicon">
                     <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
                 </slot>
-            </INButton>
-            <INButton :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+            </template>
+        </INButton>
+        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+            <template #icon>
                 <slot name="decrementbuttonicon">
                     <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
                 </slot>
-            </INButton>
-        </span>
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="upButtonClass" :icon="incrementButtonIcon" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
-            <slot name="incrementbuttonicon">
-                <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
-            </slot>
-        </INButton>
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="downButtonClass" :icon="decrementButtonIcon" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
-            <slot name="decrementbuttonicon">
-                <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
-            </slot>
+            </template>
         </INButton>
     </span>
 </template>

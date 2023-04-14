@@ -15,9 +15,11 @@
             @keydown="onDropdownKeydown"
             v-bind="menuButtonProps"
         >
-            <slot name="menubuttonicon">
-                <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="menuButtonIcon" />
-            </slot>
+            <template #icon>
+                <slot name="menubuttonicon">
+                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="menuButtonIcon" />
+                </slot>
+            </template>
         </PVSButton>
         <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
     </div>

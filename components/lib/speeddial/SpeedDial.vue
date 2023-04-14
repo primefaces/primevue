@@ -13,8 +13,10 @@
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
             >
-                <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" />
-                <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" />
+                <template #icon>
+                    <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" />
+                    <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" />
+                </template>
             </SDButton>
         </slot>
         <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1">

@@ -38,9 +38,11 @@
             :aria-expanded="overlayVisible"
             :aria-controls="panelId"
         >
-            <slot name="triggericon">
-                <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" />
-            </slot>
+            <template #icon>
+                <slot name="triggericon">
+                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" />
+                </slot>
+            </template>
         </CalendarButton>
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave">

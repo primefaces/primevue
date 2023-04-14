@@ -3,24 +3,32 @@
         <div v-if="showSourceControls" class="p-picklist-buttons p-picklist-source-controls">
             <slot name="sourcecontrolsstart"></slot>
             <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" v-bind="moveUpButtonProps">
-                <slot name="moveupicon">
-                    <AngleUpIcon />
-                </slot>
+                <template #icon>
+                    <slot name="moveupicon">
+                        <AngleUpIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveTop($event, 0)" v-bind="moveTopButtonProps">
-                <slot name="movetopicon">
-                    <AngleDoubleUpIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movetopicon">
+                        <AngleDoubleUpIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveDown($event, 0)" v-bind="moveDownButtonProps">
-                <slot name="movedownicon">
-                    <AngleDownIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movedownicon">
+                        <AngleDownIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveBottom($event, 0)" v-bind="moveBottomButtonProps">
-                <slot name="movebottomicon">
-                    <AngleDoubleDownIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movebottomicon">
+                        <AngleDoubleDownIcon />
+                    </slot>
+                </template>
             </PLButton>
             <slot name="sourcecontrolsend"></slot>
         </div>
@@ -64,24 +72,32 @@
         <div class="p-picklist-buttons p-picklist-transfer-buttons">
             <slot name="movecontrolsstart"></slot>
             <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps">
-                <slot name="movetotargeticon">
-                    <AngleRightIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movetotargeticon">
+                        <AngleRightIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps">
-                <slot name="movealltotargeticon">
-                    <AngleDoubleRightIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movealltotargeticon">
+                        <AngleDoubleRightIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps">
-                <slot name="movetosourceicon">
-                    <AngleLeftIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movetosourceicon">
+                        <AngleLeftIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps">
-                <slot name="movealltosourceicon">
-                    <AngleDoubleLeftIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movealltosourceicon">
+                        <AngleDoubleLeftIcon />
+                    </slot>
+                </template>
             </PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
@@ -126,24 +142,32 @@
         <div v-if="showTargetControls" class="p-picklist-buttons p-picklist-target-controls">
             <slot name="targetcontrolsstart"></slot>
             <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" v-bind="moveUpButtonProps">
-                <slot name="moveupicon">
-                    <AngleUpIcon />
-                </slot>
+                <template #icon>
+                    <slot name="moveupicon">
+                        <AngleUpIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveTop($event, 1)" v-bind="moveTopButtonProps">
-                <slot name="movetopicon">
-                    <AngleDoubleUpIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movetopicon">
+                        <AngleDoubleUpIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveDown($event, 1)" v-bind="moveDownButtonProps">
-                <slot name="movedownicon">
-                    <AngleDownIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movedownicon">
+                        <AngleDownIcon />
+                    </slot>
+                </template>
             </PLButton>
             <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveBottom($event, 1)" v-bind="moveBottomButtonProps">
-                <slot name="movebottomicon">
-                    <AngleDoubleDownIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movebottomicon">
+                        <AngleDoubleDownIcon />
+                    </slot>
+                </template>
             </PLButton>
             <slot name="targetcontrolsend"></slot>
         </div>

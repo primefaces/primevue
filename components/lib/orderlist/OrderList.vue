@@ -3,24 +3,32 @@
         <div class="p-orderlist-controls">
             <slot name="controlsstart"></slot>
             <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps">
-                <slot>
-                    <component :is="$slots.moveupicon || 'AngleUpIcon'" />
-                </slot>
+                <template #icon>
+                    <slot name="moveupicon">
+                        <AngleUpIcon />
+                    </slot>
+                </template>
             </OLButton>
             <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps">
-                <slot name="movetopicon">
-                    <AngleDoubleUpIcon />
-                </slot>
+                <template #icon
+                    ><slot name="movetopicon">
+                        <AngleDoubleUpIcon />
+                    </slot>
+                </template>
             </OLButton>
             <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps">
-                <slot name="movedownicon">
-                    <AngleDownIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movedownicon">
+                        <AngleDownIcon />
+                    </slot>
+                </template>
             </OLButton>
             <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps">
-                <slot name="movebottomicon">
-                    <AngleDoubleDownIcon />
-                </slot>
+                <template #icon>
+                    <slot name="movebottomicon">
+                        <AngleDoubleDownIcon />
+                    </slot>
+                </template>
             </OLButton>
             <slot name="controlsend"></slot>
         </div>
