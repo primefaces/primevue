@@ -2,14 +2,19 @@
     <Portal>
         <div ref="container" :class="containerClass" v-bind="$attrs">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
-                <ToastMessage v-for="msg of messages" :key="msg.id" :message="msg" :template="$slots.message" :closeIcon="closeIcon" :icon="msg.icon || icon" :closeButtonProps="closeButtonProps" @close="remove($event)">
-                    <template #closeicon>
-                        <slot name="closeicon" />
-                    </template>
-                    <template #icon>
-                        <slot name="icon" />
-                    </template>
-                </ToastMessage>
+                <ToastMessage
+                    v-for="msg of messages"
+                    :key="msg.id"
+                    :message="msg"
+                    :templates="$slots"
+                    :closeIcon="closeIcon"
+                    :infoIcon="infoIcon"
+                    :warnIcon="warnIcon"
+                    :errorIcon="errorIcon"
+                    :successIcon="successIcon"
+                    :closeButtonProps="closeButtonProps"
+                    @close="remove($event)"
+                />
             </transition-group>
         </div>
     </Portal>
@@ -52,7 +57,19 @@ export default {
             type: String,
             default: undefined
         },
-        icon: {
+        infoIcon: {
+            type: String,
+            default: undefined
+        },
+        warnIcon: {
+            type: String,
+            default: undefined
+        },
+        errorIcon: {
+            type: String,
+            default: undefined
+        },
+        successIcon: {
             type: String,
             default: undefined
         },

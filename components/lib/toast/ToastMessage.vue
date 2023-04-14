@@ -1,21 +1,17 @@
 <template>
     <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="p-toast-message-content" :class="message.contentStyleClass">
-            <template v-if="!template">
-                <slot name="icon">
-                    <component :is="icon ? 'span' : iconComponent" :class="['p-toast-message-icon', icon]"></component>
-                </slot>
+            <template v-if="!templates.message">
+                <component :is="templates.icon ? templates.icon : iconComponent.name ? iconComponent : 'span'" :class="iconClass" class="p-toast-message-icon" />
                 <div class="p-toast-message-text">
                     <span class="p-toast-summary">{{ message.summary }}</span>
                     <div class="p-toast-detail">{{ message.detail }}</div>
                 </div>
             </template>
-            <component v-else :is="template" :message="message"></component>
+            <component v-else :is="templates.message" :message="message"></component>{{ message.closable }}
             <div v-if="message.closable !== false">
                 <button v-ripple class="p-toast-icon-close p-link" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="closeButtonProps">
-                    <slot name="closeicon">
-                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-toast-icon-close-icon', closeIcon]"></component>
-                    </slot>
+                    <component :is="templates.closeicon || 'span'" :class="['p-toast-icon-close-icon', closeIcon]" />
                 </button>
             </div>
         </div>
@@ -38,17 +34,29 @@ export default {
             type: null,
             default: null
         },
-        template: {
-            type: null,
+        templates: {
+            type: Object,
             default: null
         },
         closeIcon: {
             type: String,
-            default: undefined
+            default: null
         },
-        icon: {
+        infoIcon: {
             type: String,
-            default: undefined
+            default: null
+        },
+        warnIcon: {
+            type: String,
+            default: null
+        },
+        errorIcon: {
+            type: String,
+            default: null
+        },
+        successIcon: {
+            type: String,
+            default: null
         },
         closeButtonProps: {
             type: null,
@@ -96,22 +104,32 @@ export default {
         },
         iconComponent() {
             return {
-                info: InfoCircleIcon,
-                success: CheckIcon,
-                warn: ExclamationTriangleIcon,
-                error: TimesCircleIcon
+                info: !this.infoIcon && InfoCircleIcon,
+                success: !this.successIcon && CheckIcon,
+                warn: !this.warnIcon && ExclamationTriangleIcon,
+                error: !this.errorIcon && TimesCircleIcon
             }[this.message.severity];
+        },
+        iconClass() {
+            return [
+                {
+                    [this.infoIcon]: this.message.severity === 'info',
+                    [this.warnIcon]: this.message.severity === 'warn',
+                    [this.errorIcon]: this.message.severity === 'error',
+                    [this.successIcon]: this.message.severity === 'success'
+                }
+            ];
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
     },
     components: {
-        TimesIcon,
-        InfoCircleIcon,
-        CheckIcon,
-        ExclamationTriangleIcon,
-        TimesCircleIcon
+        TimesIcon: TimesIcon,
+        InfoCircleIcon: InfoCircleIcon,
+        CheckIcon: CheckIcon,
+        ExclamationTriangleIcon: ExclamationTriangleIcon,
+        TimesCircleIcon: TimesCircleIcon
     },
     directives: {
         ripple: Ripple

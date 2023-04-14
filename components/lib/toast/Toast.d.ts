@@ -18,7 +18,7 @@ export interface ToastMessageOptions {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
     /**
      * Summary content of the message.
      */
@@ -98,9 +98,21 @@ export interface ToastProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Icon to display in the toast.
+     * Icon to display in the toast with info severity.
      */
-    icon?: string | undefined;
+    infoIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with warn severity.
+     */
+    warnIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with error severity.
+     */
+    errorIcon?: string | undefined;
+    /**
+     * Icon to display in the toast with success severity.
+     */
+    successIcon?: string | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the close button.
      */
