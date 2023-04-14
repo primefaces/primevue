@@ -7113,7 +7113,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-bars",
+                            "default": "",
                             "description": "Icon of the drag handle to reorder rows."
                         },
                         {
@@ -11936,7 +11936,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-times",
+                            "default": "",
                             "description": "Icon to display in clear button."
                         },
                         {
@@ -11944,7 +11944,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-chevron-down",
+                            "default": "",
                             "description": "Icon to display in the dropdown."
                         },
                         {
@@ -11952,7 +11952,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-search",
+                            "default": "",
                             "description": "Icon to display in filter input."
                         },
                         {
@@ -11960,7 +11960,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-spinner pi-spin",
+                            "default": "",
                             "description": "Icon to display in loading state."
                         },
                         {
@@ -14210,7 +14210,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-eye",
+                            "default": "",
                             "description": "Custom indicator icon."
                         }
                     ],
@@ -21580,7 +21580,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-plus",
+                            "default": "",
                             "description": "Show icon of the button element."
                         },
                         {
@@ -24825,7 +24825,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-spin",
+                            "default": "",
                             "description": "Icon to display when tree is loading."
                         },
                         {
@@ -25880,7 +25880,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "pi pi-spinner",
+                            "default": "",
                             "description": "The icon to show while indicating data load is in progress."
                         },
                         {
