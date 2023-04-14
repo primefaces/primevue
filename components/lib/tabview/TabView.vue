@@ -13,7 +13,7 @@
                 v-bind="{ ...previousButtonProps, ...ptm('prevbutton') }"
             >
                 <slot name="previcon">
-                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" v-bind="ptm('previcon')" aria-hidden="true" :class="prevIcon" />
+                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previcon')" />
                 </slot>
             </button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll" v-bind="ptm('navcontent')">
@@ -59,7 +59,7 @@
                 v-bind="{ ...nextButtonProps, ...ptm('nextbutton') }"
             >
                 <slot name="nexticon">
-                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" v-bind="ptm('nexticon')" aria-hidden="true" :class="nextIcon" />
+                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" aria-hidden="true" :class="nextIcon" v-bind="ptm('nexticon')" />
                 </slot>
             </button>
         </div>
@@ -87,6 +87,7 @@ import ChevronLeftIcon from 'primevue/icon/chevronleft';
 import ChevronRightIcon from 'primevue/icon/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+
 export default {
     name: 'TabView',
     extends: BaseComponent,
