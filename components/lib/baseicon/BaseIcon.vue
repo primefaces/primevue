@@ -33,11 +33,8 @@ export default {
 };
 </script>
 <style>
-/* Theme */
 .p-icon {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
 }
 
 .p-icon-spin {
