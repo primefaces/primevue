@@ -20,6 +20,7 @@
 import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icon/times';
+
 export default {
     name: 'Inplace',
     emits: ['open', 'close', 'update:active'],
