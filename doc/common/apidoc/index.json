@@ -9874,6 +9874,30 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom rowgroup toggler icon template."
+                        },
+                        {
+                            "name": "paginatorfirstpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginator first page link icon template."
+                        },
+                        {
+                            "name": "paginatorprevpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginator previous page link icon template."
+                        },
+                        {
+                            "name": "paginatornextpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginator next page link icon template."
+                        },
+                        {
+                            "name": "paginatorlastpagelinkicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom paginator last page link icon template."
                         }
                     ]
                 },
