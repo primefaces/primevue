@@ -13504,6 +13504,18 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom cancel icon template."
+                        },
+                        {
+                            "name": "fileremoveicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>file</b>: File, // File to upload.\n  \t <b>index</b>: number, // The index of file\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom remove icon template for each file."
                         }
                     ]
                 },
