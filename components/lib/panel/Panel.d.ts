@@ -53,7 +53,7 @@ export interface PanelPassThroughOptions {
      */
     title?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Uses to pass attributes to the icons' DOM element.
      */
     icons?: PanelPassThroughOptionType;
     /**
