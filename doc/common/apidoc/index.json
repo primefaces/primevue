@@ -18666,7 +18666,7 @@
                             "readonly": false,
                             "type": "PanelPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the title's DOM element."
+                            "description": "Uses to pass attributes to the icons' DOM element."
                         },
                         {
                             "name": "toggler",
