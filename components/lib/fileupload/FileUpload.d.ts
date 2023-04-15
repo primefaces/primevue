@@ -330,6 +330,19 @@ export interface FileUploadSlots {
      * Custom cancel icon template.
      */
     cancelicon(): VNode[];
+    /**
+     * Custom remove icon template for each file.
+     */
+    fileremoveicon(scope: {
+        /**
+         * File to upload.
+         */
+        file: File;
+        /**
+         * The index of file
+         */
+        index: number;
+    }): VNode[];
 }
 
 export interface FileUploadEmits {

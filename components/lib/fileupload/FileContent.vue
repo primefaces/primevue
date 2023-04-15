@@ -7,7 +7,12 @@
             <FileUploadBadge :value="badgeValue" class="p-fileupload-file-badge" :severity="badgeSeverity" />
         </div>
         <div class="p-fileupload-file-actions">
-            <FileUploadButton icon="pi pi-times" @click="$emit('remove', index)" class="p-fileupload-file-remove p-button-text p-button-danger p-button-rounded"></FileUploadButton>
+            <FileUploadButton @click="$emit('remove', index)" text rounded severity="danger" class="p-fileupload-file-remove">
+                <template #icon="iconProps">
+                    <component v-if="templates.fileremoveicon" :is="templates.fileremoveicon" :class="iconProps.class" :file="file" :index="index" />
+                    <component v-else :is="'TimesIcon'" :class="iconProps.class" aria-hidden="true" />
+                </template>
+            </FileUploadButton>
         </div>
     </div>
 </template>
@@ -15,6 +20,7 @@
 <script>
 import Badge from 'primevue/badge';
 import Button from 'primevue/button';
+import TimesIcon from 'primevue/icon/times';
 
 export default {
     emits: ['remove'],
@@ -34,6 +40,10 @@ export default {
         previewWidth: {
             type: Number,
             default: 50
+        },
+        templates: {
+            type: null,
+            default: null
         }
     },
     methods: {
@@ -52,7 +62,8 @@ export default {
     },
     components: {
         FileUploadButton: Button,
-        FileUploadBadge: Badge
+        FileUploadBadge: Badge,
+        TimesIcon
     }
 };
 </script>

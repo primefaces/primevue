@@ -291,6 +291,10 @@ const FileUploadSlots = [
     {
         name: 'cancelicon',
         description: 'Custom cancel icon template.'
+    },
+    {
+        name: 'fileremoveicon',
+        description: 'Custom remove icon template for each file.'
     }
 ];
 
