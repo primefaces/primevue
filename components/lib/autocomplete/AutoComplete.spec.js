@@ -55,6 +55,21 @@ describe('AutoComplete.vue', () => {
         expect(wrapper.findAll('.p-autocomplete-item').length).toBe(1);
     });
 
+    it('should show overlay and empty-message if there are no suggestions', async () => {
+        const event = { target: { value: 'b' } };
+
+        wrapper.vm.search(event, event.target.value, 'input');
+        await wrapper.vm.$nextTick();
+
+        await wrapper.setProps({
+            suggestions: []
+        });
+
+        expect(wrapper.find('.p-autocomplete-items').exists()).toBe(true);
+        expect(wrapper.findAll('.p-autocomplete-item').length).toBe(0);
+        expect(wrapper.find('.p-autocomplete-empty-message').exists()).toBe(true);
+    })
+
     it('dropdown', () => {
         it('should have correct custom icon', async () => {
             wrapper.setProps({
