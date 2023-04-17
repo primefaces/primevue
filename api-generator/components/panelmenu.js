@@ -27,6 +27,14 @@ const PanelMenuSlots = [
     {
         name: 'submenuicon',
         description: 'Custom submenu icon template.'
+    },
+    {
+        name: 'headericon',
+        description: 'Custom header icon template.'
+    },
+    {
+        name: 'itemicon',
+        description: 'Custom item icon template.'
     }
 ];
 

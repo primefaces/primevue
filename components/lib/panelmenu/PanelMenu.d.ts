@@ -89,6 +89,34 @@ export interface PanelMenuSlots {
          */
         active: boolean;
     }): VNode[];
+    /**
+     * Custom header icon template.
+     * @param {Object} scope - header icon slot's params.
+     */
+    headericon(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
+    }): VNode[];
+    /**
+     * Custom item icon template.
+     * @param {Object} scope - item icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

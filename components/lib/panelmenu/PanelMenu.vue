@@ -18,7 +18,7 @@
                         <template v-if="!$slots.item">
                             <router-link v-if="getItemProp(item, 'to') && !isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(item, 'to')" custom>
                                 <a :href="href" :class="getHeaderActionClass(item, { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)">
-                                    <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
+                                    <component :is="$slots.headericon || (getItemProp(item, 'icon') ? 'span' : undefined)" :item="item" :class="getHeaderIconClass(item)" />
                                     <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
                                 </a>
                             </router-link>
@@ -26,7 +26,7 @@
                                 <slot v-if="getItemProp(item, 'items')" name="submenuicon" :active="isItemActive(item)">
                                     <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" />
                                 </slot>
-                                <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
+                                <component :is="$slots.headericon || (getItemProp(item, 'icon') ? 'span' : undefined)" :item="item" :class="getHeaderIconClass(item)" />
                                 <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
                             </a>
                         </template>
@@ -36,7 +36,7 @@
                 <transition name="p-toggleable-content">
                     <div v-show="isItemActive(item)" :id="getContentId(index)" class="p-toggleable-content" role="region" :aria-labelledby="getHeaderId(index)">
                         <div v-if="getItemProp(item, 'items')" class="p-panelmenu-content">
-                            <PanelMenuList :panelId="getPanelId(index)" :items="getItemProp(item, 'items')" :template="$slots" :expandedKeys="expandedKeys" @item-toggle="changeExpandedKeys" @header-focus="updateFocusedHeader" :exact="exact" />
+                            <PanelMenuList :panelId="getPanelId(index)" :items="getItemProp(item, 'items')" :templates="$slots" :expandedKeys="expandedKeys" @item-toggle="changeExpandedKeys" @header-focus="updateFocusedHeader" :exact="exact" />
                         </div>
                     </div>
                 </transition>
