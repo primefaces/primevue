@@ -150,6 +150,42 @@ export interface TreeSelectSlots {
      * Custom indicator template.
      */
     indicator(): VNode[];
+    /**
+     * Custom loading icon template.
+     */
+    loadingicon(): VNode[];
+    /**
+     * Custom search icon template.
+     */
+    searchicon(): VNode[];
+    /**
+     * Custom item toggler icon template.
+     * @param {Object} scope - item toggler icon slot's params.
+     */
+    itemtogglericon(scope: {
+        /**
+         * Node instance
+         */
+        node: TreeNode | any;
+        /**
+         * Expanded state of the node
+         */
+        expanded: TreeNode[];
+    }): VNode[];
+    /**
+     * Custom item checkbox icon template.
+     * @param {Object} scope - item checkbox icon slot's params.
+     */
+    itemcheckboxicon(scope: {
+        /**
+         * Check state of the node
+         */
+        checked: boolean;
+        /**
+         * Partial check state of the node
+         */
+        partialChecked: boolean;
+    }): VNode[];
 }
 
 /**
