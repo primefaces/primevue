@@ -56,6 +56,20 @@ export interface BreadcrumbSlots {
      * Custom separator template.
      */
     separator(): VNode[];
+    /**
+     * Custom item icon template.
+     * @param {Object} scope - item icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

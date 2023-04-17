@@ -1,18 +1,18 @@
 <template>
     <li v-if="visible()" :class="containerClass()">
-        <template v-if="!template">
+        <template v-if="!templates.item">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                 <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)">
-                    <span v-if="item.icon" :class="iconClass"></span>
+                    <component :is="templates.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="iconClass" />
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
                 </a>
             </router-link>
             <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick">
-                <span v-if="item.icon" :class="iconClass"></span>
+                <component :is="templates.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="iconClass" />
                 <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
             </a>
         </template>
-        <component v-else :is="template" :item="item"></component>
+        <component v-else :is="templates.item" :item="item"></component>
     </li>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     name: 'BreadcrumbItem',
     props: {
         item: null,
-        template: null,
+        templates: null,
         exact: null
     },
     methods: {

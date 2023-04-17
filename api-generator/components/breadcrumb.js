@@ -27,6 +27,10 @@ const BreadcrumbSlots = [
     {
         name: 'separator',
         description: 'Custom separator template.'
+    },
+    {
+        name: 'itemicon',
+        description: 'Custom item icon template.'
     }
 ];
 

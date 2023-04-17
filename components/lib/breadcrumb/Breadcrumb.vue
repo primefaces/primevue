@@ -1,14 +1,14 @@
 <template>
     <nav class="p-breadcrumb p-component">
         <ol class="p-breadcrumb-list">
-            <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :template="$slots.item" :exact="exact" />
+            <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :templates="$slots" :exact="exact" />
             <template v-for="(item, i) of model" :key="item.label">
                 <li v-if="home || i !== 0" class="p-menuitem-separator">
                     <slot name="separator">
                         <ChevronRightIcon aria-hidden="true" />
                     </slot>
                 </li>
-                <BreadcrumbItem :item="item" :template="$slots.item" :exact="exact" />
+                <BreadcrumbItem :item="item" :templates="$slots" :exact="exact" />
             </template>
         </ol>
     </nav>
