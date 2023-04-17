@@ -257,6 +257,7 @@ export default {
 .p-image-preview-container {
     position: relative;
     display: inline-block;
+     line-height: 0;
 }
 
 .p-image-preview-indicator {
