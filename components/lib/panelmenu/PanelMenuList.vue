@@ -8,7 +8,7 @@
         :panelId="panelId"
         :focusedItemId="focused ? focusedItemId : undefined"
         :items="processedItems"
-        :template="template"
+        :templates="templates"
         :activeItemPath="activeItemPath"
         :exact="exact"
         @focus="onFocus"
@@ -34,7 +34,7 @@ export default {
             type: Array,
             default: null
         },
-        template: {
+        templates: {
             type: Object,
             default: null
         },
