@@ -197,6 +197,7 @@ export default {
     scrollHandler: null,
     overlay: null,
     selfChange: false,
+    selfClick: false,
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -337,8 +338,10 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.isOutsideClicked(event)) {
+                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event)) {
                         this.hide();
+
+                        this.selfClick = false;
                     }
                 };
 
@@ -395,6 +398,8 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
+
+            this.selfClick = true;
         },
         onOverlayKeydown(event) {
             if (event.code === 'Escape') this.hide();

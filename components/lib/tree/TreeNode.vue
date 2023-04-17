@@ -88,6 +88,7 @@ export default {
         }
     },
     nodeTouched: false,
+    toggleClicked: false,
     mounted() {
         const hasTreeSelectParent = this.$refs.currentNode.closest('.p-treeselect-items-wrapper');
 
@@ -98,6 +99,7 @@ export default {
     methods: {
         toggle() {
             this.$emit('node-toggle', this.node);
+            this.toggleClicked = true;
         },
         label(node) {
             return typeof node.label === 'function' ? node.label() : node.label;
@@ -106,7 +108,9 @@ export default {
             this.$emit('node-toggle', node);
         },
         onClick(event) {
-            if (DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-tree-toggler')) {
+            if (this.toggleClicked || DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-tree-toggler')) {
+                this.toggleClicked = false;
+
                 return;
             }
 
