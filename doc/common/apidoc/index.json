@@ -23792,6 +23792,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom submenu icon template."
+                        },
+                        {
+                            "name": "itemicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "description": "item icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom item icon template."
                         }
                     ]
                 },
@@ -25419,6 +25432,44 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
+                        },
+                        {
+                            "name": "searchicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom search icon template."
+                        },
+                        {
+                            "name": "itemtogglericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>node</b>: any, // Node instance\n  \t <b>expanded</b>: TreeNode, // Expanded state of the node\n  }",
+                                    "description": "item toggler icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom item toggler icon template."
+                        },
+                        {
+                            "name": "itemcheckboxicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>checked</b>: boolean, // Check state of the node\n  \t <b>partialChecked</b>: boolean, // Partial check state of the node\n  }",
+                                    "description": "item checkbox icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom item checkbox icon template."
                         }
                     ]
                 },
