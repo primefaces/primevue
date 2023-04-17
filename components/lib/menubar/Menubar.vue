@@ -27,7 +27,7 @@
             class="p-menubar-root-list"
             role="menubar"
             :items="processedItems"
-            :template="$slots"
+            :templates="$slots"
             :root="true"
             :mobileActive="mobileActive"
             tabindex="0"
