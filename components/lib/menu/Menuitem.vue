@@ -1,19 +1,19 @@
 <template>
     <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()">
         <div class="p-menuitem-content" @click="onItemClick($event)">
-            <template v-if="!template">
+            <template v-if="!templates.item">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                     <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
-                        <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
+                        <component :is="templates.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="iconClass" />
                         <span class="p-menuitem-text">{{ label() }}</span>
                     </a>
                 </router-link>
                 <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true">
-                    <span v-if="item.icon" :class="['p-menuitem-icon', item.icon]"></span>
+                    <component :is="templates.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="iconClass" />
                     <span class="p-menuitem-text">{{ label() }}</span>
                 </a>
             </template>
-            <component v-else :is="template" :item="item"></component>
+            <component v-else :is="templates.item" :item="item"></component>
         </div>
     </li>
 </template>
@@ -28,7 +28,7 @@ export default {
     emits: ['item-click'],
     props: {
         item: null,
-        template: null,
+        templates: null,
         exact: null,
         id: null,
         focusedOptionId: null
@@ -66,6 +66,11 @@ export default {
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
+        }
+    },
+    computed: {
+        iconClass() {
+            return ['p-menuitem-icon', this.item.icon];
         }
     },
     directives: {
