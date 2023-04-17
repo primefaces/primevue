@@ -340,9 +340,9 @@ export default {
                 this.outsideClickListener = (event) => {
                     if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event)) {
                         this.hide();
-
-                        this.selfClick = false;
                     }
+
+                    this.selfClick = false;
                 };
 
                 document.addEventListener('click', this.outsideClickListener);
