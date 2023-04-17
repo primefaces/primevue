@@ -3789,6 +3789,19 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom separator template."
+                        },
+                        {
+                            "name": "itemicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "description": "item icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom item icon template."
                         }
                     ]
                 },
