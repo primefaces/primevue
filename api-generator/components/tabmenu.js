@@ -42,6 +42,10 @@ const TabMenuSlots = [
     {
         name: 'item',
         description: 'Template of a menuitem.'
+    },
+    {
+        name: 'itemicon',
+        description: 'Custom item icon template.'
     }
 ];
 
