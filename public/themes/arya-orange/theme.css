@@ -1124,6 +1124,7 @@
   color: #ef9a9a;
 }
 
+.p-input-icon-left > svg:first-of-type,
 .p-input-icon-left > i:first-of-type {
   left: 0.5rem;
   color: rgba(255, 255, 255, 0.6);
@@ -1137,6 +1138,7 @@
   left: 2rem;
 }
 
+.p-input-icon-right > svg:last-of-type,
 .p-input-icon-right > i:last-of-type {
   right: 0.5rem;
   color: rgba(255, 255, 255, 0.6);

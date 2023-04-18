@@ -1128,6 +1128,7 @@
   color: #e57373;
 }
 
+.p-input-icon-left > svg:first-of-type,
 .p-input-icon-left > i:first-of-type {
   left: 0.429rem;
   color: #888888;
@@ -1141,6 +1142,7 @@
   left: 1.858rem;
 }
 
+.p-input-icon-right > svg:last-of-type,
 .p-input-icon-right > i:last-of-type {
   right: 0.429rem;
   color: #888888;
