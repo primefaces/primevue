@@ -21,6 +21,7 @@ export interface InlineMessageProps {
     severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
     /**
      * Display a custom icon for the message.
+     * @todo
      */
     icon?: string | undefined;
 }
@@ -35,7 +36,7 @@ export interface InlineMessageSlots {
     /**
      * Custom message icon template.
      */
-    messageicon(): VNode[];
+    icon(): VNode[];
 }
 
 export interface InlineMessageEmits {}

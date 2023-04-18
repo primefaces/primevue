@@ -2,7 +2,7 @@
     <span :class="containerClass" :style="style">
         <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
         <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="previewButtonProps">
-            <slot name="indicator">
+            <slot name="indicatoricon">
                 <component :is="indicatorIcon ? 'i' : 'EyeIcon'" class="p-image-preview-icon" />
             </slot>
         </button>

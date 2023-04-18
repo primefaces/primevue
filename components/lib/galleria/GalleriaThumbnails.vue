@@ -2,7 +2,7 @@
     <div class="p-galleria-thumbnail-wrapper">
         <div class="p-galleria-thumbnail-container">
             <button v-if="showThumbnailNavigators" v-ripple :class="navBackwardClass" :disabled="isNavBackwardDisabled()" type="button" :aria-label="ariaPrevButtonLabel" @click="navBackward($event)" v-bind="prevButtonProps">
-                <component :is="templates.prevthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" class="p-galleria-thumbnail-prev-icon" />
+                <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" class="p-galleria-thumbnail-prev-icon" />
             </button>
             <div class="p-galleria-thumbnail-items-container" :style="{ height: isVertical ? contentHeight : '' }">
                 <div ref="itemsContainer" class="p-galleria-thumbnail-items" role="tablist" @transitionend="onTransitionEnd" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)">

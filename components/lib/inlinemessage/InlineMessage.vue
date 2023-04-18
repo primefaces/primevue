@@ -1,6 +1,6 @@
 <template>
     <div aria-live="polite" :class="containerClass">
-        <slot name="messageicon">
+        <slot name="icon">
             <component :is="icon ? 'span' : iconComponent" :class="['p-inline-message-icon', icon]"></component>
         </slot>
         <span class="p-inline-message-text"><slot>&nbsp;</slot></span>
