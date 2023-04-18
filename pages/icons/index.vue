@@ -2,7 +2,7 @@
     <div>
         <Head>
             <Title>Vue Icon Library - PrimeVue</Title>
-            <Meta name="description" content="PrimeVue components internally use PrimeIcons library." />
+            <Meta name="description" content="PrimeIcons is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating." />
         </Head>
 
         <div class="doc">
@@ -11,7 +11,7 @@
                     <h1>Icons</h1>
                     <p>
                         <a href="https://github.com/primefaces/primeicons" class="text-primary hover:underline font-semibold"> PrimeIcons </a>
-                        is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek.
+                        is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating.
                     </p>
                 </div>
                 <DocSections :docs="docs" />
