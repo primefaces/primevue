@@ -14114,7 +14114,7 @@
                             "description": "Custom close icon template."
                         },
                         {
-                            "name": "previtemicon",
+                            "name": "previousitemicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom navigator previous item icon template."
@@ -14126,7 +14126,7 @@
                             "description": "Custom navigator next item icon template."
                         },
                         {
-                            "name": "prevthumbnailicon",
+                            "name": "previousthumbnailicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom thumbnail previous icon template."
@@ -14438,7 +14438,7 @@
                             "description": "Default custom slot."
                         },
                         {
-                            "name": "messageicon",
+                            "name": "icon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom message icon template."
@@ -16551,10 +16551,10 @@
                             "description": "Custom item template."
                         },
                         {
-                            "name": "baricon",
+                            "name": "popupicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom bar icon template."
+                            "description": "Custom popup icon template on responsive mode."
                         },
                         {
                             "name": "submenuicon",
