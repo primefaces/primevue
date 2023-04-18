@@ -20139,25 +20139,53 @@
                         },
                         {
                             "name": "movetotargeticon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "description": "movetotargeticon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom move to target icon template."
                         },
                         {
                             "name": "movealltotargeticon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "description": "movealltotargeticon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom move all to target icon template."
                         },
                         {
                             "name": "movetosourceicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "description": "movetosourceicon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom move to source icon template."
                         },
                         {
                             "name": "movealltosourceicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>viewChanged</b>: boolean, // Whether view change.\n  }",
+                                    "description": "movealltosourceicon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom move all to source icon template."
                         }
