@@ -15,11 +15,14 @@
     >
         <div :class="contentClass" @click="onClick" @touchend="onTouchEnd" :style="node.style">
             <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" aria-hidden="true">
-                <component :is="templates['togglericon'] ? templates['togglericon'] : expanded ? node.expandedIcon || 'ChevronDownIcon' : node.collapsedIcon || 'ChevronRightIcon'" :node="node" :expanded="expanded" class="p-tree-toggler-icon" />
+                <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" class="p-tree-toggler-icon" />
+                <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" class="p-tree-toggler-icon" />
+                <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" class="p-tree-toggler-icon" />
             </button>
             <div v-if="checkboxMode" class="p-checkbox p-component" aria-hidden="true">
                 <div :class="checkboxClass" role="checkbox">
-                    <component :is="templates['checkboxicon'] ? templates['checkboxicon'] : checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
+                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
+                    <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" class="p-checkbox-icon" />
                 </div>
             </div>
             <span :class="icon"></span>

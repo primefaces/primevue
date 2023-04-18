@@ -61,9 +61,9 @@ export interface MenubarSlots {
         item: MenuItem;
     }): VNode[];
     /**
-     * Custom bar icon template.
+     * Custom popup icon template on responsive mode.
      */
-    baricon(): VNode[];
+    popupicon(): VNode[];
     /**
      * Custom submenu icon template.
      */

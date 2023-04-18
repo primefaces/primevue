@@ -18,7 +18,8 @@
                         <template v-if="!$slots.item">
                             <router-link v-if="getItemProp(item, 'to') && !isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(item, 'to')" custom>
                                 <a :href="href" :class="getHeaderActionClass(item, { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)">
-                                    <component :is="$slots.headericon || (getItemProp(item, 'icon') ? 'span' : undefined)" :item="item" :class="getHeaderIconClass(item)" />
+                                    <component v-if="$slots.headericon" :is="$slots.headericon" :item="item" :class="getHeaderIconClass(item)" />
+                                    <span v-else-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)" />
                                     <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
                                 </a>
                             </router-link>
@@ -26,7 +27,8 @@
                                 <slot v-if="getItemProp(item, 'items')" name="submenuicon" :active="isItemActive(item)">
                                     <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" />
                                 </slot>
-                                <component :is="$slots.headericon || (getItemProp(item, 'icon') ? 'span' : undefined)" :item="item" :class="getHeaderIconClass(item)" />
+                                <component v-if="$slots.headericon" :is="$slots.headericon" :item="item" :class="getHeaderIconClass(item)" />
+                                <span v-else-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)" />
                                 <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
                             </a>
                         </template>

@@ -6,7 +6,8 @@
                     <div :class="nodeContentClass" @click="onNodeClick">
                         <component :is="templates[node.type] || templates['default']" :node="node" />
                         <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown="onKeydown">
-                            <component :is="templates.togglericon || (expanded ? 'ChevronDownIcon' : 'ChevronUpIcon')" :expanded="expanded" class="p-node-toggler-icon" />
+                            <component v-if="templates.togglericon" :is="templates.togglericon" :expanded="expanded" class="p-node-toggler-icon" />
+                            <component v-else :is="expanded ? 'ChevronDownIcon' : 'ChevronUpIcon'" class="p-node-toggler-icon" />
                         </a>
                     </div>
                 </td>

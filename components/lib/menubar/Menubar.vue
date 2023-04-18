@@ -17,8 +17,8 @@
             @keydown="menuButtonKeydown($event)"
             v-bind="buttonProps"
         >
-            <slot name="baricon">
-                <component :is="'BarsIcon'" />
+            <slot name="popupicon">
+                <BarsIcon />
             </slot>
         </a>
         <MenubarSub

@@ -3,7 +3,8 @@
         <template v-if="loading">
             <div class="p-tree-loading-overlay p-component-overlay">
                 <slot name="loadingicon">
-                    <component :is="loadingIcon ? 'i' : 'SpinnerIcon'" spin :class="['p-tree-loading-icon', loadingIcon]" />
+                    <i v-if="loadingIcon" :class="['p-tree-loading-icon pi-spin', loadingIcon]" />
+                    <SpinnerIcon v-else spin class="p-tree-loading-icon" />
                 </slot>
             </div>
         </template>
