@@ -277,6 +277,14 @@ const FileUploadEvents = [
 
 const FileUploadSlots = [
     {
+        name: 'header',
+        description: 'Custom header template.'
+    },
+    {
+        name: 'content',
+        description: 'Custom content template.'
+    },
+    {
         name: 'empty',
         description: 'Custom content when there is no selected file'
     },

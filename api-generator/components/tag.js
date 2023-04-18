@@ -25,10 +25,18 @@ const TagProps = [
     }
 ];
 
+const TagSlots = [
+    {
+        name: 'icon',
+        description: 'custom icon template.'
+    }
+];
+
 module.exports = {
     tag: {
         name: 'Tag',
         description: 'Tag component is used to categorize content.',
-        props: TagProps
+        props: TagProps,
+        slots: TagSlots
     }
 };

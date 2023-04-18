@@ -119,6 +119,10 @@ const SplitButtonEvents = [
 
 const SplitButtonSlots = [
     {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
         name: 'menubuttonicon',
         description: 'Custom menu button icon template.'
     }

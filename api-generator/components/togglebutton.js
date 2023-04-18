@@ -109,11 +109,19 @@ const ToggleButtonEvents = [
     }
 ];
 
+const ToggleButtonSlots = [
+    {
+        name: 'icon',
+        description: 'custom icon template.'
+    }
+];
+
 module.exports = {
     togglebutton: {
         name: 'ToggleButton',
         description: 'ToggleButton is used to select a boolean value using a button.',
         props: ToggleButtonProps,
+        slots: ToggleButtonSlots,
         events: ToggleButtonEvents
     }
 };

@@ -200,14 +200,6 @@ const TreeSelectSlots = [
         description: 'Custom content for the dropdown indicator'
     },
     {
-        name: 'loadingicon',
-        description: 'Custom loading icon template.'
-    },
-    {
-        name: 'searchicon',
-        description: 'Custom search icon template.'
-    },
-    {
         name: 'itemtogglericon',
         description: 'Custom item toggler icon template.'
     },

@@ -15,8 +15,8 @@ const InlineMessageProps = [
 
 const MessageSlots = [
     {
-        name: 'messageicon',
-        description: 'Custom message icon template.'
+        name: 'icon',
+        description: 'Custom icon template.'
     }
 ];
 

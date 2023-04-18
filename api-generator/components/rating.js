@@ -49,6 +49,21 @@ const RatingProps = [
     }
 ];
 
+const RatingSlots = [
+    {
+        name: 'cancelicon',
+        description: 'Custom cancel icon template.'
+    },
+    {
+        name: 'onicon',
+        description: 'Custom on icon template.'
+    },
+    {
+        name: 'officon',
+        description: 'Custom off icon template.'
+    }
+];
+
 const RatingEvents = [
     {
         name: 'change',
@@ -73,6 +88,7 @@ module.exports = {
         name: 'rating',
         description: 'Rating component is a star based selection input.',
         props: RatingProps,
+        slots: RatingSlots,
         events: RatingEvents
     }
 };

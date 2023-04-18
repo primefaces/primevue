@@ -55,7 +55,7 @@ export interface AvatarSlots {
      */
     default(): VNode[];
     /**
-     * Content can easily be customized with the default slot instead of using the built-in modes.
+     * Custom icon template.
      */
     icon(): VNode[];
 }

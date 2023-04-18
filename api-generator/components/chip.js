@@ -47,6 +47,10 @@ const ChipEvents = [
 
 const ChipSlots = [
     {
+        name: 'icon',
+        description: 'Custom icon template of chip component.'
+    },
+    {
         name: 'removeicon',
         description: 'Custom remove icon template of chip component.'
     }

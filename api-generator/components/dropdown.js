@@ -372,6 +372,22 @@ const DropdownSlots = [
     {
         name: 'loader',
         description: 'Custom content for the virtual scroller loader items'
+    },
+    {
+        name: 'clearicon',
+        description: 'Custom clear icon template.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'filtericon',
+        description: 'Custom filter icon template.'
     }
 ];
 

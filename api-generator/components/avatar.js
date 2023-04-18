@@ -31,6 +31,13 @@ const AvatarProps = [
     }
 ];
 
+const AvatarSlots = [
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    }
+];
+
 const AvatarEvents = [
     {
         name: 'error',
@@ -43,6 +50,7 @@ module.exports = {
         name: 'Avatar',
         description: 'Avatar represents people using icons, labels and images.',
         props: AvatarProps,
+        slots: AvatarSlots,
         events: AvatarEvents
     }
 };

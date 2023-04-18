@@ -91,6 +91,10 @@ const CarouselSlots = [
         description: 'Custom content for the component header.'
     },
     {
+        name: 'header',
+        description: 'Custom content for the component header.'
+    },
+    {
         name: 'footer',
         description: 'Custom content for the component footer.'
     },
@@ -99,7 +103,7 @@ const CarouselSlots = [
         description: 'Custom content for the component item.'
     },
     {
-        name: 'previcon',
+        name: 'previousicon',
         description: 'Custom previous icon template.'
     },
     {

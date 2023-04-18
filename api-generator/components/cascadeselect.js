@@ -285,6 +285,14 @@ const CascadeSelectSlots = [
         description: 'Custom content for the dropdown indicator.'
     },
     {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
         name: 'optiongroupicon',
         description: 'Custom content for the option group icon.'
     }

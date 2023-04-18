@@ -137,8 +137,12 @@ const SpeedDialSlots = [
         description: 'Custom content for the item'
     },
     {
-        name: 'toggle',
-        description: 'toggle: toggle metadata'
+        name: 'button',
+        description: 'Custom button template.'
+    },
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
     }
 ];
 

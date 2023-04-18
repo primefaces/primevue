@@ -175,7 +175,7 @@ const GalleriaSlots = [
         description: 'Custom close icon template.'
     },
     {
-        name: 'previtemicon',
+        name: 'previousitemicon',
         description: 'Custom navigator previous item icon template.'
     },
     {
@@ -183,7 +183,7 @@ const GalleriaSlots = [
         description: 'Custom navigator next item icon template.'
     },
     {
-        name: 'prevthumbnailicon',
+        name: 'previousthumbnailicon',
         description: 'Custom thumbnail previous icon template.'
     },
     {

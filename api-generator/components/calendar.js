@@ -466,7 +466,7 @@ const CalendarSlots = [
         description: 'Custom dropdown icon template.'
     },
     {
-        name: 'previcon',
+        name: 'previousicon',
         description: 'Custom previous icon template.'
     },
     {

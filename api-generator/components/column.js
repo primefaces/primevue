@@ -291,8 +291,20 @@ const ColumnSlots = [
         description: "Custom content for the filter menu's apply section"
     },
     {
+        name: 'loading',
+        description: 'Custom loading template.'
+    },
+    {
         name: 'rowtogglericon',
         description: 'Custom row toggler icon template.'
+    },
+    {
+        name: 'rowtogglericon',
+        description: 'Custom row toggler icon template.'
+    },
+    {
+        name: 'rowcheckboxicon',
+        description: 'Custom row checkbox icon template.'
     },
     {
         name: 'roweditoriniticon',
@@ -331,8 +343,8 @@ const ColumnSlots = [
         description: 'Custom header checkbox icon template.'
     },
     {
-        name: 'rowcheckboxicon',
-        description: 'Custom row checkbox icon template.'
+        name: 'rowreordericon',
+        description: 'Custom row reorder icon template.'
     }
 ];
 

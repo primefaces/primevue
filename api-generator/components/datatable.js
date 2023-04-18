@@ -1143,6 +1143,10 @@ const DataTableSlots = [
         description: "Custom content for the component's subgroup footer."
     },
     {
+        name: 'loading',
+        description: 'Custom loading template.'
+    },
+    {
         name: 'loadingicon',
         description: 'Custom loading icon template.'
     },
@@ -1173,6 +1177,10 @@ const DataTableSlots = [
     {
         name: 'paginatorlastpagelinkicon',
         description: 'Custom paginator last page link icon template.'
+    },
+    {
+        name: 'empty',
+        description: 'Custom empty template.'
     }
 ];
 

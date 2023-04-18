@@ -173,6 +173,10 @@ const PickListEvents = [
 
 const PickListSlots = [
     {
+        name: 'header',
+        description: 'Custom header template.'
+    },
+    {
         name: 'sourceheader',
         description: "Custom content for the component's source header."
     },

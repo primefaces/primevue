@@ -26,6 +26,7 @@ export interface ScrollTopProps {
     threshold?: number | undefined;
     /**
      * Icon to display.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**
@@ -41,7 +42,6 @@ export interface ScrollTopProps {
 export interface ScrollTopSlots {
     /**
      * Custom scrolltop icon template.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon(): VNode[];
 }

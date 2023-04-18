@@ -448,6 +448,14 @@ const MultiSelectSlots = [
     {
         name: 'itemcheckboxicon',
         description: 'Custom item checkbox icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
     }
 ];
 

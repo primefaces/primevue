@@ -22,7 +22,19 @@ const ConfirmDialogProps = [
 const ConfirmDialogSlots = [
     {
         name: 'message',
-        description: 'Custom content for the component.'
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'accepticon',
+        description: 'Custom accept icon template.'
+    },
+    {
+        name: 'rejecticon',
+        description: 'Custom reject icon template.'
     }
 ];
 

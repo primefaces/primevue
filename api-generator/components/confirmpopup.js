@@ -11,6 +11,18 @@ const ConfirmPopupSlots = [
     {
         name: 'message',
         description: 'Custom content for the component.'
+    },
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'accepticon',
+        description: 'Custom accept icon template.'
+    },
+    {
+        name: 'rejecticon',
+        description: 'Custom reject icon template.'
     }
 ];
 

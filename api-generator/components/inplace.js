@@ -47,11 +47,15 @@ const InplaceEvents = [
 const InplaceSlots = [
     {
         name: 'display',
-        description: 'Output content'
+        description: 'Custom display template.'
     },
     {
         name: 'content',
-        description: 'Actual content'
+        description: 'Custom content template.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 

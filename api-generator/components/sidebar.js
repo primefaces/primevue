@@ -80,6 +80,10 @@ const SidebarSlots = [
     {
         name: 'header',
         description: 'Custom content for the component header.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 
