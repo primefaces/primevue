@@ -148,8 +148,14 @@ export interface TreeSelectSlots {
     empty(): VNode[];
     /**
      * Custom indicator template.
+     * @deprecated since v3.27.0. Use 'checkboxicon' slot.
      */
     indicator(): VNode[];
+    /**
+     * Custom indicator template.
+     * @deprecated since v3.27.0. Use 'checkboxicon' slot.
+     */
+    triggericon(): VNode[];
     /**
      * Custom item toggler icon template.
      * @param {Object} scope - item toggler icon slot's params.

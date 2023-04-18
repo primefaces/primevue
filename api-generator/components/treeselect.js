@@ -196,7 +196,7 @@ const TreeSelectSlots = [
         description: 'Custom content when there is no data to display'
     },
     {
-        name: 'indicator',
+        name: 'triggericon',
         description: 'Custom content for the dropdown indicator'
     },
     {

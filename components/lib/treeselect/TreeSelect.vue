@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
-            <slot name="indicator">
+            <slot name="triggericon">
                 <component :is="'ChevronDownIcon'" class="p-treeselect-trigger-icon" />
             </slot>
         </div>
