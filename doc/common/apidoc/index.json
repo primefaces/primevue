@@ -3419,7 +3419,7 @@
                             "name": "icon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Content can easily be customized with the default slot instead of using the built-in modes."
+                            "description": "Custom icon template."
                         }
                     ]
                 },
@@ -21133,7 +21133,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display."
+                            "description": "Icon to display.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "behavior",
@@ -21155,8 +21156,7 @@
                             "name": "icon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom scrolltop icon template.",
-                            "deprecated": "since v3.27.0. Use 'icon' slot."
+                            "description": "Custom scrolltop icon template."
                         }
                     ]
                 },
