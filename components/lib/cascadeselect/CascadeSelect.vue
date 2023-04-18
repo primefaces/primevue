@@ -75,9 +75,9 @@
 </template>
 
 <script>
-import AngleRightIcon from 'primevue/icon/angleright';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import SpinnerIcon from 'primevue/icon/spinner';
+import AngleRightIcon from 'primevue/icons/angleright';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import SpinnerIcon from 'primevue/icons/spinner';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';

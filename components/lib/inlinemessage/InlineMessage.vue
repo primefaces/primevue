@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import CheckIcon from 'primevue/icon/check';
-import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
-import InfoCircleIcon from 'primevue/icon/infocircle';
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import CheckIcon from 'primevue/icons/check';
+import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
+import InfoCircleIcon from 'primevue/icons/infocircle';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 
 export default {
     name: 'InlineMessage',

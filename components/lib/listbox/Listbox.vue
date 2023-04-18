@@ -98,7 +98,7 @@
 
 <script>
 import { FilterService } from 'primevue/api';
-import SearchIcon from 'primevue/icon/search';
+import SearchIcon from 'primevue/icons/search';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';

@@ -255,9 +255,9 @@
 
 <script>
 import { FilterMatchMode, FilterOperator, FilterService } from 'primevue/api';
-import ArrowDownIcon from 'primevue/icon/arrowdown';
-import ArrowUpIcon from 'primevue/icon/arrowup';
-import SpinnerIcon from 'primevue/icon/spinner';
+import ArrowDownIcon from 'primevue/icons/arrowdown';
+import ArrowUpIcon from 'primevue/icons/arrowup';
+import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';

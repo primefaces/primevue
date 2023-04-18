@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import ChevronLeftIcon from 'primevue/icon/chevronleft';
-import ChevronRightIcon from 'primevue/icon/chevronright';
-import ChevronUpIcon from 'primevue/icon/chevronup';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import ChevronLeftIcon from 'primevue/icons/chevronleft';
+import ChevronRightIcon from 'primevue/icons/chevronright';
+import ChevronUpIcon from 'primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
 

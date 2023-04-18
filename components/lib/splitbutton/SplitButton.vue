@@ -33,7 +33,7 @@
 
 <script>
 import Button from 'primevue/button';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
 import TieredMenu from 'primevue/tieredmenu';
 import { UniqueComponentId } from 'primevue/utils';
 

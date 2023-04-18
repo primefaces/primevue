@@ -54,9 +54,9 @@
 
 <script>
 import Button from 'primevue/button';
-import PlusIcon from 'primevue/icon/plus';
-import TimesIcon from 'primevue/icon/times';
-import UploadIcon from 'primevue/icon/upload';
+import PlusIcon from 'primevue/icons/plus';
+import TimesIcon from 'primevue/icons/times';
+import UploadIcon from 'primevue/icons/upload';
 import Message from 'primevue/message';
 import ProgressBar from 'primevue/progressbar';
 import Ripple from 'primevue/ripple';

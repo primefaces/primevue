@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import SortAltIcon from 'primevue/icon/sortalt';
-import SortAmountDownIcon from 'primevue/icon/sortamountdown';
-import SortAmountUpAltIcon from 'primevue/icon/sortamountupalt';
+import SortAltIcon from 'primevue/icons/sortalt';
+import SortAmountDownIcon from 'primevue/icons/sortamountdown';
+import SortAmountUpAltIcon from 'primevue/icons/sortamountupalt';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {

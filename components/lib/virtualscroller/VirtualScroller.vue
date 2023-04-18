@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import SpinnerIcon from 'primevue/icon/spinner';
+import SpinnerIcon from 'primevue/icons/spinner';
 import { DomHandler } from 'primevue/utils';
 
 export default {

@@ -176,14 +176,14 @@
 
 <script>
 import Button from 'primevue/button';
-import AngleDoubleDownIcon from 'primevue/icon/angledoubledown';
-import AngleDoubleLeftIcon from 'primevue/icon/angledoubleleft';
-import AngleDoubleRightIcon from 'primevue/icon/angledoubleright';
-import AngleDoubleUpIcon from 'primevue/icon/angledoubleup';
-import AngleDownIcon from 'primevue/icon/angledown';
-import AngleLeftIcon from 'primevue/icon/angleleft';
-import AngleRightIcon from 'primevue/icon/angleright';
-import AngleUpIcon from 'primevue/icon/angleup';
+import AngleDoubleDownIcon from 'primevue/icons/angledoubledown';
+import AngleDoubleLeftIcon from 'primevue/icons/angledoubleleft';
+import AngleDoubleRightIcon from 'primevue/icons/angledoubleright';
+import AngleDoubleUpIcon from 'primevue/icons/angledoubleup';
+import AngleDownIcon from 'primevue/icons/angledown';
+import AngleLeftIcon from 'primevue/icons/angleleft';
+import AngleRightIcon from 'primevue/icons/angleright';
+import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 

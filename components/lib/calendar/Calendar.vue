@@ -353,11 +353,11 @@
 
 <script>
 import Button from 'primevue/button';
-import CalendarIcon from 'primevue/icon/calendar';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import ChevronLeftIcon from 'primevue/icon/chevronleft';
-import ChevronRightIcon from 'primevue/icon/chevronright';
-import ChevronUpIcon from 'primevue/icon/chevronup';
+import CalendarIcon from 'primevue/icons/calendar';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import ChevronLeftIcon from 'primevue/icons/chevronleft';
+import ChevronRightIcon from 'primevue/icons/chevronright';
+import ChevronUpIcon from 'primevue/icons/chevronup';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';

@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import EyeIcon from 'primevue/icon/eye';
-import EyeSlashIcon from 'primevue/icon/eyeslash';
+import EyeIcon from 'primevue/icons/eye';
+import EyeSlashIcon from 'primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';

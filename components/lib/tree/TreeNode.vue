@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import CheckIcon from 'primevue/icon/check';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import ChevronRightIcon from 'primevue/icon/chevronright';
-import MinusIcon from 'primevue/icon/minus';
+import CheckIcon from 'primevue/icons/check';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import ChevronRightIcon from 'primevue/icons/chevronright';
+import MinusIcon from 'primevue/icons/minus';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
 

@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import CheckIcon from 'primevue/icon/check';
-import TimesIcon from 'primevue/icon/times';
+import CheckIcon from 'primevue/icons/check';
+import TimesIcon from 'primevue/icons/times';
 
 export default {
     name: 'TriStateCheckbox',

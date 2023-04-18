@@ -51,12 +51,12 @@
 
 <script>
 import FocusTrap from 'primevue/focustrap';
-import EyeIcon from 'primevue/icon/eye';
-import RefreshIcon from 'primevue/icon/refresh';
-import SearchMinusIcon from 'primevue/icon/searchminus';
-import SearchPlusIcon from 'primevue/icon/searchplus';
-import TimesIcon from 'primevue/icon/times';
-import UndoIcon from 'primevue/icon/undo';
+import EyeIcon from 'primevue/icons/eye';
+import RefreshIcon from 'primevue/icons/refresh';
+import SearchMinusIcon from 'primevue/icons/searchminus';
+import SearchPlusIcon from 'primevue/icons/searchplus';
+import TimesIcon from 'primevue/icons/times';
+import UndoIcon from 'primevue/icons/undo';
 import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 

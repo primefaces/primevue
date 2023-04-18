@@ -162,12 +162,12 @@
 
 <script>
 import { FilterService } from 'primevue/api';
-import CheckIcon from 'primevue/icon/check';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import SearchIcon from 'primevue/icon/search';
-import SpinnerIcon from 'primevue/icon/spinner';
-import TimesIcon from 'primevue/icon/times';
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import CheckIcon from 'primevue/icons/check';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import SearchIcon from 'primevue/icons/search';
+import SpinnerIcon from 'primevue/icons/spinner';
+import TimesIcon from 'primevue/icons/times';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';

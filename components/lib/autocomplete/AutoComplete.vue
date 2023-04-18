@@ -151,9 +151,9 @@
 
 <script>
 import Button from 'primevue/button';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import SpinnerIcon from 'primevue/icon/spinner';
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import SpinnerIcon from 'primevue/icons/spinner';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';

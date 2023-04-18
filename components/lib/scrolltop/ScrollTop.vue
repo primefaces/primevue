@@ -9,8 +9,8 @@
 </template>
 
 <script>
+import ChevronUpIcon from 'primevue/icons/chevronup';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
-import ChevronUpIcon from 'primevue/icon/chevronup';
 export default {
     name: 'ScrollTop',
     scrollListener: null,

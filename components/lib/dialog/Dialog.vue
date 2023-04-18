@@ -44,9 +44,9 @@
 
 <script>
 import FocusTrap from 'primevue/focustrap';
-import TimesIcon from 'primevue/icon/times';
-import WindowMaximizeIcon from 'primevue/icon/windowmaximize';
-import WindowMinimizeIcon from 'primevue/icon/windowminimize';
+import TimesIcon from 'primevue/icons/times';
+import WindowMaximizeIcon from 'primevue/icons/windowmaximize';
+import WindowMinimizeIcon from 'primevue/icons/windowminimize';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';

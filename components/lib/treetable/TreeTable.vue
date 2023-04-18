@@ -145,7 +145,7 @@
 
 <script>
 import { FilterService } from 'primevue/api';
-import SpinnerIcon from 'primevue/icon/spinner';
+import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 import FooterCell from './FooterCell.vue';

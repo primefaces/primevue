@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 
 export default {
     name: 'Chip',

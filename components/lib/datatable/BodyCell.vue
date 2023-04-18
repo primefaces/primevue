@@ -58,12 +58,12 @@
 </template>
 
 <script>
-import BarsIcon from 'primevue/icon/bars';
-import CheckIcon from 'primevue/icon/check';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import ChevronRightIcon from 'primevue/icon/chevronright';
-import PencilIcon from 'primevue/icon/pencil';
-import TimesIcon from 'primevue/icon/times';
+import BarsIcon from 'primevue/icons/bars';
+import CheckIcon from 'primevue/icons/check';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import ChevronRightIcon from 'primevue/icons/chevronright';
+import PencilIcon from 'primevue/icons/pencil';
+import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';

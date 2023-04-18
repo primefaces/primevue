@@ -51,7 +51,7 @@
 
 <script>
 import Button from 'primevue/button';
-import PlusIcon from 'primevue/icon/plus';
+import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';

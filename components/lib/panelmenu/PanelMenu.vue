@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import ChevronRightIcon from 'primevue/icon/chevronright';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import ChevronRightIcon from 'primevue/icons/chevronright';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import PanelMenuList from './PanelMenuList.vue';
 

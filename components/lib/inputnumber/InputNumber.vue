@@ -60,8 +60,8 @@
 
 <script>
 import Button from 'primevue/button';
-import AngleDownIcon from 'primevue/icon/angledown';
-import AngleUpIcon from 'primevue/icon/angleup';
+import AngleDownIcon from 'primevue/icons/angledown';
+import AngleUpIcon from 'primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
 import { DomHandler } from 'primevue/utils';
 

@@ -14,7 +14,7 @@ function copyDependencies(inFolder, outFolder) {
 }
 
 copyDependencies('./components/lib/', 'dist/');
-copyDependencies('./components/lib/icon/', 'dist/icon/');
+copyDependencies('./components/lib/icons/', 'dist/icons/');
 
 fs.copySync(path.resolve(__dirname, './components/lib/ts-helpers.d.ts'), 'dist/ts-helpers.d.ts');
 fs.copySync(path.resolve(__dirname, './package-build.json'), 'dist/package.json');

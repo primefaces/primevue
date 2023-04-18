@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import SearchIcon from 'primevue/icon/search';
-import SpinnerIcon from 'primevue/icon/spinner';
+import SearchIcon from 'primevue/icons/search';
+import SpinnerIcon from 'primevue/icons/spinner';
 import { ObjectUtils } from 'primevue/utils';
 import TreeNode from './TreeNode.vue';
 

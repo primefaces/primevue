@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import BarsIcon from 'primevue/icon/bars';
+import BarsIcon from 'primevue/icons/bars';
 import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import MenubarSub from './MenubarSub.vue';
 

@@ -20,7 +20,7 @@
 <script>
 import Badge from 'primevue/badge';
 import Button from 'primevue/button';
-import TimesIcon from 'primevue/icon/times';
+import TimesIcon from 'primevue/icons/times';
 
 export default {
     emits: ['remove'],

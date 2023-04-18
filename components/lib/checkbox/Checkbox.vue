@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import CheckIcon from 'primevue/icon/check';
+import CheckIcon from 'primevue/icons/check';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {

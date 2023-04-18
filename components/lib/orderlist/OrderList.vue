@@ -66,10 +66,10 @@
 
 <script>
 import Button from 'primevue/button';
-import AngleDoubleDownIcon from 'primevue/icon/angledoubledown';
-import AngleDoubleUpIcon from 'primevue/icon/angledoubleup';
-import AngleDownIcon from 'primevue/icon/angledown';
-import AngleUpIcon from 'primevue/icon/angleup';
+import AngleDoubleDownIcon from 'primevue/icons/angledoubledown';
+import AngleDoubleUpIcon from 'primevue/icons/angledoubleup';
+import AngleDownIcon from 'primevue/icons/angledown';
+import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 

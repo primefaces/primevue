@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import ChevronUpIcon from 'primevue/icon/chevronup';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import ChevronUpIcon from 'primevue/icons/chevronup';
 import { DomHandler } from 'primevue/utils';
 
 export default {

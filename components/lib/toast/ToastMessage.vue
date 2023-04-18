@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import CheckIcon from 'primevue/icon/check';
-import ExclamationTriangleIcon from 'primevue/icon/exclamationtriangle';
-import InfoCircleIcon from 'primevue/icon/infocircle';
-import TimesIcon from 'primevue/icon/times';
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import CheckIcon from 'primevue/icons/check';
+import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
+import InfoCircleIcon from 'primevue/icons/infocircle';
+import TimesIcon from 'primevue/icons/times';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
 
 export default {

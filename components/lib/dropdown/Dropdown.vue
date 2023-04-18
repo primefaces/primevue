@@ -145,10 +145,10 @@
 
 <script>
 import { FilterService } from 'primevue/api';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import FilterIcon from 'primevue/icon/filter';
-import SpinnerIcon from 'primevue/icon/spinner';
-import TimesIcon from 'primevue/icon/times';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import FilterIcon from 'primevue/icons/filter';
+import SpinnerIcon from 'primevue/icons/spinner';
+import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';

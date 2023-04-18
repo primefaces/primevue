@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import BanIcon from 'primevue/icon/ban';
-import StarIcon from 'primevue/icon/star';
-import StarFillIcon from 'primevue/icon/starfill';
+import BanIcon from 'primevue/icons/ban';
+import StarIcon from 'primevue/icons/star';
+import StarFillIcon from 'primevue/icons/starfill';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {

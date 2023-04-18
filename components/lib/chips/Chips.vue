@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {

@@ -83,8 +83,8 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import ChevronLeftIcon from 'primevue/icon/chevronleft';
-import ChevronRightIcon from 'primevue/icon/chevronright';
+import ChevronLeftIcon from 'primevue/icons/chevronleft';
+import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 

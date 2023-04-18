@@ -41,8 +41,8 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import MinusIcon from 'primevue/icon/minus';
-import PlusIcon from 'primevue/icon/plus';
+import MinusIcon from 'primevue/icons/minus';
+import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
 

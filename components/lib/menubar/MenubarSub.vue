@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import AngleDownIcon from 'primevue/icon/angledown';
-import AngleRightIcon from 'primevue/icon/angleright';
+import AngleDownIcon from 'primevue/icons/angledown';
+import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
 

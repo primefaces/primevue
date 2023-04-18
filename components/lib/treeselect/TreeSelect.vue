@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import ChevronDownIcon from 'primevue/icon/chevrondown';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';

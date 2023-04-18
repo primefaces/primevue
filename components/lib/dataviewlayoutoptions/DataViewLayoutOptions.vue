@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import BarsIcon from 'primevue/icon/bars';
-import ThLargeIcon from 'primevue/icon/thlarge';
+import BarsIcon from 'primevue/icons/bars';
+import ThLargeIcon from 'primevue/icons/thlarge';
 
 export default {
     name: 'DataViewLayoutOptions',

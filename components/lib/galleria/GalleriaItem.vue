@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import ChevronLeftIcon from 'primevue/icon/chevronleft';
-import ChevronRightIcon from 'primevue/icon/chevronright';
+import ChevronLeftIcon from 'primevue/icons/chevronleft';
+import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 
 export default {

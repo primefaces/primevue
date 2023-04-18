@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AngleLeftIcon from 'primevue/icon/angleleft';
+import AngleLeftIcon from 'primevue/icons/angleleft';
 import Ripple from 'primevue/ripple';
 
 export default {

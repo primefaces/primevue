@@ -19,7 +19,7 @@
 <script>
 import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
-import TimesIcon from 'primevue/icon/times';
+import TimesIcon from 'primevue/icons/times';
 
 export default {
     name: 'Inplace',
