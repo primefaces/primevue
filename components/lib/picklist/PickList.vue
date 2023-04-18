@@ -73,29 +73,29 @@
             <slot name="movecontrolsstart"></slot>
             <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps">
                 <template #icon>
-                    <slot name="movetotargeticon">
-                        <AngleRightIcon />
+                    <slot name="movetotargeticon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleDownIcon' : 'AngleRightIcon'" />
                     </slot>
                 </template>
             </PLButton>
             <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps">
                 <template #icon>
-                    <slot name="movealltotargeticon">
-                        <AngleDoubleRightIcon />
+                    <slot name="movealltotargeticon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleDoubleDownIcon' : 'AngleDoubleRightIcon'" />
                     </slot>
                 </template>
             </PLButton>
             <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps">
                 <template #icon>
-                    <slot name="movetosourceicon">
-                        <AngleLeftIcon />
+                    <slot name="movetosourceicon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleUpIcon' : 'AngleLeftIcon'" />
                     </slot>
                 </template>
             </PLButton>
             <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps">
                 <template #icon>
-                    <slot name="movealltosourceicon">
-                        <AngleDoubleLeftIcon />
+                    <slot name="movealltosourceicon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleDoubleUpIcon' : 'AngleDoubleLeftIcon'" />
                     </slot>
                 </template>
             </PLButton>
@@ -279,6 +279,8 @@ export default {
     itemTouched: false,
     reorderDirection: null,
     styleElement: null,
+    media: null,
+    mediaChangeListener: null,
     data() {
         return {
             id: this.$attrs.id,
@@ -287,7 +289,8 @@ export default {
                 sourceList: false,
                 targetList: false
             },
-            focusedOptionIndex: -1
+            focusedOptionIndex: -1,
+            viewChanged: false
         };
     },
     watch: {
@@ -296,6 +299,10 @@ export default {
         },
         selection(newValue) {
             this.d_selection = newValue;
+        },
+        breakpoint(newValue) {
+            this.destroyMedia();
+            this.initMedia();
         }
     },
     updated() {
@@ -307,12 +314,14 @@ export default {
     },
     beforeUnmount() {
         this.destroyStyle();
+        this.destroyMedia();
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
 
         if (this.responsive) {
             this.createStyle();
+            this.initMedia();
         }
     },
     methods: {
@@ -812,6 +821,29 @@ export default {
                 }
             }
         },
+        initMedia() {
+            this.media = window.matchMedia(`(max-width: ${this.breakpoint})`);
+            this.viewChanged = this.media.matches;
+            this.bindMediaChangeListener();
+        },
+        destroyMedia() {
+            this.unbindMediaChangeListener();
+        },
+        bindMediaChangeListener() {
+            if (this.media && !this.mediaChangeListener) {
+                this.mediaChangeListener = (event) => {
+                    this.viewChanged = event.matches;
+                };
+
+                this.media.addEventListener('change', this.mediaChangeListener);
+            }
+        },
+        unbindMediaChangeListener() {
+            if (this.media && this.mediaChangeListener) {
+                this.media.removeEventListener('change', this.mediaChangeListener);
+                this.mediaChangeListener = null;
+            }
+        },
         createStyle() {
             if (!this.styleElement) {
                 this.$el.setAttribute(this.attributeSelector, '');
@@ -837,22 +869,6 @@ export default {
 
     .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button:last-child {
         margin-right: 0;
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-right:before {
-        content: "\\e930"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-double-right:before {
-        content: "\\e92c"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-left:before {
-        content: "\\e933"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-double-left:before {
-        content: "\\e92f"
     }
 }
 `;
