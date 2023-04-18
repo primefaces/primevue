@@ -2923,7 +2923,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dropdown."
+                            "description": "Icon to display in the dropdown.",
+                            "deprecated": "since v3.27.0. Use 'dropdownicon' slot."
                         },
                         {
                             "name": "dropdownClass",
@@ -2939,7 +2940,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in loading state."
+                            "description": "Icon to display in loading state.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
                             "name": "removeTokenIcon",
@@ -2947,7 +2949,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in chip remove action."
+                            "description": "Icon to display in chip remove action.",
+                            "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
                         },
                         {
                             "name": "virtualScrollerOptions",
@@ -3355,7 +3358,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Defines the icon to display."
+                            "description": "Defines the icon to display.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "image",
@@ -3407,6 +3411,12 @@
                     "methods": [
                         {
                             "name": "default",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Content can easily be customized with the default slot instead of using the built-in modes."
+                        },
+                        {
+                            "name": "icon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Content can easily be customized with the default slot instead of using the built-in modes."
@@ -4206,7 +4216,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the calendar button."
+                            "description": "Icon of the calendar button.",
+                            "deprecated": "since v3.27.0. Use 'triggericon' slot."
                         },
                         {
                             "name": "previousIcon",
@@ -4214,7 +4225,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to show in the previous button."
+                            "description": "Icon to show in the previous button.",
+                            "deprecated": "since v3.27.0. Use 'previousicon' slot."
                         },
                         {
                             "name": "nextIcon",
@@ -4222,7 +4234,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to show in the next button."
+                            "description": "Icon to show in the next button.",
+                            "deprecated": "since v3.27.0. Use 'nexticon' slot."
                         },
                         {
                             "name": "incrementIcon",
@@ -4230,7 +4243,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to show in each of the increment buttons."
+                            "description": "Icon to show in each of the increment buttons.",
+                            "deprecated": "since v3.27.0. Use 'incrementicon' slot."
                         },
                         {
                             "name": "decrementIcon",
@@ -4238,7 +4252,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to show in each of the decrement buttons."
+                            "description": "Icon to show in each of the decrement buttons.",
+                            "deprecated": "since v3.27.0. Use 'decrementicon' slot."
                         },
                         {
                             "name": "numberOfMonths",
@@ -4638,7 +4653,7 @@
                             "description": "Custom trigger icon template."
                         },
                         {
-                            "name": "previcon",
+                            "name": "previousicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom previous icon template."
@@ -5189,7 +5204,7 @@
                             "description": "Custom footer template."
                         },
                         {
-                            "name": "previcon",
+                            "name": "previousicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom previous icon template."
@@ -5452,7 +5467,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dropdown."
+                            "description": "Icon to display in the dropdown.",
+                            "deprecated": "since v3.27.0. Use 'dropdownicon' slot."
                         },
                         {
                             "name": "loadingIcon",
@@ -5460,7 +5476,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in loading state."
+                            "description": "Icon to display in loading state.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
                             "name": "optionGroupIcon",
@@ -5468,7 +5485,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the option group."
+                            "description": "Icon to display in the option group.",
+                            "deprecated": "since v3.27.0. Use 'optiongroupicon' slot."
                         },
                         {
                             "name": "autoOptionFocus",
@@ -5597,6 +5615,18 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
+                        },
+                        {
+                            "name": "dropdownicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom dropdown icon template."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
                         },
                         {
                             "name": "optiongroupicon",
@@ -6163,7 +6193,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Defines the icon to display."
+                            "description": "Defines the icon to display.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "image",
@@ -6187,7 +6218,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the remove element."
+                            "description": "Icon of the remove element.",
+                            "deprecated": "since v3.27.0. Use 'removeicon' slot."
                         }
                     ],
                     "methods": []
@@ -6204,12 +6236,18 @@
                             "description": "Content can easily be customized with the default slot instead of using the built-in modes."
                         },
                         {
+                            "name": "icon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icon template."
+                        },
+                        {
                             "name": "removeicon",
                             "parameters": [
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>click()</b>: void, // Remove icon click event\n  \t <b>keydown()</b>: void, // Remove icon keydown event\n  }",
+                                    "type": "{\n  \t <b>onClick()</b>: void, // Remove icon click event\n  \t <b>onKeydown()</b>: void, // Remove icon keydown event\n  }",
                                     "description": "remove icon slot's params."
                                 }
                             ],
@@ -6380,7 +6418,8 @@
                             "readonly": false,
                             "type": "InputHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+                            "description": "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.",
+                            "deprecated": "since v3.26.0. Use 'pt' property instead."
                         },
                         {
                             "name": "removeTokenIcon",
@@ -6388,7 +6427,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in chip remove action."
+                            "description": "Icon to display in chip remove action.",
+                            "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
                         },
                         {
                             "name": "disabled",
@@ -6445,7 +6485,14 @@
                         },
                         {
                             "name": "removetokenicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>onClick()</b>: void, // Remove icon click event\n  }",
+                                    "description": "remove token icon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom remove token icon template."
                         }
@@ -7127,7 +7174,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the drag handle to reorder rows."
+                            "description": "Icon of the drag handle to reorder rows.",
+                            "deprecated": "since v3.27.0. Use 'rowreordericon' slot."
                         },
                         {
                             "name": "reorderableColumn",
@@ -7432,6 +7480,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom header checkbox icon template."
+                        },
+                        {
+                            "name": "rowreordericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom row reorder icon template."
                         }
                     ]
                 },
@@ -9399,7 +9453,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "The icon to show while indicating data load is in progress."
+                            "description": "The icon to show while indicating data load is in progress.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
                             "name": "sortField",
@@ -9599,7 +9654,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the row toggler to display the row as expanded."
+                            "description": "Icon of the row toggler to display the row as expanded.",
+                            "deprecated": "since v3.27.0. Use 'rowtogglericon' slot."
                         },
                         {
                             "name": "collapsedRowIcon",
@@ -9607,7 +9663,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the row toggler to display the row as collapsed."
+                            "description": "Icon of the row toggler to display the row as collapsed.",
+                            "deprecated": "since v3.27.0. Use 'rowtogglericon' slot."
                         },
                         {
                             "name": "rowGroupMode",
