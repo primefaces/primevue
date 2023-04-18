@@ -254,20 +254,44 @@ export interface PickListSlots {
     movebottomicon(): VNode[];
     /**
      * Custom move to target icon template.
+     * @param {Object} scope - movetotargeticon slot's params.
      */
-    movetotargeticon(): VNode[];
+    movetotargeticon(scope: {
+        /**
+         * Whether view change.
+         */
+        viewChanged: boolean;
+    }): VNode[];
     /**
      * Custom move all to target icon template.
+     * @param {Object} scope - movealltotargeticon slot's params.
      */
-    movealltotargeticon(): VNode[];
+    movealltotargeticon(scope: {
+        /**
+         * Whether view change.
+         */
+        viewChanged: boolean;
+    }): VNode[];
     /**
      * Custom move to source icon template.
+     * @param {Object} scope - movetosourceicon slot's params.
      */
-    movetosourceicon(): VNode[];
+    movetosourceicon(scope: {
+        /**
+         * Whether view change.
+         */
+        viewChanged: boolean;
+    }): VNode[];
     /**
      * Custom move all to source icon template.
+     * @param {Object} scope - movealltosourceicon slot's params.
      */
-    movealltosourceicon(): VNode[];
+    movealltosourceicon(scope: {
+        /**
+         * Whether view change.
+         */
+        viewChanged: boolean;
+    }): VNode[];
 }
 
 /**
