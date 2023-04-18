@@ -109,7 +109,7 @@ export interface CalendarProps {
     showIcon?: boolean | undefined;
     /**
      * Icon of the calendar button.
-     * @deprecated since v3.27.0. Use 'triggericon' slot.
+     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     icon?: string | undefined;
     /**
@@ -369,9 +369,9 @@ export interface CalendarSlots {
         years: string[] | undefined;
     }): VNode[];
     /**
-     * Custom trigger icon template.
+     * Custom dropdown icon template.
      */
-    triggericon(): VNode[];
+    dropdownicon(): VNode[];
     /**
      * Custom previous icon template.
      */

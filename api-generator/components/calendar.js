@@ -462,8 +462,8 @@ const CalendarSlots = [
         description: 'Custom content for the calendar decade.'
     },
     {
-        name: 'triggericon',
-        description: 'Custom trigger icon template.'
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
     },
     {
         name: 'previcon',

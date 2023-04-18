@@ -39,7 +39,7 @@
             :aria-controls="panelId"
         >
             <template #icon>
-                <slot name="triggericon">
+                <slot name="dropdownicon">
                     <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" />
                 </slot>
             </template>
