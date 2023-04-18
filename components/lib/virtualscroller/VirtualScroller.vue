@@ -800,6 +800,11 @@ export default {
     font-size: 2rem;
 }
 
+.p-virtualscroller-loading-icon.p-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
 .p-virtualscroller-horizontal > .p-virtualscroller-content {
     display: flex;
 }
