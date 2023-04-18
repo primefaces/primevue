@@ -41,6 +41,7 @@ export interface ScrollTopProps {
 export interface ScrollTopSlots {
     /**
      * Custom scrolltop icon template.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon(): VNode[];
 }

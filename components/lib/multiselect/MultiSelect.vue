@@ -33,8 +33,9 @@
                             <slot name="chip" :value="item">
                                 <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <slot v-if="!disabled" name="removetokenicon">
-                                <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)" />
+                            <slot v-if="!disabled" name="removetokenicon" class="p-multiselect-token-icon" :onClick="(event) => removeOption(event, item)">
+                                <span v-if="removeTokenIcon" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)" />
+                                <TimesCircleIcon v-else class="p-multiselect-token-icon" @click.stop="removeOption($event, item)" />
                             </slot>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
@@ -43,10 +44,16 @@
             </div>
         </div>
         <div class="p-multiselect-trigger">
-            <slot name="indicator">
-                <component v-if="loading" :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-multiselect-trigger-icon', loadingIcon]" aria-hidden="true" />
-                <component v-else :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
-            </slot>
+            <slot v-if="$slots.indicator" name="indicator"></slot>
+            <template v-else>
+                <slot v-if="loading" name="loadingicon" class="p-multiselect-trigger-icon">
+                    <span v-if="loadingIcon" :class="['p-multiselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" />
+                    <SpinnerIcon v-else class="p-multiselect-trigger-icon" spin aria-hidden="true" />
+                </slot>
+                <slot v-else name="dropdownicon" class="p-multiselect-trigger-icon">
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
+                </slot>
+            </template>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -59,7 +66,7 @@
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" />
                             </div>
                             <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]">
-                                <slot name="headercheckboxicon" :allSelected="allSelected">
+                                <slot name="headercheckboxicon" :allSelected="allSelected" class="p-checkbox-icon">
                                     <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]" />
                                 </slot>
                             </div>
@@ -81,7 +88,7 @@
                                 @input="onFilterChange"
                                 v-bind="filterInputProps"
                             />
-                            <slot name="filtericon">
+                            <slot name="filtericon" class="p-multiselect-filter-icon">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="['p-multiselect-filter-icon', filterIcon]" />
                             </slot>
                         </div>
@@ -89,7 +96,7 @@
                             {{ filterResultMessageText }}
                         </span>
                         <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
-                            <slot name="closeicon">
+                            <slot name="closeicon" class="p-multiselect-close-icon">
                                 <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-multiselect-close-icon', closeIcon]" />
                             </slot>
                         </button>
@@ -119,7 +126,7 @@
                                         >
                                             <div class="p-checkbox p-component">
                                                 <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]">
-                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)">
+                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)" class="p-checkbox-icon">
                                                         <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]" />
                                                     </slot>
                                                 </div>

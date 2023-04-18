@@ -17,7 +17,8 @@
                                 @click="onItemClick($event, item, i, navigate)"
                                 @keydown="onKeydownItem($event, item, i, navigate)"
                             >
-                                <component :is="$slots.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="getItemIcon(item)" />
+                                <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
+                                <span v-else-if="item.icon" :class="getItemIcon(item)" />
                                 <span class="p-menuitem-text">{{ label(item) }}</span>
                             </a>
                         </template>
@@ -27,7 +28,8 @@
                 <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)">
                     <template v-if="!$slots.item">
                         <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)">
-                            <component :is="$slots.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="getItemIcon(item)" />
+                            <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
+                            <span v-else-if="item.icon" :class="getItemIcon(item)" />
                             <span class="p-menuitem-text">{{ label(item) }}</span>
                         </a>
                     </template>

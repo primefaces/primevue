@@ -67,6 +67,7 @@ export interface OverlayPanelProps {
     breakpoints?: OverlayPanelBreakpoints;
     /**
      * Icon to display in the overlaypanel close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
 }

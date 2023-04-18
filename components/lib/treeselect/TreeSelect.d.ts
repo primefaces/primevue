@@ -151,14 +151,6 @@ export interface TreeSelectSlots {
      */
     indicator(): VNode[];
     /**
-     * Custom loading icon template.
-     */
-    loadingicon(): VNode[];
-    /**
-     * Custom search icon template.
-     */
-    searchicon(): VNode[];
-    /**
      * Custom item toggler icon template.
      * @param {Object} scope - item toggler icon slot's params.
      */

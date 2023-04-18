@@ -29,6 +29,7 @@ export interface ImageProps {
     imageClass?: any;
     /**
      * Custom indicator icon.
+     * @deprecated since v3.27.0. Use 'indicator' slot.
      */
     indicatorIcon?: string;
 }

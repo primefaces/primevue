@@ -7,7 +7,7 @@
  * @module togglebutton
  *
  */
-import { InputHTMLAttributes } from 'vue';
+import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
@@ -21,10 +21,12 @@ export interface ToggleButtonProps {
     modelValue?: boolean | undefined;
     /**
      * Icon for the on state.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     onIcon?: string | undefined;
     /**
      * Icon for the off state.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     offIcon?: string | undefined;
     /**
@@ -80,7 +82,21 @@ export interface ToggleButtonProps {
 /**
  * Defines valid slots in ToggleButton component.
  */
-export interface ToggleButtonSlots {}
+export interface ToggleButtonSlots {
+    /**
+     * Custom icon template.
+     */
+    icon(scope: {
+        /**
+         * Current value
+         */
+        value: any;
+        /**
+         * Icon style class
+         */
+        class: any;
+    }): VNode[];
+}
 
 /**
  * Defines valid emits in ToggleButton component.

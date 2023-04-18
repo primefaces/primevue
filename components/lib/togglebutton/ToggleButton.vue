@@ -16,7 +16,9 @@
                 v-bind="inputProps"
             />
         </span>
-        <span v-if="hasIcon" :class="iconClass"></span>
+        <slot name="icon" :value="modelValue" :class="iconClass">
+            <span v-if="onIcon || offIcon" :class="iconClass" />
+        </slot>
         <span class="p-button-label">{{ label }}</span>
     </div>
 </template>
@@ -149,7 +151,7 @@ export default {
             return this.onLabel && this.onLabel.length > 0 && this.offLabel && this.offLabel.length > 0;
         },
         hasIcon() {
-            return this.onIcon && this.onIcon.length > 0 && this.offIcon && this.offIcon.length > 0;
+            return this.$slots.icon || (this.onIcon && this.offIcon);
         },
         label() {
             return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel) : '&nbsp;';

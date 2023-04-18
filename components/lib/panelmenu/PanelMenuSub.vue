@@ -17,13 +17,18 @@
                     <template v-if="!templates.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
                             <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
-                                <component :is="templates.itemicon || (getItemProp(processedItem, 'icon') ? 'span' : undefined)" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
+                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
+                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" />
                                 <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
-                            <component v-if="isItemGroup(processedItem)" :is="templates.submenuicon || (isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-submenu-icon" :active="isItemActive(processedItem)" />
-                            <component :is="templates.itemicon || (getItemProp(processedItem, 'icon') ? 'span' : undefined)" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
+                            <template v-if="isItemGroup(processedItem)">
+                                <component v-if="templates.submenuicon" :is="templates.submenuicon" class="p-submenu-icon" :active="isItemActive(processedItem)" />
+                                <component v-else :is="isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" />
+                            </template>
+                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" />
                             <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>

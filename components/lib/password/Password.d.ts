@@ -61,10 +61,12 @@ export interface PasswordProps extends InputHTMLAttributes {
     toggleMask?: boolean | undefined;
     /**
      * Icon to hide displaying the password as plain text.
+     * @deprecated since v3.27.0. Use 'hideicon' slot.
      */
     hideIcon?: string | undefined;
     /**
      * Icon to show displaying the password as plain text.
+     * @deprecated since v3.27.0. Use 'showicon' slot.
      */
     showIcon?: string | undefined;
     /**
@@ -142,11 +144,21 @@ export interface PasswordSlots {
     /**
      * Custom hide icon template.
      */
-    hideicon(): VNode[];
+    hideicon(scope: {
+        /**
+         * Hide icon click event
+         */
+        onClick(): void;
+    }): VNode[];
     /**
      * Custom show icon template.
      */
-    showicon(): VNode[];
+    showicon(scope: {
+        /**
+         * Show icon click event
+         */
+        onClick(): void;
+    }): VNode[];
 }
 
 /**

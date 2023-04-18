@@ -93,10 +93,12 @@ export interface SpeedDialProps {
     maskClass?: string | undefined;
     /**
      * Show icon of the button element.
+     * @deprecated since v3.27.0. Use 'showicon' slot.
      */
     showIcon?: string | undefined;
     /**
      * Hide icon of the button element.
+     * @deprecated since v3.27.0. Use 'hideicon' slot.
      */
     hideIcon?: string | undefined;
     /**
@@ -151,6 +153,16 @@ export interface SpeedDialSlots {
          * Toggle metadata
          */
         toggle(): void;
+    }): VNode[];
+    /**
+     * Custom icon template.
+     * @param {Object} scope - icon slot's params.
+     */
+    icon(scope: {
+        /**
+         *
+         */
+        visible: boolean;
     }): VNode[];
 }
 

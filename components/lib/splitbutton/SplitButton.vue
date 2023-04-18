@@ -1,7 +1,13 @@
 <template>
     <div :class="containerClass" :style="style">
         <slot>
-            <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="buttonProps" />
+            <PVSButton type="button" class="p-splitbutton-defaultbutton" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="buttonProps">
+                <template #icon>
+                    <slot name="icon">
+                        <span :class="icon" />
+                    </slot>
+                </template>
+            </PVSButton>
         </slot>
         <PVSButton
             ref="button"

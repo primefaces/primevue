@@ -2,15 +2,16 @@
     <transition name="p-message" appear>
         <div v-show="visible" :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="p-message-wrapper">
-                <slot name="messageicon">
+                <slot name="messageicon" class="p-message-icon">
                     <component :is="icon ? 'span' : iconComponent" :class="['p-message-icon', icon]"></component>
                 </slot>
                 <div class="p-message-text">
                     <slot></slot>
                 </div>
                 <button v-if="closable" v-ripple class="p-message-close p-link" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="closeButtonProps">
-                    <slot name="closeicon">
-                        <component :is="closeIcon ? 'i' : 'TimesIcon'" :class="['p-message-close-icon', closeIcon]"></component>
+                    <slot name="closeicon" class="p-message-close-icon">
+                        <i v-if="closeIcon" :class="['p-message-close-icon', closeIcon]" />
+                        <TimesIcon v-else class="p-message-close-icon" />
                     </slot>
                 </button>
             </div>

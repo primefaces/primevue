@@ -14,8 +14,10 @@
                 :aria-labelledby="ariaLabelledby"
             >
                 <template #icon>
-                    <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" />
-                    <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" />
+                    <slot name="icon" :visible="d_visible">
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" />
+                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" />
+                    </slot>
                 </template>
             </SDButton>
         </slot>

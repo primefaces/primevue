@@ -69,12 +69,6 @@
                             <template v-if="$slots.itemcheckboxicon" #checkboxicon="iconProps">
                                 <slot name="itemcheckboxicon" :checked="iconProps.checked" :partialChecked="iconProps.partialChecked" :class="iconProps.class" />
                             </template>
-                            <template v-if="$slots.loadingicon" #loadingicon>
-                                <slot name="loadingicon" />
-                            </template>
-                            <template v-if="$slots.searchicon" #searchicon>
-                                <slot name="searchicon" />
-                            </template>
                         </TSTree>
                         <div v-if="emptyOptions" class="p-treeselect-empty-message">
                             <slot name="empty">{{ emptyMessageText }}</slot>

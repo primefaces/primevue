@@ -12,8 +12,12 @@
                     <td :colspan="columnsLength - 1">
                         <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
-                            <component v-else-if="!templates['rowgrouptogglericon'] && isRowGroupExpanded(rowData)" :is="expandedRowIcon ? 'span' : 'ChevronDownIcon'" class="p-row-toggler-icon" />
-                            <component v-else-if="!templates['rowgrouptogglericon'] && !isRowGroupExpanded(rowData)" :is="collapsedRowIcon ? 'span' : 'ChevronRightIcon'" class="p-row-toggler-icon" />
+                            <template v-else>
+                                <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="['p-row-toggler-icon', expandedRowIcon]" />
+                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" class="p-row-toggler-icon" />
+                                <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="['p-row-toggler-icon', collapsedRowIcon]" />
+                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" class="p-row-toggler-icon" />
+                            </template>
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
                     </td>

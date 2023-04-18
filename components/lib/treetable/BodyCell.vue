@@ -1,14 +1,17 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell">
         <button v-if="columnProp('expander')" v-ripple type="button" class="p-treetable-toggler p-link" @click="toggle" :style="togglerStyle" tabindex="-1">
-            <component :is="templates['togglericon'] ? templates['togglericon'] : expanded ? 'ChevronDownIcon' : 'ChevronRightIcon'" :expanded="expanded" class="p-treetable-toggler-icon" />
+            <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" class="p-tree-toggler-icon" />
+            <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" class="p-tree-toggler-icon" />
+            <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" class="p-tree-toggler-icon" />
         </button>
         <div v-if="checkboxSelectionMode && columnProp('expander')" :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox">
             <div class="p-hidden-accessible">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" />
             </div>
             <div ref="checkboxEl" :class="checkboxClass">
-                <component :is="templates['checkboxicon'] ? templates['checkboxicon'] : checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
+                <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
+                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" class="p-checkbox-icon" />
             </div>
         </div>
         <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />

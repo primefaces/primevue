@@ -34,6 +34,7 @@ export interface TriStateCheckboxProps {
     inputId?: string | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * @deprecated since v3.26.0. Use 'pt' property.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**

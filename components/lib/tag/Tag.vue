@@ -1,6 +1,7 @@
 <template>
     <span :class="containerClass">
-        <span v-if="icon" :class="iconClass"></span>
+        <component v-if="$slots.icon" :is="$slots.icon" class="p-tag-icon" />
+        <span v-else-if="icon" :class="iconClass"></span>
         <slot>
             <span class="p-tag-value">{{ value }}</span>
         </slot>
