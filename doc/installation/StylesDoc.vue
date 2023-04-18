@@ -16,10 +16,7 @@ export default {
 import "primevue/resources/themes/lara-light-indigo/theme.css";     
     
 //core
-import "primevue/resources/primevue.min.css";
-
-//icons
-import "primeicons/primeicons.css";`
+import "primevue/resources/primevue.min.css";`
             },
             code2: {
                 basic: `body {

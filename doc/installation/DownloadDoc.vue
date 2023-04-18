@@ -11,10 +11,10 @@ export default {
         return {
             code: {
                 basic: `// with npm
-npm install primevue primeicons
+npm install primevue
 
 // with yarn
-yarn add primevue primeicons`
+yarn add primevue`
             }
         };
     }
