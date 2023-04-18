@@ -11221,7 +11221,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dialog close button."
+                            "description": "Icon to display in the dialog close button.",
+                            "deprecated": "since v3.27.0. Use 'closeicon' slot."
                         },
                         {
                             "name": "maximizeIcon",
@@ -11229,7 +11230,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dialog maximize button when dialog is not maximized."
+                            "description": "Icon to display in the dialog maximize button when dialog is not maximized.",
+                            "deprecated": "since v3.27.0. Use 'maximizeicon' slot."
                         },
                         {
                             "name": "minimizeIcon",
@@ -11237,7 +11239,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dialog maximize button when dialog is maximized."
+                            "description": "Icon to display in the dialog maximize button when dialog is minimized.",
+                            "deprecated": "since v3.27.0. Use 'minimizeicon' slot."
                         }
                     ],
                     "methods": []
@@ -11278,11 +11281,11 @@
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n  \t <b>maximized</b>: boolean, // Maximized state as a boolean\n  }",
-                                    "description": "maximizeicon icon slot's params."
+                                    "description": "maximize icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom maximizeicon icon template of dialog."
+                            "description": "Custom maximize icon template of dialog."
                         }
                     ]
                 },
@@ -12020,7 +12023,8 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLElement to the clear icon inside the component."
+                            "description": "Uses to pass all properties of the HTMLElement to the clear icon inside the component.",
+                            "deprecated": "since v3.26.0. Use 'pt' peroperty."
                         },
                         {
                             "name": "appendTo",
@@ -12044,7 +12048,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in clear button."
+                            "description": "Icon to display in clear button.",
+                            "deprecated": "since v3.27.0. Use 'clearicon' slot."
                         },
                         {
                             "name": "dropdownIcon",
@@ -12052,7 +12057,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dropdown."
+                            "description": "Icon to display in the dropdown.",
+                            "deprecated": "since v3.27.0. Use 'dropdownicon' slot."
                         },
                         {
                             "name": "filterIcon",
@@ -12060,7 +12066,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in filter input."
+                            "description": "Icon to display in filter input.",
+                            "deprecated": "since v3.27.0. Use 'filtericon' slot."
                         },
                         {
                             "name": "loadingIcon",
@@ -12068,7 +12075,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in loading state."
+                            "description": "Icon to display in loading state.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
                             "name": "resetFilterOnHide",
@@ -12290,6 +12298,51 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom loader template."
+                        },
+                        {
+                            "name": "clearicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>onClick</b>: void, // Clear icon click function.\n  }",
+                                    "description": "clear icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom clear icon template."
+                        },
+                        {
+                            "name": "dropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the component\n  }",
+                                    "description": "dropdown icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom dropdown icon template."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the component\n  }",
+                                    "description": "loading icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
+                        },
+                        {
+                            "name": "filtericon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom filter icon template."
                         }
                     ]
                 },
@@ -13498,7 +13551,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the choose button."
+                            "description": "Icon of the choose button.",
+                            "deprecated": "since v3.27.0. Use 'chooseicon' slot."
                         },
                         {
                             "name": "uploadIcon",
@@ -13506,7 +13560,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the upload button."
+                            "description": "Icon of the upload button.",
+                            "deprecated": "since v3.27.0. Use 'updateicon' slot."
                         },
                         {
                             "name": "cancelIcon",
@@ -13514,7 +13569,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the cancel button."
+                            "description": "Icon of the cancel button.",
+                            "deprecated": "since v3.27.0. Use 'cancelicon' slot."
                         },
                         {
                             "name": "style",
@@ -14330,7 +14386,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Custom indicator icon."
+                            "description": "Custom indicator icon.",
+                            "deprecated": "since v3.27.0. Use 'indicator' slot."
                         }
                     ],
                     "methods": []
@@ -14421,7 +14478,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Display a custom icon for the message."
+                            "description": "Display a custom icon for the message.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         }
                     ],
                     "methods": []
@@ -14504,7 +14562,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the close button."
+                            "description": "Icon to display in the close button.",
+                            "deprecated": "since v3.27.0. Use 'closeicon' slot."
                         },
                         {
                             "name": "displayProps",
@@ -14541,6 +14600,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template."
+                        },
+                        {
+                            "name": "closeicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close icon template."
                         }
                     ]
                 },
@@ -14872,7 +14937,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Style class of the increment button."
+                            "description": "Style class of the increment button.",
+                            "deprecated": "since v3.27.0. Use 'incrementbuttonicon' slot."
                         },
                         {
                             "name": "decrementButtonIcon",
@@ -14880,7 +14946,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Style class of the decrement button."
+                            "description": "Style class of the decrement button.",
+                            "deprecated": "since v3.27.0. Use 'decrementbuttonicon' slot."
                         },
                         {
                             "name": "locale",
@@ -15870,8 +15937,9 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "ß",
-                            "description": "Icon to display in filter input."
+                            "default": "",
+                            "description": "Icon to display in filter input.",
+                            "deprecated": "since v3.27.0. Use 'filtericon' slot."
                         },
                         {
                             "name": "aria-label",
@@ -16815,7 +16883,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the message close button."
+                            "description": "Icon to display in the message close button.",
+                            "deprecated": "since v3.27.0. Use 'closeicon' slot."
                         },
                         {
                             "name": "closeButtonProps",
@@ -16823,7 +16892,8 @@
                             "readonly": false,
                             "type": "ButtonHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLButtonElement to the close button."
+                            "description": "Uses to pass all properties of the HTMLButtonElement to the close button.",
+                            "deprecated": "since v3.26.0. Use 'pt' property."
                         }
                     ],
                     "methods": []
@@ -16841,13 +16911,25 @@
                         },
                         {
                             "name": "messageicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom message icon template."
                         },
                         {
                             "name": "closeicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close icon template."
                         }
@@ -17237,7 +17319,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the checkboxes."
+                            "description": "Icon to display in the checkboxes.",
+                            "deprecated": "since v3.27.0. Use 'checkboxicon' slot."
                         },
                         {
                             "name": "closeIcon",
@@ -17245,7 +17328,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dropdown close button."
+                            "description": "Icon to display in the dropdown close button.",
+                            "deprecated": "since v3.27.0. Use 'closeicon' slot."
                         },
                         {
                             "name": "dropdownIcon",
@@ -17253,7 +17337,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the dropdown."
+                            "description": "Icon to display in the dropdown.",
+                            "deprecated": "since v3.27.0. Use 'dropdownicon' slot."
                         },
                         {
                             "name": "filterIcon",
@@ -17261,7 +17346,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in filter input."
+                            "description": "Icon to display in filter input.",
+                            "deprecated": "since v3.27.0. Use 'filtericon' slot."
                         },
                         {
                             "name": "loadingIcon",
@@ -17269,7 +17355,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in loading state."
+                            "description": "Icon to display in loading state.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
                             "name": "removeTokenIcon",
@@ -17277,7 +17364,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in chip remove action."
+                            "description": "Icon to display in chip remove action.",
+                            "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
                         },
                         {
                             "name": "selectAll",
@@ -17421,7 +17509,8 @@
                             "name": "indicator",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom indicator template."
+                            "description": "Custom indicator template.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon and dropdownicon' slot."
                         },
                         {
                             "name": "header",
@@ -17515,7 +17604,13 @@
                         },
                         {
                             "name": "removetokenicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>onClick</b>: string, // Remove token icon function.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom remove token icon template."
                         },
@@ -17525,7 +17620,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>allSelected</b>: boolean, // Options of the loader items for virtualscroller\n  }",
+                                    "type": "{\n  \t <b>allSelected</b>: boolean, // Options of the loader items for virtualscroller\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
                                     "description": "header checkbox icon slot's params."
                                 }
                             ],
@@ -17534,13 +17629,25 @@
                         },
                         {
                             "name": "filtericon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom filter icon template."
                         },
                         {
                             "name": "closeicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close icon template."
                         },
@@ -17550,12 +17657,37 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>selected</b>: boolean, // Options of the loader items for virtualscroller\n  }",
+                                    "type": "{\n  \t <b>selected</b>: boolean, // Options of the loader items for virtualscroller\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
                                     "description": "header checkbox icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item checkbox icon template."
+                        },
+                        {
+                            "name": "loadingicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "description": "loading icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom loading icon template."
+                        },
+                        {
+                            "name": "dropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom dropdown icon template."
                         }
                     ]
                 },
@@ -18414,7 +18546,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the overlaypanel close button."
+                            "description": "Icon to display in the overlaypanel close button.",
+                            "deprecated": "since v3.27.0. Use 'closeicon' slot."
                         }
                     ],
                     "methods": []
@@ -19328,7 +19461,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to hide displaying the password as plain text."
+                            "description": "Icon to hide displaying the password as plain text.",
+                            "deprecated": "since v3.27.0. Use 'hideicon' slot."
                         },
                         {
                             "name": "showIcon",
@@ -19336,7 +19470,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to show displaying the password as plain text."
+                            "description": "Icon to show displaying the password as plain text.",
+                            "deprecated": "since v3.27.0. Use 'showicon' slot."
                         },
                         {
                             "name": "disabled",
@@ -19471,13 +19606,25 @@
                         },
                         {
                             "name": "hideicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>onClick()</b>: void, // Hide icon click event\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom hide icon template."
                         },
                         {
                             "name": "showicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>onClick()</b>: void, // Show icon click event\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom show icon template."
                         }
@@ -20534,7 +20681,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon for the on state."
+                            "description": "Icon for the on state.",
+                            "deprecated": "since v3.27.0. Use 'onicon' slot."
                         },
                         {
                             "name": "offIcon",
@@ -20542,7 +20690,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon for the off state."
+                            "description": "Icon for the off state.",
+                            "deprecated": "since v3.27.0. Use 'officon' slot."
                         },
                         {
                             "name": "cancelIcon",
@@ -20550,7 +20699,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon for the cancelable state."
+                            "description": "Icon for the cancelable state.",
+                            "deprecated": "since v3.27.0. Use 'cancelicon' slot."
                         }
                     ],
                     "methods": []
@@ -20967,7 +21117,8 @@
                             "name": "icon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom scrolltop icon template."
+                            "description": "Custom scrolltop icon template.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         }
                     ]
                 },
@@ -21263,7 +21414,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the sidebar close button."
+                            "description": "Icon to display in the sidebar close button.",
+                            "deprecated": "since v3.27.0. Use 'closeicon' slot."
                         },
                         {
                             "name": "modal",
@@ -21765,7 +21917,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Show icon of the button element."
+                            "description": "Show icon of the button element.",
+                            "deprecated": "since v3.27.0. Use 'showicon' slot."
                         },
                         {
                             "name": "hideIcon",
@@ -21773,7 +21926,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Hide icon of the button element."
+                            "description": "Hide icon of the button element.",
+                            "deprecated": "since v3.27.0. Use 'hideicon' slot."
                         },
                         {
                             "name": "rotateAnimation",
@@ -21856,6 +22010,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom button template."
+                        },
+                        {
+                            "name": "icon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>visible</b>: boolean, // undefined\n  }",
+                                    "description": "icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icon template."
                         }
                     ]
                 },
@@ -21955,7 +22122,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Name of the icon."
+                            "description": "Name of the icon.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "model",
@@ -22035,7 +22203,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Name of the menu button icon."
+                            "description": "Name of the menu button icon.",
+                            "deprecated": "since v3.27.0. Use 'menubuttonicon' slot."
                         },
                         {
                             "name": "severity",
@@ -22106,6 +22275,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Button part of the content can easily be customized with the default slot instead of using the built-in modes."
+                        },
+                        {
+                            "name": "icon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom menu button icon template."
                         },
                         {
                             "name": "menubuttonicon",
@@ -23341,7 +23516,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Prev icon of the scrollable tabview."
+                            "description": "Previous icon of the scrollable tabview.",
+                            "deprecated": "since v3.27.0. Use 'previousicon' slot."
                         },
                         {
                             "name": "nextIcon",
@@ -23349,7 +23525,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Next icon of the scrollable tabview."
+                            "description": "Next icon of the scrollable tabview.",
+                            "deprecated": "since v3.27.0. Use 'next' slot."
                         },
                         {
                             "name": "pt",
@@ -23374,7 +23551,7 @@
                             "description": "Default slot to detect TabPanel components."
                         },
                         {
-                            "name": "previcon",
+                            "name": "previousicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Previous button icon template for the scrollable component."
@@ -23495,7 +23672,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon of the tag to display next to the value."
+                            "description": "Icon of the tag to display next to the value.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         }
                     ],
                     "methods": []
@@ -23510,6 +23688,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template"
+                        },
+                        {
+                            "name": "icon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icon template"
                         }
                     ]
                 },
@@ -24199,7 +24383,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the toast close button."
+                            "description": "Icon to display in the toast close button.",
+                            "deprecated": "since v3.27.0. Use 'closeicon' slot."
                         },
                         {
                             "name": "infoIcon",
@@ -24207,7 +24392,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the toast with info severity."
+                            "description": "Icon to display in the toast with info severity.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "warnIcon",
@@ -24215,7 +24401,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the toast with warn severity."
+                            "description": "Icon to display in the toast with warn severity.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "errorIcon",
@@ -24223,7 +24410,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the toast with error severity."
+                            "description": "Icon to display in the toast with error severity.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "successIcon",
@@ -24231,7 +24419,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display in the toast with success severity."
+                            "description": "Icon to display in the toast with success severity.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "closeButtonProps",
@@ -24239,7 +24428,8 @@
                             "readonly": false,
                             "type": "ButtonHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLButtonElement to the close button."
+                            "description": "Uses to pass all properties of the HTMLButtonElement to the close button.",
+                            "deprecated": "since v3.26.0. Use 'pt' property."
                         }
                     ],
                     "methods": []
@@ -24396,7 +24586,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon for the on state."
+                            "description": "Icon for the on state.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "offIcon",
@@ -24404,7 +24595,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon for the off state."
+                            "description": "Icon for the off state.",
+                            "deprecated": "since v3.27.0. Use 'icon' slot."
                         },
                         {
                             "name": "onLabel",
@@ -24501,7 +24693,20 @@
                     "description": "Defines valid slots in ToggleButton component.",
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
+                    "methods": [
+                        {
+                            "name": "icon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>value</b>: any, // Current value\n  \t <b>class</b>: any, // Icon style class\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom icon template."
+                        }
+                    ]
                 },
                 "ToggleButtonEmits": {
                     "description": "Defines valid emits in ToggleButton component.",
@@ -25060,7 +25265,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Icon to display when tree is loading."
+                            "description": "Icon to display when tree is loading.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
                             "name": "filter",
@@ -25489,18 +25695,6 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
-                        },
-                        {
-                            "name": "loadingicon",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom loading icon template."
-                        },
-                        {
-                            "name": "searchicon",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom search icon template."
                         },
                         {
                             "name": "itemtogglericon",
@@ -26153,7 +26347,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "The icon to show while indicating data load is in progress."
+                            "description": "The icon to show while indicating data load is in progress.",
+                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
                         },
                         {
                             "name": "rowHover",
@@ -26672,7 +26867,8 @@
                             "readonly": false,
                             "type": "InputHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component."
+                            "description": "Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.",
+                            "deprecated": "since v3.26.0. Use 'pt' property."
                         },
                         {
                             "name": "aria-labelledby",
