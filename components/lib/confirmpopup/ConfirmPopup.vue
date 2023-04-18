@@ -4,14 +4,29 @@
             <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="$attrs">
                 <template v-if="!$slots.message">
                     <div class="p-confirm-popup-content">
-                        <i :class="iconClass" />
+                        <slot name="icon">
+                            <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-popup-icon" />
+                            <span v-else-if="confirmation.icon" :class="iconClass" />
+                        </slot>
                         <span class="p-confirm-popup-message">{{ confirmation.message }}</span>
                     </div>
                 </template>
                 <component v-else :is="$slots.message" :message="confirmation"></component>
                 <div class="p-confirm-popup-footer">
-                    <CPButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" />
-                    <CPButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" />
+                    <CPButton :label="rejectLabel" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject">
+                        <template #icon="iconProps">
+                            <slot name="rejecticon">
+                                <span :class="[rejectIcon, iconProps.class]" />
+                            </slot>
+                        </template>
+                    </CPButton>
+                    <CPButton :label="acceptLabel" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept">
+                        <template #icon="iconProps">
+                            <slot name="accepticon">
+                                <span :class="[acceptIcon, iconProps.class]" />
+                            </slot>
+                        </template>
+                    </CPButton>
                 </div>
             </div>
         </transition>

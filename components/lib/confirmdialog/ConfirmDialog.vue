@@ -13,13 +13,28 @@
         @update:visible="onHide"
     >
         <template v-if="!$slots.message">
-            <i v-if="confirmation.icon" :class="iconClass" />
+            <slot name="icon">
+                <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-dialog-icon" />
+                <span v-else-if="confirmation.icon" :class="iconClass" />
+            </slot>
             <span class="p-confirm-dialog-message">{{ message }}</span>
         </template>
         <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
-            <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" :autofocus="autoFocusReject" />
-            <CDButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" :autofocus="autoFocusAccept" />
+            <CDButton :label="rejectLabel" :class="rejectClass" iconPos="left" @click="reject()" :autofocus="autoFocusReject">
+                <template #icon="iconProps">
+                    <slot name="rejecticon">
+                        <span :class="[rejectIcon, iconProps.class]" />
+                    </slot>
+                </template>
+            </CDButton>
+            <CDButton :label="acceptLabel" :class="acceptClass" iconPos="left" @click="accept()" :autofocus="autoFocusAccept">
+                <template #icon="iconProps">
+                    <slot name="accepticon">
+                        <span :class="[acceptIcon, iconProps.class]" />
+                    </slot>
+                </template>
+            </CDButton>
         </template>
     </CDialog>
 </template>
