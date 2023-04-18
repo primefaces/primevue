@@ -140,7 +140,7 @@ export default {
         },
         rowReorderIcon: {
             type: String,
-            default: 'pi pi-bars'
+            default: undefined
         },
         reorderableColumn: {
             type: Boolean,

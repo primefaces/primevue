@@ -28,7 +28,7 @@
                 <slot name="chip" :value="val">
                     <span class="p-chips-token-label">{{ val }}</span>
                 </slot>
-                <slot name="removetokenicon">
+                <slot name="removetokenicon" :onClick="(event) => removeItem(event, i)">
                     <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-chips-token-icon', removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true" />
                 </slot>
             </li>

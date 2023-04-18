@@ -19,6 +19,7 @@ export interface AvatarProps {
     label?: string | undefined;
     /**
      * Defines the icon to display.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**
@@ -53,6 +54,10 @@ export interface AvatarSlots {
      * Content can easily be customized with the default slot instead of using the built-in modes.
      */
     default(): VNode[];
+    /**
+     * Content can easily be customized with the default slot instead of using the built-in modes.
+     */
+    icon(): VNode[];
 }
 
 /**

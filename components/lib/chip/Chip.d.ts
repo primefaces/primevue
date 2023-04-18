@@ -20,6 +20,7 @@ export interface ChipProps {
     label?: string;
     /**
      * Defines the icon to display.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string;
     /**
@@ -33,6 +34,7 @@ export interface ChipProps {
     removable?: boolean;
     /**
      * Icon of the remove element.
+     * @deprecated since v3.27.0. Use 'removeicon' slot.
      */
     removeIcon?: string;
 }
@@ -46,6 +48,10 @@ export interface ChipSlots {
      */
     default(): VNode[];
     /**
+     * Custom icon template.
+     */
+    icon(): VNode[];
+    /**
      * Custom remove icon template of chip component.
      * @param {Object} scope - remove icon slot's params.
      */
@@ -53,11 +59,11 @@ export interface ChipSlots {
         /**
          * Remove icon click event
          */
-        click(): void;
+        onClick(): void;
         /**
          * Remove icon keydown event
          */
-        keydown(): void;
+        onKeydown(): void;
     }): VNode[];
 }
 

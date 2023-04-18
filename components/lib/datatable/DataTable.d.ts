@@ -611,6 +611,7 @@ export interface DataTableProps {
     loading?: boolean | undefined;
     /**
      * The icon to show while indicating data load is in progress.
+     *  @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
@@ -729,10 +730,12 @@ export interface DataTableProps {
     expandedRows?: any[] | DataTableExpandedRows | null;
     /**
      * Icon of the row toggler to display the row as expanded.
+     * @deprecated since v3.27.0. Use 'rowtogglericon' slot.
      */
     expandedRowIcon?: string | undefined;
     /**
      * Icon of the row toggler to display the row as collapsed.
+     * @deprecated since v3.27.0. Use 'rowtogglericon' slot.
      */
     collapsedRowIcon?: string | undefined;
     /**

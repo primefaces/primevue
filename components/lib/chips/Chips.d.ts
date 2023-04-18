@@ -72,10 +72,12 @@ export interface ChipsProps {
     inputStyle?: object | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
      * Icon to display in chip remove action.
+     * @deprecated since v3.27.0. Use 'removetokenicon' slot.
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -111,8 +113,14 @@ export interface ChipsSlots {
     }): VNode[];
     /**
      * Custom remove token icon template.
+     * @param {Object} scope - remove token icon slot's params.
      */
-    removetokenicon(): VNode[];
+    removetokenicon(scope: {
+        /**
+         * Remove icon click event
+         */
+        onClick(): void;
+    }): VNode[];
 }
 /**
  * Defines valid emits in Chips component.

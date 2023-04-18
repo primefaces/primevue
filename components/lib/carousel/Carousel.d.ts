@@ -133,7 +133,7 @@ export interface CarouselSlots {
     /**
      * Custom previous icon template.
      */
-    previcon(): VNode[];
+    previousicon(): VNode[];
     /**
      * Custom next icon template.
      */
