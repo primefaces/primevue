@@ -236,14 +236,17 @@ export interface FileUploadProps {
     showCancelButton?: boolean | undefined;
     /**
      * Icon of the choose button.
+     * @todo
      */
     chooseIcon?: string | undefined;
     /**
      * Icon of the upload button.
+     * @todo
      */
     uploadIcon?: string | undefined;
     /**
      * Icon of the cancel button.
+     * @todo
      */
     cancelIcon?: string | undefined;
     /**

@@ -10,7 +10,7 @@
             <FileUploadButton @click="$emit('remove', index)" text rounded severity="danger" class="p-fileupload-file-remove">
                 <template #icon="iconProps">
                     <component v-if="templates.fileremoveicon" :is="templates.fileremoveicon" :class="iconProps.class" :file="file" :index="index" />
-                    <component v-else :is="'TimesIcon'" :class="iconProps.class" aria-hidden="true" />
+                    <TimesIcon v-else :class="iconProps.class" aria-hidden="true" />
                 </template>
             </FileUploadButton>
         </div>

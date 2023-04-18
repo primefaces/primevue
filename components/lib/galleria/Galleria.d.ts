@@ -212,7 +212,7 @@ export interface GalleriaSlots {
     /**
      * Custom navigator previous item icon template.
      */
-    previtemicon(): VNode[];
+    previousitemicon(): VNode[];
     /**
      * Custom navigator next item icon template.
      */
@@ -220,7 +220,7 @@ export interface GalleriaSlots {
     /**
      * Custom thumbnail previous icon template.
      */
-    prevthumbnailicon(): VNode[];
+    previousthumbnailicon(): VNode[];
     /**
      * Custom thumbnail next item template.
      */
