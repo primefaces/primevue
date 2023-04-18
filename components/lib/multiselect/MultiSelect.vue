@@ -44,16 +44,13 @@
             </div>
         </div>
         <div class="p-multiselect-trigger">
-            <slot v-if="$slots.indicator" name="indicator"></slot>
-            <template v-else>
-                <slot v-if="loading" name="loadingicon" class="p-multiselect-trigger-icon">
-                    <span v-if="loadingIcon" :class="['p-multiselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" />
-                    <SpinnerIcon v-else class="p-multiselect-trigger-icon" spin aria-hidden="true" />
-                </slot>
-                <slot v-else name="dropdownicon" class="p-multiselect-trigger-icon">
-                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
-                </slot>
-            </template>
+            <slot v-if="loading" name="loadingicon" class="p-multiselect-trigger-icon">
+                <span v-if="loadingIcon" :class="['p-multiselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" />
+                <SpinnerIcon v-else class="p-multiselect-trigger-icon" spin aria-hidden="true" />
+            </slot>
+            <slot v-else name="dropdownicon" class="p-multiselect-trigger-icon">
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
+            </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">

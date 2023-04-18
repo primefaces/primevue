@@ -273,6 +273,7 @@ export interface DropdownSlots {
     }): VNode[];
     /**
      * Custom indicator template.
+     * @deprecated since v3.27.0. Use 'dropdownicon or loadingicon' slots.
      */
     indicator(): VNode[];
     /**

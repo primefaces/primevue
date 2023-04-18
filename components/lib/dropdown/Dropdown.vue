@@ -51,16 +51,13 @@
             <component :is="clearIcon ? 'i' : 'TimesIcon'" :class="['p-dropdown-clear-icon', clearIcon]" @click="onClearClick" v-bind="clearIconProps" />
         </slot>
         <div class="p-dropdown-trigger">
-            <slot v-if="$slots.indicator" name="indicator"></slot>
-            <template v-else>
-                <slot v-if="loading" name="loadingicon" class="p-dropdown-trigger-icon">
-                    <span v-if="loadingIcon" :class="['p-dropdown-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" />
-                    <SpinnerIcon v-else class="p-dropdown-trigger-icon" spin aria-hidden="true" />
-                </slot>
-                <slot v-else name="dropdownicon" class="p-dropdown-trigger-icon">
-                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-dropdown-trigger-icon', dropdownIcon]" aria-hidden="true" />
-                </slot>
-            </template>
+            <slot v-if="loading" name="loadingicon" class="p-dropdown-trigger-icon">
+                <span v-if="loadingIcon" :class="['p-dropdown-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" />
+                <SpinnerIcon v-else class="p-dropdown-trigger-icon" spin aria-hidden="true" />
+            </slot>
+            <slot v-else name="dropdownicon" class="p-dropdown-trigger-icon">
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-dropdown-trigger-icon', dropdownIcon]" aria-hidden="true" />
+            </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
