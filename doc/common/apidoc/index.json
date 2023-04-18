@@ -4217,7 +4217,7 @@
                             "type": "string",
                             "default": "",
                             "description": "Icon of the calendar button.",
-                            "deprecated": "since v3.27.0. Use 'triggericon' slot."
+                            "deprecated": "since v3.27.0. Use 'dropdownicon' slot."
                         },
                         {
                             "name": "previousIcon",
@@ -4647,10 +4647,10 @@
                             "description": "Custom decade template."
                         },
                         {
-                            "name": "triggericon",
+                            "name": "dropdownicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom trigger icon template."
+                            "description": "Custom dropdown icon template."
                         },
                         {
                             "name": "previousicon",
