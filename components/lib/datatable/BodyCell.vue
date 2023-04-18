@@ -34,8 +34,12 @@
         <template v-else-if="columnProp('expander')">
             <button v-ripple class="p-row-toggler p-link" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow">
                 <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :rowExpanded="isRowExpanded" />
-                <component v-else-if="column.children && !column.children.rowtogglericon && isRowExpanded" :is="expandedRowIcon ? 'span' : 'ChevronDownIcon'" class="p-row-toggler-icon" />
-                <component v-else-if="column.children && !column.children.rowtogglericon && !isRowExpanded" :is="collapsedRowIcon ? 'span' : 'ChevronRightIcon'" class="p-row-toggler-icon" />
+                <template v-else>
+                    <span v-if="isRowExpanded && expandedRowIcon" :class="['p-row-toggler-icon', expandedRowIcon]" />
+                    <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" class="p-row-toggler-icon" />
+                    <span v-else-if="!isRowExpanded && collapsedRowIcon" :class="['p-row-toggler-icon', collapsedRowIcon]" />
+                    <ChevronRightIcon v-else-if="!isRowExpanded && !collapsedRowIcon" class="p-row-toggler-icon" />
+                </template>
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">

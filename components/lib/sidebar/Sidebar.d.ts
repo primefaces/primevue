@@ -46,6 +46,7 @@ export interface SidebarProps {
     showCloseIcon?: boolean | undefined;
     /**
      * Icon to display in the sidebar close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**

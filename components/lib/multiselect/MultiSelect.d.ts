@@ -191,26 +191,32 @@ export interface MultiSelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in the checkboxes.
+     * @deprecated since v3.27.0. Use 'checkboxicon' slot.
      */
     checkboxIcon?: string | undefined;
     /**
      * Icon to display in the dropdown close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
+     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
+     * @deprecated since v3.27.0. Use 'filtericon' slot.
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
+     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
+     * @deprecated since v3.27.0. Use 'removetokenicon' slot.
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -307,6 +313,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom indicator template.
+     * @deprecated since v3.27.0. Use 'loadingicon and dropdownicon' slot.
      */
     indicator(): VNode[];
     /**
@@ -411,7 +418,16 @@ export interface MultiSelectSlots {
     /**
      * Custom remove token icon template.
      */
-    removetokenicon(): VNode[];
+    removetokenicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+        /**
+         * Remove token icon function.
+         */
+        onClick: string;
+    }): VNode[];
     /**
      * Custom header checkbox icon template.
      * @param {Object} scope - header checkbox icon slot's params.
@@ -421,15 +437,29 @@ export interface MultiSelectSlots {
          * Options of the loader items for virtualscroller
          */
         allSelected: boolean;
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
     }): VNode[];
     /**
      * Custom filter icon template.
      */
-    filtericon(): VNode[];
+    filtericon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom close icon template.
      */
-    closeicon(): VNode[];
+    closeicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom item checkbox icon template.
      * @param {Object} scope - header checkbox icon slot's params.
@@ -439,6 +469,29 @@ export interface MultiSelectSlots {
          * Options of the loader items for virtualscroller
          */
         selected: boolean;
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom loading icon template.
+     * @param {Object} scope - loading icon slot's params.
+     */
+    loadingicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom dropdown icon template.
+     */
+    dropdownicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
     }): VNode[];
 }
 

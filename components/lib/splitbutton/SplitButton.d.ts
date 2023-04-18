@@ -21,6 +21,7 @@ export interface SplitButtonProps {
     label?: string | undefined;
     /**
      * Name of the icon.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**
@@ -66,6 +67,7 @@ export interface SplitButtonProps {
     menuButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Name of the menu button icon.
+     * @deprecated since v3.27.0. Use 'menubuttonicon' slot.
      */
     menuButtonIcon?: string | undefined;
     /**
@@ -111,6 +113,10 @@ export interface SplitButtonSlots {
      * Button part of the content can easily be customized with the default slot instead of using the built-in modes.
      */
     default(): VNode[];
+    /**
+     * Custom menu button icon template.
+     */
+    icon(): VNode[];
     /**
      * Custom menu button icon template.
      */

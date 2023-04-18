@@ -73,10 +73,12 @@ export interface InputNumberProps {
     decrementButtonClass?: string | undefined;
     /**
      * Style class of the increment button.
+     * @deprecated since v3.27.0. Use 'incrementbuttonicon' slot.
      */
     incrementButtonIcon?: string | undefined;
     /**
      * Style class of the decrement button.
+     * @deprecated since v3.27.0. Use 'decrementbuttonicon' slot.
      */
     decrementButtonIcon?: string | undefined;
     /**

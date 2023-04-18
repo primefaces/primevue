@@ -59,14 +59,17 @@ export interface RatingProps {
     cancel?: boolean | undefined;
     /**
      * Icon for the on state.
+     * @deprecated since v3.27.0. Use 'onicon' slot.
      */
     onIcon?: string | undefined;
     /**
      * Icon for the off state.
+     * @deprecated since v3.27.0. Use 'officon' slot.
      */
     offIcon?: string | undefined;
     /**
      * Icon for the cancelable state.
+     * @deprecated since v3.27.0. Use 'cancelicon' slot.
      */
     cancelIcon?: string | undefined;
 }

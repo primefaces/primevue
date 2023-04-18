@@ -157,6 +157,7 @@ export interface DropdownProps {
     filterInputProps?: InputHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLElement to the clear icon inside the component.
+     * @deprecated since v3.26.0. Use 'pt' peroperty.
      */
     clearIconProps?: HTMLAttributes | undefined;
     /**
@@ -171,18 +172,22 @@ export interface DropdownProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in clear button.
+     * @deprecated since v3.27.0. Use 'clearicon' slot.
      */
     clearIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
+     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
+     * @deprecated since v3.27.0. Use 'filtericon' slot.
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
+     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
@@ -369,6 +374,40 @@ export interface DropdownSlots {
          */
         options: any[];
     }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         */
+        onClick: void;
+    }): VNode[];
+    /**
+     * Custom dropdown icon template.
+     * @param {Object} scope - dropdown icon slot's params.
+     */
+    dropdownicon(scope: {
+        /**
+         * Style class of the component
+         */
+        class: any;
+    }): VNode[];
+    /**
+     * Custom loading icon template.
+     * @param {Object} scope - loading icon slot's params.
+     */
+    loadingicon(scope: {
+        /**
+         * Style class of the component
+         */
+        class: any;
+    }): VNode[];
+    /**
+     * Custom filter icon template.
+     */
+    filtericon(): VNode[];
 }
 
 /**

@@ -152,11 +152,13 @@ export interface TabViewProps {
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Prev icon of the scrollable tabview.
+     * Previous icon of the scrollable tabview.
+     * @deprecated since v3.27.0. Use 'previousicon' slot.
      */
     prevIcon?: string | undefined;
     /**
      * Next icon of the scrollable tabview.
+     * @deprecated since v3.27.0. Use 'next' slot.
      */
     nextIcon?: string | undefined;
     /**
@@ -177,7 +179,7 @@ export interface TabViewSlots {
     /**
      * Previous button icon template for the scrollable component.
      */
-    previcon(): VNode[];
+    previousicon(): VNode[];
     /**
      * Next button icon template for the scrollable component.
      */

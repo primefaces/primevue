@@ -31,6 +31,7 @@ export interface InplaceProps {
     disabled?: boolean | undefined;
     /**
      * Icon to display in the close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
@@ -55,6 +56,10 @@ export interface InplaceSlots {
      * Custom content template.
      */
     content(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
 }
 
 /**

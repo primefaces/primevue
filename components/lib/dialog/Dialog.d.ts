@@ -146,14 +146,17 @@ export interface DialogProps {
     style?: any;
     /**
      * Icon to display in the dialog close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dialog maximize button when dialog is not maximized.
+     * @deprecated since v3.27.0. Use 'maximizeicon' slot.
      */
     maximizeIcon?: string | undefined;
     /**
-     * Icon to display in the dialog maximize button when dialog is maximized.
+     * Icon to display in the dialog maximize button when dialog is minimized.
+     * @deprecated since v3.27.0. Use 'minimizeicon' slot.
      */
     minimizeIcon?: string | undefined;
 }
@@ -179,8 +182,8 @@ export interface DialogSlots {
      */
     closeicon(): VNode[];
     /**
-     * Custom maximizeicon icon template of dialog.
-     * @param {Object} scope - maximizeicon icon slot's params.
+     * Custom maximize icon template of dialog.
+     * @param {Object} scope - maximize icon slot's params.
      */
     maximizeicon(scope: {
         /**

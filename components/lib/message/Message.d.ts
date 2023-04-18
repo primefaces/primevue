@@ -40,10 +40,12 @@ export interface MessageProps {
     icon?: string | undefined;
     /**
      * Icon to display in the message close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the close button.
+     * @deprecated since v3.26.0. Use 'pt' property.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
 }
@@ -59,11 +61,21 @@ export interface MessageSlots {
     /**
      * Custom message icon template.
      */
-    messageicon(): VNode[];
+    messageicon(scope: {
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom close icon template.
      */
-    closeicon(): VNode[];
+    closeicon(scope: {
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

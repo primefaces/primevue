@@ -21,7 +21,7 @@ export interface InlineMessageProps {
     severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
     /**
      * Display a custom icon for the message.
-     * @todo
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
 }
