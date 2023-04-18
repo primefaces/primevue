@@ -2,11 +2,12 @@
     <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled">
         <slot></slot>
         <template v-if="!$slots.default">
-            <slot v-if="loading" name="loadingicon" :class="iconStyleClass">
-                <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" :class="iconStyleClass" spin />
+            <slot v-if="loading" name="loadingicon" :class="loadingIconStyleClass">
+                <span v-if="loadingIcon" :class="[loadingIconStyleClass, loadingIcon]" />
+                <SpinnerIcon v-else :class="loadingIconStyleClass" spin />
             </slot>
             <slot v-else name="icon" :class="iconStyleClass">
-                <span v-if="icon" :class="iconStyleClass"></span>
+                <span v-if="icon" :class="[iconStyleClass, icon]"></span>
             </slot>
             <span class="p-button-label">{{ label || '&nbsp;' }}</span>
             <span v-if="badge" :class="badgeStyleClass">{{ badge }}</span>
@@ -110,7 +111,6 @@ export default {
         },
         iconStyleClass() {
             return [
-                this.loading ? 'p-button-loading-icon ' + (this.loadingIcon || '') : this.icon,
                 'p-button-icon',
                 this.iconClass,
                 {
@@ -120,6 +120,9 @@ export default {
                     'p-button-icon-bottom': this.iconPos === 'bottom' && this.label
                 }
             ];
+        },
+        loadingIconStyleClass() {
+            return ['p-button-loading-icon pi-spin', this.iconStyleClass];
         },
         badgeStyleClass() {
             return [

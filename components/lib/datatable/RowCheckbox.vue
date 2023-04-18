@@ -4,7 +4,8 @@
             <input ref="input" type="checkbox" :checked="checked" :disabled="$attrs.disabled" :tabindex="$attrs.disabled ? null : '0'" :aria-label="checkboxAriaLabel" @focus="onFocus($event)" @blur="onBlur($event)" @keydown="onKeydown" />
         </div>
         <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]">
-            <component :is="rowCheckboxIconTemplate || 'CheckIcon'" :checked="checked" class="p-checkbox-icon" />
+            <component v-if="rowCheckboxIconTemplate" :is="rowCheckboxIconTemplate" :checked="checked" class="p-checkbox-icon" />
+            <CheckIcon v-else class="p-checkbox-icon" />
         </div>
     </div>
 </template>

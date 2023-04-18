@@ -1,12 +1,14 @@
 <template>
     <div v-if="visible" :class="containerClass" :aria-label="label">
-        <slot>
+        <slot></slot>
+        <template v-if="!$slots.default">
             <img v-if="image" :src="image" />
-            <span v-else-if="icon" :class="iconClass"></span>
+            <component v-else-if="$slots.icon" :is="$slots.icon" class="p-chip-icon" />
+            <span v-else-if="icon" :class="['p-chip-icon', icon]" />
             <div v-if="label" class="p-chip-text">{{ label }}</div>
-        </slot>
-        <slot name="removeicon" :click="close" :keydown="onKeydown">
-            <component v-if="removable" :is="removeIcon ? 'span' : 'TimesCircleIcon'" tabindex="0" :class="['p-chip-remove-icon', removeIcon]" @click="close" @keydown="onKeydown"></component>
+        </template>
+        <slot v-if="removable" name="removeicon" :onClick="close" :onKeydown="onKeydown">
+            <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" tabindex="0" :class="['p-chip-remove-icon', removeIcon]" @click="close" @keydown="onKeydown"></component>
         </slot>
     </div>
 </template>
@@ -63,9 +65,6 @@ export default {
                     'p-chip-image': this.image != null
                 }
             ];
-        },
-        iconClass() {
-            return ['p-chip-icon', this.icon];
         }
     },
     components: {

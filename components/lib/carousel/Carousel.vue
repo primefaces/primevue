@@ -15,7 +15,7 @@
                     @click="navBackward"
                     v-bind="prevButtonProps"
                 >
-                    <slot name="previcon">
+                    <slot name="previousicon">
                         <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" class="p-carousel-next-icon" />
                     </slot>
                 </button>

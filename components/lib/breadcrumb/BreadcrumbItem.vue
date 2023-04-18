@@ -3,12 +3,14 @@
         <template v-if="!templates.item">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                 <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)">
-                    <component :is="templates.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="iconClass" />
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" class="p-menuitem-icon" />
+                    <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" />
                     <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
                 </a>
             </router-link>
             <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick">
-                <component :is="templates.itemicon || (item.icon ? 'span' : undefined)" :item="item" :class="iconClass" />
+                <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" class="p-menuitem-icon" />
+                <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" />
                 <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
             </a>
         </template>
@@ -63,11 +65,6 @@ export default {
             let lastPath = this.$router ? this.$router.currentRoute.path : '';
 
             return to === lastPath || url === lastPath ? 'page' : undefined;
-        }
-    },
-    computed: {
-        iconClass() {
-            return ['p-menuitem-icon', this.item.icon];
         }
     }
 };

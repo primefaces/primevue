@@ -1,10 +1,12 @@
 <template>
     <div :class="containerClass" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
-        <slot>
+        <slot></slot>
+        <template v-if="!$slots.default">
             <span v-if="label" class="p-avatar-text">{{ label }}</span>
-            <span v-else-if="icon" :class="iconClass"></span>
+            <component v-else-if="$slots.icon" :is="$slots.icon" class="p-avatar-icon" />
+            <span v-else-if="icon" :class="['p-avatar-icon', icon]" />
             <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" />
-        </slot>
+        </template>
     </div>
 </template>
 
@@ -58,9 +60,6 @@ export default {
                     'p-avatar-xl': this.size === 'xlarge'
                 }
             ];
-        },
-        iconClass() {
-            return ['p-avatar-icon', this.icon];
         }
     }
 };

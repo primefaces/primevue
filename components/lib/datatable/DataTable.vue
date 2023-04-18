@@ -3,7 +3,11 @@
         <slot></slot>
         <div v-if="loading" class="p-datatable-loading-overlay p-component-overlay">
             <slot v-if="$slots.loading" name="loading"></slot>
-            <component v-else :is="$slots.loadingicon ? $slots.loadingicon : loadingIcon ? 'i' : 'SpinnerIcon'" spin :class="['p-datatable-loading-icon', loadingIcon]" />
+            <template v-else>
+                <component v-if="$slots.loadingicon" :is="$slots.loadingicon" class="p-datatable-loading-icon" />
+                <i v-else-if="loadingIcon" :class="['p-datatable-loading-icon pi-spin', loadingIcon]" />
+                <SpinnerIcon v-else spin class="p-datatable-loading-icon" />
+            </template>
         </div>
         <div v-if="$slots.header" class="p-datatable-header">
             <slot name="header"></slot>

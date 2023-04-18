@@ -86,7 +86,8 @@
             </li>
         </ul>
         <slot v-if="searching" name="loadingicon">
-            <component :is="loadingIcon ? 'i' : 'SpinnerIcon'" :class="['p-autocomplete-loader', loadingIcon]" spin aria-hidden="true" />
+            <i v-if="loadingIcon" :class="['p-autocomplete-loader pi-spin', loadingIcon]" aria-hidden="true" />
+            <SpinnerIcon v-else class="p-autocomplete-loader" spin aria-hidden="true" />
         </slot>
         <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="['p-autocomplete-dropdown', dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick">
             <template #icon>

@@ -81,8 +81,8 @@
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
                                 <div>
                                     <CFButton v-if="showRemoveIcon" type="button" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel">
-                                        <template #icon>
-                                            <component :is="filterRemoveIconTemplate || 'TrashIcon'" class="p-button-icon-left" />
+                                        <template #icon="iconProps">
+                                            <component :is="filterRemoveIconTemplate || 'TrashIcon'" :class="iconProps.class" />
                                         </template>
                                     </CFButton>
                                 </div>
@@ -90,8 +90,8 @@
                         </div>
                         <div v-if="isShowAddConstraint" class="p-column-filter-add-rule">
                             <CFButton type="button" :label="addRuleButtonLabel" iconPos="left" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()">
-                                <template #icon>
-                                    <component :is="filterAddIconTemplate || 'PlusIcon'" class="p-button-icon-left" />
+                                <template #icon="iconProps">
+                                    <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" />
                                 </template>
                             </CFButton>
                         </div>

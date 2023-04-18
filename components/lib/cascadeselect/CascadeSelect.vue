@@ -30,10 +30,16 @@
             </slot>
         </span>
         <div class="p-cascadeselect-trigger" role="button" tabindex="-1" aria-hidden="true">
-            <slot name="indicator">
-                <component v-if="loading" :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-cascadeselect-trigger-icon', loadingIcon]" aria-hidden="true" />
-                <component v-else :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-cascadeselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
-            </slot>
+            <slot v-if="$slots.indicator" name="indicator"></slot>
+            <template v-else>
+                <slot v-if="loading" name="loadingicon" class="p-cascadeselect-trigger-icon">
+                    <span v-if="loadingIcon" :class="['p-cascadeselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" />
+                    <SpinnerIcon v-else class="p-cascadeselect-trigger-icon" spin aria-hidden="true" />
+                </slot>
+                <slot v-else name="dropdownicon" class="p-cascadeselect-trigger-icon">
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-cascadeselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
+                </slot>
+            </template>
         </div>
         <span role="status" aria-live="polite" class="p-hidden-accessible">
             {{ searchResultMessageText }}

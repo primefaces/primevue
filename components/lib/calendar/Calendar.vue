@@ -75,7 +75,7 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                     >
-                                        <slot name="previcon">
+                                        <slot name="previousicon">
                                             <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="['p-datepicker-prev-icon', previousIcon]" />
                                         </slot>
                                     </button>
