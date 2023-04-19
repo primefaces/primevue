@@ -6,7 +6,6 @@
 
 **Implemented New Features and Enhancements:**
 
-- z-index calculation if using PrimeVue as a library [\#3846](https://github.com/primefaces/primevue/issues/3846)
 - Add icon templating support to components [\#3833](https://github.com/primefaces/primevue/issues/3833)
 - Improve icon implementation in core [\#3832](https://github.com/primefaces/primevue/issues/3832)
 - Add new Icon components [\#3829](https://github.com/primefaces/primevue/issues/3829)
@@ -15,8 +14,6 @@
 - Calendar: Emit year-change event via navBackward and navForward [\#3811](https://github.com/primefaces/primevue/issues/3811)
 - New passthrough\(pt\) property implementation for Panel Components [\#3797](https://github.com/primefaces/primevue/issues/3797)
 - Galleria: Play and Pause [\#3619](https://github.com/primefaces/primevue/issues/3619)
-- TriStateCheckbox: Custom Icon for undetermined state [\#3418](https://github.com/primefaces/primevue/issues/3418)
-- TriStateCheckbox: should allow icons to be customized [\#2652](https://github.com/primefaces/primevue/issues/2652)
 
 **Fixed bugs:**
 
