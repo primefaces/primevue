@@ -26,14 +26,12 @@ export default {
                 {
                     id: 'pt.doc.splitter',
                     label: 'Splitter PT Options',
-                    description: 'Pass Through Splitter',
                     component: DocApiTable,
                     data: getPTOption('Splitter')
                 },
                 {
                     id: 'pt.doc.tab',
                     label: 'SplitterPanel PT Options',
-                    description: 'Pass Through SplitterPanel',
                     component: DocApiTable,
                     data: getPTOption('SplitterPanel')
                 },

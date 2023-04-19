@@ -21,28 +21,24 @@ export default {
             docs: [
                 {
                     id: 'pt.image',
-                    label: 'Image',
-                    description: 'Pass Through Image',
+                    label: 'WireFrame',
                     component: PTImage
                 },
                 {
                     id: 'pt.doc.accordion',
                     label: 'Accordion PT Options',
-                    description: 'Pass Through Accordion',
                     component: DocApiTable,
                     data: getPTOption('Accordion')
                 },
                 {
                     id: 'pt.doc.tab',
                     label: 'AccordionTab PT Options',
-                    description: 'Pass Through AccordionTab',
                     component: DocApiTable,
                     data: getPTOption('AccordionTab')
                 },
                 {
                     id: 'pt.demo',
                     label: 'Demo',
-                    description: 'Pass Through Demo',
                     component: PtDoc
                 }
             ]

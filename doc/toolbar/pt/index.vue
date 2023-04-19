@@ -20,8 +20,7 @@ export default {
             docs: [
                 {
                     id: 'pt.image',
-                    label: 'Image',
-                    description: 'Pass Through Image',
+                    label: 'WireFrame',
                     component: PTImage
                 },
                 {
@@ -33,7 +32,6 @@ export default {
                 {
                     id: 'pt.demo',
                     label: 'Demo',
-                    description: 'Pass Through Demo',
                     component: PtDoc
                 }
             ]

@@ -20,28 +20,24 @@ export default {
             docs: [
                 {
                     id: 'pt.image',
-                    label: 'Image',
-                    description: 'Pass Through Image',
+                    label: 'WireFrame',
                     component: PTImage
                 },
                 {
                     id: 'pt.doc.accordion',
                     label: 'TabView PT Options',
-                    description: 'Pass Through TabView',
                     component: DocApiTable,
                     data: getPTOption('TabView')
                 },
                 {
                     id: 'pt.doc.tab',
                     label: 'TabPanel PT Options',
-                    description: 'Pass Through TabPanel',
                     component: DocApiTable,
                     data: getPTOption('TabPanel')
                 },
                 {
                     id: 'pt.demo',
                     label: 'Demo',
-                    description: 'Pass Through Demo',
                     component: PtDoc
                 }
             ]

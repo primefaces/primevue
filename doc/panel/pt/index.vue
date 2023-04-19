@@ -2,7 +2,6 @@
     <div class="doc-main">
         <div class="doc-intro">
             <h1>Panel Pass Through</h1>
-            <p>Description</p>
         </div>
         <DocSections :docs="docs" />
     </div>
