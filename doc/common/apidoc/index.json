@@ -24892,15 +24892,15 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "groupleft",
+                            "name": "groupStart",
                             "optional": true,
                             "readonly": false,
                             "type": "ToolbarPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the groupleft's DOM element."
+                            "description": "Uses to pass attributes to the groupstart's DOM element."
                         },
                         {
-                            "name": "groupcenter",
+                            "name": "groupCenter",
                             "optional": true,
                             "readonly": false,
                             "type": "ToolbarPassThroughOptionType",
@@ -24908,7 +24908,7 @@
                             "description": "Uses to pass attributes to the groupcenter's DOM element."
                         },
                         {
-                            "name": "groupright",
+                            "name": "groupEnd",
                             "optional": true,
                             "readonly": false,
                             "type": "ToolbarPassThroughOptionType",
