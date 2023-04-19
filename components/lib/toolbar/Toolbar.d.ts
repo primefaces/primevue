@@ -29,17 +29,17 @@ export interface ToolbarPassThroughOptions {
      */
     root?: ToolbarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the groupleft's DOM element.
+     * Uses to pass attributes to the groupstart's DOM element.
      */
-    groupleft?: ToolbarPassThroughOptionType;
+    groupStart?: ToolbarPassThroughOptionType;
     /**
      * Uses to pass attributes to the groupcenter's DOM element.
      */
-    groupcenter?: ToolbarPassThroughOptionType;
+    groupCenter?: ToolbarPassThroughOptionType;
     /**
      * Uses to pass attributes to the groupright's DOM element.
      */
-    groupright?: ToolbarPassThroughOptionType;
+    groupEnd?: ToolbarPassThroughOptionType;
 }
 
 /**
