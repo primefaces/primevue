@@ -1,12 +1,14 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card">
-        <Toolbar :pt="{ root: { class: 'p-1' }, groupleft: { class: 'p-2 text-primary' } }">
+        <Toolbar :pt="{ root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } } }">
             <template #start>
-                <span>PrimeVue</span>
+                <Button label="New" icon="pi pi-plus" class="p-button-help" />
             </template>
+
             <template #end>
-                <Button label="Logout" />
+                <Button icon="pi pi-search" class="mr-2" />
+                <Button icon="pi pi-times" severity="danger" />
             </template>
         </Toolbar>
     </div>
@@ -20,24 +22,28 @@ export default {
             code: {
                 basic: `
 <TabView>
-    <Toolbar :pt="{ root: { class: 'p-1' }, groupleft: { class: 'p-2 text-primary' } }">
+    <Toolbar :pt="{ root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } } }">
         <template #start>
-            <span>PrimeVue</span>
+            <Button label="New" icon="pi pi-plus" class="p-button-help" />
         </template>
+
         <template #end>
-            <Button label="Logout" />
+            <Button icon="pi pi-search" class="mr-2" />
+            <Button icon="pi pi-times" severity="danger" />
         </template>
     </Toolbar>
 </TabView>`,
                 options: `
 <template>
     <div class="card">
-        <Toolbar :pt="{ root: { class: 'p-1' }, groupleft: { class: 'p-2 text-primary' } }">
+        <Toolbar :pt="{ root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } } }">
             <template #start>
-                <span>PrimeVue</span>
+                <Button label="New" icon="pi pi-plus" class="p-button-help" />
             </template>
+
             <template #end>
-                <Button label="Logout" />
+                <Button icon="pi pi-search" class="mr-2" />
+                <Button icon="pi pi-times" severity="danger" />
             </template>
         </Toolbar>
     </div>
@@ -45,27 +51,20 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Toolbar :pt="{ root: { class: 'p-1' }, groupleft: { class: 'p-2 text-primary' } }">
+        <Toolbar :pt="{ root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } } }">
             <template #start>
-                <span>PrimeVue</span>
+                <Button label="New" icon="pi pi-plus" class="p-button-help" />
             </template>
+
             <template #end>
-                <Button label="Logout" />
+                <Button icon="pi pi-search" class="mr-2" />
+                <Button icon="pi pi-times" severity="danger" />
             </template>
         </Toolbar>
     </div>
 </template>`
             }
         };
-    },
-    methods: {
-        panelClass(props, parent, index) {
-            return [
-                {
-                    'bg-primary': parent.state.d_activeIndex === index
-                }
-            ];
-        }
     }
 };
 </script>
