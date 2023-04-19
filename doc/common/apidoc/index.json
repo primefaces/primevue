@@ -7816,7 +7816,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>message</b>: ConfirmationOptions, // undefined\n  }",
+                                    "type": "{\n  \t <b>message</b>: ConfirmationOptions, // Message of the component\n  }",
                                     "description": "message slot's params."
                                 }
                             ],
@@ -7825,7 +7825,13 @@
                         },
                         {
                             "name": "icon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom icon template."
                         },
@@ -7895,7 +7901,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>message</b>: ConfirmationOptions, // undefined\n  }",
+                                    "type": "{\n  \t <b>message</b>: ConfirmationOptions, // Message of the component\n  }",
                                     "description": "message slot's params."
                                 }
                             ],
@@ -7904,7 +7910,13 @@
                         },
                         {
                             "name": "icon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom icon template."
                         },
