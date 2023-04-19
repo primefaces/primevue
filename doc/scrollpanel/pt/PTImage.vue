@@ -3,6 +3,6 @@
         <p>{{ $attrs.description }}</p>
     </DocSectionText>
     <div>
-        <img class="w-full" src="/images/pt/scrollpanel.jpg" />
+        <img class="w-full" src="https://primefaces.org/cdn/primevue/images/pt/scrollpanel.jpg" />
     </div>
 </template>

@@ -3,6 +3,6 @@
         <p>{{ $attrs.description }}</p>
     </DocSectionText>
     <div>
-        <img class="w-full" src="/images/pt/divider.jpg" />
+        <img class="w-full" src="https://primefaces.org/cdn/primevue/images/pt/divider.jpg" />
     </div>
 </template>
