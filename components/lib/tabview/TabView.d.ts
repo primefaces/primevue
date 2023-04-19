@@ -68,7 +68,7 @@ export interface TabViewPassThroughOptions {
      */
     previousIcon?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nex button's DOM element.
+     * Uses to pass attributes to the next button's DOM element.
      */
     nextButton?: TabViewPassThroughOptionType;
     /**
