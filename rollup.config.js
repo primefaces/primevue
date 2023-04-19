@@ -210,7 +210,7 @@ function addIcon() {
         .forEach(({ name: folderName }) => {
             fs.readdirSync(path.resolve(__dirname, './components/lib/icons/' + folderName)).forEach((file) => {
                 if (/\.vue$/.test(file)) {
-                    addEntry('icon/' + folderName, 'index.vue', 'index');
+                    addEntry('icons/' + folderName, 'index.vue', 'index');
                 }
             });
         });
