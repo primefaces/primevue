@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.27.0](https://github.com/primefaces/primevue/tree/3.26.1) (2023-04-19)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.26.1...3.27.0)
+
+**Implemented New Features and Enhancements:**
+
+- z-index calculation if using PrimeVue as a library [\#3846](https://github.com/primefaces/primevue/issues/3846)
+- Add icon templating support to components [\#3833](https://github.com/primefaces/primevue/issues/3833)
+- Improve icon implementation in core [\#3832](https://github.com/primefaces/primevue/issues/3832)
+- Add new Icon components [\#3829](https://github.com/primefaces/primevue/issues/3829)
+- Panel: Footer Templating [\#3820](https://github.com/primefaces/primevue/issues/3820)
+- AutoComplete: NumpadEnter is not recognised [\#3816](https://github.com/primefaces/primevue/issues/3816)
+- Calendar: Emit year-change event via navBackward and navForward [\#3811](https://github.com/primefaces/primevue/issues/3811)
+- New passthrough\(pt\) property implementation for Panel Components [\#3797](https://github.com/primefaces/primevue/issues/3797)
+- Galleria: Play and Pause [\#3619](https://github.com/primefaces/primevue/issues/3619)
+- TriStateCheckbox: Custom Icon for undetermined state [\#3418](https://github.com/primefaces/primevue/issues/3418)
+- TriStateCheckbox: should allow icons to be customized [\#2652](https://github.com/primefaces/primevue/issues/2652)
+
+**Fixed bugs:**
+
+- TabView: Scrollable Starting/Ending Nav Arrow Blocks First/Last Tab [\#3849](https://github.com/primefaces/primevue/issues/3849)
+- DataTable Filter with Calendar is not showing in proper location [\#3632](https://github.com/primefaces/primevue/issues/3632)
+
+**Deprecated:**
+
+- Deprecated `indicator` slot [\#3871](https://github.com/primefaces/primevue/issues/3871)
+- FullCalendar: Deprecated component [\#3827](https://github.com/primefaces/primevue/issues/3827)
+
 ## [3.26.1](https://github.com/primefaces/primevue/tree/3.26.1) (2023-03-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.26.0...3.26.1)
