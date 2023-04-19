@@ -1,12 +1,12 @@
 <template>
     <div class="p-toolbar p-component" role="toolbar" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')">
-        <div class="p-toolbar-group-start p-toolbar-group-left" v-bind="ptm('groupstart')">
+        <div class="p-toolbar-group-start p-toolbar-group-left" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
-        <div class="p-toolbar-group-center" v-bind="ptm('groupcenter')">
+        <div class="p-toolbar-group-center" v-bind="ptm('center')">
             <slot name="center"></slot>
         </div>
-        <div class="p-toolbar-group-end p-toolbar-group-right" v-bind="ptm('groupend')">
+        <div class="p-toolbar-group-end p-toolbar-group-right" v-bind="ptm('end')">
             <slot name="end"></slot>
         </div>
     </div>

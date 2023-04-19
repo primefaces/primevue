@@ -37,11 +37,11 @@ export interface TabPanelPassThroughOptions {
     /**
      * Uses to pass attributes to the header action's DOM element.
      */
-    headeraction?: TabPanelPassThroughOptionType;
+    headerAction?: TabPanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the title's DOM element.
      */
-    headertitle?: TabPanelPassThroughOptionType;
+    headerTitle?: TabPanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the list's DOM element.
      */

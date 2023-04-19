@@ -46,11 +46,11 @@ export interface TabViewPassThroughOptions {
     /**
      * Uses to pass attributes to the nav container's DOM element.
      */
-    navcontainer?: TabViewPassThroughOptionType;
+    navContainer?: TabViewPassThroughOptionType;
     /**
      * Uses to pass attributes to the nav content's DOM element.
      */
-    navcontent?: TabViewPassThroughOptionType;
+    navContent?: TabViewPassThroughOptionType;
     /**
      * Uses to pass attributes to the list's DOM element.
      */
@@ -62,23 +62,23 @@ export interface TabViewPassThroughOptions {
     /**
      * Uses to pass attributes to the previous button's DOM element.
      */
-    prevbutton?: TabViewPassThroughOptionType;
+    previousButton?: TabViewPassThroughOptionType;
     /**
      * Uses to pass attributes to the previous button icon's DOM element.
      */
-    previcon?: TabViewPassThroughOptionType;
+    previousIcon?: TabViewPassThroughOptionType;
     /**
      * Uses to pass attributes to the nex button's DOM element.
      */
-    nextbutton?: TabViewPassThroughOptionType;
+    nextButton?: TabViewPassThroughOptionType;
     /**
      * Uses to pass attributes to the next button icon's DOM element.
      */
-    nexticon?: TabViewPassThroughOptionType;
+    nextIcon?: TabViewPassThroughOptionType;
     /**
      * Uses to pass attributes to the panel's DOM element.
      */
-    panelcontainer?: TabViewPassThroughOptionType;
+    panelContainer?: TabViewPassThroughOptionType;
 }
 
 /**

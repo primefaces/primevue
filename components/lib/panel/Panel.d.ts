@@ -63,11 +63,11 @@ export interface PanelPassThroughOptions {
     /**
      * Uses to pass attributes to the togglericon's DOM element.
      */
-    togglericon?: PanelPassThroughOptionType;
+    togglerIcon?: PanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the toggleablecontent's DOM element.
      */
-    toggleablecontent?: PanelPassThroughOptionType;
+    toggleableContent?: PanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the content's DOM element.
      */

@@ -66,7 +66,7 @@ export interface SplitterPassThroughOptions {
     /**
      * Uses to pass attributes to the gutter handler's DOM element.
      */
-    gutterhandler?: SplitterPassThroughOptionType;
+    gutterHandler?: SplitterPassThroughOptionType;
 }
 
 /**
