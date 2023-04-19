@@ -13,7 +13,7 @@
         @update:visible="onHide"
     >
         <template v-if="!$slots.message">
-            <slot name="icon">
+            <slot name="icon" class="p-confirm-dialog-icon">
                 <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-dialog-icon" />
                 <span v-else-if="confirmation.icon" :class="iconClass" />
             </slot>

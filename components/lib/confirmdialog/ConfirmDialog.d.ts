@@ -61,11 +61,21 @@ export interface ConfirmDialogSlots {
      * Custom message template.
      * @param {Object} scope - message slot's params.
      */
-    message(scope: { message: ConfirmationOptions }): VNode[];
+    message(scope: {
+        /**
+         * Message of the component
+         */
+        message: ConfirmationOptions;
+    }): VNode[];
     /**
      * Custom icon template.
      */
-    icon(): VNode[];
+    icon(scope: {
+        /**
+         * Style class of the icon template
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom icon template.
      */

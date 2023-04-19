@@ -4,7 +4,7 @@
             <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="$attrs">
                 <template v-if="!$slots.message">
                     <div class="p-confirm-popup-content">
-                        <slot name="icon">
+                        <slot name="icon" class="p-confirm-popup-icon">
                             <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-popup-icon" />
                             <span v-else-if="confirmation.icon" :class="iconClass" />
                         </slot>
