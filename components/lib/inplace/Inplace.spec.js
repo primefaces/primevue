@@ -70,11 +70,12 @@ describe('Inplace.vue', () => {
         await wrapper.vm.open({});
 
         expect(wrapper.find('.p-inputtext').exists()).toBe(true);
-        expect(wrapper.find('.pi.pi-times').exists()).toBe(true);
+        expect(wrapper.find('.p-inplace-content').exists()).toBe(true);
 
         await wrapper.vm.close({});
 
-        expect(wrapper.find('.pi.pi-times').exists()).toBe(false);
+        expect(wrapper.find('.p-inplace-display').exists()).toBe(true);
+        expect(wrapper.find('.p-inplace-content').exists()).toBe(false);
     });
 
     it('should have custom close icon', async () => {
