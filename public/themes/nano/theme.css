@@ -653,6 +653,10 @@
   color: #ffffff;
   font-size: 12px;
 }
+.p-checkbox .p-checkbox-box .p-checkbox-icon.p-icon {
+  width: 12px;
+  height: 12px;
+}
 .p-checkbox .p-checkbox-box.p-highlight {
   border-color: #1174c0;
   background: #1174c0;
@@ -1493,6 +1497,10 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   font-size: 1.143rem;
 }
+.p-rating .p-rating-item .p-rating-icon.p-icon {
+  width: 1.143rem;
+  height: 1.143rem;
+}
 .p-rating .p-rating-item .p-rating-icon.p-rating-cancel {
   color: #e74c3c;
 }
@@ -2186,6 +2194,10 @@
 }
 .p-speeddial-button.p-button.p-button-icon-only .p-button-icon {
   font-size: 1rem;
+}
+.p-speeddial-button.p-button.p-button-icon-only .p-icon {
+  width: 1rem;
+  height: 1rem;
 }
 
 .p-speeddial-list {
@@ -4163,6 +4175,10 @@
 .p-confirm-popup .p-confirm-popup-icon {
   font-size: 1.5rem;
 }
+.p-confirm-popup .p-confirm-popup-icon.p-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 .p-confirm-popup .p-confirm-popup-message {
   margin-left: 1rem;
 }
@@ -4506,6 +4522,10 @@
 }
 .p-contextmenu .p-submenu-icon {
   font-size: 0.875rem;
+}
+.p-contextmenu .p-submenu-icon.p-icon {
+  width: 0.875rem;
+  height: 0.875rem;
 }
 
 .p-dock .p-dock-list-container {
@@ -5290,6 +5310,10 @@
 .p-tieredmenu .p-submenu-icon {
   font-size: 0.875rem;
 }
+.p-tieredmenu .p-submenu-icon.p-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
 
 .p-inline-message {
   padding: 0.25rem 0.25rem;
@@ -5858,6 +5882,10 @@
   font-size: 1rem;
   color: #f2f4f8;
 }
+.p-scrolltop .p-scrolltop-icon.p-icon {
+  width: 1rem;
+  height: 1rem;
+}
 
 .p-skeleton {
   background-color: #dde1e6;
@@ -5894,6 +5922,10 @@
 .p-tag .p-tag-icon {
   margin-right: 0.25rem;
   font-size: 0.75rem;
+}
+.p-tag .p-tag-icon.p-icon {
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 .p-terminal {
