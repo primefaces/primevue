@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card">
-        <Splitter :pt="{ root: { style: { height: '300px' } }, gutterhandler: { class: 'bg-primary' } }">
+        <Splitter :pt="{ root: { style: { height: '300px' } }, gutterHandler: { class: 'bg-primary' } }">
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 1 </SplitterPanel>
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 2 </SplitterPanel>
         </Splitter>
@@ -15,14 +15,22 @@ export default {
         return {
             code: {
                 basic: `
-<Splitter :pt="{ root: { style: { height: '300px' } }, gutterhandler: { class: 'bg-primary' } }">
+<Splitter
+    :pt="{
+        root: { style: { height: '300px' } },
+        gutterHandler: { class: 'bg-primary' }
+    }">
     <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 1 </SplitterPanel>
     <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 2 </SplitterPanel>
 </Splitter>`,
                 options: `
 <template>
     <div class="card">
-        <Splitter :pt="{ root: { style: { height: '300px' } }, gutterhandler: { class: 'bg-primary' } }">
+        <Splitter
+            :pt="{
+                root: { style: { height: '300px' } },
+                gutterHandler: { class: 'bg-primary' }
+            }">
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 1 </SplitterPanel>
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 2 </SplitterPanel>
         </Splitter>
@@ -31,7 +39,11 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Splitter :pt="{ root: { style: { height: '300px' } }, gutterhandler: { class: 'bg-primary' } }">
+        <Splitter
+            :pt="{
+                root: { style: { height: '300px' } },
+                gutterHandler: { class: 'bg-primary' }
+            }">
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 1 </SplitterPanel>
             <SplitterPanel :pt="{ root: { class: 'flex align-items-center justify-content-center' } }"> Panel 2 </SplitterPanel>
         </Splitter>

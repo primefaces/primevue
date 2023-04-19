@@ -22,7 +22,10 @@ export default {
             code: {
                 basic: `
 <TabView>
-    <Toolbar :pt="{ root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } } }">
+    <Toolbar
+        :pt="{
+            root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } }
+        }">
         <template #start>
             <Button label="New" icon="pi pi-plus" class="p-button-help" />
         </template>
@@ -36,7 +39,10 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Toolbar :pt="{ root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } } }">
+        <Toolbar
+            :pt="{
+                root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } }
+            }">
             <template #start>
                 <Button label="New" icon="pi pi-plus" class="p-button-help" />
             </template>
@@ -51,7 +57,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Toolbar :pt="{ root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } } }">
+        <Toolbar
+            :pt="{
+                root: { style: { background: 'linear-gradient(to right, #8e2de2, #4a00e0)', borderRadius: '24px' } }
+            }">
             <template #start>
                 <Button label="New" icon="pi pi-plus" class="p-button-help" />
             </template>

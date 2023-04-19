@@ -7,7 +7,7 @@
                 :key="tab.title"
                 :header="tab.title"
                 :pt="{
-                    headeraction: ({ props, parent }) => ({
+                    headerAction: ({ props, parent }) => ({
                         class: panelClass(props, parent, index)
                     })
                 }"
@@ -32,7 +32,7 @@ export default {
 <Accordion :activeIndex="0">
     <AccordionTab v-for="(tab, index) in tabs" :key="tab.title" :header="tab.title"
         :pt="{
-            headeraction: ({ props, parent }) => ({
+            headerAction: ({ props, parent }) => ({
                 class: panelClass(props, parent, index)
             })
         }">
@@ -45,7 +45,7 @@ export default {
         <Accordion :activeIndex="0">
             <AccordionTab v-for="(tab, index) in tabs" :key="tab.title" :header="tab.title"
                 :pt="{
-                    headeraction: ({ props, parent }) => ({
+                    headerAction: ({ props, parent }) => ({
                         class: panelClass(props, parent, index)
                     })
                 }">
@@ -82,7 +82,7 @@ export default {
         <Accordion :activeIndex="0">
             <AccordionTab v-for="(tab, index) in tabs" :key="tab.title" :header="tab.title"
                 :pt="{
-                    headeraction: ({ props, parent }) => ({
+                    headerAction: ({ props, parent }) => ({
                         class: panelClass(props, parent, index)
                     })
                 }">
