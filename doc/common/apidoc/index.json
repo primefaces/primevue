@@ -23453,7 +23453,7 @@
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the nex button's DOM element."
+                            "description": "Uses to pass attributes to the next button's DOM element."
                         },
                         {
                             "name": "nextIcon",
