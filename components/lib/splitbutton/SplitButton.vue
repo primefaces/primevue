@@ -2,9 +2,9 @@
     <div :class="containerClass" :style="style">
         <slot>
             <PVSButton type="button" class="p-splitbutton-defaultbutton" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="buttonProps">
-                <template #icon>
+                <template #icon="slotProps">
                     <slot name="icon">
-                        <span :class="icon" />
+                        <span :class="[icon, slotProps.class]" />
                     </slot>
                 </template>
             </PVSButton>
@@ -21,9 +21,9 @@
             @keydown="onDropdownKeydown"
             v-bind="menuButtonProps"
         >
-            <template #icon>
+            <template #icon="slotProps">
                 <slot name="menubuttonicon">
-                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="menuButtonIcon" />
+                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" />
                 </slot>
             </template>
         </PVSButton>
