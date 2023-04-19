@@ -373,7 +373,7 @@
                             "description": "Uses to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "headeraction",
+                            "name": "headerAction",
                             "optional": true,
                             "readonly": false,
                             "type": "AccordionTabPassThroughOptionType",
@@ -381,7 +381,7 @@
                             "description": "Uses to pass attributes to the headeraction's DOM element."
                         },
                         {
-                            "name": "headericon",
+                            "name": "headerIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "AccordionTabPassThroughOptionType",
@@ -389,7 +389,7 @@
                             "description": "Uses to pass attributes to the headericon's DOM element."
                         },
                         {
-                            "name": "headertitle",
+                            "name": "headerTitle",
                             "optional": true,
                             "readonly": false,
                             "type": "AccordionTabPassThroughOptionType",
@@ -397,7 +397,7 @@
                             "description": "Uses to pass attributes to the headertitle's DOM element."
                         },
                         {
-                            "name": "toggleablecontent",
+                            "name": "toggleableContent",
                             "optional": true,
                             "readonly": false,
                             "type": "AccordionTabPassThroughOptionType",
@@ -13033,7 +13033,7 @@
                             "description": "Uses to pass attributes to the toggler's DOM element."
                         },
                         {
-                            "name": "togglericon",
+                            "name": "togglerIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "FieldsetPassThroughOptionType",
@@ -13041,7 +13041,7 @@
                             "description": "Uses to pass attributes to the toggler icon's DOM element."
                         },
                         {
-                            "name": "legendtitle",
+                            "name": "legendTitle",
                             "optional": true,
                             "readonly": false,
                             "type": "FieldsetPassThroughOptionType",
@@ -13049,7 +13049,7 @@
                             "description": "Uses to pass attributes to the legend title's DOM element."
                         },
                         {
-                            "name": "toggleablecontent",
+                            "name": "toggleableContent",
                             "optional": true,
                             "readonly": false,
                             "type": "FieldsetPassThroughOptionType",
@@ -18982,7 +18982,7 @@
                             "description": "Uses to pass attributes to the toggler's DOM element."
                         },
                         {
-                            "name": "togglericon",
+                            "name": "togglerIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelPassThroughOptionType",
@@ -18990,7 +18990,7 @@
                             "description": "Uses to pass attributes to the togglericon's DOM element."
                         },
                         {
-                            "name": "toggleablecontent",
+                            "name": "toggleableContent",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelPassThroughOptionType",
@@ -21007,7 +21007,7 @@
                             "description": "Uses to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "barx",
+                            "name": "barX",
                             "optional": true,
                             "readonly": false,
                             "type": "ScrollPanelPassThroughOptionType",
@@ -21015,7 +21015,7 @@
                             "description": "Uses to pass attributes to the horizontal panel's DOM element."
                         },
                         {
-                            "name": "bary",
+                            "name": "barY",
                             "optional": true,
                             "readonly": false,
                             "type": "ScrollPanelPassThroughOptionType",
@@ -22496,7 +22496,7 @@
                             "description": "Uses to pass attributes to the gutter's DOM element."
                         },
                         {
-                            "name": "gutterhandler",
+                            "name": "gutterHandler",
                             "optional": true,
                             "readonly": false,
                             "type": "SplitterPassThroughOptionType",
@@ -23159,7 +23159,7 @@
                             "description": "Uses to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "headeraction",
+                            "name": "headerAction",
                             "optional": true,
                             "readonly": false,
                             "type": "TabPanelPassThroughOptionType",
@@ -23167,7 +23167,7 @@
                             "description": "Uses to pass attributes to the header action's DOM element."
                         },
                         {
-                            "name": "headertitle",
+                            "name": "headerTitle",
                             "optional": true,
                             "readonly": false,
                             "type": "TabPanelPassThroughOptionType",
@@ -23400,7 +23400,7 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "navcontainer",
+                            "name": "navContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
@@ -23408,7 +23408,7 @@
                             "description": "Uses to pass attributes to the nav container's DOM element."
                         },
                         {
-                            "name": "navcontent",
+                            "name": "navContent",
                             "optional": true,
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
@@ -23432,7 +23432,7 @@
                             "description": "Uses to pass attributes to the inkbar's DOM element."
                         },
                         {
-                            "name": "prevbutton",
+                            "name": "previousButton",
                             "optional": true,
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
@@ -23440,7 +23440,7 @@
                             "description": "Uses to pass attributes to the previous button's DOM element."
                         },
                         {
-                            "name": "previcon",
+                            "name": "previousIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
@@ -23448,7 +23448,7 @@
                             "description": "Uses to pass attributes to the previous button icon's DOM element."
                         },
                         {
-                            "name": "nextbutton",
+                            "name": "nextButton",
                             "optional": true,
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
@@ -23456,7 +23456,7 @@
                             "description": "Uses to pass attributes to the nex button's DOM element."
                         },
                         {
-                            "name": "nexticon",
+                            "name": "nextIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
@@ -23464,7 +23464,7 @@
                             "description": "Uses to pass attributes to the next button icon's DOM element."
                         },
                         {
-                            "name": "panelcontainer",
+                            "name": "panelContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "TabViewPassThroughOptionType",
@@ -24892,28 +24892,28 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "groupStart",
+                            "name": "start",
                             "optional": true,
                             "readonly": false,
                             "type": "ToolbarPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the groupstart's DOM element."
+                            "description": "Uses to pass attributes to the start's DOM element."
                         },
                         {
-                            "name": "groupCenter",
+                            "name": "center",
                             "optional": true,
                             "readonly": false,
                             "type": "ToolbarPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the groupcenter's DOM element."
+                            "description": "Uses to pass attributes to the center's DOM element."
                         },
                         {
-                            "name": "groupEnd",
+                            "name": "end",
                             "optional": true,
                             "readonly": false,
                             "type": "ToolbarPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the groupright's DOM element."
+                            "description": "Uses to pass attributes to the right's DOM element."
                         }
                     ],
                     "methods": []
