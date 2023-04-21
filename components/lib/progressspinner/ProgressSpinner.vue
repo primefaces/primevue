@@ -1,14 +1,17 @@
 <template>
-    <div class="p-progress-spinner" role="progressbar">
-        <svg class="p-progress-spinner-svg" viewBox="25 25 50 50" :style="svgStyle">
-            <circle class="p-progress-spinner-circle" cx="50" cy="50" r="20" :fill="fill" :stroke-width="strokeWidth" strokeMiterlimit="10" />
+    <div class="p-progress-spinner" role="progressbar" v-bind="ptm('root')">
+        <svg class="p-progress-spinner-svg" viewBox="25 25 50 50" :style="svgStyle" v-bind="ptm('spinner')">
+            <circle class="p-progress-spinner-circle" cx="50" cy="50" r="20" :fill="fill" :stroke-width="strokeWidth" strokeMiterlimit="10" v-bind="ptm('circle')" />
         </svg>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'ProgressSpinner',
+    extends: BaseComponent,
     props: {
         strokeWidth: {
             type: String,
