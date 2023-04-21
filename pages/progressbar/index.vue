@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue ProgressBar Component" header="ProgressBar" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressBar']" />
+    <DocComponent title="Vue ProgressBar Component" header="ProgressBar" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressBar']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -10,6 +10,7 @@ import ImportDoc from '@/doc/progressbar/ImportDoc';
 import IndeterminateDoc from '@/doc/progressbar/IndeterminateDoc';
 import StyleDoc from '@/doc/progressbar/StyleDoc';
 import TemplateDoc from '@/doc/progressbar/TemplateDoc';
+import PTComponent from '@/doc/progressbar/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +51,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
