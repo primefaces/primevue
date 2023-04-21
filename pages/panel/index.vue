@@ -9,6 +9,7 @@ import StyleDoc from '@/doc/panel/StyleDoc.vue';
 import TemplateDoc from '@/doc/panel/TemplateDoc.vue';
 import ToggleableDoc from '@/doc/panel/ToggleableDoc.vue';
 import PTComponent from '@/doc/panel/pt/index.vue';
+
 export default {
     data() {
         return {

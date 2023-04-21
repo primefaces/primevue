@@ -31,7 +31,7 @@ export default {
                 },
                 {
                     id: 'pt.demo',
-                    label: 'Example',
+                    label: 'Demo',
                     component: PtDoc
                 }
             ]
