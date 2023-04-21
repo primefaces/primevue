@@ -1,14 +1,16 @@
 <template>
-    <span :class="badgeClass">
+    <span :class="badgeClass" v-bind="ptm('root')">
         <slot>{{ value }}</slot>
     </span>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Badge',
+    extends: BaseComponent,
     props: {
         value: {
             type: [String, Number],
