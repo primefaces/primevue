@@ -6361,6 +6361,102 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ChipPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ChipProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ChipState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ChipPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ChipProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "image",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the image's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label' DOM element."
+                        },
+                        {
+                            "name": "removeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the removeIcon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ChipPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ChipState": {
+                    "description": "Defines current inline state in Chip component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Current visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ChipProps": {
                     "description": "Defines valid properties in Chip component.",
                     "relatedProp": "",
@@ -6406,6 +6502,14 @@
                             "default": "",
                             "description": "Icon of the remove element.",
                             "deprecated": "since v3.27.0. Use 'removeicon' slot."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -6461,6 +6565,14 @@
                             "description": "Callback to invoke when a chip is removed."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ChipPassThroughOptionType": {
+                    "values": "ChipPassThroughAttributes | (options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -20572,6 +20684,64 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ProgressBarPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ProgressBarProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ProgressBarPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ProgressBarProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressBarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "value",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressBarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the value's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressBarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ProgressBarPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "ProgressBarProps": {
                     "description": "Defines valid properties in ProgressBar component.",
                     "relatedProp": "",
@@ -20599,6 +20769,14 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Whether to display the progress bar value."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressBarPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -20621,6 +20799,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ProgressBarPassThroughOptionType": {
+                    "values": "ProgressBarPassThroughAttributes | (options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes | null | undefined"
                 }
             }
         }
