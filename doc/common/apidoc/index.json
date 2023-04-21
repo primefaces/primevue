@@ -20828,6 +20828,64 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ProgressSpinnerPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ProgressSpinnerProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ProgressSpinnerPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ProgressSpinnerProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressSpinnerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "spinner",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressSpinnerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the spinner's DOM element."
+                        },
+                        {
+                            "name": "circle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressSpinnerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the circle's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ProgressSpinnerPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "ProgressSpinnerProps": {
                     "description": "Defines valid properties in ProgressSpinner component.",
                     "relatedProp": "",
@@ -20855,6 +20913,14 @@
                             "type": "string",
                             "default": "2s",
                             "description": "Duration of the rotate animation."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ProgressSpinnerPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -20870,6 +20936,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ProgressSpinnerPassThroughOptionType": {
+                    "values": "ProgressSpinnerPassThroughAttributes | (options: ProgressSpinnerPassThroughMethodOptions) => ProgressSpinnerPassThroughAttributes | null | undefined"
                 }
             }
         }
