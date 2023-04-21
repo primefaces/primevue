@@ -28,6 +28,12 @@ const ChipProps = [
         type: 'string',
         default: 'pi pi-times-circle',
         description: 'Icon of the remove element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
