@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Badge Component" header="Badge" description="Badge is a small status indicator for another element." :componentDocs="docs" :apiDocs="['Badge', 'BadgeDirective']" />
+    <DocComponent title="Vue Badge Component" header="Badge" description="Badge is a small status indicator for another element." :componentDocs="docs" :apiDocs="['Badge', 'BadgeDirective']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ import PositionDoc from '@/doc/badge/PositionDoc.vue';
 import SeverityDoc from '@/doc/badge/SeverityDoc.vue';
 import SizeDoc from '@/doc/badge/SizeDoc.vue';
 import StyleDoc from '@/doc/badge/StyleDoc.vue';
+import PTComponent from '@/doc/badge/pt/index.vue';
 
 export default {
     data() {
@@ -56,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
