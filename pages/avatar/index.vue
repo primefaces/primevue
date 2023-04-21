@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Avatar Component" header="Avatar" description="Avatar represents people using icons, labels and images." :componentDocs="docs" :apiDocs="['Avatar', 'AvatarGroup']" />
+    <DocComponent title="Vue Avatar Component" header="Avatar" description="Avatar represents people using icons, labels and images." :componentDocs="docs" :apiDocs="['Avatar', 'AvatarGroup']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ import ImportDoc from '@/doc/avatar/ImportDoc';
 import LabelDoc from '@/doc/avatar/LabelDoc';
 import StylingAvatarDoc from '@/doc/avatar/StylingAvatarDoc';
 import StylingAvatarGroupDoc from '@/doc/avatar/StylingAvatarGroupDoc';
+import PTComponent from '@/doc/avatar/pt/index.vue';
 
 export default {
     data() {
@@ -56,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
