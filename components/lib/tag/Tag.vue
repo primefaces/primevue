@@ -1,16 +1,19 @@
 <template>
-    <span :class="containerClass">
-        <component v-if="$slots.icon" :is="$slots.icon" class="p-tag-icon" />
-        <span v-else-if="icon" :class="iconClass"></span>
+    <span :class="containerClass" v-bind="ptm('root')">
+        <component v-if="$slots.icon" :is="$slots.icon" class="p-tag-icon" v-bind="ptm('icon')" />
+        <span v-else-if="icon" :class="iconClass" v-bind="ptm('icon')"></span>
         <slot>
-            <span class="p-tag-value">{{ value }}</span>
+            <span class="p-tag-value" v-bind="ptm('value')">{{ value }}</span>
         </slot>
     </span>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Tag',
+    extends: BaseComponent,
     props: {
         value: null,
         severity: null,

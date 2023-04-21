@@ -10,6 +10,41 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type TagPassThroughOptionType = TagPassThroughAttributes | ((options: TagPassThroughMethodOptions) => TagPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TagPassThroughMethodOptions {
+    props: TagProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TagProps.pt}
+ */
+export interface TagPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: TagPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: TagPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the value's DOM element.
+     */
+    value?: TagPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TagPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Tag component.
  */
@@ -32,6 +67,11 @@ export interface TagProps {
      * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TagPassThroughOptions}
+     */
+    pt?: TagPassThroughOptions;
 }
 
 /**

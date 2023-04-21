@@ -22,6 +22,12 @@ const TagProps = [
         type: 'string',
         default: 'null',
         description: 'Icon of the tag to display next to the value.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
