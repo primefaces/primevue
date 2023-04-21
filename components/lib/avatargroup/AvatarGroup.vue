@@ -1,12 +1,15 @@
 <template>
-    <div class="p-avatar-group p-component">
+    <div class="p-avatar-group p-component" v-bind="ptm('root')">
         <slot></slot>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
-    name: 'AvatarGroup'
+    name: 'AvatarGroup',
+    extends: BaseComponent
 };
 </script>
 

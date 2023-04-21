@@ -28,6 +28,12 @@ const AvatarProps = [
         type: 'string',
         default: 'square',
         description: 'Shape of the element, valid options are "square" and "circle".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

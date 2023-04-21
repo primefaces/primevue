@@ -9,6 +9,45 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface AvatarPassThroughMethodOptions {
+    props: AvatarProps;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface AvatarPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link AvatarProps.pt}
+ */
+export interface AvatarPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: AvatarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: AvatarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: AvatarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the image's DOM element.
+     */
+    image?: AvatarPassThroughOptionType;
+}
+
 /**
  * Defines valid properties in Avatar component.
  */
@@ -44,6 +83,11 @@ export interface AvatarProps {
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {AvatarPassThroughOptions}
+     */
+    pt?: AvatarPassThroughOptions;
 }
 
 /**

@@ -9,10 +9,36 @@
  */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | null | undefined;
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface AvatarGroupPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link AvatarGroupProps.pt}
+ */
+export interface AvatarGroupPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: AvatarGroupPassThroughOptionType;
+}
+
 /**
  * Defines valid properties in AvatarGroup component.
  */
-export interface AvatarGroupProps {}
+export interface AvatarGroupProps {
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {AvatarGroupPassThroughOptions}
+     */
+    pt?: AvatarGroupPassThroughOptions;
+}
 
 /**
  * Defines valid slots in AvatarGroup component.
