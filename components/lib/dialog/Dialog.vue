@@ -1,16 +1,26 @@
 <template>
     <Portal :appendTo="appendTo">
-        <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick">
+        <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @click="onMaskClick" v-bind="ptm('mask')">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-                <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="dialogClass" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="$attrs">
-                    <div v-if="showHeader" :ref="headerContainerRef" class="p-dialog-header" @mousedown="initDrag">
+                <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="dialogClass" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="{ ...$attrs, ...ptm('root') }">
+                    <div v-if="showHeader" :ref="headerContainerRef" class="p-dialog-header" @mousedown="initDrag" v-bind="ptm('header')">
                         <slot name="header">
-                            <span v-if="header" :id="ariaLabelledById" class="p-dialog-title">{{ header }}</span>
+                            <span v-if="header" :id="ariaLabelledById" class="p-dialog-title" v-bind="ptm('headerTitle')">{{ header }}</span>
                         </slot>
-                        <div class="p-dialog-header-icons">
-                            <button v-if="maximizable" :ref="maximizableRef" v-ripple :autofocus="focusableMax" class="p-dialog-header-icon p-dialog-header-maximize p-link" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'">
+                        <div class="p-dialog-header-icons" v-bind="ptm('headerIcons')">
+                            <button
+                                v-if="maximizable"
+                                :ref="maximizableRef"
+                                v-ripple
+                                :autofocus="focusableMax"
+                                class="p-dialog-header-icon p-dialog-header-maximize p-link"
+                                @click="maximize"
+                                type="button"
+                                :tabindex="maximizable ? '0' : '-1'"
+                                v-bind="ptm('maximizableButton')"
+                            >
                                 <slot name="maximizeicon" :maximized="maximized">
-                                    <component :is="maximizeIconComponent" :class="maximizeIconClass" />
+                                    <component :is="maximizeIconComponent" :class="maximizeIconClass" v-bind="ptm('maximizableIcon')" />
                                 </slot>
                             </button>
                             <button
@@ -22,18 +32,18 @@
                                 @click="close"
                                 :aria-label="closeAriaLabel"
                                 type="button"
-                                v-bind="closeButtonProps"
+                                v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
                             >
                                 <slot name="closeicon">
-                                    <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-dialog-header-close-icon', closeIcon]"></component>
+                                    <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-dialog-header-close-icon', closeIcon]" v-bind="ptm('closeIcon')"></component>
                                 </slot>
                             </button>
                         </div>
                     </div>
-                    <div :ref="contentRef" :class="contentStyleClass" :style="contentStyle" v-bind="contentProps">
+                    <div :ref="contentRef" :class="contentStyleClass" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
                         <slot></slot>
                     </div>
-                    <div v-if="footer || $slots.footer" :ref="footerContainerRef" class="p-dialog-footer">
+                    <div v-if="footer || $slots.footer" :ref="footerContainerRef" class="p-dialog-footer" v-bind="ptm('footer')">
                         <slot name="footer">{{ footer }}</slot>
                     </div>
                 </div>
@@ -43,6 +53,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import WindowMaximizeIcon from 'primevue/icons/windowmaximize';
@@ -54,6 +65,7 @@ import { computed } from 'vue';
 
 export default {
     name: 'Dialog',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
     props: {

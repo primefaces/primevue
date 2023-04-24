@@ -10,6 +10,90 @@
 import { HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type DialogPassThroughOptionType = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions) => DialogPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface DialogPassThroughMethodOptions {
+    props: DialogProps;
+    state: DialogState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link DialogProps.pt}
+ */
+export interface DialogPassThroughOptions {
+    /**
+     * Uses to pass attributes to the mask's DOM element.
+     */
+    mask?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header title's DOM element.
+     */
+    headerTitle?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header icons' DOM element.
+     */
+    headerIcons?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the maximizable button's DOM element.
+     */
+    maximizableButton?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the maximizable icon's DOM element.
+     */
+    maximizableIcon?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close button's DOM element.
+     */
+    closeButton?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close icon's DOM element.
+     */
+    closeIcon?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footer's DOM element.
+     */
+    footer?: DialogPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface DialogPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Dialog component.
+ */
+export interface DialogState {
+    /**
+     * Current visible state of the container as a boolean.
+     * @defaultValue false
+     */
+    containerVisible: boolean;
+    /**
+     * Current maximized state as a boolean.
+     * @defaultValue false
+     */
+    maximized: boolean;
+}
+
 /**
  * Custom breakpoint metadata.
  */
@@ -159,6 +243,11 @@ export interface DialogProps {
      * @deprecated since v3.27.0. Use 'minimizeicon' slot.
      */
     minimizeIcon?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {DialogPassThroughOptions}
+     */
+    pt?: DialogPassThroughOptions;
 }
 
 /**
