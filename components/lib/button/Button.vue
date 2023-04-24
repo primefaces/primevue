@@ -1,26 +1,28 @@
 <template>
-    <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled">
+    <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled" v-bind="ptm('root')">
         <slot></slot>
         <template v-if="!$slots.default">
             <slot v-if="loading" name="loadingicon" :class="loadingIconStyleClass">
-                <span v-if="loadingIcon" :class="[loadingIconStyleClass, loadingIcon]" />
-                <SpinnerIcon v-else :class="loadingIconStyleClass" spin />
+                <span v-if="loadingIcon" :class="[loadingIconStyleClass, loadingIcon]" v-bind="ptm('loadingIcon')" />
+                <SpinnerIcon v-else :class="loadingIconStyleClass" spin v-bind="ptm('loadingIcon')" />
             </slot>
             <slot v-else name="icon" :class="iconStyleClass">
-                <span v-if="icon" :class="[iconStyleClass, icon]"></span>
+                <span v-if="icon" :class="[iconStyleClass, icon]" v-bind="ptm('icon')"></span>
             </slot>
-            <span class="p-button-label">{{ label || '&nbsp;' }}</span>
-            <span v-if="badge" :class="badgeStyleClass">{{ badge }}</span>
+            <span class="p-button-label" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
+            <span v-if="badge" :class="badgeStyleClass" v-bind="ptm('badge')">{{ badge }}</span>
         </template>
     </button>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Button',
+    extends: BaseComponent,
     props: {
         label: {
             type: String,

@@ -10,6 +10,49 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions) => ButtonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ButtonPassThroughMethodOptions {
+    props: ButtonProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ButtonProps.pt}
+ */
+export interface ButtonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the badge's DOM element.
+     */
+    badge?: ButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Button component.
  */
@@ -94,6 +137,11 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @defaultValue false
      */
     plain?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ButtonPassThroughOptions}
+     */
+    pt?: ButtonPassThroughOptions;
 }
 
 /**
