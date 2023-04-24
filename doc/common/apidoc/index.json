@@ -24249,6 +24249,64 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TagPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TagProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TagPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TagProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TagPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TagPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "value",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TagPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the value's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TagPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TagProps": {
                     "description": "Defines valid properties in Tag component.",
                     "relatedProp": "",
@@ -24285,6 +24343,14 @@
                             "default": "",
                             "description": "Icon of the tag to display next to the value.",
                             "deprecated": "since v3.27.0. Use 'icon' slot."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TagPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -24315,6 +24381,14 @@
                     "methods": []
                 }
             }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TagPassThroughOptionType": {
+                    "values": "TagPassThroughAttributes | (options: TagPassThroughMethodOptions) => TagPassThroughAttributes | null | undefined"
+                }
+            }
         }
     },
     "terminal": {
@@ -24334,6 +24408,142 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TerminalPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TerminalProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TerminalState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TerminalPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TerminalProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "welcomeMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the welcome message's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "commands",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the commands' DOM element."
+                        },
+                        {
+                            "name": "prompt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the prompt's DOM element."
+                        },
+                        {
+                            "name": "command",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the command's DOM element."
+                        },
+                        {
+                            "name": "response",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the response's DOM element."
+                        },
+                        {
+                            "name": "container",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the container's DOM element."
+                        },
+                        {
+                            "name": "commandText",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the command text's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TerminalPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TerminalState": {
+                    "description": "Defines current inline state in Terminal component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "commandText",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current command text as a string."
+                        },
+                        {
+                            "name": "commands",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string[]",
+                            "default": "",
+                            "description": "Current commands as an array."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TerminalProps": {
                     "description": "Defines valid properties in Terminal component.",
                     "relatedProp": "",
@@ -24353,6 +24563,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Prompt text for each command."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TerminalPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -24368,6 +24586,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TerminalPassThroughOptionType": {
+                    "values": "TerminalPassThroughAttributes | (options: TerminalPassThroughMethodOptions) => TerminalPassThroughAttributes | null | undefined"
                 }
             }
         }
