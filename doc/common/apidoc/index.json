@@ -8252,6 +8252,142 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ConfirmPopupPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmPopupProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmPopupState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmPopupPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ConfirmPopupProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "message",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the message's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "rejectButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the reject button's DOM element."
+                        },
+                        {
+                            "name": "rejectIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the reject icon's DOM element."
+                        },
+                        {
+                            "name": "acceptButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the accept button's DOM element."
+                        },
+                        {
+                            "name": "acceptIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the accept icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmPopupPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmPopupState": {
+                    "description": "Defines current inline state in ConfirmPopup component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state as a boolean."
+                        },
+                        {
+                            "name": "confirmation",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmationOptions",
+                            "default": "",
+                            "description": "Current confirmation message."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ConfirmPopupProps": {
                     "description": "Defines valid properties in ConfirmPopup component.",
                     "relatedProp": "",
@@ -8263,6 +8399,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmPopupPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -8316,6 +8460,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ConfirmPopupPassThroughOptionType": {
+                    "values": "ConfirmPopupPassThroughAttributes | (options: ConfirmPopupPassThroughMethodOptions) => ConfirmPopupPassThroughAttributes | null | undefined"
                 }
             }
         }
