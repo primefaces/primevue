@@ -11,6 +11,65 @@ import { ButtonHTMLAttributes, VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SplitButtonPassThroughMethodOptions {
+    props: SplitButtonProps;
+    state: SplitButtonState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SplitButtonProps.pt}
+ */
+export interface SplitButtonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SplitButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    button?: SplitButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: SplitButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the menu button's DOM element.
+     */
+    menuButton?: SplitButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the menu button icon's DOM element.
+     */
+    menuButtonIcon?: SplitButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the menu's DOM element.
+     */
+    menu?: SplitButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SplitButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in SplitButton component.
+ */
+export interface SplitButtonState {
+    /**
+     * Current blocked state as a boolean.
+     * @defaultValue false
+     */
+    isBlocked: boolean;
+}
+
 /**
  * Defines valid properties in SplitButton component.
  */
@@ -103,6 +162,11 @@ export interface SplitButtonProps {
      * @defaultValue false
      */
     plain?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SplitButtonPassThroughOptions}
+     */
+    pt?: SplitButtonPassThroughOptions;
 }
 
 /**

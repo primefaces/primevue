@@ -100,6 +100,12 @@ const SplitButtonProps = [
         type: 'boolean',
         default: 'false',
         description: 'Add a plain textual class to the button without a background initially.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
