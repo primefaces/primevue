@@ -23285,6 +23285,158 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "SpeedDialPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SpeedDialProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SpeedDialState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "SpeedDialPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "SpeedDialProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "button",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the button's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "list",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "item",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "actionIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action icon's DOM element."
+                        },
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mask's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SpeedDialPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SpeedDialState": {
+                    "description": "Defines current inline state in SpeedDial component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "List of items' id."
+                        },
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state as a boolean."
+                        },
+                        {
+                            "name": "isItemClicked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current click state of component as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        },
+                        {
+                            "name": "focusedOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "-1",
+                            "description": "Current focused option index as a number."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SpeedDialTooltipOptions": {
                     "description": "Defines tooltip options.",
                     "relatedProp": "SpeedDialProps.tooltipOptions",
@@ -23479,6 +23631,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying list element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SpeedDialPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -23586,6 +23746,14 @@
                             "description": "Callback to invoke when the component loses focus."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "SpeedDialPassThroughOptionType": {
+                    "values": "SpeedDialPassThroughAttributes | (options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | null | undefined"
                 }
             }
         }
