@@ -19334,6 +19334,94 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "OverlayPanelPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OverlayPanelProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OverlayPanelState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "OverlayPanelPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "OverlayPanelProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OverlayPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OverlayPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OverlayPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button's DOM element."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OverlayPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "OverlayPanelPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "OverlayPanelState": {
+                    "description": "Defines current inline state in OverlayPanel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "OverlayPanelBreakpoints": {
                     "description": "OverlayPanel breakpoint metadata.",
                     "relatedProp": "",
@@ -19407,6 +19495,14 @@
                             "default": "",
                             "description": "Icon to display in the overlaypanel close button.",
                             "deprecated": "since v3.27.0. Use 'closeicon' slot."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OverlayPanelPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -19448,6 +19544,14 @@
                             "description": "Callback to invoke when the overlay is hidden."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "OverlayPanelPassThroughOptionType": {
+                    "values": "OverlayPanelPassThroughAttributes | (options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -22479,6 +22583,118 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "SidebarPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SidebarProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SidebarState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "SidebarPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "SidebarProps.pt",
+                    "props": [
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mask's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headerContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header content's DOM element."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button's DOM element."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close icon's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SidebarPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SidebarState": {
+                    "description": "Defines current inline state in Sidebar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "containerVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current container visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SidebarProps": {
                     "description": "Defines valid properties in Sidebar component.",
                     "relatedProp": "",
@@ -22555,6 +22771,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether background scroll should be blocked when sidebar is visible."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -22615,6 +22839,14 @@
                             "description": "Callback to invoke when sidebar gets hidden."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "SidebarPassThroughOptionType": {
+                    "values": "SidebarPassThroughAttributes | (options: SidebarPassThroughMethodOptions) => SidebarPassThroughAttributes | null | undefined"
                 }
             }
         }
