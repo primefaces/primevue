@@ -16,6 +16,12 @@ const InplaceProps = [
         type: 'boolean',
         default: 'false',
         description: 'When present, it specifies that the element should be disabled.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
