@@ -1,13 +1,13 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" v-bind="$attrs">
-                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }">
+                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
-                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown">
+                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
                     <slot name="closeicon">
-                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-overlaypanel-close-icon ', closeIcon]"></component>
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-overlaypanel-close-icon ', closeIcon]" v-bind="ptm('closeIcon')"></component>
                     </slot>
                 </button>
             </div>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
@@ -25,6 +26,7 @@ import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUti
 
 export default {
     name: 'OverlayPanel',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['show', 'hide'],
     props: {

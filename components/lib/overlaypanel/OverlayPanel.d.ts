@@ -10,6 +10,57 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughAttributes | ((options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface OverlayPanelPassThroughMethodOptions {
+    props: OverlayPanelProps;
+    state: OverlayPanelState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link OverlayPanelProps.pt}
+ */
+export interface OverlayPanelPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: OverlayPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: OverlayPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close button's DOM element.
+     */
+    closeButton?: OverlayPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close icon's DOM element.
+     */
+    closeIcon?: OverlayPanelPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface OverlayPanelPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in OverlayPanel component.
+ */
+export interface OverlayPanelState {
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    visible: boolean;
+}
+
 /**
  * OverlayPanel breakpoint metadata.
  */
@@ -70,6 +121,11 @@ export interface OverlayPanelProps {
      * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {OverlayPanelPassThroughOptions}
+     */
+    pt?: OverlayPanelPassThroughOptions;
 }
 
 /**
