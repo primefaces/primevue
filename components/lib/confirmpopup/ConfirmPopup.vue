@@ -1,29 +1,29 @@
 <template>
     <Portal>
         <transition name="p-confirm-popup" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
                 <template v-if="!$slots.message">
-                    <div class="p-confirm-popup-content">
+                    <div class="p-confirm-popup-content" v-bind="ptm('content')">
                         <slot name="icon" class="p-confirm-popup-icon">
                             <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-popup-icon" />
-                            <span v-else-if="confirmation.icon" :class="iconClass" />
+                            <span v-else-if="confirmation.icon" :class="iconClass" v-bind="ptm('icon')" />
                         </slot>
-                        <span class="p-confirm-popup-message">{{ confirmation.message }}</span>
+                        <span class="p-confirm-popup-message" v-bind="ptm('message')">{{ confirmation.message }}</span>
                     </div>
                 </template>
                 <component v-else :is="$slots.message" :message="confirmation"></component>
-                <div class="p-confirm-popup-footer">
-                    <CPButton :label="rejectLabel" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject">
+                <div class="p-confirm-popup-footer" v-bind="ptm('footer')">
+                    <CPButton :label="rejectLabel" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" v-bind="ptm('rejectButton')">
                         <template #icon="iconProps">
                             <slot name="rejecticon">
-                                <span :class="[rejectIcon, iconProps.class]" />
+                                <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectIcon')" />
                             </slot>
                         </template>
                     </CPButton>
-                    <CPButton :label="acceptLabel" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept">
+                    <CPButton :label="acceptLabel" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" v-bind="ptm('acceptButton')">
                         <template #icon="iconProps">
                             <slot name="accepticon">
-                                <span :class="[acceptIcon, iconProps.class]" />
+                                <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptIcon')" />
                             </slot>
                         </template>
                     </CPButton>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import FocusTrap from 'primevue/focustrap';
@@ -43,6 +44,7 @@ import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue
 
 export default {
     name: 'ConfirmPopup',
+    extends: BaseComponent,
     inheritAttrs: false,
     props: {
         group: String

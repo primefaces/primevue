@@ -11,6 +11,81 @@ import { VNode } from 'vue';
 import { ConfirmationOptions } from '../confirmationoptions';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ConfirmPopupPassThroughOptionType = ConfirmPopupPassThroughAttributes | ((options: ConfirmPopupPassThroughMethodOptions) => ConfirmPopupPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ConfirmPopupPassThroughMethodOptions {
+    props: ConfirmPopupProps;
+    state: ConfirmPopupState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ConfirmPopupProps.pt}
+ */
+export interface ConfirmPopupPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the message's DOM element.
+     */
+    message?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footer's DOM element.
+     */
+    footer?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the reject button's DOM element.
+     */
+    rejectButton?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the reject icon's DOM element.
+     */
+    rejectIcon?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the accept button's DOM element.
+     */
+    acceptButton?: ConfirmPopupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the accept icon's DOM element.
+     */
+    acceptIcon?: ConfirmPopupPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ConfirmPopupPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in ConfirmPopup component.
+ */
+export interface ConfirmPopupState {
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    visible: boolean;
+    /**
+     * Current confirmation message.
+     */
+    confirmation: ConfirmationOptions;
+}
+
 /**
  * Defines valid properties in ConfirmPopup component.
  */
@@ -19,6 +94,11 @@ export interface ConfirmPopupProps {
      * Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.
      */
     group?: string;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ConfirmPopupPassThroughOptions}
+     */
+    pt?: ConfirmPopupPassThroughOptions;
 }
 
 /**
