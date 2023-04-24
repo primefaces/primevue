@@ -4106,6 +4106,80 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ButtonPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ButtonProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ButtonPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ButtonProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "loadingIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "badge",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the badge's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ButtonPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "ButtonProps": {
                     "description": "Defines valid properties in Button component.",
                     "relatedProp": "",
@@ -4253,6 +4327,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Add a plain textual class to the button without a background initially."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": [],
@@ -4302,6 +4384,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ButtonPassThroughOptionType": {
+                    "values": "ButtonPassThroughAttributes | (options: ButtonPassThroughMethodOptions) => ButtonPassThroughAttributes | null | undefined"
                 }
             }
         }
