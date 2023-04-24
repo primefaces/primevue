@@ -11440,6 +11440,158 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "DialogPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DialogProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DialogState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "DialogPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "DialogProps.pt",
+                    "props": [
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mask's DOM element."
+                        },
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headerTitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header title's DOM element."
+                        },
+                        {
+                            "name": "headerIcons",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header icons' DOM element."
+                        },
+                        {
+                            "name": "maximizableButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the maximizable button's DOM element."
+                        },
+                        {
+                            "name": "maximizableIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the maximizable icon's DOM element."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button's DOM element."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close icon's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "DialogPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DialogState": {
+                    "description": "Defines current inline state in Dialog component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "containerVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state of the container as a boolean."
+                        },
+                        {
+                            "name": "maximized",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current maximized state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "DialogBreakpoints": {
                     "description": "Custom breakpoint metadata.",
                     "relatedProp": "",
@@ -11667,6 +11819,14 @@
                             "default": "",
                             "description": "Icon to display in the dialog maximize button when dialog is minimized.",
                             "deprecated": "since v3.27.0. Use 'minimizeicon' slot."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -11791,6 +11951,14 @@
                             "description": "Fired when a dialog drag completes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "DialogPassThroughOptionType": {
+                    "values": "DialogPassThroughAttributes | (options: DialogPassThroughMethodOptions) => DialogPassThroughAttributes | null | undefined"
                 }
             }
         }
