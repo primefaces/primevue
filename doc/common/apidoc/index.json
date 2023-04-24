@@ -23775,6 +23775,110 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "SplitButtonPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitButtonProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitButtonState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitButtonPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "SplitButtonProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "button",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the button's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "menuButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the menu button's DOM element."
+                        },
+                        {
+                            "name": "menuButtonIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the menu button icon's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the menu's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitButtonPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitButtonState": {
+                    "description": "Defines current inline state in SplitButton component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "isBlocked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current blocked state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SplitButtonProps": {
                     "description": "Defines valid properties in SplitButton component.",
                     "relatedProp": "",
@@ -23932,6 +24036,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Add a plain textual class to the button without a background initially."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SplitButtonPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -23980,6 +24092,14 @@
                             "description": "Callback to invoke when main button is clicked."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "SplitButtonPassThroughOptionType": {
+                    "values": "SplitButtonPassThroughAttributes | (options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | null | undefined"
                 }
             }
         }
