@@ -1,25 +1,27 @@
 <template>
-    <div class="p-terminal p-component" @click="onClick">
-        <div v-if="welcomeMessage">{{ welcomeMessage }}</div>
-        <div class="p-terminal-content">
-            <div v-for="(command, i) of commands" :key="command.text + i.toString()">
-                <span class="p-terminal-prompt">{{ prompt }}</span>
-                <span class="p-terminal-command">{{ command.text }}</span>
-                <div class="p-terminal-response" aria-live="polite">{{ command.response }}</div>
+    <div class="p-terminal p-component" @click="onClick" v-bind="root">
+        <div v-if="welcomeMessage" v-bind="welcomeMessage">{{ welcomeMessage }}</div>
+        <div class="p-terminal-content" v-bind="content">
+            <div v-for="(command, i) of commands" :key="command.text + i.toString()" v-bind="commands">
+                <span class="p-terminal-prompt" v-bind="prompt">{{ prompt }}</span>
+                <span class="p-terminal-command" v-bind="command">{{ command.text }}</span>
+                <div class="p-terminal-response" aria-live="polite" v-bind="response">{{ command.response }}</div>
             </div>
         </div>
-        <div class="p-terminal-prompt-container">
-            <span class="p-terminal-prompt">{{ prompt }}</span>
-            <input ref="input" v-model="commandText" type="text" class="p-terminal-input" autocomplete="off" @keydown="onKeydown" />
+        <div class="p-terminal-prompt-container" v-bind="container">
+            <span class="p-terminal-prompt" v-bind="prompt">{{ prompt }}</span>
+            <input ref="input" v-model="commandText" type="text" class="p-terminal-input" autocomplete="off" @keydown="onKeydown" v-bind="commandText" />
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import TerminalService from 'primevue/terminalservice';
 
 export default {
     name: 'Terminal',
+    extends: BaseComponent,
     props: {
         welcomeMessage: {
             type: String,
