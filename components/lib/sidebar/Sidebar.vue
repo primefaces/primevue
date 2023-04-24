@@ -1,19 +1,19 @@
 <template>
     <Portal>
-        <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @mousedown="onMaskClick">
+        <div v-if="containerVisible" :ref="maskRef" :class="maskClass" @mousedown="onMaskClick" v-bind="ptm('mask')">
             <transition name="p-sidebar" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
-                <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="$attrs">
-                    <div :ref="headerContainerRef" class="p-sidebar-header">
-                        <div v-if="$slots.header" class="p-sidebar-header-content">
+                <div v-if="visible" :ref="containerRef" v-focustrap :class="containerClass" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
+                    <div :ref="headerContainerRef" class="p-sidebar-header" v-bind="ptm('header')">
+                        <div v-if="$slots.header" class="p-sidebar-header-content" v-bind="ptm('headerContent')">
                             <slot name="header"></slot>
                         </div>
-                        <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide">
+                        <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" class="p-sidebar-close p-sidebar-icon p-link" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')">
                             <slot name="closeicon">
-                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-sidebar-close-icon ', closeIcon]"></component>
+                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-sidebar-close-icon ', closeIcon]" v-bind="ptm('closeIcon')"></component>
                             </slot>
                         </button>
                     </div>
-                    <div :ref="contentRef" class="p-sidebar-content">
+                    <div :ref="contentRef" class="p-sidebar-content" v-bind="ptm('content')">
                         <slot></slot>
                     </div>
                 </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import Portal from 'primevue/portal';
@@ -31,6 +32,7 @@ import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Sidebar',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['update:visible', 'show', 'hide', 'after-hide'],
     props: {

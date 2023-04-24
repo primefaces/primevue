@@ -10,6 +10,69 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type SidebarPassThroughOptionType = SidebarPassThroughAttributes | ((options: SidebarPassThroughMethodOptions) => SidebarPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SidebarPassThroughMethodOptions {
+    props: SidebarProps;
+    state: SidebarState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SidebarProps.pt}
+ */
+export interface SidebarPassThroughOptions {
+    /**
+     * Uses to pass attributes to the mask's DOM element.
+     */
+    mask?: SidebarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SidebarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: SidebarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header content's DOM element.
+     */
+    headerContent?: SidebarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close button's DOM element.
+     */
+    closeButton?: SidebarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close icon's DOM element.
+     */
+    closeIcon?: SidebarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: SidebarPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SidebarPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Sidebar component.
+ */
+export interface SidebarState {
+    /**
+     * Current container visible state as a boolean.
+     * @defaultValue false
+     */
+    containerVisible: boolean;
+}
+
 /**
  * Defines valid properties in Sidebar component.
  */
@@ -59,6 +122,11 @@ export interface SidebarProps {
      * @defaultValue false
      */
     blockScroll?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SidebarPassThroughOptions}
+     */
+    pt?: SidebarPassThroughOptions;
 }
 
 /**
