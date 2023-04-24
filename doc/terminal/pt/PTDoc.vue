@@ -1,13 +1,17 @@
 <template>
-    <DocSectionText v-bind="$attrs">
-        <p>
-            Commands are processed using an EventBus implementation called <i>TerminalService</i>. Import this service into your component and subscribe to the <i>command</i> event to process the commands by sending replies with the
-            <i>response</i> event.
-        </p>
-    </DocSectionText>
+    <DocSectionText v-bind="$attrs" :level="2" />
     <div class="card">
         <p>Enter "<strong>date</strong>" to display the current date, "<strong>greet {0}</strong>" for a message and "<strong>random</strong>" to get a random number.</p>
-        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
+        <Terminal
+            welcomeMessage="Welcome to PrimeVue"
+            prompt="primevue $"
+            :pt="{
+                root: { class: 'surface-900 text-white' },
+                command: { class: 'text-blue-500' },
+                prompt: { class: 'text-yellow-500' },
+                response: { class: 'text-purple-500' }
+            }"
+        />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -20,12 +24,30 @@ export default {
         return {
             code: {
                 basic: `
-<Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" />`,
+<Terminal
+    welcomeMessage="Welcome to PrimeVue"
+    prompt="primevue $"
+    :pt="{
+        root: { class: 'surface-900 text-white' },
+        command: { class: 'text-blue-500' },
+        prompt: { class: 'text-yellow-500' },
+        response: { class: 'text-purple-500' }
+    }"
+/>`,
                 options: `
 <template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
+        <Terminal
+            welcomeMessage="Welcome to PrimeVue"
+            prompt="primevue $"
+            :pt="{
+                root: { class: 'surface-900 text-white' },
+                command: { class: 'text-blue-500' },
+                prompt: { class: 'text-yellow-500' },
+                response: { class: 'text-purple-500' }
+            }"
+        />
     </div>
 </template>
 
@@ -66,33 +88,21 @@ export default {
         TerminalService.off('command', this.commandHandler);
     }
 }
-<\/script>
-<style scoped>
-p {
-    margin-top: 0;
-}
-::v-deep(.dark-demo-terminal) {
-    background-color: #212121;
-    color: #ffffff;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-command) {
-    color: #80cbc4;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-prompt) {
-    color: #ffd54f;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-response) {
-    color: #9fa8da;
-}
-</style>`,
+<\/script>`,
                 composition: `
 <template>
     <div>
         <p>Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
-        <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
+        <Terminal
+            welcomeMessage="Welcome to PrimeVue"
+            prompt="primevue $"
+            :pt="{
+                root: { class: 'surface-900 text-white' },
+                command: { class: 'text-blue-500' },
+                prompt: { class: 'text-yellow-500' },
+                response: { class: 'text-purple-500' }
+            }"
+        />
     </div>
 </template>
 
@@ -132,29 +142,7 @@ const commandHandler = (text) => {
     
     TerminalService.emit('response', response);
 }
-<\/script>
-
-<style scoped>
-p {
-    margin-top: 0;
-}
-::v-deep(.dark-demo-terminal) {
-    background-color: #212121;
-    color: #ffffff;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-command) {
-    color: #80cbc4;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-prompt) {
-    color: #ffd54f;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-response) {
-    color: #9fa8da;
-}
-</style>`
+<\/script>`
             }
         };
     },
@@ -192,25 +180,3 @@ p {
     }
 };
 </script>
-
-<style scoped>
-p {
-    margin-top: 0;
-}
-::v-deep(.dark-demo-terminal) {
-    background-color: #212121;
-    color: #ffffff;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-command) {
-    color: #80cbc4;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-prompt) {
-    color: #ffd54f;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-response) {
-    color: #9fa8da;
-}
-</style>
