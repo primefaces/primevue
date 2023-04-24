@@ -1,10 +1,13 @@
 <template>
-    <div :style="containerStyle" :class="containerClass" aria-hidden="true"></div>
+    <div :style="containerStyle" :class="containerClass" aria-hidden="true" v-bind="ptm('root')"></div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Skeleton',
+    extends: BaseComponent,
     props: {
         shape: {
             type: String,

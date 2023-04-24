@@ -9,6 +9,33 @@
  */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type SkeletonPassThroughOptionType = SkeletonPassThroughAttributes | ((options: SkeletonPassThroughMethodOptions) => SkeletonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SkeletonPassThroughMethodOptions {
+    props: SkeletonProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SkeletonProps.pt}
+ */
+export interface SkeletonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SkeletonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SkeletonPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Skeleton component.
  */
@@ -41,6 +68,11 @@ export interface SkeletonProps {
      * @defaultValue wave
      */
     animation?: 'wave' | 'none' | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SkeletonPassThroughOptions}
+     */
+    pt?: SkeletonPassThroughOptions;
 }
 
 /**
