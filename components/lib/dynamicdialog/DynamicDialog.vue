@@ -1,6 +1,6 @@
 <template>
     <template v-for="(instance, key) in instanceMap" :key="key">
-        <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide">
+        <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" :pt="pt" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide">
             <template v-if="instance.options.templates && instance.options.templates.header" #header>
                 <component v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :is="header" :key="index + '_header'"></component>
             </template>
@@ -13,12 +13,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Dialog from 'primevue/dialog';
 import DynamicDialogEventBus from 'primevue/dynamicdialogeventbus';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'DynamicDialog',
+    extends: BaseComponent,
     inheritAttrs: false,
     data() {
         return {
