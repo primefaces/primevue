@@ -1,4 +1,6 @@
 import { Plugin } from 'vue';
+import { CardPassThroughOptions } from '../card';
+import { PanelPassThroughOptions } from '../panel';
 
 interface PrimeVueConfiguration {
     ripple?: boolean;
@@ -6,6 +8,7 @@ interface PrimeVueConfiguration {
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
+    pt?: PrimeVuePTOptions;
 }
 
 interface PrimeVueZIndexOptions {
@@ -13,6 +16,11 @@ interface PrimeVueZIndexOptions {
     overlay?: number;
     menu?: number;
     tooltip?: number;
+}
+
+interface PrimeVuePTOptions {
+    panel?: PanelPassThroughOptions;
+    card?: CardPassThroughOptions;
 }
 
 interface PrimeVueLocaleAriaOptions {

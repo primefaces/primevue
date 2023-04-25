@@ -130,7 +130,8 @@ const defaultOptions = {
         overlay: 1000,
         menu: 1000,
         tooltip: 1100
-    }
+    },
+    pt: undefined
 };
 
 const PrimeVueSymbol = Symbol();
