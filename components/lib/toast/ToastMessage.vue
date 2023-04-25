@@ -8,7 +8,7 @@
                     <div class="p-toast-detail">{{ message.detail }}</div>
                 </div>
             </template>
-            <component v-else :is="templates.message" :message="message"></component>{{ message.closable }}
+            <component v-else :is="templates.message" :message="message"></component>
             <div v-if="message.closable !== false">
                 <button v-ripple class="p-toast-icon-close p-link" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="closeButtonProps">
                     <component :is="templates.closeicon || 'TimesIcon'" :class="['p-toast-icon-close-icon', closeIcon]" />
