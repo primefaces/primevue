@@ -16,6 +16,12 @@ const ConfirmDialogProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether the dialog can be relocated by dragging.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

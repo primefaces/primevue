@@ -11,27 +11,28 @@
         :closeOnEscape="closeOnEscape"
         :draggable="draggable"
         @update:visible="onHide"
+        :pt="{ root: ptm('root'), header: ptm('header'), headerTitle: ptm('headerTitle'), closeButton: ptm('closeButton'), closeIcon: ptm('closeIcon'), content: ptm('content'), footer: ptm('footer') }"
     >
         <template v-if="!$slots.message">
             <slot name="icon" class="p-confirm-dialog-icon">
                 <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-dialog-icon" />
-                <span v-else-if="confirmation.icon" :class="iconClass" />
+                <span v-else-if="confirmation.icon" :class="iconClass" v-bind="ptm('icon')" />
             </slot>
-            <span class="p-confirm-dialog-message">{{ message }}</span>
+            <span class="p-confirm-dialog-message" v-bind="ptm('message')">{{ message }}</span>
         </template>
         <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
-            <CDButton :label="rejectLabel" :class="rejectClass" iconPos="left" @click="reject()" :autofocus="autoFocusReject">
+            <CDButton :label="rejectLabel" :class="rejectClass" iconPos="left" @click="reject()" :autofocus="autoFocusReject" v-bind="ptm('rejectButton')">
                 <template #icon="iconProps">
                     <slot name="rejecticon">
-                        <span :class="[rejectIcon, iconProps.class]" />
+                        <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectIcon')" />
                     </slot>
                 </template>
             </CDButton>
-            <CDButton :label="acceptLabel" :class="acceptClass" iconPos="left" @click="accept()" :autofocus="autoFocusAccept">
+            <CDButton :label="acceptLabel" :class="acceptClass" iconPos="left" @click="accept()" :autofocus="autoFocusAccept" v-bind="ptm('acceptButton')">
                 <template #icon="iconProps">
                     <slot name="accepticon">
-                        <span :class="[acceptIcon, iconProps.class]" />
+                        <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptIcon')" />
                     </slot>
                 </template>
             </CDButton>
@@ -40,12 +41,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import Dialog from 'primevue/dialog';
 
 export default {
     name: 'ConfirmDialog',
+    extends: BaseComponent,
     props: {
         group: String,
         breakpoints: {

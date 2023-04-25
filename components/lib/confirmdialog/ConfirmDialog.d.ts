@@ -11,6 +11,97 @@ import { VNode } from 'vue';
 import { ConfirmationOptions } from '../confirmationoptions';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ConfirmDialogPassThroughOptionType = ConfirmDialogPassThroughAttributes | ((options: ConfirmDialogPassThroughMethodOptions) => ConfirmDialogPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ConfirmDialogPassThroughMethodOptions {
+    props: ConfirmDialogProps;
+    state: ConfirmDialogState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ConfirmDialogProps.pt}
+ */
+export interface ConfirmDialogPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header title's DOM element.
+     */
+    headerTitle?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close button's DOM element.
+     */
+    closeButton?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close icon's DOM element.
+     */
+    closeIcon?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footer's DOM element.
+     */
+    footer?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the message's DOM element.
+     */
+    message?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the reject button's DOM element.
+     */
+    rejectButton?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the reject icon's DOM element.
+     */
+    rejectIcon?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the accept button's DOM element.
+     */
+    acceptButton?: ConfirmDialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the accept icon's DOM element.
+     */
+    acceptIcon?: ConfirmDialogPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ConfirmDialogPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in ConfirmDialog component.
+ */
+export interface ConfirmDialogState {
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    visible: boolean;
+    /**
+     * Current confirmation message.
+     */
+    confirmation: any;
+}
+
 /**
  * Breakpoint metadata.
  */
@@ -51,6 +142,11 @@ export interface ConfirmDialogProps {
      * @defaultValue true
      */
     draggable?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ConfirmDialogPassThroughOptions}
+     */
+    pt?: ConfirmDialogPassThroughOptions;
 }
 
 /**
