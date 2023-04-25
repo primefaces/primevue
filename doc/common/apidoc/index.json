@@ -8228,6 +8228,174 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ConfirmDialogPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmDialogProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ConfirmDialogState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmDialogPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ConfirmDialogProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headerTitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header title's DOM element."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button's DOM element."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close icon's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "message",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the message's DOM element."
+                        },
+                        {
+                            "name": "rejectButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the reject button's DOM element."
+                        },
+                        {
+                            "name": "rejectIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the reject icon's DOM element."
+                        },
+                        {
+                            "name": "acceptButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the accept button's DOM element."
+                        },
+                        {
+                            "name": "acceptIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the accept icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmDialogPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ConfirmDialogState": {
+                    "description": "Defines current inline state in ConfirmDialog component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state as a boolean."
+                        },
+                        {
+                            "name": "confirmation",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current confirmation message."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ConfirmDialogBreakpoints": {
                     "description": "Breakpoint metadata.",
                     "relatedProp": "",
@@ -8268,6 +8436,14 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Enables dragging to change the position using header."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -8321,6 +8497,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ConfirmDialogPassThroughOptionType": {
+                    "values": "ConfirmDialogPassThroughAttributes | (options: ConfirmDialogPassThroughMethodOptions) => ConfirmDialogPassThroughAttributes | null | undefined"
                 }
             }
         }
