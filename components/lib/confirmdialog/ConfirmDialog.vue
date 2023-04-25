@@ -11,7 +11,7 @@
         :closeOnEscape="closeOnEscape"
         :draggable="draggable"
         @update:visible="onHide"
-        :pt="{ root: ptm('root'), header: ptm('header'), headerTitle: ptm('headerTitle'), closeButton: ptm('closeButton'), closeIcon: ptm('closeIcon'), content: ptm('content'), footer: ptm('footer') }"
+        :pt="pt"
     >
         <template v-if="!$slots.message">
             <slot name="icon" class="p-confirm-dialog-icon">
