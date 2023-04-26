@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>{{ $attrs.description }}</p>
     </DocSectionText>
-    <div>
+    <div class="card">
         <img class="w-full" src="https://primefaces.org/cdn/primevue/images/pt/divider.jpg" />
     </div>
 </template>
