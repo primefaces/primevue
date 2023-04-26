@@ -21457,7 +21457,13 @@
                         },
                         {
                             "name": "header",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>id</b>: boolean, // Current id state as a string\n  \t <b>class</b>: string, // Style class of the icon\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom header template."
                         },
