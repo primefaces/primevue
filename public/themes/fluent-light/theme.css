@@ -5396,7 +5396,7 @@
   font-size: 1rem;
   margin-right: 0.5rem;
 }
-.p-message .p-icon {
+.p-message .p-icon:not(.p-message-close-icon) {
   width: 1rem;
   height: 1rem;
 }

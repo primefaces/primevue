@@ -5420,7 +5420,7 @@
   font-size: 1.5rem;
   margin-right: 0.5rem;
 }
-.p-message .p-icon {
+.p-message .p-icon:not(.p-message-close-icon) {
   width: 1.5rem;
   height: 1.5rem;
 }
