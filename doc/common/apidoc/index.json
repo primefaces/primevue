@@ -3994,6 +3994,104 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "BreadcrumbPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "BreadcrumbProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "BreadcrumbPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "BreadcrumbProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "separatorIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "BreadcrumbPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "BreadcrumbProps": {
                     "description": "Defines valid properties in Breadcrumb component.",
                     "relatedProp": "",
@@ -4037,6 +4135,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying menu element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BreadcrumbPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -4085,6 +4191,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "BreadcrumbPassThroughOptionType": {
+                    "values": "BreadcrumbPassThroughAttributes | (options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -8794,6 +8908,205 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ContextMenuPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ContextMenuProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ContextMenuState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ContextMenuPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ContextMenuProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu icon's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ContextMenuPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ContextMenuFocusedItemInfo": {
+                    "description": "Defines focused item info",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item index"
+                        },
+                        {
+                            "name": "level",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item level"
+                        },
+                        {
+                            "name": "parentKey",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Parent key info"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ContextMenuState": {
+                    "description": "Defines current inline state in ContextMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        },
+                        {
+                            "name": "focusedItemInfo",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ContextMenuFocusedItemInfo",
+                            "default": "",
+                            "description": "Current focused item info."
+                        },
+                        {
+                            "name": "activeItemPath",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ContextMenuFocusedItemInfo[]",
+                            "default": "",
+                            "description": "Active item path."
+                        },
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state as a boolean."
+                        },
+                        {
+                            "name": "submenuVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current submenu visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ContextMenuProps": {
                     "description": "Defines valid properties in ContextMenu component.",
                     "relatedProp": "",
@@ -8869,6 +9182,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying menu element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ContextMenuPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -8974,6 +9295,14 @@
                             "description": "Callback to invoke when the popup is hidden."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ContextMenuPassThroughOptionType": {
+                    "values": "ContextMenuPassThroughAttributes | (options: ContextMenuPassThroughMethodOptions) => ContextMenuPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -17288,6 +17617,237 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "MegaMenuPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MegaMenuProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MegaMenuState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "MegaMenuPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "MegaMenuProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "submenuHeader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu header's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu icon's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "grid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the grid's DOM element."
+                        },
+                        {
+                            "name": "column",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the column's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "start",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the start of the component."
+                        },
+                        {
+                            "name": "end",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the end of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MegaMenuPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "MegaMenuFocusedItemInfo": {
+                    "description": "Defines focused item info",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item index"
+                        },
+                        {
+                            "name": "level",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item level"
+                        },
+                        {
+                            "name": "parentKey",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Parent key info"
+                        }
+                    ],
+                    "methods": []
+                },
+                "MegaMenuState": {
+                    "description": "Defines current inline state in MegaMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        },
+                        {
+                            "name": "focusedItemInfo",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MegaMenuFocusedItemInfo",
+                            "default": "",
+                            "description": "Current focused item info."
+                        },
+                        {
+                            "name": "activeItem",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenuItem",
+                            "default": "",
+                            "description": "Active item path."
+                        }
+                    ],
+                    "methods": []
+                },
                 "MegaMenuProps": {
                     "description": "Defines valid properties in MegaMenu component.",
                     "relatedProp": "",
@@ -17347,6 +17907,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying menu element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -17442,6 +18010,14 @@
                     ]
                 }
             }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "MegaMenuPassThroughOptionType": {
+                    "values": "MegaMenuPassThroughAttributes | (options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes | null | undefined"
+                }
+            }
         }
     },
     "menu": {
@@ -17497,6 +18073,182 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "MenuPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenuProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenuState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenuPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "MenuProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "submenuHeader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu header's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "start",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the start of the component."
+                        },
+                        {
+                            "name": "end",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the end of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenuPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenuState": {
+                    "description": "Defines current inline state in Menu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        },
+                        {
+                            "name": "focusedOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Focused option index."
+                        },
+                        {
+                            "name": "selectedOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Selected option index."
+                        }
+                    ],
+                    "methods": []
+                },
                 "MenuProps": {
                     "description": "Defines valid properties in Menu component.",
                     "relatedProp": "",
@@ -17572,6 +18324,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying input element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -17655,6 +18415,14 @@
                     ]
                 }
             }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "MenuPassThroughOptionType": {
+                    "values": "MenuPassThroughAttributes | (options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | null | undefined"
+                }
+            }
         }
     },
     "menubar": {
@@ -17674,6 +18442,229 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "MenubarPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenubarProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenubarState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenubarPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "MenubarProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu icon's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "button",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mobile popup menu button's DOM element."
+                        },
+                        {
+                            "name": "popupIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mobile popup menu button icon's DOM element."
+                        },
+                        {
+                            "name": "start",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the start of the component."
+                        },
+                        {
+                            "name": "end",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the end of the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenubarPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenubarFocusedItemInfo": {
+                    "description": "Defines focused item info",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item index"
+                        },
+                        {
+                            "name": "level",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item level"
+                        },
+                        {
+                            "name": "parentKey",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Parent key info"
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenubarState": {
+                    "description": "Defines current inline state in Menubar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "mobileActive",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current mobile menu active state as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        },
+                        {
+                            "name": "focusedItemInfo",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenubarFocusedItemInfo",
+                            "default": "",
+                            "description": "Current focused item info."
+                        },
+                        {
+                            "name": "activeItemPath",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenubarFocusedItemInfo[]",
+                            "default": "",
+                            "description": "Active item path."
+                        }
+                    ],
+                    "methods": []
+                },
                 "MenubarProps": {
                     "description": "Defines valid properties in Menubar component.",
                     "relatedProp": "",
@@ -17717,6 +18708,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying input element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenubarPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -17789,6 +18788,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "MenubarPassThroughOptionType": {
+                    "values": "MenubarPassThroughAttributes | (options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -20384,6 +21391,214 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "PanelMenuPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PanelMenuProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PanelMenuState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "PanelMenuPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "PanelMenuProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headerContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header content's DOM element."
+                        },
+                        {
+                            "name": "headerAction",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header action's DOM element."
+                        },
+                        {
+                            "name": "headerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header icon's DOM element."
+                        },
+                        {
+                            "name": "submenuIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenuIcon's DOM element."
+                        },
+                        {
+                            "name": "headerLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header label's DOM element."
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu icon's DOM element."
+                        },
+                        {
+                            "name": "toggleableContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggleable content's DOM element."
+                        },
+                        {
+                            "name": "menuContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the menu content's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PanelMenuPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "PanelMenuState": {
+                    "description": "Defines current inline state in PanelMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "activeItem",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenuItem[]",
+                            "default": "",
+                            "description": "Active item path."
+                        }
+                    ],
+                    "methods": []
+                },
                 "PanelMenuExpandedKeys": {
                     "description": "Custom expanded keys metadata.",
                     "relatedProp": "PanelMenuProps.expandedKeys",
@@ -20480,6 +21695,14 @@
                             "type": "string | number",
                             "default": "",
                             "description": "Index of the element in tabbing order."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -20587,6 +21810,14 @@
                             "description": "Callback to invoke when an active panel is collapsed by clicking on the header."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "PanelMenuPassThroughOptionType": {
+                    "values": "PanelMenuPassThroughAttributes | (options: PanelMenuPassThroughMethodOptions) => PanelMenuPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -24680,6 +25911,88 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "StepsPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepsProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepsPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "StepsProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "step",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the step's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepsPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "StepsProps": {
                     "description": "Defines valid properties in Steps component.",
                     "relatedProp": "",
@@ -24715,6 +26028,14 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepsPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -24744,6 +26065,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "StepsPassThroughOptionType": {
+                    "values": "StepsPassThroughAttributes | (options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -24871,6 +26200,118 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TabMenuPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabMenuProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabMenuState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabMenuPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TabMenuProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "inkbar",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the inkbar's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabMenuPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabMenuState": {
+                    "description": "Defines current inline state in TabMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_activeIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current active index state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TabMenuChangeEvent": {
                     "description": "Custom change event.",
                     "relatedProp": "TabMenuEmits['tab-change']",
@@ -24937,6 +26378,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying input element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabMenuPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -24993,6 +26442,14 @@
                             "description": "Callback to invoke when an active tab is changed."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TabMenuPassThroughOptionType": {
+                    "values": "TabMenuPassThroughAttributes | (options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -26118,6 +27575,197 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TieredMenuPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TieredMenuProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TieredMenuState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TieredMenuPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TieredMenuProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "menu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "menuitem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list item's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "action",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the action's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "submenuIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu icon's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TieredMenuPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TieredMenuFocusedItemInfo": {
+                    "description": "Defines focused item info",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item index"
+                        },
+                        {
+                            "name": "level",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item level"
+                        },
+                        {
+                            "name": "parentKey",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Parent key info"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TieredMenuState": {
+                    "description": "Defines current inline state in TieredMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        },
+                        {
+                            "name": "focusedItemInfo",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TieredMenuFocusedItemInfo",
+                            "default": "",
+                            "description": "Current focused item info."
+                        },
+                        {
+                            "name": "activeItemPath",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TieredMenuFocusedItemInfo[]",
+                            "default": "",
+                            "description": "Active item path."
+                        },
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Current visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TieredMenuProps": {
                     "description": "Defines valid properties in TieredMenuMenu component.",
                     "relatedProp": "",
@@ -26201,6 +27849,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying menu element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -26306,6 +27962,14 @@
                             "description": "Callback to invoke when the popup is hidden."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TieredMenuPassThroughOptionType": {
+                    "values": "TieredMenuPassThroughAttributes | (options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes | null | undefined"
                 }
             }
         }
