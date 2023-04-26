@@ -20,7 +20,7 @@ export default {
             docs: [
                 {
                     id: 'pt.image',
-                    label: 'WireFrame',
+                    label: 'Wireframe',
                     component: PTImage
                 },
                 {
