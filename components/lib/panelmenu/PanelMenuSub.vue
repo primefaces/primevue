@@ -1,5 +1,5 @@
 <template>
-    <ul class="p-submenu-list">
+    <ul class="p-submenu-list" v-bind="ptm('menu')">
         <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -12,30 +12,31 @@
                 :aria-level="level + 1"
                 :aria-setsize="getAriaSetSize()"
                 :aria-posinset="getAriaPosInset(index)"
+                v-bind="ptm('menuitem')"
             >
-                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)">
+                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" v-bind="ptm('content')">
                     <template v-if="!templates.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
-                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
+                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="ptm('action')">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
-                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" />
-                                <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="ptm('icon')" />
+                                <span class="p-menuitem-text" v-bind="ptm('label')">{{ getItemLabel(processedItem) }}</span>
                             </a>
                         </router-link>
-                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
+                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="ptm('action')">
                             <template v-if="isItemGroup(processedItem)">
-                                <component v-if="templates.submenuicon" :is="templates.submenuicon" class="p-submenu-icon" :active="isItemActive(processedItem)" />
-                                <component v-else :is="isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" />
+                                <component v-if="templates.submenuicon" :is="templates.submenuicon" class="p-submenu-icon" :active="isItemActive(processedItem)" v-bind="ptm('submenuIcon')" />
+                                <component v-else :is="isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" v-bind="ptm('submenuIcon')" />
                             </template>
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
-                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" />
-                            <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="ptm('icon')" />
+                            <span class="p-menuitem-text" v-bind="ptm('label')">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>
                     <component v-else :is="templates.item" :item="processedItem.item"></component>
                 </div>
                 <transition name="p-toggleable-content">
-                    <div v-show="isItemActive(processedItem)" class="p-toggleable-content">
+                    <div v-show="isItemActive(processedItem)" class="p-toggleable-content" v-bind="ptm('toggleableContent')">
                         <PanelMenuSub
                             v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
                             :id="getItemId(processedItem) + '_list'"
@@ -48,16 +49,18 @@
                             :activeItemPath="activeItemPath"
                             :exact="exact"
                             @item-toggle="onItemToggle"
+                            :pt="pt"
                         />
                     </div>
                 </transition>
             </li>
-            <li v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')" :style="getItemProp(processedItem, 'style')" :class="getSeparatorItemClass(processedItem)" role="separator"></li>
+            <li v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')" :style="getItemProp(processedItem, 'style')" :class="getSeparatorItemClass(processedItem)" role="separator" v-bind="ptm('separator')"></li>
         </template>
     </ul>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
@@ -65,6 +68,7 @@ import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'PanelMenuSub',
+    extends: BaseComponent,
     emits: ['item-toggle'],
     props: {
         panelId: {
