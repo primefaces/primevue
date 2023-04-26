@@ -1,5 +1,5 @@
 <template>
-    <div class="p-dock-list-container">
+    <div class="p-dock-list-container" v-bind="ptm('container')">
         <ul
             ref="list"
             :id="id"
@@ -14,6 +14,7 @@
             @blur="onListBlur"
             @keydown="onListKeyDown"
             @mouseleave="onListMouseLeave"
+            v-bind="ptm('menu')"
         >
             <template v-for="(processedItem, index) of model" :key="index">
                 <li
@@ -24,8 +25,9 @@
                     :aria-disabled="disabled(processedItem)"
                     @click="onItemClick($event, processedItem)"
                     @mouseenter="onItemMouseEnter(index)"
+                    v-bind="ptm('menuitem')"
                 >
-                    <div class="p-menuitem-content">
+                    <div class="p-menuitem-content" v-bind="ptm('content')">
                         <template v-if="!templates['item']">
                             <router-link v-if="processedItem.to && !disabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="processedItem.to" custom>
                                 <a
@@ -36,16 +38,26 @@
                                     tabindex="-1"
                                     aria-hidden="true"
                                     @click="onItemActionClick($event, processedItem, navigate)"
+                                    v-bind="ptm('action')"
                                 >
                                     <template v-if="!templates['icon']">
-                                        <span v-ripple :class="['p-dock-icon', processedItem.icon]"></span>
+                                        <span v-ripple :class="['p-dock-icon', processedItem.icon]" v-bind="ptm('icon')"></span>
                                     </template>
                                     <component v-else :is="templates['icon']" :item="processedItem"></component>
                                 </a>
                             </router-link>
-                            <a v-else v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }" :href="processedItem.url" :class="linkClass()" :target="processedItem.target" tabindex="-1" aria-hidden="true">
+                            <a
+                                v-else
+                                v-tooltip:[tooltipOptions]="{ value: processedItem.label, disabled: !tooltipOptions }"
+                                :href="processedItem.url"
+                                :class="linkClass()"
+                                :target="processedItem.target"
+                                tabindex="-1"
+                                aria-hidden="true"
+                                v-bind="ptm('action')"
+                            >
                                 <template v-if="!templates['icon']">
-                                    <span v-ripple :class="['p-dock-icon', processedItem.icon]"></span>
+                                    <span v-ripple :class="['p-dock-icon', processedItem.icon]" v-bind="ptm('icon')"></span>
                                 </template>
                                 <component v-else :is="templates['icon']" :item="processedItem"></component>
                             </a>
@@ -59,12 +71,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'DockSub',
+    extends: BaseComponent,
     emits: ['focus', 'blur'],
     props: {
         position: {
