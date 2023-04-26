@@ -1,6 +1,6 @@
 <template>
-    <div :ref="containerRef" :class="containerClass">
-        <div v-if="$slots.start" class="p-menubar-start">
+    <div :ref="containerRef" :class="containerClass" v-bind="ptm('root')">
+        <div v-if="$slots.start" class="p-menubar-start" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
         <a
@@ -15,10 +15,10 @@
             :aria-label="$primevue.config.locale.aria.navigation"
             @click="menuButtonClick($event)"
             @keydown="menuButtonKeydown($event)"
-            v-bind="buttonProps"
+            v-bind="{ ...buttonProps, ...ptm('button') }"
         >
             <slot name="popupicon">
-                <BarsIcon />
+                <BarsIcon v-bind="ptm('popupIcon')" />
             </slot>
         </a>
         <MenubarSub
@@ -39,25 +39,28 @@
             :level="0"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :pt="pt"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
             @item-click="onItemClick"
             @item-mouseenter="onItemMouseEnter"
         />
-        <div v-if="$slots.end" class="p-menubar-end">
+        <div v-if="$slots.end" class="p-menubar-end" v-bind="ptm('end')">
             <slot name="end"></slot>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import BarsIcon from 'primevue/icons/bars';
 import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import MenubarSub from './MenubarSub.vue';
 
 export default {
     name: 'Menubar',
+    extends: BaseComponent,
     emits: ['focus', 'blur'],
     props: {
         model: {
