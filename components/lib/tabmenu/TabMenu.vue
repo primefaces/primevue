@@ -1,9 +1,9 @@
 <template>
-    <div class="p-tabmenu p-component">
-        <ul ref="nav" class="p-tabmenu-nav p-reset" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
+    <div class="p-tabmenu p-component" v-bind="ptm('root')">
+        <ul ref="nav" class="p-tabmenu-nav p-reset" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('menu')">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <li v-if="visible(item)" ref="tab" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation">
+                    <li v-if="visible(item)" ref="tab" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation" v-bind="ptm('menuitem')">
                         <template v-if="!$slots.item">
                             <a
                                 ref="tabLink"
@@ -16,37 +16,40 @@
                                 :tabindex="isExactActive ? '0' : '-1'"
                                 @click="onItemClick($event, item, i, navigate)"
                                 @keydown="onKeydownItem($event, item, i, navigate)"
+                                v-bind="ptm('action')"
                             >
                                 <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
-                                <span v-else-if="item.icon" :class="getItemIcon(item)" />
-                                <span class="p-menuitem-text">{{ label(item) }}</span>
+                                <span v-else-if="item.icon" :class="getItemIcon(item)" v-bind="ptm('icon')" />
+                                <span class="p-menuitem-text" v-bind="ptm('label')">{{ label(item) }}</span>
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item" :index="i"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)">
+                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)" v-bind="ptm('menuitem')">
                     <template v-if="!$slots.item">
-                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)">
+                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)" v-bind="ptm('action')">
                             <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
-                            <span v-else-if="item.icon" :class="getItemIcon(item)" />
-                            <span class="p-menuitem-text">{{ label(item) }}</span>
+                            <span v-else-if="item.icon" :class="getItemIcon(item)" v-bind="ptm('icon')" />
+                            <span class="p-menuitem-text" v-bind="ptm('label')">{{ label(item) }}</span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item" :index="i"></component>
                 </li>
             </template>
-            <li ref="inkbar" role="none" class="p-tabmenu-ink-bar"></li>
+            <li ref="inkbar" role="none" class="p-tabmenu-ink-bar" v-bind="ptm('inkbar')"></li>
         </ul>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'TabMenu',
+    extends: BaseComponent,
     emits: ['update:activeIndex', 'tab-change'],
     props: {
         model: {

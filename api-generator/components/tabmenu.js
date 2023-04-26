@@ -16,6 +16,12 @@ const TabMenuProps = [
         type: 'number',
         default: '0',
         description: 'Active index of menuitem.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
