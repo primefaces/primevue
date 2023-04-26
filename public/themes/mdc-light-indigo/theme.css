@@ -6257,6 +6257,9 @@
 .p-calendar-w-btn .p-datepicker-trigger.p-button span {
   color: rgba(0, 0, 0, 0.6);
 }
+.p-calendar-w-btn .p-datepicker-trigger.p-button .p-icon path {
+  fill: rgba(0, 0, 0, 0.6);
+}
 .p-calendar-w-btn .p-datepicker-trigger.p-button:enabled:hover {
   background: rgba(0, 0, 0, 0.04);
 }
