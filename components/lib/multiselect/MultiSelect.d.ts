@@ -426,7 +426,7 @@ export interface MultiSelectSlots {
         /**
          * Remove token icon function.
          */
-        onClick: string;
+        onClick: void;
     }): VNode[];
     /**
      * Custom header checkbox icon template.
