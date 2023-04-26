@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :id="id" :class="containerClass" @click="onOverlayClick" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" :id="id" :class="containerClass" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }">
                 <TieredMenuSub
                     :ref="menubarRef"
                     :id="id + '_list'"
@@ -20,6 +20,7 @@
                     :activeItemPath="activeItemPath"
                     :exact="exact"
                     :level="0"
+                    :pt="pt"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
@@ -32,6 +33,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -39,6 +41,7 @@ import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
     name: 'TieredMenu',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['focus', 'blur', 'before-show', 'before-hide', 'hide', 'show'],
     props: {
