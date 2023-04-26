@@ -12227,14 +12227,6 @@
                     "relatedProp": "DialogProps.pt",
                     "props": [
                         {
-                            "name": "mask",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DialogPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the mask's DOM element."
-                        },
-                        {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
@@ -12313,6 +12305,14 @@
                             "type": "DialogPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mask's DOM element."
                         }
                     ],
                     "methods": []
@@ -24278,14 +24278,6 @@
                     "relatedProp": "SidebarProps.pt",
                     "props": [
                         {
-                            "name": "mask",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "SidebarPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the mask's DOM element."
-                        },
-                        {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
@@ -24332,6 +24324,14 @@
                             "type": "SidebarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SidebarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mask's DOM element."
                         }
                     ],
                     "methods": []
