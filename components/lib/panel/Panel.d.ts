@@ -137,7 +137,16 @@ export interface PanelSlots {
     /**
      * Custom header template.
      */
-    header(): VNode[];
+    header(scope: {
+        /**
+         * Current id state as a string
+         */
+        id: boolean;
+        /**
+         * Style class of the icon
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom icons template.
      */

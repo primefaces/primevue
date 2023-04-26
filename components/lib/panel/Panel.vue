@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" v-bind="ptm('root')">
         <div class="p-panel-header" v-bind="ptm('header')">
-            <slot name="header">
+            <slot :id="ariaId + '_header'" name="header" class="p-panel-title">
                 <span v-if="header" :id="ariaId + '_header'" class="p-panel-title" v-bind="ptm('title')">{{ header }}</span>
             </slot>
             <div class="p-panel-icons" v-bind="ptm('icons')">
