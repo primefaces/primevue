@@ -11,6 +11,53 @@ import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface StepsPassThroughMethodOptions {
+    props: StepsProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link StepsProps.pt}
+ */
+export interface StepsPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: StepsPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    menu?: StepsPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list item's DOM element.
+     */
+    menuitem?: StepsPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action's DOM element.
+     */
+    action?: StepsPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the step's DOM element.
+     */
+    step?: StepsPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: StepsPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface StepsPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Steps component.
  */
@@ -33,6 +80,11 @@ export interface StepsProps {
      * @defaultValue true
      */
     exact?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {StepsPassThroughOptions}
+     */
+    pt?: StepsPassThroughOptions;
 }
 
 /**
