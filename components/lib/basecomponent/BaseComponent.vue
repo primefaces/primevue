@@ -6,7 +6,7 @@ export default {
     props: {
         pt: {
             type: Object,
-            value: {}
+            default: undefined
         }
     },
     methods: {

@@ -6,11 +6,11 @@ export default {
     props: {
         label: {
             type: String,
-            value: undefined
+            default: undefined
         },
         spin: {
             type: Boolean,
-            value: false
+            default: false
         }
     },
     methods: {
