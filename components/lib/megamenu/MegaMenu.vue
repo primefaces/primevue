@@ -1,6 +1,6 @@
 <template>
-    <div :ref="containerRef" :id="id" :class="containerClass">
-        <div v-if="$slots.start" class="p-megamenu-start">
+    <div :ref="containerRef" :id="id" :class="containerClass" v-bind="ptm('root')">
+        <div v-if="$slots.start" class="p-megamenu-start" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
         <MegaMenuSub
@@ -22,24 +22,27 @@
             :activeItem="activeItem"
             :exact="exact"
             :level="0"
+            :pt="pt"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
             @item-click="onItemClick"
             @item-mouseenter="onItemMouseEnter"
         />
-        <div v-if="$slots.end" class="p-megamenu-end">
+        <div v-if="$slots.end" class="p-megamenu-end" v-bind="ptm('end')">
             <slot name="end"></slot>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import MegaMenuSub from './MegaMenuSub.vue';
 
 export default {
     name: 'MegaMenu',
+    extends: BaseComponent,
     emits: ['focus', 'blur'],
     props: {
         model: {
