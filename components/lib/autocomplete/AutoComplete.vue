@@ -53,7 +53,7 @@
                 <slot name="chip" :value="option">
                     <span class="p-autocomplete-token-label">{{ getOptionLabel(option) }}</span>
                 </slot>
-                <slot name="removetokenicon">
+                <slot name="removetokenicon" class="p-autocomplete-token-icon" :onClick="(event) => removeOption(event, i)">
                     <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-autocomplete-token-icon', removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" />
                 </slot>
             </li>

@@ -413,7 +413,16 @@ export interface AutoCompleteSlots {
     /**
      * Custom remove token icon template in multiple mode.
      */
-    removetokenicon(): VNode[];
+    removetokenicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+        /**
+         * Remove token icon function.
+         */
+        onClick: void;
+    }): VNode[];
     /**
      * Custom loading icon template.
      */
