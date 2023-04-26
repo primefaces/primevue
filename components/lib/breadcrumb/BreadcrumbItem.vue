@@ -1,17 +1,17 @@
 <template>
-    <li v-if="visible()" :class="containerClass()">
+    <li v-if="visible()" :class="containerClass()" v-bind="ptm('menuitem')">
         <template v-if="!templates.item">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)">
+                <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)" v-bind="ptm('action')">
                     <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" class="p-menuitem-icon" />
-                    <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" />
-                    <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
+                    <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" v-bind="ptm('icon')" />
+                    <span v-if="item.label" class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
                 </a>
             </router-link>
-            <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick">
+            <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick" v-bind="ptm('action')">
                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" class="p-menuitem-icon" />
-                <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" />
-                <span v-if="item.label" class="p-menuitem-text">{{ label() }}</span>
+                <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" v-bind="ptm('icon')" />
+                <span v-if="item.label" class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
             </a>
         </template>
         <component v-else :is="templates.item" :item="item"></component>
@@ -19,8 +19,11 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'BreadcrumbItem',
+    extends: BaseComponent,
     props: {
         item: null,
         templates: null,

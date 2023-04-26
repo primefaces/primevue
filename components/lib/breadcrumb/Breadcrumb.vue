@@ -1,25 +1,27 @@
 <template>
-    <nav class="p-breadcrumb p-component">
-        <ol class="p-breadcrumb-list">
-            <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :templates="$slots" :exact="exact" />
+    <nav class="p-breadcrumb p-component" v-bind="ptm('root')">
+        <ol class="p-breadcrumb-list" v-bind="ptm('menu')">
+            <BreadcrumbItem v-if="home" :item="home" class="p-breadcrumb-home" :templates="$slots" :exact="exact" :pt="pt" />
             <template v-for="(item, i) of model" :key="item.label">
-                <li v-if="home || i !== 0" class="p-menuitem-separator">
+                <li v-if="home || i !== 0" class="p-menuitem-separator" v-bind="ptm('separator')">
                     <slot name="separator">
-                        <ChevronRightIcon aria-hidden="true" />
+                        <ChevronRightIcon aria-hidden="true" v-bind="ptm('separatorIcon')" />
                     </slot>
                 </li>
-                <BreadcrumbItem :item="item" :templates="$slots" :exact="exact" />
+                <BreadcrumbItem :item="item" :templates="$slots" :exact="exact" :pt="pt" />
             </template>
         </ol>
     </nav>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import BreadcrumbItem from './BreadcrumbItem.vue';
 
 export default {
     name: 'Breadcrumb',
+    extends: BaseComponent,
     props: {
         model: {
             type: Array,

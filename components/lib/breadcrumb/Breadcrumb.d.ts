@@ -11,6 +11,61 @@ import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttributes | ((options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface BreadcrumbPassThroughMethodOptions {
+    props: BreadcrumbProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link BreadcrumbProps.pt}
+ */
+export interface BreadcrumbPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: BreadcrumbPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    menu?: BreadcrumbPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list item's DOM element.
+     */
+    menuitem?: BreadcrumbPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action's DOM element.
+     */
+    action?: BreadcrumbPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: BreadcrumbPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: BreadcrumbPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the separator's DOM element.
+     */
+    separator?: BreadcrumbPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the separator icon's DOM element.
+     */
+    separatorIcon?: BreadcrumbPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface BreadcrumbPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Breadcrumb component.
  */
@@ -36,6 +91,11 @@ export interface BreadcrumbProps {
      * Identifier of the underlying menu element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {BreadcrumbPassThroughOptions}
+     */
+    pt?: BreadcrumbPassThroughOptions;
 }
 
 /**
