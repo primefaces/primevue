@@ -3167,7 +3167,13 @@
                         },
                         {
                             "name": "removetokenicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>onClick</b>: void, // Remove token icon function.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom remove token icon template in multiple mode."
                         },
@@ -19900,7 +19906,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>onClick</b>: string, // Remove token icon function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>onClick</b>: void, // Remove token icon function.\n  }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
