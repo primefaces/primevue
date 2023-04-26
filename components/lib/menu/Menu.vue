@@ -1,8 +1,8 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="containerClass" v-bind="$attrs" @click="onOverlayClick">
-                <div v-if="$slots.start" class="p-menu-start">
+            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="containerClass" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }">
+                <div v-if="$slots.start" class="p-menu-start" v-bind="ptm('start')">
                     <slot name="start"></slot>
                 </div>
                 <ul
@@ -17,22 +17,23 @@
                     @focus="onListFocus"
                     @blur="onListBlur"
                     @keydown="onListKeyDown"
+                    v-bind="ptm('menu')"
                 >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" :id="id + '_' + i" class="p-submenu-header" role="none">
+                            <li v-if="item.items" :id="id + '_' + i" class="p-submenu-header" role="none" v-bind="ptm('submenuHeader')">
                                 <slot name="item" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
-                                <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
-                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="separatorClass(item)" :style="child.style" role="separator"></li>
+                                <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
+                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="separatorClass(item)" :style="child.style" role="separator" v-bind="ptm('separator')"></li>
                             </template>
                         </template>
-                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="separatorClass(item)" :style="item.style" role="separator"></li>
-                        <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" />
+                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="separatorClass(item)" :style="item.style" role="separator" v-bind="ptm('separator')"></li>
+                        <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
                     </template>
                 </ul>
-                <div v-if="$slots.end" class="p-menu-end">
+                <div v-if="$slots.end" class="p-menu-end" v-bind="ptm('end')">
                     <slot name="end"></slot>
                 </div>
             </div>
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -48,6 +50,7 @@ import Menuitem from './Menuitem.vue';
 
 export default {
     name: 'Menu',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['show', 'hide', 'focus', 'blur'],
     props: {

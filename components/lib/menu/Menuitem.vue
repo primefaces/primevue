@@ -1,18 +1,18 @@
 <template>
-    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()">
-        <div class="p-menuitem-content" @click="onItemClick($event)">
+    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()" v-bind="ptm('menuitem')">
+        <div class="p-menuitem-content" @click="onItemClick($event)" v-bind="ptm('content')">
             <template v-if="!templates.item">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
+                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="ptm('action')">
                         <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="iconClass" />
-                        <span v-else-if="item.icon" :class="iconClass" />
-                        <span class="p-menuitem-text">{{ label() }}</span>
+                        <span v-else-if="item.icon" :class="iconClass" v-bind="ptm('icon')" />
+                        <span class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
                     </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true">
+                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="ptm('action')">
                     <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="iconClass" />
-                    <span v-else-if="item.icon" :class="iconClass" />
-                    <span class="p-menuitem-text">{{ label() }}</span>
+                    <span v-else-if="item.icon" :class="iconClass" v-bind="ptm('icon')" />
+                    <span class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
                 </a>
             </template>
             <component v-else :is="templates.item" :item="item"></component>
@@ -21,11 +21,13 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Menuitem',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['item-click'],
     props: {
