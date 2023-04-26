@@ -26,10 +26,6 @@ export interface DialogPassThroughMethodOptions {
  */
 export interface DialogPassThroughOptions {
     /**
-     * Uses to pass attributes to the mask's DOM element.
-     */
-    mask?: DialogPassThroughOptionType;
-    /**
      * Uses to pass attributes to the root's DOM element.
      */
     root?: DialogPassThroughOptionType;
@@ -69,6 +65,10 @@ export interface DialogPassThroughOptions {
      * Uses to pass attributes to the footer's DOM element.
      */
     footer?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the mask's DOM element.
+     */
+    mask?: DialogPassThroughOptionType;
 }
 
 /**

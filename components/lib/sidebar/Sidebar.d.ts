@@ -26,10 +26,6 @@ export interface SidebarPassThroughMethodOptions {
  */
 export interface SidebarPassThroughOptions {
     /**
-     * Uses to pass attributes to the mask's DOM element.
-     */
-    mask?: SidebarPassThroughOptionType;
-    /**
      * Uses to pass attributes to the root's DOM element.
      */
     root?: SidebarPassThroughOptionType;
@@ -53,6 +49,10 @@ export interface SidebarPassThroughOptions {
      * Uses to pass attributes to the content's DOM element.
      */
     content?: SidebarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the mask's DOM element.
+     */
+    mask?: SidebarPassThroughOptionType;
 }
 
 /**
