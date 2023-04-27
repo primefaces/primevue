@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue BlockUI Component" header="BlockUI" description="BlockUI can either block other components or the whole page." :componentDocs="docs" :apiDocs="['BlockUI']" />
+    <DocComponent title="Vue BlockUI Component" header="BlockUI" description="BlockUI can either block other components or the whole page." :componentDocs="docs" :apiDocs="['BlockUI']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import BasicDoc from '@/doc/blockui/BasicDoc.vue';
 import DocumentDoc from '@/doc/blockui/DocumentDoc.vue';
 import ImportDoc from '@/doc/blockui/ImportDoc.vue';
 import StyleDoc from '@/doc/blockui/StyleDoc.vue';
+import PTComponent from '@/doc/blockui/pt/index.vue';
 
 export default {
     data() {
@@ -38,7 +39,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
