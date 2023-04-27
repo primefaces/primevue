@@ -27,7 +27,8 @@ export default {
     props: {
         item: null,
         templates: null,
-        exact: null
+        exact: null,
+        index: null
     },
     methods: {
         onClick(event, navigate) {

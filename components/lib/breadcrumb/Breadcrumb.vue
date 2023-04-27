@@ -8,7 +8,7 @@
                         <ChevronRightIcon aria-hidden="true" v-bind="ptm('separatorIcon')" />
                     </slot>
                 </li>
-                <BreadcrumbItem :item="item" :templates="$slots" :exact="exact" :pt="pt" />
+                <BreadcrumbItem :item="item" :index="i" :templates="$slots" :exact="exact" :pt="pt" />
             </template>
         </ol>
     </nav>
