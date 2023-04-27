@@ -1,18 +1,18 @@
 <template>
-    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()" v-bind="ptm('menuitem')">
-        <div class="p-menuitem-content" @click="onItemClick($event)" v-bind="ptm('content')">
+    <li v-if="visible()" :id="id" :class="containerClass()" role="menuitem" :style="item.style" :aria-label="label()" :aria-disabled="disabled()" v-bind="getPTOptions(processedItem, 'menuitem')">
+        <div class="p-menuitem-content" @click="onItemClick($event)" v-bind="getPTOptions(processedItem, 'content')">
             <template v-if="!templates.item">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="ptm('action')">
+                    <a v-ripple :href="href" :class="linkClass({ isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, 'action')">
                         <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="iconClass" />
-                        <span v-else-if="item.icon" :class="iconClass" v-bind="ptm('icon')" />
-                        <span class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
+                        <span v-else-if="item.icon" :class="iconClass" v-bind="getPTOptions(processedItem, 'icon')" />
+                        <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ label() }}</span>
                     </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="ptm('action')">
+                <a v-else v-ripple :href="item.url" :class="linkClass()" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, 'action')">
                     <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="iconClass" />
-                    <span v-else-if="item.icon" :class="iconClass" v-bind="ptm('icon')" />
-                    <span class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
+                    <span v-else-if="item.icon" :class="iconClass" v-bind="getPTOptions(processedItem, 'icon')" />
+                    <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ label() }}</span>
                 </a>
             </template>
             <component v-else :is="templates.item" :item="item"></component>
@@ -40,6 +40,16 @@ export default {
     methods: {
         getItemProp(processedItem, name) {
             return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
+        },
+        getPTOptions(key) {
+            return this.ptm(key, {
+                options: {
+                    focused: this.isItemFocused()
+                }
+            });
+        },
+        isItemFocused() {
+            return this.focusedOptionId === this.id;
         },
         onItemActionClick(event, navigate) {
             navigate && navigate(event);

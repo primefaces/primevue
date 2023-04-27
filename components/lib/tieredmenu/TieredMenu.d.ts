@@ -19,6 +19,7 @@ export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttri
 export interface TieredMenuPassThroughMethodOptions {
     props: TieredMenuProps;
     state: TieredMenuState;
+    options: TieredMenuOptions;
 }
 
 /**
@@ -117,6 +118,22 @@ export interface TieredMenuState {
      * @defaultValue true
      */
     visible: boolean;
+}
+
+/**
+ * Defines current options in TieredMenu component.
+ */
+export interface TieredMenuOptions {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**

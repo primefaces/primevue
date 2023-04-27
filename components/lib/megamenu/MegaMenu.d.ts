@@ -19,6 +19,7 @@ export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttribute
 export interface MegaMenuPassThroughMethodOptions {
     props: MegaMenuProps;
     state: MegaMenuState;
+    options: MegaMenuOptions;
 }
 
 /**
@@ -136,6 +137,22 @@ export interface MegaMenuState {
      * @type {MenuItem}
      */
     activeItem: MenuItem;
+}
+
+/**
+ * Defines current options in MegaMenu component.
+ */
+export interface MegaMenuOptions {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**

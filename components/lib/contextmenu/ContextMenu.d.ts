@@ -20,6 +20,7 @@ export declare type ContextMenuPassThroughOptionType = ContextMenuPassThroughAtt
 export interface ContextMenuPassThroughMethodOptions {
     props: ContextMenuProps;
     state: ContextMenuState;
+    options: ContextMenuOptions;
 }
 
 /**
@@ -123,6 +124,22 @@ export interface ContextMenuState {
      * @defaultValue false
      */
     submenuVisible: boolean;
+}
+
+/**
+ * Defines current options in ContextMenu component.
+ */
+export interface ContextMenuOptions {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**

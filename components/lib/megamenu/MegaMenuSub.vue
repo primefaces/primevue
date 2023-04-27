@@ -15,24 +15,33 @@
                 :aria-level="level + 1"
                 :aria-setsize="getAriaSetSize()"
                 :aria-posinset="getAriaPosInset(index)"
-                v-bind="ptm('menuitem')"
+                v-bind="getPTOptions(processedItem, 'menuitem')"
             >
-                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="ptm('content')">
+                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions(processedItem, 'content')">
                     <template v-if="!templates.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
-                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="ptm('action')">
+                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, 'action')">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
-                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="ptm('icon')" />
-                                <span class="p-menuitem-text" v-bind="ptm('label')">{{ getItemLabel(processedItem) }}</span>
+                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="getPTOptions(processedItem, 'icon')" />
+                                <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
                             </a>
                         </router-link>
-                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="ptm('action')">
+                        <a
+                            v-else
+                            v-ripple
+                            :href="getItemProp(processedItem, 'url')"
+                            :class="getItemActionClass(processedItem)"
+                            :target="getItemProp(processedItem, 'target')"
+                            tabindex="-1"
+                            aria-hidden="true"
+                            v-bind="getPTOptions(processedItem, 'action')"
+                        >
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
-                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="ptm('icon')" />
-                            <span class="p-menuitem-text" v-bind="ptm('label')">{{ getItemLabel(processedItem) }}</span>
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="getPTOptions(processedItem, 'icon')" />
+                            <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
                             <template v-if="isItemGroup(processedItem)">
-                                <component v-if="templates.submenuicon" :is="templates.submenuicon" :active="isItemActive(processedItem)" class="p-submenu-icon" v-bind="ptm('submenuIcon')" />
-                                <component v-else :is="horizontal ? 'AngleDownIcon' : 'AngleRightIcon'" class="p-submenu-icon" v-bind="ptm('submenuIcon')" />
+                                <component v-if="templates.submenuicon" :is="templates.submenuicon" :active="isItemActive(processedItem)" class="p-submenu-icon" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
+                                <component v-else :is="horizontal ? 'AngleDownIcon' : 'AngleRightIcon'" class="p-submenu-icon" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
                             </template>
                         </a>
                     </template>
@@ -141,6 +150,14 @@ export default {
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
+        },
+        getPTOptions(processedItem, key) {
+            return this.ptm(key, {
+                options: {
+                    active: this.isItemActive(processedItem),
+                    focused: this.isItemFocused(processedItem)
+                }
+            });
         },
         isItemActive(processedItem) {
             return ObjectUtils.isNotEmpty(this.activeItem) ? this.activeItem.key === processedItem.key : false;
