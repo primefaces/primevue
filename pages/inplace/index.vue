@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue Inplace Component" header="Inplace" description="Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content." :componentDocs="docs" :apiDocs="['Inplace']" />
+    <DocComponent
+        title="Vue Inplace Component"
+        header="Inplace"
+        description="Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content."
+        :componentDocs="docs"
+        :apiDocs="['Inplace']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -10,6 +17,7 @@ import ImportDoc from '@/doc/inplace/ImportDoc';
 import InputDoc from '@/doc/inplace/InputDoc';
 import LazyDoc from '@/doc/inplace/LazyDoc';
 import StyleDoc from '@/doc/inplace/StyleDoc';
+import PTComponent from '@/doc/inplace/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +58,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
