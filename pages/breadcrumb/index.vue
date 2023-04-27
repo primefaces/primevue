@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Breadcrumb Component" header="Breadcrumb" description="Breadcrumb provides contextual information about page hierarchy." :componentDocs="docs" :apiDocs="['Breadcrumb', 'MenuItem']" />
+    <DocComponent title="Vue Breadcrumb Component" header="Breadcrumb" description="Breadcrumb provides contextual information about page hierarchy." :componentDocs="docs" :apiDocs="['Breadcrumb', 'MenuItem']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import BasicDoc from '@/doc/breadcrumb/BasicDoc';
 import ImportDoc from '@/doc/breadcrumb/ImportDoc';
 import StyleDoc from '@/doc/breadcrumb/StyleDoc';
 import TemplateDoc from '@/doc/breadcrumb/TemplateDoc';
+import PTComponent from '@/doc/breadcrumb/pt/index.vue';
 
 export default {
     data() {
@@ -38,7 +39,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
