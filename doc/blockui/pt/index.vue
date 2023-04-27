@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.badge',
+                    id: 'pt.doc.blockui',
                     label: 'BlockUI PT Options',
                     component: DocApiTable,
                     data: getPTOption('BlockUI')
