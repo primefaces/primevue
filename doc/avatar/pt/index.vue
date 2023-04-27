@@ -2,7 +2,6 @@
     <div class="doc-main">
         <div class="doc-intro">
             <h1>Avatar Pass Through</h1>
-            <p>Description</p>
         </div>
         <DocSections :docs="docs" />
     </div>
