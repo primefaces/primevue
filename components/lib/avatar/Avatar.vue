@@ -1,12 +1,11 @@
 <template>
     <div :class="containerClass" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('root')">
-        <slot></slot>
-        <template v-if="!$slots.default">
+        <slot>
             <span v-if="label" class="p-avatar-text" v-bind="ptm('label')">{{ label }}</span>
             <component v-else-if="$slots.icon" :is="$slots.icon" class="p-avatar-icon" v-bind="ptm('icon')" />
             <span v-else-if="icon" :class="['p-avatar-icon', icon]" v-bind="ptm('icon')" />
             <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" v-bind="ptm('image')" />
-        </template>
+        </slot>
     </div>
 </template>
 

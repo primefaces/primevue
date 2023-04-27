@@ -1,12 +1,11 @@
 <template>
     <div v-if="visible" :class="containerClass" :aria-label="label" v-bind="ptm('root')">
-        <slot></slot>
-        <template v-if="!$slots.default">
+        <slot>
             <img v-if="image" :src="image" v-bind="ptm('image')" />
             <component v-else-if="$slots.icon" :is="$slots.icon" class="p-chip-icon" v-bind="ptm('icon')" />
             <span v-else-if="icon" :class="['p-chip-icon', icon]" v-bind="ptm('icon')" />
             <div v-if="label" class="p-chip-text" v-bind="ptm('label')">{{ label }}</div>
-        </template>
+        </slot>
         <slot v-if="removable" name="removeicon" :onClick="close" :onKeydown="onKeydown">
             <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" tabindex="0" :class="['p-chip-remove-icon', removeIcon]" @click="close" @keydown="onKeydown" v-bind="ptm('removeIcon')"></component>
         </slot>

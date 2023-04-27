@@ -1,7 +1,6 @@
 <template>
     <button v-ripple :class="buttonClass" type="button" :aria-label="defaultAriaLabel" :disabled="disabled" v-bind="ptm('root')">
-        <slot></slot>
-        <template v-if="!$slots.default">
+        <slot>
             <slot v-if="loading" name="loadingicon" :class="loadingIconStyleClass">
                 <span v-if="loadingIcon" :class="[loadingIconStyleClass, loadingIcon]" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="loadingIconStyleClass" spin v-bind="ptm('loadingIcon')" />
@@ -11,7 +10,7 @@
             </slot>
             <span class="p-button-label" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
             <span v-if="badge" :class="badgeStyleClass" v-bind="ptm('badge')">{{ badge }}</span>
-        </template>
+        </slot>
     </button>
 </template>
 
