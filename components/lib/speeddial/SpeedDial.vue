@@ -24,16 +24,7 @@
         </slot>
         <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
-                <li
-                    v-if="isItemVisible(item)"
-                    :id="`${id}_${index}`"
-                    :aria-controls="`${id}_item`"
-                    class="p-speeddial-item"
-                    :class="itemClass(`${id}_${index}`)"
-                    :style="getItemStyle(index)"
-                    role="menuitem"
-                    v-bind="ptm('menuitem', { activeDescendant: focused ? focusedOptionId : undefined })"
-                >
+                <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" class="p-speeddial-item" :class="itemClass(`${id}_${index}`)" :style="getItemStyle(index)" role="menuitem" v-bind="ptm('menuitem')">
                     <template v-if="!$slots.item">
                         <a
                             v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
@@ -45,7 +36,7 @@
                             :target="item.target"
                             @click="onItemClick($event, item)"
                             :aria-label="item.label"
-                            v-bind="ptm('action', { activeDescendant: focused ? focusedOptionId : undefined })"
+                            v-bind="ptm('action')"
                         >
                             <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]" v-bind="ptm('actionIcon')"></span>
                         </a>
