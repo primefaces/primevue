@@ -8931,6 +8931,13 @@
                             "readonly": false,
                             "type": "ContextMenuState",
                             "default": ""
+                        },
+                        {
+                            "name": "options",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ContextMenuOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -9109,6 +9116,29 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current submenu visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ContextMenuOptions": {
+                    "description": "Defines current options in ContextMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -17792,6 +17822,13 @@
                             "readonly": false,
                             "type": "MegaMenuState",
                             "default": ""
+                        },
+                        {
+                            "name": "options",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MegaMenuOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -18002,6 +18039,29 @@
                             "type": "MenuItem",
                             "default": "",
                             "description": "Active item path."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MegaMenuOptions": {
+                    "description": "Defines current options in MegaMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -18617,6 +18677,13 @@
                             "readonly": false,
                             "type": "MenubarState",
                             "default": ""
+                        },
+                        {
+                            "name": "options",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenubarOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -18819,6 +18886,29 @@
                             "type": "MenubarFocusedItemInfo[]",
                             "default": "",
                             "description": "Active item path."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenubarOptions": {
+                    "description": "Defines current options in Menubar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -27756,6 +27846,13 @@
                             "readonly": false,
                             "type": "TieredMenuState",
                             "default": ""
+                        },
+                        {
+                            "name": "options",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TieredMenuOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -27926,6 +28023,29 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Current visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TieredMenuOptions": {
+                    "description": "Defines current options in TieredMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
