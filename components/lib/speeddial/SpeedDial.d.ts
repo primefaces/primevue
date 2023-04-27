@@ -39,13 +39,13 @@ export interface SpeedDialPassThroughOptions {
      */
     icon?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Uses to pass attributes to the menu's DOM element.
      */
-    list?: SpeedDialPassThroughOptionType;
+    menu?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Uses to pass attributes to the menu item's DOM element.
      */
-    item?: SpeedDialPassThroughOptionType;
+    menuitem?: SpeedDialPassThroughOptionType;
     /**
      * Uses to pass attributes to the action's DOM element.
      */
