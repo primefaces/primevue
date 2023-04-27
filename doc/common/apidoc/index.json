@@ -24914,20 +24914,20 @@
                             "description": "Uses to pass attributes to the icon's DOM element."
                         },
                         {
-                            "name": "list",
+                            "name": "menu",
                             "optional": true,
                             "readonly": false,
                             "type": "SpeedDialPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the list's DOM element."
+                            "description": "Uses to pass attributes to the menu's DOM element."
                         },
                         {
-                            "name": "item",
+                            "name": "menuitem",
                             "optional": true,
                             "readonly": false,
                             "type": "SpeedDialPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the item's DOM element."
+                            "description": "Uses to pass attributes to the menu item's DOM element."
                         },
                         {
                             "name": "action",
