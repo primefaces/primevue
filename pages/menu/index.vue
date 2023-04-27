@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Menu Component" header="Menu" description="Menu is a navigation/command component that supports dynamic and static positioning." :componentDocs="docs" :apiDocs="['Menu', 'MenuItem']" />
+    <DocComponent title="Vue Menu Component" header="Menu" description="Menu is a navigation/command component that supports dynamic and static positioning." :componentDocs="docs" :apiDocs="['Menu', 'MenuItem']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -10,6 +10,7 @@ import ImportDoc from '@/doc/menu/ImportDoc';
 import PopupDoc from '@/doc/menu/PopupDoc';
 import StyleDoc from '@/doc/menu/StyleDoc';
 import TemplateDoc from '@/doc/menu/TemplateDoc';
+import PTComponent from '@/doc/menu/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +51,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
