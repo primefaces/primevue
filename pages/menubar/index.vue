@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Navbar Component" header="Menubar" description="Menubar also known as Navbar, is a horizontal menu component." :componentDocs="docs" :apiDocs="['Menubar', 'MenuItem']" />
+    <DocComponent title="Vue Navbar Component" header="Menubar" description="Menubar also known as Navbar, is a horizontal menu component." :componentDocs="docs" :apiDocs="['Menubar', 'MenuItem']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import BasicDoc from '@/doc/menubar/BasicDoc';
 import ImportDoc from '@/doc/menubar/ImportDoc';
 import StyleDoc from '@/doc/menubar/StyleDoc';
 import TemplateDoc from '@/doc/menubar/TemplateDoc';
+import PTComponent from '@/doc/menubar/pt/index.vue';
 
 export default {
     data() {
@@ -38,7 +39,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

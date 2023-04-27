@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue MegaMenu Component" header="MegaMenu" description="MegaMenu is navigation component that displays submenus together." :componentDocs="docs" :apiDocs="['MegaMenu', 'MenuItem']" />
+    <DocComponent title="Vue MegaMenu Component" header="MegaMenu" description="MegaMenu is navigation component that displays submenus together." :componentDocs="docs" :apiDocs="['MegaMenu', 'MenuItem']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import ImportDoc from '@/doc/megamenu/ImportDoc';
 import StyleDoc from '@/doc/megamenu/StyleDoc';
 import TemplateDoc from '@/doc/megamenu/TemplateDoc';
 import VerticalDoc from '@/doc/megamenu/VerticalDoc';
+import PTComponent from '@/doc/megamenu/pt/index.vue';
 
 export default {
     data() {
@@ -44,7 +45,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
