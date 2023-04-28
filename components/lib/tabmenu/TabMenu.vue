@@ -99,7 +99,7 @@ export default {
     methods: {
         getPTOptions(key, index) {
             return this.ptm(key, {
-                options: {
+                context: {
                     order: index
                 }
             });

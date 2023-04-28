@@ -19,6 +19,7 @@ export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((op
 export interface MenuPassThroughMethodOptions {
     props: MenuProps;
     state: MenuState;
+    context: MenuContext;
 }
 
 /**
@@ -105,6 +106,17 @@ export interface MenuState {
      * Selected option index.
      */
     selectedOptionIndex: number;
+}
+
+/**
+ * Defines current options in Menu component.
+ */
+export interface MenuContext {
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**

@@ -25,9 +25,9 @@
                     :aria-disabled="disabled(processedItem)"
                     @click="onItemClick($event, processedItem)"
                     @mouseenter="onItemMouseEnter(index)"
-                    v-bind="ptm('menuitem')"
+                    v-bind="getPTOptions(getItemId(index), 'menuitem')"
                 >
-                    <div class="p-menuitem-content" v-bind="ptm('content')">
+                    <div class="p-menuitem-content" v-bind="getPTOptions(getItemId(index), 'content')">
                         <template v-if="!templates['item']">
                             <router-link v-if="processedItem.to && !disabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="processedItem.to" custom>
                                 <a
@@ -38,10 +38,10 @@
                                     tabindex="-1"
                                     aria-hidden="true"
                                     @click="onItemActionClick($event, processedItem, navigate)"
-                                    v-bind="ptm('action')"
+                                    v-bind="getPTOptions(getItemId(index), 'action')"
                                 >
                                     <template v-if="!templates['icon']">
-                                        <span v-ripple :class="['p-dock-icon', processedItem.icon]" v-bind="ptm('icon')"></span>
+                                        <span v-ripple :class="['p-dock-icon', processedItem.icon]" v-bind="getPTOptions(getItemId(index), 'icon')"></span>
                                     </template>
                                     <component v-else :is="templates['icon']" :item="processedItem"></component>
                                 </a>
@@ -54,10 +54,10 @@
                                 :target="processedItem.target"
                                 tabindex="-1"
                                 aria-hidden="true"
-                                v-bind="ptm('action')"
+                                v-bind="getPTOptions(getItemId(index), 'action')"
                             >
                                 <template v-if="!templates['icon']">
-                                    <span v-ripple :class="['p-dock-icon', processedItem.icon]" v-bind="ptm('icon')"></span>
+                                    <span v-ripple :class="['p-dock-icon', processedItem.icon]" v-bind="getPTOptions(getItemId(index), 'icon')"></span>
                                 </template>
                                 <component v-else :is="templates['icon']" :item="processedItem"></component>
                             </a>
@@ -138,8 +138,18 @@ export default {
         getItemProp(processedItem, name) {
             return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
         },
+        getPTOptions(id, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isItemActive(id)
+                }
+            });
+        },
         isSameMenuItem(event) {
             return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('.p-menuitem')));
+        },
+        isItemActive(id) {
+            return id === this.focusedOptionIndex;
         },
         onListMouseLeave() {
             this.currentIndex = -3;
@@ -262,7 +272,7 @@ export default {
             return [
                 'p-dock-item',
                 {
-                    'p-focus': id === this.focusedOptionIndex,
+                    'p-focus': this.isItemActive(id),
                     'p-disabled': this.disabled(item),
                     'p-dock-item-second-prev': this.currentIndex - 2 === index,
                     'p-dock-item-prev': this.currentIndex - 1 === index,

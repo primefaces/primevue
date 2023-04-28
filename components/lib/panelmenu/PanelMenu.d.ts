@@ -19,6 +19,7 @@ export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttribu
 export interface PanelMenuPassThroughMethodOptions {
     props: PanelMenuProps;
     state: PanelMenuState;
+    context: PanelMenuContext;
 }
 
 /**
@@ -120,6 +121,22 @@ export interface PanelMenuState {
      * @type {MenuItem}
      */
     activeItem: MenuItem[];
+}
+
+/**
+ * Defines current options in PanelMenu component.
+ */
+export interface PanelMenuContext {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**

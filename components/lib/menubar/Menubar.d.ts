@@ -19,7 +19,7 @@ export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes 
 export interface MenubarPassThroughMethodOptions {
     props: MenubarProps;
     state: MenubarState;
-    options: MenubarOptions;
+    context: MenubarContext;
 }
 
 /**
@@ -139,7 +139,7 @@ export interface MenubarState {
 /**
  * Defines current options in Menubar component.
  */
-export interface MenubarOptions {
+export interface MenubarContext {
     /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false

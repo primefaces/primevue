@@ -43,7 +43,7 @@ export default {
         },
         getPTOptions(key) {
             return this.ptm(key, {
-                options: {
+                context: {
                     focused: this.isItemFocused()
                 }
             });

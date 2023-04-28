@@ -19,6 +19,7 @@ export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((op
 export interface DockPassThroughMethodOptions {
     props: DockProps;
     state: DockState;
+    context: DockContext;
 }
 
 /**
@@ -86,6 +87,17 @@ export interface DockState {
      * @defaultvalue -1
      */
     focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in Dock component.
+ */
+export interface DockContext {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
 }
 
 /**
