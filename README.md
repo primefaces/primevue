@@ -50,7 +50,7 @@ Each PrimeVue theme has its own font family so it is suggested to apply it to yo
 
 ```
 body {
-    font-family: (--font-family);
+    font-family: var(--font-family);
 }
 ```
 
