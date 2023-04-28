@@ -44,6 +44,14 @@ jobs:
         run: |
           npm run test:unit
 
+      - name: Lint
+        run: |
+          npm run lint
+
+      - name: Security
+        run: |
+          npm run security:check
+
       - name: Add Code Format Fail Comment
         if: always() && steps.codeFormat.outcome == 'failure'
         uses: thollander/actions-comment-pull-request@v1

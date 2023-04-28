@@ -3,11 +3,9 @@ name: NodeJS CI
 on:
     push:
         branches: [master]
-    pull_request:
-        branches: [master]
 
 permissions:
-    contents: read
+    contents: write
 
 jobs:
     build:
@@ -33,12 +31,22 @@ jobs:
             - name: Lint Check
               if: ${{ success() }}
               run: |
-                  npm run format:check
+                  npm run lint
 
-            - name: Code Format
+            - name: Code Format Check
+              id: codeFormatCheck
               if: ${{ success() }}
               run: |
                   npm run format:check
+
+            - name: Code Format
+              if: always() && steps.codeFormatCheck.outcome == 'failure'
+              run: |
+                  npm run format
+                  git config user.name "GitHub Actions Bot"
+                  git config user.email "<>"
+                  git commit -a -m "Code Format"
+                  git push
 
             - name: Security Check
               if: ${{ success() }}
