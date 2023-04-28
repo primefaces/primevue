@@ -19,6 +19,7 @@ export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttribu
 export interface SpeedDialPassThroughMethodOptions {
     props: SpeedDialProps;
     state: SpeedDialState;
+    context: SpeedDialContext;
 }
 
 /**
@@ -95,6 +96,17 @@ export interface SpeedDialState {
      * @defaultValue -1
      */
     focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in SpeedDial component.
+ */
+export interface SpeedDialContext {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
 }
 
 /**

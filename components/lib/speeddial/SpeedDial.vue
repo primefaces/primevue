@@ -24,7 +24,16 @@
         </slot>
         <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
-                <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" class="p-speeddial-item" :class="itemClass(`${id}_${index}`)" :style="getItemStyle(index)" role="menuitem" v-bind="ptm('menuitem')">
+                <li
+                    v-if="isItemVisible(item)"
+                    :id="`${id}_${index}`"
+                    :aria-controls="`${id}_item`"
+                    class="p-speeddial-item"
+                    :class="itemClass(`${id}_${index}`)"
+                    :style="getItemStyle(index)"
+                    role="menuitem"
+                    v-bind="getPTOptions(`${id}_${index}`, 'menuitem')"
+                >
                     <template v-if="!$slots.item">
                         <a
                             v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
@@ -36,9 +45,9 @@
                             :target="item.target"
                             @click="onItemClick($event, item)"
                             :aria-label="item.label"
-                            v-bind="ptm('action')"
+                            v-bind="getPTOptions(`${id}_${index}`, 'action')"
                         >
-                            <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]" v-bind="ptm('actionIcon')"></span>
+                            <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -168,6 +177,13 @@ export default {
         this.unbindDocumentClickListener();
     },
     methods: {
+        getPTOptions(id, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isItemActive(id)
+                }
+            });
+        },
         onFocus(event) {
             this.focused = true;
 
@@ -488,6 +504,9 @@ export default {
         isItemVisible(item) {
             return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
+        isItemActive(id) {
+            return id === this.focusedOptionId;
+        },
         containerRef(el) {
             this.container = el;
         },
@@ -497,7 +516,7 @@ export default {
         itemClass(id) {
             return [
                 {
-                    'p-focus': id === this.focusedOptionId
+                    'p-focus': this.isItemActive(id)
                 }
             ];
         }
