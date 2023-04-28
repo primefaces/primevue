@@ -1,16 +1,5 @@
-import { config, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Password from './Password.vue';
-
-config.global.mocks = {
-    $primevue: {
-        config: {
-            'z-index': 5,
-            inputStyle: 'filled',
-            ripple: false,
-            locale: {}
-        }
-    }
-};
 
 describe('Password.vue', () => {
     let wrapper;

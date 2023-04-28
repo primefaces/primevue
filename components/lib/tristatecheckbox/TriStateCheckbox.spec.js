@@ -1,19 +1,6 @@
-import { config, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import TriStateCheckbox from './TriStateCheckbox.vue';
 
-config.global.mocks = {
-    $primevue: {
-        config: {
-            locale: {
-                aria: {
-                    trueLabel: 'trueLabel',
-                    falseLabel: 'falseLabel',
-                    nullLabel: 'nullLabel'
-                }
-            }
-        }
-    }
-};
 let wrapper;
 const modelValues = [true, false, null];
 const emittedResults = [false, null, true];

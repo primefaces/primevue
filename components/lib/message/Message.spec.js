@@ -1,18 +1,5 @@
-import { config, mount } from '@vue/test-utils';
-import PrimeVue from 'primevue/config';
+import { mount } from '@vue/test-utils';
 import Message from './Message.vue';
-
-config.global.mocks = {
-    $primevue: {
-        config: {
-            locale: {
-                aria: {
-                    close: 'Close'
-                }
-            }
-        }
-    }
-};
 
 describe('Message.vue', () => {
     let wrapper;

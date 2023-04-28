@@ -14,7 +14,8 @@ export default mergeConfig(
             coverage: {
                 provider: 'istanbul',
                 reporter: ['text', 'json', 'html']
-            }
+            },
+            setupFiles: [path.resolve(__dirname, './components/lib/config/PrimeVue.spec.js')]
         },
         resolve: {
             alias: {
