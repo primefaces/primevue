@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Button Component" header="Button" description="Button is an extension to standard input element with icons and theming." :componentDocs="docs" :apiDocs="['Button']" />
+    <DocComponent title="Vue Button Component" header="Button" description="Button is an extension to standard input element with icons and theming." :componentDocs="docs" :apiDocs="['Button']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -22,6 +22,8 @@ import SizesDoc from '@/doc/button/SizesDoc.vue';
 import StyleDoc from '@/doc/button/StyleDoc.vue';
 import TemplateDoc from '@/doc/button/TemplateDoc.vue';
 import TextDoc from '@/doc/button/TextDoc.vue';
+import PTComponent from '@/doc/button/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -121,7 +123,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
