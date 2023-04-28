@@ -10,6 +10,65 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface MessagePassThroughMethodOptions {
+    props: MessageProps;
+    state: MessageState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link MessageProps.pt}
+ */
+export interface MessagePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: MessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: MessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: MessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the text's DOM element.
+     */
+    text?: MessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    button?: MessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button icon's DOM element.
+     */
+    buttonIcon?: MessagePassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface MessagePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Message component.
+ */
+export interface MessageState {
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    visible: boolean;
+}
+
 /**
  * Defines valid properties in Message component.
  */
@@ -45,7 +104,6 @@ export interface MessageProps {
     closeIcon?: string | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the close button.
-     * @deprecated since v3.26.0. Use 'pt' property.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
 }

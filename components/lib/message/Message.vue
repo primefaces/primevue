@@ -1,17 +1,17 @@
 <template>
     <transition name="p-message" appear>
-        <div v-show="visible" :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="p-message-wrapper">
+        <div v-show="visible" :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')">
+            <div class="p-message-wrapper" v-bind="ptm('wrapper')">
                 <slot name="messageicon" class="p-message-icon">
-                    <component :is="icon ? 'span' : iconComponent" :class="['p-message-icon', icon]"></component>
+                    <component :is="icon ? 'span' : iconComponent" :class="['p-message-icon', icon]" v-bind="ptm('icon')"></component>
                 </slot>
-                <div class="p-message-text">
+                <div class="p-message-text" v-bind="ptm('text')">
                     <slot></slot>
                 </div>
-                <button v-if="closable" v-ripple class="p-message-close p-link" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="closeButtonProps">
+                <button v-if="closable" v-ripple class="p-message-close p-link" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('button') }">
                     <slot name="closeicon" class="p-message-close-icon">
-                        <i v-if="closeIcon" :class="['p-message-close-icon', closeIcon]" />
-                        <TimesIcon v-else class="p-message-close-icon" />
+                        <i v-if="closeIcon" :class="['p-message-close-icon', closeIcon]" v-bind="ptm('buttonIcon')" />
+                        <TimesIcon v-else class="p-message-close-icon" v-bind="ptm('buttonIcon')" />
                     </slot>
                 </button>
             </div>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
@@ -29,6 +30,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'Message',
+    extends: BaseComponent,
     emits: ['close'],
     props: {
         severity: {
