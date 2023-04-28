@@ -5,6 +5,7 @@
         description="ConfirmPopup displays a confirmation overlay displayed relatively to its target."
         :componentDocs="docs"
         :apiDocs="['ConfirmPopup', 'ConfirmationService-UseConfirm', 'ConfirmationOptions']"
+        :ptTabComponent="ptComponent"
     />
 </template>
 
@@ -15,6 +16,7 @@ import ConfirmationServiceDoc from '@/doc/confirmpopup/ConfirmationServiceDoc.vu
 import ImportDoc from '@/doc/confirmpopup/ImportDoc.vue';
 import StyleDoc from '@/doc/confirmpopup/StyleDoc.vue';
 import TemplateDoc from '@/doc/confirmpopup/TemplateDoc.vue';
+import PTComponent from '@/doc/confirmpopup/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +52,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
