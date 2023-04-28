@@ -1,58 +1,59 @@
 <template>
-    <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component">
-        <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" />
-        <div class="p-fileupload-buttonbar">
-            <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
-                <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
+    <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component" v-bind="ptm('root')">
+        <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" v-bind="ptm('input')" />
+        <div class="p-fileupload-buttonbar" v-bind="ptm('buttonbar')">
+            <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear" v-bind="ptm('header')">
+                <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0" v-bind="ptm('button')">
                     <slot name="chooseicon">
-                        <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left', chooseIcon]" aria-hidden="true" />
+                        <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left', chooseIcon]" aria-hidden="true" v-bind="ptm('chooseIcon')" />
                     </slot>
-                    <span class="p-button-label">{{ chooseButtonLabel }}</span>
+                    <span class="p-button-label" v-bind="ptm('chooseButtonLabel')">{{ chooseButtonLabel }}</span>
                 </span>
-                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled">
+                <FileUploadButton v-if="showUploadButton" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled" :pt="ptm('uploadButton')">
                     <template #icon="iconProps">
                         <slot name="uploadicon">
-                            <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" />
+                            <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('uploadButton')['icon']" />
                         </slot>
                     </template>
                 </FileUploadButton>
-                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" @click="clear" :disabled="cancelDisabled">
+                <FileUploadButton v-if="showCancelButton" :label="cancelButtonLabel" @click="clear" :disabled="cancelDisabled" :pt="ptm('cancelButton')">
                     <template #icon="iconProps">
                         <slot name="cancelicon">
-                            <component :is="cancelIcon ? 'span' : 'TimesIcon'" :class="[iconProps.class, cancelIcon]" aria-hidden="true" />
+                            <component :is="cancelIcon ? 'span' : 'TimesIcon'" :class="[iconProps.class, cancelIcon]" aria-hidden="true" v-bind="ptm('cancelButton')['icon']" />
                         </slot>
                     </template>
                 </FileUploadButton>
             </slot>
         </div>
-        <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop">
+        <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop" v-bind="ptm('content')">
             <slot name="content" :files="files" :uploadedFiles="uploadedFiles" :removeUploadedFileCallback="removeUploadedFile" :removeFileCallback="remove" :progress="progress" :messages="messages">
-                <FileUploadProgressBar v-if="hasFiles" :value="progress" :showValue="false" />
-                <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-                <FileContent v-if="hasFiles" :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" :templates="$slots" />
-                <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" :templates="$slots" />
+                <FileUploadProgressBar v-if="hasFiles" :value="progress" :showValue="false" :pt="ptm('progressbar')" />
+                <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :pt="ptm('messages')">{{ msg }}</FileUploadMessage>
+                <FileContent v-if="hasFiles" :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" :templates="$slots" :pt="pt" />
+                <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" :templates="$slots" :pt="pt" />
             </slot>
-            <div v-if="$slots.empty && !hasFiles && !hasUploadedFiles" class="p-fileupload-empty">
+            <div v-if="$slots.empty && !hasFiles && !hasUploadedFiles" class="p-fileupload-empty" v-bind="ptm('empty')">
                 <slot name="empty"></slot>
             </div>
         </div>
     </div>
-    <div v-else-if="isBasic" class="p-fileupload p-fileupload-basic p-component">
-        <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose">{{ msg }}</FileUploadMessage>
-        <span v-ripple :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0">
+    <div v-else-if="isBasic" class="p-fileupload p-fileupload-basic p-component" v-bind="ptm('root')">
+        <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :pt="ptm('messages')">{{ msg }}</FileUploadMessage>
+        <span v-ripple :class="basicChooseButtonClass" :style="style" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0" v-bind="ptm('basicButton')">
             <slot v-if="!hasFiles || auto" name="uploadicon">
-                <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="['p-button-icon p-button-icon-left', uploadIcon]" aria-hidden="true" />
+                <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="['p-button-icon p-button-icon-left', uploadIcon]" aria-hidden="true" v-bind="ptm('uploadIcon')" />
             </slot>
             <slot v-else name="chooseicon">
-                <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left', chooseIcon]" aria-hidden="true" />
+                <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left', chooseIcon]" aria-hidden="true" v-bind="ptm('chooseIcon')" />
             </slot>
-            <span class="p-button-label">{{ basicChooseButtonLabel }}</span>
-            <input v-if="!hasFiles" ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" />
+            <span class="p-button-label" v-bind="ptm('label')">{{ basicChooseButtonLabel }}</span>
+            <input v-if="!hasFiles" ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-bind="ptm('input')" />
         </span>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import PlusIcon from 'primevue/icons/plus';
 import TimesIcon from 'primevue/icons/times';
@@ -65,6 +66,7 @@ import FileContent from './FileContent.vue';
 
 export default {
     name: 'FileUpload',
+    extends: BaseComponent,
     emits: ['select', 'uploader', 'before-upload', 'progress', 'upload', 'error', 'before-send', 'clear', 'remove', 'remove-uploaded-file'],
     props: {
         name: {
