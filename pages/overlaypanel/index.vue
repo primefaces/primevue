@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue Popover Component" header="OverlayPanel" description="OverlayPanel, also known as Popover, is a container component that can overlay other components on page." :componentDocs="docs" :apiDocs="['OverlayPanel']" />
+    <DocComponent
+        title="Vue Popover Component"
+        header="OverlayPanel"
+        description="OverlayPanel, also known as Popover, is a container component that can overlay other components on page."
+        :componentDocs="docs"
+        :apiDocs="['OverlayPanel']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -8,6 +15,7 @@ import BasicDoc from '@/doc/overlaypanel/BasicDoc';
 import DataTableDoc from '@/doc/overlaypanel/DataTableDoc';
 import ImportDoc from '@/doc/overlaypanel/ImportDoc';
 import StyleDoc from '@/doc/overlaypanel/StyleDoc';
+import PTComponent from '@/doc/overlaypanel/pt/index.vue';
 
 export default {
     data() {
@@ -38,7 +46,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
