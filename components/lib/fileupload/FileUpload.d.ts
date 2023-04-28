@@ -181,10 +181,12 @@ export interface FileUploadPassThroughOptions {
     chooseIcon?: FileUploadPassThroughOptionType;
     /**
      * Uses to pass attributes to the upload button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
     uploadButton?: ButtonPassThroughOptions;
     /**
      * Uses to pass attributes to the cancel button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
     cancelButton?: ButtonPassThroughOptions;
     /**
@@ -197,6 +199,7 @@ export interface FileUploadPassThroughOptions {
     progressbar?: FileUploadPassThroughOptionType;
     /**
      * Uses to pass attributes to the messages' DOM element.
+     * @see {@link MessagePassThroughOptions}
      */
     messages?: MessagePassThroughOptions;
     /**
@@ -245,6 +248,7 @@ export interface FileUploadPassThroughOptions {
     actions?: FileUploadPassThroughOptionType;
     /**
      * Uses to pass attributes to the remove button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
     removeButton?: ButtonPassThroughOptions;
 }

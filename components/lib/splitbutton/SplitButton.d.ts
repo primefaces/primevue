@@ -9,6 +9,7 @@
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { MenuItem } from '../menuitem';
+import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes) | null | undefined;
@@ -48,8 +49,9 @@ export interface SplitButtonPassThroughOptions {
     menuButtonIcon?: SplitButtonPassThroughOptionType;
     /**
      * Uses to pass attributes to the menu's DOM element.
+     * @see {@link TieredMenuPassThroughOptions}
      */
-    menu?: SplitButtonPassThroughOptionType;
+    menu?: TieredMenuPassThroughOptions;
 }
 
 /**
