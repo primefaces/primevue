@@ -100,8 +100,6 @@ export default {
         this.id = this.id || UniqueComponentId();
     },
     methods: {
-
-        
         isAccordionTab(child) {
             return child.type.name === 'AccordionTab';
         },
