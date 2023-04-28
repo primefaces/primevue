@@ -26471,6 +26471,13 @@
                             "readonly": false,
                             "type": "TabMenuState",
                             "default": ""
+                        },
+                        {
+                            "name": "options",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabMenuOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -26562,6 +26569,21 @@
                             "type": "number",
                             "default": "",
                             "description": "Current active index state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TabMenuOptions": {
+                    "description": "Defines current options in TabMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "order",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Order of the menuitem"
                         }
                     ],
                     "methods": []
