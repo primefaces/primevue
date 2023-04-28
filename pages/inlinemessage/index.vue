@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue InlineMessage Component" header="InlineMessage" description="Inline Message component displays information related to another element such as invalid input." :componentDocs="docs" :apiDocs="['InlineMessage']" />
+    <DocComponent
+        title="Vue InlineMessage Component"
+        header="InlineMessage"
+        description="Inline Message component displays information related to another element such as invalid input."
+        :componentDocs="docs"
+        :apiDocs="['InlineMessage']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -10,6 +17,7 @@ import ImportDoc from '@/doc/inlinemessage/ImportDoc.vue';
 import SeverityDoc from '@/doc/inlinemessage/SeverityDoc.vue';
 import StyleDoc from '@/doc/inlinemessage/StyleDoc.vue';
 import TemplateDoc from '@/doc/inlinemessage/TemplateDoc.vue';
+import PTComponent from '@/doc/inlinemessage/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +58,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
