@@ -20,7 +20,7 @@ import "primevue/resources/primevue.min.css";`
             },
             code2: {
                 basic: `body {
-    font-family: (--font-family);
+    font-family: var(--font-family);
 } `
             }
         };
