@@ -16043,7 +16043,7 @@
                 },
                 "InlineMessagePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "undefined.InlineMessageProps.pt",
+                    "relatedProp": "InlineMessageProps.pt",
                     "props": [
                         {
                             "name": "root",
@@ -16120,6 +16120,14 @@
                             "default": "",
                             "description": "Display a custom icon for the message.",
                             "deprecated": "since v3.27.0. Use 'icon' slot."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InlineMessagePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -19376,7 +19384,7 @@
                 },
                 "MessagePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "undefined.MessageProps.pt",
+                    "relatedProp": "MessageProps.pt",
                     "props": [
                         {
                             "name": "root",
@@ -19517,6 +19525,14 @@
                             "type": "ButtonHTMLAttributes",
                             "default": "",
                             "description": "Uses to pass all properties of the HTMLButtonElement to the close button."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MessagePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
