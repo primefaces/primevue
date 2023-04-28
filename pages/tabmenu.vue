@@ -1,8 +1,9 @@
 <template>
-    <DocComponent title="Vue TabMenu Component" header="TabMenu" description="TabMenu is a navigation/command component that displays items as tab headers." :componentDocs="docs" :apiDocs="['TabMenu', 'MenuItem']" />
+    <DocComponent title="Vue TabMenu Component" header="TabMenu" description="TabMenu is a navigation/command component that displays items as tab headers." :componentDocs="docs" :apiDocs="['TabMenu', 'MenuItem']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
+import PTComponent from '@/doc/tabmenu/pt/index.vue';
 import AccessibilityDoc from '../doc/tabmenu/AccessibilityDoc.vue';
 import BasicDoc from '../doc/tabmenu/BasicDoc.vue';
 import ControlledDoc from '../doc/tabmenu/ControlledDoc.vue';
@@ -38,7 +39,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

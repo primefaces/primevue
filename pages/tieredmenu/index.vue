@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue TieredMenu Component" header="TieredMenu" description="TieredMenu displays submenus in nested overlays." :componentDocs="docs" :apiDocs="['TieredMenu', 'MenuItem']" />
+    <DocComponent title="Vue TieredMenu Component" header="TieredMenu" description="TieredMenu displays submenus in nested overlays." :componentDocs="docs" :apiDocs="['TieredMenu', 'MenuItem']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import BasicDoc from '@/doc/tieredmenu/BasicDoc';
 import ImportDoc from '@/doc/tieredmenu/ImportDoc';
 import PopupDoc from '@/doc/tieredmenu/PopupDoc';
 import StyleDoc from '@/doc/tieredmenu/StyleDoc';
+import PTComponent from '@/doc/tieredmenu/pt/index.vue';
 
 export default {
     data() {
@@ -38,7 +39,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
