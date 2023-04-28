@@ -3,7 +3,7 @@
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('menu')">
             <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <li v-if="visible(item)" ref="tab" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation" v-bind="ptm('menuitem')">
+                    <li v-if="visible(item)" ref="tab" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation" v-bind="getPTOptions('menuitem', i)">
                         <template v-if="!$slots.item">
                             <a
                                 ref="tabLink"
@@ -16,22 +16,22 @@
                                 :tabindex="isExactActive ? '0' : '-1'"
                                 @click="onItemClick($event, item, i, navigate)"
                                 @keydown="onKeydownItem($event, item, i, navigate)"
-                                v-bind="ptm('action')"
+                                v-bind="getPTOptions('action', i)"
                             >
                                 <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
-                                <span v-else-if="item.icon" :class="getItemIcon(item)" v-bind="ptm('icon')" />
-                                <span class="p-menuitem-text" v-bind="ptm('label')">{{ label(item) }}</span>
+                                <span v-else-if="item.icon" :class="getItemIcon(item)" v-bind="getPTOptions('icon', i)" />
+                                <span class="p-menuitem-text" v-bind="getPTOptions('label', i)">{{ label(item) }}</span>
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item" :index="i"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)" v-bind="ptm('menuitem')">
+                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)" v-bind="getPTOptions('menuitem', i)">
                     <template v-if="!$slots.item">
-                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)" v-bind="ptm('action')">
+                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)" v-bind="getPTOptions('action', i)">
                             <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
-                            <span v-else-if="item.icon" :class="getItemIcon(item)" v-bind="ptm('icon')" />
-                            <span class="p-menuitem-text" v-bind="ptm('label')">{{ label(item) }}</span>
+                            <span v-else-if="item.icon" :class="getItemIcon(item)" v-bind="getPTOptions('icon', i)" />
+                            <span class="p-menuitem-text" v-bind="getPTOptions('label', i)">{{ label(item) }}</span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item" :index="i"></component>
@@ -97,6 +97,13 @@ export default {
         clearTimeout(this.timeout);
     },
     methods: {
+        getPTOptions(key, index) {
+            return this.ptm(key, {
+                options: {
+                    order: index
+                }
+            });
+        },
         onItemClick(event, item, index, navigate) {
             if (this.disabled(item)) {
                 event.preventDefault();

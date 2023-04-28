@@ -19,6 +19,7 @@ export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes 
 export interface TabMenuPassThroughMethodOptions {
     props: TabMenuProps;
     state: TabMenuState;
+    options: TabMenuOptions;
 }
 
 /**
@@ -72,6 +73,16 @@ export interface TabMenuState {
      * @defaulValue 0
      */
     d_activeIndex: number;
+}
+
+/**
+ * Defines current options in TabMenu component.
+ */
+export interface TabMenuOptions {
+    /**
+     * Order of the menuitem
+     */
+    order: number;
 }
 
 /**
