@@ -106,6 +106,11 @@ export interface MessageProps {
      * Uses to pass all properties of the HTMLButtonElement to the close button.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {MessagePassThroughOptions}
+     */
+    pt?: MessagePassThroughOptions;
 }
 
 /**

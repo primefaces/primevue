@@ -71,6 +71,11 @@ export interface InlineMessageProps {
      * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {InlineMessagePassThroughOptions}
+     */
+    pt?: InlineMessagePassThroughOptions;
 }
 /**
  * Defines valid slots in InlineMessage slots.
