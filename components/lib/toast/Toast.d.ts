@@ -10,6 +10,70 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ToastPassThroughMethodOptions {
+    props: ToastProps;
+    state: ToastState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ToastProps.pt}
+ */
+export interface ToastPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the container's DOM element.
+     */
+    container?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the text's DOM element.
+     */
+    text?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the summary's DOM element.
+     */
+    summary?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the detail's DOM element.
+     */
+    detail?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button container's DOM element.
+     */
+    buttonContainer?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    button?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button icon's DOM element.
+     */
+    buttonIcon?: ToastPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ToastPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines message options in Toast component.
  */
@@ -63,6 +127,16 @@ export interface ToastBreakpointsType {
      *
      */
     [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Toast component.
+ */
+export interface ToastState {
+    /**
+     * Current messages.
+     */
+    messages: any[];
 }
 
 /**
@@ -123,6 +197,11 @@ export interface ToastProps {
      * @deprecated since v3.26.0. Use 'pt' property.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ToastPassThroughOptions}
+     */
+    pt?: ToastPassThroughOptions;
 }
 
 /**

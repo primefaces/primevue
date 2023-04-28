@@ -1,17 +1,17 @@
 <template>
-    <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="p-toast-message-content" :class="message.contentStyleClass">
+    <div :class="containerClass" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
+        <div class="p-toast-message-content" :class="message.contentStyleClass" v-bind="ptm('content')">
             <template v-if="!templates.message">
-                <component :is="templates.icon ? templates.icon : iconComponent.name ? iconComponent : 'span'" :class="iconClass" class="p-toast-message-icon" />
-                <div class="p-toast-message-text">
-                    <span class="p-toast-summary">{{ message.summary }}</span>
-                    <div class="p-toast-detail">{{ message.detail }}</div>
+                <component :is="templates.icon ? templates.icon : iconComponent.name ? iconComponent : 'span'" :class="iconClass" class="p-toast-message-icon" v-bind="ptm('icon')" />
+                <div class="p-toast-message-text" v-bind="ptm('text')">
+                    <span class="p-toast-summary" v-bind="ptm('summary')">{{ message.summary }}</span>
+                    <div class="p-toast-detail" v-bind="ptm('detail')">{{ message.detail }}</div>
                 </div>
             </template>
             <component v-else :is="templates.message" :message="message"></component>
-            <div v-if="message.closable !== false">
-                <button v-ripple class="p-toast-icon-close p-link" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="closeButtonProps">
-                    <component :is="templates.closeicon || 'TimesIcon'" :class="['p-toast-icon-close-icon', closeIcon]" />
+            <div v-if="message.closable !== false" v-bind="ptm('buttonContainer')">
+                <button v-ripple class="p-toast-icon-close p-link" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="{ ...closeButtonProps, ...ptm('button') }">
+                    <component :is="templates.closeicon || 'TimesIcon'" :class="['p-toast-icon-close-icon', closeIcon]" v-bind="ptm('buttonIcon')" />
                 </button>
             </div>
         </div>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
@@ -28,6 +29,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'ToastMessage',
+    extends: BaseComponent,
     emits: ['close'],
     props: {
         message: {

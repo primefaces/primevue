@@ -28,6 +28,12 @@ const ToastProps = [
         type: 'object',
         default: 'null',
         description: 'Object literal to define widths per screen size.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

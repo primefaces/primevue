@@ -1,6 +1,6 @@
 <template>
     <Portal>
-        <div ref="container" :class="containerClass" v-bind="$attrs">
+        <div ref="container" :class="containerClass" v-bind="{ ...$attrs, ...ptm('root') }">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
                 <ToastMessage
                     v-for="msg of messages"
@@ -14,6 +14,7 @@
                     :successIcon="successIcon"
                     :closeButtonProps="closeButtonProps"
                     @close="remove($event)"
+                    :pt="pt"
                 />
             </transition-group>
         </div>
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Portal from 'primevue/portal';
 import ToastEventBus from 'primevue/toasteventbus';
 import { ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -30,6 +32,7 @@ var messageIdx = 0;
 
 export default {
     name: 'Toast',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['close', 'life-end'],
     props: {
