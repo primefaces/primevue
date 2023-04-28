@@ -24971,6 +24971,13 @@
                             "readonly": false,
                             "type": "SpeedDialState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SpeedDialContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -25102,6 +25109,21 @@
                             "type": "number",
                             "default": "-1",
                             "description": "Current focused option index as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SpeedDialContext": {
+                    "description": "Defines current options in SpeedDial component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
