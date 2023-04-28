@@ -32,11 +32,11 @@ describe('Password.vue', () => {
     });
 
     it('should meter update', async () => {
-        expect(wrapper.find('.p-password-info').text()).toBe('');
+        expect(wrapper.find('.p-password-info').text()).toBe('Enter a password');
 
         await wrapper.vm.onKeyUp(event);
 
-        expect(wrapper.find('.p-password-info').text()).toBe('');
+        expect(wrapper.find('.p-password-info').text()).toBe('Weak');
 
         expect(wrapper.find('.p-password-strength').classes()).toContain('weak');
     });
