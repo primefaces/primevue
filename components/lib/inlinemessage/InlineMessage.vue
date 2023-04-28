@@ -1,13 +1,16 @@
 <template>
-    <div aria-live="polite" :class="containerClass">
+    <div aria-live="polite" :class="containerClass" v-bind="ptm('root')">
         <slot name="icon">
-            <component :is="icon ? 'span' : iconComponent" :class="['p-inline-message-icon', icon]"></component>
+            <component :is="icon ? 'span' : iconComponent" :class="['p-inline-message-icon', icon]" v-bind="ptm('icon')"></component>
         </slot>
-        <span class="p-inline-message-text"><slot>&nbsp;</slot></span>
+        <span class="p-inline-message-text" v-bind="ptm('text')">
+            <slot>&nbsp;</slot>
+        </span>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
@@ -15,6 +18,7 @@ import TimesCircleIcon from 'primevue/icons/timescircle';
 
 export default {
     name: 'InlineMessage',
+    extends: BaseComponent,
     props: {
         severity: {
             type: String,

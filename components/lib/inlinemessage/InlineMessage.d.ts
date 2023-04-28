@@ -10,6 +10,53 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type InlineMessagePassThroughOptionType = InlineMessagePassThroughAttributes | ((options: InlineMessagePassThroughMethodOptions) => InlineMessagePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface InlineMessagePassThroughMethodOptions {
+    props: InlineMessageProps;
+    state: InlineMessageState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InlineMessageProps.pt}
+ */
+export interface InlineMessagePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: InlineMessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: InlineMessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the text's DOM element.
+     */
+    text?: InlineMessagePassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface InlineMessagePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in InlineMessage component.
+ */
+export interface InlineMessageState {
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    visible: boolean;
+}
+
 /**
  * Defines valid properties in InlineMessage component.
  */
