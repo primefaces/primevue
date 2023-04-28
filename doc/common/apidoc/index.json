@@ -26112,7 +26112,7 @@
                             "name": "menu",
                             "optional": true,
                             "readonly": false,
-                            "type": "SplitButtonPassThroughOptionType",
+                            "type": "TieredMenuPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the menu's DOM element."
                         }
