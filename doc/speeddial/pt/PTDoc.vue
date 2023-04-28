@@ -62,7 +62,9 @@ export default {
                 basic: `
 <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }"
     :pt="{
-        action: ({ props, state, menuitemId }) => ({ class: actionClass(state, menuitemId) })
+        action: ({ props, state, context }) => ({
+            class: context.active ? 'bg-primary' : undefined
+        })
     }"
 />`,
                 options: `
@@ -71,7 +73,9 @@ export default {
         <div :style="{ position: 'relative', height: '300px' }">
             <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }"
                 :pt="{
-                    action: ({ props, state, menuitemId }) => ({ class: actionClass(state, menuitemId) })
+                    action: ({ props, state, context }) => ({
+                        class: context.active ? 'bg-primary' : undefined
+                    })
                 }"
             />
         </div>
@@ -121,11 +125,6 @@ export default {
                 }
             ]
         }
-    },
-    methods: {
-        actionClass(state, menuitemId) {
-            return menuitemId === state.focusedOptionIndex ? 'bg-primary' : undefined;
-        }
     }
 };
 <\/script>`,
@@ -135,7 +134,9 @@ export default {
         <div :style="{ position: 'relative', height: '300px' }">
             <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }"
                 :pt="{
-                    action: ({ props, state, menuitemId }) => ({ class: actionClass(state, menuitemId) })
+                    action: ({ props, state, context }) => ({
+                        class: context.active ? 'bg-primary' : undefined
+                    })
                 }"
             />
         </div>
@@ -150,10 +151,6 @@ import { useRouter } from 'vue-router';
 
 const toast = useToast();
 const router = useRouter();
-
-const actionClass => (state, menuitemId) = {
-    return menuitemId === state.focusedOptionIndex ? 'bg-primary' : undefined;
-};
 
 const items = ref([
     {
