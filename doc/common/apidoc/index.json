@@ -16020,6 +16020,86 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "InlineMessagePassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InlineMessageProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InlineMessageState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "InlineMessagePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "undefined.InlineMessageProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InlineMessagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InlineMessagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "text",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InlineMessagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the text's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InlineMessagePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InlineMessageState": {
+                    "description": "Defines current inline state in InlineMessage component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "visible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "InlineMessageProps": {
                     "description": "Defines valid properties in InlineMessage component.",
                     "relatedProp": "",
@@ -16067,6 +16147,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InlineMessagePassThroughOptionType": {
+                    "values": "InlineMessagePassThroughAttributes | (options: InlineMessagePassThroughMethodOptions) => InlineMessagePassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -19265,110 +19353,6 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "MessagePassThroughMethodOptions": {
-                    "description": "Custom passthrough(pt) option method.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "props",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "MessageProps",
-                            "default": ""
-                        },
-                        {
-                            "name": "state",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "MessageState",
-                            "default": ""
-                        }
-                    ],
-                    "methods": []
-                },
-                "MessagePassThroughOptions": {
-                    "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "undefined.MessageProps.pt",
-                    "props": [
-                        {
-                            "name": "root",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MessagePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the root's DOM element."
-                        },
-                        {
-                            "name": "wrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MessagePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the wrapper's DOM element."
-                        },
-                        {
-                            "name": "icon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MessagePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the icon's DOM element."
-                        },
-                        {
-                            "name": "text",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MessagePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the text's DOM element."
-                        },
-                        {
-                            "name": "button",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MessagePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the button's DOM element."
-                        },
-                        {
-                            "name": "buttonIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MessagePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the button icon's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "MessagePassThroughAttributes": {
-                    "description": "Custom passthrough attributes for each DOM elements",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "[key: string]",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any"
-                        }
-                    ],
-                    "methods": []
-                },
-                "MessageState": {
-                    "description": "Defines current inline state in Message component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "visible",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current visible state as a boolean."
-                        }
-                    ],
-                    "methods": []
-                },
                 "MessageProps": {
                     "description": "Defines valid properties in Message component.",
                     "relatedProp": "",
@@ -19428,7 +19412,8 @@
                             "readonly": false,
                             "type": "ButtonHTMLAttributes",
                             "default": "",
-                            "description": "Uses to pass all properties of the HTMLButtonElement to the close button."
+                            "description": "Uses to pass all properties of the HTMLButtonElement to the close button.",
+                            "deprecated": "since v3.26.0. Use 'pt' property."
                         }
                     ],
                     "methods": []
@@ -19489,14 +19474,6 @@
                             "description": "Callback to invoke when a message is closed."
                         }
                     ]
-                }
-            }
-        },
-        "types": {
-            "description": "Defines the custom types used by the module.",
-            "values": {
-                "MessagePassThroughOptionType": {
-                    "values": "MessagePassThroughAttributes | (options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes | null | undefined"
                 }
             }
         }
