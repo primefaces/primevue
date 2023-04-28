@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc.dynamicdialog',
-                    label: 'Dialog Elements',
+                    label: 'Dialog PT Options',
                     component: DocApiTable,
                     data: getPTOption('Dialog')
                 },

@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Fieldset Elements',
+                    label: 'Fieldset PT Options',
                     component: DocApiTable,
                     data: getPTOption('Fieldset')
                 },

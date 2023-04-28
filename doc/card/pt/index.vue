@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Card Elements',
+                    label: 'Card PT Options',
                     component: DocApiTable,
                     data: getPTOption('Card')
                 },

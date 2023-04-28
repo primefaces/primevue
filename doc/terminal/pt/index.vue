@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Terminal Elements',
+                    label: 'Terminal PT Options',
                     component: DocApiTable,
                     data: getPTOption('Terminal')
                 },

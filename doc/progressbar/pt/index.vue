@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'ProgressBar Elements',
+                    label: 'ProgressBar PT Options',
                     component: DocApiTable,
                     data: getPTOption('ProgressBar')
                 },

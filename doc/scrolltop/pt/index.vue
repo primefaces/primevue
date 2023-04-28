@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'ScrollTop Elements',
+                    label: 'ScrollTop PT Options',
                     component: DocApiTable,
                     data: getPTOption('ScrollTop')
                 },

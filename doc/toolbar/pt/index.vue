@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Toolbar Elements',
+                    label: 'Toolbar PT Options',
                     component: DocApiTable,
                     data: getPTOption('Toolbar')
                 },

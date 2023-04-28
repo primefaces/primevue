@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'ScrollPanel Elements',
+                    label: 'ScrollPanel PT Options',
                     component: DocApiTable,
                     data: getPTOption('ScrollPanel')
                 },

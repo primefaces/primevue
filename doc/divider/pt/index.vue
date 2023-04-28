@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Divider Elements',
+                    label: 'Divider PT Options',
                     component: DocApiTable,
                     data: getPTOption('Divider')
                 },

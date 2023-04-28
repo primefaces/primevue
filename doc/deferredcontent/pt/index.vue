@@ -24,7 +24,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'DeferredContent Elements',
+                    label: 'DeferredContent PT Options',
                     component: DocApiTable,
                     data: getPTOption('DeferredContent')
                 }

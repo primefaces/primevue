@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Panel Elements',
+                    label: 'Panel PT Options',
                     component: DocApiTable,
                     data: getPTOption('Panel')
                 },

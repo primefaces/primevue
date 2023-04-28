@@ -25,7 +25,7 @@ export default {
                 },
                 {
                     id: 'pt.doc',
-                    label: 'Tag Elements',
+                    label: 'Tag PT Options',
                     component: DocApiTable,
                     data: getPTOption('Tag')
                 },
