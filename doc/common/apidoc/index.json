@@ -8933,10 +8933,10 @@
                             "default": ""
                         },
                         {
-                            "name": "options",
+                            "name": "context",
                             "optional": false,
                             "readonly": false,
-                            "type": "ContextMenuOptions",
+                            "type": "ContextMenuContext",
                             "default": ""
                         }
                     ],
@@ -9120,7 +9120,7 @@
                     ],
                     "methods": []
                 },
-                "ContextMenuOptions": {
+                "ContextMenuContext": {
                     "description": "Defines current options in ContextMenu component.",
                     "relatedProp": "",
                     "props": [
@@ -12959,6 +12959,13 @@
                             "readonly": false,
                             "type": "DockState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DockContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -13074,6 +13081,21 @@
                             "type": "number",
                             "default": "",
                             "description": "Current focused item index as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "DockContext": {
+                    "description": "Defines current options in Dock component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -17824,10 +17846,10 @@
                             "default": ""
                         },
                         {
-                            "name": "options",
+                            "name": "context",
                             "optional": false,
                             "readonly": false,
-                            "type": "MegaMenuOptions",
+                            "type": "MegaMenuContext",
                             "default": ""
                         }
                     ],
@@ -18043,7 +18065,7 @@
                     ],
                     "methods": []
                 },
-                "MegaMenuOptions": {
+                "MegaMenuContext": {
                     "description": "Defines current options in MegaMenu component.",
                     "relatedProp": "",
                     "props": [
@@ -18308,6 +18330,13 @@
                             "readonly": false,
                             "type": "MenuState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MenuContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -18463,6 +18492,21 @@
                             "type": "number",
                             "default": "",
                             "description": "Selected option index."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MenuContext": {
+                    "description": "Defines current options in Menu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -18679,10 +18723,10 @@
                             "default": ""
                         },
                         {
-                            "name": "options",
+                            "name": "context",
                             "optional": false,
                             "readonly": false,
-                            "type": "MenubarOptions",
+                            "type": "MenubarContext",
                             "default": ""
                         }
                     ],
@@ -18890,7 +18934,7 @@
                     ],
                     "methods": []
                 },
-                "MenubarOptions": {
+                "MenubarContext": {
                     "description": "Defines current options in Menubar component.",
                     "relatedProp": "",
                     "props": [
@@ -21662,6 +21706,13 @@
                             "readonly": false,
                             "type": "PanelMenuState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PanelMenuContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -21849,6 +21900,29 @@
                             "type": "MenuItem[]",
                             "default": "",
                             "description": "Active item path."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PanelMenuContext": {
+                    "description": "Defines current options in PanelMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -26495,10 +26569,10 @@
                             "default": ""
                         },
                         {
-                            "name": "options",
+                            "name": "context",
                             "optional": false,
                             "readonly": false,
-                            "type": "TabMenuOptions",
+                            "type": "TabMenuContext",
                             "default": ""
                         }
                     ],
@@ -26595,7 +26669,7 @@
                     ],
                     "methods": []
                 },
-                "TabMenuOptions": {
+                "TabMenuContext": {
                     "description": "Defines current options in TabMenu component.",
                     "relatedProp": "",
                     "props": [
@@ -27892,10 +27966,10 @@
                             "default": ""
                         },
                         {
-                            "name": "options",
+                            "name": "context",
                             "optional": false,
                             "readonly": false,
-                            "type": "TieredMenuOptions",
+                            "type": "TieredMenuContext",
                             "default": ""
                         }
                     ],
@@ -28071,7 +28145,7 @@
                     ],
                     "methods": []
                 },
-                "TieredMenuOptions": {
+                "TieredMenuContext": {
                     "description": "Defines current options in TieredMenu component.",
                     "relatedProp": "",
                     "props": [
