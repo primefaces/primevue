@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Dialog Component" header="Dialog" description="Dialog is a container to display content in an overlay window" :componentDocs="docs" :apiDocs="['Dialog']" />
+    <DocComponent title="Vue Dialog Component" header="Dialog" description="Dialog is a container to display content in an overlay window" :componentDocs="docs" :apiDocs="['Dialog']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -13,6 +13,7 @@ import PositionDoc from '@/doc/dialog/PositionDoc';
 import ResponsiveDoc from '@/doc/dialog/ResponsiveDoc';
 import StyleDoc from '@/doc/dialog/StyleDoc';
 import WithoutModalDoc from '@/doc/dialog/WithoutModalDoc';
+import PTComponent from '@/doc/dialog/pt/index.vue';
 
 export default {
     data() {
@@ -68,7 +69,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
