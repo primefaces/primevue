@@ -142,6 +142,12 @@ const FileUploadProps = [
         type: 'string',
         default: 'null',
         description: 'Style class of the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
