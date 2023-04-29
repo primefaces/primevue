@@ -62,6 +62,10 @@ export interface ImageSlots {
      * Custom close template.
      */
     close(): VNode[];
+     /**
+     * Custom preview template.
+     */
+     imagePreview(): VNode[];
 }
 
 export interface ImageEmits {}
