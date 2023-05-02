@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.divider',
                     label: 'Divider PT Options',
                     component: DocApiTable,
                     data: getPTOption('Divider')

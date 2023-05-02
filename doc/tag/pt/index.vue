@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.tag',
                     label: 'Tag PT Options',
                     component: DocApiTable,
                     data: getPTOption('Tag')

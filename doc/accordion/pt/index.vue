@@ -30,7 +30,7 @@ export default {
                     data: getPTOption('Accordion')
                 },
                 {
-                    id: 'pt.doc.tab',
+                    id: 'pt.doc.accordiontab',
                     label: 'AccordionTab PT Options',
                     component: DocApiTable,
                     data: getPTOption('AccordionTab')

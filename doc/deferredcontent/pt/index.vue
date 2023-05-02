@@ -23,7 +23,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.deferredcontent',
                     label: 'DeferredContent PT Options',
                     component: DocApiTable,
                     data: getPTOption('DeferredContent')

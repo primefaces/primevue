@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.fieldset',
                     label: 'Fieldset PT Options',
                     component: DocApiTable,
                     data: getPTOption('Fieldset')

@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.badge',
+                    id: 'pt.doc.inplace',
                     label: 'Inplace PT Options',
                     component: DocApiTable,
                     data: getPTOption('Inplace')

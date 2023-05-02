@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.fileupload',
                     label: 'FileUpload PT Options',
                     component: DocApiTable,
                     data: getPTOption('FileUpload')

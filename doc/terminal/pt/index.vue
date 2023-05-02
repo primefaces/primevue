@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.terminal',
                     label: 'Terminal PT Options',
                     component: DocApiTable,
                     data: getPTOption('Terminal')

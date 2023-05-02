@@ -30,7 +30,7 @@ export default {
                     data: getPTOption('Splitter')
                 },
                 {
-                    id: 'pt.doc.tab',
+                    id: 'pt.doc.splitterpanel',
                     label: 'SplitterPanel PT Options',
                     component: DocApiTable,
                     data: getPTOption('SplitterPanel')

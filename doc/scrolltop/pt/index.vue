@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.scrolltop',
                     label: 'ScrollTop PT Options',
                     component: DocApiTable,
                     data: getPTOption('ScrollTop')

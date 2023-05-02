@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.progressbar',
                     label: 'ProgressBar PT Options',
                     component: DocApiTable,
                     data: getPTOption('ProgressBar')

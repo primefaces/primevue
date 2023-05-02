@@ -30,7 +30,7 @@ export default {
                     data: getPTOption('Avatar')
                 },
                 {
-                    id: 'pt.doc.tab',
+                    id: 'pt.doc.avatar',
                     label: 'AvatarGroup PT Options',
                     component: DocApiTable,
                     data: getPTOption('AvatarGroup')

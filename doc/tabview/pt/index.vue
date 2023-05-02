@@ -24,13 +24,13 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.accordion',
+                    id: 'pt.doc.tabview',
                     label: 'TabView PT Options',
                     component: DocApiTable,
                     data: getPTOption('TabView')
                 },
                 {
-                    id: 'pt.doc.tab',
+                    id: 'pt.doc.tabpanel',
                     label: 'TabPanel PT Options',
                     component: DocApiTable,
                     data: getPTOption('TabPanel')

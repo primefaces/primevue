@@ -24,7 +24,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
+                    id: 'pt.doc.toolbar',
                     label: 'Toolbar PT Options',
                     component: DocApiTable,
                     data: getPTOption('Toolbar')
