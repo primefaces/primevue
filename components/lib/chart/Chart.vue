@@ -1,12 +1,15 @@
 <template>
-    <div class="p-chart">
-        <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)" v-bind="canvasProps"></canvas>
+    <div class="p-chart" v-bind="ptm('root')">
+        <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)" v-bind="{ ...canvasProps, ...ptm('canvas') }"></canvas>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Chart',
+    extends: BaseComponent,
     emits: ['select', 'loaded'],
     props: {
         type: String,
