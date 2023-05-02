@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
-            <template #indicator>
+            <template #indicatoricon>
                 <i class="pi pi-check"></i>
             </template>
         </Image>
@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
-            <template #indicator>
+            <template #indicatoricon>
                 <i class="pi pi-check"></i>
             </template>
         </Image>
@@ -37,7 +37,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
-            <template #indicator>
+            <template #indicatoricon>
                 <i class="pi pi-check"></i>
             </template>
         </Image>
