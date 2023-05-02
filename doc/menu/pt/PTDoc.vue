@@ -5,8 +5,8 @@
             :model="items"
             :pt="{
                 submenuHeader: { class: 'text-surface-900' },
-                action: ({ props, state, options }) => ({
-                    class: options.focused ? 'bg-primary-400' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.focused ? 'bg-primary-400' : undefined
                 })
             }"
         />
@@ -60,8 +60,8 @@ export default {
     :model="items"
     :pt="{
         submenuHeader: { class: 'text-surface-900' },
-        action: ({ props, state, options }) => ({
-            class: options.focused ? 'bg-primary-400' : undefined
+        action: ({ props, state, context }) => ({
+            class: context.focused ? 'bg-primary-400' : undefined
         })
     }"
 />`,
@@ -72,8 +72,8 @@ export default {
             :model="items"
             :pt="{
                 submenuHeader: { class: 'text-surface-900' },
-                action: ({ props, state, options }) => ({
-                    class: options.focused ? 'bg-primary-400' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.focused ? 'bg-primary-400' : undefined
                 })
             }"
         />
@@ -132,8 +132,8 @@ export default {
             :model="items"
             :pt="{
                 submenuHeader: { class: 'text-surface-900' },
-                action: ({ props, state, options }) => ({
-                    class: options.focused ? 'bg-primary-400' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.focused ? 'bg-primary-400' : undefined
                 })
             }"
         />

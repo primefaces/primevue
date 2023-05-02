@@ -4,8 +4,8 @@
         <TieredMenu
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({
-                    class: options.active ? 'bg-primary-200 border-round-sm' : options.focused ? 'bg-primary-300 border-round-sm' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
                 })
             }"
         />
@@ -145,11 +145,25 @@ export default {
             ],
             code: {
                 basic: `
-<TieredMenu :model="items" />`,
+<TieredMenu
+    :model="items"
+    :pt="{
+        action: ({ props, state, context }) => ({
+            class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
+        })
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <TieredMenu :model="items" />
+        <TieredMenu
+            :model="items"
+            :pt="{
+                action: ({ props, state, context }) => ({
+                    class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
+                })
+            }"
+        />
     </div>
 </template>
 
@@ -290,7 +304,14 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <TieredMenu :model="items" />
+        <TieredMenu
+            :model="items"
+            :pt="{
+                action: ({ props, state, context }) => ({
+                    class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
+                })
+            }"
+        />
     </div>
 </template>
 

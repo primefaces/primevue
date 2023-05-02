@@ -53,7 +53,7 @@ export default {
             root: { class: 'surface-ground' }
         }
     }"
-    />`,
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">

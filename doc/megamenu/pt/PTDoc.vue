@@ -4,8 +4,8 @@
         <MegaMenu
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({
-                    class: options.active ? 'bg-primary-200 border-round-sm' : options.focused ? 'bg-primary-300 border-round-sm' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
                 })
             }"
         />
@@ -138,8 +138,8 @@ export default {
 <MegaMenu
     :model="items"
     :pt="{
-        action: ({ props, state, options }) => ({
-            class: options.active ? 'bg-primary-200 border-round-sm' : options.focused ? 'bg-primary-300 border-round-sm' : undefined
+        action: ({ props, state, context }) => ({
+            class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
         })
     }"
 />`,
@@ -149,8 +149,8 @@ export default {
         <MegaMenu
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({
-                    class: options.active ? 'bg-primary-200 border-round-sm' : options.focused ? 'bg-primary-300 border-round-sm' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
                 })
             }"
         />
@@ -287,8 +287,8 @@ export default {
         <MegaMenu
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({
-                    class: options.active ? 'bg-primary-200 border-round-sm' : options.focused ? 'bg-primary-300 border-round-sm' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.active ? 'bg-primary-200 border-round-sm' : context.focused ? 'bg-primary-300 border-round-sm' : undefined
                 })
             }"
         />

@@ -4,8 +4,8 @@
         <TabMenu
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({
-                    class: options.order === state.d_activeIndex ? 'bg-primary' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.order === state.d_activeIndex ? 'bg-primary' : undefined
                 })
             }"
         />
@@ -44,8 +44,8 @@ export default {
 <TabMenu
     :model="items"
     :pt="{
-        action: ({ props, state, index }) => ({
-            class: index === state.d_activeIndex ? 'bg-primary' : undefined
+        action: ({ props, state, context }) => ({
+            class: context.order === state.d_activeIndex ? 'bg-primary' : undefined
         })
     }"
 />`,
@@ -55,8 +55,8 @@ export default {
         <TabMenu
             :model="items"
             :pt="{
-                action: ({ props, state, index }) => ({
-                    class: index === state.d_activeIndex ? 'bg-primary' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.order === state.d_activeIndex ? 'bg-primary' : undefined
                 })
             }"
         />
@@ -99,8 +99,8 @@ export default {
         <TabMenu
             :model="items"
             :pt="{
-                action: ({ props, state, index }) => ({
-                    class: index === state.d_activeIndex ? 'bg-primary' : undefined
+                action: ({ props, state, context }) => ({
+                    class: context.order === state.d_activeIndex ? 'bg-primary' : undefined
                 })
             }"
         />

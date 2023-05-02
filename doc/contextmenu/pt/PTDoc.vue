@@ -6,7 +6,7 @@
             ref="menu"
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({ class: options.active ? 'bg-primary-200' : options.focused ? 'bg-primary-300' : undefined })
+                action: ({ props, state, context }) => ({ class: context.active ? 'bg-primary-200' : context.focused ? 'bg-primary-300' : undefined })
             }"
         />
     </div>
@@ -150,7 +150,7 @@ export default {
     ref="menu"
     :model="items"
     :pt="{
-        action: ({ props, state, options }) => ({ class: options.active ? 'bg-primary-200' : options.focused ? 'bg-primary-300' : undefined })
+        action: ({ props, state, context }) => ({ class: context.active ? 'bg-primary-200' : context.focused ? 'bg-primary-300' : undefined })
     }"
 />`,
                 options: `
@@ -161,7 +161,7 @@ export default {
             ref="menu"
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({ class: options.active ? 'bg-primary-200' : options.focused ? 'bg-primary-300' : undefined })
+                action: ({ props, state, context }) => ({ class: context.active ? 'bg-primary-200' : context.focused ? 'bg-primary-300' : undefined })
             }"
         />
     </div>
@@ -314,7 +314,7 @@ export default {
             ref="menu"
             :model="items"
             :pt="{
-                action: ({ props, state, options }) => ({ class: options.active ? 'bg-primary-200' : options.focused ? 'bg-primary-300' : undefined })
+                action: ({ props, state, context }) => ({ class: context.active ? 'bg-primary-200' : context.focused ? 'bg-primary-300' : undefined })
             }"
         />
     </div>
