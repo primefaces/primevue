@@ -19,7 +19,7 @@ export default {
             code: {
                 basic: `
 <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
-    <template #indicator>
+    <template #indicatoricon>
         <i class="pi pi-check"></i>
     </template>
 </Image>`,
