@@ -8469,7 +8469,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the close button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         },
                         {
                             "name": "content",
@@ -8509,7 +8509,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the reject button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         },
                         {
                             "name": "acceptButton",
@@ -8517,7 +8517,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the accept button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         }
                     ],
                     "methods": []
@@ -8759,7 +8759,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the reject button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         },
                         {
                             "name": "acceptButton",
@@ -8767,7 +8767,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the accept button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         }
                     ],
                     "methods": []
@@ -12336,7 +12336,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the close button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         },
                         {
                             "name": "content",
@@ -16545,7 +16545,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the close button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         }
                     ],
                     "methods": []
@@ -25587,7 +25587,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         },
                         {
                             "name": "menu",
@@ -26100,7 +26100,7 @@
                             "readonly": false,
                             "type": "ButtonPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the menu button's DOM element."
+                            "description": "Uses to pass attributes to the Button component."
                         },
                         {
                             "name": "menu",
@@ -26108,7 +26108,7 @@
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptions",
                             "default": "",
-                            "description": "Uses to pass attributes to the menu's DOM element."
+                            "description": "Uses to pass attributes to the TieredMenu component."
                         }
                     ],
                     "methods": []
