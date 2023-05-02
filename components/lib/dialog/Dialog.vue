@@ -32,10 +32,11 @@
                                 @click="close"
                                 :aria-label="closeAriaLabel"
                                 type="button"
-                                v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
+                                :pt="ptm('closeButton')"
+                                v-bind="closeButtonProps"
                             >
                                 <slot name="closeicon">
-                                    <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-dialog-header-close-icon', closeIcon]" v-bind="ptm('closeIcon')"></component>
+                                    <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-dialog-header-close-icon', closeIcon]" v-bind="ptm('closeButton')['icon']"></component>
                                 </slot>
                             </button>
                         </div>

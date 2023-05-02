@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -48,20 +49,14 @@ export interface ConfirmPopupPassThroughOptions {
     footer?: ConfirmPopupPassThroughOptionType;
     /**
      * Uses to pass attributes to the reject button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    rejectButton?: ConfirmPopupPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the reject icon's DOM element.
-     */
-    rejectIcon?: ConfirmPopupPassThroughOptionType;
+    rejectButton?: ButtonPassThroughOptions;
     /**
      * Uses to pass attributes to the accept button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    acceptButton?: ConfirmPopupPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the accept icon's DOM element.
-     */
-    acceptIcon?: ConfirmPopupPassThroughOptionType;
+    acceptButton?: ButtonPassThroughOptions;
 }
 
 /**

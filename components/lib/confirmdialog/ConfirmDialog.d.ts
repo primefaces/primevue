@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -40,12 +41,9 @@ export interface ConfirmDialogPassThroughOptions {
     headerTitle?: ConfirmDialogPassThroughOptionType;
     /**
      * Uses to pass attributes to the close button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    closeButton?: ConfirmDialogPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the close icon's DOM element.
-     */
-    closeIcon?: ConfirmDialogPassThroughOptionType;
+    closeButton?: ButtonPassThroughOptions;
     /**
      * Uses to pass attributes to the content's DOM element.
      */
@@ -64,20 +62,14 @@ export interface ConfirmDialogPassThroughOptions {
     message?: ConfirmDialogPassThroughOptionType;
     /**
      * Uses to pass attributes to the reject button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    rejectButton?: ConfirmDialogPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the reject icon's DOM element.
-     */
-    rejectIcon?: ConfirmDialogPassThroughOptionType;
+    rejectButton?: ButtonPassThroughOptions;
     /**
      * Uses to pass attributes to the accept button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    acceptButton?: ConfirmDialogPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the accept icon's DOM element.
-     */
-    acceptIcon?: ConfirmDialogPassThroughOptionType;
+    acceptButton?: ButtonPassThroughOptions;
 }
 
 /**

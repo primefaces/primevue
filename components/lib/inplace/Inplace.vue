@@ -5,10 +5,10 @@
         </div>
         <div v-else class="p-inplace-content" v-bind="ptm('content')">
             <slot name="content"></slot>
-            <IPButton v-if="closable" :aria-label="closeAriaLabel" @click="close" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
+            <IPButton v-if="closable" :aria-label="closeAriaLabel" @click="close" :pt="ptm('closeButton')" v-bind="closeButtonProps">
                 <template #icon>
                     <slot name="closeicon">
-                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="closeIcon" v-bind="ptm('closeIcon')"></component>
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="closeIcon" v-bind="ptm('closeButton')['icon']"></component>
                     </slot>
                 </template>
             </IPButton>

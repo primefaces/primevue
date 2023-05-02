@@ -13,17 +13,17 @@
                 </template>
                 <component v-else :is="$slots.message" :message="confirmation"></component>
                 <div class="p-confirm-popup-footer" v-bind="ptm('footer')">
-                    <CPButton :label="rejectLabel" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" v-bind="ptm('rejectButton')">
+                    <CPButton :label="rejectLabel" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" :pt="ptm('rejectButton')">
                         <template #icon="iconProps">
                             <slot name="rejecticon">
-                                <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectIcon')" />
+                                <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
                             </slot>
                         </template>
                     </CPButton>
-                    <CPButton :label="acceptLabel" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" v-bind="ptm('acceptButton')">
+                    <CPButton :label="acceptLabel" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" :pt="ptm('acceptButton')">
                         <template #icon="iconProps">
                             <slot name="accepticon">
-                                <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptIcon')" />
+                                <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
                             </slot>
                         </template>
                     </CPButton>

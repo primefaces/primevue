@@ -7,7 +7,9 @@
  * @module inplace
  *
  */
+
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type InplacePassThroughOptionType = InplacePassThroughAttributes | ((options: InplacePassThroughMethodOptions) => InplacePassThroughAttributes) | null | undefined;
@@ -39,12 +41,9 @@ export interface InplacePassThroughOptions {
     content?: InplacePassThroughOptionType;
     /**
      * Uses to pass attributes to the close button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    closeButton?: InplacePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the close icon's DOM element.
-     */
-    closeIcon?: InplacePassThroughOptionType;
+    closeButton?: ButtonPassThroughOptions;
 }
 
 /**
