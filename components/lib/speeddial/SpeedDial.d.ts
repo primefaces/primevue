@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -33,12 +34,9 @@ export interface SpeedDialPassThroughOptions {
     root?: SpeedDialPassThroughOptionType;
     /**
      * Uses to pass attributes to the button's DOM element.
+     *  @see {@link ButtonPassThroughOptions}
      */
-    button?: SpeedDialPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the icon's DOM element.
-     */
-    icon?: SpeedDialPassThroughOptionType;
+    button?: ButtonPassThroughOptions;
     /**
      * Uses to pass attributes to the menu's DOM element.
      */

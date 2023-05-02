@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
@@ -41,12 +42,9 @@ export interface SplitButtonPassThroughOptions {
     icon?: SplitButtonPassThroughOptionType;
     /**
      * Uses to pass attributes to the menu button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
      */
-    menuButton?: SplitButtonPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the menu button icon's DOM element.
-     */
-    menuButtonIcon?: SplitButtonPassThroughOptionType;
+    menuButton?: ButtonPassThroughOptions;
     /**
      * Uses to pass attributes to the menu's DOM element.
      * @see {@link TieredMenuPassThroughOptions}

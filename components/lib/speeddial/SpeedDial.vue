@@ -12,12 +12,12 @@
                 :aria-controls="id + '_list'"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-                v-bind="ptm('button')"
+                :pt="ptm('button')"
             >
                 <template #icon>
                     <slot name="icon" :visible="d_visible">
-                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" v-bind="ptm('icon')" />
-                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" v-bind="ptm('icon')" />
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" v-bind="ptm('button')['icon']" />
+                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" v-bind="ptm('button')['icon']" />
                     </slot>
                 </template>
             </SDButton>

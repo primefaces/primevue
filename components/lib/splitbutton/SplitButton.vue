@@ -19,11 +19,12 @@
             :aria-controls="ariaId + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
-            v-bind="{ ...menuButtonProps, ...ptm('menuButton') }"
+            :pt="ptm('menuButton')"
+            v-bind="menuButtonProps"
         >
             <template #icon="slotProps">
                 <slot name="menubuttonicon">
-                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButtonIcon')" />
+                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButton')['icon']" />
                 </slot>
             </template>
         </PVSButton>
