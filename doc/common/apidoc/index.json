@@ -6266,6 +6266,56 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ChartPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ChartProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ChartPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ChartProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "canvas",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the canvas's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ChartPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "ChartSelectEvent": {
                     "description": "Custom select event.",
                     "relatedProp": "ChartEmits.select",
@@ -6356,6 +6406,14 @@
                             "type": "CanvasHTMLAttributes",
                             "default": "",
                             "description": "Uses to pass all properties of the CanvasHTMLAttributes to canvas element inside the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChartPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -6397,6 +6455,14 @@
                             "description": "Callback to invoke when chart is loaded."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ChartPassThroughOptionType": {
+                    "values": "ChartPassThroughAttributes | (options: ChartPassThroughMethodOptions) => ChartPassThroughAttributes | null | undefined"
                 }
             }
         }
