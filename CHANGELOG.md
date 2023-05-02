@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.28.0](https://github.com/primefaces/primevue/tree/3.28.0) (2023-05-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.27.0...3.28.0)
+
+**Implemented New Features and Enhancements:**
+
+- New passthrough\(pt\) property implementation for Chart & FileUpload & Message Components  [\#3911](https://github.com/primefaces/primevue/issues/3911)
+- New passthrough\(pt\) property implementation for Menu Components [\#3907](https://github.com/primefaces/primevue/issues/3907)
+- Button: No label [\#3905](https://github.com/primefaces/primevue/issues/3905)
+- Add global `pt` option to PrimeVue config [\#3902](https://github.com/primefaces/primevue/issues/3902)
+- New passthrough\(pt\) property implementation for Button Components [\#3889](https://github.com/primefaces/primevue/issues/3889)
+- New passthrough\(pt\) property implementation for Overlay Components  [\#3885](https://github.com/primefaces/primevue/issues/3885)
+- New passthrough\(pt\) property implementation for Misc Components  [\#3879](https://github.com/primefaces/primevue/issues/3879)
+
+**Fixed bugs:**
+
+- Message: wrong close icon size [\#3908](https://github.com/primefaces/primevue/issues/3908)
+- Panel: Header accessibility issue [\#3904](https://github.com/primefaces/primevue/issues/3904)
+- Calendar: Material theme icons not visible [\#3903](https://github.com/primefaces/primevue/issues/3903)
+- Password: Incorrect onClick property as scope for custom icons [\#3900](https://github.com/primefaces/primevue/issues/3900)
+- AutoComplete: class style and click event refactor on `removetokenicon` scoped slot [\#3899](https://github.com/primefaces/primevue/issues/3899)
+- Dropdown: Selection is not working correctly with falsy values [\#3891](https://github.com/primefaces/primevue/issues/3891)
+
 ## [3.27.0](https://github.com/primefaces/primevue/tree/3.27.0) (2023-04-19)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.26.1...3.27.0)
