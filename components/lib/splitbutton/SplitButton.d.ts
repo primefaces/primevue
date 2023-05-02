@@ -41,12 +41,12 @@ export interface SplitButtonPassThroughOptions {
      */
     icon?: SplitButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the menu button's DOM element.
+     * Uses to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     menuButton?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the menu's DOM element.
+     * Uses to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
      */
     menu?: TieredMenuPassThroughOptions;

@@ -48,12 +48,12 @@ export interface ConfirmPopupPassThroughOptions {
      */
     footer?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the reject button's DOM element.
+     * Uses to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     rejectButton?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the accept button's DOM element.
+     * Uses to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     acceptButton?: ButtonPassThroughOptions;

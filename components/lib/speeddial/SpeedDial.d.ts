@@ -33,7 +33,7 @@ export interface SpeedDialPassThroughOptions {
      */
     root?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Uses to pass attributes to the Button component.
      *  @see {@link ButtonPassThroughOptions}
      */
     button?: ButtonPassThroughOptions;

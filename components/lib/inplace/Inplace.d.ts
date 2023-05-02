@@ -40,7 +40,7 @@ export interface InplacePassThroughOptions {
      */
     content?: InplacePassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button's DOM element.
+     * Uses to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     closeButton?: ButtonPassThroughOptions;
