@@ -8467,17 +8467,9 @@
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the close button's DOM element."
-                        },
-                        {
-                            "name": "closeIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the close icon's DOM element."
                         },
                         {
                             "name": "content",
@@ -8515,33 +8507,17 @@
                             "name": "rejectButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the reject button's DOM element."
-                        },
-                        {
-                            "name": "rejectIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the reject icon's DOM element."
                         },
                         {
                             "name": "acceptButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the accept button's DOM element."
-                        },
-                        {
-                            "name": "acceptIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the accept icon's DOM element."
                         }
                     ],
                     "methods": []
@@ -8781,33 +8757,17 @@
                             "name": "rejectButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ConfirmPopupPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the reject button's DOM element."
-                        },
-                        {
-                            "name": "rejectIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ConfirmPopupPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the reject icon's DOM element."
                         },
                         {
                             "name": "acceptButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ConfirmPopupPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the accept button's DOM element."
-                        },
-                        {
-                            "name": "acceptIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ConfirmPopupPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the accept icon's DOM element."
                         }
                     ],
                     "methods": []
@@ -12374,17 +12334,9 @@
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the close button's DOM element."
-                        },
-                        {
-                            "name": "closeIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DialogPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the close icon's DOM element."
                         },
                         {
                             "name": "content",
@@ -16591,17 +16543,9 @@
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "InplacePassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the close button's DOM element."
-                        },
-                        {
-                            "name": "closeIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InplacePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the close icon's DOM element."
                         }
                     ],
                     "methods": []
@@ -25641,17 +25585,9 @@
                             "name": "button",
                             "optional": true,
                             "readonly": false,
-                            "type": "SpeedDialPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the button's DOM element."
-                        },
-                        {
-                            "name": "icon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "SpeedDialPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the icon's DOM element."
                         },
                         {
                             "name": "menu",
@@ -26162,17 +26098,9 @@
                             "name": "menuButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "SplitButtonPassThroughOptionType",
+                            "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the menu button's DOM element."
-                        },
-                        {
-                            "name": "menuButtonIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "SplitButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the menu button icon's DOM element."
                         },
                         {
                             "name": "menu",
