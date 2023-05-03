@@ -1,7 +1,7 @@
 <template>
     <Portal>
         <div ref="container" :class="containerClass" v-bind="{ ...$attrs, ...ptm('root') }">
-            <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
+            <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave" v-bind="ptm('message')">
                 <ToastMessage
                     v-for="msg of messages"
                     :key="msg.id"

@@ -30,6 +30,10 @@ export interface ToastPassThroughOptions {
      */
     root?: ToastPassThroughOptionType;
     /**
+     * Uses to pass attributes to the message's DOM element.
+     */
+    message?: ToastPassThroughOptionType;
+    /**
      * Uses to pass attributes to the container's DOM element.
      */
     container?: ToastPassThroughOptionType;
