@@ -9029,7 +9029,7 @@
                             "description": "Uses to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "submenuicon",
+                            "name": "submenuIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "ContextMenuPassThroughOptionType",
@@ -18270,14 +18270,6 @@
                             "description": "Uses to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "submenuHeader",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MegaMenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the submenu header's DOM element."
-                        },
-                        {
                             "name": "menuitem",
                             "optional": true,
                             "readonly": false,
@@ -18318,7 +18310,7 @@
                             "description": "Uses to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "submenuicon",
+                            "name": "submenuIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
@@ -18348,6 +18340,14 @@
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the column's DOM element."
+                        },
+                        {
+                            "name": "submenuHeader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu header's DOM element."
                         },
                         {
                             "name": "separator",
@@ -18748,20 +18748,20 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "submenuHeader",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the submenu header's DOM element."
-                        },
-                        {
                             "name": "menu",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "submenuHeader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu header's DOM element."
                         },
                         {
                             "name": "menuitem",
@@ -19187,7 +19187,7 @@
                             "description": "Uses to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "submenuicon",
+                            "name": "submenuIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
