@@ -16322,6 +16322,12 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close template."
+                        },
+                        {
+                            "name": "imagePreview",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom preview template."
                         }
                     ]
                 },
