@@ -168,17 +168,17 @@ export interface FileUploadPassThroughOptions {
      */
     buttonbar?: FileUploadPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header' DOM element.
+     * Uses to pass attributes to the choose button's DOM element.
      */
-    header?: FileUploadPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the button's DOM element.
-     */
-    button?: FileUploadPassThroughOptionType;
+    chooseButton?: FileUploadPassThroughOptionType;
     /**
      * Uses to pass attributes to the choose icon's DOM element.
      */
     chooseIcon?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the choose button label's DOM element.
+     */
+    chooseButtonLabel?: FileUploadPassThroughOptionType;
     /**
      * Uses to pass attributes to the upload button's DOM element.
      * @see {@link ButtonPassThroughOptions}
@@ -201,23 +201,7 @@ export interface FileUploadPassThroughOptions {
      * Uses to pass attributes to the messages' DOM element.
      * @see {@link MessagePassThroughOptions}
      */
-    messages?: MessagePassThroughOptions;
-    /**
-     * Uses to pass attributes to the empty's DOM element.
-     */
-    empty?: FileUploadPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the basic button's DOM element.
-     */
-    basicButton?: FileUploadPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the upload icon's DOM element.
-     */
-    uploadIcon?: FileUploadPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the label's DOM element.
-     */
-    label?: FileUploadPassThroughOptionType;
+    message?: MessagePassThroughOptions;
     /**
      * Uses to pass attributes to the file's DOM element.
      */
@@ -251,6 +235,22 @@ export interface FileUploadPassThroughOptions {
      * @see {@link ButtonPassThroughOptions}
      */
     removeButton?: ButtonPassThroughOptions;
+    /**
+     * Uses to pass attributes to the empty's DOM element.
+     */
+    empty?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the basic button's DOM element.
+     */
+    basicButton?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the upload icon's DOM element.
+     */
+    uploadIcon?: FileUploadPassThroughOptionType;
 }
 
 /**

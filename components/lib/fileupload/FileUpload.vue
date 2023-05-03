@@ -2,8 +2,8 @@
     <div v-if="isAdvanced" class="p-fileupload p-fileupload-advanced p-component" v-bind="ptm('root')">
         <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" v-bind="ptm('input')" />
         <div class="p-fileupload-buttonbar" v-bind="ptm('buttonbar')">
-            <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear" v-bind="ptm('header')">
-                <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0" v-bind="ptm('button')">
+            <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
+                <span v-ripple :class="advancedChooseButtonClass" :style="style" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" tabindex="0" v-bind="ptm('chooseButton')">
                     <slot name="chooseicon">
                         <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="['p-button-icon p-button-icon-left', chooseIcon]" aria-hidden="true" v-bind="ptm('chooseIcon')" />
                     </slot>
@@ -28,7 +28,7 @@
         <div ref="content" class="p-fileupload-content" @dragenter="onDragEnter" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDrop" v-bind="ptm('content')">
             <slot name="content" :files="files" :uploadedFiles="uploadedFiles" :removeUploadedFileCallback="removeUploadedFile" :removeFileCallback="remove" :progress="progress" :messages="messages">
                 <FileUploadProgressBar v-if="hasFiles" :value="progress" :showValue="false" :pt="ptm('progressbar')" />
-                <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :pt="ptm('messages')">{{ msg }}</FileUploadMessage>
+                <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :pt="ptm('message')">{{ msg }}</FileUploadMessage>
                 <FileContent v-if="hasFiles" :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" :templates="$slots" :pt="pt" />
                 <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" :templates="$slots" :pt="pt" />
             </slot>
