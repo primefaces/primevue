@@ -3,9 +3,15 @@
         <p>An eye icon is displayed by default when the image is hovered in preview mode. Use the <i>indicator</i> slot for custom content.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
+        <Image alt="Image" preview>
             <template #indicatoricon>
                 <i class="pi pi-check"></i>
+            </template>
+            <template #image>
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12s.jpg" alt="image" />
+            </template>
+            <template #preview="slotProps">
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
             </template>
         </Image>
     </div>
@@ -18,17 +24,29 @@ export default {
         return {
             code: {
                 basic: `
-<Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
+<Image alt="Image" preview>
     <template #indicatoricon>
         <i class="pi pi-check"></i>
+    </template>
+    <template #image>
+        <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12s.jpg" alt="image" />
+    </template>
+    <template #preview="slotProps">
+        <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
     </template>
 </Image>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
+        <Image alt="Image" preview>
             <template #indicatoricon>
                 <i class="pi pi-check"></i>
+            </template>
+            <template #image>
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12s.jpg" alt="image" />
+            </template>
+            <template #preview="slotProps">
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
             </template>
         </Image>
     </div>
@@ -36,9 +54,15 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="Image" width="250" preview>
+        <Image alt="Image" preview>
             <template #indicatoricon>
                 <i class="pi pi-check"></i>
+            </template>
+            <template #image>
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12s.jpg" alt="image" />
+            </template>
+            <template #preview="slotProps">
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
             </template>
         </Image>
     </div>
