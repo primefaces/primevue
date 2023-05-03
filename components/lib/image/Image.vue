@@ -41,7 +41,9 @@
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
                     <div v-if="previewVisible">
-                        <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick" />
+                        <slot name="imagePreview" :previewImageClick="onPreviewImageClick" :imagePreviewStyle="imagePreviewStyle">
+                            <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick" />
+                        </slot>
                     </div>
                 </transition>
             </div>
