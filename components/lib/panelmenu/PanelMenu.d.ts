@@ -48,21 +48,17 @@ export interface PanelMenuPassThroughOptions {
      */
     headerAction?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header icon's DOM element.
-     */
-    headerIcon?: PanelMenuPassThroughOptionType;
-    /**
      * Uses to pass attributes to the submenuIcon's DOM element.
      */
     submenuIcon?: PanelMenuPassThroughOptionType;
     /**
+     * Uses to pass attributes to the header icon's DOM element.
+     */
+    headerIcon?: PanelMenuPassThroughOptionType;
+    /**
      * Uses to pass attributes to the header label's DOM element.
      */
     headerLabel?: PanelMenuPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the submenu icon's DOM element.
-     */
-    submenuicon?: PanelMenuPassThroughOptionType;
     /**
      * Uses to pass attributes to the toggleable content's DOM element.
      */
