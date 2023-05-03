@@ -8464,12 +8464,28 @@
                             "description": "Uses to pass attributes to the header title's DOM element."
                         },
                         {
+                            "name": "headerIcons",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header icons' DOM element."
+                        },
+                        {
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "ConfirmDialogPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the Button component."
+                            "description": "Uses to pass attributes to the close button's component."
+                        },
+                        {
+                            "name": "closeButtonIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button icon's component."
                         },
                         {
                             "name": "content",
@@ -8478,14 +8494,6 @@
                             "type": "ConfirmDialogPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the content's DOM element."
-                        },
-                        {
-                            "name": "footer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the footer's DOM element."
                         },
                         {
                             "name": "icon",
@@ -8502,6 +8510,14 @@
                             "type": "ConfirmDialogPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the message's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
                         },
                         {
                             "name": "rejectButton",
@@ -12334,9 +12350,17 @@
                             "name": "closeButton",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "DialogPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the Button component."
+                            "description": "Uses to pass attributes to the close button's component."
+                        },
+                        {
+                            "name": "closeButtonIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button icon's component."
                         },
                         {
                             "name": "content",
@@ -15009,20 +15033,12 @@
                             "description": "Uses to pass attributes to the buttonbar's DOM element."
                         },
                         {
-                            "name": "header",
+                            "name": "chooseButton",
                             "optional": true,
                             "readonly": false,
                             "type": "FileUploadPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the header' DOM element."
-                        },
-                        {
-                            "name": "button",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FileUploadPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the button's DOM element."
+                            "description": "Uses to pass attributes to the choose button's DOM element."
                         },
                         {
                             "name": "chooseIcon",
@@ -15031,6 +15047,14 @@
                             "type": "FileUploadPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the choose icon's DOM element."
+                        },
+                        {
+                            "name": "chooseButtonLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FileUploadPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the choose button label's DOM element."
                         },
                         {
                             "name": "uploadButton",
@@ -15065,44 +15089,12 @@
                             "description": "Uses to pass attributes to the progressbar's DOM element."
                         },
                         {
-                            "name": "messages",
+                            "name": "message",
                             "optional": true,
                             "readonly": false,
                             "type": "MessagePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the messages' DOM element."
-                        },
-                        {
-                            "name": "empty",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FileUploadPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the empty's DOM element."
-                        },
-                        {
-                            "name": "basicButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FileUploadPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the basic button's DOM element."
-                        },
-                        {
-                            "name": "uploadIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FileUploadPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the upload icon's DOM element."
-                        },
-                        {
-                            "name": "label",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FileUploadPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the label's DOM element."
                         },
                         {
                             "name": "file",
@@ -15167,6 +15159,38 @@
                             "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the remove button's DOM element."
+                        },
+                        {
+                            "name": "empty",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FileUploadPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the empty's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FileUploadPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "basicButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FileUploadPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the basic button's DOM element."
+                        },
+                        {
+                            "name": "uploadIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FileUploadPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the upload icon's DOM element."
                         }
                     ],
                     "methods": []
@@ -22275,14 +22299,6 @@
                             "description": "Uses to pass attributes to the header action's DOM element."
                         },
                         {
-                            "name": "headerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PanelMenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header icon's DOM element."
-                        },
-                        {
                             "name": "submenuIcon",
                             "optional": true,
                             "readonly": false,
@@ -22291,20 +22307,20 @@
                             "description": "Uses to pass attributes to the submenuIcon's DOM element."
                         },
                         {
+                            "name": "headerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header icon's DOM element."
+                        },
+                        {
                             "name": "headerLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the header label's DOM element."
-                        },
-                        {
-                            "name": "submenuicon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PanelMenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the submenu icon's DOM element."
                         },
                         {
                             "name": "toggleableContent",
@@ -29045,6 +29061,14 @@
                             "type": "ToastPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "message",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToastPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the message's DOM element."
                         },
                         {
                             "name": "container",
