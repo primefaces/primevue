@@ -16322,6 +16322,30 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close template."
+                        },
+                        {
+                            "name": "image",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the image element.\n  \t <b>style</b>: any, // Style of the image element.\n  \t <b>onError</b>: void, // Image error function.\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom image template."
+                        },
+                        {
+                            "name": "preview",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the preview image element.\n  \t <b>style</b>: any, // Style of the preview image element.\n  \t <b>onClick</b>: void, // Preview click function.\n  }"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom preview template."
                         }
                     ]
                 },

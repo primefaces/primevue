@@ -1,6 +1,8 @@
 <template>
     <span :class="containerClass" :style="style">
-        <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
+        <slot name="image" :class="imageClass" :style="imageStyle" :onError="onError">
+            <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
+        </slot>
         <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="previewButtonProps">
             <slot name="indicatoricon">
                 <component :is="indicatorIcon ? 'i' : 'EyeIcon'" class="p-image-preview-icon" />
@@ -41,7 +43,9 @@
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
                     <div v-if="previewVisible">
-                        <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick" />
+                        <slot name="preview" class="p-image-preview" :style="imagePreviewStyle" :onClick="onPreviewImageClick">
+                            <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick" />
+                        </slot>
                     </div>
                 </transition>
             </div>
@@ -156,6 +160,7 @@ export default {
         rotateRight() {
             this.rotate += 90;
             this.previewClick = true;
+            console.log('kdnwjknkj');
         },
         rotateLeft() {
             this.rotate -= 90;
