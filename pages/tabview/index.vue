@@ -10,6 +10,7 @@ import DisabledDoc from '@/doc/tabview/DisabledDoc.vue';
 import DynamicDoc from '@/doc/tabview/DynamicDoc.vue';
 import ImportDoc from '@/doc/tabview/ImportDoc.vue';
 import ScrollableDoc from '@/doc/tabview/ScrollableDoc.vue';
+import OrientationDoc from '@/doc/tabview/OrientationDoc.vue';
 import StyleDoc from '@/doc/tabview/StyleDoc.vue';
 import TemplateDoc from '@/doc/tabview/TemplateDoc.vue';
 import PTComponent from '@/doc/tabview/pt/index.vue';
@@ -42,6 +43,11 @@ export default {
                     id: 'scrollable',
                     label: 'Scrollable',
                     component: ScrollableDoc
+                },
+                {
+                    id: 'orientation',
+                    label: 'Orientation',
+                    component: OrientationDoc
                 },
                 {
                     id: 'disabled',

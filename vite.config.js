@@ -65,6 +65,8 @@ export default {
             'primevue/menu': path.resolve(__dirname, './components/lib/menu/Menu.vue'),
             'primevue/tieredmenu': path.resolve(__dirname, './components/lib/tieredmenu/TieredMenu.vue'),
             'primevue/dropdown': path.resolve(__dirname, './components/lib/dropdown/Dropdown.vue'),
+            'primevue/tabpanel': path.resolve(__dirname, './components/lib/tabpanel/TabPanel.vue'),
+            'primevue/tabview': path.resolve(__dirname, './components/lib/tabview/TabView.vue'),
             'primevue/inputnumber': path.resolve(__dirname, './components/lib/inputnumber/InputNumber.vue'),
             'primevue/paginator': path.resolve(__dirname, './components/lib/paginator/Paginator.vue'),
             'primevue/progressbar': path.resolve(__dirname, './components/lib/progressbar/ProgressBar.vue'),

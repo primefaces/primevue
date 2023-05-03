@@ -128,7 +128,11 @@ export default {
         nextIcon: {
             type: String,
             default: undefined
-        }
+        },
+        isVertical: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -366,6 +370,9 @@ export default {
         },
         getTabContentClass(tab) {
             return ['p-tabview-panel', this.getTabProp(tab, 'contentClass')];
+        },
+        setOrientationClass() {
+            return this.isVertical ? 'p-tabview-vertical' : 'p-tabview-horizontal';
         }
     },
     computed: {
@@ -374,7 +381,8 @@ export default {
                 'p-tabview p-component',
                 {
                     'p-tabview-scrollable': this.scrollable
-                }
+                },
+                this.setOrientationClass()
             ];
         },
         tabs() {
@@ -410,6 +418,36 @@ export default {
 </script>
 
 <style>
+.p-tabview-vertical {
+    display: flex;
+    flex-direction: row;
+}
+.p-tabview-vertical .p-tabview-nav {
+    flex-direction: column;
+    border: 1px solid var(--surface-d);
+    background: var(--surface-a);
+    border-radius: 7px;
+    padding-block: 1rem;
+}
+.p-tabview-vertical .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    background: var(--surface-hover);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    backdrop-filter: blur(5px);
+}
+.p-tabview-vertical .p-tabview-nav li:last-of-type {
+    height: 0;
+}
+.p-tabview-vertical .p-tabview-nav-container {
+   min-width: 150px;
+}
+.p-tabview-vertical .p-tabview-nav li .p-tabview-nav-link {
+    background-color: var(--surface-a);
+    border-radius: 0;
+    border-width: 0 0 0 3px;
+    margin: 0;
+}
+
 .p-tabview-nav-container {
     position: relative;
 }
@@ -479,4 +517,5 @@ export default {
 .p-tabview-nav-content::-webkit-scrollbar {
     display: none;
 }
+
 </style>
