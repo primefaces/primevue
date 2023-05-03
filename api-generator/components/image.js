@@ -54,7 +54,11 @@ const ImageSlots = [
         description: 'Custom content for the component close.'
     },
     {
-        name: 'imagePreview',
+        name: 'image',
+        description: 'Custom content for the component image.'
+    },
+    {
+        name: 'preview',
         description: 'Custom content for the component preview.'
     }
 ];

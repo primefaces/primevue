@@ -62,10 +62,40 @@ export interface ImageSlots {
      * Custom close template.
      */
     close(): VNode[];
-     /**
+    /**
+     * Custom image template.
+     */
+    image(scope: {
+        /**
+         * Style class of the image element.
+         */
+        class: any;
+        /**
+         * Style of the image element.
+         */
+        style: any;
+        /**
+         * Image error function.
+         */
+        onError: void;
+    }): VNode[];
+    /**
      * Custom preview template.
      */
-     imagePreview(): VNode[];
+    preview(scope: {
+        /**
+         * Style class of the preview image element.
+         */
+        class: any;
+        /**
+         * Style of the preview image element.
+         */
+        style: any;
+        /**
+         * Preview click function.
+         */
+        onClick: void;
+    }): VNode[];
 }
 
 export interface ImageEmits {}
