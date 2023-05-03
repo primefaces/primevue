@@ -32,13 +32,13 @@ export interface MenuPassThroughOptions {
      */
     root?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu header's DOM element.
-     */
-    submenuHeader?: MenuPassThroughOptionType;
-    /**
      * Uses to pass attributes to the list's DOM element.
      */
     menu?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the submenu header's DOM element.
+     */
+    submenuHeader?: MenuPassThroughOptionType;
     /**
      * Uses to pass attributes to the list item's DOM element.
      */

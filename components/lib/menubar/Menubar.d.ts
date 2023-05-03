@@ -58,7 +58,7 @@ export interface MenubarPassThroughOptions {
     /**
      * Uses to pass attributes to the submenu icon's DOM element.
      */
-    submenuicon?: MenubarPassThroughOptionType;
+    submenuIcon?: MenubarPassThroughOptionType;
     /**
      * Uses to pass attributes to the separator's DOM element.
      */

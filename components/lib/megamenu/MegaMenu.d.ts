@@ -36,10 +36,6 @@ export interface MegaMenuPassThroughOptions {
      */
     menu?: MegaMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu header's DOM element.
-     */
-    submenuHeader?: MegaMenuPassThroughOptionType;
-    /**
      * Uses to pass attributes to the list item's DOM element.
      */
     menuitem?: MegaMenuPassThroughOptionType;
@@ -62,7 +58,7 @@ export interface MegaMenuPassThroughOptions {
     /**
      * Uses to pass attributes to the submenu icon's DOM element.
      */
-    submenuicon?: MegaMenuPassThroughOptionType;
+    submenuIcon?: MegaMenuPassThroughOptionType;
     /**
      * Uses to pass attributes to the panel's DOM element.
      */
@@ -75,6 +71,10 @@ export interface MegaMenuPassThroughOptions {
      * Uses to pass attributes to the column's DOM element.
      */
     column?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the submenu header's DOM element.
+     */
+    submenuHeader?: MegaMenuPassThroughOptionType;
     /**
      * Uses to pass attributes to the separator's DOM element.
      */

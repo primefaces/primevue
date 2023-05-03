@@ -59,7 +59,7 @@ export interface ContextMenuPassThroughOptions {
     /**
      * Uses to pass attributes to the submenu icon's DOM element.
      */
-    submenuicon?: ContextMenuPassThroughOptionType;
+    submenuIcon?: ContextMenuPassThroughOptionType;
     /**
      * Uses to pass attributes to the separator's DOM element.
      */
