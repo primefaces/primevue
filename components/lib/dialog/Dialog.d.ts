@@ -8,7 +8,6 @@
  *
  */
 import { HTMLAttributes, VNode } from 'vue';
-import { ButtonPassThroughOptions } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type DialogPassThroughOptionType = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions) => DialogPassThroughAttributes) | null | undefined;
@@ -51,10 +50,13 @@ export interface DialogPassThroughOptions {
      */
     maximizableIcon?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
-     *  @see {@link ButtonPassThroughOptions}
+     * Uses to pass attributes to the close button's component.
      */
-    closeButton?: ButtonPassThroughOptions;
+    closeButton?: DialogPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close button icon's component.
+     */
+    closeButtonIcon?: DialogPassThroughOptionType;
     /**
      * Uses to pass attributes to the content's DOM element.
      */
