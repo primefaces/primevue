@@ -157,10 +157,59 @@ export interface GalleriaPassThroughAttributes {
  */
 export interface GalleriaState {
     /**
-     * Current collapsed state as a boolean.
+     * Current container visible state as a boolean.
      * @defaultValue false
      */
-    d_collapsed: boolean;
+    containerVisible: boolean;
+    /**
+     * Style id of the component.
+     */
+    id: string;
+    /**
+     * Index of the first item as a number.
+     * @defaultValue 0
+     */
+    activeIndex: number;
+    /**
+     * Number of items per page as a number.
+     * @defaultValue 3
+     */
+    numVisible: number;
+    /**
+     * Current slide active state as a boolean.
+     * @defaultValue false
+     */
+    slideShowActive: boolean;
+    /**
+     * Number of items per page as a number.
+     * @defaultValue 3
+     */
+    d_numVisible: number;
+    /**
+     * Old number of items per page as a number.
+     * @defaultValue 3
+     */
+    d_oldNumVisible: number;
+    /**
+     * Current active item index as a number.
+     * @defaultValue 0
+     */
+    d_activeIndex: number;
+    /**
+     * The previous active item index as a number.
+     * @defaultValue 0
+     */
+    d_oldActiveItemIndex: number;
+    /**
+     * Index of the first item.
+     * @defaultValue 0
+     */
+    page: number;
+    /**
+     * Total shifted items' count as a number.
+     * @defaultValue 0
+     */
+    totalShiftedItems: number;
 }
 
 /**
