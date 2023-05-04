@@ -22,7 +22,7 @@ export interface SplitterPassThroughMethodOptions {
 
 /**
  * Custom resize start event.
- * @see {@link SplitterEmits.resizestar}
+ * @see {@link SplitterEmits.resizestart}
  */
 export interface SplitterResizeStartEvent {
     /**
@@ -37,7 +37,7 @@ export interface SplitterResizeStartEvent {
 
 /**
  * Custom resize end event.
- * @see {@link PickListEmits.resizeend}
+ * @see {@link SplitterEmits.resizeend}
  */
 export interface SplitterResizeEndEvent {
     /**
@@ -139,7 +139,7 @@ export interface SplitterEmits {
      * Callback to invoke when resize starts.
      * @param {SplitterResizeStartEvent} event - Custom resize start event.
      */
-    resizestar(event: SplitterResizeStartEvent): void;
+    resizestart(event: SplitterResizeStartEvent): void;
     /**
      * Callback to invoke when resize ends.
      * @param {SplitterResizeEndEvent} event - Custom resize end event.
