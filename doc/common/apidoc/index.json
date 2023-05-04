@@ -27334,7 +27334,7 @@
                 },
                 "SplitterResizeStartEvent": {
                     "description": "Custom resize start event.",
-                    "relatedProp": "SplitterEmits.resizestar",
+                    "relatedProp": "SplitterEmits.resizestart",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -27357,7 +27357,7 @@
                 },
                 "SplitterResizeEndEvent": {
                     "description": "Custom resize end event.",
-                    "relatedProp": "undefined.PickListEmits.resizeend",
+                    "relatedProp": "SplitterEmits.resizeend",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -27511,7 +27511,7 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "resizestar",
+                            "name": "resizestart",
                             "parameters": [
                                 {
                                     "name": "event",
