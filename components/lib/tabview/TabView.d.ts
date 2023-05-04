@@ -132,6 +132,11 @@ export interface TabViewProps {
      */
     scrollable?: boolean | undefined;
     /**
+     * When enabled, tabView orientation changed to vertical.
+     * @defaultValue false
+     */
+    isVertical?: boolean | undefined;
+    /**
      * Index of the element in tabbing order.
      * @defaultValue 0
      */
