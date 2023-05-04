@@ -1,20 +1,20 @@
 <template>
-    <div class="p-galleria-item-wrapper">
-        <div class="p-galleria-item-container">
-            <button v-if="showItemNavigators" v-ripple type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()">
-                <component :is="templates.previousitemicon || 'ChevronLeftIcon'" class="p-galleria-item-prev-icon" />
+    <div class="p-galleria-item-wrapper" v-bind="ptm('itemWrapper')">
+        <div class="p-galleria-item-container" v-bind="ptm('itemContainer')">
+            <button v-if="showItemNavigators" v-ripple type="button" :class="navBackwardClass" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('previousItemButton')">
+                <component :is="templates.previousitemicon || 'ChevronLeftIcon'" class="p-galleria-item-prev-icon" v-bind="ptm('previousItemIcon')" />
             </button>
-            <div :id="id + '_item_' + activeIndex" class="p-galleria-item" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel">
+            <div :id="id + '_item_' + activeIndex" class="p-galleria-item" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel" v-bind="ptm('item')">
                 <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
-            <button v-if="showItemNavigators" v-ripple type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()">
-                <component :is="templates.nextitemicon || 'ChevronRightIcon'" class="p-galleria-item-next-icon" />
+            <button v-if="showItemNavigators" v-ripple type="button" :class="navForwardClass" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextItemButton')">
+                <component :is="templates.nextitemicon || 'ChevronRightIcon'" class="p-galleria-item-next-icon" v-bind="ptm('nextItemIcon')" />
             </button>
-            <div v-if="templates['caption']" class="p-galleria-caption">
+            <div v-if="templates['caption']" class="p-galleria-caption" v-bind="ptm('caption')">
                 <component v-if="templates.caption" :is="templates.caption" :item="activeItem" />
             </div>
         </div>
-        <ul v-if="showIndicators" class="p-galleria-indicators p-reset">
+        <ul v-if="showIndicators" class="p-galleria-indicators p-reset" v-bind="ptm('indicators')">
             <li
                 v-for="(item, index) of value"
                 :key="`p-galleria-indicator-${index}`"
@@ -26,6 +26,7 @@
                 @click="onIndicatorClick(index)"
                 @mouseenter="onIndicatorMouseEnter(index)"
                 @keydown="onIndicatorKeyDown($event, index)"
+                v-bind="ptm('indicator')"
             >
                 <button v-if="!templates['indicator']" type="button" tabindex="-1" class="p-link"></button>
                 <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
@@ -35,12 +36,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'GalleriaItem',
+    extends: BaseComponent,
     emits: ['start-slideshow', 'stop-slideshow', 'update:activeIndex'],
     props: {
         circular: {

@@ -9,6 +9,15 @@
  */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttributes | ((options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface GalleriaPassThroughMethodOptions {
+    props: GalleriaProps;
+    state: GalleriaState;
+}
 
 export interface GalleriaResponsiveOptions {
     /**
@@ -19,6 +28,139 @@ export interface GalleriaResponsiveOptions {
      * The number of visible items on breakpoint.
      */
     numVisible: number;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link GalleriaProps.pt}
+ */
+export interface GalleriaPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close button's DOM element.
+     */
+    closeButton?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close icon's DOM element.
+     */
+    closeIcon?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footer's DOM element.
+     */
+    footer?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item wrapper's DOM element.
+     */
+    itemWrapper?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item container's DOM element.
+     */
+    itemContainer?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the previous item button's DOM element.
+     */
+    previousItemButton?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the previous item icon's DOM element.
+     */
+    previousItemIcon?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item's DOM element.
+     */
+    item?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the next item button's DOM element.
+     */
+    nextItemButton?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the next item icon's DOM element.
+     */
+    nextItemIcon?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the caption's DOM element.
+     */
+    caption?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the indicators's DOM element.
+     */
+    indicators?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the indicator's DOM element.
+     */
+    indicator?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thumbnail wrapper's DOM element.
+     */
+    thumbnailWrapper?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thumbnail container's DOM element.
+     */
+    thumbnailContainer?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the previous thumbnail button's DOM element.
+     */
+    previousThumbnailButton?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the previous thumbnail icon's DOM element.
+     */
+    previousThumbnailIcon?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thumbnail items container's DOM element.
+     */
+    thumbnailItemsContainer?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thumbnail items' DOM element.
+     */
+    thumbnailItems?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thumbnail item's DOM element.
+     */
+    thumbnailItem?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thumbnail item content's DOM element.
+     */
+    thumbnailItemContent?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the next thumbnail button's DOM element.
+     */
+    nextThumbnailButton?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the next thumbnail icon's DOM element.
+     */
+    nextThumbnailIcon?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the mask's DOM element.
+     */
+    mask?: GalleriaPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface GalleriaPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Galleria component.
+ */
+export interface GalleriaState {
+    /**
+     * Current collapsed state as a boolean.
+     * @defaultValue false
+     */
+    d_collapsed: boolean;
 }
 
 /**
@@ -152,6 +294,11 @@ export interface GalleriaProps {
      * Uses to pass all properties of the HTMLButtonElement to the next navigation button.
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {GalleriaPassThroughOptions}
+     */
+    pt?: GalleriaPassThroughOptions;
 }
 /**
  * Defines valid slots in Galleria slots.

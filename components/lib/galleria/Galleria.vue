@@ -1,15 +1,16 @@
 <template>
     <Portal v-if="fullScreen">
-        <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass" :role="fullScreen ? 'dialog' : 'region'" :aria-modal="fullScreen ? 'true' : undefined">
+        <div v-if="containerVisible" :ref="maskRef" :class="maskContentClass" :role="fullScreen ? 'dialog' : 'region'" :aria-modal="fullScreen ? 'true' : undefined" v-bind="ptm('mask')">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear>
-                <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" v-bind="$props" />
+                <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" :pt="pt" v-bind="$props" />
             </transition>
         </div>
     </Portal>
-    <GalleriaContent v-else :templates="$slots" @activeitem-change="onActiveItemChange" v-bind="$props" />
+    <GalleriaContent v-else :templates="$slots" @activeitem-change="onActiveItemChange" :pt="pt" v-bind="$props" />
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
@@ -17,6 +18,7 @@ import GalleriaContent from './GalleriaContent.vue';
 
 export default {
     name: 'Galleria',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['update:activeIndex', 'update:visible'],
     props: {
