@@ -4533,6 +4533,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "CalendarPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CalendarProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CalendarState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "CalendarResponsiveOptions": {
                     "description": "Custom Calendar responsive options metadata.",
                     "relatedProp": "",
@@ -4621,6 +4642,481 @@
                             "type": "string",
                             "default": "",
                             "description": "Input value"
+                        }
+                    ],
+                    "methods": []
+                },
+                "CalendarPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "CalendarProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "dropdownButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "groupContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the group container's DOM element."
+                        },
+                        {
+                            "name": "group",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the group's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "previousButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "title",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the title's DOM element."
+                        },
+                        {
+                            "name": "monthTitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the month title's DOM element."
+                        },
+                        {
+                            "name": "yearTitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the year title's DOM element."
+                        },
+                        {
+                            "name": "decadeTitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the decade title's DOM element."
+                        },
+                        {
+                            "name": "nextButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "container",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the container's DOM element."
+                        },
+                        {
+                            "name": "table",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table's DOM element."
+                        },
+                        {
+                            "name": "tableHeader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table header's DOM element."
+                        },
+                        {
+                            "name": "tableHeaderRow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table header row's DOM element."
+                        },
+                        {
+                            "name": "tableHeaderCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table header cell's DOM element."
+                        },
+                        {
+                            "name": "weekLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the week label's DOM element."
+                        },
+                        {
+                            "name": "weekDay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the week day's DOM element."
+                        },
+                        {
+                            "name": "tableBody",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table body's DOM element."
+                        },
+                        {
+                            "name": "tableBodyRow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table body row's DOM element."
+                        },
+                        {
+                            "name": "weekNumber",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the week number's DOM element."
+                        },
+                        {
+                            "name": "weekLabelContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the week label container's DOM element."
+                        },
+                        {
+                            "name": "day",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the day's DOM element."
+                        },
+                        {
+                            "name": "dayLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the day label's DOM element."
+                        },
+                        {
+                            "name": "ariaSelectedDay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria selected day's DOM element."
+                        },
+                        {
+                            "name": "monthPicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the month picker's DOM element."
+                        },
+                        {
+                            "name": "month",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the month's DOM element."
+                        },
+                        {
+                            "name": "ariaMonth",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria month's DOM element."
+                        },
+                        {
+                            "name": "yearPicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the year picker's DOM element."
+                        },
+                        {
+                            "name": "year",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the year's DOM element."
+                        },
+                        {
+                            "name": "ariaYear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria year's DOM element."
+                        },
+                        {
+                            "name": "timePicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the time picker's DOM element."
+                        },
+                        {
+                            "name": "hourPicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hour picker's DOM element."
+                        },
+                        {
+                            "name": "hour",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hour's DOM element."
+                        },
+                        {
+                            "name": "separatorContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separatorc ontainer's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "minutePicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the minute picker's DOM element."
+                        },
+                        {
+                            "name": "minute",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the minute's DOM element."
+                        },
+                        {
+                            "name": "secondPicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the second picker's DOM element."
+                        },
+                        {
+                            "name": "second",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the second's DOM element."
+                        },
+                        {
+                            "name": "ampmPicker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the ampm picker's DOM element."
+                        },
+                        {
+                            "name": "ampm",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the ampm's DOM element."
+                        },
+                        {
+                            "name": "buttonbar",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the buttonbar's DOM element."
+                        },
+                        {
+                            "name": "todayButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "clearButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CalendarPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "CalendarState": {
+                    "description": "Defines current inline state in Calendar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "currentMonth",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current month as a number."
+                        },
+                        {
+                            "name": "currentYear",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current year as a number."
+                        },
+                        {
+                            "name": "currentHour",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current hour as a number."
+                        },
+                        {
+                            "name": "currentMinute",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current minute as a number."
+                        },
+                        {
+                            "name": "currentSecond",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current second as a number."
+                        },
+                        {
+                            "name": "pm",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current pm state as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current overlay visible state as a boolean."
+                        },
+                        {
+                            "name": "currentView",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "'date'",
+                            "description": "Current view state as a string."
                         }
                     ],
                     "methods": []
@@ -5076,6 +5572,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -5300,6 +5804,14 @@
                             "description": "Callback to invoke when a key is pressed."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "CalendarPassThroughOptionType": {
+                    "values": "CalendarPassThroughAttributes | (options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | null | undefined"
                 }
             }
         }
