@@ -16303,12 +16303,92 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "d_collapsed",
+                            "name": "containerVisible",
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current collapsed state as a boolean."
+                            "description": "Current container visible state as a boolean."
+                        },
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Style id of the component."
+                        },
+                        {
+                            "name": "activeIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Index of the first item as a number."
+                        },
+                        {
+                            "name": "numVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "3",
+                            "description": "Number of items per page as a number."
+                        },
+                        {
+                            "name": "slideShowActive",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current slide active state as a boolean."
+                        },
+                        {
+                            "name": "d_numVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "3",
+                            "description": "Number of items per page as a number."
+                        },
+                        {
+                            "name": "d_oldNumVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "3",
+                            "description": "Old number of items per page as a number."
+                        },
+                        {
+                            "name": "d_activeIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Current active item index as a number."
+                        },
+                        {
+                            "name": "d_oldActiveItemIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "The previous active item index as a number."
+                        },
+                        {
+                            "name": "page",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Index of the first item."
+                        },
+                        {
+                            "name": "totalShiftedItems",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Total shifted items' count as a number."
                         }
                     ],
                     "methods": []
