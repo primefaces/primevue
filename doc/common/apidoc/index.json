@@ -16242,6 +16242,230 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ImagePassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ImageProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ImageState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ImagePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ImageProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "image",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the image's DOM element."
+                        },
+                        {
+                            "name": "button",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the button's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mask's DOM element."
+                        },
+                        {
+                            "name": "toolbar",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toolbar's DOM element."
+                        },
+                        {
+                            "name": "rotateRightButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rotate right button's DOM element."
+                        },
+                        {
+                            "name": "rotateRightIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rotate right icon's DOM element."
+                        },
+                        {
+                            "name": "rotateLeftButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rotate left button's DOM element."
+                        },
+                        {
+                            "name": "rotateLeftIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rotate left icon's DOM element."
+                        },
+                        {
+                            "name": "zoomOutButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the zoom out button's DOM element."
+                        },
+                        {
+                            "name": "zoomOutIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the zoom out icon's DOM element."
+                        },
+                        {
+                            "name": "zoomInButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the zoom in button's DOM element."
+                        },
+                        {
+                            "name": "zoomInIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the zoom in icon's DOM element."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button's DOM element."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close icon's DOM element."
+                        },
+                        {
+                            "name": "previewContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the preview container's DOM element."
+                        },
+                        {
+                            "name": "preview",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the preview's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ImagePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ImageState": {
+                    "description": "Defines current inline state in Image component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "maskVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Mask visible state as a boolean."
+                        },
+                        {
+                            "name": "previewVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Preview visible state as a boolean."
+                        },
+                        {
+                            "name": "rotate",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Rotate state as a number."
+                        },
+                        {
+                            "name": "scale",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "1",
+                            "description": "Scale state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ImageProps": {
                     "description": "Defines valid properties in Image component.",
                     "relatedProp": "",
@@ -16278,6 +16502,14 @@
                             "default": "",
                             "description": "Custom indicator icon.",
                             "deprecated": "since v3.27.0. Use 'indicator' slot."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ImagePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -16353,6 +16585,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ImagePassThroughOptionType": {
+                    "values": "ImagePassThroughAttributes | (options: ImagePassThroughMethodOptions) => ImagePassThroughAttributes | null | undefined"
                 }
             }
         }
