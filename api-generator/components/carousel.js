@@ -82,6 +82,12 @@ const CarouselProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to display indicator container.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

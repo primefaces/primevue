@@ -1,10 +1,10 @@
 <template>
-    <div :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]" role="region">
-        <div v-if="$slots.header" class="p-carousel-header">
+    <div :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]" role="region" v-bind="ptm('root')">
+        <div v-if="$slots.header" class="p-carousel-header" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
-        <div :class="contentClasses">
-            <div :class="containerClasses" :aria-live="allowAutoplay ? 'polite' : 'off'">
+        <div :class="contentClasses" v-bind="ptm('content')">
+            <div :class="containerClasses" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
                 <button
                     v-if="showNavigators"
                     v-ripple
@@ -13,15 +13,15 @@
                     :disabled="backwardIsDisabled"
                     :aria-label="ariaPrevButtonLabel"
                     @click="navBackward"
-                    v-bind="prevButtonProps"
+                    v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
                 >
                     <slot name="previousicon">
-                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" class="p-carousel-next-icon" />
+                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" class="p-carousel-next-icon" v-bind="ptm('previousButtonIcon')" />
                     </slot>
                 </button>
 
-                <div class="p-carousel-items-content" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove">
-                    <div ref="itemsContainer" class="p-carousel-items-container" @transitionend="onTransitionEnd">
+                <div class="p-carousel-items-content" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
+                    <div ref="itemsContainer" class="p-carousel-items-container" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
                         <template v-if="isCircular()">
                             <div
                                 v-for="(item, index) of value.slice(-1 * d_numVisible)"
@@ -30,6 +30,7 @@
                                     'p-carousel-item p-carousel-item-cloned',
                                     { 'p-carousel-item-active': totalShiftedItems * -1 === value.length + d_numVisible, 'p-carousel-item-start': 0 === index, 'p-carousel-item-end': value.slice(-1 * d_numVisible).length - 1 === index }
                                 ]"
+                                v-bind="ptm('itemCloned')"
                             >
                                 <slot name="item" :data="item" :index="index"></slot>
                             </div>
@@ -42,6 +43,7 @@
                             :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
                             :aria-label="ariaSlideNumber(index)"
                             :aria-roledescription="ariaSlideLabel"
+                            v-bind="ptm('item')"
                         >
                             <slot name="item" :data="item" :index="index"></slot>
                         </div>
@@ -50,6 +52,7 @@
                                 v-for="(item, index) of value.slice(0, d_numVisible)"
                                 :key="index + '_fcloned'"
                                 :class="['p-carousel-item p-carousel-item-cloned', { 'p-carousel-item-active': totalShiftedItems === 0, 'p-carousel-item-start': 0 === index, 'p-carousel-item-end': value.slice(0, d_numVisible).length - 1 === index }]"
+                                v-bind="ptm('itemCloned')"
                             >
                                 <slot name="item" :data="item" :index="index"></slot>
                             </div>
@@ -65,26 +68,35 @@
                     :disabled="forwardIsDisabled"
                     :aria-label="ariaNextButtonLabel"
                     @click="navForward"
-                    v-bind="nextButtonProps"
+                    v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
                 >
                     <slot name="nexticon">
-                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-carousel-prev-icon" />
+                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-carousel-prev-icon" v-bind="ptm('nextButtonIcon')" />
                     </slot>
                 </button>
             </div>
-            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="indicatorsContentClasses" @keydown="onIndicatorKeydown">
-                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', { 'p-highlight': d_page === i }]">
-                    <button class="p-link" type="button" :tabindex="d_page === i ? '0' : '-1'" :aria-label="ariaPageLabel(i + 1)" :aria-current="d_page === i ? 'page' : undefined" @click="onIndicatorClick($event, i)" />
+            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="indicatorsContentClasses" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
+                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', { 'p-highlight': d_page === i }]" v-bind="ptm('indicator')">
+                    <button
+                        class="p-link"
+                        type="button"
+                        :tabindex="d_page === i ? '0' : '-1'"
+                        :aria-label="ariaPageLabel(i + 1)"
+                        :aria-current="d_page === i ? 'page' : undefined"
+                        @click="onIndicatorClick($event, i)"
+                        v-bind="ptm('indicatorButton')"
+                    />
                 </li>
             </ul>
         </div>
-        <div v-if="$slots.footer" class="p-carousel-footer">
+        <div v-if="$slots.footer" class="p-carousel-footer" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
@@ -94,6 +106,7 @@ import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Carousel',
+    extends: BaseComponent,
     emits: ['update:page'],
     props: {
         value: null,

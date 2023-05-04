@@ -7,6 +7,7 @@ import { BlockUIPassThroughOptions } from '../blockui';
 import { BreadcrumbPassThroughOptions } from '../breadcrumb';
 import { ButtonPassThroughOptions } from '../button';
 import { CardPassThroughOptions } from '../card';
+import { CarouselPassThroughOptions } from '../carousel';
 import { ChartPassThroughOptions } from '../chart';
 import { ChipPassThroughOptions } from '../chip';
 import { ConfirmDialogPassThroughOptions } from '../confirmdialog';
@@ -71,6 +72,7 @@ interface PrimeVuePTOptions {
     breadcrumb?: BreadcrumbPassThroughOptions;
     button?: ButtonPassThroughOptions;
     card?: CardPassThroughOptions;
+    carousel?: CarouselPassThroughOptions;
     chart?: ChartPassThroughOptions;
     chip?: ChipPassThroughOptions;
     confirmdialog?: ConfirmDialogPassThroughOptions;
