@@ -6,6 +6,7 @@ import { BadgePassThroughOptions } from '../badge';
 import { BlockUIPassThroughOptions } from '../blockui';
 import { BreadcrumbPassThroughOptions } from '../breadcrumb';
 import { ButtonPassThroughOptions } from '../button';
+import { CalendarPassThroughOptions } from '../calendar';
 import { CardPassThroughOptions } from '../card';
 import { CarouselPassThroughOptions } from '../carousel';
 import { ChartPassThroughOptions } from '../chart';
@@ -72,6 +73,7 @@ interface PrimeVuePTOptions {
     blockui?: BlockUIPassThroughOptions;
     breadcrumb?: BreadcrumbPassThroughOptions;
     button?: ButtonPassThroughOptions;
+    calendar?: CalendarPassThroughOptions;
     card?: CardPassThroughOptions;
     carousel?: CarouselPassThroughOptions;
     chart?: ChartPassThroughOptions;
