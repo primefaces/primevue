@@ -5483,6 +5483,270 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "CarouselPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CarouselProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CarouselState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "CarouselPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "CarouselProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "container",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the container's DOM element."
+                        },
+                        {
+                            "name": "previousButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous button's DOM element."
+                        },
+                        {
+                            "name": "previousButtonIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous button icon's DOM element."
+                        },
+                        {
+                            "name": "itemsContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the items content's DOM element."
+                        },
+                        {
+                            "name": "itemsContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the items container's DOM element."
+                        },
+                        {
+                            "name": "itemCloned",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item cloned's DOM element."
+                        },
+                        {
+                            "name": "item",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item's DOM element."
+                        },
+                        {
+                            "name": "nextButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next button's DOM element."
+                        },
+                        {
+                            "name": "nextButtonIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next button icon's DOM element."
+                        },
+                        {
+                            "name": "indicators",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the indicators's DOM element."
+                        },
+                        {
+                            "name": "indicator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the indicator's DOM element."
+                        },
+                        {
+                            "name": "indicatorButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the indicator button's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CarouselPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "CarouselState": {
+                    "description": "Defines current inline state in Carousel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "remainingItems",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Remaining items' count as a number."
+                        },
+                        {
+                            "name": "d_numVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "1",
+                            "description": "Number of items per page as a number."
+                        },
+                        {
+                            "name": "d_numScroll",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "1",
+                            "description": "Number of items to scroll as a number."
+                        },
+                        {
+                            "name": "d_oldNumScroll",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Old number of items to scroll as a number."
+                        },
+                        {
+                            "name": "d_oldNumVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Old number of items per page as a number."
+                        },
+                        {
+                            "name": "d_oldValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Old array of objects to display."
+                        },
+                        {
+                            "name": "d_page",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Index of the first item."
+                        },
+                        {
+                            "name": "totalShiftedItems",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Total shifted items' count as a number."
+                        },
+                        {
+                            "name": "allowAutoplay",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Allow autoplay as a boolean."
+                        },
+                        {
+                            "name": "d_circular",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Defines if scrolling would be infinite as a boolean."
+                        },
+                        {
+                            "name": "swipeThreshold",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "20",
+                            "description": "Swipe threshold count as a number."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CarouselResponsiveOptions": {
                     "relatedProp": "",
                     "props": [
@@ -5644,6 +5908,14 @@
                             "type": "ButtonHTMLAttributes",
                             "default": "",
                             "description": "Uses to pass all properties of the HTMLButtonElement to the next navigation button."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CarouselPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -5711,6 +5983,14 @@
                             "description": "Emitted when the page changes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "CarouselPassThroughOptionType": {
+                    "values": "CarouselPassThroughAttributes | (options: CarouselPassThroughMethodOptions) => CarouselPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -15739,6 +16019,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "GalleriaPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "GalleriaProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "GalleriaState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "GalleriaResponsiveOptions": {
                     "relatedProp": "",
                     "props": [
@@ -15757,6 +16058,257 @@
                             "type": "number",
                             "default": "",
                             "description": "The number of visible items on breakpoint."
+                        }
+                    ],
+                    "methods": []
+                },
+                "GalleriaPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "GalleriaProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button's DOM element."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close icon's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "itemWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item wrapper's DOM element."
+                        },
+                        {
+                            "name": "itemContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item container's DOM element."
+                        },
+                        {
+                            "name": "previousItemButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous item button's DOM element."
+                        },
+                        {
+                            "name": "previousItemIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous item icon's DOM element."
+                        },
+                        {
+                            "name": "item",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item's DOM element."
+                        },
+                        {
+                            "name": "nextItemButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next item button's DOM element."
+                        },
+                        {
+                            "name": "nextItemIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next item icon's DOM element."
+                        },
+                        {
+                            "name": "caption",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the caption's DOM element."
+                        },
+                        {
+                            "name": "indicators",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the indicators's DOM element."
+                        },
+                        {
+                            "name": "indicator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the indicator's DOM element."
+                        },
+                        {
+                            "name": "thumbnailWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the thumbnail wrapper's DOM element."
+                        },
+                        {
+                            "name": "thumbnailContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the thumbnail container's DOM element."
+                        },
+                        {
+                            "name": "previousThumbnailButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous thumbnail button's DOM element."
+                        },
+                        {
+                            "name": "previousThumbnailIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the previous thumbnail icon's DOM element."
+                        },
+                        {
+                            "name": "thumbnailItemsContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the thumbnail items container's DOM element."
+                        },
+                        {
+                            "name": "thumbnailItems",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the thumbnail items' DOM element."
+                        },
+                        {
+                            "name": "thumbnailItem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the thumbnail item's DOM element."
+                        },
+                        {
+                            "name": "thumbnailItemContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the thumbnail item content's DOM element."
+                        },
+                        {
+                            "name": "nextThumbnailButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next thumbnail button's DOM element."
+                        },
+                        {
+                            "name": "nextThumbnailIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next thumbnail icon's DOM element."
+                        },
+                        {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the mask's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "GalleriaPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "GalleriaState": {
+                    "description": "Defines current inline state in Galleria component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_collapsed",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current collapsed state as a boolean."
                         }
                     ],
                     "methods": []
@@ -15980,6 +16532,14 @@
                             "type": "ButtonHTMLAttributes",
                             "default": "",
                             "description": "Uses to pass all properties of the HTMLButtonElement to the next navigation button."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -16117,6 +16677,14 @@
                             "description": "Emitted when the visible changes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "GalleriaPassThroughOptionType": {
+                    "values": "GalleriaPassThroughAttributes | (options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes | null | undefined"
                 }
             }
         }
