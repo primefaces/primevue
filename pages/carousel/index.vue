@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Carousel Component" header="Carousel" description="Carousel is a content slider featuring various customization options." :componentDocs="docs" :apiDocs="['Carousel']" />
+    <DocComponent title="Vue Carousel Component" header="Carousel" description="Carousel is a content slider featuring various customization options." :componentDocs="docs" :apiDocs="['Carousel']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,8 @@ import NumScrollDoc from '@/doc/carousel/NumScrollDoc';
 import ResponsiveDoc from '@/doc/carousel/ResponsiveDoc';
 import StyleDoc from '@/doc/carousel/StyleDoc';
 import VerticalDoc from '@/doc/carousel/VerticalDoc';
+import PTComponent from '@/doc/carousel/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -55,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
