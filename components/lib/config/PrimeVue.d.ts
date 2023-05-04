@@ -18,6 +18,7 @@ import { DividerPassThroughOptions } from '../divider';
 import { DockPassThroughOptions } from '../dock';
 import { FieldsetPassThroughOptions } from '../fieldset';
 import { FileUploadPassThroughOptions } from '../fileupload';
+import { ImagePassThroughOptions } from '../image';
 import { InlineMessagePassThroughOptions } from '../inlinemessage';
 import { InplacePassThroughOptions } from '../inplace';
 import { MegaMenuPassThroughOptions } from '../megamenu';
@@ -82,6 +83,7 @@ interface PrimeVuePTOptions {
     dynamicdialog?: DialogPassThroughOptions;
     fieldset?: FieldsetPassThroughOptions;
     fileupload?: FileUploadPassThroughOptions;
+    image?: ImagePassThroughOptions;
     inlinemessage?: InlineMessagePassThroughOptions;
     inplace?: InplacePassThroughOptions;
     megamenu?: MegaMenuPassThroughOptions;

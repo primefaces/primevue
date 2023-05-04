@@ -10,6 +10,12 @@ const ImageProps = [
         type: 'string',
         default: 'pi pi-eye',
         description: 'Custom indicator icon.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
