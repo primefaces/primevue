@@ -21,12 +21,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'ColorPicker',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
     props: {
         modelValue: {
