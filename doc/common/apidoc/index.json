@@ -19366,6 +19366,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "InputNumberPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputNumberProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputNumberState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "InputNumberInputEvent": {
                     "description": "Custom input event.",
                     "relatedProp": "InputNumberEmits.input",
@@ -19408,6 +19429,89 @@
                             "type": "string",
                             "default": "",
                             "description": "Input value"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputNumberPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputNumberProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputNumberPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputTextPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Input component."
+                        },
+                        {
+                            "name": "buttonGroup",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputNumberPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the button group's DOM element."
+                        },
+                        {
+                            "name": "incrementButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "decrementButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputNumberPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputNumberState": {
+                    "description": "Defines current inline state in InputNumber component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_modelValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current value state as a number."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
                         }
                     ],
                     "methods": []
@@ -19689,6 +19793,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputNumberPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -19770,6 +19882,14 @@
                             "description": "Callback to invoke on blur of input field."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputNumberPassThroughOptionType": {
+                    "values": "InputNumberPassThroughAttributes | (options: InputNumberPassThroughMethodOptions) => InputNumberPassThroughAttributes | null | undefined"
                 }
             }
         }
