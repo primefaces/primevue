@@ -10,6 +10,16 @@
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface CascadeSelectPassThroughMethodOptions {
+    props: CascadeSelectProps;
+    state: CascadeSelectState;
+}
+
 /**
  * Custom change event
  * @see {@link CascadeSelectEmits.change}
@@ -30,6 +40,124 @@ export interface CascadeSelectChangeEvent {
  * @extends CascadeSelectChangeEvent
  */
 export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent {}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link CascadeSelectProps.pt}
+ */
+export interface CascadeSelectPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the dropdown button's DOM element.
+     */
+    dropdownButton?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the dropdown icon's DOM element.
+     */
+    dropdownIcon?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panel?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    list?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item's DOM element.
+     */
+    item?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the text's DOM element.
+     */
+    text?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input sria's DOM element.
+     */
+    inputAria?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the search result message text aria's DOM element.
+     */
+    searchResultAria?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the selected message text aria's DOM element.
+     */
+    selectedMessageAria?: CascadeSelectPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface CascadeSelectPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines focused item info
+ */
+export interface CascadeSelectFocusedOptionInfo {
+    /**
+     * Active item index
+     */
+    index: number;
+    /**
+     * Active item level
+     */
+    level: number;
+    /**
+     * Parent key info
+     */
+    parentKey: string;
+}
+
+/**
+ * Defines current inline state in CascadeSelect component.
+ */
+export interface CascadeSelectState {
+    /**
+     * Current id state as a string
+     */
+    id: string;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item info.
+     * @type {CascadeSelectFocusedOptionInfo}
+     */
+    focusedOptionInfo: CascadeSelectFocusedOptionInfo;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    activeOptionPath: any[];
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+}
 
 /**
  * Defines valid properties in CascadeSelect component.
@@ -180,6 +308,11 @@ export interface CascadeSelectProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {CascadeSelectPassThroughOptions}
+     */
+    pt?: CascadeSelectPassThroughOptions;
 }
 
 /**

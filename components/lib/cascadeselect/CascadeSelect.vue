@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onContainerClick($event)">
-        <div class="p-hidden-accessible">
+    <div ref="container" :class="containerClass" @click="onContainerClick($event)" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('inputAria')">
             <input
                 ref="focusInput"
                 :id="inputId"
@@ -21,30 +21,30 @@
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('input') }"
             />
         </div>
-        <span :class="labelClass">
+        <span :class="labelClass" v-bind="ptm('label')">
             <slot name="value" :value="modelValue" :placeholder="placeholder">
                 {{ label }}
             </slot>
         </span>
-        <div class="p-cascadeselect-trigger" role="button" tabindex="-1" aria-hidden="true">
+        <div class="p-cascadeselect-trigger" role="button" tabindex="-1" aria-hidden="true" v-bind="ptm('dropdownButton')">
             <slot v-if="loading" name="loadingicon" class="p-cascadeselect-trigger-icon">
-                <span v-if="loadingIcon" :class="['p-cascadeselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" />
-                <SpinnerIcon v-else class="p-cascadeselect-trigger-icon" spin aria-hidden="true" />
+                <span v-if="loadingIcon" :class="['p-cascadeselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
+                <SpinnerIcon v-else class="p-cascadeselect-trigger-icon" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
             </slot>
             <slot v-else name="dropdownicon" class="p-cascadeselect-trigger-icon">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-cascadeselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-cascadeselect-trigger-icon', dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
-        <span role="status" aria-live="polite" class="p-hidden-accessible">
+        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('searchResultAria')">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="panelProps">
-                    <div class="p-cascadeselect-items-wrapper">
+                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
+                    <div class="p-cascadeselect-items-wrapper" v-bind="ptm('wrapper')">
                         <CascadeSelectSub
                             :id="id + '_tree'"
                             role="tree"
@@ -62,10 +62,11 @@
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
                             @option-change="onOptionChange"
+                            :pt="pt"
                         />
                     </div>
 
-                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('selectedMessageAria')">
                         {{ selectedMessageText }}
                     </span>
                 </div>
@@ -75,6 +76,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import AngleRightIcon from 'primevue/icons/angleright';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SpinnerIcon from 'primevue/icons/spinner';
@@ -85,6 +87,7 @@ import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
     name: 'CascadeSelect',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
     props: {
         modelValue: null,

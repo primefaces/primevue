@@ -1,5 +1,5 @@
 <template>
-    <ul class="p-cascadeselect-panel p-cascadeselect-items">
+    <ul class="p-cascadeselect-panel p-cascadeselect-items" v-bind="ptm('list')">
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
@@ -11,10 +11,11 @@
                 :aria-level="level + 1"
                 :aria-setsize="options.length"
                 :aria-posinset="index + 1"
+                v-bind="ptm('item')"
             >
-                <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)">
+                <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)" v-bind="ptm('content')">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
-                    <span v-else class="p-cascadeselect-item-text">{{ getOptionLabelToRender(processedOption) }}</span>
+                    <span v-else class="p-cascadeselect-item-text" v-bind="ptm('text')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <component
                         v-if="isOptionGroup(processedOption)"
                         :is="templates['optiongroupicon'] ? templates['optiongroupicon'] : optionGroupIcon ? 'span' : 'AngleRightIcon'"
@@ -39,6 +40,7 @@
                     :optionGroupLabel="optionGroupLabel"
                     :optionGroupChildren="optionGroupChildren"
                     @option-change="onOptionChange"
+                    :pt="pt"
                 />
             </li>
         </template>
@@ -46,12 +48,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'CascadeSelectSub',
+    extends: BaseComponent,
     emits: ['option-change'],
     props: {
         selectId: String,

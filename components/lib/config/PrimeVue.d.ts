@@ -10,6 +10,7 @@ import { ButtonPassThroughOptions } from '../button';
 import { CalendarPassThroughOptions } from '../calendar';
 import { CardPassThroughOptions } from '../card';
 import { CarouselPassThroughOptions } from '../carousel';
+import { CascadeSelectPassThroughOptions } from '../cascadeselect';
 import { ChartPassThroughOptions } from '../chart';
 import { ChipPassThroughOptions } from '../chip';
 import { ConfirmDialogPassThroughOptions } from '../confirmdialog';
@@ -79,6 +80,7 @@ interface PrimeVuePTOptions {
     calendar?: CalendarPassThroughOptions;
     card?: CardPassThroughOptions;
     carousel?: CarouselPassThroughOptions;
+    cascadeselect?: CascadeSelectPassThroughOptions;
     chart?: ChartPassThroughOptions;
     chip?: ChipPassThroughOptions;
     confirmdialog?: ConfirmDialogPassThroughOptions;
