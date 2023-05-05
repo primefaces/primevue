@@ -6724,6 +6724,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "CascadeSelectPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CascadeSelectProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CascadeSelectState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "CascadeSelectChangeEvent": {
                     "description": "Custom change event",
                     "relatedProp": "CascadeSelectEmits.change",
@@ -6771,6 +6792,216 @@
                     ],
                     "methods": [],
                     "extendedTypes": "CascadeSelectChangeEvent"
+                },
+                "CascadeSelectPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "CascadeSelectProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "dropdownButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the dropdown button's DOM element."
+                        },
+                        {
+                            "name": "loadingIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
+                        },
+                        {
+                            "name": "dropdownIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the dropdown icon's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "list",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "item",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "text",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the text's DOM element."
+                        },
+                        {
+                            "name": "inputAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input sria's DOM element."
+                        },
+                        {
+                            "name": "searchResultAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the search result message text aria's DOM element."
+                        },
+                        {
+                            "name": "selectedMessageAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the selected message text aria's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CascadeSelectPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "CascadeSelectFocusedOptionInfo": {
+                    "description": "Defines focused item info",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item index"
+                        },
+                        {
+                            "name": "level",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Active item level"
+                        },
+                        {
+                            "name": "parentKey",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Parent key info"
+                        }
+                    ],
+                    "methods": []
+                },
+                "CascadeSelectState": {
+                    "description": "Defines current inline state in CascadeSelect component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string"
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "focusedOptionInfo",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CascadeSelectFocusedOptionInfo",
+                            "default": "",
+                            "description": "Current focused item info."
+                        },
+                        {
+                            "name": "activeOptionPath",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current overlay visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
                 },
                 "CascadeSelectProps": {
                     "description": "Defines valid properties in CascadeSelect component.",
@@ -7042,6 +7273,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -7212,6 +7451,14 @@
                             "description": "Callback to invoke when the overlay is hidden."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "CascadeSelectPassThroughOptionType": {
+                    "values": "CascadeSelectPassThroughAttributes | (options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes | null | undefined"
                 }
             }
         }
