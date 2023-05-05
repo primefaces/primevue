@@ -28,6 +28,12 @@ const InputMaskProps = [
         type: 'boolean',
         default: 'false',
         description: 'Defines if model sets the raw unmasked value to bound value or the formatted mask value.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

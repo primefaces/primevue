@@ -9,6 +9,26 @@
  */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type InputMaskPassThroughOptionType = InputMaskPassThroughAttributes | null | undefined;
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InputMaskProps.pt}
+ */
+export interface InputMaskPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: InputMaskPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface InputMaskPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in InputMask component.
  */
@@ -41,6 +61,11 @@ export interface InputMaskProps {
      * @defaultValue false
      */
     readonly?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {InputMaskPassThroughOptions}
+     */
+    pt?: InputMaskPassThroughOptions;
 }
 
 export interface InputMaskSlots {}
