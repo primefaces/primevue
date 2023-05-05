@@ -42,6 +42,7 @@ import { MessagePassThroughOptions } from '../message';
 import { OverlayPanelPassThroughOptions } from '../overlaypanel';
 import { PanelPassThroughOptions } from '../panel';
 import { PanelMenuPassThroughOptions } from '../panelmenu';
+import { PasswordPassThroughOptions } from '../password';
 import { ProgressBarPassThroughOptions } from '../progressbar';
 import { ProgressSpinnerPassThroughOptions } from '../progressspinner';
 import { ScrollPanelPassThroughOptions } from '../scrollpanel';
@@ -122,6 +123,7 @@ interface PrimeVuePTOptions {
     overlaypanel?: OverlayPanelPassThroughOptions;
     panel?: PanelPassThroughOptions;
     panelmenu?: PanelMenuPassThroughOptions;
+    password?: PasswordPassThroughOptions;
     progressbar?: ProgressBarPassThroughOptions;
     progressspinner?: ProgressSpinnerPassThroughOptions;
     scrollpanel?: ScrollPanelPassThroughOptions;

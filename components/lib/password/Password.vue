@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" v-bind="ptm('root')">
         <PInputText
             ref="input"
             :id="inputId"
@@ -19,26 +19,26 @@
             @blur="onBlur"
             @keyup="onKeyUp"
             @invalid="onInvalid"
-            v-bind="inputProps"
+            v-bind="{ ...inputProps, ...ptm('input') }"
         />
         <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle">
-            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="hideIcon" @click="onMaskToggle" />
+            <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="hideIcon" @click="onMaskToggle" v-bind="ptm('hideIcon')" />
         </slot>
         <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle">
-            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="showIcon" @click="onMaskToggle" />
+            <component :is="showIcon ? 'i' : 'EyeIcon'" :class="showIcon" @click="onMaskToggle" v-bind="ptm('showIcon')" />
         </slot>
-        <span class="p-hidden-accessible" aria-live="polite">
+        <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')">
             {{ infoText }}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId || panelUniqueId" :class="panelStyleClass" :style="panelStyle" @click="onOverlayClick" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId || panelUniqueId" :class="panelStyleClass" :style="panelStyle" @click="onOverlayClick" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <slot name="header"></slot>
                     <slot name="content">
-                        <div class="p-password-meter">
-                            <div :class="strengthClass" :style="{ width: meter ? meter.width : '' }"></div>
+                        <div class="p-password-meter" v-bind="ptm('meter')">
+                            <div :class="strengthClass" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
                         </div>
-                        <div class="p-password-info">{{ infoText }}</div>
+                        <div class="p-password-info" v-bind="ptm('info')">{{ infoText }}</div>
                     </slot>
                     <slot name="footer"></slot>
                 </div>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import EyeIcon from 'primevue/icons/eye';
 import EyeSlashIcon from 'primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
@@ -57,6 +58,7 @@ import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUti
 
 export default {
     name: 'Password',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
     props: {
         modelValue: String,

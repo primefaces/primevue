@@ -8,7 +8,106 @@
  *
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { InputTextPassThroughOptionType } from '../inputtext';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
+
+export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface PasswordPassThroughMethodOptions {
+    props: PasswordProps;
+    state: PasswordState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link PasswordProps.pt}
+ */
+export interface PasswordPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: PasswordPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptionType}
+     */
+    input?: PasswordPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hide icon's DOM element.
+     */
+    hideIcon?: PasswordPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the show icon's DOM element.
+     */
+    showIcon?: PasswordPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panel?: PasswordPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the meter's DOM element.
+     */
+    meter?: PasswordPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the info's DOM element.
+     */
+    info?: PasswordPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden accessible DOM element.
+     */
+    hiddenAccesible?: PasswordPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface PasswordPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Password component.
+ */
+export interface PasswordState {
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current overlay visible state as a boolean.
+     * @see {@link PasswordMeterStateOptions}
+     */
+    meter: PasswordMeterStateOptions;
+    /**
+     * Current info test state as a string.
+     */
+    infoText: string;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current unmasked state as a boolean.
+     * @defaultValue false
+     */
+    unmasked: boolean;
+}
+
+export interface PasswordMeterStateOptions {
+    /**
+     * Current strength of the meter state as a string.
+     */
+    strength: string;
+    /**
+     * Current width of the meter state as a string.
+     */
+    width: string;
+}
 
 /**
  * Defines valid properties in Password component.
@@ -123,6 +222,11 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {PasswordPassThroughOptions}
+     */
+    pt?: PasswordPassThroughOptions;
 }
 
 /**

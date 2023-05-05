@@ -136,6 +136,12 @@ const PasswordProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
