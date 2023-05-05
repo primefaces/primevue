@@ -14,6 +14,7 @@ import { CascadeSelectPassThroughOptions } from '../cascadeselect';
 import { ChartPassThroughOptions } from '../chart';
 import { CheckboxPassThroughOptions } from '../checkbox';
 import { ChipPassThroughOptions } from '../chip';
+import { ChipsPassThroughOptions } from '../chips';
 import { ConfirmDialogPassThroughOptions } from '../confirmdialog';
 import { ConfirmPopupPassThroughOptions } from '../confirmpopup';
 import { ContextMenuPassThroughOptions } from '../contextmenu';
@@ -85,6 +86,7 @@ interface PrimeVuePTOptions {
     chart?: ChartPassThroughOptions;
     checkbox?: CheckboxPassThroughOptions;
     chip?: ChipPassThroughOptions;
+    chips?: ChipsPassThroughOptions;
     confirmdialog?: ConfirmDialogPassThroughOptions;
     confirmpopup?: ConfirmPopupPassThroughOptions;
     contextmenu?: ContextMenuPassThroughOptions;

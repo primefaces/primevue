@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" v-bind="ptm('root')">
         <ul
             ref="container"
             class="p-inputtext p-chips-multiple-container"
@@ -13,6 +13,7 @@
             @focus="onContainerFocus"
             @blur="onContainerBlur"
             @keydown="onContainerKeyDown"
+            v-bind="ptm('container')"
         >
             <li
                 v-for="(val, i) of modelValue"
@@ -24,15 +25,16 @@
                 :aria-selected="true"
                 :aria-setsize="modelValue.length"
                 :aria-posinset="i + 1"
+                v-bind="ptm('token')"
             >
                 <slot name="chip" :value="val">
-                    <span class="p-chips-token-label">{{ val }}</span>
+                    <span class="p-chips-token-label" v-bind="ptm('label')">{{ val }}</span>
                 </slot>
                 <slot name="removetokenicon" :onClick="(event) => removeItem(event, i)">
-                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-chips-token-icon', removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true" />
+                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-chips-token-icon', removeTokenIcon]" @click="removeItem($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
                 </slot>
             </li>
-            <li class="p-chips-input-token" role="option">
+            <li class="p-chips-input-token" role="option" v-bind="ptm('inputToken')">
                 <input
                     ref="input"
                     :id="inputId"
@@ -46,7 +48,7 @@
                     @input="onInput"
                     @keydown="onKeyDown($event)"
                     @paste="onPaste($event)"
-                    v-bind="inputProps"
+                    v-bind="{ ...inputProps, ...ptm('input') }"
                 />
             </li>
         </ul>
@@ -54,11 +56,13 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Chips',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     props: {
         modelValue: {
