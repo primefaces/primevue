@@ -12,6 +12,7 @@ import { CardPassThroughOptions } from '../card';
 import { CarouselPassThroughOptions } from '../carousel';
 import { CascadeSelectPassThroughOptions } from '../cascadeselect';
 import { ChartPassThroughOptions } from '../chart';
+import { CheckboxPassThroughOptions } from '../checkbox';
 import { ChipPassThroughOptions } from '../chip';
 import { ConfirmDialogPassThroughOptions } from '../confirmdialog';
 import { ConfirmPopupPassThroughOptions } from '../confirmpopup';
@@ -82,6 +83,7 @@ interface PrimeVuePTOptions {
     carousel?: CarouselPassThroughOptions;
     cascadeselect?: CascadeSelectPassThroughOptions;
     chart?: ChartPassThroughOptions;
+    checkbox?: CheckboxPassThroughOptions;
     chip?: ChipPassThroughOptions;
     confirmdialog?: ConfirmDialogPassThroughOptions;
     confirmpopup?: ConfirmPopupPassThroughOptions;

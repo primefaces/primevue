@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
+    <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
         <div class="p-hidden-accessible">
             <input
                 ref="input"
@@ -16,23 +16,25 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="inputProps"
+                v-bind="ptm('inputAria')"
             />
         </div>
-        <div ref="box" :class="['p-checkbox-box', inputClass, { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" :style="inputStyle">
+        <div ref="box" :class="['p-checkbox-box', inputClass, { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" :style="inputStyle" v-bind="{ ...inputProps, ...ptm('input') }">
             <slot name="icon" :checked="checked">
-                <component :is="checked ? 'CheckIcon' : null" class="p-checkbox-icon" />
+                <component :is="checked ? 'CheckIcon' : null" class="p-checkbox-icon" v-bind="ptm('icon')" />
             </slot>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Checkbox',
+    extends: BaseComponent,
     emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
     props: {
         value: null,
