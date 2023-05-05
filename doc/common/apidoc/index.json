@@ -7773,6 +7773,14 @@
                             "description": "Uses to pass attributes to the icon's DOM element."
                         },
                         {
+                            "name": "hiddenAccessible",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden accessible DOM element."
+                        },
+                        {
                             "name": "inputAria",
                             "optional": true,
                             "readonly": false,
@@ -19911,6 +19919,94 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "InputSwitchPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputSwitchProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputSwitchState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "undefined.InputSwitchProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "slider",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the slider's DOM element."
+                        },
+                        {
+                            "name": "hiddenAccessible",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden accessible DOM element."
+                        },
+                        {
+                            "name": "inputAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input aria's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputSwitchState": {
+                    "description": "Defines current inline state in InputSwitch component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "InputSwitchProps": {
                     "description": "Defines valid properties in InputSwitch component.",
                     "relatedProp": "",
@@ -20053,6 +20149,14 @@
                             "description": "Callback to invoke on value change."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputSwitchPassThroughOptionType": {
+                    "values": "InputSwitchPassThroughAttributes | (options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes | null | undefined"
                 }
             }
         }
