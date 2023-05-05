@@ -23,6 +23,7 @@ import { DeferredContentPassThroughOptions } from '../deferredcontent';
 import { DialogPassThroughOptions } from '../dialog';
 import { DividerPassThroughOptions } from '../divider';
 import { DockPassThroughOptions } from '../dock';
+import { EditorPassThroughOptions } from '../editor';
 import { FieldsetPassThroughOptions } from '../fieldset';
 import { FileUploadPassThroughOptions } from '../fileupload';
 import { GalleriaPassThroughOptions } from '../galleria';
@@ -97,6 +98,7 @@ interface PrimeVuePTOptions {
     dialog?: DialogPassThroughOptions;
     dock?: DockPassThroughOptions;
     dynamicdialog?: DialogPassThroughOptions;
+    editor?: EditorPassThroughOptions;
     fieldset?: FieldsetPassThroughOptions;
     fileupload?: FileUploadPassThroughOptions;
     galleria?: GalleriaPassThroughOptions;
