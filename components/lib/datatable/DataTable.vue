@@ -1011,8 +1011,10 @@ export default {
             this.$emit('row-dblclick', e);
         },
         onRowRightClick(event) {
-            DomHandler.clearSelection();
-            event.originalEvent.target.focus();
+            if(this.contextMenu){
+                DomHandler.clearSelection();
+                event.originalEvent.target.focus();
+            }
 
             this.$emit('update:contextMenuSelection', event.data);
             this.$emit('row-contextmenu', event);
