@@ -7723,6 +7723,94 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "CheckboxPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CheckboxProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CheckboxState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "CheckboxPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "CheckboxProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "inputAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input aria's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CheckboxPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "CheckboxState": {
+                    "description": "Defines current inline state in Checkbox component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CheckboxProps": {
                     "description": "Defines valid properties in Checkbox component.",
                     "relatedProp": "",
@@ -7854,6 +7942,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CheckboxPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -7935,6 +8031,14 @@
                             "description": "Callback to invoke on value change."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "CheckboxPassThroughOptionType": {
+                    "values": "CheckboxPassThroughAttributes | (options: CheckboxPassThroughMethodOptions) => CheckboxPassThroughAttributes | null | undefined"
                 }
             }
         }
