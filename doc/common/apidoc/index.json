@@ -25551,6 +25551,180 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "PasswordPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PasswordProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PasswordState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "PasswordPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "PasswordProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the InputText component."
+                        },
+                        {
+                            "name": "hideIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hide icon's DOM element."
+                        },
+                        {
+                            "name": "showIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the show icon's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "meter",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the meter's DOM element."
+                        },
+                        {
+                            "name": "info",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the info's DOM element."
+                        },
+                        {
+                            "name": "hiddenAccesible",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden accessible DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PasswordPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "PasswordState": {
+                    "description": "Defines current inline state in Password component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current overlay visible state as a boolean."
+                        },
+                        {
+                            "name": "meter",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PasswordMeterStateOptions",
+                            "default": "",
+                            "description": "Current overlay visible state as a boolean."
+                        },
+                        {
+                            "name": "infoText",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current info test state as a string."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "unmasked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current unmasked state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PasswordMeterStateOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "strength",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current strength of the meter state as a string."
+                        },
+                        {
+                            "name": "width",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current width of the meter state as a string."
+                        }
+                    ],
+                    "methods": []
+                },
                 "PasswordProps": {
                     "description": "Defines valid properties in Password component.",
                     "relatedProp": "",
@@ -25756,6 +25930,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": [],
@@ -25829,6 +26011,14 @@
                             "description": "Emitted when the value changes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "PasswordPassThroughOptionType": {
+                    "values": "PasswordPassThroughAttributes | (options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | null | undefined"
                 }
             }
         }
