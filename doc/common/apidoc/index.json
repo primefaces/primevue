@@ -33470,6 +33470,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "VirtualScrollerPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "VirtualScrollerProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "VirtualScrollerState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "VirtualScrollerScrollIndexChangeEvent": {
                     "description": "Custom scroll index change event.",
                     "relatedProp": "VirtualScrollerEmits['scroll-index-change']",
@@ -33634,6 +33655,153 @@
                     ],
                     "methods": [],
                     "extendedBy": "VirtualScrollerLoaderOptions"
+                },
+                "VirtualScrollerPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "VirtualScrollerProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "spacer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the spacer's DOM element."
+                        },
+                        {
+                            "name": "loader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loader's DOM element."
+                        },
+                        {
+                            "name": "loadingIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "VirtualScrollerPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "VirtualScrollerState": {
+                    "description": "Defines current inline state in VirtualScroller component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "first",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "First index of the new data range to be loaded as a number."
+                        },
+                        {
+                            "name": "last",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Last index of the new data range to be loaded as a number."
+                        },
+                        {
+                            "name": "page",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the first item as a number."
+                        },
+                        {
+                            "name": "numItemsInViewport",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Visible item count in the viewport as a number."
+                        },
+                        {
+                            "name": "lastScrollPos",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Lastest scroll position as a number."
+                        },
+                        {
+                            "name": "d_numToleratedItems",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Additional elements to add to the DOM outside of the view as a number."
+                        },
+                        {
+                            "name": "d_loading",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "false",
+                            "description": "Current loading state as a boolean."
+                        },
+                        {
+                            "name": "loaderArr",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "default": "",
+                            "description": "Loadable items array."
+                        },
+                        {
+                            "name": "spacerStyle",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "The style of spacer element."
+                        },
+                        {
+                            "name": "contentStyle",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "The style of content element."
+                        }
+                    ],
+                    "methods": []
                 },
                 "VirtualScrollerLoaderOptions": {
                     "description": "Custom virtualscroller loader options",
@@ -33813,7 +33981,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Whether to show loader."
                         },
                         {
@@ -33871,6 +34039,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether to dynamically change the height or width of scrollable container."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": [
@@ -33999,6 +34175,14 @@
                             "description": "Callback to invoke in lazy mode to load new data."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "VirtualScrollerPassThroughOptionType": {
+                    "values": "VirtualScrollerPassThroughAttributes | (options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes | null | undefined"
                 }
             }
         }
