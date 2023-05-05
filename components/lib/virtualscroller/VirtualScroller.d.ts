@@ -10,6 +10,16 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface VirtualScrollerPassThroughMethodOptions {
+    props: VirtualScrollerProps;
+    state: VirtualScrollerState;
+}
+
 /**
  * Custom scroll index change event.
  * @see {@link VirtualScrollerEmits['scroll-index-change']}
@@ -93,6 +103,87 @@ export interface VirtualScrollerItemOptions {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link VirtualScrollerProps.pt}
+ */
+export interface VirtualScrollerPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the spacer's DOM element.
+     */
+    spacer?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loader's DOM element.
+     */
+    loader?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: VirtualScrollerPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface VirtualScrollerPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in VirtualScroller component.
+ */
+export interface VirtualScrollerState {
+    /**
+     * First index of the new data range to be loaded as a number.
+     */
+    first: number;
+    /**
+     * Last index of the new data range to be loaded as a number.
+     */
+    last: number;
+    /**
+     * Index of the first item as a number.
+     */
+    page: number;
+    /**
+     * Visible item count in the viewport as a number.
+     */
+    numItemsInViewport: number;
+    /**
+     * Lastest scroll position as a number.
+     */
+    lastScrollPos: number;
+    /**
+     * Additional elements to add to the DOM outside of the view as a number.
+     */
+    d_numToleratedItems: number;
+    /**
+     * Current loading state as a boolean.
+     * @defaultValue false
+     */
+    d_loading: number;
+    /**
+     * Loadable items array.
+     */
+    loaderArr: any[];
+    /**
+     * The style of spacer element.
+     */
+    spacerStyle: any;
+    /**
+     * The style of content element.
+     */
+    contentStyle: any;
+}
+
+/**
  * Custom virtualscroller loader options
  * @see VirtualScrollerItemOptions
  * @extends VirtualScrollerItemOptions
@@ -169,6 +260,7 @@ export interface VirtualScrollerProps {
     loaderDisabled?: boolean | undefined;
     /**
      * Whether to show loader.
+     * @defaultValue false
      */
     showLoader?: boolean | undefined;
     /**
@@ -211,6 +303,11 @@ export interface VirtualScrollerProps {
      * @defaultValue false
      */
     autoSize?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {VirtualScrollerPassThroughOptions}
+     */
+    pt?: VirtualScrollerPassThroughOptions;
 }
 
 /**

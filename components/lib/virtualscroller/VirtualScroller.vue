@@ -1,6 +1,6 @@
 <template>
     <template v-if="!disabled">
-        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll">
+        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptm('root')">
             <slot
                 name="content"
                 :styleClass="contentClass"
@@ -18,21 +18,21 @@
                 :horizontal="isHorizontal()"
                 :both="isBoth()"
             >
-                <div :ref="contentRef" :class="contentClass" :style="contentStyle">
+                <div :ref="contentRef" :class="contentClass" :style="contentStyle" v-bind="ptm('content')">
                     <template v-for="(item, index) of loadedItems" :key="index">
                         <slot name="item" :item="item" :options="getOptions(index)"></slot>
                     </template>
                 </div>
             </slot>
-            <div v-if="showSpacer" class="p-virtualscroller-spacer" :style="spacerStyle"></div>
-            <div v-if="!loaderDisabled && showLoader && d_loading" :class="loaderClass">
+            <div v-if="showSpacer" class="p-virtualscroller-spacer" :style="spacerStyle" v-bind="ptm('spacer')"></div>
+            <div v-if="!loaderDisabled && showLoader && d_loading" :class="loaderClass" v-bind="ptm('loader')">
                 <template v-if="$slots && $slots.loader">
                     <template v-for="(_, index) of loaderArr" :key="index">
                         <slot name="loader" :options="getLoaderOptions(index, isBoth() && { numCols: d_numItemsInViewport.cols })"></slot>
                     </template>
                 </template>
                 <slot name="loadingicon">
-                    <SpinnerIcon spin class="p-virtualscroller-loading-icon" />
+                    <SpinnerIcon spin class="p-virtualscroller-loading-icon" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
         </div>
@@ -44,11 +44,13 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import SpinnerIcon from 'primevue/icons/spinner';
 import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'VirtualScroller',
+    extends: BaseComponent,
     emits: ['update:numToleratedItems', 'scroll', 'scroll-index-change', 'lazy-load'],
     props: {
         id: {

@@ -101,6 +101,12 @@ const VirtualScrollerProps = [
         type: 'number|string',
         default: '0',
         description: 'Index of the element in tabbing order.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

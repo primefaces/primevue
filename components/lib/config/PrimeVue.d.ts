@@ -48,6 +48,7 @@ import { TerminalPassThroughOptions } from '../terminal';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ToastPassThroughOptions } from '../toast';
 import { ToolbarPassThroughOptions } from '../toolbar';
+import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
 interface PrimeVueConfiguration {
     ripple?: boolean;
@@ -117,6 +118,7 @@ interface PrimeVuePTOptions {
     tieredmenu?: TieredMenuPassThroughOptions;
     toast?: ToastPassThroughOptions;
     toolbar?: ToolbarPassThroughOptions;
+    virtualscroller?: VirtualScrollerPassThroughOptions;
 }
 
 interface PrimeVueLocaleAriaOptions {
