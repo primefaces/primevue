@@ -8,7 +8,19 @@
  *
  */
 import { ButtonHTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptionType } from '../button';
+import { InputTextPassThroughOptionType } from '../inputtext';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
+
+export declare type InputNumberPassThroughOptionType = InputNumberPassThroughAttributes | ((options: InputNumberPassThroughMethodOptions) => InputNumberPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface InputNumberPassThroughMethodOptions {
+    props: InputNumberProps;
+    state: InputNumberState;
+}
 
 /**
  * Custom input event.
@@ -38,6 +50,58 @@ export interface InputNumberBlurEvent {
      * Input value
      */
     value: string;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InputNumberProps.pt}
+ */
+export interface InputNumberPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: InputNumberPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Input component.
+     * @see {@link InputTextPassThroughOptionType}
+     */
+    input?: InputTextPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button group's DOM element.
+     */
+    buttonGroup?: InputNumberPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    incrementButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    decrementButton?: ButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface InputNumberPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in InputNumber component.
+ */
+export interface InputNumberState {
+    /**
+     * Current value state as a number.
+     */
+    d_modelValue: number;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**
@@ -198,6 +262,11 @@ export interface InputNumberProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {InputNumberPassThroughOptions}
+     */
+    pt?: InputNumberPassThroughOptions;
 }
 
 /**

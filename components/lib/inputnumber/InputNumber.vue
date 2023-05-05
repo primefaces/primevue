@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass">
+    <span :class="containerClass" v-bind="ptm('root')">
         <INInputText
             ref="input"
             :id="inputId"
@@ -23,35 +23,35 @@
             @click="onInputClick"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            v-bind="inputProps"
+            v-bind="{ ...inputProps, ...ptm('input') }"
         />
-        <span v-if="showButtons && buttonLayout === 'stacked'" class="p-inputnumber-button-group">
-            <INButton :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+        <span v-if="showButtons && buttonLayout === 'stacked'" class="p-inputnumber-button-group" v-bind="ptm('buttonGroup')">
+            <INButton :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }">
                 <template #icon>
                     <slot name="incrementbuttonicon">
-                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
+                        <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" />
                     </slot>
                 </template>
             </INButton>
-            <INButton :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+            <INButton :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }">
                 <template #icon>
                     <slot name="decrementbuttonicon">
-                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
+                        <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" />
                     </slot>
                 </template>
             </INButton>
         </span>
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps">
+        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="upButtonClass" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }">
             <template #icon>
                 <slot name="incrementbuttonicon">
-                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" />
+                    <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" />
                 </slot>
             </template>
         </INButton>
-        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps">
+        <INButton v-if="showButtons && buttonLayout !== 'stacked'" :class="downButtonClass" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }">
             <template #icon>
                 <slot name="decrementbuttonicon">
-                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" />
+                    <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" />
                 </slot>
             </template>
         </INButton>
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
@@ -67,6 +68,7 @@ import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'InputNumber',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'input', 'focus', 'blur'],
     props: {
         modelValue: {
