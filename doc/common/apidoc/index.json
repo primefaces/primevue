@@ -8713,6 +8713,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ColorPickerPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColorPickerProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColorPickerState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "ColorPickerChangeEvent": {
                     "description": "Custom change event.",
                     "relatedProp": "ColorPickerEmits.change",
@@ -8732,6 +8753,113 @@
                             "type": "any",
                             "default": "",
                             "description": "Selected color value."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColorPickerPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ColorPickerProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "selector",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the selector's DOM element."
+                        },
+                        {
+                            "name": "color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the color's DOM element."
+                        },
+                        {
+                            "name": "colorHandler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the color handler's DOM element."
+                        },
+                        {
+                            "name": "hue",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hue's DOM element."
+                        },
+                        {
+                            "name": "hueHandler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hue handler's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColorPickerPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColorPickerState": {
+                    "description": "Defines current inline state in ColorPicker component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current overlay visible state as a boolean."
                         }
                     ],
                     "methods": []
@@ -8819,6 +8947,14 @@
                             "type": "string | HTMLElement",
                             "default": "body",
                             "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColorPickerPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -8872,6 +9008,14 @@
                             "description": "Callback to invoke when input is cleared by the user."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ColorPickerPassThroughOptionType": {
+                    "values": "ColorPickerPassThroughAttributes | (options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | null | undefined"
                 }
             }
         }
