@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
-        <div class="p-hidden-accessible">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenAccessible')">
             <input
                 ref="input"
                 :id="inputId"
