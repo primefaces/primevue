@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Input Component" header="InputText" description="InputText is an extension to standard input element with theming." :componentDocs="docs" :apiDocs="['InputText']" />
+    <DocComponent title="Vue Input Component" header="InputText" description="InputText is an extension to standard input element with theming." :componentDocs="docs" :apiDocs="['InputText']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -7,13 +7,14 @@ import AccessibilityDoc from '@/doc/inputtext/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
 import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
-import VeeValidateDoc from '@/doc/inputtext/form/VeeValidateDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
 import IconsDoc from '@/doc/inputtext/IconsDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
 import SizesDoc from '@/doc/inputtext/SizesDoc.vue';
 import StyleDoc from '@/doc/inputtext/StyleDoc.vue';
+import VeeValidateDoc from '@/doc/inputtext/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/inputtext/pt/index.vue';
 
 export default {
     data() {
@@ -81,7 +82,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
