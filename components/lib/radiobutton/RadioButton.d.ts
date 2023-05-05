@@ -10,6 +10,61 @@
 import { InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type RadioButtonPassThroughOptionType = RadioButtonPassThroughAttributes | ((options: RadioButtonPassThroughMethodOptions) => RadioButtonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface RadioButtonPassThroughMethodOptions {
+    props: RadioButtonProps;
+    state: RadioButtonState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link RadioButtonProps.pt}
+ */
+export interface RadioButtonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: RadioButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: RadioButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: RadioButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden accessible DOM element wrapper.
+     */
+    hiddenInputWrapper?: RadioButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden accessible DOM element.
+     */
+    hiddenInput?: RadioButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface RadioButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in RadioButton component.
+ */
+export interface RadioButtonState {
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
+
 /**
  * Defines valid properties in RadioButton component.
  */

@@ -45,6 +45,7 @@ import { PanelMenuPassThroughOptions } from '../panelmenu';
 import { PasswordPassThroughOptions } from '../password';
 import { ProgressBarPassThroughOptions } from '../progressbar';
 import { ProgressSpinnerPassThroughOptions } from '../progressspinner';
+import { RadioButtonPassThroughOptions } from '../radiobutton';
 import { ScrollPanelPassThroughOptions } from '../scrollpanel';
 import { ScrollTopPassThroughOptions } from '../scrolltop';
 import { SidebarPassThroughOptions } from '../sidebar';
@@ -126,6 +127,7 @@ interface PrimeVuePTOptions {
     password?: PasswordPassThroughOptions;
     progressbar?: ProgressBarPassThroughOptions;
     progressspinner?: ProgressSpinnerPassThroughOptions;
+    radiobutton?: RadioButtonPassThroughOptions;
     scrollpanel?: ScrollPanelPassThroughOptions;
     scrolltop?: ScrollTopPassThroughOptions;
     sidebar?: SidebarPassThroughOptions;
