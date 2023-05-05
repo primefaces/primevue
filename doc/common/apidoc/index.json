@@ -8293,6 +8293,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ChipsPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ChipsProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ChipsState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "ChipsAddEvent": {
                     "description": "Custom add event.",
                     "relatedProp": "ChipsEmits.add",
@@ -8340,6 +8361,121 @@
                     ],
                     "methods": [],
                     "extendedTypes": "ChipsAddEvent"
+                },
+                "ChipsPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ChipsProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "container",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the container's DOM element."
+                        },
+                        {
+                            "name": "token",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the token's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "removeTokenIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the remove token icon's DOM element."
+                        },
+                        {
+                            "name": "inputToken",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input token's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ChipsPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ChipsState": {
+                    "description": "Defines current inline state in Chips component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "inputValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current input value as a string."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "focusedIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current focused item index state as a number."
+                        }
+                    ],
+                    "methods": []
                 },
                 "ChipsProps": {
                     "description": "Defines valid properties in Chips component.",
@@ -8458,6 +8594,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ChipsPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -8540,6 +8684,14 @@
                             "description": "Callback to invoke when a chip is removed."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ChipsPassThroughOptionType": {
+                    "values": "ChipsPassThroughAttributes | (options: ChipsPassThroughMethodOptions) => ChipsPassThroughAttributes | null | undefined"
                 }
             }
         }
