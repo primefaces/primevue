@@ -1,6 +1,10 @@
 <template>
     <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-fileupload-file" v-bind="ptm('file')">
-        <img role="presentation" class="p-fileupload-file-thumbnail" :alt="file.name" :src="file.objectURL" :width="previewWidth" v-bind="ptm('thumbnail')" />
+        <img v-if="isImage(file)" role="presentation" class="p-fileupload-file-thumbnail" :alt="file.name" :src="file.objectURL" :width="previewWidth" v-bind="ptm('thumbnail')" />
+        <div v-else>
+            <slot name="fileicon">
+            </slot>
+        </div>
         <div class="p-fileupload-file-details" v-bind="ptm('details')">
             <div class="p-fileupload-file-name" v-bind="ptm('fileName')">{{ file.name }}</div>
             <span class="p-fileupload-file-size" v-bind="ptm('fileSize')">{{ formatSize(file.size) }}</span>
@@ -49,6 +53,14 @@ export default {
         }
     },
     methods: {
+        getExtionsion(file) {
+            return file.name.substring(file.name.lastIndexOf('.') + 1);
+        },
+        // isImage(file) {
+        //     const imageTypes = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'avif'];
+
+        //     return imageTypes.indexOf(this.getExtionsion(file).toLowerCase()) !== -1;
+        // },
         formatSize(bytes) {
             if (bytes === 0) {
                 return '0 B';
@@ -61,6 +73,15 @@ export default {
 
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
+    },
+    computed: {
+        isImage() {
+            return (file) => {
+                const imageTypes = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'avif'];
+
+                return imageTypes.indexOf(this.getExtionsion(file).toLowerCase()) !== -1;
+            };
+        } 
     },
     components: {
         FileUploadButton: Button,

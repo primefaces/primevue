@@ -488,6 +488,10 @@ export interface FileUploadSlots {
      */
     cancelicon(): VNode[];
     /**
+     * custom file icon template in Advanced mode.
+     */
+    fileIcon(): VNode[];
+    /**
      * Custom remove icon template for each file.
      */
     fileremoveicon(scope: {

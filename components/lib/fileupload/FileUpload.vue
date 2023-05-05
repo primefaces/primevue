@@ -29,7 +29,13 @@
             <slot name="content" :files="files" :uploadedFiles="uploadedFiles" :removeUploadedFileCallback="removeUploadedFile" :removeFileCallback="remove" :progress="progress" :messages="messages">
                 <FileUploadProgressBar v-if="hasFiles" :value="progress" :showValue="false" :pt="ptm('progressbar')" />
                 <FileUploadMessage v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :pt="ptm('message')">{{ msg }}</FileUploadMessage>
-                <FileContent v-if="hasFiles" :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" :templates="$slots" :pt="pt" />
+                <FileContent v-if="hasFiles" :files="files" @remove="remove" :badgeValue="pendingLabel" :previewWidth="previewWidth" :templates="$slots" :pt="pt">
+                    <template #fileicon>
+                        <slot name="fileIcon">
+                            <i class="p-fileupload-icon pi pi-file mx-2 text-4xl text-gray-600" />
+                        </slot>
+                    </template>
+                </FileContent>
                 <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" :templates="$slots" :pt="pt" />
             </slot>
             <div v-if="$slots.empty && !hasFiles && !hasUploadedFiles" class="p-fileupload-empty" v-bind="ptm('empty')">

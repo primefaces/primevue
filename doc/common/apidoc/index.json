@@ -15527,6 +15527,12 @@
                             "description": "Custom cancel icon template."
                         },
                         {
+                            "name": "fileicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom file icon after upload in advanced mode."
+                        },
+                        {
                             "name": "fileremoveicon",
                             "parameters": [
                                 {
