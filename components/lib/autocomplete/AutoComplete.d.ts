@@ -8,8 +8,19 @@
  *
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
+import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
+
+export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughAttributes | ((options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface AutoCompletePassThroughMethodOptions {
+    props: AutoCompleteProps;
+    state: AutoCompleteState;
+}
 
 /**
  * Custom change event.
@@ -76,6 +87,96 @@ export interface AutoCompleteCompleteEvent {
      * Value to search with
      */
     query: string;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link AutoCompleteProps.pt}
+ */
+export interface AutoCompletePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the container's DOM element.
+     */
+    container?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the token' DOM element.
+     */
+    token?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the token label's DOM element.
+     */
+    tokenLabel?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the remove token icon's DOM element.
+     */
+    removeTokenIcon?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    dropdownButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the search result message's DOM element.
+     */
+    searchResultMessage?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panel?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the VirtualScroller component.
+     * @see {@link VirtualScrollerPassThroughOptionType}
+     */
+    virtualScroller?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    list?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item group's DOM element.
+     */
+    itemGroup?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item's DOM element.
+     */
+    item?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the selected message's DOM element.
+     */
+    selectedMessage?: AutoCompletePassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface AutoCompletePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in AutoComplete component.
+ */
+export interface AutoCompleteState {
+    /**
+     * Current collapsed state as a boolean.
+     * @defaultValue false
+     */
+    d_collapsed: boolean;
 }
 
 /**
@@ -274,6 +375,11 @@ export interface AutoCompleteProps {
      * Identifier of the underlying input element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {AutoCompletePassThroughOptions}
+     */
+    pt?: AutoCompletePassThroughOptions;
 }
 
 /**

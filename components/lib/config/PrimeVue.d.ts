@@ -1,6 +1,7 @@
 import { Plugin } from 'vue';
 import { AccordionPassThroughOptions } from '../accordion';
 import { AccordionTabPassThroughOptions } from '../accordiontab';
+import { AutoCompletePassThroughOptions } from '../autocomplete';
 import { AvatarPassThroughOptions } from '../avatar';
 import { BadgePassThroughOptions } from '../badge';
 import { BlockUIPassThroughOptions } from '../blockui';
@@ -69,6 +70,7 @@ interface PrimeVueZIndexOptions {
 interface PrimeVuePTOptions {
     accordion?: AccordionPassThroughOptions;
     accordiontab?: AccordionTabPassThroughOptions;
+    autocomplete?: AutoCompletePassThroughOptions;
     avatar?: AvatarPassThroughOptions;
     badge?: BadgePassThroughOptions;
     blockui?: BlockUIPassThroughOptions;
