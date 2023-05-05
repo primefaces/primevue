@@ -56,11 +56,6 @@ export default {
         getExtionsion(file) {
             return file.name.substring(file.name.lastIndexOf('.') + 1);
         },
-        // isImage(file) {
-        //     const imageTypes = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'webp', 'avif'];
-
-        //     return imageTypes.indexOf(this.getExtionsion(file).toLowerCase()) !== -1;
-        // },
         formatSize(bytes) {
             if (bytes === 0) {
                 return '0 B';
