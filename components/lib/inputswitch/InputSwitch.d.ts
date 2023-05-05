@@ -10,6 +10,57 @@
 import { InputHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type InputSwitchPassThroughOptionType = InputSwitchPassThroughAttributes | ((options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface InputSwitchPassThroughMethodOptions {
+    props: InputSwitchProps;
+    state: InputSwitchState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InputSwitchProps.pt}
+ */
+export interface InputSwitchPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: InputSwitchPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the slider's DOM element.
+     */
+    slider?: InputSwitchPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden accessible DOM element.
+     */
+    hiddenAccessible?: InputSwitchPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input aria's DOM element.
+     */
+    inputAria?: InputSwitchPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface InputSwitchPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in InputSwitch component.
+ */
+export interface InputSwitchState {
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
+
 /**
  * Defines valid properties in InputSwitch component.
  */
