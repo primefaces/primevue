@@ -9,6 +9,16 @@
  */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ColorPickerPassThroughMethodOptions {
+    props: ColorPickerProps;
+    state: ColorPickerState;
+}
+
 /**
  * Custom change event.
  * @see {@link ColorPickerEmits.change}
@@ -22,6 +32,67 @@ export interface ColorPickerChangeEvent {
      * Selected color value.
      */
     value: any;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ColorPickerProps.pt}
+ */
+export interface ColorPickerPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panel?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the selector's DOM element.
+     */
+    selector?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the color's DOM element.
+     */
+    color?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the color handler's DOM element.
+     */
+    colorHandler?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hue's DOM element.
+     */
+    hue?: ColorPickerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hue handler's DOM element.
+     */
+    hueHandler?: ColorPickerPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ColorPickerPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in ColorPicker component.
+ */
+export interface ColorPickerState {
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
 }
 
 /**
@@ -75,6 +146,11 @@ export interface ColorPickerProps {
      * @defaultValue body
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ColorPickerPassThroughOptions}
+     */
+    pt?: ColorPickerPassThroughOptions;
 }
 
 export interface ColorPickerSlots {}
