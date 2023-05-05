@@ -15886,6 +15886,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "EditorPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "EditorProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "EditorState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "EditorTextChangeEvent": {
                     "description": "Custom text change event.",
                     "relatedProp": "EditorEmits['text-change']",
@@ -16003,6 +16024,97 @@
                     ],
                     "methods": []
                 },
+                "EditorPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "EditorProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "toolbar",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toolbar's DOM element."
+                        },
+                        {
+                            "name": "formats",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the formats's DOM element."
+                        },
+                        {
+                            "name": "select",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the select's DOM element."
+                        },
+                        {
+                            "name": "option",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the option's DOM element."
+                        },
+                        {
+                            "name": "button",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the button's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "EditorPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "EditorState": {
+                    "description": "Defines current inline state in Editor component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "reRenderColorKey",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "Current rerendered color key as a number."
+                        }
+                    ],
+                    "methods": []
+                },
                 "EditorProps": {
                     "description": "Defines valid properties in Editor component.",
                     "relatedProp": "",
@@ -16054,6 +16166,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Modules configuration, see [here](https://quilljs.com/docs/modules/) for available options."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -16130,6 +16250,14 @@
                             "description": "Callback to invoke when the quill modules are loaded."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "EditorPassThroughOptionType": {
+                    "values": "EditorPassThroughAttributes | (options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes | null | undefined"
                 }
             }
         }
