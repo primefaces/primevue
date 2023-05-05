@@ -26988,6 +26988,102 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "RadioButtonPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RadioButtonProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RadioButtonState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "RadioButtonPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "undefined.RadioButtonProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RadioButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RadioButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RadioButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "hiddenInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RadioButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden accessible DOM element wrapper."
+                        },
+                        {
+                            "name": "hiddenInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RadioButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden accessible DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "RadioButtonPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "RadioButtonState": {
+                    "description": "Defines current inline state in RadioButton component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "RadioButtonProps": {
                     "description": "Defines valid properties in RadioButton component.",
                     "relatedProp": "",
@@ -27125,6 +27221,14 @@
                             "description": "Callback to invoke on radio button value change."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "RadioButtonPassThroughOptionType": {
+                    "values": "RadioButtonPassThroughAttributes | (options: RadioButtonPassThroughMethodOptions) => RadioButtonPassThroughAttributes | null | undefined"
                 }
             }
         }
