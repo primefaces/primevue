@@ -31,6 +31,7 @@ import { ImagePassThroughOptions } from '../image';
 import { InlineMessagePassThroughOptions } from '../inlinemessage';
 import { InplacePassThroughOptions } from '../inplace';
 import { InputMaskPassThroughOptions } from '../inputmask';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { MegaMenuPassThroughOptions } from '../megamenu';
 import { MenuPassThroughOptions } from '../menu';
 import { MenubarPassThroughOptions } from '../menubar';
@@ -107,6 +108,7 @@ interface PrimeVuePTOptions {
     inlinemessage?: InlineMessagePassThroughOptions;
     inplace?: InplacePassThroughOptions;
     inputmask?: InputMaskPassThroughOptions;
+    inputtext?: InputTextPassThroughOptions;
     megamenu?: MegaMenuPassThroughOptions;
     menu?: MenuPassThroughOptions;
     menubar?: MenubarPassThroughOptions;
