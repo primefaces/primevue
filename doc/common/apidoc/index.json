@@ -20275,6 +20275,134 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "KnobPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "KnobProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "KnobState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "KnobPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "KnobProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "KnobPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "svg",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "KnobPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the svg's DOM element."
+                        },
+                        {
+                            "name": "range",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "KnobPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the range's DOM element."
+                        },
+                        {
+                            "name": "value",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "KnobPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the value' DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "KnobPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "KnobPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "KnobState": {
+                    "description": "Defines current inline state in Knob component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "radius",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "40",
+                            "description": "Current radius state as a number."
+                        },
+                        {
+                            "name": "midX",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "50",
+                            "description": "Current middle x axis state as a number."
+                        },
+                        {
+                            "name": "midY",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "50",
+                            "description": "Current middle y axis state as a number."
+                        },
+                        {
+                            "name": "minRadians",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current minimum radian state as a number."
+                        },
+                        {
+                            "name": "maxRadians",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current maximum radian state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
                 "KnobProps": {
                     "description": "Defines valid properties in Knob component.",
                     "relatedProp": "",
@@ -20406,6 +20534,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Used to define a string that labels the element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "KnobPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -20446,6 +20582,14 @@
                             "description": "Callback to invoke when the value changes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "KnobPassThroughOptionType": {
+                    "values": "KnobPassThroughAttributes | (options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes | null | undefined"
                 }
             }
         }
