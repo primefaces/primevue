@@ -10,6 +10,84 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface RatingPassThroughMethodOptions {
+    props: RatingProps;
+    state: RatingState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link RatingProps.pt}
+ */
+export interface RatingPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the cancel item's DOM element.
+     */
+    cancelItem?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input aria's DOM element.
+     */
+    cancelInputAria?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the cancel input's DOM element.
+     */
+    cancelInput?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the cancel icon's DOM element.
+     */
+    cancelIcon?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item's DOM element.
+     */
+    item?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item input aria's DOM element.
+     */
+    itemInputAria?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item input's DOM element.
+     */
+    itemInput?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the on icon's DOM element.
+     */
+    onIcon?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the off icon's DOM element.
+     */
+    offIcon?: RatingPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface RatingPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Rating component.
+ */
+export interface RatingState {
+    /**
+     * name state as a number.
+     */
+    name: string;
+    /**
+     * focusedOptionIndex state as a number.
+     */
+    focusedOptionIndex: number;
+}
+
 /**
  * Custom change event.
  * @see {@link RatingEmits.change}
@@ -72,6 +150,11 @@ export interface RatingProps {
      * @deprecated since v3.27.0. Use 'cancelicon' slot.
      */
     cancelIcon?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {RatingPassThroughOptions}
+     */
+    pt?: RatingPassThroughOptions;
 }
 
 /**
