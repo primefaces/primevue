@@ -27250,6 +27250,150 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "RatingPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RatingProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RatingState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "RatingPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "RatingProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "cancelItem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the cancel item's DOM element."
+                        },
+                        {
+                            "name": "cancelInputAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input aria's DOM element."
+                        },
+                        {
+                            "name": "cancelInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the cancel input's DOM element."
+                        },
+                        {
+                            "name": "cancelIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the cancel icon's DOM element."
+                        },
+                        {
+                            "name": "item",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item's DOM element."
+                        },
+                        {
+                            "name": "itemInputAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item input aria's DOM element."
+                        },
+                        {
+                            "name": "itemInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item input's DOM element."
+                        },
+                        {
+                            "name": "onIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the on icon's DOM element."
+                        },
+                        {
+                            "name": "offIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the off icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "RatingPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "RatingState": {
+                    "description": "Defines current inline state in Rating component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "name",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "name state as a number."
+                        },
+                        {
+                            "name": "focusedOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "focusedOptionIndex state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
                 "RatingChangeEvent": {
                     "description": "Custom change event.",
                     "relatedProp": "RatingEmits.change",
@@ -27351,6 +27495,14 @@
                             "default": "",
                             "description": "Icon for the cancelable state.",
                             "deprecated": "since v3.27.0. Use 'cancelicon' slot."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -27452,6 +27604,14 @@
                             "description": "Callback to invoke when the component loses focus."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "RatingPassThroughOptionType": {
+                    "values": "RatingPassThroughAttributes | (options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes | null | undefined"
                 }
             }
         }
