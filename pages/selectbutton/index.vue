@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue SelectButton Component" header="SelectButton" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['SelectButton']" />
+    <DocComponent title="Vue SelectButton Component" header="SelectButton" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['SelectButton']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,8 @@ import ImportDoc from '@/doc/selectbutton/ImportDoc';
 import InvalidDoc from '@/doc/selectbutton/InvalidDoc';
 import MultipleDoc from '@/doc/selectbutton/MultipleDoc';
 import TemplateDoc from '@/doc/selectbutton/TemplateDoc';
+import PTComponent from '@/doc/selectbutton/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -62,7 +64,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

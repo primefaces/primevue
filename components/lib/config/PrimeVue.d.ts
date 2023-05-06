@@ -51,6 +51,7 @@ import { ScrollTopPassThroughOptions } from '../scrolltop';
 import { SidebarPassThroughOptions } from '../sidebar';
 import { SkeletonPassThroughOptions } from '../skeleton';
 import { SpeedDialPassThroughOptions } from '../speeddial';
+import { SelectButtonPassThroughOptions } from '../selectbutton';
 import { SplitButtonPassThroughOptions } from '../splitbutton';
 import { SplitterPassThroughOptions } from '../splitter';
 import { TabMenuPassThroughOptions } from '../tabmenu';
@@ -133,6 +134,7 @@ interface PrimeVuePTOptions {
     sidebar?: SidebarPassThroughOptions;
     skeleton?: SkeletonPassThroughOptions;
     speeddial?: SpeedDialPassThroughOptions;
+    selectbutton?: SelectButtonPassThroughOptions;
     splitbutton?: SplitButtonPassThroughOptions;
     splitter?: SplitterPassThroughOptions;
     steps?: PanelMenuPassThroughOptions;
