@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onClick">
-        <div class="p-hidden-accessible">
+    <div ref="container" :class="containerClass" @click="onClick" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="focusInput"
                 :id="inputId"
@@ -19,34 +19,34 @@
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
                 @keydown="onKeyDown($event)"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
-        <div class="p-treeselect-label-container">
-            <div :class="labelClass">
+        <div class="p-treeselect-label-container" v-bind="ptm('labelContainer')">
+            <div :class="labelClass" v-bind="ptm('label')">
                 <slot name="value" :value="selectedNodes" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="node of selectedNodes" :key="node.key" class="p-treeselect-token">
-                            <span class="p-treeselect-token-label">{{ node.label }}</span>
+                        <div v-for="node of selectedNodes" :key="node.key" class="p-treeselect-token" v-bind="ptm('token')">
+                            <span class="p-treeselect-token-label" v-bind="ptm('tokenLabel')">{{ node.label }}</span>
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
                 </slot>
             </div>
         </div>
-        <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
+        <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible" v-bind="ptm('trigger')">
             <slot name="triggericon">
-                <component :is="'ChevronDownIcon'" class="p-treeselect-trigger-icon" />
+                <component :is="'ChevronDownIcon'" class="p-treeselect-trigger-icon" v-bind="ptm('triggerIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" @keydown="onOverlayKeydown" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" @keydown="onOverlayKeydown" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <slot name="header" :value="modelValue" :options="options"></slot>
-                    <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
+                    <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }" v-bind="ptm('wrapper')">
                         <TSTree
                             ref="tree"
                             :id="listId"
@@ -62,6 +62,7 @@
                             @node-select="onNodeSelect"
                             @node-unselect="onNodeUnselect"
                             :level="0"
+                            :pt="ptm('tree')"
                         >
                             <template v-if="$slots.itemtogglericon" #togglericon="iconProps">
                                 <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
@@ -70,7 +71,7 @@
                                 <slot name="itemcheckboxicon" :checked="iconProps.checked" :partialChecked="iconProps.partialChecked" :class="iconProps.class" />
                             </template>
                         </TSTree>
-                        <div v-if="emptyOptions" class="p-treeselect-empty-message">
+                        <div v-if="emptyOptions" class="p-treeselect-empty-message" v-bind="ptm('emptyMessage')">
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </div>
                     </div>
@@ -82,6 +83,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -91,6 +93,7 @@ import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUti
 
 export default {
     name: 'TreeSelect',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
     props: {
         modelValue: null,

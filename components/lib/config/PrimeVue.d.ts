@@ -64,6 +64,7 @@ import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ToastPassThroughOptions } from '../toast';
 import { ToolbarPassThroughOptions } from '../toolbar';
 import { TreePassThroughOptions } from '../tree';
+import { TreeSelectPassThroughOptions } from '../treeselect';
 import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
 interface PrimeVueConfiguration {
@@ -150,6 +151,7 @@ interface PrimeVuePTOptions {
     toast?: ToastPassThroughOptions;
     toolbar?: ToolbarPassThroughOptions;
     tree?: TreePassThroughOptions;
+    treeselect?: TreeSelectPassThroughOptions;
     virtualscroller?: VirtualScrollerPassThroughOptions;
 }
 
