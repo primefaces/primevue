@@ -34356,6 +34356,166 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TreeSelectPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeSelectProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeSelectState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeSelectPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TreeSelectProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "labelContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label container's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "token",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the token's DOM element."
+                        },
+                        {
+                            "name": "tokenLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the token label's DOM element."
+                        },
+                        {
+                            "name": "trigger",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the trigger's DOM element."
+                        },
+                        {
+                            "name": "triggerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the trigger icon's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "wrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the wrapper's DOM element."
+                        },
+                        {
+                            "name": "tree",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the trigger's DOM element."
+                        },
+                        {
+                            "name": "emptyMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the empty message's DOM element."
+                        },
+                        {
+                            "name": "hiddenInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeSelectPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeSelectState": {
+                    "description": "Defines current inline state in TreeSelect component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_collapsed",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current collapsed state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreeSelectProps": {
                     "description": "Defines valid properties in TreeSelect component.",
                     "relatedProp": "",
@@ -34503,6 +34663,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeSelectPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -34706,6 +34874,14 @@
                             "description": "Callback to invoke when a node is collapsed."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TreeSelectPassThroughOptionType": {
+                    "values": "TreeSelectPassThroughAttributes | (options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | null | undefined"
                 }
             }
         }
