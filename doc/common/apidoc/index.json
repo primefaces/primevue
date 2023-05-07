@@ -33694,6 +33694,13 @@
                             "readonly": false,
                             "type": "TreeState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -34016,6 +34023,37 @@
                             "type": "string",
                             "default": "",
                             "description": "Current filter value state as a string."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeContext": {
+                    "description": "Defines current options in Tree component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "expanded",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current expanded state of the node as a boolean."
+                        },
+                        {
+                            "name": "selected",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selected state of the node as a boolean."
+                        },
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current checked state of the node as a boolean."
                         }
                     ],
                     "methods": []
