@@ -33677,6 +33677,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TreePassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreeNode": {
                     "description": "Custom TreeNode metadata.",
                     "relatedProp": "",
@@ -33812,6 +33833,193 @@
                     ],
                     "methods": []
                 },
+                "TreePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TreeProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "loadingOverlay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading overlay's DOM element."
+                        },
+                        {
+                            "name": "loadingIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
+                        },
+                        {
+                            "name": "filterContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter container's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "searchIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the search icon's DOM element."
+                        },
+                        {
+                            "name": "wrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the wrapper's DOM element."
+                        },
+                        {
+                            "name": "container",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the container's DOM element."
+                        },
+                        {
+                            "name": "node",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the node's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "toggler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggler's DOM element."
+                        },
+                        {
+                            "name": "togglerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the toggler icon's DOM element."
+                        },
+                        {
+                            "name": "checkboxContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox container's DOM element."
+                        },
+                        {
+                            "name": "checkbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox's DOM element."
+                        },
+                        {
+                            "name": "checkboxIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox icon's DOM element."
+                        },
+                        {
+                            "name": "nodeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the node icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "subgroup",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the subgroup's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeState": {
+                    "description": "Defines current inline state in Tree component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_expandedKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeExpandedKeys",
+                            "default": "",
+                            "description": "Current expanded keys state."
+                        },
+                        {
+                            "name": "filterValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current filter value state as a string."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreeProps": {
                     "description": "Defines valid properties in Tree component.",
                     "relatedProp": "",
@@ -33936,6 +34144,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying menu element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -34073,6 +34289,14 @@
                             "description": "Callback to invoke when a node is collapsed."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TreePassThroughOptionType": {
+                    "values": "TreePassThroughAttributes | (options: TreePassThroughMethodOptions) => TreePassThroughAttributes | null | undefined"
                 }
             }
         }
