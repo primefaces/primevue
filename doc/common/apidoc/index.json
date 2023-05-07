@@ -33061,6 +33061,102 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ToggleButtonPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ToggleButtonProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ToggleButtonState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ToggleButtonPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ToggleButtonProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "inputAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input aria's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "icon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ToggleButtonPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ToggleButtonState": {
+                    "description": "Defines current inline state in ToggleButton component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Focused state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ToggleButtonProps": {
                     "description": "Defines valid properties in ToggleButton component.",
                     "relatedProp": "",
@@ -33178,6 +33274,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -33259,6 +33363,14 @@
                             "description": "Callback to invoke when the component loses focus."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ToggleButtonPassThroughOptionType": {
+                    "values": "ToggleButtonPassThroughAttributes | (options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes | null | undefined"
                 }
             }
         }
