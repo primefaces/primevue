@@ -12,6 +12,7 @@ import StepDoc from '@/doc/slider/StepDoc';
 import StyleDoc from '@/doc/slider/StyleDoc';
 import VerticalDoc from '@/doc/slider/VerticalDoc';
 import PTComponent from '@/doc/slider/pt/index.vue';
+
 export default {
     data() {
         return {

@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
+    <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('inputAria')">
             <input
                 ref="input"
                 :id="inputId"
@@ -13,30 +13,32 @@
                 @keydown="onKeyDown($event)"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('input') }"
             />
         </div>
-        <span class="p-sr-only" aria-live="polite">{{ ariaValueLabel }}</span>
-        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]">
+        <span class="p-sr-only" aria-live="polite" v-bind="ptm('srOnlyAria')">{{ ariaValueLabel }}</span>
+        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="ptm('checboxBox')">
             <slot v-if="modelValue === true" name="checkicon">
-                <component :is="'CheckIcon'" class="p-checkbox-icon" />
+                <component :is="'CheckIcon'" class="p-checkbox-icon" v-bind="ptm('checkIcon')" />
             </slot>
             <slot v-else-if="modelValue === false" name="uncheckicon">
-                <component :is="'TimesIcon'" class="p-checkbox-icon" />
+                <component :is="'TimesIcon'" class="p-checkbox-icon" v-bind="ptm('uncheckIcon')" />
             </slot>
             <slot v-else name="nullableicon">
-                <span class="p-checkbox-icon"></span>
+                <span class="p-checkbox-icon" v-bind="ptm('nullableIcon')"></span>
             </slot>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import TimesIcon from 'primevue/icons/times';
 
 export default {
     name: 'TriStateCheckbox',
+    extends: BaseComponent,
     emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
     props: {
         modelValue: null,
