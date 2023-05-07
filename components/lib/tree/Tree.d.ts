@@ -18,6 +18,7 @@ export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((op
 export interface TreePassThroughMethodOptions {
     props: TreeProps;
     state: TreeState;
+    context: TreeContext;
 }
 
 /**
@@ -198,6 +199,27 @@ export interface TreeState {
      * Current filter value state as a string.
      */
     filterValue: string;
+}
+
+/**
+ * Defines current options in Tree component.
+ */
+export interface TreeContext {
+    /**
+     * Current expanded state of the node as a boolean.
+     * @defaultValue false
+     */
+    expanded: boolean;
+    /**
+     * Current selected state of the node as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current checked state of the node as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
 }
 
 /**
