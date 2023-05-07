@@ -35325,6 +35325,126 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TriStateCheckboxPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TriStateCheckboxProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TriStateCheckboxState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TriStateCheckboxPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TriStateCheckboxProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "inputAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input aria's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "srOnlyAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the sr only aria's DOM element."
+                        },
+                        {
+                            "name": "checboxBox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox box's DOM element."
+                        },
+                        {
+                            "name": "checkIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the check icon's DOM element."
+                        },
+                        {
+                            "name": "uncheckIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the uncheck icon's DOM element."
+                        },
+                        {
+                            "name": "nullableIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nullable icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TriStateCheckboxPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TriStateCheckboxState": {
+                    "description": "Defines current inline state in TriStateCheckbox component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Focused state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TriStateCheckboxProps": {
                     "description": "Defines valid properties in TriStateCheckbox component.",
                     "relatedProp": "",
@@ -35385,6 +35505,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -35433,6 +35561,14 @@
                             "description": "Emitted when the value changes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TriStateCheckboxPassThroughOptionType": {
+                    "values": "TriStateCheckboxPassThroughAttributes | (options: TriStateCheckboxPassThroughMethodOptions) => TriStateCheckboxPassThroughAttributes | null | undefined"
                 }
             }
         }
