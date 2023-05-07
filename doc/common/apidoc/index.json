@@ -31794,6 +31794,48 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TextareaPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TextareaProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "TextareaPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TextareaProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TextareaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TextareaPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TextareaProps": {
                     "description": "Defines valid properties in Textarea component. In addition to these, all properties of TextareaHTMLAttributes can be used in this component.",
                     "relatedProp": "",
@@ -31813,6 +31855,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, height of textarea changes as being typed."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TextareaPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": [],
@@ -31837,6 +31887,14 @@
                         }
                     ],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TextareaPassThroughOptionType": {
+                    "values": "TextareaPassThroughAttributes | (options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | null | undefined"
                 }
             }
         }
