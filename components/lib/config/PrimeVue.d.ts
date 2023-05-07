@@ -36,6 +36,7 @@ import { InputNumberPassThroughOptions } from '../inputnumber';
 import { InputSwitchPassThroughOptions } from '../inputswitch';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { KnobPassThroughOptions } from '../knob';
+import { ListboxPassThroughOptions } from '../listbox';
 import { MegaMenuPassThroughOptions } from '../megamenu';
 import { MenuPassThroughOptions } from '../menu';
 import { MenubarPassThroughOptions } from '../menubar';
@@ -123,6 +124,7 @@ interface PrimeVuePTOptions {
     inputswitch?: InputSwitchPassThroughOptions;
     inputtext?: InputTextPassThroughOptions;
     knob?: KnobPassThroughOptions;
+    listbox?: ListboxPassThroughOptions;
     megamenu?: MegaMenuPassThroughOptions;
     menu?: MenuPassThroughOptions;
     menubar?: MenubarPassThroughOptions;
