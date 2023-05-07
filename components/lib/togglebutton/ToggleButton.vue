@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" v-ripple :class="buttonClass" @click="onClick($event)">
-        <span class="p-hidden-accessible">
+    <div ref="container" v-ripple :class="buttonClass" @click="onClick($event)" v-bind="ptm('root')">
+        <span class="p-hidden-accessible" v-bind="ptm('inputAria')">
             <input
                 :id="inputId"
                 type="checkbox"
@@ -13,21 +13,23 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('input') }"
             />
         </span>
         <slot name="icon" :value="modelValue" :class="iconClass">
-            <span v-if="onIcon || offIcon" :class="iconClass" />
+            <span v-if="onIcon || offIcon" :class="iconClass" v-bind="ptm('icon')" />
         </slot>
-        <span class="p-button-label">{{ label }}</span>
+        <span class="p-button-label" v-bind="ptm('label')">{{ label }}</span>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 
 export default {
     name: 'ToggleButton',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'click', 'focus', 'blur'],
     props: {
         modelValue: Boolean,

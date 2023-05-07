@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>TriStateCheckbox Pass Through</h1>
+            <h1>ToggleButton Pass Through</h1>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -25,9 +25,9 @@ export default {
                 },
                 {
                     id: 'pt.doc.steps',
-                    label: 'TriStateCheckbox PT Options',
+                    label: 'ToggleButton PT Options',
                     component: DocApiTable,
-                    data: getPTOption('TriStateCheckbox')
+                    data: getPTOption('ToggleButton')
                 },
                 {
                     id: 'pt.demo',

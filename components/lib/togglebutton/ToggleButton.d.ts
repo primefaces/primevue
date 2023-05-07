@@ -10,6 +10,60 @@
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ToggleButtonPassThroughMethodOptions {
+    props: ToggleButtonProps;
+    state: ToggleButtonState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ToggleButtonProps.pt}
+ */
+export interface ToggleButtonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ToggleButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input aria's DOM element.
+     */
+    inputAria?: ToggleButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: ToggleButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ToggleButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: ToggleButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ToggleButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in ToggleButton component.
+ */
+export interface ToggleButtonState {
+    /**
+     * Focused state as a number.
+     */
+    focused: boolean;
+}
+
 /**
  * Defines valid properties in ToggleButton component.
  */
@@ -77,6 +131,11 @@ export interface ToggleButtonProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ToggleButtonPassThroughOptions}
+     */
+    pt?: ToggleButtonPassThroughOptions;
 }
 
 /**
