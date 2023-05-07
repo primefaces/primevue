@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onBarClick">
-        <span class="p-slider-range" :style="rangeStyle"></span>
+    <div :class="containerClass" @click="onBarClick" v-bind="ptm('root')">
+        <span class="p-slider-range" :style="rangeStyle" v-bind="ptm('range')"></span>
         <span
             v-if="!range"
             class="p-slider-handle"
@@ -18,6 +18,7 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-orientation="orientation"
+            v-bind="ptm('handle')"
         ></span>
         <span
             v-if="range"
@@ -36,6 +37,7 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-orientation="orientation"
+            v-bind="ptm('startHandler')"
         ></span>
         <span
             v-if="range"
@@ -54,15 +56,18 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-orientation="orientation"
+            v-bind="ptm('endHandler')"
         ></span>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'Slider',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'slideend'],
     props: {
         modelValue: [Number, Array],
