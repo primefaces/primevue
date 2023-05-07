@@ -1,10 +1,13 @@
 <template>
-    <textarea :class="['p-inputtextarea p-inputtext p-component', { 'p-filled': filled, 'p-inputtextarea-resizable ': autoResize }]" :value="modelValue" @input="onInput"></textarea>
+    <textarea :class="['p-inputtextarea p-inputtext p-component', { 'p-filled': filled, 'p-inputtextarea-resizable ': autoResize }]" :value="modelValue" @input="onInput" v-bind="ptm('root')"></textarea>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Textarea',
+    extends: BaseComponent,
     emits: ['update:modelValue'],
     props: {
         modelValue: null,

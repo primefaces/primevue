@@ -10,6 +10,33 @@
 import { TextareaHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TextareaPassThroughMethodOptions {
+    props: TextareaProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TextareaProps.pt}
+ */
+export interface TextareaPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: TextareaPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TextareaPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Textarea component. In addition to these, all properties of TextareaHTMLAttributes can be used in this component.
  * @extends TextareaHTMLAttributes
@@ -24,6 +51,11 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      * @defaultValue false
      */
     autoResize?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TextareaPassThroughOptions}
+     */
+    pt?: TextareaPassThroughOptions;
 }
 
 /**
