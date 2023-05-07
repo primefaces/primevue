@@ -28780,6 +28780,80 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "SliderPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SliderProps",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "SliderPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "SliderProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SliderPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "range",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SliderPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the range's DOM element."
+                        },
+                        {
+                            "name": "handle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SliderPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the handle's DOM element."
+                        },
+                        {
+                            "name": "startHandler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SliderPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the start handler's DOM element."
+                        },
+                        {
+                            "name": "endHandler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SliderPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the end handler's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SliderPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "SliderSlideEndEvent": {
                     "description": "Custom slide end event.",
                     "relatedProp": "SliderEmits.slideend",
@@ -28886,6 +28960,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Used to define a string that labels the element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SliderPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -28941,6 +29023,14 @@
                             "description": "Callback to invoke when slide ends."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "SliderPassThroughOptionType": {
+                    "values": "SliderPassThroughAttributes | (options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes | null | undefined"
                 }
             }
         }
