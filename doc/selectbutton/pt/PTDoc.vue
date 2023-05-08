@@ -6,7 +6,9 @@
             :options="options"
             aria-labelledby="basic"
             :pt="{
-                button: { class: 'bg-primary ' }
+                label: ({ state }) => ({
+                    class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+                })
             }"
         />
     </div>
@@ -21,11 +23,28 @@ export default {
             options: ['Off', 'On'],
             code: {
                 basic: `
-<SelectButton v-model="value" :options="options" aria-labelledby="basic" />`,
+<SelectButton
+    v-model="value"
+    :options="options"
+    aria-labelledby="basic"
+    :pt="{
+        label: ({ state }) => ({
+            class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+        })
+    }"/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
+        <SelectButton
+            v-model="value"
+            :options="options"
+            aria-labelledby="basic"
+            :pt="{
+                label: ({ state }) => ({
+                    class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+                })
+            }"
+        />
     </div>
 </template>
 
@@ -42,7 +61,16 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
+        <SelectButton
+            v-model="value"
+            :options="options"
+            aria-labelledby="basic"
+            :pt="{
+                label: ({ state }) => ({
+                    class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+                })
+            }"
+        />
     </div>
 </template>
 
