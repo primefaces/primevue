@@ -1,7 +1,14 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card flex justify-content-center">
-        <Rating v-model="value" />
+        <Rating
+            v-model="value"
+            :pt="{
+                onIcon: () => ({
+                    class: 'text-orange-400'
+                })
+            }"
+        />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -13,11 +20,25 @@ export default {
             value: null,
             code: {
                 basic: `
-<Rating v-model="value" />`,
+<Rating
+    v-model="value"
+    :pt="{
+        onIcon: () => ({
+            class: 'text-orange-400'
+        })
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Rating v-model="value" />
+        <Rating
+            v-model="value"
+            :pt="{
+                onIcon: () => ({
+                    class: 'text-orange-400'
+                })
+            }"
+        />
     </div>
 </template>
 
@@ -33,7 +54,14 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Rating v-model="value" />
+        <Rating
+            v-model="value"
+            :pt="{
+                onIcon: () => ({
+                    class: 'text-orange-400'
+                })
+            }"
+        />
     </div>
 </template>
 
