@@ -23380,6 +23380,34 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "MultiSelectPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MultiSelectProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MultiSelectState",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "MultiSelectContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "MultiSelectChangeEvent": {
                     "description": "Custom change event.",
                     "relatedProp": "MultiSelectEmits.change",
@@ -23445,6 +23473,384 @@
                             "type": "string",
                             "default": "",
                             "description": "Filter value"
+                        }
+                    ],
+                    "methods": []
+                },
+                "MultiSelectPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "MultiSelectProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "labelContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label container's DOM element."
+                        },
+                        {
+                            "name": "label",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "token",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the token's DOM element."
+                        },
+                        {
+                            "name": "tokenLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the token label's DOM element."
+                        },
+                        {
+                            "name": "removeTokenIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the remove token icon's DOM element."
+                        },
+                        {
+                            "name": "trigger",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the trigger's DOM element."
+                        },
+                        {
+                            "name": "triggerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the trigger icon's DOM element."
+                        },
+                        {
+                            "name": "dropdownIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the dropdown icon's DOM element."
+                        },
+                        {
+                            "name": "panel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "headerCheckboxContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header checkbox container's DOM element."
+                        },
+                        {
+                            "name": "headerCheckbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header checkbox's DOM element."
+                        },
+                        {
+                            "name": "filterContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter container's DOM element."
+                        },
+                        {
+                            "name": "filterInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter input's DOM element."
+                        },
+                        {
+                            "name": "filterIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter icon's DOM element."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close button's DOM element."
+                        },
+                        {
+                            "name": "closeIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the close icon's DOM element."
+                        },
+                        {
+                            "name": "wrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the wrapper's DOM element."
+                        },
+                        {
+                            "name": "virtualScroller",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the VirtualScroller component."
+                        },
+                        {
+                            "name": "list",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "itemGroup",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item group's DOM element."
+                        },
+                        {
+                            "name": "item",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item's DOM element."
+                        },
+                        {
+                            "name": "checkboxContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox container's DOM element."
+                        },
+                        {
+                            "name": "checkbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox's DOM element."
+                        },
+                        {
+                            "name": "checkboxIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox icon's DOM element."
+                        },
+                        {
+                            "name": "option",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the option's DOM element."
+                        },
+                        {
+                            "name": "emptyMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the emptyMessage's DOM element."
+                        },
+                        {
+                            "name": "hiddenInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "hiddenFirstFocusableEl",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden first focusable element's DOM element."
+                        },
+                        {
+                            "name": "hiddenFilterResult",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden filter result's DOM element."
+                        },
+                        {
+                            "name": "hiddenSelectedMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden selected message's DOM element."
+                        },
+                        {
+                            "name": "hiddenLastFocusableEl",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden last focusable element's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MultiSelectPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "MultiSelectState": {
+                    "description": "Defines current inline state in MultiSelect component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "focusedOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current focused item index as a number."
+                        },
+                        {
+                            "name": "filterValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current filter value state as a string."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current overlay visible state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "MultiSelectContext": {
+                    "description": "Defines current options in MultiSelect component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "selected",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selection state of the item as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state of the item as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the item as a boolean."
                         }
                     ],
                     "methods": []
@@ -23850,6 +24256,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying input element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -24179,6 +24593,14 @@
                             "description": "Callback to invoke when all data is selected."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "MultiSelectPassThroughOptionType": {
+                    "values": "MultiSelectPassThroughAttributes | (options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | null | undefined"
                 }
             }
         }
