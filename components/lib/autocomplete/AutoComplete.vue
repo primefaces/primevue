@@ -98,7 +98,7 @@
                 </slot>
             </template>
         </Button>
-        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('searchResultMessage')">
+        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSearchResult')">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
@@ -141,7 +141,7 @@
                                         :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                         @click="onOptionSelect($event, option)"
                                         @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
-                                        v-bind="ptm('item')"
+                                        v-bind="getPTOptions(option, getItemOptions, i, 'item')"
                                     >
                                         <slot v-if="$slots.option" name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         <slot v-else name="item" :item="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
@@ -158,7 +158,7 @@
                         </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('selectedMessage')">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')">
                         {{ selectedMessageText }}
                     </span>
                 </div>
@@ -408,6 +408,15 @@ export default {
         },
         getOptionRenderKey(option, index) {
             return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
+        },
+        getPTOptions(option, itemOptions, index, key) {
+            return this.ptm(key, {
+                context: {
+                    selected: this.isSelected(option),
+                    focused: this.focusedOptionIndex === this.getOptionIndex(index, itemOptions),
+                    disabled: this.isOptionDisabled(option)
+                }
+            });
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;

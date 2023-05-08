@@ -20,6 +20,7 @@ export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughA
 export interface AutoCompletePassThroughMethodOptions {
     props: AutoCompleteProps;
     state: AutoCompleteState;
+    context: AutoCompleteContext;
 }
 
 /**
@@ -173,10 +174,55 @@ export interface AutoCompletePassThroughAttributes {
  */
 export interface AutoCompleteState {
     /**
-     * Current collapsed state as a boolean.
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current focused state as a boolean.
      * @defaultValue false
      */
-    d_collapsed: boolean;
+    focused: boolean;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedOptionIndex: number;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedMultipleOptionIndex: number;
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current search state as a boolean.
+     * @defaultValue false
+     */
+    searching: boolean;
+}
+
+/**
+ * Defines current options in AutoComplete component.
+ */
+export interface AutoCompleteContext {
+    /**
+     * Current selection state of the item as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
