@@ -1,7 +1,18 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card flex justify-content-center">
-        <Slider v-model="value" class="w-14rem" />
+        <Slider
+            v-model="value"
+            class="w-14rem"
+            :pt="{
+                handle: () => ({
+                    class: 'bg-orange-400 border-900'
+                }),
+                range: () => ({
+                    class: 'bg-orange-400'
+                })
+            }"
+        />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -13,11 +24,33 @@ export default {
             value: null,
             code: {
                 basic: `
-<Slider v-model="value" class="w-14rem" />`,
+<Slider
+    v-model="value"
+    class="w-14rem"
+    :pt="{
+        handle: () => ({
+            class: 'bg-orange-400 border-900'
+        }),
+        range: () => ({
+            class: 'bg-orange-400'
+        })
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Slider v-model="value" class="w-14rem" />
+        <Slider
+            v-model="value"
+            class="w-14rem"
+            :pt="{
+                handle: () => ({
+                    class: 'bg-orange-400 border-900'
+                }),
+                range: () => ({
+                    class: 'bg-orange-400'
+                })
+            }"
+        />
     </div>
 </template>
 
@@ -33,7 +66,18 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Slider v-model="value" class="w-14rem" />
+        <Slider
+            v-model="value"
+            class="w-14rem"
+            :pt="{
+                handle: () => ({
+                    class: 'bg-orange-400 border-900'
+                }),
+                range: () => ({
+                    class: 'bg-orange-400'
+                })
+            }"
+        />
     </div>
 </template>
 
