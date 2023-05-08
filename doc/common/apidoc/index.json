@@ -25594,6 +25594,236 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "PaginatorPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PaginatorProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PaginatorState",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PaginatorContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "PaginatorPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "PaginatorProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "left",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the left's DOM element."
+                        },
+                        {
+                            "name": "firstPageButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the first page button's DOM element."
+                        },
+                        {
+                            "name": "firstPageIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the first page icon's DOM element."
+                        },
+                        {
+                            "name": "prevPageButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the prev page button's DOM element."
+                        },
+                        {
+                            "name": "prevPageIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the prev page icon's DOM element."
+                        },
+                        {
+                            "name": "nextPageButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next page button's DOM element."
+                        },
+                        {
+                            "name": "nextPageIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the next page icon's DOM element."
+                        },
+                        {
+                            "name": "lastPageButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the last page button's DOM element."
+                        },
+                        {
+                            "name": "lastPageIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the last page icon's DOM element."
+                        },
+                        {
+                            "name": "pages",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the pages's DOM element."
+                        },
+                        {
+                            "name": "pageButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the page button's DOM element."
+                        },
+                        {
+                            "name": "current",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the current's DOM element."
+                        },
+                        {
+                            "name": "RPPDropdown",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Dropdown component."
+                        },
+                        {
+                            "name": "JTPDropdown",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Dropdown component."
+                        },
+                        {
+                            "name": "JTPInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputNumberPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Dropdown component."
+                        },
+                        {
+                            "name": "end",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the end's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PaginatorPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "PaginatorState": {
+                    "description": "Defines current inline state in Paginator component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_first",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of first record as a number."
+                        },
+                        {
+                            "name": "d_rows",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current number of rows to display in new page as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PaginatorContext": {
+                    "description": "Defines current options in Paginator component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the button as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "PageState": {
                     "description": "Paginator page state metadata.",
                     "relatedProp": "",
@@ -25700,6 +25930,14 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Whether to show the paginator even there is only one page."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -25806,6 +26044,14 @@
                             "description": "Callback to invoke when page changes, the event object contains information about the new state."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "PaginatorPassThroughOptionType": {
+                    "values": "PaginatorPassThroughAttributes | (options: PaginatorPassThroughMethodOptions) => PaginatorPassThroughAttributes | null | undefined"
                 }
             }
         }
