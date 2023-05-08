@@ -5,12 +5,12 @@
             v-model="value"
             class="w-14rem"
             :pt="{
-                handle: () => ({
+                handle: {
                     class: 'bg-orange-400 border-900'
-                }),
-                range: () => ({
+                },
+                range: {
                     class: 'bg-orange-400'
-                })
+                }
             }"
         />
     </div>
@@ -28,12 +28,12 @@ export default {
     v-model="value"
     class="w-14rem"
     :pt="{
-        handle: () => ({
+        handle: {
             class: 'bg-orange-400 border-900'
-        }),
-        range: () => ({
+        },
+        range: {
             class: 'bg-orange-400'
-        })
+        }
     }"
 />`,
                 options: `
@@ -43,12 +43,12 @@ export default {
             v-model="value"
             class="w-14rem"
             :pt="{
-                handle: () => ({
+                handle: {
                     class: 'bg-orange-400 border-900'
-                }),
-                range: () => ({
+                },
+                range: {
                     class: 'bg-orange-400'
-                })
+                }
             }"
         />
     </div>
@@ -70,12 +70,12 @@ export default {
             v-model="value"
             class="w-14rem"
             :pt="{
-                handle: () => ({
+                handle: {
                     class: 'bg-orange-400 border-900'
-                }),
-                range: () => ({
+                },
+                range: {
                     class: 'bg-orange-400'
-                })
+                }
             }"
         />
     </div>
