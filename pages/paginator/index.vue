@@ -1,16 +1,17 @@
 <template>
-    <DocComponent title="Vue Paginator Component" header="Paginator" description="Paginator displays data in paged format and provides navigation between pages." :componentDocs="docs" :apiDocs="['Paginator']" />
+    <DocComponent title="Vue Paginator Component" header="Paginator" description="Paginator displays data in paged format and provides navigation between pages." :componentDocs="docs" :apiDocs="['Paginator']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/paginator/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/paginator/BasicDoc.vue';
+import CurrentPageReportDoc from '@/doc/paginator/CurrentPageReportDoc.vue';
+import CustomContentDoc from '@/doc/paginator/CustomContentDoc.vue';
 import ImportDoc from '@/doc/paginator/ImportDoc.vue';
 import ResponsiveDoc from '@/doc/paginator/ResponsiveDoc.vue';
 import StyleDoc from '@/doc/paginator/StyleDoc.vue';
 import TemplateDoc from '@/doc/paginator/TemplateDoc.vue';
-import CurrentPageReportDoc from '../../doc/paginator/CurrentPageReportDoc.vue';
-import CustomContentDoc from '../../doc/paginator/CustomContentDoc.vue';
+import PTComponent from '@/doc/paginator/pt/index.vue';
 
 export default {
     data() {
@@ -56,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
