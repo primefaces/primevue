@@ -1,30 +1,36 @@
 <template>
-    <DocComponent title="Vue Table Component" header="DataTable" description="DataTable displays data in tabular format." :componentDocs="docs" :apiDocs="['DataTable', 'Column', 'ColumnGroup', 'Row']" />
+    <DocComponent title="Vue Table Component" header="DataTable" description="DataTable displays data in tabular format." :componentDocs="docs" :apiDocs="['DataTable', 'Column', 'ColumnGroup', 'Row']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/datatable/AccessibilityDoc';
 import BasicDoc from '@/doc/datatable/BasicDoc';
-import ExpandModeDoc from '@/doc/datatable/colresize/ExpandModeDoc';
-import FitModeDoc from '@/doc/datatable/colresize/FitModeDoc';
 import ColumnGroupDoc from '@/doc/datatable/ColumnGroupDoc';
 import ColumnToggleDoc from '@/doc/datatable/ColumnToggleDoc';
 import ConditionalStyleDoc from '@/doc/datatable/ConditionalStyleDoc';
 import ContextMenuDoc from '@/doc/datatable/ContextMenuDoc';
 import DynamicColumnsDoc from '@/doc/datatable/DynamicColumnsDoc';
-import CellEditDoc from '@/doc/datatable/edit/CellEditDoc';
-import FilterSortEditDoc from '@/doc/datatable/edit/FilterSortEditDoc';
-import RowEditDoc from '@/doc/datatable/edit/RowEditDoc';
 import ExportDoc from '@/doc/datatable/ExportDoc';
-import AdvancedFilterDoc from '@/doc/datatable/filter/AdvancedFilterDoc';
-import BasicFilterDoc from '@/doc/datatable/filter/BasicFilterDoc';
 import GridLinesDoc from '@/doc/datatable/GridLinesDoc';
 import ImportDoc from '@/doc/datatable/ImportDoc';
 import LazyLoadDoc from '@/doc/datatable/LazyLoadDoc';
-import PaginatorBasicDoc from '@/doc/datatable/paginator/PaginatorBasicDoc';
-import PaginatorTemplateDoc from '@/doc/datatable/paginator/PaginatorTemplateDoc';
 import ReorderDoc from '@/doc/datatable/ReorderDoc';
 import RowExpansionDoc from '@/doc/datatable/RowExpansionDoc';
+import SizeDoc from '@/doc/datatable/SizeDoc';
+import StatefulDoc from '@/doc/datatable/StatefulDoc';
+import StripedRowsDoc from '@/doc/datatable/StripedRowsDoc';
+import StyleDoc from '@/doc/datatable/StyleDoc';
+import TemplateDoc from '@/doc/datatable/TemplateDoc';
+import ExpandModeDoc from '@/doc/datatable/colresize/ExpandModeDoc';
+import FitModeDoc from '@/doc/datatable/colresize/FitModeDoc';
+import CellEditDoc from '@/doc/datatable/edit/CellEditDoc';
+import FilterSortEditDoc from '@/doc/datatable/edit/FilterSortEditDoc';
+import RowEditDoc from '@/doc/datatable/edit/RowEditDoc';
+import AdvancedFilterDoc from '@/doc/datatable/filter/AdvancedFilterDoc';
+import BasicFilterDoc from '@/doc/datatable/filter/BasicFilterDoc';
+import PaginatorBasicDoc from '@/doc/datatable/paginator/PaginatorBasicDoc';
+import PaginatorTemplateDoc from '@/doc/datatable/paginator/PaginatorTemplateDoc';
+import PTComponent from '@/doc/datatable/pt/index.vue';
 import ExpandableRowGroupDoc from '@/doc/datatable/rowgroup/ExpandableRowGroupDoc';
 import RowSpanRowGroupDoc from '@/doc/datatable/rowgroup/RowSpanRowGroupDoc';
 import SubHeaderRowGroupDoc from '@/doc/datatable/rowgroup/SubHeaderRowGroupDoc';
@@ -40,15 +46,10 @@ import FrozenColumnsDoc from '@/doc/datatable/scroll/FrozenColumnsDoc';
 import FrozenRowsDoc from '@/doc/datatable/scroll/FrozenRowsDoc';
 import HorizontalScrollDoc from '@/doc/datatable/scroll/HorizontalScrollDoc';
 import VerticalScrollDoc from '@/doc/datatable/scroll/VerticalScrollDoc';
-import SizeDoc from '@/doc/datatable/SizeDoc';
 import MultipleColumnsDoc from '@/doc/datatable/sort/MultipleColumnsDoc';
 import PresortDoc from '@/doc/datatable/sort/PresortDoc';
 import RemovableSortDoc from '@/doc/datatable/sort/RemovableSortDoc';
 import SingleColumnDoc from '@/doc/datatable/sort/SingleColumnDoc';
-import StatefulDoc from '@/doc/datatable/StatefulDoc';
-import StripedRowsDoc from '@/doc/datatable/StripedRowsDoc';
-import StyleDoc from '@/doc/datatable/StyleDoc';
-import TemplateDoc from '@/doc/datatable/TemplateDoc';
 import LazyVirtualScrollDoc from '@/doc/datatable/virtualscroll/LazyVirtualScrollDoc';
 import PreloadVirtualScrollDoc from '@/doc/datatable/virtualscroll/PreloadVirtualScrollDoc';
 
@@ -356,7 +357,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
