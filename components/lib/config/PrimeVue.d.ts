@@ -41,6 +41,7 @@ import { MegaMenuPassThroughOptions } from '../megamenu';
 import { MenuPassThroughOptions } from '../menu';
 import { MenubarPassThroughOptions } from '../menubar';
 import { MessagePassThroughOptions } from '../message';
+import { MultiSelectPassThroughOptions } from '../multiselect';
 import { OverlayPanelPassThroughOptions } from '../overlaypanel';
 import { PanelPassThroughOptions } from '../panel';
 import { PanelMenuPassThroughOptions } from '../panelmenu';
@@ -129,6 +130,7 @@ interface PrimeVuePTOptions {
     menu?: MenuPassThroughOptions;
     menubar?: MenubarPassThroughOptions;
     message?: MessagePassThroughOptions;
+    multiselect?: MultiSelectPassThroughOptions;
     overlaypanel?: OverlayPanelPassThroughOptions;
     panel?: PanelPassThroughOptions;
     panelmenu?: PanelMenuPassThroughOptions;
