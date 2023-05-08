@@ -8,7 +8,7 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
-import { TreeNode, TreePassThroughOptionType } from '../tree';
+import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes) | null | undefined;
@@ -93,10 +93,19 @@ export interface TreeSelectPassThroughAttributes {
  */
 export interface TreeSelectState {
     /**
-     * Current collapsed state as a boolean.
+     * Current focused state as a boolean.
      * @defaultValue false
      */
-    d_collapsed: boolean;
+    focused: boolean;
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current expanded keys state.
+     */
+    expandedKeys: TreeExpandedKeys;
 }
 
 /**
