@@ -1,5 +1,5 @@
 <template>
-    <tbody :ref="bodyRef" class="p-datatable-tbody" role="rowgroup" :style="bodyStyle">
+    <tbody :ref="bodyRef" class="p-datatable-tbody" role="rowgroup" :style="bodyStyle" v-bind="ptm('tbody')">
         <template v-if="!empty">
             <template v-for="(rowData, index) of value">
                 <tr
@@ -8,15 +8,16 @@
                     class="p-rowgroup-header"
                     :style="rowGroupHeaderStyle"
                     role="row"
+                    v-bind="ptm('rowgroupHeader')"
                 >
-                    <td :colspan="columnsLength - 1">
-                        <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button">
+                    <td :colspan="columnsLength - 1" v-bind="ptm('bodyCell')">
+                        <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="ptm('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
                                 <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="['p-row-toggler-icon', expandedRowIcon]" />
-                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" class="p-row-toggler-icon" />
+                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" class="p-row-toggler-icon" v-bind="ptm('rowGroupTogglerIcon')" />
                                 <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="['p-row-toggler-icon', collapsedRowIcon]" />
-                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" class="p-row-toggler-icon" />
+                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" class="p-row-toggler-icon" v-bind="ptm('rowGroupTogglerIcon')" />
                             </template>
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
@@ -41,6 +42,7 @@
                     @dragleave="onRowDragLeave($event)"
                     @dragend="onRowDragEnd($event)"
                     @drop="onRowDrop($event)"
+                    v-bind="ptm('row')"
                 >
                     <template v-for="(col, i) of columns">
                         <DTBodyCell
@@ -73,22 +75,36 @@
                             @row-edit-save="onRowEditSave($event)"
                             @row-edit-cancel="onRowEditCancel($event)"
                             @editing-meta-change="onEditingMetaChange"
+                            :pt="pt"
                         />
                     </template>
                 </tr>
-                <tr v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)" :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'" :id="expandedRowId + '_' + index + '_expansion'" class="p-datatable-row-expansion" role="row">
+                <tr
+                    v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)"
+                    :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'"
+                    :id="expandedRowId + '_' + index + '_expansion'"
+                    class="p-datatable-row-expansion"
+                    role="row"
+                    v-bind="ptm('rowExpansion')"
+                >
                     <td :colspan="columnsLength">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
-                <tr v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))" :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'" class="p-rowgroup-footer" role="row">
+                <tr
+                    v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))"
+                    :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'"
+                    class="p-rowgroup-footer"
+                    role="row"
+                    v-bind="ptm('rowgroupFooter')"
+                >
                     <td :colspan="columnsLength - 1">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
             </template>
         </template>
-        <tr v-else class="p-datatable-emptymessage" role="row">
+        <tr v-else class="p-datatable-emptymessage" role="row" v-bind="ptm('emptyMessage')">
             <td :colspan="columnsLength">
                 <component v-if="templates.empty" :is="templates.empty" />
             </td>
@@ -97,6 +113,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
@@ -104,6 +121,7 @@ import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TableBody',
+    extends: BaseComponent,
     emits: [
         'rowgroup-toggle',
         'row-click',

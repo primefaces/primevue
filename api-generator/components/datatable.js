@@ -377,6 +377,12 @@ const DataTableProps = [
         type: 'string',
         default: 'null',
         description: 'Style class of the table element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

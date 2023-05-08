@@ -14,16 +14,24 @@
         @dragover="onDragOver"
         @dragleave="onDragLeave"
         @drop="onDrop"
+        v-bind="ptm('headerCell')"
     >
-        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart"></span>
-        <div class="p-column-header-content">
+        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart" v-bind="ptm('columnResizer')"></span>
+        <div class="p-column-header-content" v-bind="ptm('headerContent')">
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
-            <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
-            <span v-if="columnProp('sortable')">
+            <span v-if="columnProp('header')" class="p-column-title" v-bind="ptm('headerTitle')">{{ columnProp('header') }}</span>
+            <span v-if="columnProp('sortable')" v-bind="ptm('sort')">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" class="p-sortable-column-icon" />
             </span>
-            <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getBadgeValue() }}</span>
-            <DTHeaderCheckbox v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'" :checked="allRowsSelected" @change="onHeaderCheckboxChange" :disabled="empty" :headerCheckboxIconTemplate="headerCheckboxIconTemplate" />
+            <span v-if="isMultiSorted()" class="p-sortable-column-badge" v-bind="ptm('sortBadge')">{{ getBadgeValue() }}</span>
+            <DTHeaderCheckbox
+                v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
+                :checked="allRowsSelected"
+                @change="onHeaderCheckboxChange"
+                :disabled="empty"
+                :headerCheckboxIconTemplate="headerCheckboxIconTemplate"
+                :pt="pt"
+            />
             <DTColumnFilter
                 v-if="filterDisplay === 'menu' && column.children && column.children.filter"
                 :field="columnProp('filterField') || columnProp('field')"
@@ -58,12 +66,14 @@
                 @constraint-add="$emit('constraint-add', $event)"
                 @constraint-remove="$emit('constraint-remove', $event)"
                 @apply-click="$emit('apply-click', $event)"
+                :pt="pt"
             />
         </div>
     </th>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import SortAltIcon from 'primevue/icons/sortalt';
 import SortAmountDownIcon from 'primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from 'primevue/icons/sortamountupalt';
@@ -73,6 +83,7 @@ import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {
     name: 'HeaderCell',
+    extends: BaseComponent,
     emits: [
         'column-click',
         'column-mousedown',

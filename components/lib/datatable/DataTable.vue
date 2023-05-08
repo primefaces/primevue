@@ -1,15 +1,15 @@
 <template>
-    <div :class="containerClass" data-scrollselectors=".p-datatable-wrapper">
+    <div :class="containerClass" data-scrollselectors=".p-datatable-wrapper" v-bind="ptm('root')">
         <slot></slot>
-        <div v-if="loading" class="p-datatable-loading-overlay p-component-overlay">
+        <div v-if="loading" class="p-datatable-loading-overlay p-component-overlay" v-bind="ptm('loadingOverlay')">
             <slot v-if="$slots.loading" name="loading"></slot>
             <template v-else>
                 <component v-if="$slots.loadingicon" :is="$slots.loadingicon" class="p-datatable-loading-icon" />
-                <i v-else-if="loadingIcon" :class="['p-datatable-loading-icon pi-spin', loadingIcon]" />
-                <SpinnerIcon v-else spin class="p-datatable-loading-icon" />
+                <i v-else-if="loadingIcon" :class="['p-datatable-loading-icon pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
+                <SpinnerIcon v-else spin class="p-datatable-loading-icon" v-bind="ptm('loadingIcon')" />
             </template>
         </div>
-        <div v-if="$slots.header" class="p-datatable-header">
+        <div v-if="$slots.header" class="p-datatable-header" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
         <DTPaginator
@@ -24,6 +24,7 @@
             class="p-paginator-top"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -44,10 +45,10 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </DTPaginator>
-        <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }">
+        <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
             <DTVirtualScroller
                 ref="virtualScroller"
-                v-bind="virtualScrollerOptions"
+                v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }"
                 :items="processedData"
                 :columns="columns"
                 :style="scrollHeight !== 'flex' ? { height: scrollHeight } : undefined"
@@ -59,7 +60,7 @@
                 :showSpacer="false"
             >
                 <template #content="slotProps">
-                    <table ref="table" role="table" :class="tableStyleClass" :style="[tableStyle, slotProps.spacerStyle]" v-bind="tableProps">
+                    <table ref="table" role="table" :class="tableStyleClass" :style="[tableStyle, slotProps.spacerStyle]" v-bind="{ ...tableProps, ...ptm('table') }">
                         <DTTableHeader
                             :columnGroup="headerColumnGroup"
                             :columns="slotProps.columns"
@@ -89,6 +90,7 @@
                             @column-drop="onColumnHeaderDrop($event)"
                             @column-resizestart="onColumnResizeStart($event)"
                             @checkbox-change="toggleRowsWithCheckbox($event)"
+                            :pt="pt"
                         />
                         <DTTableBody
                             v-if="frozenValue"
@@ -201,14 +203,20 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
+                            :pt="pt"
                         />
-                        <tbody v-if="hasSpacerStyle(slotProps.spacerStyle)" :style="{ height: `calc(${slotProps.spacerStyle.height} - ${slotProps.rows.length * slotProps.itemSize}px)` }" class="p-datatable-virtualscroller-spacer"></tbody>
-                        <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" />
+                        <tbody
+                            v-if="hasSpacerStyle(slotProps.spacerStyle)"
+                            :style="{ height: `calc(${slotProps.spacerStyle.height} - ${slotProps.rows.length * slotProps.itemSize}px)` }"
+                            class="p-datatable-virtualscroller-spacer"
+                            v-bind="ptm('virtualScrollerSpacer')"
+                        ></tbody>
+                        <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" :pt="pt" />
                     </table>
                 </template>
             </DTVirtualScroller>
         </div>
-        <div v-if="$slots.footer" class="p-datatable-footer">
+        <div v-if="$slots.footer" class="p-datatable-footer" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
         <DTPaginator
@@ -223,6 +231,7 @@
             class="p-paginator-bottom"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            v-bind="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -243,11 +252,11 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </DTPaginator>
-        <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none"></div>
-        <span v-if="reorderableColumns" ref="reorderIndicatorUp" class="p-datatable-reorder-indicator-up" style="position: absolute; display: none">
+        <div ref="resizeHelper" class="p-column-resizer-helper" style="display: none" v-bind="ptm('resizeHelper')"></div>
+        <span v-if="reorderableColumns" ref="reorderIndicatorUp" class="p-datatable-reorder-indicator-up" style="position: absolute; display: none" v-bind="ptm('reorderIndicatorUp')">
             <component :is="$slots.reorderindicatorupicon || 'ArrowDownIcon'" />
         </span>
-        <span v-if="reorderableColumns" ref="reorderIndicatorDown" class="p-datatable-reorder-indicator-down" style="position: absolute; display: none">
+        <span v-if="reorderableColumns" ref="reorderIndicatorDown" class="p-datatable-reorder-indicator-down" style="position: absolute; display: none" v-bind="ptm('reorderIndicatorDown')">
             <component :is="$slots.reorderindicatordownicon || 'ArrowUpIcon'" />
         </span>
     </div>
@@ -255,6 +264,7 @@
 
 <script>
 import { FilterMatchMode, FilterOperator, FilterService } from 'primevue/api';
+import BaseComponent from 'primevue/basecomponent';
 import ArrowDownIcon from 'primevue/icons/arrowdown';
 import ArrowUpIcon from 'primevue/icons/arrowup';
 import SpinnerIcon from 'primevue/icons/spinner';
@@ -267,6 +277,7 @@ import TableHeader from './TableHeader.vue';
 
 export default {
     name: 'DataTable',
+    extends: BaseComponent,
     emits: [
         'value-change',
         'update:first',

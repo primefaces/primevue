@@ -19,6 +19,7 @@ import { ColorPickerPassThroughOptions } from '../colorpicker';
 import { ConfirmDialogPassThroughOptions } from '../confirmdialog';
 import { ConfirmPopupPassThroughOptions } from '../confirmpopup';
 import { ContextMenuPassThroughOptions } from '../contextmenu';
+import { DataTablePassThroughOptions } from '../datatable';
 import { DeferredContentPassThroughOptions } from '../deferredcontent';
 import { DialogPassThroughOptions } from '../dialog';
 import { DividerPassThroughOptions } from '../divider';
@@ -108,6 +109,7 @@ interface PrimeVuePTOptions {
     confirmdialog?: ConfirmDialogPassThroughOptions;
     confirmpopup?: ConfirmPopupPassThroughOptions;
     contextmenu?: ContextMenuPassThroughOptions;
+    datatable?: DataTablePassThroughOptions;
     deferredcontent?: DeferredContentPassThroughOptions;
     divider?: DividerPassThroughOptions;
     dialog?: DialogPassThroughOptions;

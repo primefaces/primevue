@@ -1,14 +1,14 @@
 <template>
-    <tfoot v-if="hasFooter" class="p-datatable-tfoot" role="rowgroup">
-        <tr v-if="!columnGroup" role="row">
+    <tfoot v-if="hasFooter" class="p-datatable-tfoot" role="rowgroup" v-bind="ptm('tfoot')">
+        <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
+                <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
             </template>
         </tr>
         <template v-else>
-            <tr v-for="(row, i) of getFooterRows()" :key="i" role="row">
+            <tr v-for="(row, i) of getFooterRows()" :key="i" role="row" v-bind="ptm('footerRow')">
                 <template v-for="(col, j) of getFooterColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
-                    <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
+                    <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
                 </template>
             </tr>
         </template>
@@ -16,11 +16,13 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
 import FooterCell from './FooterCell.vue';
 
 export default {
     name: 'TableFooter',
+    extends: BaseComponent,
     props: {
         columnGroup: {
             type: null,

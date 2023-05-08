@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass">
-        <div v-if="display === 'row'" class="p-fluid p-column-filter-element" v-bind="filterInputProps">
+    <div :class="containerClass" v-bind="ptm('columnFilter')">
+        <div v-if="display === 'row'" class="p-fluid p-column-filter-element" v-bind="{ ...filterInputProps, ...ptm('filterInput') }">
             <component :is="filterElement" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
         </div>
         <button
@@ -15,11 +15,12 @@
             :class="{ 'p-column-filter-menu-button-open': overlayVisible, 'p-column-filter-menu-button-active': hasFilter() }"
             @click="toggleMenu()"
             @keydown="onToggleButtonKeyDown($event)"
+            v-bind="ptm('filterMenuButton')"
         >
             <component :is="filterIconTemplate || 'FilterIcon'" />
         </button>
-        <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()">
-            <component :is="filterClearIconTemplate || 'FilterSlashIcon'" />
+        <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()" v-bind="ptm('headerFilterClearButton')">
+            <component :is="filterClearIconTemplate || 'FilterSlashIcon'" v-bind="ptm('filterClearIcon')" />
         </button>
         <Portal>
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
@@ -34,10 +35,11 @@
                     @keydown.escape="hide"
                     @click="onContentClick"
                     @mousedown="onContentMouseDown"
+                    v-bind="ptm('filterOverlay')"
                 >
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
-                        <ul class="p-column-filter-row-items">
+                        <ul class="p-column-filter-row-items" v-bind="ptm('filterRowItems')">
                             <li
                                 v-for="(matchMode, i) of matchModes"
                                 :key="matchMode.label"
@@ -47,15 +49,16 @@
                                 @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
                                 :class="{ 'p-highlight': isRowMatchModeSelected(matchMode.value) }"
                                 :tabindex="i === 0 ? '0' : null"
+                                v-bind="ptm('filterRowItem')"
                             >
                                 {{ matchMode.label }}
                             </li>
-                            <li class="p-column-filter-separator"></li>
-                            <li class="p-column-filter-row-item" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()">{{ noFilterLabel }}</li>
+                            <li class="p-column-filter-separator" v-bind="ptm('filterSeparator')"></li>
+                            <li class="p-column-filter-row-item" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()" v-bind="ptm('filterRowItem')">{{ noFilterLabel }}</li>
                         </ul>
                     </template>
                     <template v-else>
-                        <div v-if="isShowOperator" class="p-column-filter-operator">
+                        <div v-if="isShowOperator" class="p-column-filter-operator" v-bind="ptm('filterOperator')">
                             <CFDropdown
                                 :options="operatorOptions"
                                 :modelValue="operator"
@@ -64,10 +67,11 @@
                                 optionLabel="label"
                                 optionValue="value"
                                 @update:modelValue="onOperatorChange($event)"
+                                :pt="ptm('filterOperatorDropdown')"
                             ></CFDropdown>
                         </div>
-                        <div class="p-column-filter-constraints">
-                            <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" class="p-column-filter-constraint">
+                        <div class="p-column-filter-constraints" v-bind="ptm('filterConstraints')">
+                            <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" class="p-column-filter-constraint" v-bind="ptm('filterConstraint')">
                                 <CFDropdown
                                     v-if="isShowMatchModes"
                                     :options="matchModes"
@@ -77,29 +81,37 @@
                                     optionValue="value"
                                     :aria-label="filterConstraintAriaLabel"
                                     @update:modelValue="onMenuMatchModeChange($event, i)"
+                                    :pt="ptm('filterMatchModeDropdown')"
                                 ></CFDropdown>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" />
-                                <div>
-                                    <CFButton v-if="showRemoveIcon" type="button" class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm" @click="removeConstraint(i)" :label="removeRuleButtonLabel">
+                                <div v-bind="ptm('filterRemove')">
+                                    <CFButton
+                                        v-if="showRemoveIcon"
+                                        type="button"
+                                        class="p-column-filter-remove-button p-button-text p-button-danger p-button-sm"
+                                        @click="removeConstraint(i)"
+                                        :label="removeRuleButtonLabel"
+                                        :pt="ptm('filterRemoveButton')"
+                                    >
                                         <template #icon="iconProps">
-                                            <component :is="filterRemoveIconTemplate || 'TrashIcon'" :class="iconProps.class" />
+                                            <component :is="filterRemoveIconTemplate || 'TrashIcon'" :class="iconProps.class" v-bind="ptm('filterRemoveButton')['icon']" />
                                         </template>
                                     </CFButton>
                                 </div>
                             </div>
                         </div>
-                        <div v-if="isShowAddConstraint" class="p-column-filter-add-rule">
-                            <CFButton type="button" :label="addRuleButtonLabel" iconPos="left" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()">
+                        <div v-if="isShowAddConstraint" class="p-column-filter-add-rule" v-bind="ptm('filterAddRule')">
+                            <CFButton type="button" :label="addRuleButtonLabel" iconPos="left" class="p-column-filter-add-button p-button-text p-button-sm" @click="addConstraint()" :pt="ptm('filterAddRuleButton')">
                                 <template #icon="iconProps">
-                                    <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" />
+                                    <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" v-bind="ptm('filterAddRuleButton')['icon']" />
                                 </template>
                             </CFButton>
                         </div>
-                        <div class="p-column-filter-buttonbar">
-                            <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" :label="clearButtonLabel" @click="clearFilter"></CFButton>
+                        <div class="p-column-filter-buttonbar" v-bind="ptm('filterButtonbar')">
+                            <CFButton v-if="!filterClearTemplate && showClearButton" type="button" class="p-button-outlined p-button-sm" :label="clearButtonLabel" @click="clearFilter" :pt="ptm('filterClearButton')"></CFButton>
                             <component v-else :is="filterClearTemplate" :field="field" :filterModel="filters[field]" :filterCallback="clearFilter" />
                             <template v-if="showApplyButton">
-                                <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" :label="applyButtonLabel" @click="applyFilter()"></CFButton>
+                                <CFButton v-if="!filterApplyTemplate" type="button" class="p-button-sm" :label="applyButtonLabel" @click="applyFilter()" v-bind="ptm('filterApplyButton')"></CFButton>
                                 <component v-else :is="filterApplyTemplate" :field="field" :filterModel="filters[field]" :filterCallback="applyFilter" />
                             </template>
                         </div>
@@ -113,6 +125,7 @@
 
 <script>
 import { FilterOperator } from 'primevue/api';
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import Dropdown from 'primevue/dropdown';
 import FocusTrap from 'primevue/focustrap';
@@ -126,6 +139,7 @@ import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUti
 
 export default {
     name: 'ColumnFilter',
+    extends: BaseComponent,
     emits: ['filter-change', 'filter-apply', 'operator-change', 'matchmode-change', 'constraint-add', 'constraint-remove', 'filter-clear', 'apply-click'],
     props: {
         field: {
