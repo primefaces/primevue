@@ -6,7 +6,10 @@
             :suggestions="items"
             @complete="search"
             :pt="{
-                input: { class: 'w-16rem' }
+                input: { class: 'w-16rem' },
+                item: ({ props, state, context }) => ({
+                    class: context.selected ? 'bg-blue-300' : context.focused ? 'bg-blue-100' : undefined
+                })
             }"
         />
     </div>
@@ -26,7 +29,10 @@ export default {
     :suggestions="items"
     @complete="search"
     :pt="{
-        input: { class: 'w-16rem' }
+        input: { class: 'w-16rem' },
+        item: ({ props, state, context }) => ({
+            class: context.selected ? 'bg-blue-300' : context.focused ? 'bg-blue-100' : undefined
+        })
     }"
 />`,
                 options: `
@@ -37,7 +43,10 @@ export default {
             :suggestions="items"
             @complete="search"
             :pt="{
-                input: { class: 'w-16rem' }
+                input: { class: 'w-16rem' },
+                item: ({ props, state, context }) => ({
+                    class: context.selected ? 'bg-blue-300' : context.focused ? 'bg-blue-100' : undefined
+                })
             }"
         />
     </div>
@@ -66,7 +75,10 @@ export default {
             :suggestions="items"
             @complete="search"
             :pt="{
-                input: { class: 'w-16rem' }
+                input: { class: 'w-16rem' },
+                item: ({ props, state, context }) => ({
+                    class: context.selected ? 'bg-blue-300' : context.focused ? 'bg-blue-100' : undefined
+                })
             }"
         />
     </div>
