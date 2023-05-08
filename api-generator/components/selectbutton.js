@@ -58,6 +58,12 @@ const SelectButtonProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

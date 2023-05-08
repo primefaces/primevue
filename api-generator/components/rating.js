@@ -46,6 +46,12 @@ const RatingProps = [
         type: 'string',
         default: 'null',
         description: 'Icon for the cancelable state.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
