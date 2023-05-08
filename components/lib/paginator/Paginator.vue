@@ -1,15 +1,15 @@
 <template>
-    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1">
-        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" class="p-paginator p-component" :class="getPaginatorClasses(key)">
-            <div v-if="$slots.start" class="p-paginator-left-content">
+    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptm('root')">
+        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" class="p-paginator p-component" :class="getPaginatorClasses(key)" v-bind="ptm('paginator')">
+            <div v-if="$slots.start" class="p-paginator-left-content" v-bind="ptm('left')">
                 <slot name="start" :state="currentState"></slot>
             </div>
             <template v-for="item in value" :key="item">
-                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" :template="$slots.firstpagelinkicon" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" />
-                <PrevPageLink v-else-if="item === 'PrevPageLink'" :aria-label="getAriaLabel('prevPageLabel')" :template="$slots.prevpagelinkicon" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" />
-                <NextPageLink v-else-if="item === 'NextPageLink'" :aria-label="getAriaLabel('nextPageLabel')" :template="$slots.nextpagelinkicon" @click="changePageToNext($event)" :disabled="isLastPage || empty" />
-                <LastPageLink v-else-if="item === 'LastPageLink'" :aria-label="getAriaLabel('lastPageLabel')" :template="$slots.lastpagelinkicon" @click="changePageToLast($event)" :disabled="isLastPage || empty" />
-                <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" />
+                <FirstPageLink v-if="item === 'FirstPageLink'" :aria-label="getAriaLabel('firstPageLabel')" :template="$slots.firstpagelinkicon" @click="changePageToFirst($event)" :disabled="isFirstPage || empty" :pt="pt" />
+                <PrevPageLink v-else-if="item === 'PrevPageLink'" :aria-label="getAriaLabel('prevPageLabel')" :template="$slots.prevpagelinkicon" @click="changePageToPrev($event)" :disabled="isFirstPage || empty" :pt="pt" />
+                <NextPageLink v-else-if="item === 'NextPageLink'" :aria-label="getAriaLabel('nextPageLabel')" :template="$slots.nextpagelinkicon" @click="changePageToNext($event)" :disabled="isLastPage || empty" :pt="pt" />
+                <LastPageLink v-else-if="item === 'LastPageLink'" :aria-label="getAriaLabel('lastPageLabel')" :template="$slots.lastpagelinkicon" @click="changePageToLast($event)" :disabled="isLastPage || empty" :pt="pt" />
+                <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :pt="pt" />
                 <CurrentPageReport
                     v-else-if="item === 'CurrentPageReport'"
                     aria-live="polite"
@@ -20,12 +20,21 @@
                     :first="d_first"
                     :rows="d_rows"
                     :totalRecords="totalRecords"
+                    :pt="pt"
                 />
-                <RowsPerPageDropdown v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions" :aria-label="getAriaLabel('rowsPerPageLabel')" :rows="d_rows" :options="rowsPerPageOptions" @rows-change="onRowChange($event)" :disabled="empty" />
-                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :aria-label="getAriaLabel('jumpToPageDropdownLabel')" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" />
-                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" />
+                <RowsPerPageDropdown
+                    v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions"
+                    :aria-label="getAriaLabel('rowsPerPageLabel')"
+                    :rows="d_rows"
+                    :options="rowsPerPageOptions"
+                    @rows-change="onRowChange($event)"
+                    :disabled="empty"
+                    :pt="pt"
+                />
+                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :aria-label="getAriaLabel('jumpToPageDropdownLabel')" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
+                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
             </template>
-            <div v-if="$slots.end" class="p-paginator-right-content">
+            <div v-if="$slots.end" class="p-paginator-right-content" v-bind="ptm('end')">
                 <slot name="end" :state="currentState"></slot>
             </div>
         </div>
@@ -33,6 +42,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { UniqueComponentId } from 'primevue/utils';
 import CurrrentPageReport from './CurrentPageReport.vue';
 import FirstPageLink from './FirstPageLink.vue';
@@ -46,6 +56,7 @@ import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
 
 export default {
     name: 'Paginator',
+    extends: BaseComponent,
     emits: ['update:first', 'update:rows', 'page'],
     props: {
         totalRecords: {
