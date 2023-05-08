@@ -1,7 +1,14 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card flex flex-column align-items-center gap-3">
-        <TriStateCheckbox v-model="value" />
+        <TriStateCheckbox
+            v-model="value"
+            :pt="{
+                checboxBox: () => ({
+                    class: value ? 'bg-green-500 border-white' : undefined
+                })
+            }"
+        />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
     </div>
     <DocSectionCode :code="code" />
@@ -13,11 +20,26 @@ export default {
         return {
             value: null,
             code: {
-                basic: `<TriStateCheckbox v-model="value" />`,
+                basic: `
+<TriStateCheckbox
+    v-model="value"
+    :pt="{
+        checboxBox: () => ({
+            class: value ? 'bg-green-500 border-white' : undefined
+        })
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <TriStateCheckbox v-model="value" />
+        <TriStateCheckbox
+            v-model="value"
+            :pt="{
+                checboxBox: () => ({
+                    class: value ? 'bg-green-500 border-white' : undefined
+                })
+            }"
+        />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
     </div>  
 </template>
@@ -34,7 +56,14 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <TriStateCheckbox v-model="value" />
+        <TriStateCheckbox
+            v-model="value"
+            :pt="{
+                checboxBox: () => ({
+                    class: value ? 'bg-green-500 border-white' : undefined
+                })
+            }"
+        />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
     </div>  
 </template>
