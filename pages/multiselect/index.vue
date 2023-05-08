@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue MultiSelect Component" header="MultiSelect" description="MultiSelect is used to select multiple items from a collection." :componentDocs="docs" :apiDocs="['MultiSelect']" />
+    <DocComponent title="Vue MultiSelect Component" header="MultiSelect" description="MultiSelect is used to select multiple items from a collection." :componentDocs="docs" :apiDocs="['MultiSelect']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -9,7 +9,6 @@ import ChipsDoc from '@/doc/multiselect/ChipsDoc';
 import DisabledDoc from '@/doc/multiselect/DisabledDoc';
 import FilterDoc from '@/doc/multiselect/FilterDoc';
 import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc';
-import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc';
 import GroupDoc from '@/doc/multiselect/GroupDoc';
 import ImportDoc from '@/doc/multiselect/ImportDoc';
 import InvalidDoc from '@/doc/multiselect/InvalidDoc';
@@ -17,6 +16,9 @@ import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc';
 import StyleDoc from '@/doc/multiselect/StyleDoc';
 import TemplateDoc from '@/doc/multiselect/TemplateDoc';
 import VirtualScrollDoc from '@/doc/multiselect/VirtualScrollDoc';
+import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc';
+import PTComponent from '@/doc/multiselect/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -98,7 +100,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
