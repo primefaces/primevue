@@ -12369,7 +12369,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the loadingIcon's DOM element."
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
                         },
                         {
                             "name": "header",
@@ -12529,7 +12529,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterMenuButton's DOM element."
+                            "description": "Uses to pass attributes to the filter menu button's DOM element."
                         },
                         {
                             "name": "headerFilterClearButton",
@@ -12537,7 +12537,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the headerFilterClearButton's DOM element."
+                            "description": "Uses to pass attributes to the header filter clear button's DOM element."
                         },
                         {
                             "name": "filterClearIcon",
@@ -12545,7 +12545,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterClearIcon's DOM element."
+                            "description": "Uses to pass attributes to the filter clear icon's DOM element."
                         },
                         {
                             "name": "filterOverlay",
@@ -12553,7 +12553,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterOverlay's DOM element."
+                            "description": "Uses to pass attributes to the filter overlay's DOM element."
                         },
                         {
                             "name": "filterRowItems",
@@ -12561,7 +12561,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterRowItems's DOM element."
+                            "description": "Uses to pass attributes to the filter row items' DOM element."
                         },
                         {
                             "name": "filterRowItem",
@@ -12569,7 +12569,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterRowItem's DOM element."
+                            "description": "Uses to pass attributes to the filter row item's DOM element."
                         },
                         {
                             "name": "filterSeparator",
@@ -12577,7 +12577,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterSeparator's DOM element."
+                            "description": "Uses to pass attributes to the filter separator's DOM element."
                         },
                         {
                             "name": "filterOperator",
@@ -12585,7 +12585,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterOperator's DOM element."
+                            "description": "Uses to pass attributes to the filter operator's DOM element."
                         },
                         {
                             "name": "filterOperatorDropdown",
@@ -12601,7 +12601,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterConstraints's DOM element."
+                            "description": "Uses to pass attributes to the filter constraints' DOM element."
                         },
                         {
                             "name": "filterConstraint",
@@ -12609,7 +12609,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterConstraint's DOM element."
+                            "description": "Uses to pass attributes to the filter constraint's DOM element."
                         },
                         {
                             "name": "filterMatchModeDropdown",
@@ -12625,7 +12625,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterRemoveButtonContainer's DOM element."
+                            "description": "Uses to pass attributes to the filter remove button container's DOM element."
                         },
                         {
                             "name": "filterRemoveButton",
@@ -12641,7 +12641,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterAddRule's DOM element."
+                            "description": "Uses to pass attributes to the filter add rule's DOM element."
                         },
                         {
                             "name": "filterAddRuleButton",
@@ -12657,7 +12657,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the filterButtonbar's DOM element."
+                            "description": "Uses to pass attributes to the filter buttonbar's DOM element."
                         },
                         {
                             "name": "filterClearButton",
@@ -12689,7 +12689,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowgroupHeader's DOM element."
+                            "description": "Uses to pass attributes to the rowgroup header's DOM element."
                         },
                         {
                             "name": "bodyCell",
@@ -12697,7 +12697,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the bodyCell's DOM element."
+                            "description": "Uses to pass attributes to the body cell's DOM element."
                         },
                         {
                             "name": "rowGroupToggler",
@@ -12705,7 +12705,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowGroupToggler's DOM element."
+                            "description": "Uses to pass attributes to the rowgroup toggler's DOM element."
                         },
                         {
                             "name": "rowGroupTogglerIcon",
@@ -12713,7 +12713,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowGroupTogglerIcon's DOM element."
+                            "description": "Uses to pass attributes to the rowgroup toggler icon's DOM element."
                         },
                         {
                             "name": "row",
@@ -12729,7 +12729,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowExpansion's DOM element."
+                            "description": "Uses to pass attributes to the row expansion's DOM element."
                         },
                         {
                             "name": "rowgroupFooter",
@@ -12737,7 +12737,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowgroupFooter's DOM element."
+                            "description": "Uses to pass attributes to the rowgroup footer's DOM element."
                         },
                         {
                             "name": "emptyMessage",
@@ -12745,7 +12745,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the emptyMessage's DOM element."
+                            "description": "Uses to pass attributes to the empty message's DOM element."
                         },
                         {
                             "name": "columnTitle",
@@ -12753,7 +12753,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the columnTitle's DOM element."
+                            "description": "Uses to pass attributes to the column title's DOM element."
                         },
                         {
                             "name": "radiobuttonWrapper",
@@ -12761,7 +12761,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the radiobuttonWrapper's DOM element."
+                            "description": "Uses to pass attributes to the radiobutton wrapper's DOM element."
                         },
                         {
                             "name": "radiobutton",
@@ -12777,7 +12777,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the radiobuttonIcon's DOM element."
+                            "description": "Uses to pass attributes to the radiobutton icon's DOM element."
                         },
                         {
                             "name": "checkboxWrapper",
@@ -12785,7 +12785,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the checkboxWrapper's DOM element."
+                            "description": "Uses to pass attributes to the checkbox wrapper's DOM element."
                         },
                         {
                             "name": "checkbox",
@@ -12801,7 +12801,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the checkboxIcon's DOM element."
+                            "description": "Uses to pass attributes to the checkbox icon's DOM element."
                         },
                         {
                             "name": "rowToggler",
@@ -12809,7 +12809,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowToggler's DOM element."
+                            "description": "Uses to pass attributes to the rowtoggler's DOM element."
                         },
                         {
                             "name": "rowTogglerIcon",
@@ -12817,7 +12817,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowTogglerIcon's DOM element."
+                            "description": "Uses to pass attributes to the rowtoggler icon's DOM element."
                         },
                         {
                             "name": "rowEditorInitButton",
@@ -12825,7 +12825,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowEditorInitButton's DOM element."
+                            "description": "Uses to pass attributes to the row editor init button's DOM element."
                         },
                         {
                             "name": "rowEditorInitIcon",
@@ -12833,7 +12833,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowEditorInitIcon's DOM element."
+                            "description": "Uses to pass attributes to the row editor init icon's DOM element."
                         },
                         {
                             "name": "rowEditorEditButton",
@@ -12841,7 +12841,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowEditorEditButton's DOM element."
+                            "description": "Uses to pass attributes to the row editor edit button's DOM element."
                         },
                         {
                             "name": "rowEditorEditIcon",
@@ -12849,7 +12849,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowEditorEditIcon's DOM element."
+                            "description": "Uses to pass attributes to the row editor edit icon's DOM element."
                         },
                         {
                             "name": "rowEditorCancelButton",
@@ -12857,7 +12857,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowEditorCancelButton's DOM element."
+                            "description": "Uses to pass attributes to the row editor cancel button's DOM element."
                         },
                         {
                             "name": "rowEditorCancelIcon",
@@ -12865,7 +12865,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the rowEditorCancelIcon's DOM element."
+                            "description": "Uses to pass attributes to the row editor cancel icon's DOM element."
                         },
                         {
                             "name": "tfoot",
@@ -12881,7 +12881,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the footerRow's DOM element."
+                            "description": "Uses to pass attributes to the footerr ow's DOM element."
                         },
                         {
                             "name": "footerCell",
@@ -12889,7 +12889,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the footerCell's DOM element."
+                            "description": "Uses to pass attributes to the footer cell's DOM element."
                         },
                         {
                             "name": "resizeHelper",
@@ -12897,7 +12897,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the resizeHelper's DOM element."
+                            "description": "Uses to pass attributes to the resize helper's DOM element."
                         },
                         {
                             "name": "reorderIndicatorUp",
@@ -12905,7 +12905,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the reorderIndicatorUp's DOM element."
+                            "description": "Uses to pass attributes to the reorder indicator up's DOM element."
                         },
                         {
                             "name": "reorderIndicatorDown",
@@ -12913,7 +12913,7 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the reorderIndicatorDown's DOM element."
+                            "description": "Uses to pass attributes to the reorder indicator down's DOM element."
                         },
                         {
                             "name": "hiddenHeaderInputWrapper",
