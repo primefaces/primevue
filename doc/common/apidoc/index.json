@@ -35562,12 +35562,28 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "d_collapsed",
+                            "name": "focused",
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current collapsed state as a boolean."
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current overlay visible state as a boolean."
+                        },
+                        {
+                            "name": "expandedKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeExpandedKeys",
+                            "default": "",
+                            "description": "Current expanded keys state."
                         }
                     ],
                     "methods": []
