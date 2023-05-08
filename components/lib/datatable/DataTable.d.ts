@@ -549,7 +549,7 @@ export interface DataTablePassThroughOptions {
      */
     loadingOverlay?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loadingIcon's DOM element.
+     * Uses to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: DataTablePassThroughOptionType;
     /**
@@ -631,35 +631,35 @@ export interface DataTablePassThroughOptions {
      */
     filterInput?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterMenuButton's DOM element.
+     * Uses to pass attributes to the filter menu button's DOM element.
      */
     filterMenuButton?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the headerFilterClearButton's DOM element.
+     * Uses to pass attributes to the header filter clear button's DOM element.
      */
     headerFilterClearButton?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterClearIcon's DOM element.
+     * Uses to pass attributes to the filter clear icon's DOM element.
      */
     filterClearIcon?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterOverlay's DOM element.
+     * Uses to pass attributes to the filter overlay's DOM element.
      */
     filterOverlay?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterRowItems's DOM element.
+     * Uses to pass attributes to the filter row items' DOM element.
      */
     filterRowItems?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterRowItem's DOM element.
+     * Uses to pass attributes to the filter row item's DOM element.
      */
     filterRowItem?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterSeparator's DOM element.
+     * Uses to pass attributes to the filter separator's DOM element.
      */
     filterSeparator?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterOperator's DOM element.
+     * Uses to pass attributes to the filter operator's DOM element.
      */
     filterOperator?: DataTablePassThroughOptionType;
     /**
@@ -668,11 +668,11 @@ export interface DataTablePassThroughOptions {
      */
     filterOperatorDropdown?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterConstraints's DOM element.
+     * Uses to pass attributes to the filter constraints' DOM element.
      */
     filterConstraints?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterConstraint's DOM element.
+     * Uses to pass attributes to the filter constraint's DOM element.
      */
     filterConstraint?: DataTablePassThroughOptionType;
     /**
@@ -681,7 +681,7 @@ export interface DataTablePassThroughOptions {
      */
     filterMatchModeDropdown?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterRemoveButtonContainer's DOM element.
+     * Uses to pass attributes to the filter remove button container's DOM element.
      */
     filterRemove?: DataTablePassThroughOptionType;
     /**
@@ -690,7 +690,7 @@ export interface DataTablePassThroughOptions {
      */
     filterRemoveButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterAddRule's DOM element.
+     * Uses to pass attributes to the filter add rule's DOM element.
      */
     filterAddRule?: DataTablePassThroughOptionType;
     /**
@@ -699,7 +699,7 @@ export interface DataTablePassThroughOptions {
      */
     filterAddRuleButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filterButtonbar's DOM element.
+     * Uses to pass attributes to the filter buttonbar's DOM element.
      */
     filterButtonbar?: DataTablePassThroughOptionType;
     /**
@@ -717,19 +717,19 @@ export interface DataTablePassThroughOptions {
      */
     tbody?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowgroupHeader's DOM element.
+     * Uses to pass attributes to the rowgroup header's DOM element.
      */
     rowgroupHeader?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the bodyCell's DOM element.
+     * Uses to pass attributes to the body cell's DOM element.
      */
     bodyCell?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowGroupToggler's DOM element.
+     * Uses to pass attributes to the rowgroup toggler's DOM element.
      */
     rowGroupToggler?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowGroupTogglerIcon's DOM element.
+     * Uses to pass attributes to the rowgroup toggler icon's DOM element.
      */
     rowGroupTogglerIcon?: DataTablePassThroughOptionType;
     /**
@@ -737,23 +737,23 @@ export interface DataTablePassThroughOptions {
      */
     row?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowExpansion's DOM element.
+     * Uses to pass attributes to the row expansion's DOM element.
      */
     rowExpansion?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowgroupFooter's DOM element.
+     * Uses to pass attributes to the rowgroup footer's DOM element.
      */
     rowgroupFooter?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the emptyMessage's DOM element.
+     * Uses to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the columnTitle's DOM element.
+     * Uses to pass attributes to the column title's DOM element.
      */
     columnTitle?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the radiobuttonWrapper's DOM element.
+     * Uses to pass attributes to the radiobutton wrapper's DOM element.
      */
     radiobuttonWrapper?: DataTablePassThroughOptionType;
     /**
@@ -761,11 +761,11 @@ export interface DataTablePassThroughOptions {
      */
     radiobutton?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the radiobuttonIcon's DOM element.
+     * Uses to pass attributes to the radiobutton icon's DOM element.
      */
     radiobuttonIcon?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkboxWrapper's DOM element.
+     * Uses to pass attributes to the checkbox wrapper's DOM element.
      */
     checkboxWrapper?: DataTablePassThroughOptionType;
     /**
@@ -773,39 +773,39 @@ export interface DataTablePassThroughOptions {
      */
     checkbox?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkboxIcon's DOM element.
+     * Uses to pass attributes to the checkbox icon's DOM element.
      */
     checkboxIcon?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowToggler's DOM element.
+     * Uses to pass attributes to the rowtoggler's DOM element.
      */
     rowToggler?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowTogglerIcon's DOM element.
+     * Uses to pass attributes to the rowtoggler icon's DOM element.
      */
     rowTogglerIcon?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowEditorInitButton's DOM element.
+     * Uses to pass attributes to the row editor init button's DOM element.
      */
     rowEditorInitButton?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowEditorInitIcon's DOM element.
+     * Uses to pass attributes to the row editor init icon's DOM element.
      */
     rowEditorInitIcon?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowEditorEditButton's DOM element.
+     * Uses to pass attributes to the row editor edit button's DOM element.
      */
     rowEditorEditButton?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowEditorEditIcon's DOM element.
+     * Uses to pass attributes to the row editor edit icon's DOM element.
      */
     rowEditorEditIcon?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowEditorCancelButton's DOM element.
+     * Uses to pass attributes to the row editor cancel button's DOM element.
      */
     rowEditorCancelButton?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowEditorCancelIcon's DOM element.
+     * Uses to pass attributes to the row editor cancel icon's DOM element.
      */
     rowEditorCancelIcon?: DataTablePassThroughOptionType;
     /**
@@ -813,23 +813,23 @@ export interface DataTablePassThroughOptions {
      */
     tfoot?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footerRow's DOM element.
+     * Uses to pass attributes to the footerr ow's DOM element.
      */
     footerRow?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footerCell's DOM element.
+     * Uses to pass attributes to the footer cell's DOM element.
      */
     footerCell?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the resizeHelper's DOM element.
+     * Uses to pass attributes to the resize helper's DOM element.
      */
     resizeHelper?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the reorderIndicatorUp's DOM element.
+     * Uses to pass attributes to the reorder indicator up's DOM element.
      */
     reorderIndicatorUp?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the reorderIndicatorDown's DOM element.
+     * Uses to pass attributes to the reorder indicator down's DOM element.
      */
     reorderIndicatorDown?: DataTablePassThroughOptionType;
     /**
