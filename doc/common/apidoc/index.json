@@ -2595,6 +2595,13 @@
                             "readonly": false,
                             "type": "AutoCompleteState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AutoCompleteContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -2869,12 +2876,83 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "d_collapsed",
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "focused",
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current collapsed state as a boolean."
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "focusedOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current focused item index as a number."
+                        },
+                        {
+                            "name": "focusedMultipleOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current focused item index as a number."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current overlay visible state as a boolean."
+                        },
+                        {
+                            "name": "searching",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current search state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "AutoCompleteContext": {
+                    "description": "Defines current options in AutoComplete component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "selected",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selection state of the item as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state of the item as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the item as a boolean."
                         }
                     ],
                     "methods": []
