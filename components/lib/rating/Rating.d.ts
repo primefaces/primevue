@@ -18,6 +18,7 @@ export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | 
 export interface RatingPassThroughMethodOptions {
     props: RatingProps;
     state: RatingState;
+    context: RatingContext;
 }
 
 /**
@@ -30,18 +31,6 @@ export interface RatingPassThroughOptions {
      */
     root?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the cancel item's DOM element.
-     */
-    cancelItem?: RatingPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the input aria's DOM element.
-     */
-    cancelInputAria?: RatingPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the cancel input's DOM element.
-     */
-    cancelInput?: RatingPassThroughOptionType;
-    /**
      * Uses to pass attributes to the cancel icon's DOM element.
      */
     cancelIcon?: RatingPassThroughOptionType;
@@ -50,14 +39,6 @@ export interface RatingPassThroughOptions {
      */
     item?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item input aria's DOM element.
-     */
-    itemInputAria?: RatingPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the item input's DOM element.
-     */
-    itemInput?: RatingPassThroughOptionType;
-    /**
      * Uses to pass attributes to the on icon's DOM element.
      */
     onIcon?: RatingPassThroughOptionType;
@@ -65,6 +46,22 @@ export interface RatingPassThroughOptions {
      * Uses to pass attributes to the off icon's DOM element.
      */
     offIcon?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden cancel inputW wapper's DOM element.
+     */
+    hiddenCancelInputWrapper?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden cancel input's DOM element.
+     */
+    hiddenCancelInput?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden item input wrapper's DOM element.
+     */
+    hiddenItemInputWrapper?: RatingPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden item input's DOM element.
+     */
+    hiddenItemInput?: RatingPassThroughOptionType;
 }
 
 /**
@@ -86,6 +83,22 @@ export interface RatingState {
      * focusedOptionIndex state as a number.
      */
     focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in Rating component.
+ */
+export interface RatingContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**
