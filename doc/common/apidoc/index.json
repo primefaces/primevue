@@ -29423,6 +29423,13 @@
                             "readonly": false,
                             "type": "RatingState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RatingContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -29438,30 +29445,6 @@
                             "type": "RatingPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
-                        },
-                        {
-                            "name": "cancelItem",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the cancel item's DOM element."
-                        },
-                        {
-                            "name": "cancelInputAria",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the input aria's DOM element."
-                        },
-                        {
-                            "name": "cancelInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the cancel input's DOM element."
                         },
                         {
                             "name": "cancelIcon",
@@ -29480,22 +29463,6 @@
                             "description": "Uses to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "itemInputAria",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the item input aria's DOM element."
-                        },
-                        {
-                            "name": "itemInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RatingPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the item input's DOM element."
-                        },
-                        {
                             "name": "onIcon",
                             "optional": true,
                             "readonly": false,
@@ -29510,6 +29477,38 @@
                             "type": "RatingPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the off icon's DOM element."
+                        },
+                        {
+                            "name": "hiddenCancelInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden cancel inputW wapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenCancelInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden cancel input's DOM element."
+                        },
+                        {
+                            "name": "hiddenItemInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden item input wrapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenItemInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RatingPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden item input's DOM element."
                         }
                     ],
                     "methods": []
@@ -29546,6 +29545,29 @@
                             "type": "number",
                             "default": "",
                             "description": "focusedOptionIndex state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "RatingContext": {
+                    "description": "Defines current options in Rating component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of the item as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
