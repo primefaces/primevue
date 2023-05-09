@@ -18,6 +18,7 @@ export declare type TriStateCheckboxPassThroughOptionType = TriStateCheckboxPass
 export interface TriStateCheckboxPassThroughMethodOptions {
     props: TriStateCheckboxProps;
     state: TriStateCheckboxState;
+    context: TriStateCheckboxContext;
 }
 
 /**
@@ -30,21 +31,9 @@ export interface TriStateCheckboxPassThroughOptions {
      */
     root?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input aria's DOM element.
-     */
-    inputAria?: TriStateCheckboxPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the input's DOM element.
-     */
-    input?: TriStateCheckboxPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the sr only aria's DOM element.
-     */
-    srOnlyAria?: TriStateCheckboxPassThroughOptionType;
-    /**
      * Uses to pass attributes to the checkbox box's DOM element.
      */
-    checboxBox?: TriStateCheckboxPassThroughOptionType;
+    checbox?: TriStateCheckboxPassThroughOptionType;
     /**
      * Uses to pass attributes to the check icon's DOM element.
      */
@@ -57,6 +46,18 @@ export interface TriStateCheckboxPassThroughOptions {
      * Uses to pass attributes to the nullable icon's DOM element.
      */
     nullableIcon?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the sr only aria's DOM element.
+     */
+    srOnlyAria?: TriStateCheckboxPassThroughOptionType;
 }
 
 /**
@@ -74,6 +75,27 @@ export interface TriStateCheckboxState {
      * Focused state as a boolean.
      */
     focused: boolean;
+}
+
+/**
+ * Defines current options in TriStateCheckbox component.
+ */
+export interface TriStateCheckboxContext {
+    /**
+     * Current active state as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**

@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('inputAria')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="input"
                 :id="inputId"
@@ -13,11 +13,11 @@
                 @keydown="onKeyDown($event)"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="{ ...inputProps, ...ptm('input') }"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
         <span class="p-sr-only" aria-live="polite" v-bind="ptm('srOnlyAria')">{{ ariaValueLabel }}</span>
-        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="ptm('checboxBox')">
+        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="getPTOptions('checbox')">
             <slot v-if="modelValue === true" name="checkicon">
                 <component :is="'CheckIcon'" class="p-checkbox-icon" v-bind="ptm('checkIcon')" />
             </slot>
@@ -73,6 +73,15 @@ export default {
         };
     },
     methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.modelValue !== null,
+                    focused: this.focused,
+                    disabled: this.disabled
+                }
+            });
+        },
         updateModel() {
             if (!this.disabled) {
                 let newValue;
