@@ -30,6 +30,12 @@ export default {
                     data: getPTOption('DataTable')
                 },
                 {
+                    id: 'pt.doc.column',
+                    label: 'Column PT Options',
+                    component: DocApiTable,
+                    data: getPTOption('Column')
+                },
+                {
                     id: 'pt.demo',
                     label: 'Demo',
                     component: PtDoc

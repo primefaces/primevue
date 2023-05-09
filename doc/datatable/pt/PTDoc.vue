@@ -5,14 +5,45 @@
             :value="products"
             sortMode="multiple"
             :pt="{
-                table: { style: { minWidth: '50rem' } },
-                sortBadge: { class: 'bg-primary' }
+                table: { style: { minWidth: '50rem' } }
             }"
         >
-            <Column field="code" header="Code" sortable style="width: 25%"></Column>
-            <Column field="name" header="Name" sortable style="width: 25%"></Column>
-            <Column field="category" header="Category" sortable style="width: 25%"></Column>
-            <Column field="quantity" header="Quantity" sortable style="width: 25%"></Column>
+            <Column
+                field="code"
+                header="Code"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="name"
+                header="Name"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="category"
+                header="Category"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="quantity"
+                header="Quantity"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
         </DataTable>
     </div>
     <DocSectionCode :code="code" :service="['ProductService']" />
@@ -31,14 +62,45 @@ export default {
     :value="products"
     sortMode="multiple"
     :pt="{
-        table: { style: { minWidth: '50rem' } },
-        sortBadge: { class: 'bg-primary' }
+        table: { style: { minWidth: '50rem' } }
     }"
 >
-    <Column field="code" header="Code" sortable style="width: 25%"></Column>
-    <Column field="name" header="Name" sortable style="width: 25%"></Column>
-    <Column field="category" header="Category" sortable style="width: 25%"></Column>
-    <Column field="quantity" header="Quantity" sortable style="width: 25%"></Column>
+    <Column
+        field="code"
+        header="Code"
+        sortable
+        :pt="{
+            sortBadge: { class: 'bg-primary' },
+            headerCell: { style: { width: '25%' } }
+        }"
+    />
+    <Column
+        field="name"
+        header="Name"
+        sortable
+        :pt="{
+            sortBadge: { class: 'bg-primary' },
+            headerCell: { style: { width: '25%' } }
+        }"
+    />
+    <Column
+        field="category"
+        header="Category"
+        sortable
+        :pt="{
+            sortBadge: { class: 'bg-primary' },
+            headerCell: { style: { width: '25%' } }
+        }"
+    />
+    <Column
+        field="quantity"
+        header="Quantity"
+        sortable
+        :pt="{
+            sortBadge: { class: 'bg-primary' },
+            headerCell: { style: { width: '25%' } }
+        }"
+    />
 </DataTable>`,
                 options: `
 <template>
@@ -47,14 +109,45 @@ export default {
             :value="products"
             sortMode="multiple"
             :pt="{
-                table: { style: { minWidth: '50rem' } },
-                sortBadge: { class: 'bg-primary' }
+                table: { style: { minWidth: '50rem' } }
             }"
         >
-            <Column field="code" header="Code" sortable style="width: 25%"></Column>
-            <Column field="name" header="Name" sortable style="width: 25%"></Column>
-            <Column field="category" header="Category" sortable style="width: 25%"></Column>
-            <Column field="quantity" header="Quantity" sortable style="width: 25%"></Column>
+            <Column
+                field="code"
+                header="Code"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="name"
+                header="Name"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="category"
+                header="Category"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="quantity"
+                header="Quantity"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
         </DataTable>
     </div>
 </template>
@@ -80,14 +173,45 @@ export default {
             :value="products"
             sortMode="multiple"
             :pt="{
-                table: { style: { minWidth: '50rem' } },
-                sortBadge: { class: 'bg-primary' }
+                table: { style: { minWidth: '50rem' } }
             }"
         >
-            <Column field="code" header="Code" sortable style="width: 25%"></Column>
-            <Column field="name" header="Name" sortable style="width: 25%"></Column>
-            <Column field="category" header="Category" sortable style="width: 25%"></Column>
-            <Column field="quantity" header="Quantity" sortable style="width: 25%"></Column>
+            <Column
+                field="code"
+                header="Code"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="name"
+                header="Name"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="category"
+                header="Category"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
+            <Column
+                field="quantity"
+                header="Quantity"
+                sortable
+                :pt="{
+                    sortBadge: { class: 'bg-primary' },
+                    headerCell: { style: { width: '25%' } }
+                }"
+            />
         </DataTable>
     </div>
 </template>
