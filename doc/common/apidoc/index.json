@@ -35303,22 +35303,6 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "inputAria",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ToggleButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the input aria's DOM element."
-                        },
-                        {
-                            "name": "input",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ToggleButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the input's DOM element."
-                        },
-                        {
                             "name": "icon",
                             "optional": true,
                             "readonly": false,
@@ -35333,6 +35317,22 @@
                             "type": "ToggleButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "hiddenInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
                         }
                     ],
                     "methods": []
