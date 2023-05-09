@@ -9110,7 +9110,7 @@
         "description": "Column component defines various options to specify corresponding features.\nIt is a helper component for DataTable and TreeTable.\n\n[Live Demo](https://www.primevue.org/datatable/)",
         "components": {
             "default": {
-                "description": "Column is a helper component for DataTable and TreeTable.",
+                "description": "Column is a helper component for Column and TreeTable.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
@@ -9123,6 +9123,34 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ColumnPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColumnProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColumnState",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColumnContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "ColumnFilterModelType": {
                     "description": "Filter model metadata.",
                     "relatedProp": "",
@@ -9270,6 +9298,543 @@
                     ],
                     "methods": [],
                     "extendedTypes": "VirtualScrollerLoaderOptions"
+                },
+                "ColumnPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "undefined.ColumnProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "headerCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header cell's DOM element."
+                        },
+                        {
+                            "name": "columnResizer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the column resizer's DOM element."
+                        },
+                        {
+                            "name": "headerContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header content's DOM element."
+                        },
+                        {
+                            "name": "headerTitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header title's DOM element."
+                        },
+                        {
+                            "name": "sort",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the sort's DOM element."
+                        },
+                        {
+                            "name": "sortBadge",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the sort badge's DOM element."
+                        },
+                        {
+                            "name": "headerCheckboxWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox wrapper's DOM element."
+                        },
+                        {
+                            "name": "headerCheckbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header checkbox's DOM element."
+                        },
+                        {
+                            "name": "headerCheckboxIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header checkbox icon's DOM element."
+                        },
+                        {
+                            "name": "columnFilter",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the column filter's DOM element."
+                        },
+                        {
+                            "name": "filterInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter input's DOM element."
+                        },
+                        {
+                            "name": "filterMenuButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter menu button's DOM element."
+                        },
+                        {
+                            "name": "headerFilterClearButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header filter clear button's DOM element."
+                        },
+                        {
+                            "name": "filterClearIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter clear icon's DOM element."
+                        },
+                        {
+                            "name": "filterOverlay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter overlay's DOM element."
+                        },
+                        {
+                            "name": "filterRowItems",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter row items' DOM element."
+                        },
+                        {
+                            "name": "filterRowItem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter row item's DOM element."
+                        },
+                        {
+                            "name": "filterSeparator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter separator's DOM element."
+                        },
+                        {
+                            "name": "filterOperator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter operator's DOM element."
+                        },
+                        {
+                            "name": "filterOperatorDropdown",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Dropdown component."
+                        },
+                        {
+                            "name": "filterConstraints",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter constraints' DOM element."
+                        },
+                        {
+                            "name": "filterConstraint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter constraint's DOM element."
+                        },
+                        {
+                            "name": "filterMatchModeDropdown",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Dropdown component."
+                        },
+                        {
+                            "name": "filterRemove",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter remove button container's DOM element."
+                        },
+                        {
+                            "name": "filterRemoveButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "filterAddRule",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter add rule's DOM element."
+                        },
+                        {
+                            "name": "filterAddRuleButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "filterButtonbar",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter buttonbar's DOM element."
+                        },
+                        {
+                            "name": "filterClearButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "filterApplyButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "bodyCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the body cell's DOM element."
+                        },
+                        {
+                            "name": "rowGroupToggler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rowgroup toggler's DOM element."
+                        },
+                        {
+                            "name": "rowGroupTogglerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rowgroup toggler icon's DOM element."
+                        },
+                        {
+                            "name": "columnTitle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the column title's DOM element."
+                        },
+                        {
+                            "name": "radiobuttonWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the radiobutton wrapper's DOM element."
+                        },
+                        {
+                            "name": "radiobutton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the radiobutton's DOM element."
+                        },
+                        {
+                            "name": "radiobuttonIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the radiobutton icon's DOM element."
+                        },
+                        {
+                            "name": "checkboxWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox wrapper's DOM element."
+                        },
+                        {
+                            "name": "checkbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox's DOM element."
+                        },
+                        {
+                            "name": "checkboxIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the checkbox icon's DOM element."
+                        },
+                        {
+                            "name": "rowToggler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rowtoggler's DOM element."
+                        },
+                        {
+                            "name": "rowTogglerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the rowtoggler icon's DOM element."
+                        },
+                        {
+                            "name": "rowEditorInitButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row editor init button's DOM element."
+                        },
+                        {
+                            "name": "rowEditorInitIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row editor init icon's DOM element."
+                        },
+                        {
+                            "name": "rowEditorEditButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row editor edit button's DOM element."
+                        },
+                        {
+                            "name": "rowEditorEditIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row editor edit icon's DOM element."
+                        },
+                        {
+                            "name": "rowEditorCancelButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row editor cancel button's DOM element."
+                        },
+                        {
+                            "name": "rowEditorCancelIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row editor cancel icon's DOM element."
+                        },
+                        {
+                            "name": "hiddenHeaderInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenHeaderInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "hiddenInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColumnPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColumnState": {
+                    "description": "Defines current inline state in Column component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_editing",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
+                            "name": "styleObject",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Current style of the body cell."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current filter overlay visible as a boolean."
+                        },
+                        {
+                            "name": "defaultMatchMode",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current filter match mode."
+                        },
+                        {
+                            "name": "defaultOperator",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current filter operator."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "rowGroupHeaderStyleObject",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Current style of the rowgroup header."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColumnContext": {
+                    "description": "Defines current options in Column component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current checked state of row as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of row as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of row as a boolean."
+                        }
+                    ],
+                    "methods": []
                 },
                 "ColumnProps": {
                     "description": "Defines valid properties in Column component.",
@@ -9872,6 +10437,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ColumnPassThroughOptionType": {
+                    "values": "ColumnPassThroughAttributes | (options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -11162,13 +11735,6 @@
                             "readonly": false,
                             "type": "DataTableState",
                             "default": ""
-                        },
-                        {
-                            "name": "context",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DataTableContext",
-                            "default": ""
                         }
                     ],
                     "methods": []
@@ -12444,238 +13010,6 @@
                             "description": "Uses to pass attributes to the header row's DOM element."
                         },
                         {
-                            "name": "headerCell",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header cell's DOM element."
-                        },
-                        {
-                            "name": "columnResizer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the column resizer's DOM element."
-                        },
-                        {
-                            "name": "headerContent",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header content's DOM element."
-                        },
-                        {
-                            "name": "headerTitle",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header title's DOM element."
-                        },
-                        {
-                            "name": "sort",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the sort's DOM element."
-                        },
-                        {
-                            "name": "sortBadge",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the sort badge's DOM element."
-                        },
-                        {
-                            "name": "headerCheckbox",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header checkbox's DOM element."
-                        },
-                        {
-                            "name": "headerCheckboxIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header checkbox icon's DOM element."
-                        },
-                        {
-                            "name": "columnFilter",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the column filter's DOM element."
-                        },
-                        {
-                            "name": "filterInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter input's DOM element."
-                        },
-                        {
-                            "name": "filterMenuButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter menu button's DOM element."
-                        },
-                        {
-                            "name": "headerFilterClearButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header filter clear button's DOM element."
-                        },
-                        {
-                            "name": "filterClearIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter clear icon's DOM element."
-                        },
-                        {
-                            "name": "filterOverlay",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter overlay's DOM element."
-                        },
-                        {
-                            "name": "filterRowItems",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter row items' DOM element."
-                        },
-                        {
-                            "name": "filterRowItem",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter row item's DOM element."
-                        },
-                        {
-                            "name": "filterSeparator",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter separator's DOM element."
-                        },
-                        {
-                            "name": "filterOperator",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter operator's DOM element."
-                        },
-                        {
-                            "name": "filterOperatorDropdown",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Dropdown component."
-                        },
-                        {
-                            "name": "filterConstraints",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter constraints' DOM element."
-                        },
-                        {
-                            "name": "filterConstraint",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter constraint's DOM element."
-                        },
-                        {
-                            "name": "filterMatchModeDropdown",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Dropdown component."
-                        },
-                        {
-                            "name": "filterRemove",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter remove button container's DOM element."
-                        },
-                        {
-                            "name": "filterRemoveButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Button component."
-                        },
-                        {
-                            "name": "filterAddRule",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter add rule's DOM element."
-                        },
-                        {
-                            "name": "filterAddRuleButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Button component."
-                        },
-                        {
-                            "name": "filterButtonbar",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the filter buttonbar's DOM element."
-                        },
-                        {
-                            "name": "filterClearButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Button component."
-                        },
-                        {
-                            "name": "filterApplyButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "ButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Button component."
-                        },
-                        {
                             "name": "tbody",
                             "optional": true,
                             "readonly": false,
@@ -12690,30 +13024,6 @@
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the rowgroup header's DOM element."
-                        },
-                        {
-                            "name": "bodyCell",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the body cell's DOM element."
-                        },
-                        {
-                            "name": "rowGroupToggler",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the rowgroup toggler's DOM element."
-                        },
-                        {
-                            "name": "rowGroupTogglerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the rowgroup toggler icon's DOM element."
                         },
                         {
                             "name": "row",
@@ -12746,126 +13056,6 @@
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the empty message's DOM element."
-                        },
-                        {
-                            "name": "columnTitle",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the column title's DOM element."
-                        },
-                        {
-                            "name": "radiobuttonWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the radiobutton wrapper's DOM element."
-                        },
-                        {
-                            "name": "radiobutton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the radiobutton's DOM element."
-                        },
-                        {
-                            "name": "radiobuttonIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the radiobutton icon's DOM element."
-                        },
-                        {
-                            "name": "checkboxWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the checkbox wrapper's DOM element."
-                        },
-                        {
-                            "name": "checkbox",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the checkbox's DOM element."
-                        },
-                        {
-                            "name": "checkboxIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the checkbox icon's DOM element."
-                        },
-                        {
-                            "name": "rowToggler",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the rowtoggler's DOM element."
-                        },
-                        {
-                            "name": "rowTogglerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the rowtoggler icon's DOM element."
-                        },
-                        {
-                            "name": "rowEditorInitButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row editor init button's DOM element."
-                        },
-                        {
-                            "name": "rowEditorInitIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row editor init icon's DOM element."
-                        },
-                        {
-                            "name": "rowEditorEditButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row editor edit button's DOM element."
-                        },
-                        {
-                            "name": "rowEditorEditIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row editor edit icon's DOM element."
-                        },
-                        {
-                            "name": "rowEditorCancelButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row editor cancel button's DOM element."
-                        },
-                        {
-                            "name": "rowEditorCancelIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row editor cancel icon's DOM element."
                         },
                         {
                             "name": "tfoot",
@@ -12914,38 +13104,6 @@
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the reorder indicator down's DOM element."
-                        },
-                        {
-                            "name": "hiddenHeaderInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenHeaderInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the hidden input's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the hidden input's DOM element."
                         }
                     ],
                     "methods": []
@@ -13070,85 +13228,6 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current editing as a boolean."
-                        },
-                        {
-                            "name": "styleObject",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "object",
-                            "default": "",
-                            "description": "Current style of the body cell."
-                        },
-                        {
-                            "name": "overlayVisible",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "",
-                            "description": "Current filter overlay visible as a boolean."
-                        },
-                        {
-                            "name": "defaultMatchMode",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Current filter match mode."
-                        },
-                        {
-                            "name": "defaultOperator",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Current filter operator."
-                        },
-                        {
-                            "name": "focused",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focused state as a boolean."
-                        },
-                        {
-                            "name": "rowGroupHeaderStyleObject",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "object",
-                            "default": "",
-                            "description": "Current style of the rowgroup header."
-                        }
-                    ],
-                    "methods": []
-                },
-                "DataTableContext": {
-                    "description": "Defines current options in DataTable component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "checked",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current checked state of row as a boolean."
-                        },
-                        {
-                            "name": "focused",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focused state of row as a boolean."
-                        },
-                        {
-                            "name": "disabled",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current disabled state of row as a boolean."
                         }
                     ],
                     "methods": []
