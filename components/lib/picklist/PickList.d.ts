@@ -197,6 +197,19 @@ export interface PickListPassThroughAttributes {
     [key: string]: any;
 }
 
+export interface PickListFocusedState {
+    /**
+     * Current source list's focused state as a boolean.
+     * @defaultValue false
+     */
+    sourceList: boolean;
+    /**
+     * Current target list's focused state as a boolean.
+     * @defaultValue false
+     */
+    targetList: boolean;
+}
+
 /**
  * Defines current inline state in PickList component.
  */
@@ -211,7 +224,7 @@ export interface PickListState {
     d_selection: any[];
     /**
      * Current focused state as a boolean.
-     * @defaultValue false
+     * @defaultValue [false, false]
      */
     focused: boolean;
     /**
@@ -219,6 +232,11 @@ export interface PickListState {
      * @defaultvalue -1
      */
     focusedOptionIndex: number;
+    /**
+     * Current view change state as a boolean.
+     * @defaultValue false
+     */
+    viewChanged: boolean;
 }
 
 /**
