@@ -49,6 +49,7 @@ import { PaginatorPassThroughOptions } from '../paginator';
 import { PanelPassThroughOptions } from '../panel';
 import { PanelMenuPassThroughOptions } from '../panelmenu';
 import { PasswordPassThroughOptions } from '../password';
+import { PickListPassThroughOptions } from '../picklist';
 import { ProgressBarPassThroughOptions } from '../progressbar';
 import { ProgressSpinnerPassThroughOptions } from '../progressspinner';
 import { RadioButtonPassThroughOptions } from '../radiobutton';
@@ -141,6 +142,7 @@ interface PrimeVuePTOptions {
     panel?: PanelPassThroughOptions;
     panelmenu?: PanelMenuPassThroughOptions;
     password?: PasswordPassThroughOptions;
+    picklist?: PickListPassThroughOptions;
     progressbar?: ProgressBarPassThroughOptions;
     progressspinner?: ProgressSpinnerPassThroughOptions;
     radiobutton?: RadioButtonPassThroughOptions;

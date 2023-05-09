@@ -8,7 +8,18 @@
  *
  */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface PickListPassThroughMethodOptions {
+    props: PickListProps;
+    state: PickListState;
+}
 
 /**
  * Custom reorder event.
@@ -83,6 +94,132 @@ export interface PickListMoveToSourceEvent extends PickListMoveToTargetEvent {}
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent {}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link PickListProps.pt}
+ */
+export interface PickListPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the source controls' DOM element.
+     */
+    sourceControls?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    sourceMoveUpButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    sourceMoveTopButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    sourceMoveDownButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    sourceMoveBottomButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the source wrapper's DOM element.
+     */
+    sourceWrapper?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the source header's DOM element.
+     */
+    sourceHeader?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the source list's DOM element.
+     */
+    sourceList?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the buttons' DOM element.
+     */
+    buttons?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveToTargetButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveAllToTargetButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveToSourceButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveAllToSourceButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the target wrapper's DOM element.
+     */
+    targetWrapper?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the target header's DOM element.
+     */
+    targetHeader?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the target list's DOM element.
+     */
+    targetList?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the target controls' DOM element.
+     */
+    targetControls?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    targetMoveUpButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    targetMoveTopButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    targetMoveDownButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    targetMoveBottomButton?: ButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface PickListPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in PickList component.
+ */
+export interface PickListState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current id state as a string.
+     */
+    d_selection: any[];
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedOptionIndex: number;
+}
 
 /**
  * Defines valid properties in PickList component.
@@ -180,6 +317,11 @@ export interface PickListProps {
      * Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.
      */
     moveAllToSourceProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {PickListPassThroughOptions}
+     */
+    pt?: PickListPassThroughOptions;
 }
 
 /**
