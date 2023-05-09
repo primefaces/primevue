@@ -10,14 +10,14 @@
                     role="row"
                     v-bind="ptm('rowgroupHeader')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="ptm('bodyCell')">
-                        <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="ptm('rowGroupToggler')">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
+                        <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPTOptions('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
                                 <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="['p-row-toggler-icon', expandedRowIcon]" />
-                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" class="p-row-toggler-icon" v-bind="ptm('rowGroupTogglerIcon')" />
+                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" class="p-row-toggler-icon" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
                                 <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="['p-row-toggler-icon', collapsedRowIcon]" />
-                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" class="p-row-toggler-icon" v-bind="ptm('rowGroupTogglerIcon')" />
+                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" class="p-row-toggler-icon" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
                             </template>
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
@@ -87,7 +87,7 @@
                     role="row"
                     v-bind="ptm('rowExpansion')"
                 >
-                    <td :colspan="columnsLength">
+                    <td :colspan="columnsLength" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
@@ -98,14 +98,14 @@
                     role="row"
                     v-bind="ptm('rowgroupFooter')"
                 >
-                    <td :colspan="columnsLength - 1">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
             </template>
         </template>
         <tr v-else class="p-datatable-emptymessage" role="row" v-bind="ptm('emptyMessage')">
-            <td :colspan="columnsLength">
+            <td :colspan="columnsLength" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
                 <component v-if="templates.empty" :is="templates.empty" />
             </td>
         </tr>
@@ -300,6 +300,18 @@ export default {
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
+        },
+        getColumnPTOptions(column, key) {
+            return this.ptmo(this.getColumnProp(column), key, {
+                props: column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnProp(column) {
+            return column.props && column.props.pt ? column.props.pt : undefined; //@todo
         },
         shouldRenderRowGroupHeader(value, rowData, i) {
             let currentRowFieldData = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);

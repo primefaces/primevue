@@ -1,5 +1,5 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" v-bind="ptm('footerCell')">
+    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('footerCell') }">
         <component v-if="column.children && column.children.footer" :is="column.children.footer" :column="column" />
         {{ columnProp('footer') }}
     </td>
@@ -36,6 +36,18 @@ export default {
     methods: {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
+        },
+        getColumnPTOptions(key) {
+            return this.ptmo(this.getColumnProp(), key, {
+                props: this.column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {

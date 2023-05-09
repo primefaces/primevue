@@ -42,8 +42,13 @@
             </tr>
             <tr v-if="filterDisplay === 'row'" role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                    <th v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))" :style="getFilterColumnHeaderStyle(col)" :class="getFilterColumnHeaderClass(col)" v-bind="ptm('headerCell')">
-                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" :disabled="empty" @change="$emit('checkbox-change', $event)" :pt="pt" />
+                    <th
+                        v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field'))"
+                        :style="getFilterColumnHeaderStyle(col)"
+                        :class="getFilterColumnHeaderClass(col)"
+                        v-bind="{ ...getColumnPTOptions(col, 'root'), ...getColumnPTOptions(col, 'headerCell') }"
+                    >
+                        <DTHeaderCheckbox v-if="columnProp(col, 'selectionMode') === 'multiple'" :checked="allRowsSelected" :disabled="empty" @change="$emit('checkbox-change', $event)" :column="col" :pt="pt" />
                         <DTColumnFilter
                             v-if="col.children && col.children.filter"
                             :field="columnProp(col, 'filterField') || columnProp(col, 'field')"
@@ -79,6 +84,7 @@
                             @constraint-remove="$emit('constraint-remove', $event)"
                             @apply-click="$emit('apply-click', $event)"
                             :pt="pt"
+                            :column="col"
                         />
                     </th>
                 </template>
@@ -225,6 +231,18 @@ export default {
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
+        },
+        getColumnPTOptions(column, key) {
+            return this.ptmo(this.getColumnProp(column), key, {
+                props: column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnProp(column) {
+            return column.props && column.props.pt ? column.props.pt : undefined; //@todo
         },
         getFilterColumnHeaderClass(column) {
             return [

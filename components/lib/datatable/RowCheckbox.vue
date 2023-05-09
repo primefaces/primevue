@@ -1,6 +1,6 @@
 <template>
-    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused }]" @click="onClick" v-bind="ptm('checkboxWrapper')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused }]" @click="onClick" v-bind="getColumnPTOptions('checkboxWrapper')">
+        <div class="p-hidden-accessible" v-bind="getColumnPTOptions('hiddenInputWrapper')">
             <input
                 ref="input"
                 type="checkbox"
@@ -14,9 +14,9 @@
                 v-bind="ptm('hiddenInput')"
             />
         </div>
-        <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]" v-bind="getPTOptions('checkbox')">
+        <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]" v-bind="getColumnPTOptions('checkbox')">
             <component v-if="rowCheckboxIconTemplate" :is="rowCheckboxIconTemplate" :checked="checked" class="p-checkbox-icon" />
-            <CheckIcon v-else class="p-checkbox-icon" v-bind="getPTOptions('checkboxIcon')" />
+            <CheckIcon v-else class="p-checkbox-icon" v-bind="getColumnPTOptions('checkboxIcon')" />
         </div>
     </div>
 </template>
@@ -33,6 +33,7 @@ export default {
     props: {
         value: null,
         checked: null,
+        column: null,
         rowCheckboxIconTemplate: {
             type: Function,
             default: null
@@ -44,14 +45,22 @@ export default {
         };
     },
     methods: {
-        getPTOptions(key) {
-            return this.ptm(key, {
+        getColumnPTOptions(key) {
+            return this.ptmo(this.getColumnProp(), key, {
+                props: this.column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
                 context: {
                     checked: this.checked,
                     focused: this.focused,
                     disabled: this.$attrs.disabled
                 }
             });
+        },
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
         onClick(event) {
             if (!this.$attrs.disabled) {

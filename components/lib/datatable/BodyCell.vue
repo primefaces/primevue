@@ -1,9 +1,9 @@
 <template>
-    <td v-if="loading" :style="containerStyle" :class="containerClass" role="cell" v-bind="ptm('bodyCell')">
+    <td v-if="loading" :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPTOptions(column, 'root'), ...getColumnPTOptions(column, 'bodyCell') }">
         <component :is="column.children.loading" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :loadingOptions="loadingOptions" />
     </td>
-    <td v-else :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell" v-bind="ptm('bodyCell')">
-        <span v-if="responsiveLayout === 'stack'" class="p-column-title" v-bind="ptm('columnTitle')">{{ columnProp('header') }}</span>
+    <td v-else :style="containerStyle" :class="containerClass" @click="onClick" @keydown="onKeyDown" role="cell" v-bind="{ ...getColumnPTOptions(column, 'root'), ...getColumnPTOptions(column, 'bodyCell') }">
+        <span v-if="responsiveLayout === 'stack'" class="p-column-title" v-bind="getColumnPTOptions(column, 'columnTitle')">{{ columnProp('header') }}</span>
         <component v-if="column.children && column.children.body && !d_editing" :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" />
         <component
             v-else-if="column.children && column.children.editor && d_editing"
@@ -18,7 +18,7 @@
         />
         <component v-else-if="column.children && column.children.body && !column.children.editor && d_editing" :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" :pt="pt" />
+            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" :column="column" :pt="pt" />
             <DTCheckbox
                 v-else-if="columnProp('selectionMode') === 'multiple'"
                 :value="rowData"
@@ -26,6 +26,7 @@
                 :rowCheckboxIconTemplate="column.children && column.children.rowcheckboxicon"
                 :aria-selected="selected ? true : undefined"
                 @change="toggleRowWithCheckbox($event, rowIndex)"
+                :column="column"
                 :pt="pt"
             />
         </template>
@@ -33,25 +34,25 @@
             <component :is="column.children && column.children.rowreordericon ? column.children.rowreordericon : columnProp('rowReorderIcon') ? 'i' : 'BarsIcon'" :class="['p-datatable-reorderablerow-handle', columnProp('rowReorderIcon')]" />
         </template>
         <template v-else-if="columnProp('expander')">
-            <button v-ripple class="p-row-toggler p-link" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow" v-bind="ptm('rowToggler')">
+            <button v-ripple class="p-row-toggler p-link" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow" v-bind="getColumnPTOptions(column, 'rowToggler')">
                 <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :rowExpanded="isRowExpanded" />
                 <template v-else>
                     <span v-if="isRowExpanded && expandedRowIcon" :class="['p-row-toggler-icon', expandedRowIcon]" />
-                    <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" class="p-row-toggler-icon" v-bind="ptm('rowTogglerIcon')" />
+                    <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" class="p-row-toggler-icon" v-bind="getColumnPTOptions(column, 'rowTogglerIcon')" />
                     <span v-else-if="!isRowExpanded && collapsedRowIcon" :class="['p-row-toggler-icon', collapsedRowIcon]" />
-                    <ChevronRightIcon v-else-if="!isRowExpanded && !collapsedRowIcon" class="p-row-toggler-icon" v-bind="ptm('rowTogglerIcon')" />
+                    <ChevronRightIcon v-else-if="!isRowExpanded && !collapsedRowIcon" class="p-row-toggler-icon" v-bind="getColumnPTOptions(column, 'rowTogglerIcon')" />
                 </template>
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
-            <button v-if="!d_editing" v-ripple class="p-row-editor-init p-link" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="ptm('rowEditorInitButton')">
-                <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" class="p-row-editor-init-icon" v-bind="ptm('rowEditorInitIcon')" />
+            <button v-if="!d_editing" v-ripple class="p-row-editor-init p-link" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPTOptions(column, 'rowEditorInitButton')">
+                <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" class="p-row-editor-init-icon" v-bind="getColumnPTOptions(column, 'rowEditorInitIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple class="p-row-editor-save p-link" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="ptm('rowEditorEditButton')">
-                <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" class="p-row-editor-save-icon" v-bind="ptm('rowEditorEditIcon')" />
+            <button v-if="d_editing" v-ripple class="p-row-editor-save p-link" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPTOptions(column, 'rowEditorEditButton')">
+                <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" class="p-row-editor-save-icon" v-bind="getColumnPTOptions(column, 'rowEditorEditIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple class="p-row-editor-cancel p-link" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="ptm('rowEditorCancelButton')">
-                <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" class="p-row-editor-cancel-icon" v-bind="ptm('rowEditorCancelIcon')" />
+            <button v-if="d_editing" v-ripple class="p-row-editor-cancel p-link" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPTOptions(column, 'rowEditorCancelButton')">
+                <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" class="p-row-editor-cancel-icon" v-bind="getColumnPTOptions(column, 'rowEditorCancelIcon')" />
             </button>
         </template>
         <template v-else>{{ resolveFieldData() }}</template>
@@ -186,6 +187,18 @@ export default {
     methods: {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
+        },
+        getColumnPTOptions(column, key) {
+            return this.ptmo(this.getColumnProp(column), key, {
+                props: column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnProp(column) {
+            return column.props && column.props.pt ? column.props.pt : undefined; //@todo
         },
         resolveFieldData() {
             return ObjectUtils.resolveFieldData(this.rowData, this.field);

@@ -8,8 +8,6 @@
  *
  */
 import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
-import { ButtonPassThroughOptionType } from '../button';
-import { DropdownPassThroughOptionType } from '../dropdown';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
@@ -22,7 +20,6 @@ export declare type DataTablePassThroughOptionType = DataTablePassThroughAttribu
 export interface DataTablePassThroughMethodOptions {
     props: DataTableProps;
     state: DataTableState;
-    context: DataTableContext;
 }
 
 /**
@@ -591,128 +588,6 @@ export interface DataTablePassThroughOptions {
      */
     headerRow?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header cell's DOM element.
-     */
-    headerCell?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the column resizer's DOM element.
-     */
-    columnResizer?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the header content's DOM element.
-     */
-    headerContent?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the header title's DOM element.
-     */
-    headerTitle?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the sort's DOM element.
-     */
-    sort?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the sort badge's DOM element.
-     */
-    sortBadge?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the header checkbox's DOM element.
-     */
-    headerCheckbox?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the header checkbox icon's DOM element.
-     */
-    headerCheckboxIcon?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the column filter's DOM element.
-     */
-    columnFilter?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter input's DOM element.
-     */
-    filterInput?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter menu button's DOM element.
-     */
-    filterMenuButton?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the header filter clear button's DOM element.
-     */
-    headerFilterClearButton?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter clear icon's DOM element.
-     */
-    filterClearIcon?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter overlay's DOM element.
-     */
-    filterOverlay?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter row items' DOM element.
-     */
-    filterRowItems?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter row item's DOM element.
-     */
-    filterRowItem?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter separator's DOM element.
-     */
-    filterSeparator?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter operator's DOM element.
-     */
-    filterOperator?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Dropdown component.
-     * @see {@link DropdownPassThroughOptionType}
-     */
-    filterOperatorDropdown?: DropdownPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter constraints' DOM element.
-     */
-    filterConstraints?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter constraint's DOM element.
-     */
-    filterConstraint?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Dropdown component.
-     * @see {@link DropdownPassThroughOptionType}
-     */
-    filterMatchModeDropdown?: DropdownPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter remove button container's DOM element.
-     */
-    filterRemove?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
-     */
-    filterRemoveButton?: ButtonPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter add rule's DOM element.
-     */
-    filterAddRule?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
-     */
-    filterAddRuleButton?: ButtonPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the filter buttonbar's DOM element.
-     */
-    filterButtonbar?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
-     */
-    filterClearButton?: ButtonPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Button component.
-     * @see {@link ButtonPassThroughOptionType}
-     */
-    filterApplyButton?: ButtonPassThroughOptionType;
-    /**
      * Uses to pass attributes to the tbody's DOM element.
      */
     tbody?: DataTablePassThroughOptionType;
@@ -720,18 +595,6 @@ export interface DataTablePassThroughOptions {
      * Uses to pass attributes to the rowgroup header's DOM element.
      */
     rowgroupHeader?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the body cell's DOM element.
-     */
-    bodyCell?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the rowgroup toggler's DOM element.
-     */
-    rowGroupToggler?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the rowgroup toggler icon's DOM element.
-     */
-    rowGroupTogglerIcon?: DataTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the row's DOM element.
      */
@@ -748,66 +611,6 @@ export interface DataTablePassThroughOptions {
      * Uses to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the column title's DOM element.
-     */
-    columnTitle?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the radiobutton wrapper's DOM element.
-     */
-    radiobuttonWrapper?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the radiobutton's DOM element.
-     */
-    radiobutton?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the radiobutton icon's DOM element.
-     */
-    radiobuttonIcon?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the checkbox wrapper's DOM element.
-     */
-    checkboxWrapper?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the checkbox's DOM element.
-     */
-    checkbox?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the rowtoggler's DOM element.
-     */
-    rowToggler?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the rowtoggler icon's DOM element.
-     */
-    rowTogglerIcon?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row editor init button's DOM element.
-     */
-    rowEditorInitButton?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row editor init icon's DOM element.
-     */
-    rowEditorInitIcon?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row editor edit button's DOM element.
-     */
-    rowEditorEditButton?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row editor edit icon's DOM element.
-     */
-    rowEditorEditIcon?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row editor cancel button's DOM element.
-     */
-    rowEditorCancelButton?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row editor cancel icon's DOM element.
-     */
-    rowEditorCancelIcon?: DataTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the tfoot's DOM element.
      */
@@ -832,22 +635,6 @@ export interface DataTablePassThroughOptions {
      * Uses to pass attributes to the reorder indicator down's DOM element.
      */
     reorderIndicatorDown?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenHeaderInputWrapper?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the hidden input's DOM element.
-     */
-    hiddenHeaderInput?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: DataTablePassThroughOptionType;
 }
 
 /**
@@ -914,52 +701,6 @@ export interface DataTableState {
      * @defaultValue false
      */
     d_editing: boolean;
-    /**
-     * Current style of the body cell.
-     */
-    styleObject: object;
-    /**
-     * Current filter overlay visible as a boolean.
-     */
-    overlayVisible: boolean;
-    /**
-     * Current filter match mode.
-     */
-    defaultMatchMode: string;
-    /**
-     * Current filter operator.
-     */
-    defaultOperator: string;
-    /**
-     * Current focused state as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
-    /**
-     * Current style of the rowgroup header.
-     */
-    rowGroupHeaderStyleObject: object;
-}
-
-/**
- * Defines current options in DataTable component.
- */
-export interface DataTableContext {
-    /**
-     * Current checked state of row as a boolean.
-     * @defaultValue false
-     */
-    checked: boolean;
-    /**
-     * Current focused state of row as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
-    /**
-     * Current disabled state of row as a boolean.
-     * @defaultValue false
-     */
-    disabled: boolean;
 }
 
 /**

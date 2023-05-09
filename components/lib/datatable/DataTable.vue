@@ -231,7 +231,7 @@
             class="p-paginator-bottom"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
-            v-bind="ptm('paginator')"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>

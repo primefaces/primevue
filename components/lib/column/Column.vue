@@ -1,6 +1,9 @@
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Column',
+    extends: BaseComponent,
     props: {
         columnKey: {
             type: null,

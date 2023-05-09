@@ -14,22 +14,23 @@
         @dragover="onDragOver"
         @dragleave="onDragLeave"
         @drop="onDrop"
-        v-bind="ptm('headerCell')"
+        v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('headerCell') }"
     >
-        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart" v-bind="ptm('columnResizer')"></span>
-        <div class="p-column-header-content" v-bind="ptm('headerContent')">
+        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart" v-bind="getColumnPTOptions('columnResizer')"></span>
+        <div class="p-column-header-content" v-bind="getColumnPTOptions('headerContent')">
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
-            <span v-if="columnProp('header')" class="p-column-title" v-bind="ptm('headerTitle')">{{ columnProp('header') }}</span>
-            <span v-if="columnProp('sortable')" v-bind="ptm('sort')">
+            <span v-if="columnProp('header')" class="p-column-title" v-bind="{ ...getColumnPTOptions('headerTitle') }">{{ columnProp('header') }}</span>
+            <span v-if="columnProp('sortable')" v-bind="{ ...getColumnPTOptions('sort') }">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" class="p-sortable-column-icon" />
             </span>
-            <span v-if="isMultiSorted()" class="p-sortable-column-badge" v-bind="ptm('sortBadge')">{{ getBadgeValue() }}</span>
+            <span v-if="isMultiSorted()" class="p-sortable-column-badge" v-bind="{ ...getColumnPTOptions('sortBadge') }">{{ getBadgeValue() }}</span>
             <DTHeaderCheckbox
                 v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
                 :checked="allRowsSelected"
                 @change="onHeaderCheckboxChange"
                 :disabled="empty"
                 :headerCheckboxIconTemplate="headerCheckboxIconTemplate"
+                :column="column"
                 :pt="pt"
             />
             <DTColumnFilter
@@ -67,6 +68,7 @@
                 @constraint-remove="$emit('constraint-remove', $event)"
                 @apply-click="$emit('apply-click', $event)"
                 :pt="pt"
+                :column="column"
             />
         </div>
     </th>
@@ -190,6 +192,18 @@ export default {
     methods: {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
+        },
+        getColumnPTOptions(key) {
+            return this.ptmo(this.getColumnProp(), key, {
+                props: this.column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
         onClick(event) {
             this.$emit('column-click', { originalEvent: event, column: this.column });
