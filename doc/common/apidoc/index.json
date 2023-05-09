@@ -25633,6 +25633,34 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "OrderListPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrderListProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrderListState",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrderListState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "OrderListReorderEvent": {
                     "description": "Custom reorder event",
                     "relatedProp": "OrderListEmits.reorder",
@@ -25683,6 +25711,153 @@
                             "type": "any[]",
                             "default": "",
                             "description": "Ordered list"
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrderListPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "undefined.OrderListProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrderListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "controls",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrderListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the controls' DOM element."
+                        },
+                        {
+                            "name": "moveUpButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "moveTopButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "moveDownButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "moveBottomButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "container",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrderListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the container's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrderListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "list",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrderListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "item",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrderListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the item's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrderListPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrderListState": {
+                    "description": "Defines current inline state in OrderList component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "id",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "d_selection",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "default": "",
+                            "description": "Current id state as a string."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "focusedOptionIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current focused item index as a number."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of the item as a boolean."
                         }
                     ],
                     "methods": []
@@ -25942,6 +26117,14 @@
                             "description": "Callback to invoke when selection changes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "OrderListPassThroughOptionType": {
+                    "values": "OrderListPassThroughAttributes | (options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | null | undefined"
                 }
             }
         }
