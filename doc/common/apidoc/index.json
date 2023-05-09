@@ -14421,6 +14421,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "DataViewPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataViewProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataViewState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "DataViewPageEvent": {
                     "description": "Custom page event.",
                     "relatedProp": "DataViewEmits.page",
@@ -14456,6 +14477,105 @@
                             "type": "number",
                             "default": "",
                             "description": "Total number of pages"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataViewPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "DataViewProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "paginator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Paginator component."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "column",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the column's DOM element."
+                        },
+                        {
+                            "name": "emptyMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the empty message's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataViewPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataViewState": {
+                    "description": "Defines current inline state in DataView component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_first",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of first record as a number."
+                        },
+                        {
+                            "name": "d_rows",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current number of rows to display in new page as a number."
                         }
                     ],
                     "methods": []
@@ -14591,6 +14711,14 @@
                             "type": "undefined | string",
                             "default": "",
                             "description": "Name of the data that uniquely identifies the a record in the data."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -14705,6 +14833,14 @@
                     ]
                 }
             }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "DataViewPassThroughOptionType": {
+                    "values": "DataViewPassThroughAttributes | (options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | null | undefined"
+                }
+            }
         }
     },
     "dataviewlayoutoptions": {
@@ -14724,6 +14860,110 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "DataViewLayoutOptionsPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataViewLayoutOptionsPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "DataViewLayoutOptionsProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "listButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list button's DOM element."
+                        },
+                        {
+                            "name": "listIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list icon's DOM element."
+                        },
+                        {
+                            "name": "gridButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the grid button's DOM element."
+                        },
+                        {
+                            "name": "gridIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the grid icon's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataViewLayoutOptionsPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DataViewLayoutOptionsState": {
+                    "description": "Defines current inline state in DataViewLayoutOptions component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "isListButtonPressed",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current list button pressed state as a boolean."
+                        },
+                        {
+                            "name": "isGridButtonPressed",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current grid button pressed state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "DataViewLayoutOptionsProps": {
                     "description": "Defines valid properties in DataViewLayoutOptions component.",
                     "relatedProp": "",
@@ -14735,6 +14975,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Value of the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewLayoutOptionsPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -14777,6 +15025,14 @@
                             "description": "Emitted when the value changes."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "DataViewLayoutOptionsPassThroughOptionType": {
+                    "values": "DataViewLayoutOptionsPassThroughAttributes | (options: DataViewLayoutOptionsPassThroughMethodOptions) => DataViewLayoutOptionsPassThroughAttributes | null | undefined"
                 }
             }
         }
