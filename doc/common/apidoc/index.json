@@ -25650,13 +25650,6 @@
                             "readonly": false,
                             "type": "OrderListState",
                             "default": ""
-                        },
-                        {
-                            "name": "context",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "OrderListState",
-                            "default": ""
                         }
                     ],
                     "methods": []
@@ -25717,7 +25710,7 @@
                 },
                 "OrderListPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "undefined.OrderListProps.pt",
+                    "relatedProp": "OrderListProps.pt",
                     "props": [
                         {
                             "name": "root",
@@ -25850,14 +25843,6 @@
                             "type": "number",
                             "default": "",
                             "description": "Current focused item index as a number."
-                        },
-                        {
-                            "name": "active",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current active state of the item as a boolean."
                         }
                     ],
                     "methods": []
@@ -25993,6 +25978,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Identifier of the underlying list element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrderListPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
