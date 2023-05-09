@@ -4,9 +4,9 @@
         <TriStateCheckbox
             v-model="value"
             :pt="{
-                checboxBox: () => ({
-                    class: value ? 'bg-green-500 border-white' : undefined
-                })
+                checbox: {
+                    class: value ? 'bg-teal-500 border-white' : undefined
+                }
             }"
         />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
@@ -24,9 +24,9 @@ export default {
 <TriStateCheckbox
     v-model="value"
     :pt="{
-        checboxBox: () => ({
-            class: value ? 'bg-green-500 border-white' : undefined
-        })
+        checbox: {
+            class: value ? 'bg-teal-500 border-white' : undefined
+        }
     }"
 />`,
                 options: `
@@ -35,9 +35,9 @@ export default {
         <TriStateCheckbox
             v-model="value"
             :pt="{
-                checboxBox: () => ({
-                    class: value ? 'bg-green-500 border-white' : undefined
-                })
+                checbox: {
+                    class: value ? 'bg-teal-500 border-white' : undefined
+                }
             }"
         />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>
@@ -59,9 +59,9 @@ export default {
         <TriStateCheckbox
             v-model="value"
             :pt="{
-                checboxBox: () => ({
-                    class: value ? 'bg-green-500 border-white' : undefined
-                })
+                checbox: {
+                    class: value ? 'bg-teal-500 border-white' : undefined
+                }
             }"
         />
         <label for="checkbox">{{ value == null ? 'null' : value }}</label>

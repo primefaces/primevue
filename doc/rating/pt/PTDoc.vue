@@ -4,9 +4,7 @@
         <Rating
             v-model="value"
             :pt="{
-                onIcon: () => ({
-                    class: 'text-orange-400'
-                })
+                onIcon: { class: 'text-orange-400' }
             }"
         />
     </div>
@@ -23,9 +21,7 @@ export default {
 <Rating
     v-model="value"
     :pt="{
-        onIcon: () => ({
-            class: 'text-orange-400'
-        })
+        onIcon: { class: 'text-orange-400' }
     }"
 />`,
                 options: `
@@ -34,9 +30,7 @@ export default {
         <Rating
             v-model="value"
             :pt="{
-                onIcon: () => ({
-                    class: 'text-orange-400'
-                })
+                onIcon: { class: 'text-orange-400' }
             }"
         />
     </div>
@@ -57,9 +51,7 @@ export default {
         <Rating
             v-model="value"
             :pt="{
-                onIcon: () => ({
-                    class: 'text-orange-400'
-                })
+                onIcon: { class: 'text-orange-400' }
             }"
         />
     </div>

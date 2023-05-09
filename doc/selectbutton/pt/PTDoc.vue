@@ -6,8 +6,8 @@
             :options="options"
             aria-labelledby="basic"
             :pt="{
-                label: ({ state }) => ({
-                    class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+                button: ({ context }) => ({
+                    class: context.active ? 'bg-cyan-400 border-cyan-400' : undefined
                 })
             }"
         />
@@ -28,10 +28,11 @@ export default {
     :options="options"
     aria-labelledby="basic"
     :pt="{
-        label: ({ state }) => ({
-            class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+        button: ({ context }) => ({
+            class: context.active ? 'bg-cyan-400 border-cyan-400' : undefined
         })
-    }"/>`,
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
@@ -40,8 +41,8 @@ export default {
             :options="options"
             aria-labelledby="basic"
             :pt="{
-                label: ({ state }) => ({
-                    class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+                button: ({ context }) => ({
+                    class: context.active ? 'bg-cyan-400 border-cyan-400' : undefined
                 })
             }"
         />
@@ -66,8 +67,8 @@ export default {
             :options="options"
             aria-labelledby="basic"
             :pt="{
-                label: ({ state }) => ({
-                    class: state.focusedIndex === 1 ? 'text-blue-300' : undefined
+                button: ({ context }) => ({
+                    class: context.active ? 'bg-cyan-400 border-cyan-400' : undefined
                 })
             }"
         />

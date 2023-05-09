@@ -3,14 +3,10 @@
     <div class="card flex justify-content-center">
         <Slider
             v-model="value"
-            class="w-14rem"
             :pt="{
-                handle: {
-                    class: 'bg-orange-400 border-900'
-                },
-                range: {
-                    class: 'bg-orange-400'
-                }
+                root: { class: 'w-14rem' },
+                handle: { class: 'bg-orange-400 border-900' },
+                range: { class: 'bg-orange-400' }
             }"
         />
     </div>
@@ -26,14 +22,10 @@ export default {
                 basic: `
 <Slider
     v-model="value"
-    class="w-14rem"
     :pt="{
-        handle: {
-            class: 'bg-orange-400 border-900'
-        },
-        range: {
-            class: 'bg-orange-400'
-        }
+        root: { class: 'w-14rem' },
+        handle: { class: 'bg-orange-400 border-900' },
+        range: { class: 'bg-orange-400' }
     }"
 />`,
                 options: `
@@ -41,14 +33,10 @@ export default {
     <div class="card flex justify-content-center">
         <Slider
             v-model="value"
-            class="w-14rem"
             :pt="{
-                handle: {
-                    class: 'bg-orange-400 border-900'
-                },
-                range: {
-                    class: 'bg-orange-400'
-                }
+                root: { class: 'w-14rem' },
+                handle: { class: 'bg-orange-400 border-900' },
+                range: { class: 'bg-orange-400' }
             }"
         />
     </div>
@@ -68,14 +56,10 @@ export default {
     <div class="card flex justify-content-center">
         <Slider
             v-model="value"
-            class="w-14rem"
             :pt="{
-                handle: {
-                    class: 'bg-orange-400 border-900'
-                },
-                range: {
-                    class: 'bg-orange-400'
-                }
+                root: { class: 'w-14rem' },
+                handle: { class: 'bg-orange-400 border-900' },
+                range: { class: 'bg-orange-400' }
             }"
         />
     </div>
