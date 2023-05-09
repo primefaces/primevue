@@ -94,6 +94,12 @@ const DataViewProps = [
         type: 'string',
         default: 'null',
         description: 'Name of the data that uniquely identifies the a record in the data.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

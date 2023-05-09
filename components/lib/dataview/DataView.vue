@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass">
-        <div v-if="$slots.header" class="p-dataview-header">
+    <div :class="containerClass" v-bind="ptm('root')">
+        <div v-if="$slots.header" class="p-dataview-header" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
         <DVPaginator
@@ -15,6 +15,7 @@
             :class="{ 'p-paginator-top': paginatorTop }"
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -23,14 +24,14 @@
                 <slot name="paginatorend"></slot>
             </template>
         </DVPaginator>
-        <div class="p-dataview-content">
-            <div class="p-grid p-nogutter grid grid-nogutter">
+        <div class="p-dataview-content" v-bind="ptm('content')">
+            <div class="p-grid p-nogutter grid grid-nogutter" v-bind="ptm('grid')">
                 <template v-for="(item, index) of items" :key="getKey(item, index)">
                     <slot v-if="$slots.list && layout === 'list'" name="list" :data="item" :index="index"></slot>
                     <slot v-if="$slots.grid && layout === 'grid'" name="grid" :data="item" :index="index"></slot>
                 </template>
-                <div v-if="empty" class="p-col col">
-                    <div class="p-dataview-emptymessage">
+                <div v-if="empty" class="p-col col" v-bind="ptm('column')">
+                    <div class="p-dataview-emptymessage" v-bind="ptm('emptyMessage')">
                         <slot name="empty"></slot>
                     </div>
                 </div>
@@ -48,6 +49,7 @@
             :class="{ 'p-paginator-bottom': paginatorBottom }"
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
+            :pt="ptm('root')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -56,17 +58,20 @@
                 <slot name="paginatorend"></slot>
             </template>
         </DVPaginator>
-        <div v-if="$slots.footer" class="p-dataview-footer">
+        <div v-if="$slots.footer" class="p-dataview-footer" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
     </div>
 </template>
+
 <script>
-import { ObjectUtils } from 'primevue/utils';
+import BaseComponent from 'primevue/basecomponent';
 import Paginator from 'primevue/paginator';
+import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'DataView',
+    extends: BaseComponent,
     emits: ['update:first', 'update:rows', 'page'],
     props: {
         value: {

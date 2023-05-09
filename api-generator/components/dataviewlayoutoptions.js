@@ -4,6 +4,12 @@ const DataViewLayoutOptionsProps = [
         type: 'string',
         default: 'null',
         description: 'Value of the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
