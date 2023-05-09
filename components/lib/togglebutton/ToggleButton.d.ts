@@ -30,14 +30,6 @@ export interface ToggleButtonPassThroughOptions {
      */
     root?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input aria's DOM element.
-     */
-    inputAria?: ToggleButtonPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the input's DOM element.
-     */
-    input?: ToggleButtonPassThroughOptionType;
-    /**
      * Uses to pass attributes to the icon's DOM element.
      */
     icon?: ToggleButtonPassThroughOptionType;
@@ -45,6 +37,14 @@ export interface ToggleButtonPassThroughOptions {
      * Uses to pass attributes to the label's DOM element.
      */
     label?: ToggleButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: ToggleButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: ToggleButtonPassThroughOptionType;
 }
 
 /**

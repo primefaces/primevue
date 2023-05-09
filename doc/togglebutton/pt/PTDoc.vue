@@ -3,11 +3,10 @@
     <div class="card flex justify-content-center">
         <ToggleButton
             v-model="checked"
-            class="w-8rem"
             :pt="{
-                root: () => ({
-                    class: checked ? 'bg-green-500 border-white' : undefined
-                })
+                root: {
+                    class: ['w-8rem', { 'bg-teal-400 border-white': checked }]
+                }
             }"
         />
     </div>
@@ -23,11 +22,10 @@ export default {
                 basic: `
 <ToggleButton
     v-model="checked"
-    class="w-8rem"
     :pt="{
-        root: () => ({
-            class: checked ? 'bg-green-500 border-white' : undefined
-        })
+        root: {
+            class: ['w-8rem', { 'bg-teal-400 border-white': checked }]
+        }
     }"
 />`,
                 options: `
@@ -35,11 +33,10 @@ export default {
     <div class="card flex justify-content-center">
         <ToggleButton
             v-model="checked"
-            class="w-8rem"
             :pt="{
-                root: () => ({
-                    class: checked ? 'bg-green-500 border-white' : undefined
-                })
+                root: {
+                    class: ['w-8rem', { 'bg-teal-400 border-white': checked }]
+                }
             }"
         />
     </div>
@@ -59,11 +56,10 @@ export default {
     <div class="card flex justify-content-center">
         <ToggleButton
             v-model="checked"
-            class="w-8rem"
             :pt="{
-                root: () => ({
-                    class: checked ? 'bg-green-500 border-white' : undefined
-                })
+                root: {
+                    class: ['w-8rem', { 'bg-teal-400 border-white': checked }]
+                }
             }"
         />
     </div>

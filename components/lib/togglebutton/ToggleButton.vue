@@ -1,6 +1,6 @@
 <template>
     <div ref="container" v-ripple :class="buttonClass" @click="onClick($event)" v-bind="ptm('root')">
-        <span class="p-hidden-accessible" v-bind="ptm('inputAria')">
+        <span class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 :id="inputId"
                 type="checkbox"
@@ -13,7 +13,7 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="{ ...inputProps, ...ptm('input') }"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </span>
         <slot name="icon" :value="modelValue" :class="iconClass">
