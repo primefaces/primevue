@@ -28826,6 +28826,28 @@
                     ],
                     "methods": []
                 },
+                "PickListFocusedState": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "sourceList",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current source list's focused state as a boolean."
+                        },
+                        {
+                            "name": "targetList",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current target list's focused state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "PickListState": {
                     "description": "Defines current inline state in PickList component.",
                     "relatedProp": "",
@@ -28851,7 +28873,7 @@
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "false",
+                            "default": "[false, false]",
                             "description": "Current focused state as a boolean."
                         },
                         {
@@ -28861,6 +28883,14 @@
                             "type": "number",
                             "default": "",
                             "description": "Current focused item index as a number."
+                        },
+                        {
+                            "name": "viewChanged",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current view change state as a boolean."
                         }
                     ],
                     "methods": []
