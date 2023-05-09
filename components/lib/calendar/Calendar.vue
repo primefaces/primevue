@@ -2642,7 +2642,7 @@ export default {
             this.$emit('input', event);
         },
         onInputClick() {
-            if (this.isEnabled() && !this.overlayVisible) {
+            if (this.showOnFocus && this.isEnabled() && !this.overlayVisible) {
                 this.overlayVisible = true;
             }
         },
