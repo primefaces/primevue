@@ -30241,6 +30241,13 @@
                             "readonly": false,
                             "type": "SelectButtonState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SelectButtonContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -30323,6 +30330,29 @@
                             "type": "number",
                             "default": "",
                             "description": "FocusedIndex state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SelectButtonContext": {
+                    "description": "Defines current options in SelectButton component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of the item as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of item as a boolean."
                         }
                     ],
                     "methods": []
