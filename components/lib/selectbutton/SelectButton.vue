@@ -14,10 +14,10 @@
             @keydown="onKeydown($event, option, i)"
             @focus="onFocus($event)"
             @blur="onBlur($event, option)"
-            v-bind="ptm('button')"
+            v-bind="getPTOptions(option, 'button')"
         >
             <slot name="option" :option="option" :index="i">
-                <span class="p-button-label" v-bind="ptm('label')">{{ getOptionLabel(option) }}</span>
+                <span class="p-button-label" v-bind="getPTOptions(option, 'label')">{{ getOptionLabel(option) }}</span>
             </slot>
         </div>
     </div>
@@ -77,6 +77,14 @@ export default {
         },
         getOptionRenderKey(option) {
             return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+        },
+        getPTOptions(option, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isSelected(option),
+                    disabled: this.isOptionDisabled(option)
+                }
+            });
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;

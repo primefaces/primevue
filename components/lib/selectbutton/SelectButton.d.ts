@@ -18,6 +18,7 @@ export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughA
 export interface SelectButtonPassThroughMethodOptions {
     props: SelectButtonProps;
     state: SelectButtonState;
+    context: SelectButtonContext;
 }
 
 /**
@@ -69,6 +70,22 @@ export interface SelectButtonState {
      * FocusedIndex state as a number.
      */
     focusedIndex: number;
+}
+
+/**
+ * Defines current options in SelectButton component.
+ */
+export interface SelectButtonContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**
