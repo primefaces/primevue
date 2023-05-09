@@ -162,7 +162,6 @@ export default {
         rotateRight() {
             this.rotate += 90;
             this.previewClick = true;
-            console.log('kdnwjknkj');
         },
         rotateLeft() {
             this.rotate -= 90;
