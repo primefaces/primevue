@@ -19,7 +19,6 @@ export declare type OrderListPassThroughOptionType = OrderListPassThroughAttribu
 export interface OrderListPassThroughMethodOptions {
     props: OrderListProps;
     state: OrderListState;
-    context: OrderListState;
 }
 
 /**
@@ -135,22 +134,6 @@ export interface OrderListState {
 }
 
 /**
- * Defines current inline state in OrderList component.
- */
-export interface OrderListState {
-    /**
-     * Current active state of the item as a boolean.
-     * @defaultValue false
-     */
-    active: boolean;
-    /**
-     * Current focus state of the item as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
-}
-
-/**
  * Defines valid properties in OrderList component.
  */
 export interface OrderListProps {
@@ -223,6 +206,11 @@ export interface OrderListProps {
      * Identifier of the underlying list element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {OrderListPassThroughOptions}
+     */
+    pt?: OrderListPassThroughOptions;
 }
 
 /**
