@@ -38116,6 +38116,13 @@
                             "readonly": false,
                             "type": "TriStateCheckboxState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TriStateCheckboxContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -38133,31 +38140,7 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "inputAria",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TriStateCheckboxPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the input aria's DOM element."
-                        },
-                        {
-                            "name": "input",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TriStateCheckboxPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the input's DOM element."
-                        },
-                        {
-                            "name": "srOnlyAria",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TriStateCheckboxPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the sr only aria's DOM element."
-                        },
-                        {
-                            "name": "checboxBox",
+                            "name": "checbox",
                             "optional": true,
                             "readonly": false,
                             "type": "TriStateCheckboxPassThroughOptionType",
@@ -38187,6 +38170,30 @@
                             "type": "TriStateCheckboxPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the nullable icon's DOM element."
+                        },
+                        {
+                            "name": "hiddenInputWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
+                        },
+                        {
+                            "name": "hiddenInput",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "srOnlyAria",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TriStateCheckboxPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the sr only aria's DOM element."
                         }
                     ],
                     "methods": []
@@ -38215,6 +38222,37 @@
                             "type": "boolean",
                             "default": "",
                             "description": "Focused state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TriStateCheckboxContext": {
+                    "description": "Defines current options in TriStateCheckbox component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state as a boolean."
                         }
                     ],
                     "methods": []
