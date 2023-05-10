@@ -91,9 +91,9 @@ export interface CascadeSelectPassThroughOptions {
      */
     text?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input sria's DOM element.
+     * Uses to pass attributes to the hidden selected message's DOM element.
      */
-    inputAria?: CascadeSelectPassThroughOptionType;
+    hiddenSelectedMessage?: CascadeSelectPassThroughOptionType;
     /**
      * Uses to pass attributes to the search result message text aria's DOM element.
      */

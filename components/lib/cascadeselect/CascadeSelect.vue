@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="containerClass" @click="onContainerClick($event)" v-bind="ptm('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('inputAria')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="focusInput"
                 :id="inputId"
@@ -66,7 +66,7 @@
                         />
                     </div>
 
-                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('selectedMessageAria')">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')">
                         {{ selectedMessageText }}
                     </span>
                 </div>

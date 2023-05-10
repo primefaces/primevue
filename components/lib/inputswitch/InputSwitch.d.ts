@@ -34,13 +34,13 @@ export interface InputSwitchPassThroughOptions {
      */
     slider?: InputSwitchPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden accessible DOM element.
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
      */
-    hiddenAccessible?: InputSwitchPassThroughOptionType;
+    hiddenInputWrapper?: InputSwitchPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input aria's DOM element.
+     * Uses to pass attributes to the hidden input's DOM element.
      */
-    inputAria?: InputSwitchPassThroughOptionType;
+    hiddenInput?: InputSwitchPassThroughOptionType;
 }
 
 /**
