@@ -95,7 +95,7 @@ export interface RatingContext {
      */
     active: boolean;
     /**
-     * Current focused state of menuitem as a boolean.
+     * Current focused state of item as a boolean.
      * @defaultValue false
      */
     focused: boolean;
