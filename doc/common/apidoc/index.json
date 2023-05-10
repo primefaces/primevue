@@ -9147,6 +9147,13 @@
                             "readonly": false,
                             "type": "ColumnContext",
                             "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataTablePassThroughOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
