@@ -30618,7 +30618,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current focused state of menuitem as a boolean."
+                            "description": "Current focused state of item as a boolean."
                         }
                     ],
                     "methods": []
