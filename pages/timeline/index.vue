@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Timeline Component" header="Timeline" description="Timeline visualizes a series of chained events." :componentDocs="docs" :apiDocs="['Timeline']" />
+    <DocComponent title="Vue Timeline Component" header="Timeline" description="Timeline visualizes a series of chained events." :componentDocs="docs" :apiDocs="['Timeline']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ import ImportDoc from '@/doc/timeline/ImportDoc';
 import OppositeDoc from '@/doc/timeline/OppositeDoc';
 import StyleDoc from '@/doc/timeline/StyleDoc';
 import TemplateDoc from '@/doc/timeline/TemplateDoc';
+import PTComponent from '@/doc/timeline/pt/index.vue';
 
 export default {
     data() {
@@ -56,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
