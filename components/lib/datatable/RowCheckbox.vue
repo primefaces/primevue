@@ -11,7 +11,7 @@
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
                 @keydown="onKeydown"
-                v-bind="ptm('hiddenInput')"
+                v-bind="getColumnPTOptions('hiddenInput')"
             />
         </div>
         <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]" v-bind="getColumnPTOptions('checkbox')">
