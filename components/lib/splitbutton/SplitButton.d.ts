@@ -37,10 +37,6 @@ export interface SplitButtonPassThroughOptions {
      */
     button?: SplitButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
-     */
-    icon?: SplitButtonPassThroughOptionType;
-    /**
      * Uses to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */

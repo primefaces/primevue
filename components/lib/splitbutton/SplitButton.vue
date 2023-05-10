@@ -1,10 +1,10 @@
 <template>
     <div :class="containerClass" :style="style" v-bind="ptm('root')">
         <slot>
-            <PVSButton type="button" class="p-splitbutton-defaultbutton" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="{ ...buttonProps, ...ptm('button') }">
+            <PVSButton type="button" class="p-splitbutton-defaultbutton" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps">
                 <template #icon="slotProps">
                     <slot name="icon">
-                        <span :class="[icon, slotProps.class]" v-bind="ptm('icon')" />
+                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
                     </slot>
                 </template>
             </PVSButton>
