@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenAccessible')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="input"
                 :id="inputId"
@@ -16,7 +16,7 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="ptm('inputAria')"
+                v-bind="ptm('hiddenInput')"
             />
         </div>
         <div ref="box" :class="['p-checkbox-box', inputClass, { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" :style="inputStyle" v-bind="{ ...inputProps, ...ptm('input') }">

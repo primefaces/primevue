@@ -38,13 +38,13 @@ export interface CheckboxPassThroughOptions {
      */
     icon?: CheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden accessible DOM element.
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
      */
-    hiddenAccessible?: CheckboxPassThroughOptionType;
+    hiddenInputWrapper?: CheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input aria's DOM element.
+     * Uses to pass attributes to the hidden input's DOM element.
      */
-    inputAria?: CheckboxPassThroughOptionType;
+    hiddenInput?: CheckboxPassThroughOptionType;
 }
 
 /**
