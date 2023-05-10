@@ -11,6 +11,7 @@
 
 import { VNode } from 'vue';
 import { ButtonPassThroughOptionType } from '../button';
+import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
@@ -24,6 +25,7 @@ export interface ColumnPassThroughMethodOptions {
     props: ColumnProps;
     state: ColumnState;
     context: ColumnContext;
+    parent: DataTablePassThroughOptions;
 }
 
 /**
