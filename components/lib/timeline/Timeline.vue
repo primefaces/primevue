@@ -1,18 +1,18 @@
 <template>
-    <div :class="containerClass">
-        <div v-for="(item, index) of value" :key="getKey(item, index)" class="p-timeline-event">
-            <div class="p-timeline-event-opposite">
+    <div :class="containerClass" v-bind="ptm('root')">
+        <div v-for="(item, index) of value" :key="getKey(item, index)" class="p-timeline-event" v-bind="ptm('event')">
+            <div class="p-timeline-event-opposite" v-bind="ptm('opposite')">
                 <slot name="opposite" :item="item" :index="index"></slot>
             </div>
-            <div class="p-timeline-event-separator">
+            <div class="p-timeline-event-separator" v-bind="ptm('separator')">
                 <slot name="marker" :item="item" :index="index">
-                    <div class="p-timeline-event-marker"></div>
+                    <div class="p-timeline-event-marker" v-bind="ptm('marker')"></div>
                 </slot>
                 <slot v-if="index !== value.length - 1" name="connector" :item="item" :index="index">
-                    <div class="p-timeline-event-connector"></div>
+                    <div class="p-timeline-event-connector" v-bind="ptm('connector')"></div>
                 </slot>
             </div>
-            <div class="p-timeline-event-content">
+            <div class="p-timeline-event-content" v-bind="ptm('content')">
                 <slot name="content" :item="item" :index="index"></slot>
             </div>
         </div>
@@ -20,10 +20,12 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Timeline',
+    extends: BaseComponent,
     props: {
         value: null,
         align: {

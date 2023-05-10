@@ -70,6 +70,7 @@ import { TagPassThroughOptions } from '../tag';
 import { TerminalPassThroughOptions } from '../terminal';
 import { TextareaPassThroughOptions } from '../textarea';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
+import { TimelinePassThroughOptions } from '../timeline';
 import { ToastPassThroughOptions } from '../toast';
 import { ToolbarPassThroughOptions } from '../toolbar';
 import { TreePassThroughOptions } from '../tree';
@@ -166,6 +167,7 @@ interface PrimeVuePTOptions {
     terminal?: TerminalPassThroughOptions;
     textarea?: TextareaPassThroughOptions;
     tieredmenu?: TieredMenuPassThroughOptions;
+    timeline?: TimelinePassThroughOptions;
     toast?: ToastPassThroughOptions;
     toolbar?: ToolbarPassThroughOptions;
     tree?: TreePassThroughOptions;
