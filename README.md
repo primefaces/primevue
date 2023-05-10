@@ -95,9 +95,9 @@ export default defineNuxtConfig({
         "primevue/resources/themes/lara-light-blue/theme.css",
         "primevue/resources/primevue.css"
     ],
-	build: {
-		transpile: ["primevue"]
-	}
+    build: {
+      transpile: ["primevue"]
+    }
 })
 ```
 
