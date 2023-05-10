@@ -39674,6 +39674,9 @@
                 },
                 "Nullable": {
                     "values": "T | null | undefined"
+                },
+                "DefaultPTOptions": {
+                    "values": "T | (instance: VNode) => undefined | undefined"
                 }
             }
         }
