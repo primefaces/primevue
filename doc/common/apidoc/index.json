@@ -35480,6 +35480,82 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TimelinePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TimelineProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "event",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the event's DOM element."
+                        },
+                        {
+                            "name": "opposite",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the opposite's DOM element."
+                        },
+                        {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "marker",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the marker's DOM element."
+                        },
+                        {
+                            "name": "connector",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the connector's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the content's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TimelinePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TimelineProps": {
                     "description": "Defines valid properties in Timeline component.",
                     "relatedProp": "",
@@ -35515,6 +35591,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Name of the field that uniquely identifies the a record in the data."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TimelinePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -35582,6 +35666,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TimelinePassThroughOptionType": {
+                    "values": "TimelinePassThroughAttributes | null | undefined"
                 }
             }
         }
