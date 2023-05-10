@@ -7851,20 +7851,20 @@
                             "description": "Uses to pass attributes to the icon's DOM element."
                         },
                         {
-                            "name": "hiddenAccessible",
+                            "name": "hiddenInputWrapper",
                             "optional": true,
                             "readonly": false,
                             "type": "CheckboxPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the hidden accessible DOM element."
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
                         },
                         {
-                            "name": "inputAria",
+                            "name": "hiddenInput",
                             "optional": true,
                             "readonly": false,
                             "type": "CheckboxPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the input aria's DOM element."
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
                         }
                     ],
                     "methods": []
