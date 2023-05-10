@@ -26395,6 +26395,34 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "OrganizationChartPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrganizationChartProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrganizationChartState",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrganizationChartContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "OrganizationChartNode": {
                     "description": "Defines valid properties in OrganizationChartNode.",
                     "relatedProp": "",
@@ -26488,6 +26516,200 @@
                     ],
                     "methods": []
                 },
+                "OrganizationChartPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "OrganizationChartProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "table",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table's DOM element."
+                        },
+                        {
+                            "name": "body",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the body's DOM element."
+                        },
+                        {
+                            "name": "row",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row' DOM element."
+                        },
+                        {
+                            "name": "cell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the cell's DOM element."
+                        },
+                        {
+                            "name": "node",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the node's DOM element."
+                        },
+                        {
+                            "name": "nodeToggler",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nodeToggler's DOM element."
+                        },
+                        {
+                            "name": "nodeTogglerIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nodeTogglerIcon's DOM element."
+                        },
+                        {
+                            "name": "lines",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the lines's DOM element."
+                        },
+                        {
+                            "name": "lineCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the lineCell's DOM element."
+                        },
+                        {
+                            "name": "lineDown",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the lineDown's DOM element."
+                        },
+                        {
+                            "name": "nodes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nodes's DOM element."
+                        },
+                        {
+                            "name": "nodeCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the nodeCell's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrganizationChartPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrganizationChartState": {
+                    "description": "Defines current inline state in OrganizationChart component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_collapsedKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrganizationChartCollapsedKeys",
+                            "default": "false",
+                            "description": "Current collapsed keys' state."
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrganizationChartContext": {
+                    "description": "Defines current options in OrganizationChart component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "expanded",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus expanded of the node as a boolean."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selectable state of the node as a boolean."
+                        },
+                        {
+                            "name": "selected",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selection state of the node as a boolean."
+                        },
+                        {
+                            "name": "toggleable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current toggleable state of the node as a boolean."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of the node as a boolean."
+                        },
+                        {
+                            "name": "lineTop",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current being top line state of the node as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "OrganizationChartProps": {
                     "description": "Defines valid properties in OrganizationChart component.",
                     "relatedProp": "",
@@ -26531,6 +26753,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether the nodes can be expanded or toggled."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "OrganizationChartPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -26658,6 +26888,14 @@
                             "description": "Callback to invoke when a node is collapsed."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "OrganizationChartPassThroughOptionType": {
+                    "values": "OrganizationChartPassThroughAttributes | (options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes | null | undefined"
                 }
             }
         }
