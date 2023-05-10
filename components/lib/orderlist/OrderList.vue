@@ -347,8 +347,8 @@ export default {
 
             let order = index >= items.length ? items.length - 1 : index < 0 ? 0 : index;
 
-            this.focusedOptionIndex = items[order].getAttribute('id');
-            this.scrollInView(items[order].getAttribute('id'));
+            this.focusedOptionIndex = items[order] ? items[order].getAttribute('id') : -1;
+            this.scrollInView(this.focusedOptionIndex);
         },
         scrollInView(id) {
             const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
