@@ -5,7 +5,36 @@
  *
  * @module row
  */
+import { ColumnGroupPassThroughOptions } from '../columngroup';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions) => RowPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface RowPassThroughMethodOptions {
+    props: RowProps;
+    parent: ColumnGroupPassThroughOptions;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link RowProps.pt}
+ */
+export interface RowPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: RowPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface RowPassThroughAttributes {
+    [key: string]: any;
+}
 
 /**
  * Defines valid properties in Row component.

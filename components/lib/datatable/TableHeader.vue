@@ -1,5 +1,5 @@
 <template>
-    <thead class="p-datatable-thead" role="rowgroup" v-bind="ptm('thead')">
+    <thead class="p-datatable-thead" role="rowgroup" v-bind="{ ...ptm('thead'), ...getColumnGroupPTOptions('root') }">
         <template v-if="!columnGroup">
             <tr role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
@@ -91,7 +91,7 @@
             </tr>
         </template>
         <template v-else>
-            <tr v-for="(row, i) of getHeaderRows()" :key="i" role="row" v-bind="ptm('headerRow')">
+            <tr v-for="(row, i) of getHeaderRows()" :key="i" role="row" v-bind="getRowPTOptions(row, 'root')">
                 <template v-for="(col, j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
                     <DTHeaderCell
                         v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field')) && typeof col.children !== 'string'"
@@ -231,6 +231,30 @@ export default {
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
+        },
+        getColumnGroupPTOptions(key) {
+            return this.ptmo(this.getColumnGroupProps(), key, {
+                props: this.getColumnGroupProps(),
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnGroupProps() {
+            return this.columnGroup && this.columnGroup.props && this.columnGroup.props.pt ? this.columnGroup.props.pt : undefined; //@todo
+        },
+        getRowPTOptions(row, key) {
+            return this.ptmo(this.getRowProp(row), key, {
+                props: row.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getRowProp(row) {
+            return row.props && row.props.pt ? row.props.pt : undefined; //@todo
         },
         getColumnPTOptions(column, key) {
             return this.ptmo(this.getColumnProp(column), key, {
