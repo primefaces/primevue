@@ -10466,6 +10466,55 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "ColumnGroupPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColumnGroupProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataTablePassThroughOptions",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColumnGroupPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "ColumnGroupProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColumnGroupPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "ColumnGroupProps": {
                     "description": "Defines valid properties in ColumnGroup component.",
                     "relatedProp": "",
@@ -10477,6 +10526,14 @@
                             "type": "\"footer\" | \"header\"",
                             "default": "",
                             "description": "Type of column group"
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnGroupPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -10492,6 +10549,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "ColumnGroupPassThroughOptionType": {
+                    "values": "ColumnGroupPassThroughAttributes | (options: ColumnGroupPassThroughMethodOptions) => ColumnGroupPassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -30880,6 +30945,55 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "RowPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RowProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColumnGroupPassThroughOptions",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "RowPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "undefined.RowProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RowPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "RowPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
                 "RowProps": {
                     "description": "Defines valid properties in Row component.",
                     "relatedProp": "",
@@ -30897,6 +31011,14 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": []
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "RowPassThroughOptionType": {
+                    "values": "RowPassThroughAttributes | (options: RowPassThroughMethodOptions) => RowPassThroughAttributes | null | undefined"
                 }
             }
         }
