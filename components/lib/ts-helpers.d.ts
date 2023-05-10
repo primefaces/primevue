@@ -1,4 +1,4 @@
-import { AllowedComponentProps, ComponentCustomProps, ObjectEmitsOptions, VNodeProps } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, ObjectEmitsOptions, VNode, VNodeProps } from 'vue';
 
 declare type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
 
@@ -32,3 +32,5 @@ export declare type Booleanish = boolean | 'true' | 'false';
 export declare type Numberish = number | string;
 
 export declare type Nullable<T = void> = T | null | undefined;
+
+export declare type DefaultPTOptions<T = void> = T | ((instance?: VNode) => T | undefined) | undefined;
