@@ -46,6 +46,7 @@ import { MenubarPassThroughOptions } from '../menubar';
 import { MessagePassThroughOptions } from '../message';
 import { MultiSelectPassThroughOptions } from '../multiselect';
 import { OrderListPassThroughOptions } from '../orderlist';
+import { OrganizationChartPassThroughOptions } from '../organizationchart';
 import { OverlayPanelPassThroughOptions } from '../overlaypanel';
 import { PaginatorPassThroughOptions } from '../paginator';
 import { PanelPassThroughOptions } from '../panel';
@@ -142,6 +143,7 @@ interface PrimeVuePTOptions {
     message?: MessagePassThroughOptions;
     multiselect?: MultiSelectPassThroughOptions;
     orderlist?: OrderListPassThroughOptions;
+    organizationchart?: OrganizationChartPassThroughOptions;
     overlaypanel?: OverlayPanelPassThroughOptions;
     paginator?: PaginatorPassThroughOptions;
     panel?: PanelPassThroughOptions;
