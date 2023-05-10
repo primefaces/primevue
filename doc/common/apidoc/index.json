@@ -6964,12 +6964,12 @@
                             "description": "Uses to pass attributes to the text's DOM element."
                         },
                         {
-                            "name": "inputAria",
+                            "name": "hiddenSelectedMessage",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the input sria's DOM element."
+                            "description": "Uses to pass attributes to the hidden selected message's DOM element."
                         },
                         {
                             "name": "searchResultAria",
@@ -21530,20 +21530,20 @@
                             "description": "Uses to pass attributes to the slider's DOM element."
                         },
                         {
-                            "name": "hiddenAccessible",
+                            "name": "hiddenInputWrapper",
                             "optional": true,
                             "readonly": false,
                             "type": "InputSwitchPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the hidden accessible DOM element."
+                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
                         },
                         {
-                            "name": "inputAria",
+                            "name": "hiddenInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputSwitchPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the input aria's DOM element."
+                            "description": "Uses to pass attributes to the hidden input's DOM element."
                         }
                     ],
                     "methods": []
