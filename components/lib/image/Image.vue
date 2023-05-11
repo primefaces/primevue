@@ -23,13 +23,13 @@
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="zoomDisabled" :aria-label="zoomOutAriaLabel" v-bind="ptm('zoomOutButton')">
+                    <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="isZoomOutDisabled" :aria-label="zoomOutAriaLabel" v-bind="ptm('zoomOutButton')">
                         <slot name="zoomout">
                             <SearchMinusIcon v-bind="ptm('zoomOutIcon')" />
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="zoomDisabled" :aria-label="zoomInAriaLabel" v-bind="ptm('zoomInButton')">
+                    <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="isZoomInDisabled" :aria-label="zoomInAriaLabel" v-bind="ptm('zoomInButton')">
                         <slot name="zoomin">
                             <SearchPlusIcon v-bind="ptm('zoomInIcon')" />
                         </slot>
@@ -98,6 +98,14 @@ export default {
         indicatorIcon: {
             type: String,
             default: undefined
+        },
+        zoomInDisabled: {
+            type: Boolean,
+            default: false
+        },
+        zoomOutDisabled: {
+            type: Boolean,
+            default: false
         }
     },
     mask: null,
@@ -132,7 +140,13 @@ export default {
         onPreviewImageClick() {
             this.previewClick = true;
         },
-        onMaskClick() {
+        onMaskClick(event) {
+            const isActionbarTarget = [event.target.classList].includes('p-image-action') || event.target.closest('.p-image-action');
+
+            if (isActionbarTarget) {
+                return;
+            }
+
             if (!this.previewClick) {
                 this.previewVisible = false;
                 this.rotate = 0;
@@ -198,6 +212,11 @@ export default {
             if (focusTarget) {
                 focusTarget.focus();
             }
+        },
+        hidePreview() {
+            this.previewVisible = false;
+            this.rotate = 0;
+            this.scale = 1;
         }
     },
     computed: {
@@ -219,8 +238,11 @@ export default {
         imagePreviewStyle() {
             return { transform: 'rotate(' + this.rotate + 'deg) scale(' + this.scale + ')' };
         },
-        zoomDisabled() {
-            return this.scale <= 0.5 || this.scale >= 1.5;
+        isZoomInDisabled() {
+            return this.zoomInDisabled || this.scale >= 1.5;
+        },
+        isZoomOutDisabled() {
+            return this.zoomOutDisabled || this.scale <= 0.5;
         },
         rightAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.rotateRight : undefined;
@@ -298,6 +320,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.p-image-action.p-link[disabled] {
+    opacity: 0.5;
 }
 
 .p-image-preview {

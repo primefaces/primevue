@@ -154,6 +154,16 @@ export interface ImageProps {
      */
     indicatorIcon?: string;
     /**
+     * Disable the zoom-in button
+     * @defaultValue false
+     */
+    zoomInDisabled?: boolean | undefined;
+    /**
+     * Disable the zoom-out button
+     * @defaultValue false
+     */
+    zoomOutDisabled?: boolean | undefined;
+    /**
      * Uses to pass attributes to DOM elements inside the component.
      * @type {ImagePassThroughOptions}
      */

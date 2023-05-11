@@ -12,6 +12,18 @@ const ImageProps = [
         description: 'Custom indicator icon.'
     },
     {
+        name: 'zoomInDisabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Disable the zoom-in button'
+    },
+    {
+        name: 'zoomOutDisabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Disable the zoom-out button'
+    },
+    {
         name: 'pt',
         type: 'any',
         default: 'null',
