@@ -37054,6 +37054,22 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Automatically adjusts the element position when there is not enough space on the selected position."
+                        },
+                        {
+                            "name": "showDelay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "When present, it adds a custom delay to the tooltip's display."
+                        },
+                        {
+                            "name": "hideDelay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "0",
+                            "description": "When present, it adds a custom delay to the tooltip's hiding."
                         }
                     ],
                     "methods": []
