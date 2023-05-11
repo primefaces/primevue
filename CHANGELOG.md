@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.29.0](https://github.com/primefaces/primevue/tree/3.29.0) (2023-05-11)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.28.0...3.29.0)
+
+**Implemented New Features and Enhancements:**
+
+- New passthrough\(pt\) property implementation for Data Components [\#3924](https://github.com/primefaces/primevue/issues/3924)
+- New passthrough\(pt\) property implementation for Form Components [\#3922](https://github.com/primefaces/primevue/issues/3922)
+- New passthrough\(pt\) property implementation for Media Components [\#3918](https://github.com/primefaces/primevue/issues/3918)
+- Image: New `image` and `preview` slots [\#3864](https://github.com/primefaces/primevue/issues/3864)
+- Tooltip Delay option [\#3764](https://github.com/primefaces/primevue/issues/3764)
+- Image: Handling of disabled zoomOut and zoomIn in preview [\#2948](https://github.com/primefaces/primevue/issues/2948)
+
+**Fixed bugs:**
+
+- Calendar: showOnFocus=false does not work [\#3923](https://github.com/primefaces/primevue/issues/3923)
+- OrderList: TypeError with empty list [\#3870](https://github.com/primefaces/primevue/issues/3870)
+
 ## [3.28.0](https://github.com/primefaces/primevue/tree/3.28.0) (2023-05-02)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.27.0...3.28.0)
