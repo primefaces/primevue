@@ -23,13 +23,13 @@
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="isZoomOutDisabled" :aria-label="zoomOutAriaLabel" v-bind="ptm('zoomOutButton')">
+                    <button :class="['p-image-action p-link', { 'p-disabled': isZoomOutDisabled }]" @click="zoomOut" type="button" :disabled="isZoomOutDisabled" :aria-label="zoomOutAriaLabel" v-bind="ptm('zoomOutButton')">
                         <slot name="zoomout">
                             <SearchMinusIcon v-bind="ptm('zoomOutIcon')" />
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="isZoomInDisabled" :aria-label="zoomInAriaLabel" v-bind="ptm('zoomInButton')">
+                    <button :class="['p-image-action p-link', { 'p-disabled': isZoomInDisabled }]" @click="zoomIn" type="button" :disabled="isZoomInDisabled" :aria-label="zoomInAriaLabel" v-bind="ptm('zoomInButton')">
                         <slot name="zoomin">
                             <SearchPlusIcon v-bind="ptm('zoomInIcon')" />
                         </slot>
@@ -320,10 +320,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.p-image-action.p-link[disabled] {
-    opacity: 0.5;
 }
 
 .p-image-preview {
