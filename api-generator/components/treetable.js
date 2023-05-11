@@ -221,6 +221,12 @@ const TreeTableProps = [
         type: 'string',
         default: 'null',
         description: 'Defines the responsive mode, currently only option is scroll.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

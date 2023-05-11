@@ -1,13 +1,13 @@
 <template>
-    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body" role="table">
-        <div v-if="loading" class="p-treetable-loading">
-            <div class="p-treetable-loading-overlay p-component-overlay">
+    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')">
+        <div v-if="loading" class="p-treetable-loading" v-bind="ptm('loadingWrapper')">
+            <div class="p-treetable-loading-overlay p-component-overlay" v-bind="ptm('loadingOverlay')">
                 <slot name="loadingicon">
-                    <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-treetable-loading-icon', loadingIcon]" />
+                    <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-treetable-loading-icon', loadingIcon]" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
         </div>
-        <div v-if="$slots.header" class="p-treetable-header">
+        <div v-if="$slots.header" class="p-treetable-header" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
         <TTPaginator
@@ -22,6 +22,7 @@
             class="p-paginator-top"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -42,10 +43,10 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-wrapper" :style="{ maxHeight: scrollHeight }">
-            <table ref="table" role="table" v-bind="tableProps">
-                <thead class="p-treetable-thead" role="rowgroup">
-                    <tr role="row">
+        <div class="p-treetable-wrapper" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+            <table ref="table" role="table" v-bind="{ ...tableProps, ...ptm('table') }">
+                <thead class="p-treetable-thead" role="rowgroup" v-bind="ptm('thead')">
+                    <tr role="row" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTHeaderCell
                                 v-if="!columnProp(col, 'hidden')"
@@ -57,18 +58,19 @@
                                 :sortMode="sortMode"
                                 @column-click="onColumnHeaderClick"
                                 @column-resizestart="onColumnResizeStart"
+                                :pt="pt"
                             ></TTHeaderCell>
                         </template>
                     </tr>
-                    <tr v-if="hasColumnFilter()">
+                    <tr v-if="hasColumnFilter()" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]">
+                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerCell')">
                                 <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" />
                             </th>
                         </template>
                     </tr>
                 </thead>
-                <tbody class="p-treetable-tbody" role="rowgroup">
+                <tbody class="p-treetable-tbody" role="rowgroup" v-bind="ptm('tbody')">
                     <template v-if="!empty">
                         <TTRow
                             v-for="(node, index) of dataToRender"
@@ -87,18 +89,19 @@
                             @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
+                            :pt="pt"
                         ></TTRow>
                     </template>
-                    <tr v-else class="p-treetable-emptymessage">
-                        <td :colspan="columns.length">
+                    <tr v-else class="p-treetable-emptymessage" v-bind="ptm('emptyMessage')">
+                        <td :colspan="columns.length" v-bind="ptm('bodyCell')">
                             <slot name="empty"></slot>
                         </td>
                     </tr>
                 </tbody>
-                <tfoot v-if="hasFooter" class="p-treetable-tfoot" role="rowgroup">
-                    <tr role="row">
+                <tfoot v-if="hasFooter" class="p-treetable-tfoot" role="rowgroup" v-bind="ptm('tfoot')">
+                    <tr role="row" v-bind="ptm('footerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col"></TTFooterCell>
+                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt"></TTFooterCell>
                         </template>
                     </tr>
                 </tfoot>
@@ -116,6 +119,7 @@
             class="p-paginator-bottom"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :pt="pt"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -136,15 +140,16 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </TTPaginator>
-        <div v-if="$slots.footer" class="p-treetable-footer">
+        <div v-if="$slots.footer" class="p-treetable-footer" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
-        <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none"></div>
+        <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none" v-bind="ptm('resizeHelper')"></div>
     </div>
 </template>
 
 <script>
 import { FilterService } from 'primevue/api';
+import BaseComponent from 'primevue/basecomponent';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
@@ -154,6 +159,7 @@ import TreeTableRow from './TreeTableRow.vue';
 
 export default {
     name: 'TreeTable',
+    extends: BaseComponent,
     emits: [
         'node-expand',
         'node-collapse',

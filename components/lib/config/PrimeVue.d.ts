@@ -78,6 +78,7 @@ import { ToastPassThroughOptions } from '../toast';
 import { ToolbarPassThroughOptions } from '../toolbar';
 import { TreePassThroughOptions } from '../tree';
 import { TreeSelectPassThroughOptions } from '../treeselect';
+import { TreeTablePassThroughOptions } from '../treetable';
 import { DefaultPTOptions } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
@@ -179,6 +180,7 @@ interface PrimeVuePTOptions {
     toolbar?: DefaultPTOptions<ToolbarPassThroughOptions>;
     tree?: DefaultPTOptions<TreePassThroughOptions>;
     treeselect?: DefaultPTOptions<TreeSelectPassThroughOptions>;
+    treetable?: DefaultPTOptions<TreeTablePassThroughOptions>;
     virtualscroller?: DefaultPTOptions<VirtualScrollerPassThroughOptions>;
 }
 

@@ -19,11 +19,11 @@
         <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart" v-bind="getColumnPTOptions('columnResizer')"></span>
         <div class="p-column-header-content" v-bind="getColumnPTOptions('headerContent')">
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
-            <span v-if="columnProp('header')" class="p-column-title" v-bind="{ ...getColumnPTOptions('headerTitle') }">{{ columnProp('header') }}</span>
-            <span v-if="columnProp('sortable')" v-bind="{ ...getColumnPTOptions('sort') }">
+            <span v-if="columnProp('header')" class="p-column-title" v-bind="getColumnPTOptions('headerTitle')">{{ columnProp('header') }}</span>
+            <span v-if="columnProp('sortable')" v-bind="getColumnPTOptions('sort')">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" class="p-sortable-column-icon" />
             </span>
-            <span v-if="isMultiSorted()" class="p-sortable-column-badge" v-bind="{ ...getColumnPTOptions('sortBadge') }">{{ getBadgeValue() }}</span>
+            <span v-if="isMultiSorted()" class="p-sortable-column-badge" v-bind="getColumnPTOptions('sortBadge')">{{ getBadgeValue() }}</span>
             <DTHeaderCheckbox
                 v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
                 :checked="allRowsSelected"
