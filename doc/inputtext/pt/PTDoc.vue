@@ -19,11 +19,23 @@ export default {
             value: null,
             code: {
                 basic: `
-<InputText type="text" v-model="value" />`,
+<InputText
+    v-model="value"
+    type="text"
+    :pt="{
+        root: { class: 'border-teal-400' }
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <InputText type="text" v-model="value" />
+        <InputText
+            v-model="value"
+            type="text"
+            :pt="{
+                root: { class: 'border-teal-400' }
+            }"
+        />
     </div>
 </template>
 
@@ -40,7 +52,13 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <InputText type="text" v-model="value" />
+        <InputText
+            v-model="value"
+            type="text"
+            :pt="{
+                root: { class: 'border-teal-400' }
+            }"
+        />
     </div>
 </template>
 

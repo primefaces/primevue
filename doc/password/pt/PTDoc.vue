@@ -1,7 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs">
-        <p>Strength meter is displayed as a popup while a value is being entered.</p>
-    </DocSectionText>
+    <DocSectionText v-bind="$attrs"></DocSectionText>
     <div class="card flex justify-content-center">
         <Password
             v-model="value"
@@ -20,11 +18,21 @@ export default {
             value: null,
             code: {
                 basic: `
-<Password v-model="value" />`,
+<Password
+    v-model="value"
+    :pt="{
+        info: { class: 'font-bold' }
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <Password v-model="value" />
+        <Password
+            v-model="value"
+            :pt="{
+                info: { class: 'font-bold' }
+            }"
+        />
     </div>
 </template>
 
@@ -40,7 +48,12 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <Password v-model="value" />
+        <Password
+            v-model="value"
+            :pt="{
+                info: { class: 'font-bold' }
+            }"
+        />
     </div>
 </template>
 
