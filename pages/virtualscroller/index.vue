@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue Virtual Scroller Component" header="VirtualScroller" description="VirtualScroller is a performant approach to render large amounts of data efficiently." :componentDocs="docs" :apiDocs="['VirtualScroller']" />
+    <DocComponent
+        title="Vue Virtual Scroller Component"
+        header="VirtualScroller"
+        description="VirtualScroller is a performant approach to render large amounts of data efficiently."
+        :componentDocs="docs"
+        :apiDocs="['VirtualScroller']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -12,6 +19,7 @@ import ImportDoc from '@/doc/virtualscroller/ImportDoc';
 import LazyDoc from '@/doc/virtualscroller/LazyDoc';
 import LoadingDoc from '@/doc/virtualscroller/LoadingDoc';
 import StyleDoc from '@/doc/virtualscroller/StyleDoc';
+import PTComponent from '@/doc/virtualscroller/pt/index.vue';
 
 export default {
     data() {
@@ -62,7 +70,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

@@ -46,6 +46,12 @@ const PaginatorProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show the paginator even there is only one page.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -80,11 +86,11 @@ const PaginatorEvents = [
 
 const PaginatorSlots = [
     {
-        name: 'left',
+        name: 'start',
         description: "Custom content for the component's left side."
     },
     {
-        name: 'right',
+        name: 'end',
         description: "Custom content for the component's right side."
     },
     {

@@ -5,6 +5,7 @@
         description="FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations."
         :componentDocs="docs"
         :apiDocs="['FileUpload']"
+        :ptTabComponent="ptComponent"
     />
 </template>
 
@@ -17,6 +18,7 @@ import CustomUploadDoc from '@/doc/fileupload/CustomUploadDoc.vue';
 import ImportDoc from '@/doc/fileupload/ImportDoc.vue';
 import StyleDoc from '@/doc/fileupload/StyleDoc.vue';
 import TemplateDoc from '@/doc/fileupload/TemplateDoc.vue';
+import PTComponent from '@/doc/fileupload/pt/index.vue';
 
 export default {
     data() {
@@ -62,7 +64,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

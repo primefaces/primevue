@@ -1,8 +1,8 @@
 <template>
-    <nav :id="id" :class="containerClass">
-        <ol ref="list" class="p-steps-list">
+    <nav :id="id" :class="containerClass" v-bind="ptm('root')">
+        <ol ref="list" class="p-steps-list" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="item.to">
-                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style">
+                <li v-if="visible(item)" :class="getItemClass(item)" :style="item.style" v-bind="ptm('menuitem')">
                     <template v-if="!$slots.item">
                         <router-link v-if="!isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                             <a
@@ -12,14 +12,15 @@
                                 :aria-current="isExactActive ? 'step' : undefined"
                                 @click="onItemClick($event, item, navigate)"
                                 @keydown="onItemKeydown($event, item, navigate)"
+                                v-bind="ptm('action')"
                             >
-                                <span class="p-steps-number">{{ index + 1 }}</span>
-                                <span class="p-steps-title">{{ label(item) }}</span>
+                                <span class="p-steps-number" v-bind="ptm('step')">{{ index + 1 }}</span>
+                                <span class="p-steps-title" v-bind="ptm('label')">{{ label(item) }}</span>
                             </a>
                         </router-link>
-                        <span v-else :class="linkClass()" @keydown="onItemKeydown($event, item)">
-                            <span class="p-steps-number">{{ index + 1 }}</span>
-                            <span class="p-steps-title">{{ label(item) }}</span>
+                        <span v-else :class="linkClass()" @keydown="onItemKeydown($event, item)" v-bind="ptm('action')">
+                            <span class="p-steps-number" v-bind="ptm('step')">{{ index + 1 }}</span>
+                            <span class="p-steps-title" v-bind="ptm('label')">{{ label(item) }}</span>
                         </span>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -30,10 +31,12 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Steps',
+    extends: BaseComponent,
     props: {
         id: {
             type: String,

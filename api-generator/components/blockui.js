@@ -22,6 +22,12 @@ const BlockUIProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to automatically manage layering.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

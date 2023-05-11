@@ -9,7 +9,18 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
+import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
+
+export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface DropdownPassThroughMethodOptions {
+    props: DropdownProps;
+    state: DropdownState;
+    context: DropdownContext;
+}
 
 /**
  * Custom change event.
@@ -39,6 +50,151 @@ export interface DropdownFilterEvent {
      * Filter value
      */
     value: any;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link DropdownProps.pt}
+ */
+export interface DropdownPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the clear icon's DOM element.
+     */
+    clearIcon?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the trigger' DOM element.
+     */
+    trigger?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panel?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the filter container's DOM element.
+     */
+    filterContainer?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the filter input's DOM element.
+     */
+    filterInput?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the filter icon's DOM element.
+     */
+    filterIcon?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the VirtualScroller component.
+     * @see {@link VirtualScrollerPassThroughOptionType}
+     */
+    virtualScroller?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    list?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item group's DOM element.
+     */
+    itemGroup?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item's DOM element.
+     */
+    item?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the emptyMessage's DOM element.
+     */
+    emptyMessage?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden first focusable element's DOM element.
+     */
+    hiddenFirstFocusableEl?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden filter result's DOM element.
+     */
+    hiddenFilterResult?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden selected message's DOM element.
+     */
+    hiddenSelectedMessage?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden last focusable element's DOM element.
+     */
+    hiddenLastFocusableEl?: DropdownPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface DropdownPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Dropdown component.
+ */
+export interface DropdownState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedOptionIndex: number;
+    /**
+     * Current filter value state as a string.
+     */
+    filterValue: string;
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+}
+
+/**
+ * Defines current options in Dropdown component.
+ */
+export interface DropdownContext {
+    /**
+     * Current selection state of the item as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
@@ -157,6 +313,7 @@ export interface DropdownProps {
     filterInputProps?: InputHTMLAttributes | undefined;
     /**
      * Uses to pass all properties of the HTMLElement to the clear icon inside the component.
+     * @deprecated since v3.26.0. Use 'pt' peroperty.
      */
     clearIconProps?: HTMLAttributes | undefined;
     /**
@@ -171,22 +328,22 @@ export interface DropdownProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in clear button.
-     * @defaultValue pi pi-times
+     * @deprecated since v3.27.0. Use 'clearicon' slot.
      */
     clearIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
-     * @defaultValue pi pi-chevron-down
+     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * @defaultValue pi pi-search
+     * @deprecated since v3.27.0. Use 'filtericon' slot.
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue pi pi-spinner pi-spin
+     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
@@ -250,6 +407,11 @@ export interface DropdownProps {
      * Identifier of the underlying input element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {DropdownPassThroughOptions}
+     */
+    pt?: DropdownPassThroughOptions;
 }
 
 /**
@@ -272,6 +434,7 @@ export interface DropdownSlots {
     }): VNode[];
     /**
      * Custom indicator template.
+     * @deprecated since v3.27.0. Use 'dropdownicon or loadingicon' slots.
      */
     indicator(): VNode[];
     /**
@@ -373,6 +536,40 @@ export interface DropdownSlots {
          */
         options: any[];
     }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         */
+        onClick: void;
+    }): VNode[];
+    /**
+     * Custom dropdown icon template.
+     * @param {Object} scope - dropdown icon slot's params.
+     */
+    dropdownicon(scope: {
+        /**
+         * Style class of the component
+         */
+        class: any;
+    }): VNode[];
+    /**
+     * Custom loading icon template.
+     * @param {Object} scope - loading icon slot's params.
+     */
+    loadingicon(scope: {
+        /**
+         * Style class of the component
+         */
+        class: any;
+    }): VNode[];
+    /**
+     * Custom filter icon template.
+     */
+    filtericon(): VNode[];
 }
 
 /**

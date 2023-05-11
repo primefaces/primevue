@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-contextmenu" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="$attrs">
+            <div v-if="visible" :ref="containerRef" :class="containerClass" v-bind="{ ...$attrs, ...ptm('root') }">
                 <ContextMenuSub
                     :ref="listRef"
                     :id="id + '_list'"
@@ -14,13 +14,14 @@
                     :menuId="id"
                     :focusedItemId="focused ? focusedItemId : undefined"
                     :items="processedItems"
-                    :template="$slots"
+                    :templates="$slots"
                     :activeItemPath="activeItemPath"
                     :exact="exact"
                     :aria-labelledby="ariaLabelledby"
                     :aria-label="ariaLabel"
                     :level="0"
                     :visible="submenuVisible"
+                    :pt="pt"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
@@ -33,12 +34,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Portal from 'primevue/portal';
 import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import ContextMenuSub from './ContextMenuSub.vue';
 
 export default {
     name: 'ContextMenu',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['focus', 'blur', 'show', 'hide'],
     props: {

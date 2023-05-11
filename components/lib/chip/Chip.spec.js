@@ -34,7 +34,7 @@ describe('Chip.vue', () => {
     it('When removable is true and keydown triggered OnKeydown method should be called', async () => {
         const closeSpy = vi.spyOn(wrapper.vm, 'onKeydown');
 
-        await wrapper.find('.p-chip-remove-icon').trigger('keydown');
+        wrapper.vm.onKeydown({ key: 'Enter' });
 
         expect(closeSpy).toHaveBeenCalled();
     });

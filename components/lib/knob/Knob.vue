@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass">
+    <div :class="containerClass" v-bind="ptm('root')">
         <svg
             viewBox="0 0 100 100"
             role="slider"
@@ -17,17 +17,21 @@
             @mouseup="onMouseUp"
             @touchstart="onTouchStart"
             @touchend="onTouchEnd"
+            v-bind="ptm('svg')"
         >
-            <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" class="p-knob-range"></path>
-            <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" class="p-knob-value"></path>
-            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" class="p-knob-text">{{ valueToDisplay }}</text>
+            <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" class="p-knob-range" v-bind="ptm('range')"></path>
+            <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" class="p-knob-value" v-bind="ptm('value')"></path>
+            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" class="p-knob-text" v-bind="ptm('label')">{{ valueToDisplay }}</text>
         </svg>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Knob',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change'],
     props: {
         modelValue: {

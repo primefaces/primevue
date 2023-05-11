@@ -28,6 +28,12 @@ const OrganizationChartProps = [
         type: 'object',
         default: 'null',
         description: 'A map instance of key-value pairs to represented the collapsed nodes.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

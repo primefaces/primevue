@@ -6,11 +6,11 @@ export default {
     props: {
         label: {
             type: String,
-            value: undefined
+            default: undefined
         },
         spin: {
             type: Boolean,
-            value: false
+            default: false
         }
     },
     methods: {
@@ -33,11 +33,8 @@ export default {
 };
 </script>
 <style>
-/* Theme */
 .p-icon {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
 }
 
 .p-icon-spin {

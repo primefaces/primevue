@@ -1,31 +1,39 @@
 <template>
-    <div :class="containerClass">
-        <div v-if="showSourceControls" class="p-picklist-buttons p-picklist-source-controls">
+    <div :class="containerClass" v-bind="ptm('root')">
+        <div v-if="showSourceControls" class="p-picklist-buttons p-picklist-source-controls" v-bind="ptm('sourceControls')">
             <slot name="sourcecontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" v-bind="moveUpButtonProps">
-                <slot name="moveupicon">
-                    <AngleUpIcon />
-                </slot>
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" v-bind="moveUpButtonProps" :pt="ptm('sourceMoveUpButton')">
+                <template #icon>
+                    <slot name="moveupicon">
+                        <AngleUpIcon v-bind="ptm('sourceMoveUpButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveTop($event, 0)" v-bind="moveTopButtonProps">
-                <slot name="movetopicon">
-                    <AngleDoubleUpIcon />
-                </slot>
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveTop($event, 0)" v-bind="moveTopButtonProps" :pt="ptm('sourceMoveTopButton')">
+                <template #icon>
+                    <slot name="movetopicon">
+                        <AngleDoubleUpIcon v-bind="ptm('sourceMoveTopButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveDown($event, 0)" v-bind="moveDownButtonProps">
-                <slot name="movedownicon">
-                    <AngleDownIcon />
-                </slot>
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveDown($event, 0)" v-bind="moveDownButtonProps" :pt="ptm('sourceMoveDownButton')">
+                <template #icon>
+                    <slot name="movedownicon">
+                        <AngleDownIcon v-bind="ptm('sourceMoveDownButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveBottom($event, 0)" v-bind="moveBottomButtonProps">
-                <slot name="movebottomicon">
-                    <AngleDoubleDownIcon />
-                </slot>
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveBottom($event, 0)" v-bind="moveBottomButtonProps" :pt="ptm('sourceMoveBottomButton')">
+                <template #icon>
+                    <slot name="movebottomicon">
+                        <AngleDoubleDownIcon v-bind="ptm('sourceMoveBottomButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
             <slot name="sourcecontrolsend"></slot>
         </div>
-        <div class="p-picklist-list-wrapper p-picklist-source-wrapper">
-            <div v-if="$slots.sourceheader" class="p-picklist-header">
+        <div class="p-picklist-list-wrapper p-picklist-source-wrapper" v-bind="ptm('sourceWrapper')">
+            <div v-if="$slots.sourceheader" class="p-picklist-header" v-bind="ptm('sourceHeader')">
                 <slot name="sourceheader"></slot>
             </div>
             <transition-group
@@ -42,7 +50,7 @@
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
-                v-bind="sourceListProps"
+                v-bind="{ ...sourceListProps, ...ptm('sourceList') }"
             >
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li
@@ -55,38 +63,47 @@
                         @mousedown="onOptionMouseDown(i, 'sourceList')"
                         role="option"
                         :aria-selected="isSelected(item, 0)"
+                        v-bind="getPTOptions(item, 'item')"
                     >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
             </transition-group>
         </div>
-        <div class="p-picklist-buttons p-picklist-transfer-buttons">
+        <div class="p-picklist-buttons p-picklist-transfer-buttons" v-bind="ptm('buttons')">
             <slot name="movecontrolsstart"></slot>
-            <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps">
-                <slot name="movetotargeticon">
-                    <AngleRightIcon />
-                </slot>
+            <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="moveToTargetProps" :pt="ptm('moveToTargetButton')">
+                <template #icon>
+                    <slot name="movetotargeticon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleDownIcon' : 'AngleRightIcon'" v-bind="ptm('moveToTargetButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps">
-                <slot name="movealltotargeticon">
-                    <AngleDoubleRightIcon />
-                </slot>
+            <PLButton :aria-label="moveAllToTargetAriaLabel" type="button" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="moveAllToTargetProps" :pt="ptm('moveAllToTargetButton')">
+                <template #icon>
+                    <slot name="movealltotargeticon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleDoubleDownIcon' : 'AngleDoubleRightIcon'" v-bind="ptm('moveAllToTargetButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps">
-                <slot name="movetosourceicon">
-                    <AngleLeftIcon />
-                </slot>
+            <PLButton :aria-label="moveToSourceAriaLabel" type="button" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="moveToSourceProps" :pt="ptm('moveToSourceButton')">
+                <template #icon>
+                    <slot name="movetosourceicon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleUpIcon' : 'AngleLeftIcon'" v-bind="ptm('moveToSourceButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps">
-                <slot name="movealltosourceicon">
-                    <AngleDoubleLeftIcon />
-                </slot>
+            <PLButton :aria-label="moveAllToSourceAriaLabel" type="button" @click="moveAllToSource" :disabled="moveSourceDisabled('targetList')" v-bind="moveAllToSourceProps" :pt="ptm('moveAllToSourceButton')">
+                <template #icon>
+                    <slot name="movealltosourceicon" :viewChanged="viewChanged">
+                        <component :is="viewChanged ? 'AngleDoubleUpIcon' : 'AngleDoubleLeftIcon'" v-bind="ptm('moveAllToSourceButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
-        <div class="p-picklist-list-wrapper p-picklist-target-wrapper">
-            <div v-if="$slots.targetheader" class="p-picklist-header">
+        <div class="p-picklist-list-wrapper p-picklist-target-wrapper" v-bind="ptm('targetWrapper')">
+            <div v-if="$slots.targetheader" class="p-picklist-header" v-bind="ptm('targetHeader')">
                 <slot name="targetheader"></slot>
             </div>
             <transition-group
@@ -103,7 +120,7 @@
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
                 @keydown="onItemKeyDown($event, 'targetList')"
-                v-bind="targetListProps"
+                v-bind="{ ...targetListProps, ...ptm('targetList') }"
             >
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li
@@ -117,33 +134,42 @@
                         @touchend="onItemTouchEnd"
                         role="option"
                         :aria-selected="isSelected(item, 1)"
+                        v-bind="getPTOptions(item, 'item')"
                     >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
             </transition-group>
         </div>
-        <div v-if="showTargetControls" class="p-picklist-buttons p-picklist-target-controls">
+        <div v-if="showTargetControls" class="p-picklist-buttons p-picklist-target-controls" v-bind="ptm('targetControls')">
             <slot name="targetcontrolsstart"></slot>
-            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" v-bind="moveUpButtonProps">
-                <slot name="moveupicon">
-                    <AngleUpIcon />
-                </slot>
+            <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" v-bind="moveUpButtonProps" :pt="ptm('targetMoveUpButton')">
+                <template #icon>
+                    <slot name="moveupicon">
+                        <AngleUpIcon v-bind="ptm('targetMoveUpButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveTop($event, 1)" v-bind="moveTopButtonProps">
-                <slot name="movetopicon">
-                    <AngleDoubleUpIcon />
-                </slot>
+            <PLButton :aria-label="moveTopAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveTop($event, 1)" v-bind="moveTopButtonProps" :pt="ptm('targetMoveTopButton')">
+                <template #icon>
+                    <slot name="movetopicon">
+                        <AngleDoubleUpIcon v-bind="ptm('targetMoveTopButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveDown($event, 1)" v-bind="moveDownButtonProps">
-                <slot name="movedownicon">
-                    <AngleDownIcon />
-                </slot>
+            <PLButton :aria-label="moveDownAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveDown($event, 1)" v-bind="moveDownButtonProps" :pt="ptm('targetMoveDownButton')">
+                <template #icon>
+                    <slot name="movedownicon">
+                        <AngleDownIcon v-bind="ptm('targetMoveDownButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
-            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveBottom($event, 1)" v-bind="moveBottomButtonProps">
-                <slot name="movebottomicon">
-                    <AngleDoubleDownIcon />
-                </slot>
+            <PLButton :aria-label="moveBottomAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveBottom($event, 1)" v-bind="moveBottomButtonProps" :pt="ptm('targetMoveBottomButton')">
+                <template #icon>
+                    <slot name="movebottomicon">
+                        <AngleDoubleDownIcon v-bind="ptm('targetMoveBottomButton')['icon']" />
+                    </slot>
+                </template>
             </PLButton>
             <slot name="targetcontrolsend"></slot>
         </div>
@@ -151,20 +177,22 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
-import AngleDoubleDownIcon from 'primevue/icon/angledoubledown';
-import AngleDoubleLeftIcon from 'primevue/icon/angledoubleleft';
-import AngleDoubleRightIcon from 'primevue/icon/angledoubleright';
-import AngleDoubleUpIcon from 'primevue/icon/angledoubleup';
-import AngleDownIcon from 'primevue/icon/angledown';
-import AngleLeftIcon from 'primevue/icon/angleleft';
-import AngleRightIcon from 'primevue/icon/angleright';
-import AngleUpIcon from 'primevue/icon/angleup';
+import AngleDoubleDownIcon from 'primevue/icons/angledoubledown';
+import AngleDoubleLeftIcon from 'primevue/icons/angledoubleleft';
+import AngleDoubleRightIcon from 'primevue/icons/angledoubleright';
+import AngleDoubleUpIcon from 'primevue/icons/angledoubleup';
+import AngleDownIcon from 'primevue/icons/angledown';
+import AngleLeftIcon from 'primevue/icons/angleleft';
+import AngleRightIcon from 'primevue/icons/angleright';
+import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'PickList',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'move-to-target', 'move-to-source', 'move-all-to-target', 'move-all-to-source', 'focus', 'blur'],
     props: {
         modelValue: {
@@ -255,6 +283,8 @@ export default {
     itemTouched: false,
     reorderDirection: null,
     styleElement: null,
+    media: null,
+    mediaChangeListener: null,
     data() {
         return {
             id: this.$attrs.id,
@@ -263,7 +293,8 @@ export default {
                 sourceList: false,
                 targetList: false
             },
-            focusedOptionIndex: -1
+            focusedOptionIndex: -1,
+            viewChanged: false
         };
     },
     watch: {
@@ -272,6 +303,10 @@ export default {
         },
         selection(newValue) {
             this.d_selection = newValue;
+        },
+        breakpoint(newValue) {
+            this.destroyMedia();
+            this.initMedia();
         }
     },
     updated() {
@@ -283,17 +318,27 @@ export default {
     },
     beforeUnmount() {
         this.destroyStyle();
+        this.destroyMedia();
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
 
         if (this.responsive) {
             this.createStyle();
+            this.initMedia();
         }
     },
     methods: {
         getItemKey(item, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
+        },
+        getPTOptions(item, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isSelected(item),
+                    focused: this.id === this.focusedOptionId
+                }
+            });
         },
         isSelected(item, listIndex) {
             return ObjectUtils.findIndexInList(item, this.d_selection[listIndex]) != -1;
@@ -788,6 +833,29 @@ export default {
                 }
             }
         },
+        initMedia() {
+            this.media = window.matchMedia(`(max-width: ${this.breakpoint})`);
+            this.viewChanged = this.media.matches;
+            this.bindMediaChangeListener();
+        },
+        destroyMedia() {
+            this.unbindMediaChangeListener();
+        },
+        bindMediaChangeListener() {
+            if (this.media && !this.mediaChangeListener) {
+                this.mediaChangeListener = (event) => {
+                    this.viewChanged = event.matches;
+                };
+
+                this.media.addEventListener('change', this.mediaChangeListener);
+            }
+        },
+        unbindMediaChangeListener() {
+            if (this.media && this.mediaChangeListener) {
+                this.media.removeEventListener('change', this.mediaChangeListener);
+                this.mediaChangeListener = null;
+            }
+        },
         createStyle() {
             if (!this.styleElement) {
                 this.$el.setAttribute(this.attributeSelector, '');
@@ -813,22 +881,6 @@ export default {
 
     .p-picklist[${this.attributeSelector}] .p-picklist-buttons .p-button:last-child {
         margin-right: 0;
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-right:before {
-        content: "\\e930"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-double-right:before {
-        content: "\\e92c"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-left:before {
-        content: "\\e933"
-    }
-
-    .p-picklist[${this.attributeSelector}] .pi-angle-double-left:before {
-        content: "\\e92f"
     }
 }
 `;

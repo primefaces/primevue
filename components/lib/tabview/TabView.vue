@@ -13,7 +13,7 @@
                 v-bind="{ ...previousButtonProps, ...ptm('prevbutton') }"
             >
                 <slot name="previcon">
-                    <span class="pi pi-chevron-left" aria-hidden="true" v-bind="ptm('previcon')"></span>
+                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previcon')" />
                 </slot>
             </button>
             <div ref="content" class="p-tabview-nav-content" @scroll="onScroll" v-bind="ptm('navcontent')">
@@ -59,7 +59,7 @@
                 v-bind="{ ...nextButtonProps, ...ptm('nextbutton') }"
             >
                 <slot name="nexticon">
-                    <span class="pi pi-chevron-right" aria-hidden="true" v-bind="ptm('nexticon')"></span>
+                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" aria-hidden="true" :class="nextIcon" v-bind="ptm('nexticon')" />
                 </slot>
             </button>
         </div>
@@ -83,6 +83,8 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import ChevronLeftIcon from 'primevue/icons/chevronleft';
+import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
@@ -118,6 +120,14 @@ export default {
         nextButtonProps: {
             type: null,
             default: null
+        },
+        prevIcon: {
+            type: String,
+            default: undefined
+        },
+        nextIcon: {
+            type: String,
+            default: undefined
         }
     },
     data() {
@@ -182,7 +192,7 @@ export default {
         },
         onPrevButtonClick() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
+            const width = DomHandler.getWidth(content);
             const pos = content.scrollLeft - width;
 
             content.scrollLeft = pos <= 0 ? 0 : pos;
@@ -391,6 +401,10 @@ export default {
     },
     directives: {
         ripple: Ripple
+    },
+    components: {
+        ChevronLeftIcon,
+        ChevronRightIcon
     }
 };
 </script>

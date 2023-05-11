@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onContainerClick">
-        <div class="p-hidden-accessible">
+    <div ref="container" :class="containerClass" @click="onContainerClick" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="focusInput"
                 :id="inputId"
@@ -19,22 +19,23 @@
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('input') }"
             />
         </div>
-        <div class="p-multiselect-label-container">
-            <div :class="labelClass">
+        <div class="p-multiselect-label-container" v-bind="ptm('labelContainer')">
+            <div :class="labelClass" v-bind="ptm('label')">
                 <slot name="value" :value="modelValue" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" class="p-multiselect-token">
+                        <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" class="p-multiselect-token" v-bind="ptm('token')">
                             <slot name="chip" :value="item">
-                                <span class="p-multiselect-token-label">{{ getLabelByValue(item) }}</span>
+                                <span class="p-multiselect-token-label" v-bind="ptm('tokenLabel')">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <slot v-if="!disabled" name="removetokenicon">
-                                <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)" />
+                            <slot v-if="!disabled" name="removetokenicon" class="p-multiselect-token-icon" :onClick="(event) => removeOption(event, item)">
+                                <span v-if="removeTokenIcon" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
+                                <TimesCircleIcon v-else class="p-multiselect-token-icon" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
                             </slot>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
@@ -42,29 +43,32 @@
                 </slot>
             </div>
         </div>
-        <div class="p-multiselect-trigger">
-            <slot name="indicator">
-                <component v-if="loading" :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-multiselect-trigger-icon', loadingIcon]" aria-hidden="true" />
-                <component v-else :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" />
+        <div class="p-multiselect-trigger" v-bind="ptm('trigger')">
+            <slot v-if="loading" name="loadingicon" class="p-multiselect-trigger-icon">
+                <span v-if="loadingIcon" :class="['p-multiselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('triggerIcon')" />
+                <SpinnerIcon v-else class="p-multiselect-trigger-icon" spin aria-hidden="true" v-bind="ptm('triggerIcon')" />
+            </slot>
+            <slot v-else name="dropdownicon" class="p-multiselect-trigger-icon">
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="panelProps">
-                    <span ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus"></span>
+                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
+                    <span ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus" v-bind="ptm('hiddenFirstFocusableEl')"></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                    <div v-if="(showToggleAll && selectionLimit == null) || filter" class="p-multiselect-header">
-                        <div v-if="showToggleAll && selectionLimit == null" :class="headerCheckboxClass" @click="onToggleAll">
-                            <div class="p-hidden-accessible">
-                                <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" />
+                    <div v-if="(showToggleAll && selectionLimit == null) || filter" class="p-multiselect-header" v-bind="ptm('header')">
+                        <div v-if="showToggleAll && selectionLimit == null" :class="headerCheckboxClass" @click="onToggleAll" v-bind="ptm('headerCheckboxContainer')">
+                            <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+                                <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" v-bind="ptm('headerCheckbox')" />
                             </div>
-                            <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]">
-                                <slot name="headercheckboxicon" :allSelected="allSelected">
-                                    <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]" />
+                            <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
+                                <slot name="headercheckboxicon" :allSelected="allSelected" class="p-checkbox-icon">
+                                    <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
                                 </slot>
                             </div>
                         </div>
-                        <div v-if="filter" class="p-multiselect-filter-container">
+                        <div v-if="filter" class="p-multiselect-filter-container" v-bind="ptm('filterContainer')">
                             <input
                                 ref="filterInput"
                                 type="text"
@@ -79,27 +83,34 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                v-bind="filterInputProps"
+                                v-bind="{ ...filterInputProps, ...ptm('filterInput') }"
                             />
-                            <slot name="filtericon">
-                                <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="['p-multiselect-filter-icon', filterIcon]" />
+                            <slot name="filtericon" class="p-multiselect-filter-icon">
+                                <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="['p-multiselect-filter-icon', filterIcon]" v-bind="ptm('filterIcon')" />
                             </slot>
                         </div>
-                        <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible">
+                        <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')">
                             {{ filterResultMessageText }}
                         </span>
-                        <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="closeButtonProps">
-                            <slot name="closeicon">
-                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-multiselect-close-icon', closeIcon]" />
+                        <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
+                            <slot name="closeicon" class="p-multiselect-close-icon">
+                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-multiselect-close-icon', closeIcon]" v-bind="ptm('closeIcon')" />
                             </slot>
                         </button>
                     </div>
-                    <div class="p-multiselect-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }">
-                        <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled">
+                    <div class="p-multiselect-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
+                        <VirtualScroller :ref="virtualScrollerRef" v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-multiselect-items p-component', styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-multiselect-items p-component', styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                        <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" class="p-multiselect-item-group" role="option">
+                                        <li
+                                            v-if="isOptionGroup(option)"
+                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :style="{ height: itemSize ? itemSize + 'px' : undefined }"
+                                            class="p-multiselect-item-group"
+                                            role="option"
+                                            v-bind="ptm('itemGroup')"
+                                        >
                                             <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                         </li>
                                         <li
@@ -116,23 +127,28 @@
                                             :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                             @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions), true)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
+                                            v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'item')"
                                         >
-                                            <div class="p-checkbox p-component">
-                                                <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]">
-                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)">
-                                                        <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]" />
+                                            <div class="p-checkbox p-component" v-bind="ptm('checkboxContainer')">
+                                                <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]" v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkbox')">
+                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)" class="p-checkbox-icon">
+                                                        <component
+                                                            :is="checkboxIcon ? 'span' : 'CheckIcon'"
+                                                            :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]"
+                                                            v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkboxIcon')"
+                                                        />
                                                     </slot>
                                                 </div>
                                             </div>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
-                                                <span>{{ getOptionLabel(option) }}</span>
+                                                <span v-bind="ptm('option')">{{ getOptionLabel(option) }}</span>
                                             </slot>
                                         </li>
                                     </template>
-                                    <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-multiselect-empty-message" role="option">
+                                    <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-multiselect-empty-message" role="option" v-bind="ptm('emptyMessage')">
                                         <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                                     </li>
-                                    <li v-else-if="!options || (options && options.length === 0)" class="p-multiselect-empty-message" role="option">
+                                    <li v-else-if="!options || (options && options.length === 0)" class="p-multiselect-empty-message" role="option" v-bind="ptm('emptyMessage')">
                                         <slot name="empty">{{ emptyMessageText }}</slot>
                                     </li>
                                 </ul>
@@ -143,13 +159,13 @@
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-                    <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible">
+                    <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('emptyMessage')">
                         {{ emptyMessageText }}
                     </span>
-                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')">
                         {{ selectedMessageText }}
                     </span>
-                    <span ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus"></span>
+                    <span ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus" v-bind="ptm('hiddenLastFocusableEl')"></span>
                 </div>
             </transition>
         </Portal>
@@ -158,12 +174,13 @@
 
 <script>
 import { FilterService } from 'primevue/api';
-import CheckIcon from 'primevue/icon/check';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import SearchIcon from 'primevue/icon/search';
-import SpinnerIcon from 'primevue/icon/spinner';
-import TimesIcon from 'primevue/icon/times';
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import BaseComponent from 'primevue/basecomponent';
+import CheckIcon from 'primevue/icons/check';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import SearchIcon from 'primevue/icons/search';
+import SpinnerIcon from 'primevue/icons/spinner';
+import TimesIcon from 'primevue/icons/times';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -172,6 +189,7 @@ import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'MultiSelect',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
     props: {
         modelValue: null,
@@ -392,6 +410,23 @@ export default {
         },
         getOptionRenderKey(option) {
             return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+        },
+        getHeaderCheckboxPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    selected: this.allSelected,
+                    focused: this.headerCheckboxFocused
+                }
+            });
+        },
+        getCheckboxPTOptions(option, itemOptions, index, key) {
+            return this.ptm(key, {
+                context: {
+                    selected: this.isSelected(option),
+                    focused: this.focusedOptionIndex === this.getOptionIndex(index, itemOptions),
+                    disabled: this.isOptionDisabled(option)
+                }
+            });
         },
         isOptionDisabled(option) {
             if (this.maxSelectionLimitReached && !this.isSelected(option)) {

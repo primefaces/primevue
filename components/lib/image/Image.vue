@@ -1,47 +1,51 @@
 <template>
-    <span :class="containerClass" :style="style">
-        <img v-bind="$attrs" :style="imageStyle" :class="imageClass" @error="onError" />
-        <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="previewButtonProps">
-            <slot name="indicator">
-                <component :is="indicatorIcon ? 'i' : 'EyeIcon'" class="p-image-preview-icon" />
+    <span :class="containerClass" :style="style" v-bind="ptm('root')">
+        <slot name="image" :class="imageClass" :style="imageStyle" :onError="onError">
+            <img :style="imageStyle" :class="imageClass" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
+        </slot>
+        <button v-if="preview" ref="previewButton" class="p-image-preview-indicator" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('button') }">
+            <slot name="indicatoricon">
+                <component :is="indicatorIcon ? 'i' : 'EyeIcon'" class="p-image-preview-icon" v-bind="ptm('icon')" />
             </slot>
         </button>
         <Portal>
-            <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="maskClass" :aria-modal="maskVisible" @click="onMaskClick" @keydown="onMaskKeydown">
-                <div class="p-image-toolbar">
-                    <button class="p-image-action p-link" @click="rotateRight" type="button" :aria-label="rightAriaLabel">
+            <div v-if="maskVisible" :ref="maskRef" v-focustrap role="dialog" :class="maskClass" :aria-modal="maskVisible" @click="onMaskClick" @keydown="onMaskKeydown" v-bind="ptm('mask')">
+                <div class="p-image-toolbar" v-bind="ptm('toolbar')">
+                    <button class="p-image-action p-link" @click="rotateRight" type="button" :aria-label="rightAriaLabel" v-bind="ptm('rotateRightButton')">
                         <slot name="refresh">
-                            <RefreshIcon />
+                            <RefreshIcon v-bind="ptm('rotateRightIcon')" />
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" @click="rotateLeft" type="button" :aria-label="leftAriaLabel">
+                    <button class="p-image-action p-link" @click="rotateLeft" type="button" :aria-label="leftAriaLabel" v-bind="ptm('rotateLeftButton')">
                         <slot name="undo">
-                            <UndoIcon />
+                            <UndoIcon v-bind="ptm('rotateLeftIcon')" />
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="isZoomOutDisabled" :aria-label="zoomOutAriaLabel">
+                    <button class="p-image-action p-link" @click="zoomOut" type="button" :disabled="isZoomOutDisabled" :aria-label="zoomOutAriaLabel" v-bind="ptm('zoomOutButton')">
                         <slot name="zoomout">
-                            <SearchMinusIcon />
+                            <SearchMinusIcon v-bind="ptm('zoomOutIcon')" />
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="isZoomInDisabled" :aria-label="zoomInAriaLabel">
+                    <button class="p-image-action p-link" @click="zoomIn" type="button" :disabled="isZoomInDisabled" :aria-label="zoomInAriaLabel" v-bind="ptm('zoomInButton')">
                         <slot name="zoomin">
-                            <SearchPlusIcon />
+                            <SearchPlusIcon v-bind="ptm('zoomInIcon')" />
                         </slot>
                     </button>
 
-                    <button class="p-image-action p-link" type="button" @click="hidePreview" :aria-label="closeAriaLabel" autofocus>
+                    <button class="p-image-action p-link" type="button" @click="hidePreview" :aria-label="closeAriaLabel" autofocus v-bind="ptm('closeButton')">
                         <slot name="close">
-                            <TimesIcon />
+                            <TimesIcon v-bind="ptm('closeIcon')" />
                         </slot>
                     </button>
                 </div>
                 <transition name="p-image-preview" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave">
-                    <div v-if="previewVisible">
-                        <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick" />
+                    <div v-if="previewVisible" v-bind="ptm('previewContainer')">
+                        <slot name="preview" class="p-image-preview" :style="imagePreviewStyle" :onClick="onPreviewImageClick">
+                            <img :src="$attrs.src" class="p-image-preview" :style="imagePreviewStyle" @click="onPreviewImageClick" v-bind="ptm('preview')" />
+                        </slot>
                     </div>
                 </transition>
             </div>
@@ -50,18 +54,20 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import FocusTrap from 'primevue/focustrap';
-import EyeIcon from 'primevue/icon/eye';
-import RefreshIcon from 'primevue/icon/refresh';
-import SearchMinusIcon from 'primevue/icon/searchminus';
-import SearchPlusIcon from 'primevue/icon/searchplus';
-import TimesIcon from 'primevue/icon/times';
-import UndoIcon from 'primevue/icon/undo';
+import EyeIcon from 'primevue/icons/eye';
+import RefreshIcon from 'primevue/icons/refresh';
+import SearchMinusIcon from 'primevue/icons/searchminus';
+import SearchPlusIcon from 'primevue/icons/searchplus';
+import TimesIcon from 'primevue/icons/times';
+import UndoIcon from 'primevue/icons/undo';
 import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'Image',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['show', 'hide', 'error'],
     props: {
@@ -292,10 +298,6 @@ export default {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s;
-}
-
-.p-image-preview-icon {
-    font-size: 1.5rem;
 }
 
 .p-image-preview-container:hover > .p-image-preview-indicator {

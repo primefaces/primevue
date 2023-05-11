@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Gallery Component" header="Galleria" description="Galleria is a content gallery component." :componentDocs="docs" :apiDocs="['Galleria']" />
+    <DocComponent title="Vue Gallery Component" header="Galleria" description="Galleria is a content gallery component." :componentDocs="docs" :apiDocs="['Galleria']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -9,10 +9,13 @@ import AutoPlayDoc from '@/doc/galleria/AutoPlayDoc';
 import BasicDoc from '@/doc/galleria/BasicDoc';
 import CaptionDoc from '@/doc/galleria/CaptionDoc';
 import ControlledDoc from '@/doc/galleria/ControlledDoc';
-import CustomContentDoc from '@/doc/galleria/fullscreen/CustomContentDoc';
-import WithoutThumbnailsDoc from '@/doc/galleria/fullscreen/WithoutThumbnailsDoc';
-import WithThumbnailsDoc from '@/doc/galleria/fullscreen/WithThumbnailsDoc';
 import ImportDoc from '@/doc/galleria/ImportDoc';
+import ResponsiveDoc from '@/doc/galleria/ResponsiveDoc';
+import StyleDoc from '@/doc/galleria/StyleDoc';
+import ThumbnailDoc from '@/doc/galleria/ThumbnailDoc';
+import CustomContentDoc from '@/doc/galleria/fullscreen/CustomContentDoc';
+import WithThumbnailsDoc from '@/doc/galleria/fullscreen/WithThumbnailsDoc';
+import WithoutThumbnailsDoc from '@/doc/galleria/fullscreen/WithoutThumbnailsDoc';
 import ClickEventDoc from '@/doc/galleria/indicator/ClickEventDoc';
 import HoverEventDoc from '@/doc/galleria/indicator/HoverEventDoc';
 import PositionDoc from '@/doc/galleria/indicator/PositionDoc';
@@ -21,9 +24,7 @@ import HoverDoc from '@/doc/galleria/navigator/HoverDoc';
 import IndicatorsDoc from '@/doc/galleria/navigator/IndicatorsDoc';
 import ItemThumbnailsDoc from '@/doc/galleria/navigator/ItemThumbnailsDoc';
 import ItemWithoutThumbnailsDoc from '@/doc/galleria/navigator/ItemWithoutThumbnailsDoc';
-import ResponsiveDoc from '@/doc/galleria/ResponsiveDoc';
-import StyleDoc from '@/doc/galleria/StyleDoc';
-import ThumbnailDoc from '@/doc/galleria/ThumbnailDoc';
+import PTComponent from '@/doc/galleria/pt/index.vue';
 
 export default {
     data() {
@@ -155,7 +156,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

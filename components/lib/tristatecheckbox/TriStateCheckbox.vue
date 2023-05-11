@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
+    <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="input"
                 :id="inputId"
@@ -13,28 +13,32 @@
                 @keydown="onKeyDown($event)"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
-        <span class="p-sr-only" aria-live="polite">{{ ariaValueLabel }}</span>
-        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]">
+        <span class="p-sr-only" aria-live="polite" v-bind="ptm('srOnlyAria')">{{ ariaValueLabel }}</span>
+        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="getPTOptions('checbox')">
             <slot v-if="modelValue === true" name="checkicon">
-                <component :is="'CheckIcon'" class="p-checkbox-icon" />
+                <component :is="'CheckIcon'" class="p-checkbox-icon" v-bind="ptm('checkIcon')" />
             </slot>
             <slot v-else-if="modelValue === false" name="uncheckicon">
-                <component :is="'TimesIcon'" class="p-checkbox-icon" />
+                <component :is="'TimesIcon'" class="p-checkbox-icon" v-bind="ptm('uncheckIcon')" />
             </slot>
-            <slot v-else name="nullableicon" />
+            <slot v-else name="nullableicon">
+                <span class="p-checkbox-icon" v-bind="ptm('nullableIcon')"></span>
+            </slot>
         </div>
     </div>
 </template>
 
 <script>
-import CheckIcon from 'primevue/icon/check';
-import TimesIcon from 'primevue/icon/times';
+import BaseComponent from 'primevue/basecomponent';
+import CheckIcon from 'primevue/icons/check';
+import TimesIcon from 'primevue/icons/times';
 
 export default {
     name: 'TriStateCheckbox',
+    extends: BaseComponent,
     emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
     props: {
         modelValue: null,
@@ -69,6 +73,15 @@ export default {
         };
     },
     methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.modelValue !== null,
+                    focused: this.focused,
+                    disabled: this.disabled
+                }
+            });
+        },
         updateModel() {
             if (!this.disabled) {
                 let newValue;
@@ -113,25 +126,6 @@ export default {
         }
     },
     computed: {
-        icon() {
-            let icon;
-
-            switch (this.modelValue) {
-                case true:
-                    icon = 'pi pi-check';
-                    break;
-
-                case false:
-                    icon = 'pi pi-times';
-                    break;
-
-                case null:
-                    icon = null;
-                    break;
-            }
-
-            return icon;
-        },
         containerClass() {
             return [
                 'p-checkbox p-component',

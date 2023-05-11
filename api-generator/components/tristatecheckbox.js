@@ -40,6 +40,12 @@ const TriStateCheckboxProps = [
         type: 'string',
         default: 'null',
         description: 'Used to define a string that labels the element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

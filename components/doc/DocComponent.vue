@@ -49,7 +49,7 @@ export default {
         };
     },
     mounted() {
-        this.tab = this.$route.hash.includes('api') ? 1 : 0;
+        this.tab = this.$route.hash.includes('api') ? 1 : this.$route.hash.includes('pt') ? 2 : 0;
     }
 };
 </script>

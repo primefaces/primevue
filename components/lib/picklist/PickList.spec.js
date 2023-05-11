@@ -1,20 +1,6 @@
-import { mount, config } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import PickList from './PickList.vue';
 
-config.global.mocks = {
-    $primevue: {
-        config: {
-            locale: {
-                aria: {
-                    moveUp: 'Move Up',
-                    moveDown: 'Move Down',
-                    moveTop: 'Move Top',
-                    moveBottom: 'Move Bottom'
-                }
-            }
-        }
-    }
-};
 describe('PickList.vue', () => {
     let wrapper;
 

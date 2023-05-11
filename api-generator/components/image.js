@@ -22,6 +22,12 @@ const ImageProps = [
         type: 'boolean',
         default: 'false',
         description: 'Disable the zoom-out button'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -64,6 +70,14 @@ const ImageSlots = [
     {
         name: 'close',
         description: 'Custom content for the component close.'
+    },
+    {
+        name: 'image',
+        description: 'Custom content for the component image.'
+    },
+    {
+        name: 'preview',
+        description: 'Custom content for the component preview.'
     }
 ];
 

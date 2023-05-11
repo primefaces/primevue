@@ -5,6 +5,7 @@
         description="Steps also known as Stepper, is an indicator for the steps in a workflow. Layout of steps component is optimized for responsive design."
         :componentDocs="docs"
         :apiDocs="['Steps', 'MenuItem']"
+        :ptTabComponent="ptComponent"
     />
 </template>
 
@@ -14,6 +15,7 @@ import BasicDoc from '@/doc/steps/BasicDoc';
 import ImportDoc from '@/doc/steps/ImportDoc';
 import InteractiveDoc from '@/doc/steps/InteractiveDoc';
 import StyleDoc from '@/doc/steps/StyleDoc';
+import PTComponent from '@/doc/steps/pt/index.vue';
 
 export default {
     data() {
@@ -44,7 +46,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

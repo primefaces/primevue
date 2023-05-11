@@ -40,11 +40,11 @@ export interface ScrollPanelPassThroughOptions {
     /**
      * Uses to pass attributes to the horizontal panel's DOM element.
      */
-    barx?: ScrollPanelPassThroughOptionType;
+    barX?: ScrollPanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the vertical panel's DOM element.
      */
-    bary?: ScrollPanelPassThroughOptionType;
+    barY?: ScrollPanelPassThroughOptionType;
 }
 
 /**

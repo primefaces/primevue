@@ -9,6 +9,49 @@
  */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | ((options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SliderPassThroughMethodOptions {
+    props: SliderProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SliderProps.pt}
+ */
+export interface SliderPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SliderPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the range's DOM element.
+     */
+    range?: SliderPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the handle's DOM element.
+     */
+    handle?: SliderPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the start handler's DOM element.
+     */
+    startHandler?: SliderPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the end handler's DOM element.
+     */
+    endHandler?: SliderPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SliderPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Custom slide end event.
  * @see {@link SliderEmits.slideend}
@@ -74,6 +117,11 @@ export interface SliderProps {
      * Used to define a string that labels the element.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SliderPassThroughOptions}
+     */
+    pt?: SliderPassThroughOptions;
 }
 
 /**

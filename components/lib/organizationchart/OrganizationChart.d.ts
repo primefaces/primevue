@@ -10,6 +10,17 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type OrganizationChartPassThroughOptionType = OrganizationChartPassThroughAttributes | ((options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface OrganizationChartPassThroughMethodOptions {
+    props: OrganizationChartProps;
+    state: OrganizationChartState;
+    context: OrganizationChartContext;
+}
+
 /**
  * Defines valid properties in OrganizationChartNode.
  */
@@ -65,6 +76,119 @@ export interface OrganizationChartCollapsedKeys {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link OrganizationChartProps.pt}
+ */
+export interface OrganizationChartPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the table's DOM element.
+     */
+    table?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the body's DOM element.
+     */
+    body?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the row' DOM element.
+     */
+    row?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the cell's DOM element.
+     */
+    cell?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the node's DOM element.
+     */
+    node?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nodeToggler's DOM element.
+     */
+    nodeToggler?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nodeTogglerIcon's DOM element.
+     */
+    nodeTogglerIcon?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the lines's DOM element.
+     */
+    lines?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the lineCell's DOM element.
+     */
+    lineCell?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the lineDown's DOM element.
+     */
+    lineDown?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nodes's DOM element.
+     */
+    nodes?: OrganizationChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nodeCell's DOM element.
+     */
+    nodeCell?: OrganizationChartPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface OrganizationChartPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in OrganizationChart component.
+ */
+export interface OrganizationChartState {
+    /**
+     * Current collapsed keys' state.
+     * @defaultValue false
+     */
+    d_collapsedKeys: OrganizationChartCollapsedKeys;
+}
+
+/**
+ * Defines current options in OrganizationChart component.
+ */
+export interface OrganizationChartContext {
+    /**
+     * Current focus expanded of the node as a boolean.
+     * @defaultValue false
+     */
+    expanded: boolean;
+    /**
+     * Current selectable state of the node as a boolean.
+     * @defaultValue false
+     */
+    selectable: boolean;
+    /**
+     * Current selection state of the node as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current toggleable state of the node as a boolean.
+     * @defaultValue false
+     */
+    toggleable: boolean;
+    /**
+     * Current active state of the node as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current being top line state of the node as a boolean.
+     * @defaultValue false
+     */
+    lineTop: boolean;
+}
+
+/**
  * Defines valid properties in OrganizationChart component.
  */
 export interface OrganizationChartProps {
@@ -89,6 +213,11 @@ export interface OrganizationChartProps {
      * @defaultValue false
      */
     collapsible?: boolean;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {OrganizationChartPassThroughOptions}
+     */
+    pt?: OrganizationChartPassThroughOptions;
 }
 
 /**

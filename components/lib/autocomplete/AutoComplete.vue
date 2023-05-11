@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onContainerClick">
+    <div ref="container" :class="containerClass" @click="onContainerClick" v-bind="ptm('root')">
         <input
             v-if="!multiple"
             ref="focusInput"
@@ -25,7 +25,7 @@
             @keydown="onKeyDown"
             @input="onInput"
             @change="onChange"
-            v-bind="inputProps"
+            v-bind="{ ...inputProps, ...ptm('input') }"
         />
         <ul
             v-if="multiple"
@@ -38,6 +38,7 @@
             @focus="onMultipleContainerFocus"
             @blur="onMultipleContainerBlur"
             @keydown="onMultipleContainerKeyDown"
+            v-bind="ptm('container')"
         >
             <li
                 v-for="(option, i) of modelValue"
@@ -49,15 +50,16 @@
                 :aria-selected="true"
                 :aria-setsize="modelValue.length"
                 :aria-posinset="i + 1"
+                v-bind="ptm('token')"
             >
                 <slot name="chip" :value="option">
-                    <span class="p-autocomplete-token-label">{{ getOptionLabel(option) }}</span>
+                    <span class="p-autocomplete-token-label" v-bind="ptm('tokenLabel')">{{ getOptionLabel(option) }}</span>
                 </slot>
-                <slot name="removetokenicon">
-                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-autocomplete-token-icon', removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" />
+                <slot name="removetokenicon" class="p-autocomplete-token-icon" :onClick="(event) => removeOption(event, i)">
+                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="['p-autocomplete-token-icon', removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
                 </slot>
             </li>
-            <li class="p-autocomplete-input-token" role="option">
+            <li class="p-autocomplete-input-token" role="option" v-bind="ptm('token')">
                 <input
                     ref="focusInput"
                     :id="inputId"
@@ -81,30 +83,48 @@
                     @keydown="onKeyDown"
                     @input="onInput"
                     @change="onChange"
-                    v-bind="inputProps"
+                    v-bind="{ ...inputProps, ...ptm('input') }"
                 />
             </li>
         </ul>
         <slot v-if="searching" name="loadingicon">
-            <component :is="loadingIcon ? 'i' : 'SpinnerIcon'" :class="['p-autocomplete-loader', loadingIcon]" spin aria-hidden="true" />
+            <i v-if="loadingIcon" :class="['p-autocomplete-loader pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
+            <SpinnerIcon v-else class="p-autocomplete-loader" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
-        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="['p-autocomplete-dropdown', dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick">
-            <slot name="dropdownicon">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" />
-            </slot>
+        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="['p-autocomplete-dropdown', dropdownClass]" :disabled="disabled" aria-hidden="true" @click="onDropdownClick" :pt="ptm('dropdownButton')">
+            <template #icon>
+                <slot name="dropdownicon">
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" />
+                </slot>
+            </template>
         </Button>
-        <span role="status" aria-live="polite" class="p-hidden-accessible">
+        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSearchResult')">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :class="panelStyleClass" :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="panelProps">
+                <div
+                    v-if="overlayVisible"
+                    :ref="overlayRef"
+                    :class="panelStyleClass"
+                    :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
+                    @click="onOverlayClick"
+                    @keydown="onOverlayKeyDown"
+                    v-bind="{ ...panelProps, ...ptm('panel') }"
+                >
                     <slot name="header" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled">
+                    <VirtualScroller :ref="virtualScrollerRef" v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled">
                         <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                            <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-autocomplete-items', styleClass]" :style="contentStyle" role="listbox">
+                            <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-autocomplete-items', styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
                                 <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                    <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" class="p-autocomplete-item-group" role="option">
+                                    <li
+                                        v-if="isOptionGroup(option)"
+                                        :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                        :style="{ height: itemSize ? itemSize + 'px' : undefined }"
+                                        class="p-autocomplete-item-group"
+                                        role="option"
+                                        v-bind="ptm('itemGroup')"
+                                    >
                                         <slot name="optiongroup" :option="option.optionGroup" :item="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                     </li>
                                     <li
@@ -121,13 +141,14 @@
                                         :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                         @click="onOptionSelect($event, option)"
                                         @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
+                                        v-bind="getPTOptions(option, getItemOptions, i, 'item')"
                                     >
                                         <slot v-if="$slots.option" name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         <slot v-else name="item" :item="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         <!--TODO: Deprecated since v3.16.0-->
                                     </li>
                                 </template>
-                                <li v-if="!items || (items && items.length === 0)" class="p-autocomplete-empty-message" role="option">
+                                <li v-if="!items || (items && items.length === 0)" class="p-autocomplete-empty-message" role="option" v-bind="ptm('emptyMessage')">
                                     <slot name="empty">{{ searchResultMessageText }}</slot>
                                 </li>
                             </ul>
@@ -137,7 +158,7 @@
                         </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <span role="status" aria-live="polite" class="p-hidden-accessible">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')">
                         {{ selectedMessageText }}
                     </span>
                 </div>
@@ -147,10 +168,11 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import SpinnerIcon from 'primevue/icon/spinner';
-import TimesCircleIcon from 'primevue/icon/timescircle';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import SpinnerIcon from 'primevue/icons/spinner';
+import TimesCircleIcon from 'primevue/icons/timescircle';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -159,6 +181,7 @@ import VirtualScroller from 'primevue/virtualscroller';
 
 export default {
     name: 'AutoComplete',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
     props: {
         modelValue: null,
@@ -385,6 +408,15 @@ export default {
         },
         getOptionRenderKey(option, index) {
             return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
+        },
+        getPTOptions(option, itemOptions, index, key) {
+            return this.ptm(key, {
+                context: {
+                    selected: this.isSelected(option),
+                    focused: this.focusedOptionIndex === this.getOptionIndex(index, itemOptions),
+                    disabled: this.isOptionDisabled(option)
+                }
+            });
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;

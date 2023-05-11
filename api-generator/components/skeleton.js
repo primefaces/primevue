@@ -34,6 +34,12 @@ const SkeletonProps = [
         type: 'string',
         default: 'wave',
         description: 'Type of the animation, valid options are "wave" and "none".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

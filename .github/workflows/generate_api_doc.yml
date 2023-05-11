@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   build:
+    if: github.repository == 'primefaces/primevue' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     strategy:

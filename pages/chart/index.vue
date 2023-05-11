@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Chart Component" header="Chart" description="Chart components are based on Chart.js, an open source HTML5 based charting library." :componentDocs="docs" :apiDocs="['Chart']" />
+    <DocComponent title="Vue Chart Component" header="Chart" description="Chart components are based on Chart.js, an open source HTML5 based charting library." :componentDocs="docs" :apiDocs="['Chart']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -19,6 +19,7 @@ import RadarDoc from '@/doc/chart/RadarDoc';
 import StackedBarDoc from '@/doc/chart/StackedBarDoc';
 import StyleDoc from '@/doc/chart/StyleDoc';
 import VerticalBarDoc from '@/doc/chart/VerticalBarDoc';
+import PTComponent from '@/doc/chart/pt/index.vue';
 
 export default {
     data() {
@@ -104,7 +105,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

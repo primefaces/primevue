@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Image Component" header="Image" description="Displays a single image with preview and tranformation options." :componentDocs="docs" :apiDocs="['Image']" />
+    <DocComponent title="Vue Image Component" header="Image" description="Displays a single image with preview and tranformation options." :componentDocs="docs" :apiDocs="['Image']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import ImportDoc from '@/doc/image/ImportDoc';
 import PreviewDoc from '@/doc/image/PreviewDoc';
 import StyleDoc from '@/doc/image/StyleDoc';
 import TemplateDoc from '@/doc/image/TemplateDoc';
+import PTComponent from '@/doc/image/pt/index.vue';
 
 export default {
     data() {
@@ -44,7 +45,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

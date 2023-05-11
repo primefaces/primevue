@@ -130,6 +130,12 @@ const DialogProps = [
         type: 'string',
         default: 'body',
         description: 'A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -189,6 +195,14 @@ const DialogSlots = [
     {
         name: 'footer',
         description: "Custom content for the component's footer"
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
+    },
+    {
+        name: 'maximizeicon',
+        description: 'Custom maximizeicon icon template of dialog.'
     }
 ];
 

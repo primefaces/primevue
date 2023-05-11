@@ -1,31 +1,39 @@
 <template>
-    <div :class="containerClass">
-        <div class="p-orderlist-controls">
+    <div :class="containerClass" v-bind="ptm('root')">
+        <div class="p-orderlist-controls" v-bind="ptm('controls')">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps">
-                <slot>
-                    <component :is="$slots.moveupicon || 'AngleUpIcon'" />
-                </slot>
+            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps" :pt="ptm('moveUpButton')">
+                <template #icon>
+                    <slot name="moveupicon">
+                        <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" />
+                    </slot>
+                </template>
             </OLButton>
-            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps">
-                <slot name="movetopicon">
-                    <AngleDoubleUpIcon />
-                </slot>
+            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps" :pt="ptm('moveTopButton')">
+                <template #icon>
+                    <slot name="movetopicon">
+                        <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" />
+                    </slot>
+                </template>
             </OLButton>
-            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps">
-                <slot name="movedownicon">
-                    <AngleDownIcon />
-                </slot>
+            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps" :pt="ptm('moveDownButton')">
+                <template #icon>
+                    <slot name="movedownicon">
+                        <AngleDownIcon v-bind="ptm('moveDownButton')['icon']" />
+                    </slot>
+                </template>
             </OLButton>
-            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps">
-                <slot name="movebottomicon">
-                    <AngleDoubleDownIcon />
-                </slot>
+            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps" :pt="ptm('moveBottomButton')">
+                <template #icon>
+                    <slot name="movebottomicon">
+                        <AngleDoubleDownIcon v-bind="ptm('moveBottomButton')['icon']" />
+                    </slot>
+                </template>
             </OLButton>
             <slot name="controlsend"></slot>
         </div>
-        <div class="p-orderlist-list-container">
-            <div v-if="$slots.header" class="p-orderlist-header">
+        <div class="p-orderlist-list-container" v-bind="ptm('container')">
+            <div v-if="$slots.header" class="p-orderlist-header" v-bind="ptm('header')">
                 <slot name="header"></slot>
             </div>
             <transition-group
@@ -44,10 +52,20 @@
                 @focus="onListFocus"
                 @blur="onListBlur"
                 @keydown="onListKeyDown"
-                v-bind="listProps"
+                v-bind="{ ...listProps, ...ptm('list') }"
             >
                 <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
-                    <li :id="id + '_' + i" v-ripple role="option" :class="itemClass(item, `${id}_${i}`)" @click="onItemClick($event, item, i)" @touchend="onItemTouchEnd" :aria-selected="isSelected(item)" @mousedown="onOptionMouseDown(i)">
+                    <li
+                        :id="id + '_' + i"
+                        v-ripple
+                        role="option"
+                        :class="itemClass(item, `${id}_${i}`)"
+                        @click="onItemClick($event, item, i)"
+                        @touchend="onItemTouchEnd"
+                        :aria-selected="isSelected(item)"
+                        @mousedown="onOptionMouseDown(i)"
+                        v-bind="getPTOptions(item, 'item')"
+                    >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
                 </template>
@@ -57,16 +75,18 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
-import AngleDoubleDownIcon from 'primevue/icon/angledoubledown';
-import AngleDoubleUpIcon from 'primevue/icon/angledoubleup';
-import AngleDownIcon from 'primevue/icon/angledown';
-import AngleUpIcon from 'primevue/icon/angleup';
+import AngleDoubleDownIcon from 'primevue/icons/angledoubledown';
+import AngleDoubleUpIcon from 'primevue/icons/angledoubleup';
+import AngleDownIcon from 'primevue/icons/angledown';
+import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'OrderList',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'reorder', 'update:selection', 'selection-change', 'focus', 'blur'],
     props: {
         modelValue: {
@@ -170,6 +190,14 @@ export default {
     methods: {
         getItemKey(item, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
+        },
+        getPTOptions(item, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isSelected(item),
+                    focused: this.id === this.focusedOptionId
+                }
+            });
         },
         isSelected(item) {
             return ObjectUtils.findIndexInList(item, this.d_selection) != -1;

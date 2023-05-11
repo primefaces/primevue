@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
+    <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="input"
                 :id="inputId"
@@ -15,16 +15,19 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="inputProps"
+                v-bind="ptm('hiddenInput')"
             />
         </div>
-        <span class="p-inputswitch-slider"></span>
+        <span class="p-inputswitch-slider" v-bind="{ ...inputProps, ...ptm('slider') }"></span>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'InputSwitch',
+    extends: BaseComponent,
     emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
     props: {
         modelValue: {

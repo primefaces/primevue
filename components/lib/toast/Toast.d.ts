@@ -10,6 +10,74 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ToastPassThroughMethodOptions {
+    props: ToastProps;
+    state: ToastState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ToastProps.pt}
+ */
+export interface ToastPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the message's DOM element.
+     */
+    message?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the container's DOM element.
+     */
+    container?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the text's DOM element.
+     */
+    text?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the summary's DOM element.
+     */
+    summary?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the detail's DOM element.
+     */
+    detail?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button container's DOM element.
+     */
+    buttonContainer?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    button?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button icon's DOM element.
+     */
+    buttonIcon?: ToastPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ToastPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines message options in Toast component.
  */
@@ -18,7 +86,7 @@ export interface ToastMessageOptions {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | string | undefined;
+    severity?: 'success' | 'info' | 'warn' | 'error' | undefined;
     /**
      * Summary content of the message.
      */
@@ -66,6 +134,16 @@ export interface ToastBreakpointsType {
 }
 
 /**
+ * Defines current inline state in Toast component.
+ */
+export interface ToastState {
+    /**
+     * Current messages.
+     */
+    messages: any[];
+}
+
+/**
  * Defines valid properties in Toast component.
  */
 export interface ToastProps {
@@ -95,33 +173,39 @@ export interface ToastProps {
     breakpoints?: ToastBreakpointsType;
     /**
      * Icon to display in the toast close button.
-     * @defaultValue pi pi-times
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the toast with info severity.
-     * @defaultValue pi pi-info-circle
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     infoIcon?: string | undefined;
     /**
      * Icon to display in the toast with warn severity.
-     * @defaultValue pi pi-exclamation-triangle
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     warnIcon?: string | undefined;
     /**
      * Icon to display in the toast with error severity.
-     * @defaultValue pi pi-times
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     errorIcon?: string | undefined;
     /**
      * Icon to display in the toast with success severity.
-     * @defaultValue pi pi-check
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     successIcon?: string | undefined;
     /**
      * Uses to pass all properties of the HTMLButtonElement to the close button.
+     * @deprecated since v3.26.0. Use 'pt' property.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ToastPassThroughOptions}
+     */
+    pt?: ToastPassThroughOptions;
 }
 
 /**
@@ -138,6 +222,14 @@ export interface ToastSlots {
          */
         message: any;
     }): VNode[];
+    /**
+     * Custom icon template.
+     */
+    icon(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
 }
 
 /**

@@ -5,6 +5,7 @@
         description="Dialogs can be created dynamically with any component as the content using a DialogService."
         :componentDocs="docs"
         :apiDocs="['DynamicDialog', 'Dialog', 'DialogService-UseDialog', 'DynamicDialogOptions']"
+        :ptTabComponent="ptComponent"
     />
 </template>
 
@@ -18,6 +19,7 @@ import ImportDoc from '@/doc/dynamicdialog/ImportDoc';
 import OpenDialogDoc from '@/doc/dynamicdialog/OpenDialogDoc';
 import PassingDataDoc from '@/doc/dynamicdialog/PassingDataDoc';
 import UsageDoc from '@/doc/dynamicdialog/UsageDoc';
+import PTComponent from '@/doc/dynamicdialog/pt/index.vue';
 
 export default {
     data() {
@@ -68,7 +70,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

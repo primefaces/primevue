@@ -1,17 +1,5 @@
-import { config, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Menubar from './Menubar.vue';
-
-config.global.mocks = {
-    $primevue: {
-        config: {
-            locale: {
-                aria: {
-                    navigation: 'Navigation'
-                }
-            }
-        }
-    }
-};
 
 describe('Menubar.vue', () => {
     let wrapper;

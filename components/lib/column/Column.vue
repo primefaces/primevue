@@ -1,6 +1,9 @@
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Column',
+    extends: BaseComponent,
     props: {
         columnKey: {
             type: null,
@@ -140,7 +143,7 @@ export default {
         },
         rowReorderIcon: {
             type: String,
-            default: 'pi pi-bars'
+            default: undefined
         },
         reorderableColumn: {
             type: Boolean,

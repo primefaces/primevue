@@ -184,6 +184,12 @@ const CascadeSelectProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -283,6 +289,14 @@ const CascadeSelectSlots = [
     {
         name: 'indicator',
         description: 'Custom content for the dropdown indicator.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
     },
     {
         name: 'optiongroupicon',

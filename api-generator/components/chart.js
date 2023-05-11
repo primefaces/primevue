@@ -34,6 +34,12 @@ const ChartProps = [
         type: 'number',
         default: '150',
         description: 'Height of the chart in non-responsive mode.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

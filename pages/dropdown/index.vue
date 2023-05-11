@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Select Component" header="Dropdown" description="Dropdown also known as Select, is used to choose an item from a collection of options." :componentDocs="docs" :apiDocs="['Dropdown']" />
+    <DocComponent title="Vue Select Component" header="Dropdown" description="Dropdown also known as Select, is used to choose an item from a collection of options." :componentDocs="docs" :apiDocs="['Dropdown']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -10,7 +10,6 @@ import DisabledDoc from '@/doc/dropdown/DisabledDoc';
 import EditableDoc from '@/doc/dropdown/EditableDoc';
 import FilterDoc from '@/doc/dropdown/FilterDoc';
 import FloatLabelDoc from '@/doc/dropdown/FloatLabelDoc';
-import VeeValidateDoc from '@/doc/dropdown/form/VeeValidateDoc';
 import GroupDoc from '@/doc/dropdown/GroupDoc';
 import ImportDoc from '@/doc/dropdown/ImportDoc';
 import InvalidDoc from '@/doc/dropdown/InvalidDoc';
@@ -19,6 +18,8 @@ import LoadingStateDoc from '@/doc/dropdown/LoadingStateDoc';
 import StyleDoc from '@/doc/dropdown/StyleDoc';
 import TemplateDoc from '@/doc/dropdown/TemplateDoc';
 import VirtualScrollDoc from '@/doc/dropdown/VirtualScrollDoc';
+import VeeValidateDoc from '@/doc/dropdown/form/VeeValidateDoc';
+import PTComponent from '@/doc/dropdown/pt/index.vue';
 
 export default {
     data() {
@@ -111,7 +112,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

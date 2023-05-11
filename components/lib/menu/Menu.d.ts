@@ -11,6 +11,114 @@ import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface MenuPassThroughMethodOptions {
+    props: MenuProps;
+    state: MenuState;
+    context: MenuContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link MenuProps.pt}
+ */
+export interface MenuPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    menu?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the submenu header's DOM element.
+     */
+    submenuHeader?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list item's DOM element.
+     */
+    menuitem?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action's DOM element.
+     */
+    action?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the separator's DOM element.
+     */
+    separator?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the start of the component.
+     */
+    start?: MenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the end of the component.
+     */
+    end?: MenuPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface MenuPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Menu component.
+ */
+export interface MenuState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Focused option index.
+     */
+    focusedOptionIndex: number;
+    /**
+     * Selected option index.
+     */
+    selectedOptionIndex: number;
+}
+
+/**
+ * Defines current options in Menu component.
+ */
+export interface MenuContext {
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
+
 /**
  * Defines valid properties in Menu component.
  */
@@ -56,6 +164,11 @@ export interface MenuProps {
      * Identifier of the underlying input element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {MenuPassThroughOptions}
+     */
+    pt?: MenuPassThroughOptions;
 }
 
 /**
@@ -79,6 +192,20 @@ export interface MenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+    }): VNode[];
+    /**
+     * Custom item icon template.
+     * @param {Object} scope - item icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
     }): VNode[];
 }
 

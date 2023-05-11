@@ -1,16 +1,20 @@
 <template>
-    <div :class="containerClass" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel">
+    <div :class="containerClass" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('root')">
         <slot>
-            <span v-if="label" class="p-avatar-text">{{ label }}</span>
-            <span v-else-if="icon" :class="iconClass"></span>
-            <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" />
+            <span v-if="label" class="p-avatar-text" v-bind="ptm('label')">{{ label }}</span>
+            <component v-else-if="$slots.icon" :is="$slots.icon" class="p-avatar-icon" v-bind="ptm('icon')" />
+            <span v-else-if="icon" :class="['p-avatar-icon', icon]" v-bind="ptm('icon')" />
+            <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" v-bind="ptm('image')" />
         </slot>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Avatar',
+    extends: BaseComponent,
     emits: ['error'],
     props: {
         label: {
@@ -58,9 +62,6 @@ export default {
                     'p-avatar-xl': this.size === 'xlarge'
                 }
             ];
-        },
-        iconClass() {
-            return ['p-avatar-icon', this.icon];
         }
     }
 };

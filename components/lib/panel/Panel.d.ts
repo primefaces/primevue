@@ -53,7 +53,7 @@ export interface PanelPassThroughOptions {
      */
     title?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Uses to pass attributes to the icons' DOM element.
      */
     icons?: PanelPassThroughOptionType;
     /**
@@ -63,11 +63,11 @@ export interface PanelPassThroughOptions {
     /**
      * Uses to pass attributes to the togglericon's DOM element.
      */
-    togglericon?: PanelPassThroughOptionType;
+    togglerIcon?: PanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the toggleablecontent's DOM element.
      */
-    toggleablecontent?: PanelPassThroughOptionType;
+    toggleableContent?: PanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the content's DOM element.
      */
@@ -137,7 +137,16 @@ export interface PanelSlots {
     /**
      * Custom header template.
      */
-    header(): VNode[];
+    header(scope: {
+        /**
+         * Current id state as a string
+         */
+        id: boolean;
+        /**
+         * Style class of the icon
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom icons template.
      */

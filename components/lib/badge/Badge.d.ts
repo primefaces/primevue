@@ -10,6 +10,33 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type BadgePassThroughOptionType = BadgePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface BadgePassThroughMethodOptions {
+    props: BadgeProps;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface BadgePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link BadgeProps.pt}
+ */
+export interface BadgePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: BadgePassThroughOptionType;
+}
+
 /**
  * Defines valid properties in Badge component.
  */
@@ -26,6 +53,11 @@ export interface BadgeProps {
      * Size of the badge, valid options are 'large' and 'xlarge'.
      */
     size?: 'large' | 'xlarge' | null | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {BadgePassThroughOptions}
+     */
+    pt?: BadgePassThroughOptions;
 }
 
 /**

@@ -221,6 +221,12 @@ const TreeTableProps = [
         type: 'string',
         default: 'null',
         description: 'Defines the responsive mode, currently only option is scroll.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -443,23 +449,55 @@ const TreeTableEvents = [
 const TreeTableSlots = [
     {
         name: 'header',
-        description: "Custom content for the component's header"
+        description: "Custom content for the component's header."
     },
     {
         name: 'paginatorstart',
-        description: "Custom content for the component paginator's left side"
+        description: "Custom content for the component paginator's left side."
     },
     {
         name: 'paginatorend',
-        description: "Custom content for the component paginator's right side"
+        description: "Custom content for the component paginator's right side."
     },
     {
         name: 'empty',
-        description: 'Custom content when there is no data to display'
+        description: 'Custom content when there is no data to display.'
     },
     {
         name: 'footer',
-        description: "Custom content for the component's footer"
+        description: "Custom content for the component's footer."
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'togglericon',
+        description: 'Custom toggler icon template.'
+    },
+    {
+        name: 'checkboxicon',
+        description: 'Custom checkbox icon template.'
+    },
+    {
+        name: 'sorticon',
+        description: 'Custom sort icon template.'
+    },
+    {
+        name: 'paginatorfirstpagelinkicon',
+        description: 'Custom paginator first page link icon template.'
+    },
+    {
+        name: 'paginatorprevpagelinkicon',
+        description: 'Custom paginator prev page link icon template.'
+    },
+    {
+        name: 'paginatornextpagelinkicon',
+        description: 'Custom paginator next page link icon template.'
+    },
+    {
+        name: 'paginatorlastpagelinkicon',
+        description: 'Custom paginator last page link icon template.'
     }
 ];
 

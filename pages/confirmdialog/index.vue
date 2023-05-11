@@ -5,6 +5,7 @@
         description="ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API."
         :componentDocs="docs"
         :apiDocs="['ConfirmDialog', 'ConfirmationService-UseConfirm', 'ConfirmationOptions']"
+        :ptTabComponent="ptComponent"
     />
 </template>
 
@@ -16,6 +17,8 @@ import ImportDoc from '@/doc/confirmdialog/ImportDoc.vue';
 import PositionDoc from '@/doc/confirmdialog/PositionDoc.vue';
 import StyleDoc from '@/doc/confirmdialog/StyleDoc.vue';
 import TemplateDoc from '@/doc/confirmdialog/TemplateDoc.vue';
+import PTComponent from '@/doc/confirmdialog/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -55,7 +58,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

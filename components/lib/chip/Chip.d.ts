@@ -10,6 +10,61 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ChipPassThroughOptionType = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ChipPassThroughMethodOptions {
+    props: ChipProps;
+    state: ChipState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ChipProps.pt}
+ */
+export interface ChipPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ChipPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the image's DOM element.
+     */
+    image?: ChipPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ChipPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label' DOM element.
+     */
+    label?: ChipPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the removeIcon's DOM element.
+     */
+    removeIcon?: ChipPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ChipPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Chip component.
+ */
+export interface ChipState {
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue true
+     */
+    visible: boolean;
+}
+
 /**
  * Defines valid properties in Chip component.
  */
@@ -20,6 +75,7 @@ export interface ChipProps {
     label?: string;
     /**
      * Defines the icon to display.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string;
     /**
@@ -33,9 +89,14 @@ export interface ChipProps {
     removable?: boolean;
     /**
      * Icon of the remove element.
-     * @defaultValue pi pi-times-circle
+     * @deprecated since v3.27.0. Use 'removeicon' slot.
      */
     removeIcon?: string;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ChipPassThroughOptions}
+     */
+    pt?: ChipPassThroughOptions;
 }
 
 /**
@@ -46,6 +107,24 @@ export interface ChipSlots {
      * Content can easily be customized with the default slot instead of using the built-in modes.
      */
     default(): VNode[];
+    /**
+     * Custom icon template.
+     */
+    icon(): VNode[];
+    /**
+     * Custom remove icon template of chip component.
+     * @param {Object} scope - remove icon slot's params.
+     */
+    removeicon(scope: {
+        /**
+         * Remove icon click event
+         */
+        onClick(): void;
+        /**
+         * Remove icon keydown event
+         */
+        onKeydown(): void;
+    }): VNode[];
 }
 
 /**

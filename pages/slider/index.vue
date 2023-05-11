@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Slider Component" header="Slider" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['Slider']" />
+    <DocComponent title="Vue Slider Component" header="Slider" description="Slider is a component to provide input with a drag handle." :componentDocs="docs" :apiDocs="['Slider']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ import RangeDoc from '@/doc/slider/RangeDoc';
 import StepDoc from '@/doc/slider/StepDoc';
 import StyleDoc from '@/doc/slider/StyleDoc';
 import VerticalDoc from '@/doc/slider/VerticalDoc';
+import PTComponent from '@/doc/slider/pt/index.vue';
 
 export default {
     data() {
@@ -56,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

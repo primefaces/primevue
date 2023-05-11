@@ -1,32 +1,47 @@
 <template>
-    <div :class="containerClass" :style="style">
+    <div :class="containerClass" :style="style" v-bind="ptm('root')">
         <slot>
-            <PVSButton type="button" class="p-splitbutton-defaultbutton" :icon="icon" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" v-bind="buttonProps" />
+            <PVSButton type="button" class="p-splitbutton-defaultbutton" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps">
+                <template #icon="slotProps">
+                    <slot name="icon">
+                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
+                    </slot>
+                </template>
+            </PVSButton>
         </slot>
         <PVSButton
             ref="button"
             type="button"
             class="p-splitbutton-menubutton"
-            :icon="menuButtonIcon"
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
             :aria-controls="ariaId + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
+            :pt="ptm('menuButton')"
             v-bind="menuButtonProps"
-        />
-        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" />
+        >
+            <template #icon="slotProps">
+                <slot name="menubuttonicon">
+                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButton')['icon']" />
+                </slot>
+            </template>
+        </PVSButton>
+        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :pt="ptm('menu')" />
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
 import TieredMenu from 'primevue/tieredmenu';
 import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'SplitButton',
+    extends: BaseComponent,
     emits: ['click'],
     props: {
         label: {
@@ -75,7 +90,7 @@ export default {
         },
         menuButtonIcon: {
             type: String,
-            default: 'pi pi-chevron-down'
+            default: undefined
         },
         severity: {
             type: String,
@@ -152,7 +167,8 @@ export default {
     },
     components: {
         PVSButton: Button,
-        PVSMenu: TieredMenu
+        PVSMenu: TieredMenu,
+        ChevronDownIcon: ChevronDownIcon
     }
 };
 </script>

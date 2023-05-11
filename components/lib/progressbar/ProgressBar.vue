@@ -1,19 +1,22 @@
 <template>
-    <div role="progressbar" :class="containerClass" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100">
-        <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle">
-            <div v-if="value != null && value !== 0 && showValue" class="p-progressbar-label">
+    <div role="progressbar" :class="containerClass" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100" v-bind="ptm('root')">
+        <div v-if="determinate" class="p-progressbar-value p-progressbar-value-animate" :style="progressStyle" v-bind="ptm('value')">
+            <div v-if="value != null && value !== 0 && showValue" class="p-progressbar-label" v-bind="ptm('label')">
                 <slot>{{ value + '%' }}</slot>
             </div>
         </div>
-        <div v-if="indeterminate" class="p-progressbar-indeterminate-container">
-            <div class="p-progressbar-value p-progressbar-value-animate"></div>
+        <div v-if="indeterminate" class="p-progressbar-indeterminate-container" v-bind="ptm('root')">
+            <div class="p-progressbar-value p-progressbar-value-animate" v-bind="ptm('value')"></div>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'ProgressBar',
+    extends: BaseComponent,
     props: {
         value: {
             type: Number,

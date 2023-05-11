@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Message Component" header="Message" description="Message component is used to display inline messages." :componentDocs="docs" :apiDocs="['Message']" />
+    <DocComponent title="Vue Message Component" header="Message" description="Message component is used to display inline messages." :componentDocs="docs" :apiDocs="['Message']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -13,6 +13,7 @@ import SeverityDoc from '@/doc/message/SeverityDoc.vue';
 import StickyDoc from '@/doc/message/StickyDoc.vue';
 import StyleDoc from '@/doc/message/StyleDoc.vue';
 import TemplateDoc from '@/doc/message/TemplateDoc.vue';
+import PTComponent from '@/doc/message/pt/index.vue';
 
 export default {
     data() {
@@ -68,7 +69,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

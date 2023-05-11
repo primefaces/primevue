@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="containerClass" role="group" :aria-labelledby="ariaLabelledby">
+    <div ref="container" :class="containerClass" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')">
         <div
             v-for="(option, i) of options"
             :key="getOptionRenderKey(option)"
@@ -14,20 +14,23 @@
             @keydown="onKeydown($event, option, i)"
             @focus="onFocus($event)"
             @blur="onBlur($event, option)"
+            v-bind="getPTOptions(option, 'button')"
         >
             <slot name="option" :option="option" :index="i">
-                <span class="p-button-label">{{ getOptionLabel(option) }}</span>
+                <span class="p-button-label" v-bind="getPTOptions(option, 'label')">{{ getOptionLabel(option) }}</span>
             </slot>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'SelectButton',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'focus', 'blur', 'change'],
     props: {
         modelValue: null,
@@ -74,6 +77,14 @@ export default {
         },
         getOptionRenderKey(option) {
             return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+        },
+        getPTOptions(option, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isSelected(option),
+                    disabled: this.isOptionDisabled(option)
+                }
+            });
         },
         isOptionDisabled(option) {
             return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;

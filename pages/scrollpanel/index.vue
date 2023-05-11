@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue ScrollPanel Component" header="ScrollPanel" description="ScrollPanel is a cross browser, lightweight and skinnable alternative to native browser scrollbar." :componentDocs="docs" :apiDocs="['ScrollPanel']" />
+    <DocComponent
+        title="Vue ScrollPanel Component"
+        header="ScrollPanel"
+        description="ScrollPanel is a cross browser, lightweight and skinnable alternative to native browser scrollbar."
+        :componentDocs="docs"
+        :apiDocs="['ScrollPanel']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 <script>
 import AccessibilityDoc from '@/doc/scrollpanel/AccessibilityDoc';
@@ -7,6 +14,7 @@ import BasicDoc from '@/doc/scrollpanel/BasicDoc';
 import CustomDoc from '@/doc/scrollpanel/CustomDoc';
 import ImportDoc from '@/doc/scrollpanel/ImportDoc';
 import StyleDoc from '@/doc/scrollpanel/StyleDoc';
+import PTComponent from '@/doc/scrollpanel/pt/index.vue';
 
 export default {
     data() {
@@ -37,7 +45,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

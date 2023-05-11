@@ -142,6 +142,12 @@ const GalleriaProps = [
         type: 'any',
         default: 'null',
         description: "Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used."
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -175,7 +181,7 @@ const GalleriaSlots = [
         description: 'Custom close icon template.'
     },
     {
-        name: 'previtemicon',
+        name: 'previousitemicon',
         description: 'Custom navigator previous item icon template.'
     },
     {
@@ -183,7 +189,7 @@ const GalleriaSlots = [
         description: 'Custom navigator next item icon template.'
     },
     {
-        name: 'prevthumbnailicon',
+        name: 'previousthumbnailicon',
         description: 'Custom thumbnail previous icon template.'
     },
     {

@@ -1,16 +1,18 @@
 <template>
-    <DocComponent title="Vue RadioButton Component" header="RadioButton" description="RadioButton is an extension to standard radio button element with theming." :componentDocs="docs" :apiDocs="['RadioButton']" />
+    <DocComponent title="Vue RadioButton Component" header="RadioButton" description="RadioButton is an extension to standard radio button element with theming." :componentDocs="docs" :apiDocs="['RadioButton']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/radiobutton/AccessibilityDoc.vue';
 import DisabledDoc from '@/doc/radiobutton/DisabledDoc.vue';
 import DynamicDoc from '@/doc/radiobutton/DynamicDoc.vue';
-import VeeValidateDoc from '@/doc/radiobutton/form/VeeValidateDoc.vue';
 import GroupDoc from '@/doc/radiobutton/GroupDoc.vue';
 import ImportDoc from '@/doc/radiobutton/ImportDoc.vue';
 import InvalidDoc from '@/doc/radiobutton/InvalidDoc.vue';
 import StyleDoc from '@/doc/radiobutton/StyleDoc.vue';
+import VeeValidateDoc from '@/doc/radiobutton/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/radiobutton/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -62,7 +64,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

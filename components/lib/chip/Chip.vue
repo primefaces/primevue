@@ -1,17 +1,24 @@
 <template>
-    <div v-if="visible" :class="containerClass" :aria-label="label">
+    <div v-if="visible" :class="containerClass" :aria-label="label" v-bind="ptm('root')">
         <slot>
-            <img v-if="image" :src="image" />
-            <span v-else-if="icon" :class="iconClass"></span>
-            <div v-if="label" class="p-chip-text">{{ label }}</div>
+            <img v-if="image" :src="image" v-bind="ptm('image')" />
+            <component v-else-if="$slots.icon" :is="$slots.icon" class="p-chip-icon" v-bind="ptm('icon')" />
+            <span v-else-if="icon" :class="['p-chip-icon', icon]" v-bind="ptm('icon')" />
+            <div v-if="label" class="p-chip-text" v-bind="ptm('label')">{{ label }}</div>
         </slot>
-        <span v-if="removable" tabindex="0" :class="removeIconClass" @click="close" @keydown="onKeydown"></span>
+        <slot v-if="removable" name="removeicon" :onClick="close" :onKeydown="onKeydown">
+            <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" tabindex="0" :class="['p-chip-remove-icon', removeIcon]" @click="close" @keydown="onKeydown" v-bind="ptm('removeIcon')"></component>
+        </slot>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+import TimesCircleIcon from 'primevue/icons/timescircle';
+
 export default {
     name: 'Chip',
+    extends: BaseComponent,
     emits: ['remove'],
     props: {
         label: {
@@ -32,7 +39,7 @@ export default {
         },
         removeIcon: {
             type: String,
-            default: 'pi pi-times-circle'
+            default: undefined
         }
     },
     data() {
@@ -59,13 +66,10 @@ export default {
                     'p-chip-image': this.image != null
                 }
             ];
-        },
-        iconClass() {
-            return ['p-chip-icon', this.icon];
-        },
-        removeIconClass() {
-            return ['p-chip-remove-icon', this.removeIcon];
         }
+    },
+    components: {
+        TimesCircleIcon
     }
 };
 </script>

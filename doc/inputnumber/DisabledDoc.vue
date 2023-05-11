@@ -14,7 +14,8 @@ export default {
         return {
             value: 50,
             code: {
-                basic: ``,
+                basic: `
+<InputNumber v-model="value" disabled prefix="%" />`,
                 options: `
 <template>
     <div class="card flex justify-content-center">

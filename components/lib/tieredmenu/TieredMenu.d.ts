@@ -11,6 +11,131 @@ import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TieredMenuPassThroughMethodOptions {
+    props: TieredMenuProps;
+    state: TieredMenuState;
+    context: TieredMenuContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TieredMenuProps.pt}
+ */
+export interface TieredMenuPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    menu?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list item's DOM element.
+     */
+    menuitem?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action's DOM element.
+     */
+    action?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the submenu icon's DOM element.
+     */
+    submenuIcon?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the separator's DOM element.
+     */
+    separator?: TieredMenuPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TieredMenuPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines focused item info
+ */
+export interface TieredMenuFocusedItemInfo {
+    /**
+     * Active item index
+     */
+    index: number;
+    /**
+     * Active item level
+     */
+    level: number;
+    /**
+     * Parent key info
+     */
+    parentKey: string;
+}
+
+/**
+ * Defines current inline state in TieredMenu component.
+ */
+export interface TieredMenuState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item info.
+     * @type {TieredMenuFocusedItemInfo}
+     */
+    focusedItemInfo: TieredMenuFocusedItemInfo;
+    /**
+     * Active item path.
+     * @type {TieredMenuFocusedItemInfo}
+     */
+    activeItemPath: TieredMenuFocusedItemInfo[];
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue true
+     */
+    visible: boolean;
+}
+
+/**
+ * Defines current options in TieredMenu component.
+ */
+export interface TieredMenuContext {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
+
 /**
  * Defines valid properties in TieredMenuMenu component.
  */
@@ -61,6 +186,11 @@ export interface TieredMenuProps {
      * Identifier of the underlying menu element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TieredMenuPassThroughOptions}
+     */
+    pt?: TieredMenuPassThroughOptions;
 }
 
 /**
@@ -85,6 +215,20 @@ export interface TieredMenuSlots {
          * Whether item is active
          */
         active: boolean;
+    }): VNode[];
+    /**
+     * Custom item icon template.
+     * @param {Object} scope - item icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
     }): VNode[];
 }
 

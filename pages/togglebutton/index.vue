@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue ToggleButton Component" header="ToggleButton" description="ToggleButton is used to select a boolean value using a button." :componentDocs="docs" :apiDocs="['ToggleButton']" />
+    <DocComponent title="Vue ToggleButton Component" header="ToggleButton" description="ToggleButton is used to select a boolean value using a button." :componentDocs="docs" :apiDocs="['ToggleButton']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -10,6 +10,7 @@ import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
 import VeeValidateDoc from '@/doc/togglebutton/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
 import StyleDoc from '@/doc/togglebutton/StyleDoc.vue';
+import PTComponent from '@/doc/togglebutton/pt/index.vue';
 
 export default {
     data() {
@@ -57,7 +58,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

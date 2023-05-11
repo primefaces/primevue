@@ -10,6 +10,12 @@ const MenubarProps = [
         type: 'boolean',
         default: 'true',
         description: "Whether to apply 'router-link-active-exact' class if route exactly matches the item path."
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -33,6 +39,10 @@ const MenubarSlots = [
     {
         name: 'submenuicon',
         description: 'Custom submenu icon template.'
+    },
+    {
+        name: 'itemicon',
+        description: 'Custom item icon template.'
     }
 ];
 

@@ -10,6 +10,43 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SelectButtonPassThroughMethodOptions {
+    props: SelectButtonProps;
+    state: SelectButtonState;
+    context: SelectButtonContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SelectButtonProps.pt}
+ */
+export interface SelectButtonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SelectButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    button?: SelectButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: SelectButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SelectButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Custom change event.
  * @see {@link SelectButtonEmits.change}
@@ -23,6 +60,32 @@ export interface SelectButtonChangeEvent {
      * Single value or an array of values that are selected.
      */
     value: any;
+}
+
+/**
+ * Defines current inline state in SelectButton component.
+ */
+export interface SelectButtonState {
+    /**
+     * FocusedIndex state as a number.
+     */
+    focusedIndex: number;
+}
+
+/**
+ * Defines current options in SelectButton component.
+ */
+export interface SelectButtonContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**
@@ -72,6 +135,11 @@ export interface SelectButtonProps {
      * Identifier of the underlying element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SelectButtonPassThroughOptions}
+     */
+    pt?: SelectButtonPassThroughOptions;
 }
 
 /**

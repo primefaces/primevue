@@ -3,7 +3,7 @@
         <p>The <i>icon</i> property can change the icon of the message.</p>
     </DocSectionText>
     <div class="card">
-        <Message severity="info" icon="pi-send">Info Message Content</Message>
+        <Message severity="info" icon="pi pi-send">Info Message Content</Message>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -14,11 +14,11 @@ export default {
         return {
             code: {
                 basic: `
-<Message severity="info" icon="pi-send">Info Message Content</Message>`,
+<Message severity="info" icon="pi pi-send">Info Message Content</Message>`,
                 options: `
 <template>
     <div class="card">
-        <Message severity="info" icon="pi-send">Info Message Content</Message>
+        <Message severity="info" icon="pi pi-send">Info Message Content</Message>
     </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Message severity="info" icon="pi-send">Info Message Content</Message>
+        <Message severity="info" icon="pi pi-send">Info Message Content</Message>
     </div>
 </template>
 

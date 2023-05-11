@@ -1,19 +1,5 @@
-import { config, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Listbox from './Listbox.vue';
-
-config.global.mocks = {
-    $primevue: {
-        config: {
-            locale: {
-                aria: {
-                    trueLabel: 'trueLabel',
-                    falseLabel: 'falseLabel',
-                    nullLabel: 'nullLabel'
-                }
-            }
-        }
-    }
-};
 
 describe('Listbox.vue', () => {
     let wrapper;

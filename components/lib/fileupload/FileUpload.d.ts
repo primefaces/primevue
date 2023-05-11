@@ -8,7 +8,19 @@
  *
  */
 import { VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
+import { MessagePassThroughOptions } from '../message';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface FileUploadPassThroughMethodOptions {
+    props: FileUploadProps;
+    state: FileUploadState;
+}
 
 /**
  * Custom select event.
@@ -139,6 +151,143 @@ export interface FileUploadRemoveUploadedFile {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link FileUploadProps.pt}
+ */
+export interface FileUploadPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the buttonbar's DOM element.
+     */
+    buttonbar?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the choose button's DOM element.
+     */
+    chooseButton?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the choose icon's DOM element.
+     */
+    chooseIcon?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the choose button label's DOM element.
+     */
+    chooseButtonLabel?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the upload button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    uploadButton?: ButtonPassThroughOptions;
+    /**
+     * Uses to pass attributes to the cancel button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    cancelButton?: ButtonPassThroughOptions;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the progressbar's DOM element.
+     */
+    progressbar?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the messages' DOM element.
+     * @see {@link MessagePassThroughOptions}
+     */
+    message?: MessagePassThroughOptions;
+    /**
+     * Uses to pass attributes to the file's DOM element.
+     */
+    file?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thumbnail's DOM element.
+     */
+    thumbnail?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the details's DOM element.
+     */
+    details?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the fileName's DOM element.
+     */
+    fileName?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the fileSize's DOM element.
+     */
+    fileSize?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the badge's DOM element.
+     */
+    badge?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the actions's DOM element.
+     */
+    actions?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the remove button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    removeButton?: ButtonPassThroughOptions;
+    /**
+     * Uses to pass attributes to the empty's DOM element.
+     */
+    empty?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the basic button's DOM element.
+     */
+    basicButton?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the upload icon's DOM element.
+     */
+    uploadIcon?: FileUploadPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface FileUploadPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in FileUpload component.
+ */
+export interface FileUploadState {
+    /**
+     * Current uploaded file count state as a number.
+     * @defaultValue 0
+     */
+    uploadedFileCount: number;
+    /**
+     * Current files.
+     */
+    files: any[];
+    /**
+     * Current messages.
+     */
+    messages: any[];
+    /**
+     * Current progress state as a number.
+     */
+    progress: number;
+    /**
+     * Current uploaded files.
+     */
+    uploadedFiles: any[];
+}
+
+/**
  * Defines valid properties in FileUpload component.
  */
 export interface FileUploadProps {
@@ -236,17 +385,17 @@ export interface FileUploadProps {
     showCancelButton?: boolean | undefined;
     /**
      * Icon of the choose button.
-     * @defaultValue pi pi-fw pi-plus
+     * @deprecated since v3.27.0. Use 'chooseicon' slot.
      */
     chooseIcon?: string | undefined;
     /**
      * Icon of the upload button.
-     * @defaultValue pi pi-fw pi-upload
+     * @deprecated since v3.27.0. Use 'updateicon' slot.
      */
     uploadIcon?: string | undefined;
     /**
      * Icon of the cancel button.
-     * @defaultValue pi pi-fw pi-times
+     * @deprecated since v3.27.0. Use 'cancelicon' slot.
      */
     cancelIcon?: string | undefined;
     /**
@@ -257,6 +406,11 @@ export interface FileUploadProps {
      * Style class of the component.
      */
     class?: any;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {FileUploadPassThroughOptions}
+     */
+    pt?: FileUploadPassThroughOptions;
 }
 
 /**
@@ -321,6 +475,31 @@ export interface FileUploadSlots {
      * Custom content when there is no selected file.
      */
     empty(): VNode[];
+    /**
+     * Custom choose icon template.
+     */
+    chooseicon(): VNode[];
+    /**
+     * Custom upload icon template.
+     */
+    uploadicon(): VNode[];
+    /**
+     * Custom cancel icon template.
+     */
+    cancelicon(): VNode[];
+    /**
+     * Custom remove icon template for each file.
+     */
+    fileremoveicon(scope: {
+        /**
+         * File to upload.
+         */
+        file: File;
+        /**
+         * The index of file
+         */
+        index: number;
+    }): VNode[];
 }
 
 export interface FileUploadEmits {

@@ -10,6 +10,49 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions) => ButtonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ButtonPassThroughMethodOptions {
+    props: ButtonProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ButtonProps.pt}
+ */
+export interface ButtonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the badge's DOM element.
+     */
+    badge?: ButtonPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Button component.
  */
@@ -54,7 +97,6 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     loading?: boolean | undefined;
     /**
      * Icon to display in loading state.
-     * @defaultValue pi pi-spinner pi-spin
      */
     loadingIcon?: string | undefined;
     /**
@@ -95,6 +137,11 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @defaultValue false
      */
     plain?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ButtonPassThroughOptions}
+     */
+    pt?: ButtonPassThroughOptions;
 }
 
 /**
@@ -105,6 +152,26 @@ export interface ButtonSlots {
      * Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.
      */
     default(): VNode[];
+    /**
+     * Custom icon template.
+     * @param {Object} scope - icon slot's params.
+     */
+    icon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom loading icon template.
+     * @param {Object} scope - loading icon slot's params.
+     */
+    loadingicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

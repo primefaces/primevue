@@ -8,8 +8,63 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
+import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SplitButtonPassThroughMethodOptions {
+    props: SplitButtonProps;
+    state: SplitButtonState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SplitButtonProps.pt}
+ */
+export interface SplitButtonPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SplitButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    button?: SplitButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    menuButton?: ButtonPassThroughOptions;
+    /**
+     * Uses to pass attributes to the TieredMenu component.
+     * @see {@link TieredMenuPassThroughOptions}
+     */
+    menu?: TieredMenuPassThroughOptions;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SplitButtonPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in SplitButton component.
+ */
+export interface SplitButtonState {
+    /**
+     * Current blocked state as a boolean.
+     * @defaultValue false
+     */
+    isBlocked: boolean;
+}
 
 /**
  * Defines valid properties in SplitButton component.
@@ -21,6 +76,7 @@ export interface SplitButtonProps {
     label?: string | undefined;
     /**
      * Name of the icon.
+     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**
@@ -66,6 +122,7 @@ export interface SplitButtonProps {
     menuButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Name of the menu button icon.
+     * @deprecated since v3.27.0. Use 'menubuttonicon' slot.
      */
     menuButtonIcon?: string | undefined;
     /**
@@ -101,6 +158,11 @@ export interface SplitButtonProps {
      * @defaultValue false
      */
     plain?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SplitButtonPassThroughOptions}
+     */
+    pt?: SplitButtonPassThroughOptions;
 }
 
 /**
@@ -111,6 +173,14 @@ export interface SplitButtonSlots {
      * Button part of the content can easily be customized with the default slot instead of using the built-in modes.
      */
     default(): VNode[];
+    /**
+     * Custom menu button icon template.
+     */
+    icon(): VNode[];
+    /**
+     * Custom menu button icon template.
+     */
+    menubuttonicon(): VNode[];
 }
 
 /**

@@ -1,7 +1,7 @@
 <template>
-    <div :id="id" class="p-panelmenu p-component">
+    <div :id="id" class="p-panelmenu p-component" v-bind="ptm('root')">
         <template v-for="(item, index) of model" :key="getPanelKey(index)">
-            <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="getPanelClass(item)">
+            <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="getPanelClass(item)" v-bind="ptm('panel')">
                 <div
                     :id="getHeaderId(index)"
                     :class="getHeaderClass(item)"
@@ -13,30 +13,42 @@
                     :aria-disabled="isItemDisabled(item)"
                     @click="onHeaderClick($event, item)"
                     @keydown="onHeaderKeyDown($event, item)"
+                    v-bind="getPTOptions(item, 'header')"
                 >
-                    <div class="p-panelmenu-header-content">
+                    <div class="p-panelmenu-header-content" v-bind="getPTOptions(item, 'headerContent')">
                         <template v-if="!$slots.item">
                             <router-link v-if="getItemProp(item, 'to') && !isItemDisabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(item, 'to')" custom>
-                                <a :href="href" :class="getHeaderActionClass(item, { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)">
-                                    <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
-                                    <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
+                                <a :href="href" :class="getHeaderActionClass(item, { isActive, isExactActive })" :tabindex="-1" @click="onHeaderActionClick($event, navigate)" v-bind="getPTOptions(item, 'headerAction')">
+                                    <component v-if="$slots.headericon" :is="$slots.headericon" :item="item" :class="getHeaderIconClass(item)" />
+                                    <span v-else-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)" v-bind="getPTOptions(item, 'headerIcon')" />
+                                    <span class="p-menuitem-text" v-bind="getPTOptions(item, 'headerLabel')">{{ getItemLabel(item) }}</span>
                                 </a>
                             </router-link>
-                            <a v-else :href="getItemProp(item, 'url')" :class="getHeaderActionClass(item)" :tabindex="-1">
+                            <a v-else :href="getItemProp(item, 'url')" :class="getHeaderActionClass(item)" :tabindex="-1" v-bind="getPTOptions(item, 'headerAction')">
                                 <slot v-if="getItemProp(item, 'items')" name="submenuicon" :active="isItemActive(item)">
-                                    <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" />
+                                    <component :is="isItemActive(item) ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-submenu-icon" v-bind="getPTOptions(item, 'submenuIcon')" />
                                 </slot>
-                                <span v-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)"></span>
-                                <span class="p-menuitem-text">{{ getItemLabel(item) }}</span>
+                                <component v-if="$slots.headericon" :is="$slots.headericon" :item="item" :class="getHeaderIconClass(item)" />
+                                <span v-else-if="getItemProp(item, 'icon')" :class="getHeaderIconClass(item)" v-bind="getPTOptions(item, 'headerIcon')" />
+                                <span class="p-menuitem-text" v-bind="getPTOptions(item, 'headerLabel')">{{ getItemLabel(item) }}</span>
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item"></component>
                     </div>
                 </div>
                 <transition name="p-toggleable-content">
-                    <div v-show="isItemActive(item)" :id="getContentId(index)" class="p-toggleable-content" role="region" :aria-labelledby="getHeaderId(index)">
-                        <div v-if="getItemProp(item, 'items')" class="p-panelmenu-content">
-                            <PanelMenuList :panelId="getPanelId(index)" :items="getItemProp(item, 'items')" :template="$slots" :expandedKeys="expandedKeys" @item-toggle="changeExpandedKeys" @header-focus="updateFocusedHeader" :exact="exact" />
+                    <div v-show="isItemActive(item)" :id="getContentId(index)" class="p-toggleable-content" role="region" :aria-labelledby="getHeaderId(index)" v-bind="ptm('toggleableContent')">
+                        <div v-if="getItemProp(item, 'items')" class="p-panelmenu-content" v-bind="ptm('menuContent')">
+                            <PanelMenuList
+                                :panelId="getPanelId(index)"
+                                :items="getItemProp(item, 'items')"
+                                :templates="$slots"
+                                :expandedKeys="expandedKeys"
+                                @item-toggle="changeExpandedKeys"
+                                @header-focus="updateFocusedHeader"
+                                :exact="exact"
+                                :pt="pt"
+                            />
                         </div>
                     </div>
                 </transition>
@@ -46,13 +58,15 @@
 </template>
 
 <script>
-import ChevronDownIcon from 'primevue/icon/chevrondown';
-import ChevronRightIcon from 'primevue/icon/chevronright';
+import BaseComponent from 'primevue/basecomponent';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
+import ChevronRightIcon from 'primevue/icons/chevronright';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import PanelMenuList from './PanelMenuList.vue';
 
 export default {
     name: 'PanelMenu',
+    extends: BaseComponent,
     emits: ['update:expandedKeys', 'panel-open', 'panel-close'],
     props: {
         model: {
@@ -93,6 +107,14 @@ export default {
         getItemLabel(item) {
             return this.getItemProp(item, 'label');
         },
+        getPTOptions(item, key) {
+            return this.ptm(key, {
+                options: {
+                    active: this.isItemActive(item),
+                    focused: this.isItemFocused(item)
+                }
+            });
+        },
         isItemActive(item) {
             return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : ObjectUtils.equals(item, this.activeItem);
         },
@@ -101,6 +123,9 @@ export default {
         },
         isItemDisabled(item) {
             return this.getItemProp(item, 'disabled');
+        },
+        isItemFocused(item) {
+            return ObjectUtils.equals(item, this.activeItem);
         },
         getPanelId(index) {
             return `${this.id}_${index}`;

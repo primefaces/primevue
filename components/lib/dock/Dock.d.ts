@@ -11,6 +11,95 @@ import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((options: DockPassThroughMethodOptions) => DockPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface DockPassThroughMethodOptions {
+    props: DockProps;
+    state: DockState;
+    context: DockContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link DockProps.pt}
+ */
+export interface DockPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: DockPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the container's DOM element.
+     */
+    container?: DockPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    menu?: DockPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list item's DOM element.
+     */
+    menuitem?: DockPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: DockPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action's DOM element.
+     */
+    action?: DockPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: DockPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface DockPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Dock component.
+ */
+export interface DockState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current index as a number.
+     * @defaultvalue -3
+     */
+    currentIndex: number;
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in Dock component.
+ */
+export interface DockContext {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+}
+
 /**
  * Defines tooltip options
  */
@@ -77,6 +166,11 @@ export interface DockProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {DockPassThroughOptions}
+     */
+    pt?: DockPassThroughOptions;
 }
 
 /**

@@ -8,6 +8,7 @@
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+
 export default {
     name: 'Divider',
     extends: BaseComponent,

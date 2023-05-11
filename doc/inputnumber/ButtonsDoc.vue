@@ -20,8 +20,8 @@
                 showButtons
                 buttonLayout="horizontal"
                 :step="0.25"
-                decrementButtonclass="p-button-danger"
-                incrementButtonclass="p-button-success"
+                decrementButtonClass="p-button-danger"
+                incrementButtonClass="p-button-success"
                 incrementButtonIcon="pi pi-plus"
                 decrementButtonIcon="pi pi-minus"
                 mode="currency"
@@ -44,7 +44,7 @@ export default {
 <InputNumber v-model="value1" inputId="stacked-buttons" showButtons mode="currency" currency="USD" />
 <InputNumber v-model="value2" inputId="minmax-buttons" mode="decimal" showButtons :min="0" :max="100" />
 <InputNumber v-model="value3" inputId="horizontal-buttons" showButtons buttonLayout="horizontal" :step="0.25"
-    decrementButtonclass="p-button-danger" incrementButtonclass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+    decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
     mode="currency" currency="EUR" />`,
                 options: `
 <template>
@@ -61,7 +61,7 @@ export default {
         <div class="flex-auto">
             <label for="horizontal-buttons" class="font-bold block mb-2"> Horizontal with Step </label>
             <InputNumber v-model="value3" inputId="horizontal-buttons" showButtons buttonLayout="horizontal" :step="0.25"
-                decrementButtonclass="p-button-danger" incrementButtonclass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
                 mode="currency" currency="EUR" />
         </div>
     </div>
@@ -93,7 +93,7 @@ export default {
         <div class="flex-auto">
             <label for="horizontal-buttons" class="font-bold block mb-2"> Horizontal with Step </label>
             <InputNumber v-model="value3" inputId="horizontal-buttons" showButtons buttonLayout="horizontal" :step="0.25"
-                decrementButtonclass="p-button-danger" incrementButtonclass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
                 mode="currency" currency="EUR" />
         </div>
     </div>

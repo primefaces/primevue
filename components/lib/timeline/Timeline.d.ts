@@ -9,6 +9,50 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type TimelinePassThroughOptionType = TimelinePassThroughAttributes | null | undefined;
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TimelineProps.pt}
+ */
+export interface TimelinePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: TimelinePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the event's DOM element.
+     */
+    event?: TimelinePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the opposite's DOM element.
+     */
+    opposite?: TimelinePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the separator's DOM element.
+     */
+    separator?: TimelinePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the marker's DOM element.
+     */
+    marker?: TimelinePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the connector's DOM element.
+     */
+    connector?: TimelinePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: TimelinePassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TimelinePassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in Timeline component.
  */
@@ -31,6 +75,11 @@ export interface TimelineProps {
      * Name of the field that uniquely identifies the a record in the data.
      */
     dataKey?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TimelinePassThroughOptions}
+     */
+    pt?: TimelinePassThroughOptions;
 }
 
 /**

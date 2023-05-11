@@ -182,6 +182,12 @@ const InputNumberProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLButtonElement to decrement button inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

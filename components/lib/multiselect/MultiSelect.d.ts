@@ -9,7 +9,18 @@
  */
 import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
-import { VirtualScrollerItemOptions, VirtualScrollerProps } from '../virtualscroller';
+import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
+
+export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface MultiSelectPassThroughMethodOptions {
+    props: MultiSelectProps;
+    state: MultiSelectState;
+    context: MultiSelectContext;
+}
 
 /**
  * Custom change event.
@@ -54,6 +65,212 @@ export interface MultiSelectFilterEvent {
      * Filter value
      */
     value: string;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link MultiSelectProps.pt}
+ */
+export interface MultiSelectPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label container's DOM element.
+     */
+    labelContainer?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the token's DOM element.
+     */
+    token?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the token label's DOM element.
+     */
+    tokenLabel?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the remove token icon's DOM element.
+     */
+    removeTokenIcon?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the trigger's DOM element.
+     */
+    trigger?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the trigger icon's DOM element.
+     */
+    triggerIcon?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the dropdown icon's DOM element.
+     */
+    dropdownIcon?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panel?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header checkbox container's DOM element.
+     */
+    headerCheckboxContainer?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header checkbox's DOM element.
+     */
+    headerCheckbox?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the filter container's DOM element.
+     */
+    filterContainer?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the filter input's DOM element.
+     */
+    filterInput?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the filter icon's DOM element.
+     */
+    filterIcon?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close button's DOM element.
+     */
+    closeButton?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the close icon's DOM element.
+     */
+    closeIcon?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the VirtualScroller component.
+     * @see {@link VirtualScrollerPassThroughOptionType}
+     */
+    virtualScroller?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    list?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item group's DOM element.
+     */
+    itemGroup?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item's DOM element.
+     */
+    item?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the checkbox container's DOM element.
+     */
+    checkboxContainer?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the checkbox's DOM element.
+     */
+    checkbox?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the checkbox icon's DOM element.
+     */
+    checkboxIcon?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the option's DOM element.
+     */
+    option?: MultiSelectPassThroughOptionType;
+
+    /**
+     * Uses to pass attributes to the emptyMessage's DOM element.
+     */
+    emptyMessage?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden first focusable element's DOM element.
+     */
+    hiddenFirstFocusableEl?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden filter result's DOM element.
+     */
+    hiddenFilterResult?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden selected message's DOM element.
+     */
+    hiddenSelectedMessage?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden last focusable element's DOM element.
+     */
+    hiddenLastFocusableEl?: MultiSelectPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface MultiSelectPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in MultiSelect component.
+ */
+export interface MultiSelectState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedOptionIndex: number;
+    /**
+     * Current filter value state as a string.
+     */
+    filterValue: string;
+    /**
+     * Current overlay visible state as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+}
+
+/**
+ * Defines current options in MultiSelect component.
+ */
+export interface MultiSelectContext {
+    /**
+     * Current selection state of the item as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
@@ -191,26 +408,32 @@ export interface MultiSelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in the checkboxes.
+     * @deprecated since v3.27.0. Use 'checkboxicon' slot.
      */
     checkboxIcon?: string | undefined;
     /**
      * Icon to display in the dropdown close button.
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
+     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
+     * @deprecated since v3.27.0. Use 'filtericon' slot.
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
+     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
+     * @deprecated since v3.27.0. Use 'removetokenicon' slot.
      */
     removeTokenIcon?: string | undefined;
     /**
@@ -275,6 +498,11 @@ export interface MultiSelectProps {
      * Identifier of the underlying input element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {MultiSelectPassThroughOptions}
+     */
+    pt?: MultiSelectPassThroughOptions;
 }
 
 /**
@@ -307,6 +535,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom indicator template.
+     * @deprecated since v3.27.0. Use 'loadingicon and dropdownicon' slot.
      */
     indicator(): VNode[];
     /**
@@ -411,7 +640,16 @@ export interface MultiSelectSlots {
     /**
      * Custom remove token icon template.
      */
-    removetokenicon(): VNode[];
+    removetokenicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+        /**
+         * Remove token icon function.
+         */
+        onClick: void;
+    }): VNode[];
     /**
      * Custom header checkbox icon template.
      * @param {Object} scope - header checkbox icon slot's params.
@@ -421,15 +659,29 @@ export interface MultiSelectSlots {
          * Options of the loader items for virtualscroller
          */
         allSelected: boolean;
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
     }): VNode[];
     /**
      * Custom filter icon template.
      */
-    filtericon(): VNode[];
+    filtericon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom close icon template.
      */
-    closeicon(): VNode[];
+    closeicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom item checkbox icon template.
      * @param {Object} scope - header checkbox icon slot's params.
@@ -439,6 +691,29 @@ export interface MultiSelectSlots {
          * Options of the loader items for virtualscroller
          */
         selected: boolean;
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom loading icon template.
+     * @param {Object} scope - loading icon slot's params.
+     */
+    loadingicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom dropdown icon template.
+     */
+    dropdownicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
     }): VNode[];
 }
 

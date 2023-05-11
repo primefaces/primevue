@@ -1,11 +1,13 @@
 <template>
-    <DocComponent title="Vue Toolbar Component" header="Toolbar" description="Toolbar is a grouping component for buttons and other content." :componentDocs="docs" :apiDocs="['Toolbar']" />
+    <DocComponent title="Vue Toolbar Component" header="Toolbar" description="Toolbar is a grouping component for buttons and other content." :componentDocs="docs" :apiDocs="['Toolbar']" :ptTabComponent="ptComponent" />
 </template>
 <script>
 import AccessibilityDoc from '@/doc/toolbar/AccessibilityDoc';
 import BasicDoc from '@/doc/toolbar/BasicDoc';
 import ImportDoc from '@/doc/toolbar/ImportDoc';
 import StyleDoc from '@/doc/toolbar/StyleDoc';
+import PTComponent from '@/doc/toolbar/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -30,7 +32,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

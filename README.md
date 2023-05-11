@@ -15,10 +15,10 @@ PrimeVue is available at [npm](https://www.npmjs.com/package/primevue).
 
 ````
 // with npm
-npm install primevue primeicons
+npm install primevue
 
 // with yarn
-yarn add primevue primeicons
+yarn add primevue
 ````
 
 ## Plugin
@@ -44,16 +44,13 @@ import 'primevue/resources/themes/lara-light-blue/theme.css';
 
 // core
 import 'primevue/resources/primevue.min.css';
-
-// icons
-import 'primeicons/primeicons.css';
 ```
 
 Each PrimeVue theme has its own font family so it is suggested to apply it to your application for a unified look.
 
 ```
 body {
-    font-family: (--font-family);
+    font-family: var(--font-family);
 }
 ```
 
@@ -96,12 +93,11 @@ Open the nuxt configuration file and add the css dependencies.
 export default defineNuxtConfig({
     css: [
         "primevue/resources/themes/lara-light-blue/theme.css",
-        "primevue/resources/primevue.css",
-        "primeicons/primeicons.css"
+        "primevue/resources/primevue.css"
     ],
-	build: {
-		transpile: ["primevue"]
-	}
+    build: {
+      transpile: ["primevue"]
+    }
 })
 ```
 

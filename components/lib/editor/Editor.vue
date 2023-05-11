@@ -1,53 +1,54 @@
 <template>
-    <div class="p-editor-container">
-        <div ref="toolbarElement" class="p-editor-toolbar">
+    <div class="p-editor-container" v-bind="ptm('root')">
+        <div ref="toolbarElement" class="p-editor-toolbar" v-bind="ptm('toolbar')">
             <slot name="toolbar">
-                <span class="ql-formats">
-                    <select class="ql-header" defaultValue="0">
-                        <option value="1">Heading</option>
-                        <option value="2">Subheading</option>
-                        <option value="0">Normal</option>
+                <span class="ql-formats" v-bind="ptm('formats')">
+                    <select class="ql-header" defaultValue="0" v-bind="ptm('select')">
+                        <option value="1" v-bind="ptm('option')">Heading</option>
+                        <option value="2" v-bind="ptm('option')">Subheading</option>
+                        <option value="0" v-bind="ptm('option')">Normal</option>
                     </select>
-                    <select class="ql-font">
-                        <option></option>
-                        <option value="serif"></option>
-                        <option value="monospace"></option>
-                    </select>
-                </span>
-                <span class="ql-formats">
-                    <button class="ql-bold" type="button"></button>
-                    <button class="ql-italic" type="button"></button>
-                    <button class="ql-underline" type="button"></button>
-                </span>
-                <span :key="reRenderColorKey" class="ql-formats">
-                    <select class="ql-color"></select>
-                    <select class="ql-background"></select>
-                </span>
-                <span class="ql-formats">
-                    <button class="ql-list" value="ordered" type="button"></button>
-                    <button class="ql-list" value="bullet" type="button"></button>
-                    <select class="ql-align">
-                        <option defaultValue></option>
-                        <option value="center"></option>
-                        <option value="right"></option>
-                        <option value="justify"></option>
+                    <select class="ql-font" v-bind="ptm('select')">
+                        <option v-bind="ptm('option')"></option>
+                        <option value="serif" v-bind="ptm('option')"></option>
+                        <option value="monospace" v-bind="ptm('option')"></option>
                     </select>
                 </span>
-                <span class="ql-formats">
-                    <button class="ql-link" type="button"></button>
-                    <button class="ql-image" type="button"></button>
-                    <button class="ql-code-block" type="button"></button>
+                <span class="ql-formats" v-bind="ptm('formats')">
+                    <button class="ql-bold" type="button" v-bind="ptm('button')"></button>
+                    <button class="ql-italic" type="button" v-bind="ptm('button')"></button>
+                    <button class="ql-underline" type="button" v-bind="ptm('button')"></button>
                 </span>
-                <span class="ql-formats">
-                    <button class="ql-clean" type="button"></button>
+                <span :key="reRenderColorKey" class="ql-formats" v-bind="ptm('formats')">
+                    <select class="ql-color" v-bind="ptm('select')"></select>
+                    <select class="ql-background" v-bind="ptm('select')"></select>
+                </span>
+                <span class="ql-formats" v-bind="ptm('formats')">
+                    <button class="ql-list" value="ordered" type="button" v-bind="ptm('button')"></button>
+                    <button class="ql-list" value="bullet" type="button" v-bind="ptm('button')"></button>
+                    <select class="ql-align" v-bind="ptm('select')">
+                        <option defaultValue v-bind="ptm('option')"></option>
+                        <option value="center" v-bind="ptm('option')"></option>
+                        <option value="right" v-bind="ptm('option')"></option>
+                        <option value="justify" v-bind="ptm('option')"></option>
+                    </select>
+                </span>
+                <span class="ql-formats" v-bind="ptm('formats')">
+                    <button class="ql-link" type="button" v-bind="ptm('button')"></button>
+                    <button class="ql-image" type="button" v-bind="ptm('button')"></button>
+                    <button class="ql-code-block" type="button" v-bind="ptm('button')"></button>
+                </span>
+                <span class="ql-formats" v-bind="ptm('formats')">
+                    <button class="ql-clean" type="button" v-bind="ptm('button')"></button>
                 </span>
             </slot>
         </div>
-        <div ref="editorElement" class="p-editor-content" :style="editorStyle"></div>
+        <div ref="editorElement" class="p-editor-content" :style="editorStyle" v-bind="ptm('content')"></div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler } from 'primevue/utils';
 
 const QuillJS = (function () {
@@ -60,6 +61,7 @@ const QuillJS = (function () {
 
 export default {
     name: 'Editor',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'text-change', 'selection-change', 'load'],
     props: {
         modelValue: String,

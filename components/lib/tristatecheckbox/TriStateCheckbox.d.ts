@@ -10,6 +10,94 @@
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
+export declare type TriStateCheckboxPassThroughOptionType = TriStateCheckboxPassThroughAttributes | ((options: TriStateCheckboxPassThroughMethodOptions) => TriStateCheckboxPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TriStateCheckboxPassThroughMethodOptions {
+    props: TriStateCheckboxProps;
+    state: TriStateCheckboxState;
+    context: TriStateCheckboxContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TriStateCheckboxProps.pt}
+ */
+export interface TriStateCheckboxPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the checkbox box's DOM element.
+     */
+    checbox?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the check icon's DOM element.
+     */
+    checkIcon?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the uncheck icon's DOM element.
+     */
+    uncheckIcon?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the nullable icon's DOM element.
+     */
+    nullableIcon?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the sr only aria's DOM element.
+     */
+    srOnlyAria?: TriStateCheckboxPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface TriStateCheckboxPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in TriStateCheckbox component.
+ */
+export interface TriStateCheckboxState {
+    /**
+     * Focused state as a boolean.
+     */
+    focused: boolean;
+}
+
+/**
+ * Defines current options in TriStateCheckbox component.
+ */
+export interface TriStateCheckboxContext {
+    /**
+     * Current active state as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
 /**
  * Defines valid properties in TriStateCheckbox component.
  */
@@ -34,6 +122,7 @@ export interface TriStateCheckboxProps {
     inputId?: string | undefined;
     /**
      * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * @deprecated since v3.26.0. Use 'pt' property.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -44,6 +133,11 @@ export interface TriStateCheckboxProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TriStateCheckboxPassThroughOptions}
+     */
+    pt?: TriStateCheckboxPassThroughOptions;
 }
 
 /**

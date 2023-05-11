@@ -10,6 +10,37 @@
 import { CanvasHTMLAttributes } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ChartPassThroughOptionType = ChartPassThroughAttributes | ((options: ChartPassThroughMethodOptions) => ChartPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ChartPassThroughMethodOptions {
+    props: ChartProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ChartProps.pt}
+ */
+export interface ChartPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ChartPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the canvas's DOM element.
+     */
+    canvas?: ChartPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ChartPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Custom select event.
  * @see {@link ChartEmits.select}
@@ -63,6 +94,11 @@ export interface ChartProps {
      * Uses to pass all properties of the CanvasHTMLAttributes to canvas element inside the component.
      */
     canvasProps?: CanvasHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ChartPassThroughOptions}
+     */
+    pt?: ChartPassThroughOptions;
 }
 
 export interface ChartSlots {}

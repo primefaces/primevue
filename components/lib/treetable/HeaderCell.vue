@@ -1,18 +1,34 @@
 <template>
-    <th :style="[containerStyle]" :class="containerClass" @click="onClick" @keydown="onKeyDown" :tabindex="columnProp('sortable') ? '0' : null" :aria-sort="ariaSort" role="columnheader">
-        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart"></span>
+    <th
+        :style="[containerStyle]"
+        :class="containerClass"
+        @click="onClick"
+        @keydown="onKeyDown"
+        :tabindex="columnProp('sortable') ? '0' : null"
+        :aria-sort="ariaSort"
+        role="columnheader"
+        v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('headerCell') }"
+    >
+        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart" v-bind="getColumnPTOptions('columnResizer')"></span>
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
-        <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
-        <span v-if="columnProp('sortable')" :class="sortableColumnIcon"></span>
-        <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getMultiSortMetaIndex() + 1 }}</span>
+        <span v-if="columnProp('header')" class="p-column-title" v-bind="getColumnPTOptions('headerTitle')">{{ columnProp('header') }}</span>
+        <span v-if="columnProp('sortable')" v-bind="getColumnPTOptions('sort')">
+            <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" class="p-sortable-column-icon" />
+        </span>
+        <span v-if="isMultiSorted()" class="p-sortable-column-badge" v-bind="getColumnPTOptions('sortBadge')">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
+import SortAltIcon from 'primevue/icons/sortalt';
+import SortAmountDownIcon from 'primevue/icons/sortamountdown';
+import SortAmountUpAltIcon from 'primevue/icons/sortamountupalt';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'HeaderCell',
+    extends: BaseComponent,
     emits: ['column-click', 'column-resizestart'],
     props: {
         column: {
@@ -58,6 +74,18 @@ export default {
     methods: {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
+        },
+        getColumnPTOptions(key) {
+            return this.ptmo(this.getColumnProp(), key, {
+                props: this.column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
@@ -146,7 +174,7 @@ export default {
 
             return this.columnProp('frozen') ? [columnStyle, headerStyle, this.styleObject] : [columnStyle, headerStyle];
         },
-        sortableColumnIcon() {
+        sortState() {
             let sorted = false;
             let sortOrder = null;
 
@@ -162,26 +190,36 @@ export default {
                 }
             }
 
-            return [
-                'p-sortable-column-icon pi pi-fw',
-                {
-                    'pi-sort-alt': !sorted,
-                    'pi-sort-amount-up-alt': sorted && sortOrder > 0,
-                    'pi-sort-amount-down': sorted && sortOrder < 0
-                }
-            ];
+            return {
+                sorted,
+                sortOrder
+            };
+        },
+        sortableColumnIcon() {
+            const { sorted, sortOrder } = this.sortState;
+
+            if (!sorted) return SortAltIcon;
+            else if (sorted && sortOrder > 0) return SortAmountUpAltIcon;
+            else if (sorted && sortOrder < 0) return SortAmountDownIcon;
+
+            return null;
         },
         ariaSort() {
             if (this.columnProp('sortable')) {
-                const sortIcon = this.sortableColumnIcon;
+                const { sorted, sortOrder } = this.sortState;
 
-                if (sortIcon[1]['pi-sort-amount-down']) return 'descending';
-                else if (sortIcon[1]['pi-sort-amount-up-alt']) return 'ascending';
+                if (sorted && sortOrder < 0) return 'descending';
+                else if (sorted && sortOrder > 0) return 'ascending';
                 else return 'none';
             } else {
                 return null;
             }
         }
+    },
+    components: {
+        SortAltIcon: SortAltIcon,
+        SortAmountUpAltIcon: SortAmountUpAltIcon,
+        SortAmountDownIcon: SortAmountDownIcon
     }
 };
 </script>

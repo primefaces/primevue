@@ -8,8 +8,104 @@
  *
  */
 import { VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface SpeedDialPassThroughMethodOptions {
+    props: SpeedDialProps;
+    state: SpeedDialState;
+    context: SpeedDialContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link SpeedDialProps.pt}
+ */
+export interface SpeedDialPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: SpeedDialPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     *  @see {@link ButtonPassThroughOptions}
+     */
+    button?: ButtonPassThroughOptions;
+    /**
+     * Uses to pass attributes to the menu's DOM element.
+     */
+    menu?: SpeedDialPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the menu item's DOM element.
+     */
+    menuitem?: SpeedDialPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action's DOM element.
+     */
+    action?: SpeedDialPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action icon's DOM element.
+     */
+    actionIcon?: SpeedDialPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the mask's DOM element.
+     */
+    mask?: SpeedDialPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface SpeedDialPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in SpeedDial component.
+ */
+export interface SpeedDialState {
+    /**
+     * List of items' id.
+     */
+    id: string;
+    /**
+     * Current visible state as a boolean.
+     * @defaultValue false
+     */
+    visible: boolean;
+    /**
+     * Current click state of component as a boolean.
+     * @defaultValue false
+     */
+    isItemClicked: boolean;
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused option index as a number.
+     * @defaultValue -1
+     */
+    focusedOptionIndex: number;
+}
+
+/**
+ * Defines current options in SpeedDial component.
+ */
+export interface SpeedDialContext {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+}
 
 /**
  * Defines tooltip options.
@@ -93,11 +189,12 @@ export interface SpeedDialProps {
     maskClass?: string | undefined;
     /**
      * Show icon of the button element.
-     * @defaultValue pi pi-plus
+     * @deprecated since v3.27.0. Use 'showicon' slot.
      */
     showIcon?: string | undefined;
     /**
      * Hide icon of the button element.
+     * @deprecated since v3.27.0. Use 'hideicon' slot.
      */
     hideIcon?: string | undefined;
     /**
@@ -126,6 +223,11 @@ export interface SpeedDialProps {
      * Identifier of the underlying list element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {SpeedDialPassThroughOptions}
+     */
+    pt?: SpeedDialPassThroughOptions;
 }
 
 /**
@@ -152,6 +254,16 @@ export interface SpeedDialSlots {
          * Toggle metadata
          */
         toggle(): void;
+    }): VNode[];
+    /**
+     * Custom icon template.
+     * @param {Object} scope - icon slot's params.
+     */
+    icon(scope: {
+        /**
+         *
+         */
+        visible: boolean;
     }): VNode[];
 }
 

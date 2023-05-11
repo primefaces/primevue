@@ -14,6 +14,7 @@
         @click="onClick"
         @keydown="onKeyDown"
         @touchend="onTouchEnd"
+        v-bind="ptm('row')"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
             <TTBodyCell
@@ -27,8 +28,10 @@
                 :selectionMode="selectionMode"
                 :checked="checked"
                 :partialChecked="partialChecked"
+                :templates="templates"
                 @node-toggle="$emit('node-toggle', $event)"
                 @checkbox-toggle="toggleCheckbox"
+                :pt="pt"
             ></TTBodyCell>
         </template>
     </tr>
@@ -46,19 +49,23 @@
             :indentation="indentation"
             :ariaPosInset="node.children.indexOf(childNode) + 1"
             :ariaSetSize="node.children.length"
+            :templates="templates"
             @node-toggle="$emit('node-toggle', $event)"
             @node-click="$emit('node-click', $event)"
             @checkbox-change="onCheckboxChange"
+            :pt="pt"
         />
     </template>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TreeTableRow',
+    extends: BaseComponent,
     emits: ['node-click', 'node-toggle', 'checkbox-change', 'nodeClick', 'nodeToggle', 'checkboxChange'],
     props: {
         node: {
@@ -103,6 +110,10 @@ export default {
         },
         ariaPosInset: {
             type: Number,
+            default: null
+        },
+        templates: {
+            type: Object,
             default: null
         }
     },

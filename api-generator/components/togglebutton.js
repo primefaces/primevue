@@ -70,6 +70,12 @@ const ToggleButtonProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -109,11 +115,19 @@ const ToggleButtonEvents = [
     }
 ];
 
+const ToggleButtonSlots = [
+    {
+        name: 'icon',
+        description: 'custom icon template.'
+    }
+];
+
 module.exports = {
     togglebutton: {
         name: 'ToggleButton',
         description: 'ToggleButton is used to select a boolean value using a button.',
         props: ToggleButtonProps,
+        slots: ToggleButtonSlots,
         events: ToggleButtonEvents
     }
 };

@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Toast Component" header="Toast" description="Toast is used to display messages in an overlay." :componentDocs="docs" :apiDocs="['Toast', 'ToastService-UseToast']" />
+    <DocComponent title="Vue Toast Component" header="Toast" description="Toast is used to display messages in an overlay." :componentDocs="docs" :apiDocs="['Toast', 'ToastService-UseToast']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -13,6 +13,7 @@ import StickyDoc from '@/doc/toast/StickyDoc.vue';
 import StyleDoc from '@/doc/toast/StyleDoc.vue';
 import TemplateDoc from '@/doc/toast/TemplateDoc.vue';
 import ToastServiceDoc from '@/doc/toast/ToastServiceDoc.vue';
+import PTComponent from '@/doc/toast/pt/index.vue';
 
 export default {
     data() {
@@ -68,7 +69,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

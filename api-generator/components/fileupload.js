@@ -142,6 +142,12 @@ const FileUploadProps = [
         type: 'string',
         default: 'null',
         description: 'Style class of the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -277,8 +283,32 @@ const FileUploadEvents = [
 
 const FileUploadSlots = [
     {
+        name: 'header',
+        description: 'Custom header template.'
+    },
+    {
+        name: 'content',
+        description: 'Custom content template.'
+    },
+    {
         name: 'empty',
         description: 'Custom content when there is no selected file'
+    },
+    {
+        name: 'chooseicon',
+        description: 'Custom choose icon template.'
+    },
+    {
+        name: 'uploadicon',
+        description: 'Custom upload icon template.'
+    },
+    {
+        name: 'cancelicon',
+        description: 'Custom cancel icon template.'
+    },
+    {
+        name: 'fileremoveicon',
+        description: 'Custom remove icon template for each file.'
     }
 ];
 

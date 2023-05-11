@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue SplitButton Component" header="SplitButton" description="SplitButton groups a set of commands in an overlay with a default command." :componentDocs="docs" :apiDocs="['SplitButton']" />
+    <DocComponent title="Vue SplitButton Component" header="SplitButton" description="SplitButton groups a set of commands in an overlay with a default command." :componentDocs="docs" :apiDocs="['SplitButton']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -16,6 +16,7 @@ import SizesDoc from '@/doc/splitbutton/SizesDoc.vue';
 import StyleDoc from '@/doc/splitbutton/StyleDoc.vue';
 import TemplateDoc from '@/doc/splitbutton/TemplateDoc.vue';
 import TextDoc from '@/doc/splitbutton/TextDoc.vue';
+import PTComponent from '@/doc/splitbutton/pt/index.vue';
 
 export default {
     data() {
@@ -86,7 +87,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

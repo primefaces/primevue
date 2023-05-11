@@ -22,6 +22,12 @@ const ScrollTopProps = [
         type: 'string',
         default: 'smooth',
         description: 'Defines the scrolling behavi, "smooth" adds an animation and "auto" scrolls with a jump.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

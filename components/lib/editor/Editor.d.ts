@@ -9,6 +9,15 @@
  */
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | ((options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface EditorPassThroughMethodOptions {
+    props: EditorProps;
+    state: EditorState;
+}
 
 /**
  * Custom text change event.
@@ -78,6 +87,59 @@ export interface EditorLoadEvent {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link EditorProps.pt}
+ */
+export interface EditorPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: EditorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the toolbar's DOM element.
+     */
+    toolbar?: EditorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the formats's DOM element.
+     */
+    formats?: EditorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the select's DOM element.
+     */
+    select?: EditorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the option's DOM element.
+     */
+    option?: EditorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    button?: EditorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: EditorPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface EditorPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Editor component.
+ */
+export interface EditorState {
+    /**
+     * Current rerendered color key as a number.
+     * @defaultValue 0
+     */
+    reRenderColorKey: number;
+}
+
+/**
  * Defines valid properties in Editor component.
  */
 export interface EditorProps {
@@ -106,6 +168,11 @@ export interface EditorProps {
      * Modules configuration, see [here](https://quilljs.com/docs/modules/) for available options.
      */
     modules?: any;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {EditorPassThroughOptions}
+     */
+    pt?: EditorPassThroughOptions;
 }
 
 /**

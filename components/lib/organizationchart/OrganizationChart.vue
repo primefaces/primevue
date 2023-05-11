@@ -1,14 +1,26 @@
 <template>
-    <div class="p-organizationchart p-component">
-        <OrganizationChartNode :node="value" :templates="$slots" @node-toggle="onNodeToggle" :collapsedKeys="d_collapsedKeys" :collapsible="collapsible" @node-click="onNodeClick" :selectionMode="selectionMode" :selectionKeys="selectionKeys" />
+    <div class="p-organizationchart p-component" v-bind="ptm('root')">
+        <OrganizationChartNode
+            :node="value"
+            :templates="$slots"
+            @node-toggle="onNodeToggle"
+            :collapsedKeys="d_collapsedKeys"
+            :collapsible="collapsible"
+            @node-click="onNodeClick"
+            :selectionMode="selectionMode"
+            :selectionKeys="selectionKeys"
+            :pt="pt"
+        />
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import OrganizationChartNode from './OrganizationChartNode.vue';
 
 export default {
     name: 'OrganizationChart',
+    extends: BaseComponent,
     emits: ['node-unselect', 'node-select', 'update:selectionKeys', 'node-expand', 'node-collapse', 'update:collapsedKeys'],
     props: {
         value: {

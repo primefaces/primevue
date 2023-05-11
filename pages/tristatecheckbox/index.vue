@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue TriStateCheckbox Component" header="TriStateCheckbox" description="TriStateCheckbox is used to select either true, false or null as the value." :componentDocs="docs" :apiDocs="['TriStateCheckbox']" />
+    <DocComponent
+        title="Vue TriStateCheckbox Component"
+        header="TriStateCheckbox"
+        description="TriStateCheckbox is used to select either true, false or null as the value."
+        :componentDocs="docs"
+        :apiDocs="['TriStateCheckbox']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -10,6 +17,7 @@ import VeeValidateDoc from '@/doc/tristatecheckbox/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/tristatecheckbox/ImportDoc';
 import InvalidDoc from '@/doc/tristatecheckbox/InvalidDoc';
 import StyleDoc from '@/doc/tristatecheckbox/StyleDoc';
+import PTComponent from '@/doc/tristatecheckbox/pt/index.vue';
 
 export default {
     data() {
@@ -57,7 +65,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

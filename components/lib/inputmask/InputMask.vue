@@ -1,12 +1,14 @@
 <template>
-    <input :class="inputClass" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" />
+    <input :class="inputClass" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root')" />
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'InputMask',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
     props: {
         modelValue: null,

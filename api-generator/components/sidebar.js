@@ -58,6 +58,12 @@ const SidebarProps = [
         type: 'string',
         default: 'undefined',
         description: 'Icon to display in the sidebar close button.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -80,6 +86,10 @@ const SidebarSlots = [
     {
         name: 'header',
         description: 'Custom content for the component header.'
+    },
+    {
+        name: 'closeicon',
+        description: 'Custom close icon template.'
     }
 ];
 

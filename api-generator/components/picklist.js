@@ -59,6 +59,12 @@ const PickListProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to show buttons of target list.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -172,6 +178,10 @@ const PickListEvents = [
 ];
 
 const PickListSlots = [
+    {
+        name: 'header',
+        description: 'Custom header template.'
+    },
     {
         name: 'sourceheader',
         description: "Custom content for the component's source header."

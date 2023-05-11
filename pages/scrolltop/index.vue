@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue ScrollTop Component" header="ScrollTop" description="ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly." :componentDocs="docs" :apiDocs="['ScrollTop']" />
+    <DocComponent
+        title="Vue ScrollTop Component"
+        header="ScrollTop"
+        description="ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly."
+        :componentDocs="docs"
+        :apiDocs="['ScrollTop']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -8,6 +15,7 @@ import BasicDoc from '@/doc/scrolltop/BasicDoc';
 import ElementDoc from '@/doc/scrolltop/ElementDoc';
 import ImportDoc from '@/doc/scrolltop/ImportDoc';
 import StyleDoc from '@/doc/scrolltop/StyleDoc';
+import PTComponent from '@/doc/scrolltop/pt/index.vue';
 
 export default {
     data() {
@@ -38,7 +46,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

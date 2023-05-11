@@ -82,10 +82,20 @@ const CarouselProps = [
         type: 'boolean',
         default: 'true',
         description: 'Whether to display indicator container.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
 const CarouselSlots = [
+    {
+        name: 'header',
+        description: 'Custom content for the component header.'
+    },
     {
         name: 'header',
         description: 'Custom content for the component header.'
@@ -99,7 +109,7 @@ const CarouselSlots = [
         description: 'Custom content for the component item.'
     },
     {
-        name: 'previcon',
+        name: 'previousicon',
         description: 'Custom previous icon template.'
     },
     {

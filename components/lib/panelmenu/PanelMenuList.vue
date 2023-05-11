@@ -8,22 +8,25 @@
         :panelId="panelId"
         :focusedItemId="focused ? focusedItemId : undefined"
         :items="processedItems"
-        :template="template"
+        :templates="templates"
         :activeItemPath="activeItemPath"
         :exact="exact"
         @focus="onFocus"
         @blur="onBlur"
         @keydown="onKeyDown"
         @item-toggle="onItemToggle"
+        :pt="pt"
     />
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 import PanelMenuSub from './PanelMenuSub.vue';
 
 export default {
     name: 'PanelMenuList',
+    extends: BaseComponent,
     emits: ['item-toggle', 'header-focus'],
     props: {
         panelId: {
@@ -34,7 +37,7 @@ export default {
             type: Array,
             default: null
         },
-        template: {
+        templates: {
             type: Object,
             default: null
         },

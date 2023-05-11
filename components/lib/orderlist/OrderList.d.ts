@@ -8,7 +8,18 @@
  *
  */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface OrderListPassThroughMethodOptions {
+    props: OrderListProps;
+    state: OrderListState;
+}
 
 /**
  * Custom reorder event
@@ -42,6 +53,84 @@ export interface OrderListSelectionChangeEvent {
      * Ordered list
      */
     value: any[];
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link OrderListProps.pt}
+ */
+export interface OrderListPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: OrderListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the controls' DOM element.
+     */
+    controls?: OrderListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveUpButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveTopButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveDownButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     */
+    moveBottomButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the container's DOM element.
+     */
+    container?: OrderListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: OrderListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    list?: OrderListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the item's DOM element.
+     */
+    item?: OrderListPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface OrderListPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in OrderList component.
+ */
+export interface OrderListState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current id state as a string.
+     */
+    d_selection: any[];
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item index as a number.
+     * @defaultvalue -1
+     */
+    focusedOptionIndex: number;
 }
 
 /**
@@ -117,6 +206,11 @@ export interface OrderListProps {
      * Identifier of the underlying list element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {OrderListPassThroughOptions}
+     */
+    pt?: OrderListPassThroughOptions;
 }
 
 /**

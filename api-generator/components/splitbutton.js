@@ -100,6 +100,12 @@ const SplitButtonProps = [
         type: 'boolean',
         default: 'false',
         description: 'Add a plain textual class to the button without a background initially.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -117,11 +123,23 @@ const SplitButtonEvents = [
     }
 ];
 
+const SplitButtonSlots = [
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'menubuttonicon',
+        description: 'Custom menu button icon template.'
+    }
+];
+
 module.exports = {
     splitbutton: {
         name: 'SplitButton',
         description: 'SplitButton groups a set of commands in an overlay with a default command.',
         props: SplitButtonProps,
-        events: SplitButtonEvents
+        events: SplitButtonEvents,
+        slots: SplitButtonSlots
     }
 };

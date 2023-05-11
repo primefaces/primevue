@@ -1,17 +1,17 @@
 <template>
-    <div ref="container" :class="containerClass">
-        <input v-if="!inline" ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" />
+    <div ref="container" :class="containerClass" v-bind="ptm('root')">
+        <input v-if="!inline" ref="input" type="text" :class="inputClass" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('input')" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="pickerClass" @click="onOverlayClick">
-                    <div class="p-colorpicker-content">
-                        <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                            <div class="p-colorpicker-color">
-                                <div :ref="colorHandleRef" class="p-colorpicker-color-handle"></div>
+                <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="pickerClass" @click="onOverlayClick" v-bind="ptm('panel')">
+                    <div class="p-colorpicker-content" v-bind="ptm('content')">
+                        <div :ref="colorSelectorRef" class="p-colorpicker-color-selector" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('selector')">
+                            <div class="p-colorpicker-color" v-bind="ptm('color')">
+                                <div :ref="colorHandleRef" class="p-colorpicker-color-handle" v-bind="ptm('colorHandler')"></div>
                             </div>
                         </div>
-                        <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)" @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()">
-                            <div :ref="hueHandleRef" class="p-colorpicker-hue-handle"></div>
+                        <div :ref="hueViewRef" class="p-colorpicker-hue" @mousedown="onHueMousedown($event)" @touchstart="onHueDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('hue')">
+                            <div :ref="hueHandleRef" class="p-colorpicker-hue-handle" v-bind="ptm('hueHandler')"></div>
                         </div>
                     </div>
                 </div>
@@ -21,12 +21,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'ColorPicker',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
     props: {
         modelValue: {

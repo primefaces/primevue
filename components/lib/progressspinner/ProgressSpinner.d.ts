@@ -9,6 +9,41 @@
  */
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ProgressSpinnerPassThroughOptionType = ProgressSpinnerPassThroughAttributes | ((options: ProgressSpinnerPassThroughMethodOptions) => ProgressSpinnerPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ProgressSpinnerPassThroughMethodOptions {
+    props: ProgressSpinnerProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ProgressSpinnerProps.pt}
+ */
+export interface ProgressSpinnerPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ProgressSpinnerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the spinner's DOM element.
+     */
+    spinner?: ProgressSpinnerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the circle's DOM element.
+     */
+    circle?: ProgressSpinnerPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ProgressSpinnerPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in ProgressSpinner component.
  */
@@ -27,6 +62,11 @@ export interface ProgressSpinnerProps {
      * @defaultValue 2s
      */
     animationDuration?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ProgressSpinnerPassThroughOptions}
+     */
+    pt?: ProgressSpinnerPassThroughOptions;
 }
 
 /**

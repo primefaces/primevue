@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue InputNumber Component" header="InputNumber" description="InputNumber is an input component to provide numerical input." :componentDocs="docs" :apiDocs="['InputNumber']" />
+    <DocComponent title="Vue InputNumber Component" header="InputNumber" description="InputNumber is an input component to provide numerical input." :componentDocs="docs" :apiDocs="['InputNumber']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -8,7 +8,6 @@ import ButtonsDoc from '@/doc/inputnumber/ButtonsDoc';
 import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc';
 import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc';
-import VeeValidateDoc from '@/doc/inputnumber/form/VeeValidateDoc';
 import ImportDoc from '@/doc/inputnumber/ImportDoc';
 import InvalidDoc from '@/doc/inputnumber/InvalidDoc';
 import LocaleDoc from '@/doc/inputnumber/LocaleDoc';
@@ -16,6 +15,8 @@ import NumeralsDoc from '@/doc/inputnumber/NumeralsDoc';
 import PrefixSuffixDoc from '@/doc/inputnumber/PrefixSuffixDoc';
 import StyleDoc from '@/doc/inputnumber/StyleDoc';
 import VerticalDoc from '@/doc/inputnumber/VerticalDoc';
+import VeeValidateDoc from '@/doc/inputnumber/form/VeeValidateDoc';
+import PTComponent from '@/doc/inputnumber/pt/index.vue';
 
 export default {
     data() {
@@ -93,7 +94,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

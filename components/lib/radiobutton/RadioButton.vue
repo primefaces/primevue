@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)">
-        <div class="p-hidden-accessible">
+    <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="input"
                 :id="inputId"
@@ -15,20 +15,22 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus"
                 @blur="onBlur"
-                v-bind="inputProps"
+                v-bind="ptm('hiddenInput')"
             />
         </div>
-        <div ref="box" :class="['p-radiobutton-box', { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]">
-            <div class="p-radiobutton-icon"></div>
+        <div ref="box" :class="['p-radiobutton-box', { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="{ ...inputProps, ...ptm('input') }">
+            <div class="p-radiobutton-icon" v-bind="ptm('icon')"></div>
         </div>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'RadioButton',
+    extends: BaseComponent,
     emits: ['click', 'update:modelValue', 'change', 'focus', 'blur'],
     props: {
         value: null,

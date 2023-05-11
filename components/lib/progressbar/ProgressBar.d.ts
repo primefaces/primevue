@@ -10,6 +10,41 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface ProgressBarPassThroughMethodOptions {
+    props: ProgressBarProps;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link ProgressBarProps.pt}
+ */
+export interface ProgressBarPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: ProgressBarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the value's DOM element.
+     */
+    value?: ProgressBarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: ProgressBarPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface ProgressBarPassThroughAttributes {
+    [key: string]: any;
+}
+
 /**
  * Defines valid properties in ProgressBar component.
  */
@@ -28,6 +63,11 @@ export interface ProgressBarProps {
      * @defaultValue true
      */
     showValue?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ProgressBarPassThroughOptions}
+     */
+    pt?: ProgressBarPassThroughOptions;
 }
 
 /**

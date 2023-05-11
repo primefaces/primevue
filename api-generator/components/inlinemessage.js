@@ -10,13 +10,19 @@ const InlineMessageProps = [
         type: 'string',
         default: 'undefined',
         description: 'Display a custom icon for the message.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
 const MessageSlots = [
     {
-        name: 'messageicon',
-        description: 'Custom message icon template.'
+        name: 'icon',
+        description: 'Custom icon template.'
     }
 ];
 

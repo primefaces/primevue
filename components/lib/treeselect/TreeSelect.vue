@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onClick">
-        <div class="p-hidden-accessible">
+    <div ref="container" :class="containerClass" @click="onClick" v-bind="ptm('root')">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
             <input
                 ref="focusInput"
                 :id="inputId"
@@ -19,34 +19,34 @@
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
                 @keydown="onKeyDown($event)"
-                v-bind="inputProps"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
-        <div class="p-treeselect-label-container">
-            <div :class="labelClass">
+        <div class="p-treeselect-label-container" v-bind="ptm('labelContainer')">
+            <div :class="labelClass" v-bind="ptm('label')">
                 <slot name="value" :value="selectedNodes" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="node of selectedNodes" :key="node.key" class="p-treeselect-token">
-                            <span class="p-treeselect-token-label">{{ node.label }}</span>
+                        <div v-for="node of selectedNodes" :key="node.key" class="p-treeselect-token" v-bind="ptm('token')">
+                            <span class="p-treeselect-token-label" v-bind="ptm('tokenLabel')">{{ node.label }}</span>
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
                 </slot>
             </div>
         </div>
-        <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible">
-            <slot name="indicator">
-                <component :is="'ChevronDownIcon'" class="p-treeselect-trigger-icon" />
+        <div class="p-treeselect-trigger" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible" v-bind="ptm('trigger')">
+            <slot name="triggericon">
+                <component :is="'ChevronDownIcon'" class="p-treeselect-trigger-icon" v-bind="ptm('triggerIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" @keydown="onOverlayKeydown" v-bind="panelProps">
+                <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="panelStyleClass" @keydown="onOverlayKeydown" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <slot name="header" :value="modelValue" :options="options"></slot>
-                    <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }">
+                    <div class="p-treeselect-items-wrapper" :style="{ 'max-height': scrollHeight }" v-bind="ptm('wrapper')">
                         <TSTree
                             ref="tree"
                             :id="listId"
@@ -62,8 +62,16 @@
                             @node-select="onNodeSelect"
                             @node-unselect="onNodeUnselect"
                             :level="0"
-                        />
-                        <div v-if="emptyOptions" class="p-treeselect-empty-message">
+                            :pt="ptm('tree')"
+                        >
+                            <template v-if="$slots.itemtogglericon" #togglericon="iconProps">
+                                <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
+                            </template>
+                            <template v-if="$slots.itemcheckboxicon" #checkboxicon="iconProps">
+                                <slot name="itemcheckboxicon" :checked="iconProps.checked" :partialChecked="iconProps.partialChecked" :class="iconProps.class" />
+                            </template>
+                        </TSTree>
+                        <div v-if="emptyOptions" class="p-treeselect-empty-message" v-bind="ptm('emptyMessage')">
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </div>
                     </div>
@@ -75,7 +83,8 @@
 </template>
 
 <script>
-import ChevronDownIcon from 'primevue/icon/chevrondown';
+import BaseComponent from 'primevue/basecomponent';
+import ChevronDownIcon from 'primevue/icons/chevrondown';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
@@ -84,6 +93,7 @@ import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUti
 
 export default {
     name: 'TreeSelect',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
     props: {
         modelValue: null,
@@ -184,6 +194,7 @@ export default {
     scrollHandler: null,
     overlay: null,
     selfChange: false,
+    selfClick: false,
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
@@ -324,9 +335,11 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.isOutsideClicked(event)) {
+                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event)) {
                         this.hide();
                     }
+
+                    this.selfClick = false;
                 };
 
                 document.addEventListener('click', this.outsideClickListener);
@@ -382,6 +395,8 @@ export default {
                 originalEvent: event,
                 target: this.$el
             });
+
+            this.selfClick = true;
         },
         onOverlayKeydown(event) {
             if (event.code === 'Escape') this.hide();

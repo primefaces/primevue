@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue AutoComplete Component" header="AutoComplete" description="AutoComplete is an input component that provides real-time suggestions when being typed." :componentDocs="docs" :apiDocs="['AutoComplete']" />
+    <DocComponent
+        title="Vue AutoComplete Component"
+        header="AutoComplete"
+        description="AutoComplete is an input component that provides real-time suggestions when being typed."
+        :componentDocs="docs"
+        :apiDocs="['AutoComplete']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -9,7 +16,6 @@ import DisabledDoc from '@/doc/autocomplete/DisabledDoc';
 import DropdownDoc from '@/doc/autocomplete/DropdownDoc';
 import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc';
 import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc';
-import VeeValidateDoc from '@/doc/autocomplete/form/VeeValidateDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc';
 import ImportDoc from '@/doc/autocomplete/ImportDoc';
 import InvalidDoc from '@/doc/autocomplete/InvalidDoc';
@@ -18,6 +24,8 @@ import ObjectsDoc from '@/doc/autocomplete/ObjectsDoc';
 import StyleDoc from '@/doc/autocomplete/StyleDoc';
 import TemplateDoc from '@/doc/autocomplete/TemplateDoc';
 import VirtualScrollDoc from '@/doc/autocomplete/VirtualScrollDoc';
+import VeeValidateDoc from '@/doc/autocomplete/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/autocomplete/pt/index.vue';
 
 export default {
     data() {
@@ -105,7 +113,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

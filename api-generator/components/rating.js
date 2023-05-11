@@ -46,6 +46,27 @@ const RatingProps = [
         type: 'string',
         default: 'null',
         description: 'Icon for the cancelable state.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
+    }
+];
+
+const RatingSlots = [
+    {
+        name: 'cancelicon',
+        description: 'Custom cancel icon template.'
+    },
+    {
+        name: 'onicon',
+        description: 'Custom on icon template.'
+    },
+    {
+        name: 'officon',
+        description: 'Custom off icon template.'
     }
 ];
 
@@ -73,6 +94,7 @@ module.exports = {
         name: 'rating',
         description: 'Rating component is a star based selection input.',
         props: RatingProps,
+        slots: RatingSlots,
         events: RatingEvents
     }
 };

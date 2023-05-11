@@ -1,5 +1,5 @@
 <template>
-    <ul>
+    <ul v-bind="ptm('menu')">
         <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -14,22 +14,37 @@
                 :aria-level="level + 1"
                 :aria-setsize="getAriaSetSize()"
                 :aria-posinset="getAriaPosInset(index)"
+                v-bind="getPTOptions(processedItem, 'menuitem')"
             >
-                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)">
-                    <template v-if="!template.item">
+                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions(processedItem, 'content')">
+                    <template v-if="!templates.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
-                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)">
-                                <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
-                                <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
+                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, 'action')">
+                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
+                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="getPTOptions(processedItem, 'icon')" />
+                                <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
                             </a>
                         </router-link>
-                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getItemActionClass(processedItem)" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true">
-                            <span v-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)"></span>
-                            <span class="p-menuitem-text">{{ getItemLabel(processedItem) }}</span>
-                            <component v-if="getItemProp(processedItem, 'items')" :is="template.submenuicon || 'AngleRightIcon'" class="p-submenu-icon" :active="isItemActive(processedItem)" />
+                        <a
+                            v-else
+                            v-ripple
+                            :href="getItemProp(processedItem, 'url')"
+                            :class="getItemActionClass(processedItem)"
+                            :target="getItemProp(processedItem, 'target')"
+                            tabindex="-1"
+                            aria-hidden="true"
+                            v-bind="getPTOptions(processedItem, 'action')"
+                        >
+                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="getPTOptions(processedItem, 'icon')" />
+                            <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
+                            <template v-if="getItemProp(processedItem, 'items')">
+                                <component v-if="templates.submenuicon" :is="templates.submenuicon" class="p-submenu-icon" :active="isItemActive(processedItem)" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
+                                <AngleRightIcon v-else class="p-submenu-icon" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
+                            </template>
                         </a>
                     </template>
-                    <component v-else :is="template.item" :item="processedItem.item"></component>
+                    <component v-else :is="templates.item" :item="processedItem.item"></component>
                 </div>
                 <TieredMenuSub
                     v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
@@ -39,26 +54,36 @@
                     :menuId="menuId"
                     :focusedItemId="focusedItemId"
                     :items="processedItem.items"
-                    :template="template"
+                    :templates="templates"
                     :activeItemPath="activeItemPath"
                     :exact="exact"
                     :level="level + 1"
+                    :pt="pt"
                     @item-click="$emit('item-click', $event)"
                     @item-mouseenter="$emit('item-mouseenter', $event)"
                 />
             </li>
-            <li v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')" :id="getItemId(processedItem)" :style="getItemProp(processedItem, 'style')" :class="getSeparatorItemClass(processedItem)" role="separator"></li>
+            <li
+                v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')"
+                :id="getItemId(processedItem)"
+                :style="getItemProp(processedItem, 'style')"
+                :class="getSeparatorItemClass(processedItem)"
+                role="separator"
+                v-bind="ptm('separator')"
+            ></li>
         </template>
     </ul>
 </template>
 
 <script>
-import AngleRightIcon from 'primevue/icon/angleright';
+import BaseComponent from 'primevue/basecomponent';
+import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'TieredMenuSub',
+    extends: BaseComponent,
     emits: ['item-click', 'item-mouseenter'],
     props: {
         menuId: {
@@ -77,7 +102,7 @@ export default {
             type: Number,
             default: 0
         },
-        template: {
+        templates: {
             type: Object,
             default: null
         },
@@ -102,6 +127,14 @@ export default {
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
+        },
+        getPTOptions(processedItem, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isItemActive(processedItem),
+                    focused: this.isItemFocused(processedItem)
+                }
+            });
         },
         isItemActive(processedItem) {
             return this.activeItemPath.some((path) => path.key === processedItem.key);

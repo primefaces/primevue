@@ -8,8 +8,19 @@
  *
  */
 import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
+import { PaginatorPassThroughOptionType } from '../paginator';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
-import { VirtualScrollerProps } from '../virtualscroller';
+import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
+
+export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface DataTablePassThroughMethodOptions {
+    props: DataTableProps;
+    state: DataTableState;
+}
 
 /**
  * Custom datatable export metadata.
@@ -522,6 +533,177 @@ export interface DataTableStateEvent {
 }
 
 /**
+ * Custom passthrough(pt) options.
+ * @see {@link DataTableProps.pt}
+ */
+export interface DataTablePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading overlay's DOM element.
+     */
+    loadingOverlay?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header's DOM element.
+     */
+    header?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Paginator component.
+     * @see {@link PaginatorPassThroughOptionType}
+     */
+    paginator?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the wrapper's DOM element.
+     */
+    wrapper?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the VirtualScroller component.
+     * @see {@link VirtualScrollerPassThroughOptionType}
+     */
+    virtualScroller?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the table's DOM element.
+     */
+    table?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the virtual scroller spacer's DOM element.
+     */
+    virtualScrollerSpacer?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footer's DOM element.
+     */
+    footer?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the thead's DOM element.
+     */
+    thead?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header row's DOM element.
+     */
+    headerRow?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the tbody's DOM element.
+     */
+    tbody?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the rowgroup header's DOM element.
+     */
+    rowgroupHeader?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the row's DOM element.
+     */
+    row?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the row expansion's DOM element.
+     */
+    rowExpansion?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the rowgroup footer's DOM element.
+     */
+    rowgroupFooter?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the tfoot's DOM element.
+     */
+    tfoot?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footerr ow's DOM element.
+     */
+    footerRow?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the footer cell's DOM element.
+     */
+    footerCell?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the resize helper's DOM element.
+     */
+    resizeHelper?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the reorder indicator up's DOM element.
+     */
+    reorderIndicatorUp?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the reorder indicator down's DOM element.
+     */
+    reorderIndicatorDown?: DataTablePassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface DataTablePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in DataTable component.
+ */
+export interface DataTableState {
+    /**
+     * Current index of first record as a number.
+     */
+    d_first: number;
+    /**
+     * Current number of rows to display in new page as a number.
+     */
+    d_rows: number;
+    /**
+     * Current sort field.
+     */
+    d_sortField: string | ((item: any) => string) | undefined;
+    /**
+     * Current order to sort the data by default.
+     */
+    d_sortOrder: number;
+    /**
+     * Current sortmeta objects to sort the data.
+     */
+    d_multiSortMeta: DataTableSortMeta[];
+    /**
+     * Current group sortmeta objects to sort the data.
+     */
+    d_groupRowsSortMeta: DataTableSortMeta;
+    /**
+     * Current keys of selected rows.
+     */
+    d_selectionKeys: any[];
+    /**
+     * Current keys of rows in expanded state.
+     */
+    d_expandedRowKeys: any[];
+    /**
+     * Current order of the columns.
+     */
+    d_columnOrder: string[];
+    /**
+     * Current keys of editing rows.
+     */
+    d_editingRowKeys: any;
+    /**
+     * Current editing meta data.
+     */
+    d_editingMeta: object;
+    /**
+     * Current filters object.
+     */
+    d_filters: DataTableFilterMeta;
+    /**
+     * Current editing as a boolean.
+     * @defaultValue false
+     */
+    d_editing: boolean;
+}
+
+/**
  * Defines valid properties in DataTable component.
  */
 export interface DataTableProps {
@@ -611,7 +793,7 @@ export interface DataTableProps {
     loading?: boolean | undefined;
     /**
      * The icon to show while indicating data load is in progress.
-     * @defaultValue pi pi-spinner
+     *  @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
@@ -730,12 +912,12 @@ export interface DataTableProps {
     expandedRows?: any[] | DataTableExpandedRows | null;
     /**
      * Icon of the row toggler to display the row as expanded.
-     * @defaultValue pi-chevron-down
+     * @deprecated since v3.27.0. Use 'rowtogglericon' slot.
      */
     expandedRowIcon?: string | undefined;
     /**
      * Icon of the row toggler to display the row as collapsed.
-     * @defaultValue pi-chevron-right
+     * @deprecated since v3.27.0. Use 'rowtogglericon' slot.
      */
     collapsedRowIcon?: string | undefined;
     /**
@@ -829,6 +1011,11 @@ export interface DataTableProps {
      * Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {DataTablePassThroughOptions}
+     */
+    pt?: DataTablePassThroughOptions;
 }
 
 /**
@@ -900,6 +1087,44 @@ export interface DataTableSlots {
          */
         index: number;
     }): VNode[];
+    /**
+     * Custom loading icon template.
+     */
+    loadingicon(): VNode[];
+    /**
+     * Custom reorder indicator up icon template.
+     */
+    reorderindicatorupicon(): VNode[];
+    /**
+     * Custom reorder indicator down icon template.
+     */
+    reorderindicatordownicon(): VNode[];
+    /**
+     * Custom rowgroup toggler icon template.
+     * @param {Object} scope - rowgroup toggler icon slot's params.
+     */
+    rowgrouptogglericon(scope: {
+        /**
+         * Current rowgroup's expanded state.
+         */
+        expanded: boolean;
+    }): VNode[];
+    /**
+     * Custom paginator first page link icon template.
+     */
+    paginatorfirstpagelinkicon(): VNode[];
+    /**
+     * Custom paginator previous page link icon template.
+     */
+    paginatorprevpagelinkicon(): VNode[];
+    /**
+     * Custom paginator next page link icon template.
+     */
+    paginatornextpagelinkicon(): VNode[];
+    /**
+     * Custom paginator last page link icon template.
+     */
+    paginatorlastpagelinkicon(): VNode[];
 }
 /**
  * Defines valid emits in Datatable component.

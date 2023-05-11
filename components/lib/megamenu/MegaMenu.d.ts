@@ -11,6 +11,150 @@ import { VNode } from 'vue';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttributes | ((options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface MegaMenuPassThroughMethodOptions {
+    props: MegaMenuProps;
+    state: MegaMenuState;
+    context: MegaMenuContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link MegaMenuProps.pt}
+ */
+export interface MegaMenuPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list's DOM element.
+     */
+    menu?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the list item's DOM element.
+     */
+    menuitem?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the action's DOM element.
+     */
+    action?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the label's DOM element.
+     */
+    label?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the submenu icon's DOM element.
+     */
+    submenuIcon?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the panel's DOM element.
+     */
+    panel?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the grid's DOM element.
+     */
+    grid?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the column's DOM element.
+     */
+    column?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the submenu header's DOM element.
+     */
+    submenuHeader?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the separator's DOM element.
+     */
+    separator?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the start of the component.
+     */
+    start?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the end of the component.
+     */
+    end?: MegaMenuPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface MegaMenuPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines focused item info
+ */
+export interface MegaMenuFocusedItemInfo {
+    /**
+     * Active item index
+     */
+    index: number;
+    /**
+     * Active item level
+     */
+    level: number;
+    /**
+     * Parent key info
+     */
+    parentKey: string;
+}
+
+/**
+ * Defines current inline state in MegaMenu component.
+ */
+export interface MegaMenuState {
+    /**
+     * Current id state as a string.
+     */
+    id: string;
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current focused item info.
+     * @type {MegaMenuFocusedItemInfo}
+     */
+    focusedItemInfo: MegaMenuFocusedItemInfo;
+    /**
+     * Active item path.
+     * @type {MenuItem}
+     */
+    activeItem: MenuItem;
+}
+
+/**
+ * Defines current options in MegaMenu component.
+ */
+export interface MegaMenuContext {
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focused state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
+
 /**
  * Defines valid properties in MegaMenu component.
  */
@@ -46,6 +190,11 @@ export interface MegaMenuProps {
      * Identifier of the underlying menu element.
      */
     'aria-labelledby'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {MegaMenuPassThroughOptions}
+     */
+    pt?: MegaMenuPassThroughOptions;
 }
 
 /**
@@ -78,6 +227,20 @@ export interface MegaMenuSlots {
          * Whether item is active
          */
         active: boolean;
+    }): VNode[];
+    /**
+     * Custom item icon template.
+     * @param {Object} scope - item icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
     }): VNode[];
 }
 

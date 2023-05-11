@@ -256,6 +256,12 @@ const DropdownProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -372,6 +378,22 @@ const DropdownSlots = [
     {
         name: 'loader',
         description: 'Custom content for the virtual scroller loader items'
+    },
+    {
+        name: 'clearicon',
+        description: 'Custom clear icon template.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'filtericon',
+        description: 'Custom filter icon template.'
     }
 ];
 

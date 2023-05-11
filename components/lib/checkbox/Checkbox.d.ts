@@ -10,6 +10,61 @@
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type CheckboxPassThroughOptionType = CheckboxPassThroughAttributes | ((options: CheckboxPassThroughMethodOptions) => CheckboxPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface CheckboxPassThroughMethodOptions {
+    props: CheckboxProps;
+    state: CheckboxState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link CheckboxProps.pt}
+ */
+export interface CheckboxPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: CheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input's DOM element.
+     */
+    input?: CheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the icon's DOM element.
+     */
+    icon?: CheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: CheckboxPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: CheckboxPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface CheckboxPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Checkbox component.
+ */
+export interface CheckboxState {
+    /**
+     * Current focus state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
+
 /**
  * Defines valid properties in Checkbox component.
  */
@@ -84,6 +139,11 @@ export interface CheckboxProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {CheckboxPassThroughOptions}
+     */
+    pt?: CheckboxPassThroughOptions;
 }
 
 export interface CheckboxSlots {

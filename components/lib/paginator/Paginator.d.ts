@@ -8,7 +8,135 @@
  *
  */
 import { VNode } from 'vue';
+import { DropdownPassThroughOptionType } from '../dropdown';
+import { InputNumberPassThroughOptionType } from '../inputnumber';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type PaginatorPassThroughOptionType = PaginatorPassThroughAttributes | ((options: PaginatorPassThroughMethodOptions) => PaginatorPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface PaginatorPassThroughMethodOptions {
+    props: PaginatorProps;
+    state: PaginatorState;
+    context: PaginatorContext;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link PaginatorProps.pt}
+ */
+export interface PaginatorPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the left's DOM element.
+     */
+    left?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the first page button's DOM element.
+     */
+    firstPageButton?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the first page icon's DOM element.
+     */
+    firstPageIcon?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the prev page button's DOM element.
+     */
+    prevPageButton?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the prev page icon's DOM element.
+     */
+    prevPageIcon?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the next page button's DOM element.
+     */
+    nextPageButton?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the next page icon's DOM element.
+     */
+    nextPageIcon?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the last page button's DOM element.
+     */
+    lastPageButton?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the last page icon's DOM element.
+     */
+    lastPageIcon?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the pages's DOM element.
+     */
+    pages?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the page button's DOM element.
+     */
+    pageButton?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the current's DOM element.
+     */
+    current?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Dropdown component.
+     * @see {@link DropdownPassThroughOptionType}
+     */
+    RPPDropdown?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Dropdown component.
+     * @see {@link DropdownPassThroughOptionType}
+     */
+    JTPDropdown?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Dropdown component.
+     * @see {@link InputNumberPassThroughOptionType}
+     */
+    JTPInput?: InputNumberPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the end's DOM element.
+     */
+    end?: PaginatorPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface PaginatorPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Paginator component.
+ */
+export interface PaginatorState {
+    /**
+     * Current index of first record as a number.
+     */
+    d_first: number;
+    /**
+     * Current number of rows to display in new page as a number.
+     */
+    d_rows: number;
+}
+
+/**
+ * Defines current options in Paginator component.
+ */
+export interface PaginatorContext {
+    /**
+     * Current active state as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current disabled state of the button as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
 
 /**
  * Paginator page state metadata.
@@ -92,6 +220,11 @@ export interface PaginatorProps {
      * @defaultValue true
      */
     alwaysShow?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {PaginatorPassThroughOptions}
+     */
+    pt?: PaginatorPassThroughOptions;
 }
 
 /**

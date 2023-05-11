@@ -40,16 +40,16 @@ export default {
             ],
             code: {
                 basic: `
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-sm mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="mb-2"></SplitButton>
-<SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-lg mb-2"></SplitButton>`,
+<SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>`,
                 options: `
 <template>
     <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
         <Toast />
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-sm mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-lg mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
     </div>
 </template>
 
@@ -94,9 +94,9 @@ export default {
 <template>
     <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
         <Toast />
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-sm mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="mb-2"></SplitButton>
-        <SplitButton label="Save" :model="items" icon="pi pi-plus" class="p-button-lg mb-2"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
     </div>
 </template>
 

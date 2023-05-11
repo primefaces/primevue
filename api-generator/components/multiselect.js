@@ -292,6 +292,12 @@ const MultiSelectProps = [
         type: 'string',
         default: 'null',
         description: 'Identifier of the underlying input element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -448,6 +454,14 @@ const MultiSelectSlots = [
     {
         name: 'itemcheckboxicon',
         description: 'Custom item checkbox icon template.'
+    },
+    {
+        name: 'loadingicon',
+        description: 'Custom loading icon template.'
+    },
+    {
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
     }
 ];
 

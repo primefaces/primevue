@@ -316,6 +316,12 @@ const CalendarProps = [
         type: 'object',
         default: 'null',
         description: 'Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -462,11 +468,11 @@ const CalendarSlots = [
         description: 'Custom content for the calendar decade.'
     },
     {
-        name: 'triggericon',
-        description: 'Custom trigger icon template.'
+        name: 'dropdownicon',
+        description: 'Custom dropdown icon template.'
     },
     {
-        name: 'previcon',
+        name: 'previousicon',
         description: 'Custom previous icon template.'
     },
     {

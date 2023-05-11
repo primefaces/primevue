@@ -1,12 +1,12 @@
 <template>
     <Portal>
-        <div ref="container" :class="containerClass" v-bind="$attrs">
-            <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave">
+        <div ref="container" :class="containerClass" v-bind="{ ...$attrs, ...ptm('root') }">
+            <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave" v-bind="ptm('message')">
                 <ToastMessage
                     v-for="msg of messages"
                     :key="msg.id"
                     :message="msg"
-                    :template="$slots.message"
+                    :templates="$slots"
                     :closeIcon="closeIcon"
                     :infoIcon="infoIcon"
                     :warnIcon="warnIcon"
@@ -14,6 +14,7 @@
                     :successIcon="successIcon"
                     :closeButtonProps="closeButtonProps"
                     @close="remove($event)"
+                    :pt="pt"
                 />
             </transition-group>
         </div>
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Portal from 'primevue/portal';
 import ToastEventBus from 'primevue/toasteventbus';
 import { ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
@@ -30,6 +32,7 @@ var messageIdx = 0;
 
 export default {
     name: 'Toast',
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['close', 'life-end'],
     props: {
@@ -55,23 +58,23 @@ export default {
         },
         closeIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         infoIcon: {
             type: String,
-            default: 'pi pi-info-circle'
+            default: undefined
         },
         warnIcon: {
             type: String,
-            default: 'pi pi-exclamation-triangle'
+            default: undefined
         },
         errorIcon: {
             type: String,
-            default: 'pi pi-times'
+            default: undefined
         },
         successIcon: {
             type: String,
-            default: 'pi pi-check'
+            default: undefined
         },
         closeButtonProps: {
             type: null,

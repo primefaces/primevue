@@ -1,8 +1,7 @@
 <template>
-    <div className="doc-main">
-        <div className="doc-intro">
+    <div class="doc-main">
+        <div class="doc-intro">
             <h1>Panel Pass Through</h1>
-            <p>Description</p>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -21,18 +20,18 @@ export default {
             docs: [
                 {
                     id: 'pt.image',
-                    label: 'WireFrame',
+                    label: 'Wireframe',
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc',
-                    label: 'Panel Elements',
+                    id: 'pt.doc.panel',
+                    label: 'Panel PT Options',
                     component: DocApiTable,
                     data: getPTOption('Panel')
                 },
                 {
                     id: 'pt.demo',
-                    label: 'Example',
+                    label: 'Demo',
                     component: PtDoc
                 }
             ]

@@ -4,6 +4,12 @@ const ConfirmPopupProps = [
         type: 'string',
         default: 'null',
         description: 'Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -11,6 +17,18 @@ const ConfirmPopupSlots = [
     {
         name: 'message',
         description: 'Custom content for the component.'
+    },
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
+    },
+    {
+        name: 'accepticon',
+        description: 'Custom accept icon template.'
+    },
+    {
+        name: 'rejecticon',
+        description: 'Custom reject icon template.'
     }
 ];
 

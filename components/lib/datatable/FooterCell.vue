@@ -1,18 +1,20 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')">
+    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('footerCell') }">
         <component v-if="column.children && column.children.footer" :is="column.children.footer" :column="column" />
         {{ columnProp('footer') }}
     </td>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'FooterCell',
+    extends: BaseComponent,
     props: {
         column: {
-            type: null,
+            type: Object,
             default: null
         }
     },
@@ -34,6 +36,18 @@ export default {
     methods: {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
+        },
+        getColumnPTOptions(key) {
+            return this.ptmo(this.getColumnProp(), key, {
+                props: this.column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {

@@ -1,16 +1,28 @@
 <template>
-    <div :class="containerClass">
-        <div v-if="cancel" :class="['p-rating-item p-rating-cancel-item', { 'p-focus': focusedOptionIndex === 0 }]" @click="onOptionClick($event, 0)">
-            <span class="p-hidden-accessible">
-                <input type="radio" value="0" :name="name" :checked="modelValue === 0" :disabled="disabled" :readonly="readonly" :aria-label="cancelAriaLabel()" @focus="onFocus($event, 0)" @blur="onBlur" @change="onChange($event, 0)" />
+    <div :class="containerClass" v-bind="ptm('root')">
+        <div v-if="cancel" :class="['p-rating-item p-rating-cancel-item', { 'p-focus': focusedOptionIndex === 0 }]" @click="onOptionClick($event, 0)" v-bind="ptm('cancelItem')">
+            <span class="p-hidden-accessible" v-bind="ptm('hiddenCancelInputWrapper')">
+                <input
+                    type="radio"
+                    value="0"
+                    :name="name"
+                    :checked="modelValue === 0"
+                    :disabled="disabled"
+                    :readonly="readonly"
+                    :aria-label="cancelAriaLabel()"
+                    @focus="onFocus($event, 0)"
+                    @blur="onBlur"
+                    @change="onChange($event, 0)"
+                    v-bind="ptm('hiddenCancelInput')"
+                />
             </span>
             <slot name="cancelicon">
-                <component :is="cancelIcon ? 'span' : 'BanIcon'" :class="['p-rating-icon p-rating-cancel', cancelIcon]" />
+                <component :is="cancelIcon ? 'span' : 'BanIcon'" :class="['p-rating-icon p-rating-cancel', cancelIcon]" v-bind="ptm('cancelIcon')" />
             </slot>
         </div>
         <template v-for="value in stars" :key="value">
-            <div :class="['p-rating-item', { 'p-rating-item-active': value <= modelValue, 'p-focus': value === focusedOptionIndex }]" @click="onOptionClick($event, value)">
-                <span class="p-hidden-accessible">
+            <div :class="['p-rating-item', { 'p-rating-item-active': value <= modelValue, 'p-focus': value === focusedOptionIndex }]" @click="onOptionClick($event, value)" v-bind="getPTOptions(value, 'item')">
+                <span class="p-hidden-accessible" v-bind="ptm('hiddenItemInputWrapper')">
                     <input
                         type="radio"
                         :value="value"
@@ -22,13 +34,14 @@
                         @focus="onFocus($event, value)"
                         @blur="onBlur"
                         @change="onChange($event, value)"
+                        v-bind="ptm('hiddenItemInput')"
                     />
                 </span>
                 <slot v-if="value <= modelValue" name="onicon" :value="value">
-                    <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="['p-rating-icon', onIcon]" />
+                    <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="['p-rating-icon', onIcon]" v-bind="ptm('onIcon')" />
                 </slot>
                 <slot v-else name="officon" :value="value">
-                    <component :is="onIcon ? 'span' : 'StarIcon'" :class="['p-rating-icon', offIcon]" />
+                    <component :is="offIcon ? 'span' : 'StarIcon'" :class="['p-rating-icon', offIcon]" v-bind="ptm('offIcon')" />
                 </slot>
             </div>
         </template>
@@ -36,13 +49,15 @@
 </template>
 
 <script>
-import BanIcon from 'primevue/icon/ban';
-import StarIcon from 'primevue/icon/star';
-import StarFillIcon from 'primevue/icon/starfill';
+import BaseComponent from 'primevue/basecomponent';
+import BanIcon from 'primevue/icons/ban';
+import StarIcon from 'primevue/icons/star';
+import StarFillIcon from 'primevue/icons/starfill';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Rating',
+    extends: BaseComponent,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
     props: {
         modelValue: {
@@ -93,6 +108,14 @@ export default {
         this.name = this.name || UniqueComponentId();
     },
     methods: {
+        getPTOptions(value, key) {
+            return this.ptm(key, {
+                context: {
+                    active: value <= this.modelValue,
+                    focused: value === this.focusedOptionIndex
+                }
+            });
+        },
         onOptionClick(event, value) {
             if (!this.readonly && !this.disabled) {
                 this.onOptionSelect(event, value);

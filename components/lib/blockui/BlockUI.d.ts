@@ -10,6 +10,45 @@
 import { VNode } from 'vue';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
+export declare type BlockUIPassThroughOptionType = BlockUIPassThroughAttributes | ((options: BlockUIPassThroughMethodOptions) => BlockUIPassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface BlockUIPassThroughMethodOptions {
+    props: BlockUIProps;
+    state: BlockUIState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link BlockUIProps.pt}
+ */
+export interface BlockUIPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: BlockUIPassThroughOptionType;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface BlockUIPassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in BlockUI component.
+ */
+export interface BlockUIState {
+    /**
+     * Current blocked state as a boolean.
+     * @defaultValue false
+     */
+    isBlocked: boolean;
+}
+
 /**
  * Defines valid properties in BlockUI component
  */
@@ -34,6 +73,11 @@ export interface BlockUIProps {
      * @defaultValue true
      */
     autoZIndex?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {BlockUIPassThroughOptions}
+     */
+    pt?: BlockUIPassThroughOptions;
 }
 
 /**

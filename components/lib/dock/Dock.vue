@@ -1,14 +1,16 @@
 <template>
-    <div :class="containerClass" :style="style">
-        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions" :position="position" :menuId="menuId" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" :tabindex="tabindex"></DockSub>
+    <div :class="containerClass" :style="style" v-bind="ptm('root')">
+        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions" :position="position" :menuId="menuId" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" :tabindex="tabindex" :pt="pt"></DockSub>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import DockSub from './DockSub.vue';
 
 export default {
     name: 'Dock',
+    extends: BaseComponent,
     props: {
         position: {
             type: String,

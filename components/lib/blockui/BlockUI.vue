@@ -1,14 +1,16 @@
 <template>
-    <div ref="container" class="p-blockui-container" :aria-busy="isBlocked">
+    <div ref="container" class="p-blockui-container" :aria-busy="isBlocked" v-bind="ptm('root')">
         <slot></slot>
     </div>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'BlockUI',
+    extends: BaseComponent,
     emits: ['block', 'unblock'],
     props: {
         blocked: {

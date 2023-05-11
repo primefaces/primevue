@@ -250,6 +250,12 @@ const ColumnProps = [
         type: 'boolean',
         default: 'false',
         description: 'Whether the column is rendered.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -289,6 +295,62 @@ const ColumnSlots = [
     {
         name: 'filterapply',
         description: "Custom content for the filter menu's apply section"
+    },
+    {
+        name: 'loading',
+        description: 'Custom loading template.'
+    },
+    {
+        name: 'rowtogglericon',
+        description: 'Custom row toggler icon template.'
+    },
+    {
+        name: 'rowtogglericon',
+        description: 'Custom row toggler icon template.'
+    },
+    {
+        name: 'rowcheckboxicon',
+        description: 'Custom row checkbox icon template.'
+    },
+    {
+        name: 'roweditoriniticon',
+        description: 'Custom row editor init icon template.'
+    },
+    {
+        name: 'roweditorsaveicon',
+        description: 'Custom row editor save icon template.'
+    },
+    {
+        name: 'roweditorcancelicon',
+        description: 'Custom row editor cancel icon template.'
+    },
+    {
+        name: 'filtericon',
+        description: 'Custom filter icon template.'
+    },
+    {
+        name: 'filterclearicon',
+        description: 'Custom filter clear icon template.'
+    },
+    {
+        name: 'filterremoveicon',
+        description: 'Custom filter remove icon template.'
+    },
+    {
+        name: 'filteraddicon',
+        description: 'Custom filter add icon template.'
+    },
+    {
+        name: 'sorticon',
+        description: 'Custom sort icon template.'
+    },
+    {
+        name: 'headercheckboxicon',
+        description: 'Custom header checkbox icon template.'
+    },
+    {
+        name: 'rowreordericon',
+        description: 'Custom row reorder icon template.'
     }
 ];
 

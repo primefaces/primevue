@@ -101,6 +101,12 @@ const TreeSelectProps = [
         type: 'string',
         default: 'null',
         description: 'Used to define a string that labels the element.'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 
@@ -196,8 +202,16 @@ const TreeSelectSlots = [
         description: 'Custom content when there is no data to display'
     },
     {
-        name: 'indicator',
+        name: 'triggericon',
         description: 'Custom content for the dropdown indicator'
+    },
+    {
+        name: 'itemtogglericon',
+        description: 'Custom item toggler icon template.'
+    },
+    {
+        name: 'itemcheckboxicon',
+        description: 'Custom item checkbox icon template.'
     }
 ];
 

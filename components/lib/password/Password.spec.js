@@ -1,16 +1,5 @@
-import { config, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Password from './Password.vue';
-
-config.global.mocks = {
-    $primevue: {
-        config: {
-            'z-index': 5,
-            inputStyle: 'filled',
-            ripple: false,
-            locale: {}
-        }
-    }
-};
 
 describe('Password.vue', () => {
     let wrapper;
@@ -43,11 +32,11 @@ describe('Password.vue', () => {
     });
 
     it('should meter update', async () => {
-        expect(wrapper.find('.p-password-info').text()).toBe('');
+        expect(wrapper.find('.p-password-info').text()).toBe('Enter a password');
 
         await wrapper.vm.onKeyUp(event);
 
-        expect(wrapper.find('.p-password-info').text()).toBe('');
+        expect(wrapper.find('.p-password-info').text()).toBe('Weak');
 
         expect(wrapper.find('.p-password-strength').classes()).toContain('weak');
     });

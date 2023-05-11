@@ -1,14 +1,14 @@
 <template>
-    <tfoot v-if="hasFooter" class="p-datatable-tfoot" role="rowgroup">
-        <tr v-if="!columnGroup" role="row">
+    <tfoot v-if="hasFooter" class="p-datatable-tfoot" role="rowgroup" v-bind="{ ...ptm('tfoot'), ...getColumnGroupPTOptions('root') }">
+        <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
+                <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
             </template>
         </tr>
         <template v-else>
-            <tr v-for="(row, i) of getFooterRows()" :key="i" role="row">
+            <tr v-for="(row, i) of getFooterRows()" :key="i" role="row" v-bind="getRowPTOptions(row, 'root')">
                 <template v-for="(col, j) of getFooterColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
-                    <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" />
+                    <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
                 </template>
             </tr>
         </template>
@@ -16,24 +16,50 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
 import FooterCell from './FooterCell.vue';
 
 export default {
     name: 'TableFooter',
+    extends: BaseComponent,
     props: {
         columnGroup: {
             type: null,
             default: null
         },
         columns: {
-            type: null,
+            type: Object,
             default: null
         }
     },
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
+        },
+        getColumnGroupPTOptions(key) {
+            return this.ptmo(this.getColumnGroupProps(), key, {
+                props: this.getColumnGroupProps(),
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getColumnGroupProps() {
+            return this.columnGroup && this.columnGroup.props && this.columnGroup.props.pt ? this.columnGroup.props.pt : undefined; //@todo
+        },
+        getRowPTOptions(row, key) {
+            return this.ptmo(this.getRowProp(row), key, {
+                props: row.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                }
+            });
+        },
+        getRowProp(row) {
+            return row.props && row.props.pt ? row.props.pt : undefined; //@todo
         },
         getFooterRows() {
             let rows = [];

@@ -7,8 +7,62 @@
  * @module inplace
  *
  */
+
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonPassThroughOptions } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
+export declare type InplacePassThroughOptionType = InplacePassThroughAttributes | ((options: InplacePassThroughMethodOptions) => InplacePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface InplacePassThroughMethodOptions {
+    props: InplaceProps;
+    state: InplaceState;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link InplaceProps.pt}
+ */
+export interface InplacePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     */
+    root?: InplacePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the display's DOM element.
+     */
+    display?: InplacePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the content's DOM element.
+     */
+    content?: InplacePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    closeButton?: ButtonPassThroughOptions;
+}
+
+/**
+ * Custom passthrough attributes for each DOM elements
+ */
+export interface InplacePassThroughAttributes {
+    [key: string]: any;
+}
+
+/**
+ * Defines current inline state in Inplace component.
+ */
+export interface InplaceState {
+    /**
+     * Current active state as a boolean.
+     * @defaultValue false
+     */
+    d_active: boolean;
+}
 
 /**
  * Defines valid properties in Inplace component.
@@ -31,7 +85,7 @@ export interface InplaceProps {
     disabled?: boolean | undefined;
     /**
      * Icon to display in the close button.
-     * @defaultValue pi pi-times
+     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
@@ -42,6 +96,11 @@ export interface InplaceProps {
      * Uses to pass all properties of the HTMLButtonElement to the close button.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {InplacePassThroughOptions}
+     */
+    pt?: InplacePassThroughOptions;
 }
 
 /**
@@ -56,6 +115,10 @@ export interface InplaceSlots {
      * Custom content template.
      */
     content(): VNode[];
+    /**
+     * Custom close icon template.
+     */
+    closeicon(): VNode[];
 }
 
 /**

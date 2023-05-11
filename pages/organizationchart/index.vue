@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Organization Chart Component" header="OrganizationChart" description="OrganizationChart visualizes hierarchical organization data." :componentDocs="docs" :apiDocs="['OrganizationChart']" />
+    <DocComponent title="Vue Organization Chart Component" header="OrganizationChart" description="OrganizationChart visualizes hierarchical organization data." :componentDocs="docs" :apiDocs="['OrganizationChart']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -10,6 +10,7 @@ import ImportDoc from '@/doc/organizationchart/ImportDoc';
 import SelectionDoc from '@/doc/organizationchart/SelectionDoc';
 import StyleDoc from '@/doc/organizationchart/StyleDoc';
 import TemplateDoc from '@/doc/organizationchart/TemplateDoc';
+import PTComponent from '@/doc/organizationchart/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +51,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

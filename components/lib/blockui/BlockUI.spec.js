@@ -1,16 +1,7 @@
-import { config, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { beforeEach, expect } from 'vitest';
 import BlockUI from './BlockUI.vue';
 
-config.global.mocks = {
-    $primevue: {
-        config: {
-            zIndex: {
-                modal: 1100
-            }
-        }
-    }
-};
 vi.mock('primevue/utils');
 let wrapper = null;
 

@@ -11,26 +11,44 @@
         :closeOnEscape="closeOnEscape"
         :draggable="draggable"
         @update:visible="onHide"
+        :pt="pt"
     >
         <template v-if="!$slots.message">
-            <i v-if="confirmation.icon" :class="iconClass" />
-            <span class="p-confirm-dialog-message">{{ message }}</span>
+            <slot name="icon" class="p-confirm-dialog-icon">
+                <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-dialog-icon" />
+                <span v-else-if="confirmation.icon" :class="iconClass" v-bind="ptm('icon')" />
+            </slot>
+            <span class="p-confirm-dialog-message" v-bind="ptm('message')">{{ message }}</span>
         </template>
         <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
-            <CDButton :label="rejectLabel" :icon="rejectIcon" :class="rejectClass" @click="reject()" :autofocus="autoFocusReject" />
-            <CDButton :label="acceptLabel" :icon="acceptIcon" :class="acceptClass" @click="accept()" :autofocus="autoFocusAccept" />
+            <CDButton :label="rejectLabel" :class="rejectClass" iconPos="left" @click="reject()" :autofocus="autoFocusReject" :pt="ptm('rejectButton')">
+                <template #icon="iconProps">
+                    <slot name="rejecticon">
+                        <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
+                    </slot>
+                </template>
+            </CDButton>
+            <CDButton :label="acceptLabel" :class="acceptClass" iconPos="left" @click="accept()" :autofocus="autoFocusAccept" :pt="ptm('acceptButton')">
+                <template #icon="iconProps">
+                    <slot name="accepticon">
+                        <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
+                    </slot>
+                </template>
+            </CDButton>
         </template>
     </CDialog>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import Dialog from 'primevue/dialog';
 
 export default {
     name: 'ConfirmDialog',
+    extends: BaseComponent,
     props: {
         group: String,
         breakpoints: {

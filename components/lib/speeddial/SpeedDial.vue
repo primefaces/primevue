@@ -1,10 +1,9 @@
 <template>
-    <div :ref="containerRef" :class="containerClass" :style="style">
+    <div :ref="containerRef" :class="containerClass" :style="style" v-bind="ptm('root')">
         <slot name="button" :toggle="onClick">
             <SDButton
                 type="button"
                 :class="buttonClassName"
-                :icon="iconClassName"
                 @click="onClick($event)"
                 :disabled="disabled"
                 @keydown="onTogglerKeydown"
@@ -13,11 +12,28 @@
                 :aria-controls="id + '_list'"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
-            />
+                :pt="ptm('button')"
+            >
+                <template #icon>
+                    <slot name="icon" :visible="d_visible">
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" v-bind="ptm('button')['icon']" />
+                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" v-bind="ptm('button')['icon']" />
+                    </slot>
+                </template>
+            </SDButton>
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1">
+        <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
-                <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" class="p-speeddial-item" :class="itemClass(`${id}_${index}`)" :style="getItemStyle(index)" role="menuitem">
+                <li
+                    v-if="isItemVisible(item)"
+                    :id="`${id}_${index}`"
+                    :aria-controls="`${id}_item`"
+                    class="p-speeddial-item"
+                    :class="itemClass(`${id}_${index}`)"
+                    :style="getItemStyle(index)"
+                    role="menuitem"
+                    v-bind="getPTOptions(`${id}_${index}`, 'menuitem')"
+                >
                     <template v-if="!$slots.item">
                         <a
                             v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
@@ -29,8 +45,9 @@
                             :target="item.target"
                             @click="onItemClick($event, item)"
                             :aria-label="item.label"
+                            v-bind="getPTOptions(`${id}_${index}`, 'action')"
                         >
-                            <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]"></span>
+                            <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item"></component>
@@ -39,18 +56,21 @@
         </ul>
     </div>
     <template v-if="mask">
-        <div :class="maskClassName" :style="maskStyle"></div>
+        <div :class="maskClassName" :style="maskStyle" v-bind="ptm('mask')"></div>
     </template>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
+import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'SpeedDial',
+    extends: BaseComponent,
     emits: ['click', 'show', 'hide', 'focus', 'blur'],
     props: {
         model: null,
@@ -91,9 +111,12 @@ export default {
         maskClass: null,
         showIcon: {
             type: String,
-            default: 'pi pi-plus'
+            default: undefined
         },
-        hideIcon: null,
+        hideIcon: {
+            type: String,
+            default: undefined
+        },
         rotateAnimation: {
             type: Boolean,
             default: true
@@ -154,6 +177,13 @@ export default {
         this.unbindDocumentClickListener();
     },
     methods: {
+        getPTOptions(id, key) {
+            return this.ptm(key, {
+                context: {
+                    active: this.isItemActive(id)
+                }
+            });
+        },
         onFocus(event) {
             this.focused = true;
 
@@ -474,6 +504,9 @@ export default {
         isItemVisible(item) {
             return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
         },
+        isItemActive(id) {
+            return id === this.focusedOptionId;
+        },
         containerRef(el) {
             this.container = el;
         },
@@ -483,7 +516,7 @@ export default {
         itemClass(id) {
             return [
                 {
-                    'p-focus': id === this.focusedOptionId
+                    'p-focus': this.isItemActive(id)
                 }
             ];
         }
@@ -509,9 +542,6 @@ export default {
                 this.buttonClass
             ];
         },
-        iconClassName() {
-            return this.d_visible && !!this.hideIcon ? this.hideIcon : this.showIcon;
-        },
         maskClassName() {
             return [
                 'p-speeddial-mask',
@@ -526,7 +556,8 @@ export default {
         }
     },
     components: {
-        SDButton: Button
+        SDButton: Button,
+        PlusIcon: PlusIcon
     },
     directives: {
         ripple: Ripple,

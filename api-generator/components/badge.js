@@ -16,6 +16,12 @@ const BadgeProps = [
         type: 'string',
         default: 'null',
         description: 'Size of the badge, valid options are "large" and "xlarge".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
     }
 ];
 

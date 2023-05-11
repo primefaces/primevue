@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Fieldset Component" header="Fieldset" description="Fieldset is a grouping component with a content toggle feature." :componentDocs="docs" :apiDocs="['Fieldset']" />
+    <DocComponent title="Vue Fieldset Component" header="Fieldset" description="Fieldset is a grouping component with a content toggle feature." :componentDocs="docs" :apiDocs="['Fieldset']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -9,6 +9,8 @@ import ImportDoc from '@/doc/fieldset/ImportDoc.vue';
 import StyleDoc from '@/doc/fieldset/StyleDoc.vue';
 import TemplateDoc from '@/doc/fieldset/TemplateDoc.vue';
 import ToggleableDoc from '@/doc/fieldset/ToggleableDoc.vue';
+import PTComponent from '@/doc/fieldset/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -43,7 +45,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

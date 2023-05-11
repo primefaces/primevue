@@ -1,5 +1,12 @@
 <template>
-    <DocComponent title="Vue Mask Component" header="InputMask" description="InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone." :componentDocs="docs" :apiDocs="['InputMask']" />
+    <DocComponent
+        title="Vue Mask Component"
+        header="InputMask"
+        description="InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone."
+        :componentDocs="docs"
+        :apiDocs="['InputMask']"
+        :ptTabComponent="ptComponent"
+    />
 </template>
 
 <script>
@@ -7,13 +14,14 @@ import AccessibilityDoc from '@/doc/inputmask/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputmask/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputmask/DisabledDoc.vue';
 import FloatLabelDoc from '@/doc/inputmask/FloatLabelDoc.vue';
-import VeeValidateDoc from '@/doc/inputmask/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/inputmask/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
 import MaskDoc from '@/doc/inputmask/MaskDoc.vue';
 import OptionalDoc from '@/doc/inputmask/OptionalDoc.vue';
 import SlotCharDoc from '@/doc/inputmask/SlotCharDoc.vue';
 import StyleDoc from '@/doc/inputmask/StyleDoc.vue';
+import VeeValidateDoc from '@/doc/inputmask/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/inputmask/pt/index.vue';
 
 export default {
     data() {
@@ -81,7 +89,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

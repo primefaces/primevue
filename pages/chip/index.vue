@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Chip Component" header="Chip" description="Chip represents entities using icons, labels and images." :componentDocs="docs" :apiDocs="['Chip']" />
+    <DocComponent title="Vue Chip Component" header="Chip" description="Chip represents entities using icons, labels and images." :componentDocs="docs" :apiDocs="['Chip']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -10,6 +10,7 @@ import ImageDoc from '@/doc/chip/ImageDoc';
 import ImportDoc from '@/doc/chip/ImportDoc';
 import StyleDoc from '@/doc/chip/StyleDoc';
 import TemplateDoc from '@/doc/chip/TemplateDoc';
+import PTComponent from '@/doc/chip/pt/index.vue';
 
 export default {
     data() {
@@ -50,7 +51,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

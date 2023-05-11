@@ -28,6 +28,19 @@ const AvatarProps = [
         type: 'string',
         default: 'square',
         description: 'Shape of the element, valid options are "square" and "circle".'
+    },
+    {
+        name: 'pt',
+        type: 'any',
+        default: 'null',
+        description: 'Uses to pass attributes to DOM elements inside the component.'
+    }
+];
+
+const AvatarSlots = [
+    {
+        name: 'icon',
+        description: 'Custom icon template.'
     }
 ];
 
@@ -43,6 +56,7 @@ module.exports = {
         name: 'Avatar',
         description: 'Avatar represents people using icons, labels and images.',
         props: AvatarProps,
+        slots: AvatarSlots,
         events: AvatarEvents
     }
 };

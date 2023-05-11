@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Tag Component" header="Tag" description="Tag component is used to categorize content." :componentDocs="docs" :apiDocs="['Tag']" />
+    <DocComponent title="Vue Tag Component" header="Tag" description="Tag component is used to categorize content." :componentDocs="docs" :apiDocs="['Tag']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ import PillDoc from '@/doc/tag/PillDoc';
 import SeverityDoc from '@/doc/tag/SeverityDoc';
 import StyleDoc from '@/doc/tag/StyleDoc';
 import TemplateDoc from '@/doc/tag/TemplateDoc';
+import PTComponent from '@/doc/tag/pt/index.vue';
 
 export default {
     data() {
@@ -56,7 +57,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };

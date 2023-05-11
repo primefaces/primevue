@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Knob Component" header="Knob" description="Knob is a form component to define number inputs with a dial." :componentDocs="docs" :apiDocs="['Knob']" />
+    <DocComponent title="Vue Knob Component" header="Knob" description="Knob is a form component to define number inputs with a dial." :componentDocs="docs" :apiDocs="['Knob']" :ptTabComponent="ptComponent" />
 </template>
 
 <script>
@@ -7,7 +7,6 @@ import AccessibilityDoc from '@/doc/knob/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/knob/BasicDoc.vue';
 import ColorDoc from '@/doc/knob/ColorDoc.vue';
 import DisabledDoc from '@/doc/knob/DisabledDoc.vue';
-import VeeValidateDoc from '@/doc/knob/form/VeeValidateDoc.vue';
 import ImportDoc from '@/doc/knob/ImportDoc.vue';
 import MinMaxDoc from '@/doc/knob/MinMaxDoc.vue';
 import ReactiveDoc from '@/doc/knob/ReactiveDoc.vue';
@@ -17,6 +16,9 @@ import StepDoc from '@/doc/knob/StepDoc.vue';
 import StrokeDoc from '@/doc/knob/StrokeDoc.vue';
 import StyleDoc from '@/doc/knob/StyleDoc.vue';
 import TemplateDoc from '@/doc/knob/TemplateDoc.vue';
+import VeeValidateDoc from '@/doc/knob/form/VeeValidateDoc.vue';
+import PTComponent from '@/doc/knob/pt/index.vue';
+
 export default {
     data() {
         return {
@@ -98,7 +100,8 @@ export default {
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent
         };
     }
 };
