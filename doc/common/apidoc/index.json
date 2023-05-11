@@ -20288,6 +20288,22 @@
                             "deprecated": "since v3.27.0. Use 'indicator' slot."
                         },
                         {
+                            "name": "zoomInDisabled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Disable the zoom-in button"
+                        },
+                        {
+                            "name": "zoomOutDisabled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Disable the zoom-out button"
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
