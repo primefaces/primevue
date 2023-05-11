@@ -1,5 +1,5 @@
 <template>
-    <input :class="inputClass" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root')" />
+    <input :class="inputClass" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="handleInputChange" v-bind="ptm('root')" />
 </template>
 
 <script>
@@ -407,14 +407,16 @@ export default {
                 return;
             }
 
-            var pos = this.checkVal(true);
+            setTimeout(() => {
+                var pos = this.checkVal(true);
 
-            this.caret(pos);
-            this.updateModel(event);
+                this.caret(pos);
+                this.updateModel(event);
 
-            if (this.isCompleted()) {
-                this.$emit('complete', event);
-            }
+                if (this.isCompleted()) {
+                    this.$emit('complete', event);
+                }
+            }, 0);
         },
         getUnmaskedValue() {
             let unmaskedBuffer = [];
