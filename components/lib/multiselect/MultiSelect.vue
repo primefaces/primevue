@@ -73,7 +73,7 @@
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
-                                @vnode-updated="onFilterUpdated"
+                                @vue:mounted="onFilterUpdated"
                                 class="p-multiselect-filter p-inputtext p-component"
                                 :placeholder="filterPlaceholder"
                                 role="searchbox"

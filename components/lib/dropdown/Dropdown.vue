@@ -70,7 +70,7 @@
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
-                                @vnode-updated="onFilterUpdated"
+                                @vue:mounted="onFilterUpdated"
                                 class="p-dropdown-filter p-inputtext p-component"
                                 :placeholder="filterPlaceholder"
                                 role="searchbox"
