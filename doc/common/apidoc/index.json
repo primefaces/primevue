@@ -38391,6 +38391,27 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TreeTablePassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableState",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreeTableFilterMetaData": {
                     "description": "Custom treetable filter metadata.",
                     "relatedProp": "",
@@ -38739,6 +38760,281 @@
                     ],
                     "methods": []
                 },
+                "TreeTablePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TreeTableProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "loadingWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading wrapper's DOM element."
+                        },
+                        {
+                            "name": "loadingOverlay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading overlay's DOM element."
+                        },
+                        {
+                            "name": "loadingIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
+                        },
+                        {
+                            "name": "header",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header's DOM element."
+                        },
+                        {
+                            "name": "paginator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Paginator component."
+                        },
+                        {
+                            "name": "wrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the wrapper's DOM element."
+                        },
+                        {
+                            "name": "table",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the table's DOM element."
+                        },
+                        {
+                            "name": "thead",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the thead's DOM element."
+                        },
+                        {
+                            "name": "headerRow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header row's DOM element."
+                        },
+                        {
+                            "name": "headerCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header cell's DOM element."
+                        },
+                        {
+                            "name": "tbody",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the tbody's DOM element."
+                        },
+                        {
+                            "name": "emptyMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the empty message's DOM element."
+                        },
+                        {
+                            "name": "bodyCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the body cell's DOM element."
+                        },
+                        {
+                            "name": "tfoot",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the tfoot's DOM element."
+                        },
+                        {
+                            "name": "footerRow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer row's DOM element."
+                        },
+                        {
+                            "name": "footer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "resizeHelper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the resize helper's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeTablePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeTableState": {
+                    "description": "Defines current inline state in TreeTable component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "d_first",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of first record as a number."
+                        },
+                        {
+                            "name": "d_rows",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current number of rows to display in new page as a number."
+                        },
+                        {
+                            "name": "d_sortField",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | string | Function",
+                            "default": "",
+                            "description": "Current sort field."
+                        },
+                        {
+                            "name": "d_sortOrder",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current order to sort the data by default."
+                        },
+                        {
+                            "name": "d_multiSortMeta",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableSortMeta[]",
+                            "default": "",
+                            "description": "Current sortmeta objects to sort the data."
+                        },
+                        {
+                            "name": "d_groupRowsSortMeta",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableSortMeta",
+                            "default": "",
+                            "description": "Current group sortmeta objects to sort the data."
+                        },
+                        {
+                            "name": "d_selectionKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "default": "",
+                            "description": "Current keys of selected rows."
+                        },
+                        {
+                            "name": "d_expandedRowKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any[]",
+                            "default": "",
+                            "description": "Current keys of rows in expanded state."
+                        },
+                        {
+                            "name": "d_columnOrder",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string[]",
+                            "default": "",
+                            "description": "Current order of the columns."
+                        },
+                        {
+                            "name": "d_editingRowKeys",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current keys of editing rows."
+                        },
+                        {
+                            "name": "d_editingMeta",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Current editing meta data."
+                        },
+                        {
+                            "name": "d_filters",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableFilterMeta",
+                            "default": "",
+                            "description": "Current filters object."
+                        },
+                        {
+                            "name": "d_editing",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current editing as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreeTableProps": {
                     "description": "Defines valid properties in TreeTable component.",
                     "relatedProp": "",
@@ -39047,6 +39343,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Props to pass to the table element."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -39342,6 +39646,14 @@
                             "description": "Callback to invoke when a column is resized."
                         }
                     ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TreeTablePassThroughOptionType": {
+                    "values": "TreeTablePassThroughAttributes | (options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | null | undefined"
                 }
             }
         }
