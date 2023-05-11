@@ -78,6 +78,10 @@ export default {
             type: Boolean,
             default: true
         },
+        initialFocus: {
+            type: Number,
+            default: 0
+        },
         tabindex: {
             type: Number,
             default: 0
@@ -295,7 +299,7 @@ export default {
 
             if (this.popup) {
                 DomHandler.focus(this.list);
-                this.changeFocusedOptionIndex(0);
+                this.changeFocusedOptionIndex(this.initialFocus);
             }
 
             this.$emit('show');

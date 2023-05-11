@@ -153,6 +153,11 @@ export interface MenuProps {
      */
     exact?: boolean | undefined;
     /**
+     * Set the initial focus item of the menu when `popup` is true.
+     * @defaultValue 0
+     */
+    initialFocus?: number | undefined;
+    /**
      * Index of the element in tabbing order.
      */
     tabindex?: number | string | undefined;
