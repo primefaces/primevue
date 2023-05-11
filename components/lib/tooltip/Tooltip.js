@@ -1,5 +1,7 @@
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 
+let timer;
+
 function bindEvents(el) {
     const modifiers = el.$_ptooltipModifiers;
 
@@ -47,30 +49,46 @@ function unbindScrollListener(el) {
 }
 
 function onMouseEnter(event) {
-    show(event.currentTarget);
+    const el = event.currentTarget;
+    const showDelay = el.$_ptooltipShowDelay;
+
+    show(event.currentTarget, showDelay);
 }
 
 function onMouseLeave(event) {
-    hide(event.currentTarget);
+    const el = event.currentTarget;
+    const hideDelay = el.$_ptooltipHideDelay;
+
+    hide(event.currentTarget, hideDelay);
 }
 
 function onFocus(event) {
-    show(event.currentTarget);
+    const el = event.currentTarget;
+    const showDelay = el.$_ptooltipShowDelay;
+
+    console.log('focus', showDelay);
+    show(event.currentTarget, showDelay);
 }
 
 function onBlur(event) {
-    hide(event.currentTarget);
+    const el = event.currentTarget;
+    const hideDelay = el.$_ptooltipHideDelay;
+
+    hide(event.currentTarget, hideDelay);
 }
 
 function onClick(event) {
-    hide(event.currentTarget);
+    const el = event.currentTarget;
+    const hideDelay = el.$_ptooltipHideDelay;
+
+    hide(event.currentTarget, hideDelay);
 }
 
 function onKeydown(event) {
-    event.code === 'Escape' && hide(event.currentTarget);
+    event.code === 'Escape' && hide(event.currentTarget, hideDelay);
 }
 
-function show(el) {
+function tooltipActions(el) {
     if (el.$_ptooltipDisabled) {
         return;
     }
@@ -92,9 +110,27 @@ function show(el) {
     ZIndexUtils.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
 }
 
-function hide(el) {
+function show(el, showDelay) {
+    if (showDelay !== undefined) {
+        timer = setTimeout(() => tooltipActions(el), showDelay);
+    } else {
+        tooltipActions(el);
+    }
+}
+
+function tooltipRemoval(el) {
     remove(el);
     unbindScrollListener(el);
+}
+
+function hide(el, hideDelay) {
+    clearTimeout(timer);
+
+    if (hideDelay !== undefined) {
+        setTimeout(() => tooltipRemoval(el), hideDelay);
+    } else {
+        tooltipRemoval(el);
+    }
 }
 
 function getTooltipElement(el) {
@@ -332,6 +368,8 @@ const Tooltip = {
                 target.$_ptooltipClass = options.value.class;
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
                 target.$_ptooltipIdAttr = options.value.id || '';
+                target.$_ptooltipShowDelay = options.value.showDelay || 0;
+                target.$_ptooltipHideDelay = options.value.hideDelay || 0;
             }
         }
 

@@ -40,6 +40,16 @@ export interface TooltipOptions {
      * @defaultValue true
      */
     fitContent?: boolean | undefined;
+    /**
+     * When present, it adds a custom delay to the tooltip's display.
+     * @defaultValue 0
+     */
+    showDelay?: number | undefined;
+    /**
+     * When present, it adds a custom delay to the tooltip's hiding.
+     * @defaultValue 0
+     */
+    hideDelay?: number | undefined;
 }
 
 /**
