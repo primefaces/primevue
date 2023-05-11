@@ -52,36 +52,35 @@ function onMouseEnter(event) {
     const el = event.currentTarget;
     const showDelay = el.$_ptooltipShowDelay;
 
-    show(event.currentTarget, showDelay);
+    show(el, showDelay);
 }
 
 function onMouseLeave(event) {
     const el = event.currentTarget;
     const hideDelay = el.$_ptooltipHideDelay;
 
-    hide(event.currentTarget, hideDelay);
+    hide(el, hideDelay);
 }
 
 function onFocus(event) {
     const el = event.currentTarget;
     const showDelay = el.$_ptooltipShowDelay;
 
-    console.log('focus', showDelay);
-    show(event.currentTarget, showDelay);
+    show(el, showDelay);
 }
 
 function onBlur(event) {
     const el = event.currentTarget;
     const hideDelay = el.$_ptooltipHideDelay;
 
-    hide(event.currentTarget, hideDelay);
+    hide(el, hideDelay);
 }
 
 function onClick(event) {
     const el = event.currentTarget;
     const hideDelay = el.$_ptooltipHideDelay;
 
-    hide(event.currentTarget, hideDelay);
+    hide(el, hideDelay);
 }
 
 function onKeydown(event) {
@@ -357,7 +356,8 @@ const Tooltip = {
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
-            target.$_ptooltipIdAttr = '';
+            target.$_ptooltipShowDelay = 0;
+            target.$_ptooltipHideDelay = 0;
         } else if (typeof options.value === 'object' && options.value) {
             if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') return;
             else {
@@ -401,6 +401,8 @@ const Tooltip = {
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
             target.$_ptooltipIdAttr = '';
+            target.$_ptooltipShowDelay = 0;
+            target.$_ptooltipHideDelay = 0;
 
             bindEvents(target);
         } else if (typeof options.value === 'object' && options.value) {
@@ -415,6 +417,8 @@ const Tooltip = {
                 target.$_ptooltipClass = options.value.class;
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
                 target.$_ptooltipIdAttr = options.value.id || '';
+                target.$_ptooltipShowDelay = options.value.showDelay || 0;
+                target.$_ptooltipHideDelay = options.value.hideDelay || 0;
 
                 bindEvents(target);
             }
