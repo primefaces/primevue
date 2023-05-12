@@ -2792,14 +2792,6 @@
                             "description": "Uses to pass attributes to the Button component."
                         },
                         {
-                            "name": "searchResultMessage",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "AutoCompletePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the search result message's DOM element."
-                        },
-                        {
                             "name": "panel",
                             "optional": true,
                             "readonly": false,
@@ -2846,6 +2838,14 @@
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the empty message's DOM element."
+                        },
+                        {
+                            "name": "searchResultMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AutoCompletePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the search result message's DOM element."
                         },
                         {
                             "name": "selectedMessage",
@@ -5063,6 +5063,14 @@
                             "type": "CalendarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the table header row's DOM element."
+                        },
+                        {
+                            "name": "weekHeader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the week header's DOM element."
                         },
                         {
                             "name": "tableHeaderCell",
