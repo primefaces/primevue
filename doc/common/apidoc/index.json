@@ -32839,7 +32839,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>onClick</b>: void, // ıtem click function\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
