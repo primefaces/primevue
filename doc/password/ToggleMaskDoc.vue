@@ -18,25 +18,25 @@ export default {
 <Password v-model="value" toggleMask />`,
                 options: `
 <template>
-  <div class="card flex justify-content-center">
-      <Password v-model="value" toggleMask />
-  </div>
+    <div class="card flex justify-content-center">
+        <Password v-model="value" toggleMask />
+    </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          value: null
-      }
-  }
+    data() {
+        return {
+            value: null
+        }
+    }
 };
 <\/script>`,
                 composition: `
 <template>
-  <div class="card flex justify-content-center">
-      <Password v-model="value" toggleMask />
-  </div>
+    <div class="card flex justify-content-center">
+        <Password v-model="value" toggleMask />
+    </div>
 </template>
 
 <script setup>
