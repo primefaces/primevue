@@ -50,7 +50,7 @@
                             <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
                         </a>
                     </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                    <component v-else :is="$slots.item" :item="item" :onClick="(event) => onItemClick(event, item)"></component>
                 </li>
             </template>
         </ul>

@@ -244,6 +244,10 @@ export interface SpeedDialSlots {
          * @type {MenuItem}
          */
         item: MenuItem;
+        /**
+         * ıtem click function
+         */
+        onClick: void;
     }): VNode[];
     /**
      * Custom button template.
