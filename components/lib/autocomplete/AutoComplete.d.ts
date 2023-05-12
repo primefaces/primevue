@@ -128,10 +128,6 @@ export interface AutoCompletePassThroughOptions {
      */
     dropdownButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the search result message's DOM element.
-     */
-    searchResultMessage?: AutoCompletePassThroughOptionType;
-    /**
      * Uses to pass attributes to the panel's DOM element.
      */
     panel?: AutoCompletePassThroughOptionType;
@@ -156,6 +152,10 @@ export interface AutoCompletePassThroughOptions {
      * Uses to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the search result message's DOM element.
+     */
+    searchResultMessage?: AutoCompletePassThroughOptionType;
     /**
      * Uses to pass attributes to the selected message's DOM element.
      */

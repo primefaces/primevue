@@ -157,6 +157,10 @@ export interface CalendarPassThroughOptions {
      */
     tableHeaderRow?: CalendarPassThroughOptionType;
     /**
+     * Uses to pass attributes to the week header's DOM element.
+     */
+    weekHeader?: CalendarPassThroughOptionType;
+    /**
      * Uses to pass attributes to the table header cell's DOM element.
      */
     tableHeaderCell?: CalendarPassThroughOptionType;
