@@ -130,7 +130,7 @@
                                     <table class="p-datepicker-calendar" role="grid" v-bind="ptm('table')">
                                         <thead v-bind="ptm('tableHeader')">
                                             <tr v-bind="ptm('tableHeaderRow')">
-                                                <th v-if="showWeek" scope="col" class="p-datepicker-weekheader p-disabled" v-bind="ptm('tableHeaderCell')">
+                                                <th v-if="showWeek" scope="col" class="p-datepicker-weekheader p-disabled" v-bind="ptm('weekHeader')">
                                                     <span v-bind="ptm('weekLabel')">{{ weekHeaderLabel }}</span>
                                                 </th>
                                                 <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')">
