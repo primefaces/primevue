@@ -1022,7 +1022,7 @@ export default {
             this.$emit('row-dblclick', e);
         },
         onRowRightClick(event) {
-            if(this.contextMenu){
+            if (this.contextMenu) {
                 DomHandler.clearSelection();
                 event.originalEvent.target.focus();
             }
