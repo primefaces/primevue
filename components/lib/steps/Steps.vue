@@ -226,6 +226,7 @@ export default {
     display: flex;
     justify-content: center;
     flex: 1 1 auto;
+    overflow: hidden;
 }
 
 .p-steps-item .p-menuitem-link {
@@ -246,6 +247,9 @@ export default {
 
 .p-steps-title {
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .p-steps-number {
