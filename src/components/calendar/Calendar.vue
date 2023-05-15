@@ -314,6 +314,7 @@ export default {
     resizeListener: null,
     mask: null,
     timePickerTimer: null,
+    updateFocusTimer: null,
     isKeydown: false,
     preventFocus: false,
     created() {
@@ -344,6 +345,7 @@ export default {
     },
     beforeDestroy() {
         this.clearTimePickerTimer();
+        this.clearUpdateFocusTimer();
 
         if (this.mask) {
             this.destroyMask();
@@ -379,7 +381,7 @@ export default {
         months() {
             if (this.$refs.overlay) {
                 if (!this.focused) {
-                    setTimeout(this.updateFocus, 0);
+                    this.updateFocusAsync();
                 }
             }
         },
@@ -670,12 +672,12 @@ export default {
         },
         switchToMonthView(event) {
             this.currentView = 'month';
-            setTimeout(this.updateFocus, 0);
+            this.updateFocusAsync();
             event.preventDefault();
         },
         switchToYearView(event) {
             this.currentView = 'year';
-            setTimeout(this.updateFocus, 0);
+            this.updateFocusAsync();
             event.preventDefault();
         },
         isEnabled() {
@@ -1333,6 +1335,11 @@ export default {
                 clearTimeout(this.timePickerTimer);
             }
         },
+        clearUpdateFocusTimer() {
+            if (this.updateFocusTimer) {
+                clearTimeout(this.updateFocusTimer);
+            }
+        },
         onMonthSelect(event, month) {
             if (this.view === 'month') {
                 this.onDateSelect(event, {year: this.currentYear, month: month, day: 1, selectable: true});
@@ -1343,7 +1350,7 @@ export default {
                 this.$emit('month-change', {month: this.currentMonth + 1, year: this.currentYear});
             }
 
-            setTimeout(this.updateFocus, 0);
+            this.updateFocusAsync();
         },
         onYearSelect(event, year) {
             if (this.view === 'year') {
@@ -1355,7 +1362,7 @@ export default {
                 this.$emit('year-change', {month: this.currentMonth + 1, year: this.currentYear});
             }
 
-            setTimeout(this.updateFocus, 0);
+            this.updateFocusAsync();
         },
         enableModality() {
             if (!this.mask) {
@@ -1977,6 +1984,9 @@ export default {
                     //no op
                 break;
             }
+        },
+        updateFocusAsync() {
+            this.updateFocusTimer = setTimeout(this.updateFocus, 0);
         },
         updateFocus() {
             let cell;
