@@ -1,7 +1,7 @@
 <template>
     <div class="p-tabmenu p-component" v-bind="ptm('root')">
         <ul ref="nav" class="p-tabmenu-nav p-reset" role="menubar" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('menu')">
-            <template v-for="(item, i) of model" :key="label(item) + '_' + i.toString()">
+            <template v-for="(item, i) of focusableItems" :key="label(item) + '_' + i.toString()">
                 <router-link v-if="item.to && !disabled(item)" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                     <li v-if="visible(item)" ref="tab" :class="getRouteItemClass(item, isActive, isExactActive)" :style="item.style" role="presentation" v-bind="getPTOptions('menuitem', i)">
                         <template v-if="!$slots.item">
@@ -15,7 +15,7 @@
                                 :aria-disabled="disabled(item)"
                                 :tabindex="isExactActive ? '0' : '-1'"
                                 @click="onItemClick($event, item, i, navigate)"
-                                @keydown="onKeydownItem($event, item, i, navigate)"
+                                @keydown="onKeydownItem($event, i, navigate)"
                                 v-bind="getPTOptions('action', i)"
                             >
                                 <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
@@ -26,7 +26,7 @@
                         <component v-else :is="$slots.item" :item="item" :index="i"></component>
                     </li>
                 </router-link>
-                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, item, i)" v-bind="getPTOptions('menuitem', i)">
+                <li v-else-if="visible(item)" ref="tab" :class="getItemClass(item, i)" role="presentation" @click="onItemClick($event, item, i)" @keydown="onKeydownItem($event, i)" v-bind="getPTOptions('menuitem', i)">
                     <template v-if="!$slots.item">
                         <a ref="tabLink" v-ripple role="menuitem" :href="item.url" class="p-menuitem-link" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="setTabIndex(i)" v-bind="getPTOptions('action', i)">
                             <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="getItemIcon(item)" />
@@ -132,7 +132,7 @@ export default {
                 index: index
             });
         },
-        onKeydownItem(event, item, index) {
+        onKeydownItem(event, index) {
             let i = index;
 
             let foundElement = {};
@@ -280,6 +280,15 @@ export default {
                 this.$refs.inkbar.style.width = '0px';
                 this.$refs.inkbar.style.left = '0px';
             }
+        }
+    },
+    computed: {
+        focusableItems() {
+            return (this.model || []).reduce((result, item) => {
+                this.visible(item) && !DomHandler.hasClass(item, 'p-disabled') && result.push(item);
+
+                return result;
+            }, []);
         }
     },
     directives: {
