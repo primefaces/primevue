@@ -1,5 +1,16 @@
 # Changelog
 
+[3.29.1](https://github.com/primefaces/primevue/tree/3.29.1) (2023-05-15)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.29.0...3.29.1)
+
+**Fixed bugs:**
+
+- SpeedDial: Mask and SpeedDial itself prevent pointer events and speedDial does not close using item slot [\#3945](https://github.com/primefaces/primevue/issues/3945)
+- DataTable: Selection and focus loss when no custom ContextMenu is defined [\#3927](https://github.com/primefaces/primevue/issues/3927)
+- TabMenu: Accessibility issue in TabMenu with hidden tabs [\#3910](https://github.com/primefaces/primevue/issues/3910)
+- Steps: text overflow [\#3631](https://github.com/primefaces/primevue/issues/3631)
+
 ## [3.29.0](https://github.com/primefaces/primevue/tree/3.29.0) (2023-05-11)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.28.0...3.29.0)
