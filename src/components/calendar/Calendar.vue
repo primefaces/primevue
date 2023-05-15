@@ -343,9 +343,7 @@ export default {
         }
     },
     beforeDestroy() {
-        if (this.timePickerTimer) {
-            clearTimeout(this.timePickerTimer);
-        }
+        this.clearTimePickerTimer();
 
         if (this.mask) {
             this.destroyMask();
@@ -1332,7 +1330,7 @@ export default {
         },
         clearTimePickerTimer() {
             if (this.timePickerTimer) {
-                clearInterval(this.timePickerTimer);
+                clearTimeout(this.timePickerTimer);
             }
         },
         onMonthSelect(event, month) {
