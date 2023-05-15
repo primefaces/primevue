@@ -1,6 +1,6 @@
 # Changelog
 
-[3.29.1](https://github.com/primefaces/primevue/tree/3.29.1) (2023-05-15)
+## [3.29.1](https://github.com/primefaces/primevue/tree/3.29.1) (2023-05-15)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.29.0...3.29.1)
 
