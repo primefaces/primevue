@@ -10,6 +10,7 @@ export default {
             'primevue/usetoast': path.resolve(__dirname, './components/lib/usetoast/UseToast.js'),
             'primevue/usedialog': path.resolve(__dirname, './components/lib/usedialog/UseDialog.js'),
             'primevue/utils': path.resolve(__dirname, './components/lib/utils/Utils.js'),
+            'primevue/usestyle': path.resolve(__dirname, './components/lib/usestyle/UseStyle.js'),
             'primevue/api': path.resolve(__dirname, './components/lib/api/Api.js'),
             'primevue/portal': path.resolve(__dirname, './components/lib/portal/Portal.vue'),
             'primevue/basecomponent': path.resolve(__dirname, './components/lib/basecomponent/BaseComponent.vue'),

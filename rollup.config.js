@@ -77,6 +77,7 @@ let coreDependencies = {
     'primevue/useconfirm': 'primevue.useconfirm',
     'primevue/usetoast': 'primevue.usetoast',
     'primevue/usedialog': 'primevue.usedialog',
+    'primevue/usestyle': 'primevue.usestyle',
     'primevue/button': 'primevue.button',
     'primevue/inputtext': 'primevue.inputtext',
     'primevue/inputnumber': 'primevue.inputnumber',
