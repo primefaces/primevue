@@ -1,10 +1,10 @@
 <template>
-    <div :class="containerClass" v-bind="ptm('root')">
-        <div class="p-panel-header" v-bind="ptm('header')">
-            <slot :id="ariaId + '_header'" name="header" class="p-panel-title">
-                <span v-if="header" :id="ariaId + '_header'" class="p-panel-title" v-bind="ptm('title')">{{ header }}</span>
+    <div :class="classes.root" v-bind="ptm('root')">
+        <div :class="classes.header" v-bind="ptm('header')">
+            <slot :id="ariaId + '_header'" name="header" :class="classes.title">
+                <span v-if="header" :id="ariaId + '_header'" :class="classes.title" v-bind="ptm('title')">{{ header }}</span>
             </slot>
-            <div class="p-panel-icons" v-bind="ptm('icons')">
+            <div :class="classes.icons" v-bind="ptm('icons')">
                 <slot name="icons"></slot>
                 <button
                     v-if="toggleable"
@@ -12,7 +12,7 @@
                     v-ripple
                     type="button"
                     role="button"
-                    class="p-panel-header-icon p-panel-toggler p-link"
+                    :class="classes.toggler"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="ariaId + '_content'"
                     :aria-expanded="!d_collapsed"
@@ -27,11 +27,11 @@
             </div>
         </div>
         <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
-                <div class="p-panel-content" v-bind="ptm('content')">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="classes.toggleablecontent" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div :class="classes.content" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
-                <div v-if="$slots.footer" class="p-panel-footer" v-bind="ptm('footer')">
+                <div v-if="$slots.footer" :class="classes.footer" v-bind="ptm('footer')">
                     <slot name="footer"></slot>
                 </div>
             </div>
@@ -44,7 +44,11 @@ import BaseComponent from 'primevue/basecomponent';
 import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
+import { useStyle } from 'primevue/usestyle';
 import { UniqueComponentId } from 'primevue/utils';
+import { getComputedClasses, styles } from './PanelStyle';
+
+const styleInstance = useStyle(styles, { id: 'primevue_panel_style', manual: true });
 
 export default {
     name: 'Panel',
@@ -67,6 +71,12 @@ export default {
     watch: {
         collapsed(newValue) {
             this.d_collapsed = newValue;
+        },
+        isUnstyled: {
+            immediate: true,
+            handler(newValue) {
+                !newValue && styleInstance.load();
+            }
         }
     },
     methods: {
@@ -89,11 +99,11 @@ export default {
         ariaId() {
             return UniqueComponentId();
         },
-        containerClass() {
-            return ['p-panel p-component', { 'p-panel-toggleable': this.toggleable }];
-        },
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.header;
+        },
+        classes() {
+            return this.isUnstyled ? {} : getComputedClasses(this.$props, this.$data);
         }
     },
     components: {
@@ -105,25 +115,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.p-panel-title {
-    line-height: 1;
-}
-
-.p-panel-header-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-</style>
