@@ -89,6 +89,7 @@ interface PrimeVueConfiguration {
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
     pt?: PrimeVuePTOptions;
+    unstyled?: boolean;
 }
 
 interface PrimeVueZIndexOptions {

@@ -124,6 +124,11 @@ export interface PanelProps {
      * @type {PanelPassThroughOptions}
      */
     pt?: PanelPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
