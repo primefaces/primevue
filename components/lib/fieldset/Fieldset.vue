@@ -1,8 +1,8 @@
 <template>
-    <fieldset :class="['p-fieldset p-component', { 'p-fieldset-toggleable': toggleable }]" v-bind="ptm('root')">
-        <legend class="p-fieldset-legend" v-bind="ptm('legend')">
+    <fieldset :class="classes.root" v-bind="ptm('root')">
+        <legend :class="classes.legend" v-bind="ptm('legend')">
             <slot v-if="!toggleable" name="legend">
-                <span :id="ariaId + '_header'" class="p-fieldset-legend-text" v-bind="ptm('legendtitle')">{{ legend }}</span>
+                <span :id="ariaId + '_header'" :class="classes.legendtitle" v-bind="ptm('legendtitle')">{{ legend }}</span>
             </slot>
             <a
                 v-if="toggleable"
@@ -18,16 +18,16 @@
                 v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
             >
                 <slot name="togglericon" :collapsed="d_collapsed">
-                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" class="p-fieldset-toggler" v-bind="ptm('togglericon')" />
+                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="classes.togglericon" v-bind="ptm('togglericon')" />
                 </slot>
                 <slot name="legend">
-                    <span class="p-fieldset-legend-text" v-bind="ptm('legendtitle')">{{ legend }}</span>
+                    <span :class="classes.legendtitle" v-bind="ptm('legendtitle')">{{ legend }}</span>
                 </slot>
             </a>
         </legend>
         <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" class="p-toggleable-content" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
-                <div class="p-fieldset-content" v-bind="ptm('content')">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="classes.toggleablecontent" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div :class="classes.content" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
             </div>
@@ -40,7 +40,11 @@ import BaseComponent from 'primevue/basecomponent';
 import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
+import { useStyle } from 'primevue/usestyle';
 import { UniqueComponentId } from 'primevue/utils';
+import { getComputedClasses, styles } from './FieldsetStyle';
+
+const styleInstance = useStyle(styles, { id: 'primevue_fieldset_style', manual: true });
 
 export default {
     name: 'Fieldset',
@@ -63,6 +67,12 @@ export default {
     watch: {
         collapsed(newValue) {
             this.d_collapsed = newValue;
+        },
+        isUnstyled: {
+            immediate: true,
+            handler(newValue) {
+                !newValue && styleInstance.load();
+            }
         }
     },
     methods: {
@@ -87,6 +97,9 @@ export default {
         },
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.legend;
+        },
+        classes() {
+            return this.isUnstyled ? {} : getComputedClasses(this.$props, this.$data);
         }
     },
     directives: {
@@ -98,24 +111,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-fieldset-legend > a,
-.p-fieldset-legend > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-fieldset-toggleable .p-fieldset-legend a {
-    cursor: pointer;
-    user-select: none;
-    overflow: hidden;
-    position: relative;
-    text-decoration: none;
-}
-
-.p-fieldset-legend-text {
-    line-height: 1;
-}
-</style>
