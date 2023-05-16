@@ -19,7 +19,7 @@
         >
             <component :is="filterIconTemplate || 'FilterIcon'" />
         </button>
-        <button v-if="showClearButton && display === 'row'" :class="{ 'p-hidden-space': !hasRowFilter() }" type="button" class="p-column-filter-clear-button p-link" @click="clearFilter()" v-bind="getColumnPTOptions('headerFilterClearButton')">
+        <button v-if="showClearButton && display === 'row'" :class="['p-column-filter-clear-button p-link', { 'p-hidden-space': !hasRowFilter() }]" type="button" @click="clearFilter()" v-bind="getColumnPTOptions('headerFilterClearButton')">
             <component :is="filterClearIconTemplate || 'FilterSlashIcon'" v-bind="getColumnPTOptions('filterClearIcon')" />
         </button>
         <Portal>
