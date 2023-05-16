@@ -131,7 +131,8 @@ export const defaultOptions = {
         menu: 1000,
         tooltip: 1100
     },
-    pt: undefined
+    pt: undefined,
+    unstyled: false
 };
 
 const PrimeVueSymbol = Symbol();

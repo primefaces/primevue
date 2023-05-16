@@ -8,6 +8,10 @@ export default {
         pt: {
             type: Object,
             default: undefined
+        },
+        unstyled: {
+            type: Boolean,
+            default: undefined
         }
     },
     methods: {
@@ -41,6 +45,9 @@ export default {
         },
         defaultsParams() {
             return { instance: this.$ };
+        },
+        isUnstyled() {
+            return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;
         }
     }
 };
