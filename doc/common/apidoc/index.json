@@ -9316,7 +9316,7 @@
                 },
                 "ColumnPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "undefined.ColumnProps.pt",
+                    "relatedProp": "ColumnProps.pt",
                     "props": [
                         {
                             "name": "root",
@@ -10207,6 +10207,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether the column is rendered."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
