@@ -1,6 +1,6 @@
 <template>
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" v-bind="pti()">
-        <g clip-path="url(#clip0_408_20963)">
+        <g :clip-path="'url(#clip0_408_20963' + id + ')'">
             <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -9,7 +9,7 @@
             />
         </g>
         <defs>
-            <clipPath id="clip0_408_20963">
+            <clipPath :id="'clip0_408_20963' + id">
                 <rect width="14" height="14" fill="white" />
             </clipPath>
         </defs>
@@ -17,9 +17,15 @@
 </template>
 <script>
 import BaseIcon from 'primevue/baseicon';
+import {uid} from "chart.js/helpers";
 
 export default {
     name: 'FilterSlashIcon',
-    extends: BaseIcon
+    extends: BaseIcon,
+    computed: {
+        id() {
+            return uid();
+        }
+    }
 };
 </script>
