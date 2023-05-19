@@ -2,6 +2,19 @@
 import { ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 
+const inlineStyles = {
+    hiddenAccessible: {
+        border: '0',
+        clip: 'rect(0 0 0 0)',
+        height: '1px',
+        margin: '-1px',
+        overflow: 'hidden',
+        padding: '0',
+        position: 'absolute',
+        width: '1px'
+    }
+};
+
 export default {
     name: 'BaseComponent',
     props: {
@@ -37,6 +50,19 @@ export default {
         },
         ptmo(obj = {}, key = '', params = {}) {
             return this.getPTValue(obj, key, params);
+        },
+        css(key = '', params = {}) {
+            return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(this.$options.style && this.$options.style.classes, key), { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
+        },
+        style(key = '', when = true, params = {}) {
+            if (when) {
+                const self = ObjectUtils.getItemValue(this.getOption(this.$options.style && this.$options.style.inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
+                const base = ObjectUtils.getItemValue(this.getOption(inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
+
+                return [base, self];
+            }
+
+            return undefined;
         }
     },
     computed: {
@@ -44,7 +70,7 @@ export default {
             return ObjectUtils.getItemValue(this.getOption(this.$primevue.config.pt, this.$.type.name), this.defaultsParams);
         },
         defaultsParams() {
-            return { instance: this.$ };
+            return { instance: this };
         },
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;

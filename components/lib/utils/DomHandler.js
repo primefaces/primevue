@@ -167,12 +167,44 @@ export default {
         return false;
     },
 
+    addStyles(element, styles = {}) {
+        if (element) {
+            Object.entries(styles).forEach(([key, value]) => (element.style[key] = value));
+        }
+    },
+
     find(element, selector) {
         return this.isElement(element) ? element.querySelectorAll(selector) : [];
     },
 
     findSingle(element, selector) {
         return this.isElement(element) ? element.querySelector(selector) : null;
+    },
+
+    getAttribute(element, name) {
+        if (element) {
+            const value = element.getAttribute(name);
+
+            if (!isNaN(value)) {
+                return +value;
+            }
+
+            if (value === 'true' || value === 'false') {
+                return value === 'true';
+            }
+
+            return value;
+        }
+
+        return undefined;
+    },
+
+    isAttributeEquals(element, name, value) {
+        return element ? this.getAttribute(element, name) === value : false;
+    },
+
+    isAttributeNotEquals(element, name, value) {
+        return !this.isAttributeEquals(element, name, value);
     },
 
     getHeight(el) {
@@ -203,15 +235,15 @@ export default {
 
     absolutePosition(element, target) {
         if (element) {
-            let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
-            let elementOuterHeight = elementDimensions.height;
-            let elementOuterWidth = elementDimensions.width;
-            let targetOuterHeight = target.offsetHeight;
-            let targetOuterWidth = target.offsetWidth;
-            let targetOffset = target.getBoundingClientRect();
-            let windowScrollTop = this.getWindowScrollTop();
-            let windowScrollLeft = this.getWindowScrollLeft();
-            let viewport = this.getViewport();
+            const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
+            const elementOuterHeight = elementDimensions.height;
+            const elementOuterWidth = elementDimensions.width;
+            const targetOuterHeight = target.offsetHeight;
+            const targetOuterWidth = target.offsetWidth;
+            const targetOffset = target.getBoundingClientRect();
+            const windowScrollTop = this.getWindowScrollTop();
+            const windowScrollLeft = this.getWindowScrollLeft();
+            const viewport = this.getViewport();
             let top, left;
 
             if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
@@ -236,7 +268,7 @@ export default {
 
     relativePosition(element, target) {
         if (element) {
-            let elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
+            const elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
             const targetHeight = target.offsetHeight;
             const targetOffset = target.getBoundingClientRect();
             const viewport = this.getViewport();
