@@ -44,7 +44,7 @@ import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import { UniqueComponentId } from 'primevue/utils';
-import BasePanel from './BasePanel';
+import BasePanel from './BasePanel.vue';
 
 export default {
     name: 'Panel',

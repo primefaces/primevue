@@ -385,7 +385,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
-import BaseCalendar from './BaseCalendar';
+import BaseCalendar from './BaseCalendar.vue';
 
 export default {
     name: 'Calendar',
