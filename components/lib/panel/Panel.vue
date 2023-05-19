@@ -1,10 +1,10 @@
 <template>
-    <div :class="css('root')" data-pc-name="panel" v-bind="ptm('root')">
-        <div :class="css('header')" v-bind="ptm('header')">
-            <slot :id="ariaId + '_header'" name="header" :class="css('title')">
-                <span v-if="header" :id="ariaId + '_header'" :class="css('title')" v-bind="ptm('title')">{{ header }}</span>
+    <div :class="cx('root')" data-pc-name="panel" v-bind="ptm('root')">
+        <div :class="cx('header')" v-bind="ptm('header')">
+            <slot :id="ariaId + '_header'" name="header" :class="cx('title')">
+                <span v-if="header" :id="ariaId + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
             </slot>
-            <div :class="css('icons')" v-bind="ptm('icons')">
+            <div :class="cx('icons')" v-bind="ptm('icons')">
                 <slot name="icons"></slot>
                 <button
                     v-if="toggleable"
@@ -12,7 +12,7 @@
                     v-ripple
                     type="button"
                     role="button"
-                    :class="css('toggler')"
+                    :class="cx('toggler')"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="ariaId + '_content'"
                     :aria-expanded="!d_collapsed"
@@ -27,11 +27,11 @@
             </div>
         </div>
         <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="css('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
-                <div :class="css('content')" v-bind="ptm('content')">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
-                <div v-if="$slots.footer" :class="css('footer')" v-bind="ptm('footer')">
+                <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
                     <slot name="footer"></slot>
                 </div>
             </div>

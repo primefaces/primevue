@@ -1,8 +1,8 @@
 <template>
-    <fieldset :class="css('root')" data-pc-name="fieldset" v-bind="ptm('root')">
-        <legend :class="css('legend')" v-bind="ptm('legend')">
+    <fieldset :class="cx('root')" data-pc-name="fieldset" v-bind="ptm('root')">
+        <legend :class="cx('legend')" v-bind="ptm('legend')">
             <slot v-if="!toggleable" name="legend">
-                <span :id="ariaId + '_header'" :class="css('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
+                <span :id="ariaId + '_header'" :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
             </slot>
             <a
                 v-if="toggleable"
@@ -18,16 +18,16 @@
                 v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
             >
                 <slot name="togglericon" :collapsed="d_collapsed">
-                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="css('togglericon')" v-bind="ptm('togglericon')" />
+                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="cx('togglericon')" v-bind="ptm('togglericon')" />
                 </slot>
                 <slot name="legend">
-                    <span :class="css('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
+                    <span :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
                 </slot>
             </a>
         </legend>
         <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="css('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
-                <div :class="css('content')" v-bind="ptm('content')">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
             </div>

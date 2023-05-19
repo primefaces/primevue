@@ -1,12 +1,12 @@
 <template>
-    <span ref="container" :id="id" :class="css('root')" :style="style('root')" data-pc-name="calendar" data-pc-section="root" v-bind="ptm('root')">
+    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" data-pc-name="calendar" data-pc-section="root" v-bind="ptm('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
             :id="inputId"
             type="text"
             role="combobox"
-            :class="[css('input'), inputClass]"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :placeholder="placeholder"
             autocomplete="off"
@@ -29,7 +29,7 @@
         />
         <CalendarButton
             v-if="showIcon"
-            :class="css('dropdownButton')"
+            :class="cx('dropdownButton')"
             :disabled="disabled"
             @click="onButtonClick"
             type="button"
@@ -51,7 +51,7 @@
                     v-if="inline || overlayVisible"
                     :ref="overlayRef"
                     :id="panelId"
-                    :class="css('panel')"
+                    :class="cx('panel')"
                     :style="panelStyle"
                     :role="inline ? null : 'dialog'"
                     :aria-modal="inline ? null : 'true'"
@@ -62,15 +62,15 @@
                     v-bind="{ ...panelProps, ...ptm('panel') }"
                 >
                     <template v-if="!timeOnly">
-                        <div :class="css('groupContainer')" v-bind="ptm('groupContainer')">
-                            <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="css('group')" v-bind="ptm('group')">
-                                <div :class="css('header')" v-bind="ptm('header')">
+                        <div :class="cx('groupContainer')" v-bind="ptm('groupContainer')">
+                            <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="cx('group')" v-bind="ptm('group')">
+                                <div :class="cx('header')" v-bind="ptm('header')">
                                     <slot name="header"></slot>
                                     <button
                                         v-show="showOtherMonths ? groupIndex === 0 : false"
                                         :ref="previousButtonRef"
                                         v-ripple
-                                        :class="css('previousButton')"
+                                        :class="cx('previousButton')"
                                         @click="onPrevButtonClick"
                                         type="button"
                                         @keydown="onContainerButtonKeydown"
@@ -79,16 +79,16 @@
                                         v-bind="ptm('previousButton')"
                                     >
                                         <slot name="previousicon">
-                                            <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[css('previousIcon'), previousIcon]" v-bind="ptm('previousIcon')" />
+                                            <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[cx('previousIcon'), previousIcon]" v-bind="ptm('previousIcon')" />
                                         </slot>
                                     </button>
-                                    <div :class="css('title')" v-bind="ptm('title')">
+                                    <div :class="cx('title')" v-bind="ptm('title')">
                                         <button
                                             v-if="currentView === 'date'"
                                             type="button"
                                             @click="switchToMonthView"
                                             @keydown="onContainerButtonKeydown"
-                                            :class="css('monthTitle')"
+                                            :class="cx('monthTitle')"
                                             :disabled="switchViewButtonDisabled"
                                             :aria-label="$primevue.config.locale.chooseMonth"
                                             v-bind="ptm('monthTitle')"
@@ -100,14 +100,14 @@
                                             type="button"
                                             @click="switchToYearView"
                                             @keydown="onContainerButtonKeydown"
-                                            :class="css('yearTitle')"
+                                            :class="cx('yearTitle')"
                                             :disabled="switchViewButtonDisabled"
                                             :aria-label="$primevue.config.locale.chooseYear"
                                             v-bind="ptm('yearTitle')"
                                         >
                                             {{ getYear(month) }}
                                         </button>
-                                        <span v-if="currentView === 'year'" :class="css('decadeTitle')" v-bind="ptm('decadeTitle')">
+                                        <span v-if="currentView === 'year'" :class="cx('decadeTitle')" v-bind="ptm('decadeTitle')">
                                             <slot name="decade" :years="yearPickerValues"> {{ yearPickerValues[0].value }} - {{ yearPickerValues[yearPickerValues.length - 1].value }} </slot>
                                         </span>
                                     </div>
@@ -115,7 +115,7 @@
                                         v-show="showOtherMonths ? (numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1) : false"
                                         :ref="nextButtonRef"
                                         v-ripple
-                                        :class="css('nextButton')"
+                                        :class="cx('nextButton')"
                                         @click="onNextButtonClick"
                                         type="button"
                                         @keydown="onContainerButtonKeydown"
@@ -124,15 +124,15 @@
                                         v-bind="ptm('nextButton')"
                                     >
                                         <slot name="nexticon">
-                                            <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="[css('nextIcon'), nextIcon]" v-bind="ptm('nextIcon')" />
+                                            <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="[cx('nextIcon'), nextIcon]" v-bind="ptm('nextIcon')" />
                                         </slot>
                                     </button>
                                 </div>
-                                <div v-if="currentView === 'date'" :class="css('container')" v-bind="ptm('container')">
-                                    <table :class="css('table')" role="grid" v-bind="ptm('table')">
+                                <div v-if="currentView === 'date'" :class="cx('container')" v-bind="ptm('container')">
+                                    <table :class="cx('table')" role="grid" v-bind="ptm('table')">
                                         <thead v-bind="ptm('tableHeader')">
                                             <tr v-bind="ptm('tableHeaderRow')">
-                                                <th v-if="showWeek" scope="col" :class="css('weekHeader')" :data-p-disabled="true" v-bind="ptm('weekHeader')">
+                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" :data-p-disabled="true" v-bind="ptm('weekHeader')">
                                                     <span v-bind="ptm('weekLabel')">{{ weekHeaderLabel }}</span>
                                                 </th>
                                                 <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')">
@@ -142,16 +142,16 @@
                                         </thead>
                                         <tbody v-bind="ptm('tableBody')">
                                             <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
-                                                <td v-if="showWeek" :class="css('weekNumber')" v-bind="ptm('weekNumber')">
-                                                    <span :class="css('weekLabelContainer')" :data-p-disabled="true" v-bind="ptm('weekLabelContainer')">
+                                                <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')">
+                                                    <span :class="cx('weekLabelContainer')" :data-p-disabled="true" v-bind="ptm('weekLabelContainer')">
                                                         <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
                                                         {{ month.weekNumbers[i] }}
                                                     </span>
                                                 </td>
-                                                <td v-for="date of week" :key="date.day + '' + date.month" :aria-label="date.day" :class="css('day', { date })" :data-p-today="date.today" :data-p-other-month="date.otherMonth" v-bind="ptm('day')">
+                                                <td v-for="date of week" :key="date.day + '' + date.month" :aria-label="date.day" :class="cx('day', { date })" :data-p-today="date.today" :data-p-other-month="date.otherMonth" v-bind="ptm('day')">
                                                     <span
                                                         v-ripple
-                                                        :class="css('dayLabel', { date })"
+                                                        :class="cx('dayLabel', { date })"
                                                         @click="onDateSelect($event, date)"
                                                         draggable="false"
                                                         @keydown="onDateCellKeydown($event, date, groupIndex)"
@@ -163,7 +163,7 @@
                                                     >
                                                         <slot name="date" :date="date">{{ date.day }}</slot>
                                                     </span>
-                                                    <div v-if="isSelected(date)" :class="css('ariaSelectedDay')" :style="style('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaSelectedDay')">
+                                                    <div v-if="isSelected(date)" :class="cx('ariaSelectedDay')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaSelectedDay')">
                                                         {{ date.day }}
                                                     </div>
                                                 </td>
@@ -173,50 +173,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-if="currentView === 'month'" :class="css('monthPicker')" data-pc-section="monthpicker" v-bind="ptm('monthPicker')">
+                        <div v-if="currentView === 'month'" :class="cx('monthPicker')" data-pc-section="monthpicker" v-bind="ptm('monthPicker')">
                             <span
                                 v-for="(m, i) of monthPickerValues"
                                 :key="m"
                                 v-ripple
                                 @click="onMonthSelect($event, { month: m, index: i })"
                                 @keydown="onMonthCellKeydown($event, { month: m, index: i })"
-                                :class="css('month', { month: m, index: i })"
+                                :class="cx('month', { month: m, index: i })"
                                 data-pc-section="month"
                                 :data-p-disabled="!m.selectable"
                                 :data-p-highlight="isMonthSelected(i)"
                                 v-bind="ptm('month')"
                             >
                                 {{ m.value }}
-                                <div v-if="isMonthSelected(i)" :class="css('ariaMonth')" :style="style('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaMonth')">
+                                <div v-if="isMonthSelected(i)" :class="cx('ariaMonth')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaMonth')">
                                     {{ m.value }}
                                 </div>
                             </span>
                         </div>
-                        <div v-if="currentView === 'year'" :class="css('yearPicker')" data-pc-section="yearpicker" v-bind="ptm('yearPicker')">
+                        <div v-if="currentView === 'year'" :class="cx('yearPicker')" data-pc-section="yearpicker" v-bind="ptm('yearPicker')">
                             <span
                                 v-for="y of yearPickerValues"
                                 :key="y.value"
                                 v-ripple
                                 @click="onYearSelect($event, y)"
                                 @keydown="onYearCellKeydown($event, y)"
-                                :class="css('year', { year: y })"
+                                :class="cx('year', { year: y })"
                                 data-pc-section="year"
                                 :data-p-disabled="!y.selectable"
                                 :data-p-highlight="isYearSelected(y.value)"
                                 v-bind="ptm('year')"
                             >
                                 {{ y.value }}
-                                <div v-if="isYearSelected(y.value)" :class="css('ariaYear')" :style="style('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaYear')">
+                                <div v-if="isYearSelected(y.value)" :class="cx('ariaYear')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaYear')">
                                     {{ y.value }}
                                 </div>
                             </span>
                         </div>
                     </template>
-                    <div v-if="(showTime || timeOnly) && currentView === 'date'" :class="css('timePicker')" v-bind="ptm('timePicker')">
-                        <div :class="css('hourPicker')" v-bind="ptm('hourPicker')">
+                    <div v-if="(showTime || timeOnly) && currentView === 'date'" :class="cx('timePicker')" v-bind="ptm('timePicker')">
+                        <div :class="cx('hourPicker')" v-bind="ptm('hourPicker')">
                             <button
                                 v-ripple
-                                :class="css('incrementButton')"
+                                :class="cx('incrementButton')"
                                 :aria-label="$primevue.config.locale.nextHour"
                                 @mousedown="onTimePickerElementMouseDown($event, 0, 1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -236,7 +236,7 @@
                             <span v-bind="ptm('hour')">{{ formattedCurrentHour }}</span>
                             <button
                                 v-ripple
-                                :class="css('decrementButton')"
+                                :class="cx('decrementButton')"
                                 :aria-label="$primevue.config.locale.prevHour"
                                 @mousedown="onTimePickerElementMouseDown($event, 0, -1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -254,13 +254,13 @@
                                 </slot>
                             </button>
                         </div>
-                        <div :class="css('separatorContainer')" v-bind="ptm('separatorContainer')">
+                        <div :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
                             <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
                         </div>
-                        <div :class="css('minutePicker')" v-bind="ptm('minutePicker')">
+                        <div :class="cx('minutePicker')" v-bind="ptm('minutePicker')">
                             <button
                                 v-ripple
-                                :class="css('incrementButton')"
+                                :class="cx('incrementButton')"
                                 :aria-label="$primevue.config.locale.nextMinute"
                                 @mousedown="onTimePickerElementMouseDown($event, 1, 1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -281,7 +281,7 @@
                             <span v-bind="ptm('minute')">{{ formattedCurrentMinute }}</span>
                             <button
                                 v-ripple
-                                :class="css('decrementButton')"
+                                :class="cx('decrementButton')"
                                 :aria-label="$primevue.config.locale.prevMinute"
                                 @mousedown="onTimePickerElementMouseDown($event, 1, -1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -300,13 +300,13 @@
                                 </slot>
                             </button>
                         </div>
-                        <div v-if="showSeconds" :class="css('separatorContainer')" v-bind="ptm('separatorContainer')">
+                        <div v-if="showSeconds" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
                             <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
                         </div>
-                        <div v-if="showSeconds" :class="css('secondPicker')" v-bind="ptm('secondPicker')">
+                        <div v-if="showSeconds" :class="cx('secondPicker')" v-bind="ptm('secondPicker')">
                             <button
                                 v-ripple
-                                :class="css('incrementButton')"
+                                :class="cx('incrementButton')"
                                 :aria-label="$primevue.config.locale.nextSecond"
                                 @mousedown="onTimePickerElementMouseDown($event, 2, 1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -327,7 +327,7 @@
                             <span v-bind="ptm('second')">{{ formattedCurrentSecond }}</span>
                             <button
                                 v-ripple
-                                :class="css('decrementButton')"
+                                :class="cx('decrementButton')"
                                 :aria-label="$primevue.config.locale.prevSecond"
                                 @mousedown="onTimePickerElementMouseDown($event, 2, -1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -346,26 +346,26 @@
                                 </slot>
                             </button>
                         </div>
-                        <div v-if="hourFormat == '12'" :class="css('separatorContainer')" v-bind="ptm('separatorContainer')">
+                        <div v-if="hourFormat == '12'" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
                             <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
                         </div>
-                        <div v-if="hourFormat == '12'" :class="css('ampmPicker')" v-bind="ptm('ampmPicker')">
-                            <button v-ripple :class="css('incrementButton')" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
+                        <div v-if="hourFormat == '12'" :class="cx('ampmPicker')" v-bind="ptm('ampmPicker')">
+                            <button v-ripple :class="cx('incrementButton')" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
                                 <slot name="incrementicon">
-                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="css('incrementIcon')" v-bind="ptm('incrementIcon')" />
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="cx('incrementIcon')" v-bind="ptm('incrementIcon')" />
                                 </slot>
                             </button>
                             <span v-bind="ptm('ampm')">{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
-                            <button v-ripple :class="css('decrementButton')" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
+                            <button v-ripple :class="cx('decrementButton')" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
                                 <slot name="decrementicon">
-                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="css('decrementIcon')" v-bind="ptm('decrementIcon')" />
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="cx('decrementIcon')" v-bind="ptm('decrementIcon')" />
                                 </slot>
                             </button>
                         </div>
                     </div>
-                    <div v-if="showButtonBar" :class="css('buttonbar')" v-bind="ptm('buttonbar')">
-                        <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" :class="css('todayButton')" @keydown="onContainerButtonKeydown" :pt="ptm('todayButton')" />
-                        <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" :class="css('clearButton')" @keydown="onContainerButtonKeydown" :pt="ptm('clearButton')" />
+                    <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
+                        <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" :class="cx('todayButton')" @keydown="onContainerButtonKeydown" :pt="ptm('todayButton')" />
+                        <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" :class="cx('clearButton')" @keydown="onContainerButtonKeydown" :pt="ptm('clearButton')" />
                     </div>
                     <slot name="footer"></slot>
                 </div>

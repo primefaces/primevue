@@ -51,10 +51,10 @@ export default {
         ptmo(obj = {}, key = '', params = {}) {
             return this.getPTValue(obj, key, params);
         },
-        css(key = '', params = {}) {
+        cx(key = '', params = {}) {
             return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(this.$options.style && this.$options.style.classes, key), { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
         },
-        style(key = '', when = true, params = {}) {
+        sx(key = '', when = true, params = {}) {
             if (when) {
                 const self = ObjectUtils.getItemValue(this.getOption(this.$options.style && this.$options.style.inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
                 const base = ObjectUtils.getItemValue(this.getOption(inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
