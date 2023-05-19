@@ -54,7 +54,7 @@ export default {
             default: null
         }
     },
-    style: {
+    css: {
         classes
     },
     watch: {

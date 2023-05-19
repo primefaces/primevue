@@ -52,11 +52,11 @@ export default {
             return this.getPTValue(obj, key, params);
         },
         cx(key = '', params = {}) {
-            return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(this.$options.style && this.$options.style.classes, key), { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
+            return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(this.$options.css && this.$options.css.classes, key), { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
             if (when) {
-                const self = ObjectUtils.getItemValue(this.getOption(this.$options.style && this.$options.style.inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
+                const self = ObjectUtils.getItemValue(this.getOption(this.$options.css && this.$options.css.inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
                 const base = ObjectUtils.getItemValue(this.getOption(inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
 
                 return [base, self];

@@ -443,7 +443,7 @@ export default {
             default: null
         }
     },
-    style: {
+    css: {
         inlineStyles,
         classes
     },
