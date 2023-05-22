@@ -798,13 +798,18 @@ export default {
             const value1 = ObjectUtils.resolveFieldData(data1, this.d_multiSortMeta[index].field);
             const value2 = ObjectUtils.resolveFieldData(data2, this.d_multiSortMeta[index].field);
             let result = null;
-
-            if (typeof value1 === 'string' || value1 instanceof String) {
-                if (value1.localeCompare && value1 !== value2) {
-                    return this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true });
+            
+            if (value1 == null && value2 != null) result = -1;
+            else if (value1 != null && value2 == null) result = 1;
+            else if (value1 == null && value2 == null) result = 0;
+            else {
+                if (typeof value1 === 'string' || value1 instanceof String) {
+                    if (value1.localeCompare && value1 !== value2) {
+                        return this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true });
+                    }
+                } else {
+                    result = value1 < value2 ? -1 : 1;
                 }
-            } else {
-                result = value1 < value2 ? -1 : 1;
             }
 
             if (value1 === value2) {
