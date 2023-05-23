@@ -120,6 +120,14 @@
                             "type": "AccordionPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "tab",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to AccordionTab helper components."
                         }
                     ],
                     "methods": []
@@ -348,6 +356,13 @@
                             "readonly": false,
                             "type": "AccordionPassThroughOptions",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AccordionTabContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -514,6 +529,21 @@
                             "type": "AccordionTabPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "AccordionTabContext": {
+                    "description": "Defines current options in AccordionTab component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the tab."
                         }
                     ],
                     "methods": []
