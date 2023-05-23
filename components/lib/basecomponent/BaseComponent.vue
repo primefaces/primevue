@@ -54,6 +54,9 @@ export default {
         cx(key = '', params = {}) {
             return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(this.$options.css && this.$options.css.classes, key), { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
         },
+        cxo(obj = {}, key = '', params = {}) {
+            return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(obj.css && obj.css.classes, key), { instance: obj, props: obj && obj.props, state: obj && obj.data, ...params }) : undefined;
+        },
         sx(key = '', when = true, params = {}) {
             if (when) {
                 const self = ObjectUtils.getItemValue(this.getOption(this.$options.css && this.$options.css.inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
