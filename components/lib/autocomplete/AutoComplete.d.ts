@@ -108,7 +108,7 @@ export interface AutoCompletePassThroughOptions {
      */
     container?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the token' DOM element.
+     * Uses to pass attributes to the token's DOM element.
      */
     token?: AutoCompletePassThroughOptionType;
     /**
@@ -119,6 +119,10 @@ export interface AutoCompletePassThroughOptions {
      * Uses to pass attributes to the remove token icon's DOM element.
      */
     removeTokenIcon?: AutoCompletePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the input token's DOM element.
+     */
+    inputToken?: AutoCompletePassThroughOptionType;
     /**
      * Uses to pass attributes to the loading icon's DOM element.
      */
@@ -426,6 +430,11 @@ export interface AutoCompleteProps {
      * @type {AutoCompletePassThroughOptions}
      */
     pt?: AutoCompletePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -561,7 +570,12 @@ export interface AutoCompleteSlots {
     /**
      * Custom dropdown icon template.
      */
-    dropdownicon(): VNode[];
+    dropdownicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom remove token icon template in multiple mode.
      */
