@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { AccordionTabPassThroughOptionType } from '../accordiontab';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes) | null | undefined;
@@ -58,6 +59,10 @@ export interface AccordionPassThroughOptions {
      * Uses to pass attributes to the root's DOM element.
      */
     root?: AccordionPassThroughOptionType;
+    /**
+     * Uses to pass attributes to AccordionTab helper components.
+     */
+    tab?: AccordionTabPassThroughOptionType;
 }
 
 /**

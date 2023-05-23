@@ -1,7 +1,7 @@
 <template>
     <div class="p-accordion p-component" v-bind="ptm('root')">
-        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="getTabClass(i)" :data-index="i" v-bind="getTabPT(tab, 'root')">
-            <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'header') }">
+        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="getTabClass(i)" :data-index="i" v-bind="getTabPT(tab, 'root', i)">
+            <div :style="getTabProp(tab, 'headerStyle')" :class="getTabHeaderClass(tab, i)" v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'header', i) }">
                 <a
                     :id="getTabHeaderActionId(i)"
                     class="p-accordion-header-link p-accordion-header-action"
@@ -12,12 +12,12 @@
                     :aria-controls="getTabContentId(i)"
                     @click="onTabClick($event, tab, i)"
                     @keydown="onTabKeyDown($event, tab, i)"
-                    v-bind="{ ...getTabProp(tab, 'headeractionprops'), ...getTabPT(tab, 'headeraction') }"
+                    v-bind="{ ...getTabProp(tab, 'headeractionprops'), ...getTabPT(tab, 'headeraction', i) }"
                 >
                     <component v-if="tab.children && tab.children.headericon" :is="tab.children.headericon" :isTabActive="isTabActive(i)" :index="i"></component>
-                    <component v-else-if="isTabActive(i)" :is="collapseIcon ? 'span' : 'ChevronDownIcon'" :class="['p-accordion-toggle-icon', collapseIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon')" />
-                    <component v-else :is="expandIcon ? 'span' : 'ChevronRightIcon'" :class="['p-accordion-toggle-icon', expandIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon')" />
-                    <span v-if="tab.props && tab.props.header" class="p-accordion-header-text" v-bind="getTabPT(tab, 'headertitle')">{{ tab.props.header }}</span>
+                    <component v-else-if="isTabActive(i)" :is="collapseIcon ? 'span' : 'ChevronDownIcon'" :class="['p-accordion-toggle-icon', collapseIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" />
+                    <component v-else :is="expandIcon ? 'span' : 'ChevronRightIcon'" :class="['p-accordion-toggle-icon', expandIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" />
+                    <span v-if="tab.props && tab.props.header" class="p-accordion-header-text" v-bind="getTabPT(tab, 'headertitle', i)">{{ tab.props.header }}</span>
                     <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
             </div>
@@ -30,9 +30,9 @@
                     :class="getTabContentClass(tab)"
                     role="region"
                     :aria-labelledby="getTabHeaderActionId(i)"
-                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'toggleablecontent') }"
+                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'toggleablecontent', i) }"
                 >
-                    <div class="p-accordion-content" v-bind="getTabPT(tab, 'content')">
+                    <div class="p-accordion-content" v-bind="getTabPT(tab, 'content', i)">
                         <component :is="tab"></component>
                     </div>
                 </div>
@@ -118,14 +118,19 @@ export default {
         getTabContentId(index) {
             return `${this.id}_${index}_content`;
         },
-        getTabPT(tab, key) {
-            return this.ptmo(this.getTabProp(tab, 'pt'), key, {
+        getTabPT(tab, key, index) {
+            const tabMetaData = {
                 props: tab.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
+                },
+                context: {
+                    index
                 }
-            });
+            };
+
+            return { ...this.ptm(`tab.${key}`, { tab: tabMetaData }), ...this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData) };
         },
         onTabClick(event, tab, index) {
             this.changeActiveIndex(event, tab, index);

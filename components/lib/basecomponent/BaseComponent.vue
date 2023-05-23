@@ -28,10 +28,11 @@ export default {
         }
     },
     methods: {
-        getOption(obj = {}, key = '') {
-            const fKey = ObjectUtils.convertToFlatCase(key);
+        getOption(options, key = '') {
+            const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
+            const fKey = fKeys.shift();
 
-            return obj[Object.keys(obj).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''];
+            return fKey ? (typeof options === 'object' ? this.getOption(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], fKeys.join('.')) : undefined) : options;
         },
         getPTValue(obj = {}, key = '', params = {}) {
             const self = ObjectUtils.getItemValue(this.getOption(obj, key), params);
@@ -55,6 +56,7 @@ export default {
             return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(this.$options.css && this.$options.css.classes, key), { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
         },
         cxo(obj = {}, key = '', params = {}) {
+            // @todo
             return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(obj.css && obj.css.classes, key), { instance: obj, props: obj && obj.props, state: obj && obj.data, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
