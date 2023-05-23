@@ -28,15 +28,19 @@ export default {
         }
     },
     methods: {
-        getOption(options, key = '') {
+        getOptionValue(options, key = '', params = {}) {
             const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
             const fKey = fKeys.shift();
 
-            return fKey ? (typeof options === 'object' ? this.getOption(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], fKeys.join('.')) : undefined) : options;
+            return fKey
+                ? ObjectUtils.isObject(options)
+                    ? this.getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                    : undefined
+                : ObjectUtils.getItemValue(options, params);
         },
         getPTValue(obj = {}, key = '', params = {}) {
-            const self = ObjectUtils.getItemValue(this.getOption(obj, key), params);
-            const globalPT = ObjectUtils.getItemValue(this.getOption(this.defaultPT, key), params);
+            const self = this.getOptionValue(obj, key, params);
+            const globalPT = this.getOptionValue(this.defaultPT, key, params);
             const merged = mergeProps(self, globalPT);
 
             return merged;
@@ -53,16 +57,16 @@ export default {
             return this.getPTValue(obj, key, params);
         },
         cx(key = '', params = {}) {
-            return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(this.$options.css && this.$options.css.classes, key), { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
+            return !this.isUnstyled ? this.getOptionValue(this.$options.css && this.$options.css.classes, key, { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
         },
         cxo(obj = {}, key = '', params = {}) {
             // @todo
-            return !this.isUnstyled ? ObjectUtils.getItemValue(this.getOption(obj.css && obj.css.classes, key), { instance: obj, props: obj && obj.props, state: obj && obj.data, ...params }) : undefined;
+            return !this.isUnstyled ? this.getOptionValue(obj.css && obj.css.classes, key, { instance: obj, props: obj && obj.props, state: obj && obj.data, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
             if (when) {
-                const self = ObjectUtils.getItemValue(this.getOption(this.$options.css && this.$options.css.inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
-                const base = ObjectUtils.getItemValue(this.getOption(inlineStyles, key), { instance: this, props: this.$props, state: this.$data, ...params });
+                const self = this.getOptionValue(this.$options.css && this.$options.css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
+                const base = this.getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
 
                 return [base, self];
             }
@@ -72,7 +76,7 @@ export default {
     },
     computed: {
         defaultPT() {
-            return ObjectUtils.getItemValue(this.getOption(this.$primevue.config.pt, this.$.type.name), this.defaultsParams);
+            return this.getOptionValue(this.$primevue.config.pt, this.$.type.name, this.defaultsParams);
         },
         defaultsParams() {
             return { instance: this };

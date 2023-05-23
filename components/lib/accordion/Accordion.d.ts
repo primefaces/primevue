@@ -128,6 +128,11 @@ export interface AccordionProps {
      * @type {AccordionPassThroughOptions}
      */
     pt?: AccordionPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -80,10 +80,6 @@ export default {
         }
     },
 
-    isFunction(obj) {
-        return !!(obj && obj.constructor && obj.call && obj.apply);
-    },
-
     getItemValue(obj, ...params) {
         return this.isFunction(obj) ? obj(...params) : obj;
     },
@@ -216,6 +212,22 @@ export default {
 
     isNotEmpty(value) {
         return !this.isEmpty(value);
+    },
+
+    isFunction(value) {
+        return !!(value && value.constructor && value.call && value.apply);
+    },
+
+    isObject(value) {
+        return value !== null && value instanceof Object && value.constructor === Object;
+    },
+
+    isDate(value) {
+        return value !== null && value instanceof Date && value.constructor === Date;
+    },
+
+    isArray(value) {
+        return value !== null && Array.isArray(value);
     },
 
     isPrintableCharacter(char = '') {
