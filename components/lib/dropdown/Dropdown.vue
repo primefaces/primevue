@@ -1,12 +1,12 @@
 <template>
-    <div ref="container" :id="id" :class="containerClass" @click="onContainerClick" v-bind="ptm('root')">
+    <div ref="container" :id="id" :class="cx('root')" :style="sx('root')" data-pc-name="dropdown" data-pc-section="root" @click="onContainerClick" v-bind="ptm('root')">
         <input
             v-if="editable"
             ref="focusInput"
             :id="inputId"
             type="text"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
-            :class="inputStyleClass"
             :value="editableInputValue"
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
@@ -23,14 +23,15 @@
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onEditableInput"
+            data-pc-section="input"
             v-bind="{ ...inputProps, ...ptm('input') }"
         />
         <span
             v-else
             ref="focusInput"
             :id="inputId"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
-            :class="inputStyleClass"
             :tabindex="!disabled ? tabindex : -1"
             role="combobox"
             :aria-label="ariaLabel || (label === 'p-emptylabel' ? undefined : label)"
@@ -43,35 +44,48 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
+            data-pc-section="input"
             v-bind="{ ...inputProps, ...ptm('input') }"
         >
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
-        <slot v-if="showClear && modelValue != null" name="clearicon" :onClick="onClearClick">
-            <component :is="clearIcon ? 'i' : 'TimesIcon'" :class="['p-dropdown-clear-icon', clearIcon]" @click="onClearClick" v-bind="{ ...clearIconProps, ...ptm('clearIcon') }" />
+        <slot v-if="showClear && modelValue != null" name="clearicon" :class="cx('clearIcon')" :onClick="onClearClick">
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" data-pc-section="clearicon" @click="onClearClick" v-bind="{ ...clearIconProps, ...ptm('clearIcon') }" />
         </slot>
-        <div class="p-dropdown-trigger" v-bind="ptm('trigger')">
-            <slot v-if="loading" name="loadingicon" class="p-dropdown-trigger-icon">
-                <span v-if="loadingIcon" :class="['p-dropdown-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
-                <SpinnerIcon v-else class="p-dropdown-trigger-icon" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
+        <div :class="cx('trigger')" data-pc-section="trigger" v-bind="ptm('trigger')">
+            <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
+                <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" data-pc-section="loadingicon" v-bind="ptm('loadingIcon')" />
+                <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" data-pc-section="loadingicon" v-bind="ptm('loadingIcon')" />
             </slot>
-            <slot v-else name="dropdownicon" class="p-dropdown-trigger-icon">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-dropdown-trigger-icon', dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
+            <slot v-else name="dropdownicon" :class="cx('dropdownIcon')">
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" data-pc-section="dropdownicon" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
-                    <span ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus" v-bind="ptm('hiddenFirstFocusableEl')"></span>
+                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" data-pc-section="panel" v-bind="{ ...panelProps, ...ptm('panel') }">
+                    <span
+                        ref="firstHiddenFocusableElementOnOverlay"
+                        role="presentation"
+                        aria-hidden="true"
+                        :class="cx('hiddenFirstFocusableEl')"
+                        :style="sx('hiddenAccessible', isUnstyled)"
+                        :tabindex="0"
+                        @focus="onFirstHiddenFocus"
+                        :data-p-hidden-accessible="true"
+                        :data-p-hidden-focusable="true"
+                        data-pc-section="hiddenfirstfocusableel"
+                        v-bind="ptm('hiddenFirstFocusableEl')"
+                    ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                    <div v-if="filter" class="p-dropdown-header" v-bind="ptm('header')">
-                        <div class="p-dropdown-filter-container" v-bind="ptm('filterContainer')">
+                    <div v-if="filter" :class="cx('header')" data-pc-section="header" v-bind="ptm('header')">
+                        <div :class="cx('filterContainer')" data-pc-section="filtercontainer" v-bind="ptm('filterContainer')">
                             <input
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
-                                class="p-dropdown-filter p-inputtext p-component"
+                                :class="cx('filterInput')"
                                 :placeholder="filterPlaceholder"
                                 role="searchbox"
                                 autocomplete="off"
@@ -80,27 +94,29 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
+                                data-pc-section="filterinput"
                                 v-bind="{ ...filterInputProps, ...ptm('filterInput') }"
                             />
-                            <slot name="filtericon">
-                                <component :is="filterIcon ? 'span' : 'FilterIcon'" :class="['p-dropdown-filter-icon', filterIcon]" v-bind="ptm('filterIcon')" />
+                            <slot name="filtericon" :class="cx('filterIcon')">
+                                <component :is="filterIcon ? 'span' : 'FilterIcon'" :class="[cx('filterIcon'), filterIcon]" data-pc-section="filtericon" v-bind="ptm('filterIcon')" />
                             </slot>
                         </div>
-                        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')">
+                        <span role="status" aria-live="polite" :class="cx('hiddenFilterResult')" :style="sx('hiddenAccessible', isUnstyled)" :data-p-hidden-accessible="true" data-pc-section="hiddenfilterresult" v-bind="ptm('hiddenFilterResult')">
                             {{ filterResultMessageText }}
                         </span>
                     </div>
-                    <div class="p-dropdown-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
+                    <div :class="cx('wrapper')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" data-pc-section="wrapper" v-bind="ptm('wrapper')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-dropdown-items', styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" data-pc-section="list" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
                                         <li
                                             v-if="isOptionGroup(option)"
                                             :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                            class="p-dropdown-item-group"
+                                            :class="cx('itemGroup')"
                                             role="option"
+                                            data-pc-section="itemgroup"
                                             v-bind="ptm('itemGroup')"
                                         >
                                             <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
@@ -109,8 +125,8 @@
                                             v-else
                                             :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                             v-ripple
+                                            :class="cx('item', { option, focusedOption: getOptionIndex(i, getItemOptions) })"
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                            :class="['p-dropdown-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
                                             role="option"
                                             :aria-label="getOptionLabel(option)"
                                             :aria-selected="isSelected(option)"
@@ -119,15 +135,35 @@
                                             :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                             @click="onOptionSelect($event, option)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
+                                            :data-p-highlight="isSelected(option)"
+                                            :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
+                                            :data-p-disabled="isOptionDisabled(option)"
+                                            data-pc-section="item"
                                             v-bind="getPTOptions(option, getItemOptions, i, 'item')"
                                         >
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         </li>
                                     </template>
-                                    <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-dropdown-empty-message" role="option" v-bind="ptm('emptyMessage')">
+                                    <li
+                                        v-if="filterValue && (!items || (items && items.length === 0))"
+                                        :class="cx('emptyMessage')"
+                                        :style="sx('hiddenAccessible', isUnstyled)"
+                                        role="option"
+                                        :data-p-hidden-accessible="true"
+                                        data-pc-section="emptymessage"
+                                        v-bind="ptm('emptyMessage')"
+                                    >
                                         <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                                     </li>
-                                    <li v-else-if="!options || (options && options.length === 0)" class="p-dropdown-empty-message" role="option" v-bind="ptm('emptyMessage')">
+                                    <li
+                                        v-else-if="!options || (options && options.length === 0)"
+                                        :class="cx('emptyMessage')"
+                                        :style="sx('hiddenAccessible', isUnstyled)"
+                                        role="option"
+                                        :data-p-hidden-accessible="true"
+                                        data-pc-section="emptymessage"
+                                        v-bind="ptm('emptyMessage')"
+                                    >
                                         <slot name="empty">{{ emptyMessageText }}</slot>
                                     </li>
                                 </ul>
@@ -138,13 +174,33 @@
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-                    <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('emptyMessage')">
+                    <span
+                        v-if="!options || (options && options.length === 0)"
+                        role="status"
+                        aria-live="polite"
+                        :class="cx('emptyHiddenMessage')"
+                        :style="sx('hiddenAccessible', isUnstyled)"
+                        :data-p-hidden-accessible="true"
+                        v-bind="ptm('hiddenEmptyMessage')"
+                    >
                         {{ emptyMessageText }}
                     </span>
-                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')">
+                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" :data-p-hidden-accessible="true" v-bind="ptm('hiddenSelectedMessage')">
                         {{ selectedMessageText }}
                     </span>
-                    <span ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus" v-bind="ptm('hiddenLastFocusableEl')"></span>
+                    <span
+                        ref="lastHiddenFocusableElementOnOverlay"
+                        role="presentation"
+                        aria-hidden="true"
+                        :class="cx('hiddenLastFocusableEl')"
+                        :style="sx('hiddenAccessible', isUnstyled)"
+                        :tabindex="0"
+                        @focus="onLastHiddenFocus"
+                        :data-p-hidden-accessible="true"
+                        :data-p-hidden-focusable="true"
+                        data-pc-section="hiddenlastfocusableel"
+                        v-bind="ptm('hiddenLastFocusableEl')"
+                    ></span>
                 </div>
             </transition>
         </Portal>
@@ -153,7 +209,6 @@
 
 <script>
 import { FilterService } from 'primevue/api';
-import BaseComponent from 'primevue/basecomponent';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import FilterIcon from 'primevue/icons/filter';
 import SpinnerIcon from 'primevue/icons/spinner';
@@ -163,161 +218,12 @@ import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
+import BaseDropdown from './BaseDropdown.vue';
 
 export default {
     name: 'Dropdown',
-    extends: BaseComponent,
+    extends: BaseDropdown,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
-    props: {
-        modelValue: null,
-        options: Array,
-        optionLabel: null,
-        optionValue: null,
-        optionDisabled: null,
-        optionGroupLabel: null,
-        optionGroupChildren: null,
-        scrollHeight: {
-            type: String,
-            default: '200px'
-        },
-        filter: Boolean,
-        filterPlaceholder: String,
-        filterLocale: String,
-        filterMatchMode: {
-            type: String,
-            default: 'contains'
-        },
-        filterFields: {
-            type: Array,
-            default: null
-        },
-        editable: Boolean,
-        placeholder: {
-            type: String,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        dataKey: null,
-        showClear: {
-            type: Boolean,
-            default: false
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        panelClass: {
-            type: [String, Object],
-            default: null
-        },
-        panelStyle: {
-            type: Object,
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        filterInputProps: {
-            type: null,
-            default: null
-        },
-        clearIconProps: {
-            type: null,
-            default: null
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        clearIcon: {
-            type: String,
-            default: undefined
-        },
-        dropdownIcon: {
-            type: String,
-            default: undefined
-        },
-        filterIcon: {
-            type: String,
-            default: undefined
-        },
-        loadingIcon: {
-            type: String,
-            default: undefined
-        },
-        resetFilterOnHide: {
-            type: Boolean,
-            default: false
-        },
-        virtualScrollerOptions: {
-            type: Object,
-            default: null
-        },
-        autoOptionFocus: {
-            type: Boolean,
-            default: true
-        },
-        autoFilterFocus: {
-            type: Boolean,
-            default: false
-        },
-        selectOnFocus: {
-            type: Boolean,
-            default: false
-        },
-        filterMessage: {
-            type: String,
-            default: null
-        },
-        selectionMessage: {
-            type: String,
-            default: null
-        },
-        emptySelectionMessage: {
-            type: String,
-            default: null
-        },
-        emptyFilterMessage: {
-            type: String,
-            default: null
-        },
-        emptyMessage: {
-            type: String,
-            default: null
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -539,7 +445,7 @@ export default {
                 return;
             }
 
-            if (DomHandler.hasClass(event.target, 'p-dropdown-clear-icon') || event.target.tagName === 'INPUT') {
+            if ((this.$refs.clearIcon && this.$refs.clearIcon.$el.isSameNode(event.target)) || event.target.tagName === 'INPUT') {
                 return;
             } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
@@ -549,12 +455,12 @@ export default {
             this.updateModel(event, null);
         },
         onFirstHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
             DomHandler.focus(focusableEl);
         },
         onLastHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
             DomHandler.focus(focusableEl);
         },
@@ -746,6 +652,8 @@ export default {
         },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+
+            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.scrollInView();
 
@@ -828,7 +736,7 @@ export default {
             }
         },
         hasFocusableElements() {
-            return DomHandler.getFocusableElements(this.overlay, ':not(.p-hidden-focusable)').length > 0;
+            return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
@@ -962,39 +870,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-dropdown p-component p-inputwrapper',
-                {
-                    'p-disabled': this.disabled,
-                    'p-dropdown-clearable': this.showClear && !this.disabled,
-                    'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.hasSelectedOption,
-                    'p-inputwrapper-focus': this.focused || this.overlayVisible,
-                    'p-overlay-open': this.overlayVisible
-                }
-            ];
-        },
-        inputStyleClass() {
-            return [
-                'p-dropdown-label p-inputtext',
-                this.inputClass,
-                {
-                    'p-placeholder': !this.editable && this.label === this.placeholder,
-                    'p-dropdown-label-empty': !this.editable && !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
-                }
-            ];
-        },
-        panelStyleClass() {
-            return [
-                'p-dropdown-panel p-component',
-                this.panelClass,
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
@@ -1083,98 +958,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-dropdown {
-    display: inline-flex;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-}
-
-.p-dropdown-clear-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.p-dropdown-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.p-dropdown-label {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    flex: 1 1 auto;
-    width: 1%;
-    text-overflow: ellipsis;
-    cursor: pointer;
-}
-
-.p-dropdown-label-empty {
-    overflow: hidden;
-    opacity: 0;
-}
-
-input.p-dropdown-label {
-    cursor: default;
-}
-
-.p-dropdown .p-dropdown-panel {
-    min-width: 100%;
-}
-
-.p-dropdown-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.p-dropdown-items-wrapper {
-    overflow: auto;
-}
-
-.p-dropdown-item {
-    cursor: pointer;
-    font-weight: normal;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-}
-
-.p-dropdown-item-group {
-    cursor: auto;
-}
-
-.p-dropdown-items {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.p-dropdown-filter {
-    width: 100%;
-}
-
-.p-dropdown-filter-container {
-    position: relative;
-}
-
-.p-dropdown-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.p-fluid .p-dropdown {
-    display: flex;
-}
-
-.p-fluid .p-dropdown .p-dropdown-label {
-    width: 1%;
-}
-</style>
