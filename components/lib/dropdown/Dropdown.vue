@@ -445,7 +445,7 @@ export default {
                 return;
             }
 
-            if ((this.$refs.clearIcon && this.$refs.clearIcon.$el.isSameNode(event.target)) || event.target.tagName === 'INPUT') {
+            if ((this.$refs.clearIcon && this.$refs.clearIcon.isSameNode(event.target)) || event.target.tagName === 'INPUT') {
                 return;
             } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
