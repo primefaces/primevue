@@ -39812,7 +39812,7 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "checbox",
+                            "name": "checkbox",
                             "optional": true,
                             "readonly": false,
                             "type": "TriStateCheckboxPassThroughOptionType",
