@@ -16590,7 +16590,7 @@
                             "readonly": false,
                             "type": "DropdownPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the emptyMessage's DOM element."
+                            "description": "Uses to pass attributes to the empty message's DOM element."
                         },
                         {
                             "name": "hiddenFirstFocusableEl",
@@ -16607,6 +16607,14 @@
                             "type": "DropdownPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden filter result's DOM element."
+                        },
+                        {
+                            "name": "hiddenEmptyMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DropdownPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the hidden empty message's DOM element."
                         },
                         {
                             "name": "hiddenSelectedMessage",
@@ -17102,6 +17110,14 @@
                             "type": "DropdownPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
