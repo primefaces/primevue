@@ -33,7 +33,7 @@ export interface TriStateCheckboxPassThroughOptions {
     /**
      * Uses to pass attributes to the checkbox box's DOM element.
      */
-    checbox?: TriStateCheckboxPassThroughOptionType;
+    checkbox?: TriStateCheckboxPassThroughOptionType;
     /**
      * Uses to pass attributes to the check icon's DOM element.
      */

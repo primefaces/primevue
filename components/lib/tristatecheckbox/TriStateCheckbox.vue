@@ -17,7 +17,7 @@
             />
         </div>
         <span class="p-sr-only" aria-live="polite" v-bind="ptm('srOnlyAria')">{{ ariaValueLabel }}</span>
-        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="getPTOptions('checbox')">
+        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="getPTOptions('checkbox')">
             <slot v-if="modelValue === true" name="checkicon">
                 <component :is="'CheckIcon'" class="p-checkbox-icon" v-bind="ptm('checkIcon')" />
             </slot>
