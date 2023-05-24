@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" data-pc-name="calendar" data-pc-section="root" v-bind="ptm('root')">
+    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
@@ -38,10 +38,11 @@
             :aria-expanded="overlayVisible"
             :aria-controls="panelId"
             :pt="ptm('dropdownButton')"
+            data-pc-section="dropdownbutton"
         >
             <template #icon>
                 <slot name="dropdownicon">
-                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButton')['icon']" />
+                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="icon" />
                 </slot>
             </template>
         </CalendarButton>
@@ -132,7 +133,7 @@
                                     <table :class="cx('table')" role="grid" v-bind="ptm('table')">
                                         <thead v-bind="ptm('tableHeader')">
                                             <tr v-bind="ptm('tableHeaderRow')">
-                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" :data-p-disabled="true" v-bind="ptm('weekHeader')">
+                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader')" :data-p-disabled="true">
                                                     <span v-bind="ptm('weekLabel')">{{ weekHeaderLabel }}</span>
                                                 </th>
                                                 <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')">
@@ -143,12 +144,12 @@
                                         <tbody v-bind="ptm('tableBody')">
                                             <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
                                                 <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')">
-                                                    <span :class="cx('weekLabelContainer')" :data-p-disabled="true" v-bind="ptm('weekLabelContainer')">
+                                                    <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer')" :data-p-disabled="true">
                                                         <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
                                                         {{ month.weekNumbers[i] }}
                                                     </span>
                                                 </td>
-                                                <td v-for="date of week" :key="date.day + '' + date.month" :aria-label="date.day" :class="cx('day', { date })" :data-p-today="date.today" :data-p-other-month="date.otherMonth" v-bind="ptm('day')">
+                                                <td v-for="date of week" :key="date.day + '' + date.month" :aria-label="date.day" :class="cx('day', { date })" v-bind="ptm('day')" :data-p-today="date.today" :data-p-other-month="date.otherMonth">
                                                     <span
                                                         v-ripple
                                                         :class="cx('dayLabel', { date })"
@@ -157,13 +158,13 @@
                                                         @keydown="onDateCellKeydown($event, date, groupIndex)"
                                                         :aria-selected="isSelected(date)"
                                                         :aria-disabled="!date.selectable"
+                                                        v-bind="ptm('dayLabel')"
                                                         :data-p-disabled="!date.selectable"
                                                         :data-p-highlight="isSelected(date)"
-                                                        v-bind="ptm('dayLabel')"
                                                     >
                                                         <slot name="date" :date="date">{{ date.day }}</slot>
                                                     </span>
-                                                    <div v-if="isSelected(date)" :class="cx('ariaSelectedDay')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaSelectedDay')">
+                                                    <div v-if="isSelected(date)" :class="cx('ariaSelectedDay')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaSelectedDay')" :data-p-hidden-accessible="true">
                                                         {{ date.day }}
                                                     </div>
                                                 </td>
@@ -173,7 +174,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-if="currentView === 'month'" :class="cx('monthPicker')" data-pc-section="monthpicker" v-bind="ptm('monthPicker')">
+                        <div v-if="currentView === 'month'" :class="cx('monthPicker')" v-bind="ptm('monthPicker')">
                             <span
                                 v-for="(m, i) of monthPickerValues"
                                 :key="m"
@@ -181,18 +182,17 @@
                                 @click="onMonthSelect($event, { month: m, index: i })"
                                 @keydown="onMonthCellKeydown($event, { month: m, index: i })"
                                 :class="cx('month', { month: m, index: i })"
-                                data-pc-section="month"
+                                v-bind="ptm('month')"
                                 :data-p-disabled="!m.selectable"
                                 :data-p-highlight="isMonthSelected(i)"
-                                v-bind="ptm('month')"
                             >
                                 {{ m.value }}
-                                <div v-if="isMonthSelected(i)" :class="cx('ariaMonth')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaMonth')">
+                                <div v-if="isMonthSelected(i)" :class="cx('ariaMonth')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaMonth')" :data-p-hidden-accessible="true">
                                     {{ m.value }}
                                 </div>
                             </span>
                         </div>
-                        <div v-if="currentView === 'year'" :class="cx('yearPicker')" data-pc-section="yearpicker" v-bind="ptm('yearPicker')">
+                        <div v-if="currentView === 'year'" :class="cx('yearPicker')" v-bind="ptm('yearPicker')">
                             <span
                                 v-for="y of yearPickerValues"
                                 :key="y.value"
@@ -200,13 +200,12 @@
                                 @click="onYearSelect($event, y)"
                                 @keydown="onYearCellKeydown($event, y)"
                                 :class="cx('year', { year: y })"
-                                data-pc-section="year"
+                                v-bind="ptm('year')"
                                 :data-p-disabled="!y.selectable"
                                 :data-p-highlight="isYearSelected(y.value)"
-                                v-bind="ptm('year')"
                             >
                                 {{ y.value }}
-                                <div v-if="isYearSelected(y.value)" :class="cx('ariaYear')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" :data-p-hidden-accessible="true" v-bind="ptm('ariaYear')">
+                                <div v-if="isYearSelected(y.value)" :class="cx('ariaYear')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaYear')" :data-p-hidden-accessible="true">
                                     {{ y.value }}
                                 </div>
                             </span>
@@ -364,8 +363,8 @@
                         </div>
                     </div>
                     <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
-                        <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" :class="cx('todayButton')" @keydown="onContainerButtonKeydown" :pt="ptm('todayButton')" />
-                        <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" :class="cx('clearButton')" @keydown="onContainerButtonKeydown" :pt="ptm('clearButton')" />
+                        <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" :class="cx('todayButton')" @keydown="onContainerButtonKeydown" :pt="ptm('todayButton')" data-pc-section="todaybutton" />
+                        <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" :class="cx('clearButton')" @keydown="onContainerButtonKeydown" :pt="ptm('clearButton')" data-pc-section="clearbutton" />
                     </div>
                     <slot name="footer"></slot>
                 </div>

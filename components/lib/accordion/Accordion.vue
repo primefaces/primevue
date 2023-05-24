@@ -1,11 +1,10 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="accordion" data-pc-section="root">
-        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="cx('tab.root', { tab, index: i })" v-bind="getTabPT(tab, 'root', i)" data-pc-name="accordiontab" data-pc-section="root" :data-pc-index="i" :data-p-active="isTabActive(i)">
+    <div :class="cx('root')" v-bind="ptm('root')">
+        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="cx('tab.root', { tab, index: i })" v-bind="getTabPT(tab, 'root', i)" :data-pc-index="i" :data-p-active="isTabActive(i)">
             <div
                 :style="getTabProp(tab, 'headerStyle')"
                 :class="[cx('tab.header', { tab, index: i }), getTabProp(tab, 'headerClass')]"
                 v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'header', i) }"
-                data-pc-section="header"
                 :data-p-highlight="isTabActive(i)"
                 :data-p-disabled="getTabProp(tab, 'disabled')"
             >
@@ -20,12 +19,11 @@
                     @click="onTabClick($event, tab, i)"
                     @keydown="onTabKeyDown($event, tab, i)"
                     v-bind="{ ...getTabProp(tab, 'headeractionprops'), ...getTabPT(tab, 'headeraction', i) }"
-                    data-pc-section="headeraction"
                 >
                     <component v-if="tab.children && tab.children.headericon" :is="tab.children.headericon" :isTabActive="isTabActive(i)" :index="i"></component>
-                    <component v-else-if="isTabActive(i)" :is="collapseIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('tab.headerIcon'), collapseIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" data-pc-section="headericon" />
-                    <component v-else :is="expandIcon ? 'span' : 'ChevronRightIcon'" :class="[cx('tab.headerIcon'), expandIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" data-pc-section="headericon" />
-                    <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" v-bind="getTabPT(tab, 'headertitle', i)" data-pc-section="headertitle">{{ tab.props.header }}</span>
+                    <component v-else-if="isTabActive(i)" :is="collapseIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('tab.headerIcon'), collapseIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" />
+                    <component v-else :is="expandIcon ? 'span' : 'ChevronRightIcon'" :class="[cx('tab.headerIcon'), expandIcon]" aria-hidden="true" v-bind="getTabPT(tab, 'headericon', i)" />
+                    <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" v-bind="getTabPT(tab, 'headertitle', i)">{{ tab.props.header }}</span>
                     <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
             </div>
@@ -39,9 +37,8 @@
                     role="region"
                     :aria-labelledby="getTabHeaderActionId(i)"
                     v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'toggleablecontent', i) }"
-                    data-pc-section="toggleablecontent"
                 >
-                    <div :class="cx('tab.content')" v-bind="getTabPT(tab, 'content', i)" data-pc-section="content">
+                    <div :class="cx('tab.content')" v-bind="getTabPT(tab, 'content', i)">
                         <component :is="tab"></component>
                     </div>
                 </div>
@@ -99,6 +96,7 @@ export default {
         },
         getTabPT(tab, key, index) {
             const tabMetaData = {
+                name: 'accordiontab',
                 props: tab.props,
                 parent: {
                     props: this.$props,

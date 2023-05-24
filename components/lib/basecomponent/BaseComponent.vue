@@ -39,9 +39,13 @@ export default {
                 : ObjectUtils.getItemValue(options, params);
         },
         getPTValue(obj = {}, key = '', params = {}) {
+            const datasetPrefix = 'data-pc-';
             const self = this.getOptionValue(obj, key, params);
             const globalPT = this.getOptionValue(this.defaultPT, key, params);
-            const merged = mergeProps(self, globalPT);
+            const merged = mergeProps(self, globalPT, {
+                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(params['name'] || this.$.type.name) }),
+                [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
+            });
 
             return merged;
             /*
