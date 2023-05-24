@@ -1,10 +1,10 @@
 <template>
-    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('root')" data-pc-name="avatar" data-pc-section="root">
+    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('root')">
         <slot>
-            <span v-if="label" :class="cx('label')" v-bind="ptm('label')" data-pc-section="label">{{ label }}</span>
-            <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" data-pc-section="icon" />
-            <span v-else-if="icon" :class="cx('icon')" v-bind="ptm('icon')" data-pc-section="icon" />
-            <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" v-bind="ptm('image')" data-pc-section="image" />
+            <span v-if="label" :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
+            <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" />
+            <span v-else-if="icon" :class="cx('icon')" v-bind="ptm('icon')" />
+            <img v-else-if="image" :src="image" :alt="ariaLabel" @error="onError" v-bind="ptm('image')" />
         </slot>
     </div>
 </template>
