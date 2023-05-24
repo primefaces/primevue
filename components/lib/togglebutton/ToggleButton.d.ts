@@ -136,6 +136,11 @@ export interface ToggleButtonProps {
      * @type {ToggleButtonPassThroughOptions}
      */
     pt?: ToggleButtonPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
