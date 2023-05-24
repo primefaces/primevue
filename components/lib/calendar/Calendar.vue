@@ -37,6 +37,7 @@
             aria-haspopup="dialog"
             :aria-expanded="overlayVisible"
             :aria-controls="panelId"
+            :unstyled="unstyled"
             :pt="ptm('dropdownButton')"
             data-pc-section="dropdownbutton"
         >
@@ -363,8 +364,26 @@
                         </div>
                     </div>
                     <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
-                        <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" :class="cx('todayButton')" @keydown="onContainerButtonKeydown" :pt="ptm('todayButton')" data-pc-section="todaybutton" />
-                        <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" :class="cx('clearButton')" @keydown="onContainerButtonKeydown" :pt="ptm('clearButton')" data-pc-section="clearbutton" />
+                        <CalendarButton
+                            type="button"
+                            :label="todayLabel"
+                            @click="onTodayButtonClick($event)"
+                            :class="cx('todayButton')"
+                            @keydown="onContainerButtonKeydown"
+                            :unstyled="unstyled"
+                            :pt="ptm('todayButton')"
+                            data-pc-section="todaybutton"
+                        />
+                        <CalendarButton
+                            type="button"
+                            :label="clearLabel"
+                            @click="onClearButtonClick($event)"
+                            :class="cx('clearButton')"
+                            @keydown="onContainerButtonKeydown"
+                            :unstyled="unstyled"
+                            :pt="ptm('clearButton')"
+                            data-pc-section="clearbutton"
+                        />
                     </div>
                     <slot name="footer"></slot>
                 </div>
