@@ -1,38 +1,15 @@
 <template>
-    <input :class="inputClass" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root')" />
+    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root')" />
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { DomHandler } from 'primevue/utils';
+import BaseInputMask from './BaseInputMask.vue';
 
 export default {
     name: 'InputMask',
-    extends: BaseComponent,
+    extends: BaseInputMask,
     emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
-    props: {
-        modelValue: null,
-        slotChar: {
-            type: String,
-            default: '_'
-        },
-        mask: {
-            type: String,
-            default: null
-        },
-        autoClear: {
-            type: Boolean,
-            default: true
-        },
-        unmask: {
-            type: Boolean,
-            default: false
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        }
-    },
     watch: {
         mask(newMask, oldMask) {
             if (oldMask !== newMask) {
@@ -519,14 +496,6 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
-        },
-        inputClass() {
-            return [
-                'p-inputmask p-inputtext p-component',
-                {
-                    'p-filled': this.filled
-                }
-            ];
         }
     }
 };
