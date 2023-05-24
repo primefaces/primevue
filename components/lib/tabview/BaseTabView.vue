@@ -83,7 +83,6 @@ const classes = {
     ],
     navContainer: 'p-tabview-nav-container',
     previousButton: 'p-tabview-nav-prev p-tabview-nav-btn p-link',
-    previousIcon: ({ props }) => props.prevIcon,
     navContent: 'p-tabview-nav-content',
     nav: 'p-tabview-nav',
     tab: {
@@ -101,7 +100,6 @@ const classes = {
     },
     inkbar: 'p-tabview-ink-bar',
     nextButton: 'p-tabview-nav-next p-tabview-nav-btn p-link',
-    nextIcon: ({ props }) => props.nextIcon,
     panelContainer: 'p-tabview-panels'
 };
 

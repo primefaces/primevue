@@ -1,11 +1,11 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" data-pc-name="autocomplete" data-pc-section="root" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptm('root')" data-pc-name="autocomplete">
         <input
             v-if="!multiple"
             ref="focusInput"
             :id="inputId"
             type="text"
-            :class="cx('input')"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :value="inputValue"
             :placeholder="placeholder"
@@ -25,7 +25,6 @@
             @keydown="onKeyDown"
             @input="onInput"
             @change="onChange"
-            data-pc-section="input"
             v-bind="{ ...inputProps, ...ptm('input') }"
         />
         <ul
@@ -39,7 +38,6 @@
             @focus="onMultipleContainerFocus"
             @blur="onMultipleContainerBlur"
             @keydown="onMultipleContainerKeyDown"
-            data-pc-section="container"
             v-bind="ptm('container')"
         >
             <li
@@ -52,17 +50,16 @@
                 :aria-selected="true"
                 :aria-setsize="modelValue.length"
                 :aria-posinset="i + 1"
-                data-pc-section="token"
                 v-bind="ptm('token')"
             >
                 <slot name="chip" :value="option">
-                    <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')" data-pc-section="tokenlabel">{{ getOptionLabel(option) }}</span>
+                    <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getOptionLabel(option) }}</span>
                 </slot>
                 <slot name="removetokenicon" :class="cx(removeTokenIcon)" :onClick="(event) => removeOption(event, i)">
-                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="cx(removeTokenIcon)" @click="removeOption($event, i)" aria-hidden="true" data-pc-section="removetokenicon" v-bind="ptm('removeTokenIcon')" />
+                    <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="[cx(removeTokenIcon), removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
                 </slot>
             </li>
-            <li :class="cx('inputToken')" role="option" data-pc-section="inputtoken" v-bind="ptm('inputToken')">
+            <li :class="cx('inputToken')" role="option" v-bind="ptm('inputToken')">
                 <input
                     ref="focusInput"
                     :id="inputId"
@@ -86,23 +83,33 @@
                     @keydown="onKeyDown"
                     @input="onInput"
                     @change="onChange"
-                    data-pc-section="input"
                     v-bind="{ ...inputProps, ...ptm('input') }"
                 />
             </li>
         </ul>
-        <slot v-if="searching" name="loadingicon">
-            <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon')]" aria-hidden="true" data-pc-section="loaidngicon" v-bind="ptm('loadingIcon')" />
-            <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" data-pc-section="loadingicon" v-bind="ptm('loadingIcon')" />
+        <slot v-if="searching" :class="cx('loadingIcon')" name="loadingicon">
+            <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
+            <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
-        <Button v-if="dropdown" ref="dropdownButton" type="button" tabindex="-1" :class="cx('dropdownButton')" :disabled="disabled" aria-hidden="true" data-pc-section="dropdownbutton" @click="onDropdownClick" :pt="ptm('dropdownButton')">
+        <Button
+            v-if="dropdown"
+            ref="dropdownButton"
+            type="button"
+            tabindex="-1"
+            :class="[cx('dropdownButton'), dropdownClass]"
+            :disabled="disabled"
+            aria-hidden="true"
+            @click="onDropdownClick"
+            :pt="ptm('dropdownButton')"
+            data-pc-section="dropdownbutton"
+        >
             <template #icon>
-                <slot name="dropdownicon" :class="cx('dropdownIcon')">
-                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="cx('dropdownIcon')" data-pc-section="dropdownbuttonicon" v-bind="ptm('dropdownButton')['icon']" />
+                <slot name="dropdownicon" :class="dropdownIcon">
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButton')['icon']" />
                 </slot>
             </template>
         </Button>
-        <span role="status" aria-live="polite" :class="cx('hiddenSearchResult')" :style="sx('hiddenAccessible', isUnstyled)" data-pc-section="hiddensearchresult" v-bind="ptm('hiddenSearchResult')">
+        <span role="status" aria-live="polite" :class="cx('hiddenSearchResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSearchResult')">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
@@ -110,27 +117,18 @@
                 <div
                     v-if="overlayVisible"
                     :ref="overlayRef"
-                    :class="cx('panel')"
+                    :class="[cx('panel'), panelClass]"
                     :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
                     @click="onOverlayClick"
                     @keydown="onOverlayKeyDown"
-                    data-pc-section="panel"
                     v-bind="{ ...panelProps, ...ptm('panel') }"
                 >
                     <slot name="header" :value="modelValue" :suggestions="visibleOptions"></slot>
                     <VirtualScroller :ref="virtualScrollerRef" v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled">
                         <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                            <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" data-pc-section="list" v-bind="ptm('list')">
+                            <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
                                 <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                    <li
-                                        v-if="isOptionGroup(option)"
-                                        :id="id + '_' + getOptionIndex(i, getItemOptions)"
-                                        :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                        :class="cx('itemGroup')"
-                                        role="option"
-                                        data-pc-section="itemgroup"
-                                        v-bind="ptm('itemGroup')"
-                                    >
+                                    <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
                                         <slot name="optiongroup" :option="option.optionGroup" :item="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                     </li>
                                     <li
@@ -147,7 +145,6 @@
                                         :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                         @click="onOptionSelect($event, option)"
                                         @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
-                                        data-pc-section="item"
                                         :data-p-highlight="isSelected(option)"
                                         :data-p-focus="focusedOptionIndex === getOptionIndex(index, getItemOptions)"
                                         :data-p-disabled="isOptionDisabled(option)"
@@ -158,7 +155,7 @@
                                         <!--TODO: Deprecated since v3.16.0-->
                                     </li>
                                 </template>
-                                <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" data-pc-section="emptymessage" v-bind="ptm('emptyMessage')">
+                                <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                                     <slot name="empty">{{ searchResultMessageText }}</slot>
                                 </li>
                             </ul>
@@ -168,7 +165,7 @@
                         </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" data-pc-section="hiddenselectedmessage" v-bind="ptm('hiddenSelectedMessage')">
+                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')">
                         {{ selectedMessageText }}
                     </span>
                 </div>

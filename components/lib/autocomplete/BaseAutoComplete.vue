@@ -118,19 +118,17 @@ const classes = {
             'p-overlay-open': instance.overlayVisible
         }
     ],
-    input: ({ props }) => ['p-autocomplete-input p-inputtext p-component', props.inputClass, { 'p-autocomplete-dd-input': props.dropdown }],
+    input: ({ props }) => ['p-autocomplete-input p-inputtext p-component', { 'p-autocomplete-dd-input': props.dropdown }],
     container: 'p-autocomplete-multiple-container p-component p-inputtext',
     token: ({ instance, i }) => ['p-autocomplete-token', { 'p-focus': instance.focusedMultipleOptionIndex === i }],
     tokenLabel: 'p-autocomplete-token-label',
-    removeTokenIcon: ({ props }) => [props.removeTokenIcon, 'p-autocomplete-token-icon'],
+    removeTokenIcon: 'p-autocomplete-token-icon',
     inputToken: 'p-autocomplete-input-token',
-    loadingIcon: ({ props }) => [props.loadingIcon, 'p-autocomplete-loader'],
-    dropdownButton: ({ props }) => ['p-autocomplete-dropdown', props.dropdownClass],
-    dropdownIcon: ({ props }) => props.dropdownIcon,
+    loadingIcon: 'p-autocomplete-loader',
+    dropdownButton: 'p-autocomplete-dropdown',
     hiddenSearchResult: 'p-hidden-accessible',
-    panel: ({ instance, props }) => [
+    panel: ({ instance }) => [
         'p-autocomplete-panel p-component',
-        props.panelClass,
         {
             'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
