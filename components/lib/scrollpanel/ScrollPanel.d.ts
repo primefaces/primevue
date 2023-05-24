@@ -93,6 +93,11 @@ export interface ScrollPanelProps {
      * @type {ScrollPanelPassThroughOptions}
      */
     pt?: ScrollPanelPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
