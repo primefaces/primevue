@@ -34404,6 +34404,13 @@
                             "readonly": false,
                             "type": "TabViewPassThroughOptions",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TabPanelContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -34557,6 +34564,21 @@
                     ],
                     "methods": []
                 },
+                "TabPanelContext": {
+                    "description": "Defines current options in TabPanel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the tab."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TabPanelSlots": {
                     "description": "Defines valid slots in TabPanel slots.",
                     "relatedProp": "",
@@ -34692,6 +34714,14 @@
                             "type": "TabViewPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "tab",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to TabPanel helper components."
                         },
                         {
                             "name": "inkbar",
