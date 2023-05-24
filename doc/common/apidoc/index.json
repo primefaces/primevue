@@ -21771,7 +21771,7 @@
                 },
                 "InputSwitchPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "undefined.InputSwitchProps.pt",
+                    "relatedProp": "InputSwitchProps.pt",
                     "props": [
                         {
                             "name": "root",
@@ -21911,6 +21911,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Establishes a string value that labels the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputSwitchPassThroughMethodOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
