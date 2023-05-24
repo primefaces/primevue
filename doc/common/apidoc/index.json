@@ -8128,6 +8128,14 @@
                             "type": "CheckboxPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
@@ -8142,7 +8150,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>checked</b>: boolean, // State of the checkbox.\n  }",
+                                    "type": "{\n  \t <b>checked</b>: boolean, // State of the checkbox.\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
                                     "description": "icon slot's params."
                                 }
                             ],
