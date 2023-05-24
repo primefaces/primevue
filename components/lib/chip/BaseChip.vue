@@ -38,10 +38,10 @@ const classes = {
     removeIcon: ({ props }) => ['p-chip-remove-icon', props.removeIcon]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_divider_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_chip_style', manual: true });
 
 export default {
-    name: 'BaseAvatar',
+    name: 'BaseChip',
     extends: BaseComponent,
     props: {
         label: {

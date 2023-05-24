@@ -48,7 +48,7 @@ const classes = {
     icon: ({ props }) => ['p-avatar-icon', props.icon]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_divider_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_avatar_style', manual: true });
 
 export default {
     name: 'BaseAvatar',

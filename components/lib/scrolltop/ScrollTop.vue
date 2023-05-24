@@ -1,41 +1,23 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
-        <button v-if="visible" :ref="containerRef" :class="containerClass" @click="onClick" type="button" :aria-label="scrollTopAriaLabel" v-bind="ptm('root')">
+        <button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" type="button" :aria-label="scrollTopAriaLabel" v-bind="ptm('root')">
             <slot name="icon">
-                <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="['p-scrolltop-icon', icon]" v-bind="ptm('icon')" />
+                <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="cx('icon')" v-bind="ptm('icon')" />
             </slot>
         </button>
     </transition>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseScrollTop from './BaseScrollTop.vue';
 import ChevronUpIcon from 'primevue/icons/chevronup';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 
 export default {
     name: 'ScrollTop',
-    extends: BaseComponent,
+    extends: BaseScrollTop,
     scrollListener: null,
     container: null,
-    props: {
-        target: {
-            type: String,
-            default: 'window'
-        },
-        threshold: {
-            type: Number,
-            default: 400
-        },
-        icon: {
-            type: String,
-            default: undefined
-        },
-        behavior: {
-            type: String,
-            default: 'smooth'
-        }
-    },
     data() {
         return {
             visible: false
@@ -104,9 +86,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return ['p-scrolltop p-link p-component', { 'p-scrolltop-sticky': this.target !== 'window' }];
-        },
         scrollTopAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.scrollTop : undefined;
         }
@@ -116,38 +95,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-scrolltop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-scrolltop-sticky {
-    position: sticky;
-}
-
-.p-scrolltop-sticky.p-link {
-    margin-left: auto;
-}
-
-.p-scrolltop-enter-from {
-    opacity: 0;
-}
-
-.p-scrolltop-enter-active {
-    transition: opacity 0.15s;
-}
-
-.p-scrolltop.p-scrolltop-leave-to {
-    opacity: 0;
-}
-
-.p-scrolltop-leave-active {
-    transition: opacity 0.15s;
-}
-</style>

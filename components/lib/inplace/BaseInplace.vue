@@ -29,10 +29,10 @@ const classes = {
     closeButton: ({ props }) => props.closeIcon
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_divider_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_inplace_style', manual: true });
 
 export default {
-    name: 'BaseAvatar',
+    name: 'BaseInplace',
     extends: BaseComponent,
     props: {
         closable: {
