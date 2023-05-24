@@ -119,6 +119,11 @@ export interface SplitterProps {
      * @type {SplitterPassThroughOptions}
      */
     pt?: SplitterPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
