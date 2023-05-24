@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseTag from './BaseTag.vue';
 
 export default {
     name: 'Tag',
-    extends: BaseComponent
+    extends: BaseTag
 };
 </script>
