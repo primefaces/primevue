@@ -66,7 +66,7 @@ export interface ColorPickerPassThroughOptions {
     /**
      * Uses to pass attributes to the color handler's DOM element.
      */
-    colorHandler?: ColorPickerPassThroughOptionType;
+    colorHandle?: ColorPickerPassThroughOptionType;
     /**
      * Uses to pass attributes to the hue's DOM element.
      */
@@ -74,7 +74,7 @@ export interface ColorPickerPassThroughOptions {
     /**
      * Uses to pass attributes to the hue handler's DOM element.
      */
-    hueHandler?: ColorPickerPassThroughOptionType;
+    hueHandle: ColorPickerPassThroughOptionType;
 }
 
 /**
@@ -151,6 +151,11 @@ export interface ColorPickerProps {
      * @type {ColorPickerPassThroughOptions}
      */
     pt?: ColorPickerPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 export interface ColorPickerSlots {}
