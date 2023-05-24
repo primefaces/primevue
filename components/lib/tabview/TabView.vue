@@ -29,7 +29,7 @@
                         :data-p-highlight="d_activeIndex === index"
                         :data-p-disabled="getTabProp(tab, 'disabled')"
                         data-pc-section="header"
-                        v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root'), ...getTabPT(tab, 'header') }"
+                        v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'header', index) }"
                     >
                         <a
                             :id="getTabHeaderActionId(index)"
@@ -43,9 +43,9 @@
                             @click="onTabClick($event, tab, index)"
                             @keydown="onTabKeyDown($event, tab, index)"
                             data-pc-section="headeraction"
-                            v-bind="{ ...getTabProp(tab, 'headerActionProps'), ...getTabPT(tab, 'headerAction') }"
+                            v-bind="{ ...getTabProp(tab, 'headerActionProps'), ...getTabPT(tab, 'headerAction', index) }"
                         >
-                            <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" data-pc-section="headertitle" v-bind="getTabPT(tab, 'headerTitle')">{{ tab.props.header }}</span>
+                            <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" data-pc-section="headertitle" v-bind="getTabPT(tab, 'headerTitle', index)">{{ tab.props.header }}</span>
                             <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                         </a>
                     </li>
@@ -79,7 +79,7 @@
                     role="tabpanel"
                     :aria-labelledby="getTabHeaderActionId(index)"
                     data-pc-section="content"
-                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root'), ...getTabPT(tab, 'content') }"
+                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'content', index) }"
                 >
                     <component :is="tab"></component>
                 </div>
@@ -145,14 +145,19 @@ export default {
         getTabContentId(index) {
             return `${this.id}_${index}_content`;
         },
-        getTabPT(tab, key) {
-            return this.ptmo(this.getTabProp(tab, 'pt'), key, {
+        getTabPT(tab, key, index) {
+            const tabMetaData = {
                 props: tab.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
+                },
+                context: {
+                    index
                 }
-            });
+            };
+
+            return { ...this.ptm(`tab.${key}`, { tab: tabMetaData }), ...this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData) };
         },
         onScroll(event) {
             this.scrollable && this.updateButtonState();
