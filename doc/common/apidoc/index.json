@@ -352,13 +352,6 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "name",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": ""
-                        },
-                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
