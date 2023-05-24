@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')">
-        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="cx('tab.root', { tab, index: i })" v-bind="getTabPT(tab, 'root', i)" :data-pc-index="i" :data-p-active="isTabActive(i)">
+        <div v-for="(tab, i) of tabs" :key="getKey(tab, i)" :class="cx('tab.root', { tab, index: i })" v-bind="getTabPT(tab, 'root', i)" data-pc-name="accordiontab" :data-pc-index="i" :data-p-active="isTabActive(i)">
             <div
                 :style="getTabProp(tab, 'headerStyle')"
                 :class="[cx('tab.header', { tab, index: i }), getTabProp(tab, 'headerClass')]"
@@ -96,7 +96,6 @@ export default {
         },
         getTabPT(tab, key, index) {
             const tabMetaData = {
-                name: 'accordiontab',
                 props: tab.props,
                 parent: {
                     props: this.$props,
