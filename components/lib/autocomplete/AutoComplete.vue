@@ -109,7 +109,7 @@
                 </slot>
             </template>
         </Button>
-        <span role="status" aria-live="polite" :class="cx('hiddenSearchResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSearchResult')">
+        <span role="status" aria-live="polite" :class="cx('hiddenSearchResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
@@ -165,7 +165,7 @@
                         </template>
                     </VirtualScroller>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')">
+                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
                 </div>

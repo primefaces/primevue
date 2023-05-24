@@ -70,9 +70,9 @@
                         :style="sx('hiddenAccessible', isUnstyled)"
                         :tabindex="0"
                         @focus="onFirstHiddenFocus"
+                        v-bind="ptm('hiddenFirstFocusableEl')"
                         :data-p-hidden-accessible="true"
                         :data-p-hidden-focusable="true"
-                        v-bind="ptm('hiddenFirstFocusableEl')"
                     ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
@@ -97,7 +97,7 @@
                                 <component :is="filterIcon ? 'span' : 'FilterIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
                             </slot>
                         </div>
-                        <span role="status" aria-live="polite" :class="cx('hiddenFilterResult')" :style="sx('hiddenAccessible', isUnstyled)" :data-p-hidden-accessible="true" v-bind="ptm('hiddenFilterResult')">
+                        <span role="status" aria-live="polite" :class="cx('hiddenFilterResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
                             {{ filterResultMessageText }}
                         </span>
                     </div>
@@ -136,12 +136,12 @@
                                         :class="cx('emptyMessage')"
                                         :style="sx('hiddenAccessible', isUnstyled)"
                                         role="option"
-                                        :data-p-hidden-accessible="true"
                                         v-bind="ptm('emptyMessage')"
+                                        :data-p-hidden-accessible="true"
                                     >
                                         <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                                     </li>
-                                    <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" :style="sx('hiddenAccessible', isUnstyled)" role="option" :data-p-hidden-accessible="true" v-bind="ptm('emptyMessage')">
+                                    <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" :style="sx('hiddenAccessible', isUnstyled)" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
                                         <slot name="empty">{{ emptyMessageText }}</slot>
                                     </li>
                                 </ul>
@@ -158,12 +158,12 @@
                         aria-live="polite"
                         :class="cx('emptyHiddenMessage')"
                         :style="sx('hiddenAccessible', isUnstyled)"
-                        :data-p-hidden-accessible="true"
                         v-bind="ptm('hiddenEmptyMessage')"
+                        :data-p-hidden-accessible="true"
                     >
                         {{ emptyMessageText }}
                     </span>
-                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" :data-p-hidden-accessible="true" v-bind="ptm('hiddenSelectedMessage')">
+                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
                     <span
@@ -174,9 +174,9 @@
                         :style="sx('hiddenAccessible', isUnstyled)"
                         :tabindex="0"
                         @focus="onLastHiddenFocus"
+                        v-bind="ptm('hiddenLastFocusableEl')"
                         :data-p-hidden-accessible="true"
                         :data-p-hidden-focusable="true"
-                        v-bind="ptm('hiddenLastFocusableEl')"
                     ></span>
                 </div>
             </transition>
