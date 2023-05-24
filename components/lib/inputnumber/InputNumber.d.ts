@@ -267,6 +267,11 @@ export interface InputNumberProps {
      * @type {InputNumberPassThroughOptions}
      */
     pt?: InputNumberPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
