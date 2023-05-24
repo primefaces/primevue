@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('root')" data-pc-name="tabview" data-pc-section="root" v-bind="ptm('root')">
-        <div :class="cx('navContainer')" data-pc-section="navcontainer" v-bind="ptm('navContainer')">
+    <div :class="cx('root')" v-bind="ptm('root')">
+        <div :class="cx('navContainer')" v-bind="ptm('navContainer')">
             <button
                 v-if="scrollable && !isPrevButtonDisabled"
                 ref="prevBtn"
@@ -10,25 +10,25 @@
                 :tabindex="tabindex"
                 :aria-label="prevButtonAriaLabel"
                 @click="onPrevButtonClick"
-                data-pc-section="previousbutton"
                 v-bind="{ ...previousButtonProps, ...ptm('previousButton') }"
             >
                 <slot name="previcon">
-                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" data-pc-section="previousicon" v-bind="ptm('previousIcon')" />
+                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previousIcon')" />
                 </slot>
             </button>
-            <div ref="content" :class="cx('navContent')" @scroll="onScroll" data-pc-section="navcontent" v-bind="ptm('navContent')">
-                <ul ref="nav" :class="cx('nav')" role="tablist" data-pc-section="nav" v-bind="ptm('nav')">
+            <div ref="content" :class="cx('navContent')" @scroll="onScroll" v-bind="ptm('navContent')">
+                <ul ref="nav" :class="cx('nav')" role="tablist" v-bind="ptm('nav')">
                     <li
                         v-for="(tab, index) of tabs"
                         :key="getKey(tab, index)"
                         :style="getTabProp(tab, 'headerStyle')"
                         :class="cx('tab.header', { tab, index })"
                         role="presentation"
-                        :data-index="index"
+                        data-pc-name="tabpanel"
                         :data-p-highlight="d_activeIndex === index"
                         :data-p-disabled="getTabProp(tab, 'disabled')"
-                        data-pc-section="header"
+                        :data-pc-index="index"
+                        :data-p-active="d_activeIndex === index"
                         v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'header', index) }"
                     >
                         <a
@@ -42,14 +42,13 @@
                             :aria-controls="getTabContentId(index)"
                             @click="onTabClick($event, tab, index)"
                             @keydown="onTabKeyDown($event, tab, index)"
-                            data-pc-section="headeraction"
                             v-bind="{ ...getTabProp(tab, 'headerActionProps'), ...getTabPT(tab, 'headerAction', index) }"
                         >
-                            <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" data-pc-section="headertitle" v-bind="getTabPT(tab, 'headerTitle', index)">{{ tab.props.header }}</span>
+                            <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" v-bind="getTabPT(tab, 'headerTitle', index)">{{ tab.props.header }}</span>
                             <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                         </a>
                     </li>
-                    <li ref="inkbar" :class="cx('inkbar')" role="presentation" aria-hidden="true" data-pc-section="inkbar" v-bind="ptm('inkbar')"></li>
+                    <li ref="inkbar" :class="cx('inkbar')" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></li>
                 </ul>
             </div>
             <button
@@ -61,15 +60,14 @@
                 :tabindex="tabindex"
                 :aria-label="nextButtonAriaLabel"
                 @click="onNextButtonClick"
-                data-pc-section="nextbutton"
                 v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
             >
                 <slot name="nexticon">
-                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" aria-hidden="true" :class="nextIcon" data-pc-section="nexticon" v-bind="ptm('nextIcon')" />
+                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" aria-hidden="true" :class="nextIcon" v-bind="ptm('nextIcon')" />
                 </slot>
             </button>
         </div>
-        <div :class="cx('panelContainer')" data-pc-section="panelcontainer" v-bind="ptm('panelContainer')">
+        <div :class="cx('panelContainer')" v-bind="ptm('panelContainer')">
             <template v-for="(tab, index) of tabs" :key="getKey(tab, index)">
                 <div
                     v-if="lazy ? isTabActive(index) : true"
@@ -78,7 +76,9 @@
                     :class="cx('tab.content', { tab })"
                     role="tabpanel"
                     :aria-labelledby="getTabHeaderActionId(index)"
-                    data-pc-section="content"
+                    data-pc-name="tabpanel"
+                    :data-pc-index="index"
+                    :data-p-active="d_activeIndex === index"
                     v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'content', index) }"
                 >
                     <component :is="tab"></component>
