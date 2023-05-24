@@ -3,20 +3,10 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseTabPanel from './BaseTabPanel.vue';
+
 export default {
     name: 'TabPanel',
-    extends: BaseComponent,
-    props: {
-        header: null,
-        headerStyle: null,
-        headerClass: null,
-        headerProps: null,
-        headerActionProps: null,
-        contentStyle: null,
-        contentClass: null,
-        contentProps: null,
-        disabled: Boolean
-    }
+    extends: BaseTabPanel
 };
 </script>
