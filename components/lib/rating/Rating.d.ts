@@ -168,6 +168,11 @@ export interface RatingProps {
      * @type {RatingPassThroughOptions}
      */
     pt?: RatingPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -177,7 +182,12 @@ export interface RatingSlots {
     /**
      * Custom cancel icon template.
      */
-    cancelicon(): VNode[];
+    cancelicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom on icon template.
      * @param {Object} scope - on icon slot's params.
@@ -187,6 +197,10 @@ export interface RatingSlots {
          * Item value
          */
         value: number;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
     /**
      * Custom off icon template.
@@ -197,6 +211,10 @@ export interface RatingSlots {
          * Item value
          */
         value: number;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
 }
 
