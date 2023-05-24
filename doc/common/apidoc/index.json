@@ -31072,6 +31072,14 @@
                             "type": "RatingPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
@@ -31083,7 +31091,13 @@
                     "methods": [
                         {
                             "name": "cancelicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom cancel icon template."
                         },
@@ -31093,7 +31107,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: number, // Item value\n  }",
+                                    "type": "{\n  \t <b>value</b>: number, // Item value\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
                                     "description": "on icon slot's params."
                                 }
                             ],
@@ -31106,7 +31120,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: number, // Item value\n  }",
+                                    "type": "{\n  \t <b>value</b>: number, // Item value\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
                                     "description": "off icon slot's params."
                                 }
                             ],
