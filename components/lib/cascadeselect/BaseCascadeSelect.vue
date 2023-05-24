@@ -1,1 +1,0 @@
-    flex-shrink: 0;
