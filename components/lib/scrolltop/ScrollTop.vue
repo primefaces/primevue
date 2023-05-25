@@ -1,17 +1,17 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
         <button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" type="button" :aria-label="scrollTopAriaLabel" v-bind="ptm('root')">
-            <slot name="icon">
-                <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="cx('icon')" v-bind="ptm('icon')" />
+            <slot name="icon" :class="cx('icon')">
+                <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon]" v-bind="ptm('icon')" />
             </slot>
         </button>
     </transition>
 </template>
 
 <script>
-import BaseScrollTop from './BaseScrollTop.vue';
 import ChevronUpIcon from 'primevue/icons/chevronup';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseScrollTop from './BaseScrollTop.vue';
 
 export default {
     name: 'ScrollTop',

@@ -39,7 +39,7 @@ const styles = `
 
 const classes = {
     root: ({ props }) => ['p-scrolltop p-link p-component', { 'p-scrolltop-sticky': props.target !== 'window' }],
-    icon: ({ props }) => ['p-scrolltop-icon', props.icon]
+    icon: 'p-scrolltop-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_scrolltop_style', manual: true });
