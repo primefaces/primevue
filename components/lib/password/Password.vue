@@ -1,10 +1,10 @@
 <template>
-    <div :class="containerClass" v-bind="ptm('root')">
+    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <PInputText
             ref="input"
             :id="inputId"
             :type="inputType"
-            :class="inputFieldClass"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :value="modelValue"
             :aria-labelledby="ariaLabelledby"
@@ -27,18 +27,18 @@
         <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle">
             <component :is="showIcon ? 'i' : 'EyeIcon'" :class="showIcon" @click="onMaskToggle" v-bind="ptm('showIcon')" />
         </slot>
-        <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')">
+        <span :class="cx('hiddenAccesible')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId || panelUniqueId" :class="panelStyleClass" :style="panelStyle" @click="onOverlayClick" v-bind="{ ...panelProps, ...ptm('panel') }">
+                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId || panelUniqueId" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <slot name="header"></slot>
                     <slot name="content">
-                        <div class="p-password-meter" v-bind="ptm('meter')">
-                            <div :class="strengthClass" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
+                        <div :class="cx('meter')" v-bind="ptm('meter')">
+                            <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
                         </div>
-                        <div class="p-password-info" v-bind="ptm('info')">{{ infoText }}</div>
+                        <div :class="cx('info')" v-bind="ptm('info')">{{ infoText }}</div>
                     </slot>
                     <slot name="footer"></slot>
                 </div>
@@ -48,117 +48,18 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import EyeIcon from 'primevue/icons/eye';
 import EyeSlashIcon from 'primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BasePassword from './BasePassword.vue';
 
 export default {
     name: 'Password',
-    extends: BaseComponent,
+    extends: BasePassword,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
-    props: {
-        modelValue: String,
-        promptLabel: {
-            type: String,
-            default: null
-        },
-        mediumRegex: {
-            type: String,
-            default: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})' // eslint-disable-line
-        },
-        strongRegex: {
-            type: String,
-            default: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})' // eslint-disable-line
-        },
-        weakLabel: {
-            type: String,
-            default: null
-        },
-        mediumLabel: {
-            type: String,
-            default: null
-        },
-        strongLabel: {
-            type: String,
-            default: null
-        },
-        feedback: {
-            type: Boolean,
-            default: true
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        toggleMask: {
-            type: Boolean,
-            default: false
-        },
-        hideIcon: {
-            type: String,
-            default: undefined
-        },
-        showIcon: {
-            type: String,
-            default: undefined
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        placeholder: {
-            type: String,
-            default: null
-        },
-        required: {
-            type: Boolean,
-            default: false
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        panelId: {
-            type: String,
-            default: null
-        },
-        panelClass: {
-            type: [String, Object],
-            default: null
-        },
-        panelStyle: {
-            type: Object,
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             overlayVisible: false,
@@ -194,6 +95,8 @@ export default {
     methods: {
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+
+            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -363,38 +266,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-password p-component p-inputwrapper',
-                {
-                    'p-inputwrapper-filled': this.filled,
-                    'p-inputwrapper-focus': this.focused,
-                    'p-input-icon-right': this.toggleMask
-                }
-            ];
-        },
-        inputFieldClass() {
-            return [
-                'p-password-input',
-                this.inputClass,
-                {
-                    'p-disabled': this.disabled
-                }
-            ];
-        },
-        panelStyleClass() {
-            return [
-                'p-password-panel p-component',
-                this.panelClass,
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
-        strengthClass() {
-            return `p-password-strength ${this.meter ? this.meter.strength : ''}`;
-        },
         inputType() {
             return this.unmasked ? 'text' : 'password';
         },
@@ -425,39 +296,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-password {
-    position: relative;
-    display: inline-flex;
-}
-
-.p-password-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.p-password .p-password-panel {
-    min-width: 100%;
-}
-
-.p-password-meter {
-    height: 10px;
-}
-
-.p-password-strength {
-    height: 100%;
-    width: 0;
-    transition: width 1s ease-in-out;
-}
-
-.p-fluid .p-password {
-    display: flex;
-}
-
-.p-password-input::-ms-reveal,
-.p-password-input::-ms-clear {
-    display: none;
-}
-</style>
