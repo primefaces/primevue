@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseProgressSpinner from './BaseProgressSpinner';
 
 export default {
     name: 'ProgressSpinner',
-    extends: BaseComponent,
+    extends: BaseProgressSpinner,
     computed: {
         svgStyle() {
             return {
