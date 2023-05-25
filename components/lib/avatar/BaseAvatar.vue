@@ -45,7 +45,7 @@ const classes = {
         }
     ],
     label: 'p-avatar-text',
-    icon: ({ props }) => ['p-avatar-icon', props.icon]
+    icon: 'p-avatar-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_avatar_style', manual: true });
