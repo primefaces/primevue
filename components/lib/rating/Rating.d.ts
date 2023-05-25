@@ -31,6 +31,10 @@ export interface RatingPassThroughOptions {
      */
     root?: RatingPassThroughOptionType;
     /**
+     * Uses to pass attributes to the cancel item's DOM element.
+     */
+    cancelItem?: RatingPassThroughOptionType;
+    /**
      * Uses to pass attributes to the cancel icon's DOM element.
      */
     cancelIcon?: RatingPassThroughOptionType;
