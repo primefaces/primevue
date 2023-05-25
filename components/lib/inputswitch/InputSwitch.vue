@@ -45,8 +45,6 @@ export default {
                 this.$emit('input', newValue);
                 this.$refs.input.focus();
             }
-
-            event.preventDefault();
         },
         onFocus(event) {
             this.focused = true;
