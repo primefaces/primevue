@@ -54,10 +54,10 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_avatar_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_badge_style', manual: true });
 
 export default {
-    name: 'BaseAvatar',
+    name: 'BaseBadge',
     extends: BaseComponent,
     props: {
         value: {
