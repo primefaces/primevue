@@ -2,6 +2,7 @@
 import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
+
 const styles = `
 .p-badge {
     display: inline-block;
