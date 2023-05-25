@@ -40236,12 +40236,12 @@
                             "description": "Uses to pass attributes to the hidden input's DOM element."
                         },
                         {
-                            "name": "srOnlyAria",
+                            "name": "hiddenValueLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "TriStateCheckboxPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the sr only aria's DOM element."
+                            "description": "Uses to pass attributes to the hidden value label's DOM element."
                         }
                     ],
                     "methods": []
