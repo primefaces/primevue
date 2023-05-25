@@ -31,7 +31,7 @@ const classes = {
             'p-tag-rounded': props.rounded
         }
     ],
-    icon: ({ props }) => ['p-tag-icon', props.icon],
+    icon: 'p-tag-icon',
     value: 'p-tag-value'
 };
 
