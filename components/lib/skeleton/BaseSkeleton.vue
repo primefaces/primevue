@@ -4,7 +4,6 @@ import { useStyle } from 'primevue/usestyle';
 
 const styles = `
 .p-skeleton {
-    position: relative;
     overflow: hidden;
 }
 
@@ -37,6 +36,10 @@ const styles = `
     }
 }
 `;
+
+const inlineStyles = {
+    root: { position: 'relative' }
+};
 
 const classes = {
     root: ({ props }) => [
@@ -80,7 +83,8 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        inlineStyles
     },
     watch: {
         isUnstyled: {
