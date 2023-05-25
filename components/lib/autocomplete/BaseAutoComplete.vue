@@ -102,7 +102,7 @@ const styles = `
 `;
 
 const inlineStyles = {
-    root: { position: 'relative' }
+    root: ({ props }) => ({ position: props.appendTo === 'self' ? 'relative' : undefined })
 };
 
 const classes = {
