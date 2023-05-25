@@ -33,9 +33,9 @@ const classes = {
             'p-chip-image': props.image != null
         }
     ],
-    icon: ({ props }) => ['p-chip-icon', props.icon],
+    icon: 'p-chip-icon',
     label: 'p-chip-text',
-    removeIcon: ({ props }) => ['p-chip-remove-icon', props.removeIcon]
+    removeIcon: 'p-chip-remove-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_chip_style', manual: true });
