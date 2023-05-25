@@ -1,9 +1,9 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')">
-        <div v-if="$slots.header" :class="cx('header')">
+        <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
-        <div :class="cx('body')" v-bind="ptm('body')" data-pc-section="body">
+        <div :class="cx('body')" v-bind="ptm('body')">
             <div v-if="$slots.title" :class="cx('title')">
                 <slot name="title"></slot>
             </div>
@@ -13,7 +13,7 @@
             <div :class="cx('content')" v-bind="ptm('content')">
                 <slot name="content"></slot>
             </div>
-            <div v-if="$slots.footer" :class="cx('footer')">
+            <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
                 <slot name="footer"></slot>
             </div>
         </div>
