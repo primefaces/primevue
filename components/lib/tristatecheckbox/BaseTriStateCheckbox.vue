@@ -1,8 +1,5 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { useStyle } from 'primevue/usestyle';
-
-const styles = ``;
 
 const classes = {
     root: ({ instance, props }) => [
@@ -27,8 +24,6 @@ const classes = {
     uncheckIcon: 'p-checkbox-icon',
     nullableIcon: 'p-checkbox-icon'
 };
-
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_tristatecheckbox_style', manual: true });
 
 export default {
     name: 'BaseTriStateCheckbox',
@@ -62,14 +57,6 @@ export default {
     },
     css: {
         classes
-    },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
     }
 };
 </script>

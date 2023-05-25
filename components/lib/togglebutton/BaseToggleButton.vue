@@ -1,8 +1,5 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { useStyle } from 'primevue/usestyle';
-
-const styles = ``;
 
 const classes = {
     root: ({ instance, props }) => [
@@ -25,8 +22,6 @@ const classes = {
     ],
     label: 'p-button-label'
 };
-
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_togglebutton_style', manual: true });
 
 export default {
     name: 'BaseToggleButton',
@@ -82,14 +77,6 @@ export default {
     },
     css: {
         classes
-    },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
     }
 };
 </script>
