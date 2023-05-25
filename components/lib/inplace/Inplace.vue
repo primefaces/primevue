@@ -8,7 +8,7 @@
             <IPButton v-if="closable" :aria-label="closeAriaLabel" @click="close" :pt="ptm('closeButton')" v-bind="closeButtonProps">
                 <template #icon>
                     <slot name="closeicon">
-                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="cx('closeButton')" v-bind="ptm('closeButton')['icon']"></component>
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="closeIcon" v-bind="ptm('closeButton')['icon']"></component>
                     </slot>
                 </template>
             </IPButton>
@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import BaseInplace from './BaseInplace.vue';
 import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
+import BaseInplace from './BaseInplace.vue';
 
 export default {
     name: 'Inplace',

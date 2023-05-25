@@ -25,8 +25,7 @@ const styles = `
 const classes = {
     root: ({ props }) => ['p-inplace p-component', { 'p-inplace-closable': props.closable }],
     display: ({ props }) => ['p-inplace-display', { 'p-disabled': props.disabled }],
-    content: 'p-inplace-content',
-    closeButton: ({ props }) => props.closeIcon
+    content: 'p-inplace-content'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_inplace_style', manual: true });
