@@ -28,20 +28,20 @@ export default {
         }
     },
     methods: {
-        getOptionValue(options, key = '', params = {}) {
+        _getOptionValue(options, key = '', params = {}) {
             const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
             const fKey = fKeys.shift();
 
             return fKey
                 ? ObjectUtils.isObject(options)
-                    ? this.getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                    ? this._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
                     : undefined
                 : ObjectUtils.getItemValue(options, params);
         },
-        getPTValue(obj = {}, key = '', params = {}) {
+        _getPTValue(obj = {}, key = '', params = {}) {
             const datasetPrefix = 'data-pc-';
-            const self = this.getOptionValue(obj, key, params);
-            const globalPT = this.getOptionValue(this.defaultPT, key, params);
+            const self = this._getOptionValue(obj, key, params);
+            const globalPT = this._getOptionValue(this.defaultPT, key, params);
             const merged = mergeProps(self, globalPT, {
                 ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(this.$.type.name) }),
                 [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
@@ -55,22 +55,22 @@ export default {
              */
         },
         ptm(key = '', params = {}) {
-            return this.getPTValue(this.pt, key, { props: this.$props, state: this.$data, ...params });
+            return this._getPTValue(this.pt, key, { props: this.$props, state: this.$data, ...params });
         },
         ptmo(obj = {}, key = '', params = {}) {
-            return this.getPTValue(obj, key, params);
+            return this._getPTValue(obj, key, params);
         },
         cx(key = '', params = {}) {
-            return !this.isUnstyled ? this.getOptionValue(this.$options.css && this.$options.css.classes, key, { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
+            return !this.isUnstyled ? this._getOptionValue(this.$options.css && this.$options.css.classes, key, { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
         },
         cxo(obj = {}, key = '', params = {}) {
             // @todo
-            return !this.isUnstyled ? this.getOptionValue(obj.css && obj.css.classes, key, { instance: obj, props: obj && obj.props, state: obj && obj.data, ...params }) : undefined;
+            return !this.isUnstyled ? this._getOptionValue(obj.css && obj.css.classes, key, { instance: obj, props: obj && obj.props, state: obj && obj.data, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
             if (when) {
-                const self = this.getOptionValue(this.$options.css && this.$options.css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
-                const base = this.getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
+                const self = this._getOptionValue(this.$options.css && this.$options.css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
+                const base = this._getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
 
                 return [base, self];
             }
@@ -80,7 +80,7 @@ export default {
     },
     computed: {
         defaultPT() {
-            return this.getOptionValue(this.$primevue.config.pt, this.$.type.name, this.defaultsParams);
+            return this._getOptionValue(this.$primevue.config.pt, this.$.type.name, this.defaultsParams);
         },
         defaultsParams() {
             return { instance: this };
