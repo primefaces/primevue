@@ -41,7 +41,7 @@
             </span>
         </div>
         <div ref="listWrapper" :class="cx('wrapper')" :style="listStyle" v-bind="ptm('wrapper')">
-            <VirtualScroller :ref="virtualScrollerRef" v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }" :style="listStyle" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled">
+            <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="listStyle" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                 <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                     <ul
                         :ref="(el) => listRef(el, contentRef)"
@@ -82,7 +82,7 @@
                                 @touchend="onOptionTouchEnd()"
                                 v-bind="getPTOptions(option, getItemOptions, i, 'item')"
                                 :data-p-highlight="isSelected(option)"
-                                :data-p-focused="focusedOptionIndex === getOptionIndex(index, getItemOptions)"
+                                :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                 :data-p-disabled="isOptionDisabled(option)"
                             >
                                 <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
