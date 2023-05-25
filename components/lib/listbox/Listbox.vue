@@ -88,10 +88,10 @@
                                 <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                             </li>
                         </template>
-                        <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('p-listbox-empty-message')" role="option" v-bind="ptm('emptyMessage')">
+                        <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                             <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                         </li>
-                        <li v-else-if="!options || (options && options.length === 0)" :class="cx('p-listbox-empty-message')" role="option" v-bind="ptm('emptyMessage')">
+                        <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </li>
                     </ul>
@@ -203,7 +203,7 @@ export default {
         onFirstHiddenFocus() {
             DomHandler.focus(this.list);
 
-            const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
+            const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not([data-p-hidden-focusable="true"])');
 
             this.$refs.lastHiddenFocusableElement.tabIndex = ObjectUtils.isEmpty(firstFocusableEl) ? -1 : undefined;
             this.$refs.firstHiddenFocusableElement.tabIndex = -1;
@@ -212,7 +212,7 @@ export default {
             const relatedTarget = event.relatedTarget;
 
             if (relatedTarget === this.list) {
-                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not(.p-hidden-focusable)');
+                const firstFocusableEl = DomHandler.getFirstFocusableElement(this.$el, ':not([data-p-hidden-focusable="true"])');
 
                 DomHandler.focus(firstFocusableEl);
                 this.$refs.firstHiddenFocusableElement.tabIndex = undefined;
