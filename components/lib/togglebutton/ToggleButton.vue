@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" v-ripple :class="buttonClass" @click="onClick($event)" v-bind="ptm('root')">
-        <span class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+    <div ref="container" v-ripple :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" :data-p-active="modelValue === true">
+        <span :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 :id="inputId"
                 type="checkbox"
@@ -16,70 +16,21 @@
                 v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </span>
-        <slot name="icon" :value="modelValue" :class="iconClass">
-            <span v-if="onIcon || offIcon" :class="iconClass" v-bind="ptm('icon')" />
+        <slot name="icon" :value="modelValue" :class="cx('icon')">
+            <span v-if="onIcon || offIcon" :class="cx('icon')" v-bind="ptm('icon')" />
         </slot>
-        <span class="p-button-label" v-bind="ptm('label')">{{ label }}</span>
+        <span :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
+import BaseToggleButton from './BaseToggleButton.vue';
 
 export default {
     name: 'ToggleButton',
-    extends: BaseComponent,
+    extends: BaseToggleButton,
     emits: ['update:modelValue', 'change', 'click', 'focus', 'blur'],
-    props: {
-        modelValue: Boolean,
-        onIcon: String,
-        offIcon: String,
-        onLabel: {
-            type: String,
-            default: 'Yes'
-        },
-        offLabel: {
-            type: String,
-            default: 'No'
-        },
-        iconPos: {
-            type: String,
-            default: 'left'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: null
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     data() {
         return {
@@ -128,27 +79,6 @@ export default {
         }
     },
     computed: {
-        buttonClass() {
-            return [
-                'p-button p-togglebutton p-component',
-                {
-                    'p-focus': this.focused,
-                    'p-button-icon-only': this.hasIcon && !this.hasLabel,
-                    'p-disabled': this.disabled,
-                    'p-highlight': this.modelValue === true
-                }
-            ];
-        },
-        iconClass() {
-            return [
-                this.modelValue ? this.onIcon : this.offIcon,
-                'p-button-icon',
-                {
-                    'p-button-icon-left': this.iconPos === 'left' && this.label,
-                    'p-button-icon-right': this.iconPos === 'right' && this.label
-                }
-            ];
-        },
         hasLabel() {
             return this.onLabel && this.onLabel.length > 0 && this.offLabel && this.offLabel.length > 0;
         },

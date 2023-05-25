@@ -66,6 +66,11 @@ export interface InputMaskProps {
      * @type {InputMaskPassThroughOptions}
      */
     pt?: InputMaskPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 export interface InputMaskSlots {}

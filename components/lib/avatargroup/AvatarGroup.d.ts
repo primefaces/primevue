@@ -38,6 +38,11 @@ export interface AvatarGroupProps {
      * @type {AvatarGroupPassThroughOptions}
      */
     pt?: AvatarGroupPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

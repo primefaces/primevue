@@ -33,7 +33,7 @@ export interface TriStateCheckboxPassThroughOptions {
     /**
      * Uses to pass attributes to the checkbox box's DOM element.
      */
-    checbox?: TriStateCheckboxPassThroughOptionType;
+    checkbox?: TriStateCheckboxPassThroughOptionType;
     /**
      * Uses to pass attributes to the check icon's DOM element.
      */
@@ -55,9 +55,9 @@ export interface TriStateCheckboxPassThroughOptions {
      */
     hiddenInput?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the sr only aria's DOM element.
+     * Uses to pass attributes to the hidden value label's DOM element.
      */
-    srOnlyAria?: TriStateCheckboxPassThroughOptionType;
+    hiddenValueLabel?: TriStateCheckboxPassThroughOptionType;
 }
 
 /**
@@ -138,6 +138,11 @@ export interface TriStateCheckboxProps {
      * @type {TriStateCheckboxPassThroughOptions}
      */
     pt?: TriStateCheckboxPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -147,15 +152,30 @@ export interface TriStateCheckboxSlots {
     /**
      * Custom check icon template.
      */
-    checkicon(): VNode[];
+    checkicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom uncheck icon template.
      */
-    uncheckicon(): VNode[];
+    uncheckicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom nullable icon template.
      */
-    nullableicon(): VNode[];
+    nullableicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

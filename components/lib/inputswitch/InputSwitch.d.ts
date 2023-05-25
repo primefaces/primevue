@@ -104,6 +104,16 @@ export interface InputSwitchProps {
      * Establishes a string value that labels the component.
      */
     'aria-label'?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {InputSwitchPassThroughMethodOptions}
+     */
+    pt?: InputSwitchPassThroughMethodOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 export interface InputSwitchSlots {}

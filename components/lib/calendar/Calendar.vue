@@ -1,12 +1,12 @@
 <template>
-    <span ref="container" :id="id" :class="containerClass" v-bind="ptm('root')">
+    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
         <input
             v-if="!inline"
             :ref="inputRef"
             :id="inputId"
             type="text"
             role="combobox"
-            :class="['p-inputtext p-component', inputClass]"
+            :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :placeholder="placeholder"
             autocomplete="off"
@@ -29,7 +29,7 @@
         />
         <CalendarButton
             v-if="showIcon"
-            class="p-datepicker-trigger"
+            :class="cx('dropdownButton')"
             :disabled="disabled"
             @click="onButtonClick"
             type="button"
@@ -37,11 +37,13 @@
             aria-haspopup="dialog"
             :aria-expanded="overlayVisible"
             :aria-controls="panelId"
+            :unstyled="unstyled"
             :pt="ptm('dropdownButton')"
+            data-pc-section="dropdownbutton"
         >
             <template #icon>
                 <slot name="dropdownicon">
-                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButton')['icon']" />
+                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButton')['icon']" data-pc-section="icon" />
                 </slot>
             </template>
         </CalendarButton>
@@ -51,7 +53,7 @@
                     v-if="inline || overlayVisible"
                     :ref="overlayRef"
                     :id="panelId"
-                    :class="panelStyleClass"
+                    :class="cx('panel')"
                     :style="panelStyle"
                     :role="inline ? null : 'dialog'"
                     :aria-modal="inline ? null : 'true'"
@@ -62,14 +64,15 @@
                     v-bind="{ ...panelProps, ...ptm('panel') }"
                 >
                     <template v-if="!timeOnly">
-                        <div class="p-datepicker-group-container" v-bind="ptm('groupContainer')">
-                            <div v-for="(month, groupIndex) of months" :key="month.month + month.year" class="p-datepicker-group" v-bind="ptm('group')">
-                                <div class="p-datepicker-header" v-bind="ptm('header')">
+                        <div :class="cx('groupContainer')" v-bind="ptm('groupContainer')">
+                            <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="cx('group')" v-bind="ptm('group')">
+                                <div :class="cx('header')" v-bind="ptm('header')">
                                     <slot name="header"></slot>
                                     <button
                                         v-show="showOtherMonths ? groupIndex === 0 : false"
+                                        :ref="previousButtonRef"
                                         v-ripple
-                                        class="p-datepicker-prev p-link"
+                                        :class="cx('previousButton')"
                                         @click="onPrevButtonClick"
                                         type="button"
                                         @keydown="onContainerButtonKeydown"
@@ -78,16 +81,16 @@
                                         v-bind="ptm('previousButton')"
                                     >
                                         <slot name="previousicon">
-                                            <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="['p-datepicker-prev-icon', previousIcon]" v-bind="ptm('previousIcon')" />
+                                            <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[cx('previousIcon'), previousIcon]" v-bind="ptm('previousIcon')" />
                                         </slot>
                                     </button>
-                                    <div class="p-datepicker-title" v-bind="ptm('title')">
+                                    <div :class="cx('title')" v-bind="ptm('title')">
                                         <button
                                             v-if="currentView === 'date'"
                                             type="button"
                                             @click="switchToMonthView"
                                             @keydown="onContainerButtonKeydown"
-                                            class="p-datepicker-month p-link"
+                                            :class="cx('monthTitle')"
                                             :disabled="switchViewButtonDisabled"
                                             :aria-label="$primevue.config.locale.chooseMonth"
                                             v-bind="ptm('monthTitle')"
@@ -99,21 +102,22 @@
                                             type="button"
                                             @click="switchToYearView"
                                             @keydown="onContainerButtonKeydown"
-                                            class="p-datepicker-year p-link"
+                                            :class="cx('yearTitle')"
                                             :disabled="switchViewButtonDisabled"
                                             :aria-label="$primevue.config.locale.chooseYear"
                                             v-bind="ptm('yearTitle')"
                                         >
                                             {{ getYear(month) }}
                                         </button>
-                                        <span v-if="currentView === 'year'" class="p-datepicker-decade" v-bind="ptm('decadeTitle')">
+                                        <span v-if="currentView === 'year'" :class="cx('decadeTitle')" v-bind="ptm('decadeTitle')">
                                             <slot name="decade" :years="yearPickerValues"> {{ yearPickerValues[0].value }} - {{ yearPickerValues[yearPickerValues.length - 1].value }} </slot>
                                         </span>
                                     </div>
                                     <button
                                         v-show="showOtherMonths ? (numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1) : false"
+                                        :ref="nextButtonRef"
                                         v-ripple
-                                        class="p-datepicker-next p-link"
+                                        :class="cx('nextButton')"
                                         @click="onNextButtonClick"
                                         type="button"
                                         @keydown="onContainerButtonKeydown"
@@ -122,15 +126,15 @@
                                         v-bind="ptm('nextButton')"
                                     >
                                         <slot name="nexticon">
-                                            <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="['p-datepicker-next-icon', nextIcon]" v-bind="ptm('nextIcon')" />
+                                            <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="[cx('nextIcon'), nextIcon]" v-bind="ptm('nextIcon')" />
                                         </slot>
                                     </button>
                                 </div>
-                                <div v-if="currentView === 'date'" class="p-datepicker-calendar-container" v-bind="ptm('container')">
-                                    <table class="p-datepicker-calendar" role="grid" v-bind="ptm('table')">
+                                <div v-if="currentView === 'date'" :class="cx('container')" v-bind="ptm('container')">
+                                    <table :class="cx('table')" role="grid" v-bind="ptm('table')">
                                         <thead v-bind="ptm('tableHeader')">
                                             <tr v-bind="ptm('tableHeaderRow')">
-                                                <th v-if="showWeek" scope="col" class="p-datepicker-weekheader p-disabled" v-bind="ptm('weekHeader')">
+                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader')" :data-p-disabled="true">
                                                     <span v-bind="ptm('weekLabel')">{{ weekHeaderLabel }}</span>
                                                 </th>
                                                 <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')">
@@ -140,25 +144,28 @@
                                         </thead>
                                         <tbody v-bind="ptm('tableBody')">
                                             <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
-                                                <td v-if="showWeek" class="p-datepicker-weeknumber" v-bind="ptm('weekNumber')">
-                                                    <span class="p-disabled" v-bind="ptm('weekLabelContainer')">
+                                                <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')">
+                                                    <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer')" :data-p-disabled="true">
                                                         <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
                                                         {{ month.weekNumbers[i] }}
                                                     </span>
                                                 </td>
-                                                <td v-for="date of week" :key="date.day + '' + date.month" :aria-label="date.day" :class="{ 'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today }" v-bind="ptm('day')">
+                                                <td v-for="date of week" :key="date.day + '' + date.month" :aria-label="date.day" :class="cx('day', { date })" v-bind="ptm('day')" :data-p-today="date.today" :data-p-other-month="date.otherMonth">
                                                     <span
                                                         v-ripple
-                                                        :class="{ 'p-highlight': isSelected(date), 'p-disabled': !date.selectable }"
+                                                        :class="cx('dayLabel', { date })"
                                                         @click="onDateSelect($event, date)"
                                                         draggable="false"
                                                         @keydown="onDateCellKeydown($event, date, groupIndex)"
                                                         :aria-selected="isSelected(date)"
+                                                        :aria-disabled="!date.selectable"
                                                         v-bind="ptm('dayLabel')"
+                                                        :data-p-disabled="!date.selectable"
+                                                        :data-p-highlight="isSelected(date)"
                                                     >
                                                         <slot name="date" :date="date">{{ date.day }}</slot>
                                                     </span>
-                                                    <div v-if="isSelected(date)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('ariaSelectedDay')">
+                                                    <div v-if="isSelected(date)" :class="cx('ariaSelectedDay')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaSelectedDay')" :data-p-hidden-accessible="true">
                                                         {{ date.day }}
                                                     </div>
                                                 </td>
@@ -168,46 +175,48 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-if="currentView === 'month'" class="p-monthpicker" v-bind="ptm('monthPicker')">
+                        <div v-if="currentView === 'month'" :class="cx('monthPicker')" v-bind="ptm('monthPicker')">
                             <span
                                 v-for="(m, i) of monthPickerValues"
                                 :key="m"
                                 v-ripple
                                 @click="onMonthSelect($event, { month: m, index: i })"
                                 @keydown="onMonthCellKeydown($event, { month: m, index: i })"
-                                class="p-monthpicker-month"
-                                :class="{ 'p-highlight': isMonthSelected(i), 'p-disabled': !m.selectable }"
+                                :class="cx('month', { month: m, index: i })"
                                 v-bind="ptm('month')"
+                                :data-p-disabled="!m.selectable"
+                                :data-p-highlight="isMonthSelected(i)"
                             >
                                 {{ m.value }}
-                                <div v-if="isMonthSelected(i)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('ariaMonth')">
+                                <div v-if="isMonthSelected(i)" :class="cx('ariaMonth')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaMonth')" :data-p-hidden-accessible="true">
                                     {{ m.value }}
                                 </div>
                             </span>
                         </div>
-                        <div v-if="currentView === 'year'" class="p-yearpicker" v-bind="ptm('yearPicker')">
+                        <div v-if="currentView === 'year'" :class="cx('yearPicker')" v-bind="ptm('yearPicker')">
                             <span
                                 v-for="y of yearPickerValues"
                                 :key="y.value"
                                 v-ripple
                                 @click="onYearSelect($event, y)"
                                 @keydown="onYearCellKeydown($event, y)"
-                                class="p-yearpicker-year"
-                                :class="{ 'p-highlight': isYearSelected(y.value), 'p-disabled': !y.selectable }"
+                                :class="cx('year', { year: y })"
                                 v-bind="ptm('year')"
+                                :data-p-disabled="!y.selectable"
+                                :data-p-highlight="isYearSelected(y.value)"
                             >
                                 {{ y.value }}
-                                <div v-if="isYearSelected(y.value)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('ariaYear')">
+                                <div v-if="isYearSelected(y.value)" :class="cx('ariaYear')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaYear')" :data-p-hidden-accessible="true">
                                     {{ y.value }}
                                 </div>
                             </span>
                         </div>
                     </template>
-                    <div v-if="(showTime || timeOnly) && currentView === 'date'" class="p-timepicker" v-bind="ptm('timePicker')">
-                        <div class="p-hour-picker" v-bind="ptm('hourPicker')">
+                    <div v-if="(showTime || timeOnly) && currentView === 'date'" :class="cx('timePicker')" v-bind="ptm('timePicker')">
+                        <div :class="cx('hourPicker')" v-bind="ptm('hourPicker')">
                             <button
                                 v-ripple
-                                class="p-link"
+                                :class="cx('incrementButton')"
                                 :aria-label="$primevue.config.locale.nextHour"
                                 @mousedown="onTimePickerElementMouseDown($event, 0, 1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -227,7 +236,7 @@
                             <span v-bind="ptm('hour')">{{ formattedCurrentHour }}</span>
                             <button
                                 v-ripple
-                                class="p-link"
+                                :class="cx('decrementButton')"
                                 :aria-label="$primevue.config.locale.prevHour"
                                 @mousedown="onTimePickerElementMouseDown($event, 0, -1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -245,13 +254,13 @@
                                 </slot>
                             </button>
                         </div>
-                        <div class="p-separator" v-bind="ptm('separatorContainer')">
+                        <div :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
                             <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
                         </div>
-                        <div class="p-minute-picker" v-bind="ptm('minutePicker')">
+                        <div :class="cx('minutePicker')" v-bind="ptm('minutePicker')">
                             <button
                                 v-ripple
-                                class="p-link"
+                                :class="cx('incrementButton')"
                                 :aria-label="$primevue.config.locale.nextMinute"
                                 @mousedown="onTimePickerElementMouseDown($event, 1, 1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -272,7 +281,7 @@
                             <span v-bind="ptm('minute')">{{ formattedCurrentMinute }}</span>
                             <button
                                 v-ripple
-                                class="p-link"
+                                :class="cx('decrementButton')"
                                 :aria-label="$primevue.config.locale.prevMinute"
                                 @mousedown="onTimePickerElementMouseDown($event, 1, -1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -291,13 +300,13 @@
                                 </slot>
                             </button>
                         </div>
-                        <div v-if="showSeconds" class="p-separator" v-bind="ptm('separatorContainer')">
+                        <div v-if="showSeconds" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
                             <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
                         </div>
-                        <div v-if="showSeconds" class="p-second-picker" v-bind="ptm('secondPicker')">
+                        <div v-if="showSeconds" :class="cx('secondPicker')" v-bind="ptm('secondPicker')">
                             <button
                                 v-ripple
-                                class="p-link"
+                                :class="cx('incrementButton')"
                                 :aria-label="$primevue.config.locale.nextSecond"
                                 @mousedown="onTimePickerElementMouseDown($event, 2, 1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -318,7 +327,7 @@
                             <span v-bind="ptm('second')">{{ formattedCurrentSecond }}</span>
                             <button
                                 v-ripple
-                                class="p-link"
+                                :class="cx('decrementButton')"
                                 :aria-label="$primevue.config.locale.prevSecond"
                                 @mousedown="onTimePickerElementMouseDown($event, 2, -1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
@@ -337,26 +346,44 @@
                                 </slot>
                             </button>
                         </div>
-                        <div v-if="hourFormat == '12'" class="p-separator" v-bind="ptm('separatorContainer')">
+                        <div v-if="hourFormat == '12'" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
                             <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
                         </div>
-                        <div v-if="hourFormat == '12'" class="p-ampm-picker" v-bind="ptm('ampmPicker')">
-                            <button v-ripple class="p-link" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
+                        <div v-if="hourFormat == '12'" :class="cx('ampmPicker')" v-bind="ptm('ampmPicker')">
+                            <button v-ripple :class="cx('incrementButton')" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
                                 <slot name="incrementicon">
-                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" v-bind="ptm('incrementIcon')" />
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="cx('incrementIcon')" v-bind="ptm('incrementIcon')" />
                                 </slot>
                             </button>
                             <span v-bind="ptm('ampm')">{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
-                            <button v-ripple class="p-link" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
+                            <button v-ripple :class="cx('decrementButton')" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
                                 <slot name="decrementicon">
-                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" v-bind="ptm('decrementIcon')" />
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="cx('decrementIcon')" v-bind="ptm('decrementIcon')" />
                                 </slot>
                             </button>
                         </div>
                     </div>
-                    <div v-if="showButtonBar" class="p-datepicker-buttonbar" v-bind="ptm('buttonbar')">
-                        <CalendarButton type="button" :label="todayLabel" @click="onTodayButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown" :pt="ptm('todayButton')" />
-                        <CalendarButton type="button" :label="clearLabel" @click="onClearButtonClick($event)" class="p-button-text" @keydown="onContainerButtonKeydown" :pt="ptm('clearButton')" />
+                    <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
+                        <CalendarButton
+                            type="button"
+                            :label="todayLabel"
+                            @click="onTodayButtonClick($event)"
+                            :class="cx('todayButton')"
+                            @keydown="onContainerButtonKeydown"
+                            :unstyled="unstyled"
+                            :pt="ptm('todayButton')"
+                            data-pc-section="todaybutton"
+                        />
+                        <CalendarButton
+                            type="button"
+                            :label="clearLabel"
+                            @click="onClearButtonClick($event)"
+                            :class="cx('clearButton')"
+                            @keydown="onContainerButtonKeydown"
+                            :unstyled="unstyled"
+                            :pt="ptm('clearButton')"
+                            data-pc-section="clearbutton"
+                        />
                     </div>
                     <slot name="footer"></slot>
                 </div>
@@ -366,7 +393,6 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import CalendarIcon from 'primevue/icons/calendar';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
@@ -377,227 +403,12 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BaseCalendar from './BaseCalendar.vue';
 
 export default {
     name: 'Calendar',
-    extends: BaseComponent,
+    extends: BaseCalendar,
     emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
-    props: {
-        modelValue: null,
-        selectionMode: {
-            type: String,
-            default: 'single'
-        },
-        dateFormat: {
-            type: String,
-            default: null
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        },
-        showOtherMonths: {
-            type: Boolean,
-            default: true
-        },
-        selectOtherMonths: {
-            type: Boolean,
-            default: false
-        },
-        showIcon: {
-            type: Boolean,
-            default: false
-        },
-        icon: {
-            type: String,
-            default: undefined
-        },
-        previousIcon: {
-            type: String,
-            default: undefined
-        },
-        nextIcon: {
-            type: String,
-            default: undefined
-        },
-        incrementIcon: {
-            type: String,
-            default: undefined
-        },
-        decrementIcon: {
-            type: String,
-            default: undefined
-        },
-        numberOfMonths: {
-            type: Number,
-            default: 1
-        },
-        responsiveOptions: Array,
-        view: {
-            type: String,
-            default: 'date'
-        },
-        touchUI: {
-            type: Boolean,
-            default: false
-        },
-        monthNavigator: {
-            type: Boolean,
-            default: false
-        },
-        yearNavigator: {
-            type: Boolean,
-            default: false
-        },
-        yearRange: {
-            type: String,
-            default: null
-        },
-        minDate: {
-            type: Date,
-            value: null
-        },
-        maxDate: {
-            type: Date,
-            value: null
-        },
-        disabledDates: {
-            type: Array,
-            value: null
-        },
-        disabledDays: {
-            type: Array,
-            value: null
-        },
-        maxDateCount: {
-            type: Number,
-            value: null
-        },
-        showOnFocus: {
-            type: Boolean,
-            default: true
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        showButtonBar: {
-            type: Boolean,
-            default: false
-        },
-        shortYearCutoff: {
-            type: String,
-            default: '+10'
-        },
-        showTime: {
-            type: Boolean,
-            default: false
-        },
-        timeOnly: {
-            type: Boolean,
-            default: false
-        },
-        hourFormat: {
-            type: String,
-            default: '24'
-        },
-        stepHour: {
-            type: Number,
-            default: 1
-        },
-        stepMinute: {
-            type: Number,
-            default: 1
-        },
-        stepSecond: {
-            type: Number,
-            default: 1
-        },
-        showSeconds: {
-            type: Boolean,
-            default: false
-        },
-        hideOnDateTimeSelect: {
-            type: Boolean,
-            default: false
-        },
-        hideOnRangeSelection: {
-            type: Boolean,
-            default: false
-        },
-        timeSeparator: {
-            type: String,
-            default: ':'
-        },
-        showWeek: {
-            type: Boolean,
-            default: false
-        },
-        manualInput: {
-            type: Boolean,
-            default: true
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        placeholder: {
-            type: String,
-            default: null
-        },
-        id: {
-            type: String,
-            default: null
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        panelClass: {
-            type: [String, Object],
-            default: null
-        },
-        panelStyle: {
-            type: Object,
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     navigationState: null,
     timePickerChange: false,
     scrollHandler: null,
@@ -607,6 +418,8 @@ export default {
     overlay: null,
     input: null,
     mask: null,
+    previousButton: null,
+    nextButton: null,
     timePickerTimer: null,
     preventFocus: false,
     typeUpdate: false,
@@ -892,6 +705,9 @@ export default {
         },
         onOverlayEnter(el) {
             el.setAttribute(this.attributeSelector, '');
+            const styles = this.touchUI ? { position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' } : !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
+
+            DomHandler.addStyles(el, styles);
 
             if (this.autoZIndex) {
                 if (this.touchUI) ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
@@ -1083,12 +899,7 @@ export default {
             return !(this.$el.isSameNode(event.target) || this.isNavIconClicked(event) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
         },
         isNavIconClicked(event) {
-            return (
-                DomHandler.hasClass(event.target, 'p-datepicker-prev') ||
-                DomHandler.hasClass(event.target, 'p-datepicker-prev-icon') ||
-                DomHandler.hasClass(event.target, 'p-datepicker-next') ||
-                DomHandler.hasClass(event.target, 'p-datepicker-next-icon')
-            );
+            return (this.previousButton && (this.previousButton.isSameNode(event.target) || this.previousButton.contains(event.target))) || (this.nextButton && (this.nextButton.isSameNode(event.target) || this.nextButton.contains(event.target)));
         },
         alignOverlay() {
             if (this.touchUI) {
@@ -1152,7 +963,7 @@ export default {
                 return;
             }
 
-            DomHandler.find(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled)').forEach((cell) => (cell.tabIndex = -1));
+            DomHandler.find(this.overlay, 'table td span:not([data-p-disabled="true"])').forEach((cell) => (cell.tabIndex = -1));
 
             if (event) {
                 event.currentTarget.focus();
@@ -1722,7 +1533,8 @@ export default {
             if (!this.mask) {
                 this.mask = document.createElement('div');
                 this.mask.style.zIndex = String(parseInt(this.overlay.style.zIndex, 10) - 1);
-                DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter');
+                this.mask.setAttribute('data-pc-section', 'datepicker-mask');
+                !this.isUnstyled && DomHandler.addMultipleClasses(this.mask, 'p-datepicker-mask p-datepicker-mask-scrollblocker p-component-overlay p-component-overlay-enter');
 
                 this.maskClickListener = () => {
                     this.overlayVisible = false;
@@ -1731,15 +1543,20 @@ export default {
                 this.mask.addEventListener('click', this.maskClickListener);
 
                 document.body.appendChild(this.mask);
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
+                document.body.setAttribute('data-p-overflow-hidden', 'true');
+                !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         disableModality() {
             if (this.mask) {
-                DomHandler.addClass(this.mask, 'p-component-overlay-leave');
-                this.mask.addEventListener('animationend', () => {
+                if (this.isUnstyled) {
                     this.destroyMask();
-                });
+                } else {
+                    DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+                    this.mask.addEventListener('animationend', () => {
+                        this.destroyMask();
+                    });
+                }
             }
         },
         destroyMask() {
@@ -1754,14 +1571,15 @@ export default {
             for (let i = 0; i < bodyChildren.length; i++) {
                 let bodyChild = bodyChildren[i];
 
-                if (DomHandler.hasClass(bodyChild, 'p-datepicker-mask-scrollblocker')) {
+                if (DomHandler.isAttributeEquals(bodyChild, 'data-pc-section', 'datepicker-mask')) {
                     hasBlockerMasks = true;
                     break;
                 }
             }
 
             if (!hasBlockerMasks) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                document.body.removeAttribute('data-p-overflow-hidden');
+                !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         updateCurrentMetaData() {
@@ -2087,7 +1905,7 @@ export default {
                         let hasNextFocusableDate = nextTableRows.find((el) => {
                             let focusCell = el.children[cellIndex].children[0];
 
-                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2120,7 +1938,7 @@ export default {
                         let hasNextFocusableDate = prevTableRows.find((el) => {
                             let focusCell = el.children[cellIndex].children[0];
 
-                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2152,7 +1970,7 @@ export default {
                         let hasNextFocusableDate = prevCells.find((el) => {
                             let focusCell = el.children[0];
 
-                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2181,7 +1999,7 @@ export default {
                         let hasNextFocusableDate = nextCells.find((el) => {
                             let focusCell = el.children[0];
 
-                            return !DomHandler.hasClass(focusCell, 'p-disabled');
+                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2227,7 +2045,7 @@ export default {
                     let currentRow = cell.parentElement;
                     let focusCell = currentRow.children[0].children[0];
 
-                    if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                    if (DomHandler.getAttribute(focusCell, 'data-p-disabled')) {
                         this.navigateToMonth(event, true, groupIndex);
                     } else {
                         focusCell.tabIndex = '0';
@@ -2243,7 +2061,7 @@ export default {
                     let currentRow = cell.parentElement;
                     let focusCell = currentRow.children[currentRow.children.length - 1].children[0];
 
-                    if (DomHandler.hasClass(focusCell, 'p-disabled')) {
+                    if (DomHandler.getAttribute(focusCell, 'data-p-disabled')) {
                         this.navigateToMonth(event, false, groupIndex);
                     } else {
                         focusCell.tabIndex = '0';
@@ -2288,7 +2106,7 @@ export default {
                     this.navBackward(event);
                 } else {
                     let prevMonthContainer = this.overlay.children[groupIndex - 1];
-                    let cells = DomHandler.find(prevMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
+                    let cells = DomHandler.find(prevMonthContainer, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                     let focusCell = cells[cells.length - 1];
 
                     focusCell.tabIndex = '0';
@@ -2300,7 +2118,7 @@ export default {
                     this.navForward(event);
                 } else {
                     let nextMonthContainer = this.overlay.children[groupIndex + 1];
-                    let focusCell = DomHandler.findSingle(nextMonthContainer, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
+                    let focusCell = DomHandler.findSingle(nextMonthContainer, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
 
                     focusCell.tabIndex = '0';
                     focusCell.focus();
@@ -2500,18 +2318,18 @@ export default {
                 if (this.navigationState.button) {
                     this.initFocusableCell();
 
-                    if (this.navigationState.backward) DomHandler.findSingle(this.overlay, '.p-datepicker-prev').focus();
-                    else DomHandler.findSingle(this.overlay, '.p-datepicker-next').focus();
+                    if (this.navigationState.backward) this.previousButton.focus();
+                    else this.nextButton.focus();
                 } else {
                     if (this.navigationState.backward) {
                         let cells;
 
                         if (this.currentView === 'month') {
-                            cells = DomHandler.find(this.overlay, '.p-monthpicker .p-monthpicker-month:not(.p-disabled)');
+                            cells = DomHandler.find(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"]:not([data-p-disabled="true"])');
                         } else if (this.currentView === 'year') {
-                            cells = DomHandler.find(this.overlay, '.p-yearpicker .p-yearpicker-year:not(.p-disabled)');
+                            cells = DomHandler.find(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"]:not([data-p-disabled="true"])');
                         } else {
-                            cells = DomHandler.find(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
+                            cells = DomHandler.find(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                         }
 
                         if (cells && cells.length > 0) {
@@ -2519,11 +2337,11 @@ export default {
                         }
                     } else {
                         if (this.currentView === 'month') {
-                            cell = DomHandler.findSingle(this.overlay, '.p-monthpicker .p-monthpicker-month:not(.p-disabled)');
+                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"]:not([data-p-disabled="true"])');
                         } else if (this.currentView === 'year') {
-                            cell = DomHandler.findSingle(this.overlay, '.p-yearpicker .p-yearpicker-year:not(.p-disabled)');
+                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"]:not([data-p-disabled="true"])');
                         } else {
-                            cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
+                            cell = DomHandler.findSingle(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                         }
                     }
 
@@ -2542,25 +2360,25 @@ export default {
             let cell;
 
             if (this.currentView === 'month') {
-                let cells = DomHandler.find(this.overlay, '.p-monthpicker .p-monthpicker-month');
-                let selectedCell = DomHandler.findSingle(this.overlay, '.p-monthpicker .p-monthpicker-month.p-highlight');
+                let cells = DomHandler.find(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"]');
+                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthpicker"] [data-pc-section="month"][data-p-highlight="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];
             } else if (this.currentView === 'year') {
-                let cells = DomHandler.find(this.overlay, '.p-yearpicker .p-yearpicker-year');
-                let selectedCell = DomHandler.findSingle(this.overlay, '.p-yearpicker .p-yearpicker-year.p-highlight');
+                let cells = DomHandler.find(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"]');
+                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearpicker"] [data-pc-section="year"][data-p-highlight="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];
             } else {
-                cell = DomHandler.findSingle(this.overlay, 'span.p-highlight');
+                cell = DomHandler.findSingle(this.overlay, 'span[data-p-highlight="true"]');
 
                 if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.overlay, 'td.p-datepicker-today span:not(.p-disabled):not(.p-ink');
+                    let todayCell = DomHandler.findSingle(this.overlay, 'td[data-p-today="true"] span:not([data-p-disabled="true"]):not([data-p-ink="true"]');
 
                     if (todayCell) cell = todayCell;
-                    else cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink');
+                    else cell = DomHandler.findSingle(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"]');
                 }
             }
 
@@ -2686,6 +2504,12 @@ export default {
         inputRef(el) {
             this.input = el;
         },
+        previousButtonRef(el) {
+            this.previousButton = el;
+        },
+        nextButtonRef(el) {
+            this.nextButton = el;
+        },
         getMonthName(index) {
             return this.$primevue.config.locale.monthNames[index];
         },
@@ -2715,7 +2539,7 @@ export default {
             this.onOverlayClick(event);
         },
         createResponsiveStyle() {
-            if (this.numberOfMonths > 1 && this.responsiveOptions) {
+            if (this.numberOfMonths > 1 && this.responsiveOptions && !this.isUnstyled) {
                 if (!this.responsiveStyleElement) {
                     this.responsiveStyleElement = document.createElement('style');
                     this.responsiveStyleElement.type = 'text/css';
@@ -2791,35 +2615,6 @@ export default {
         },
         inputFieldValue() {
             return this.formatValue(this.modelValue);
-        },
-        containerClass() {
-            return [
-                'p-calendar p-component p-inputwrapper',
-                {
-                    'p-calendar-w-btn': this.showIcon,
-                    'p-calendar-timeonly': this.timeOnly,
-                    'p-calendar-disabled': this.disabled,
-                    'p-inputwrapper-filled': this.modelValue,
-                    'p-inputwrapper-focus': this.focused
-                }
-            ];
-        },
-        panelStyleClass() {
-            return [
-                'p-datepicker p-component',
-                this.panelClass,
-                {
-                    'p-datepicker-inline': this.inline,
-                    'p-disabled': this.disabled,
-                    'p-datepicker-timeonly': this.timeOnly,
-                    'p-datepicker-multiple-month': this.numberOfMonths > 1,
-                    'p-datepicker-monthpicker': this.currentView === 'month',
-                    'p-datepicker-yearpicker': this.currentView === 'year',
-                    'p-datepicker-touch-ui': this.touchUI,
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
         },
         months() {
             let months = [];
@@ -3037,160 +2832,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-calendar {
-    position: relative;
-    display: inline-flex;
-    max-width: 100%;
-}
-
-.p-calendar .p-inputtext {
-    flex: 1 1 auto;
-    width: 1%;
-}
-
-.p-calendar-w-btn .p-inputtext {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.p-calendar-w-btn .p-datepicker-trigger {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-/* Fluid */
-.p-fluid .p-calendar {
-    display: flex;
-}
-
-.p-fluid .p-calendar .p-inputtext {
-    width: 1%;
-}
-
-/* Datepicker */
-.p-calendar .p-datepicker {
-    min-width: 100%;
-}
-
-.p-datepicker {
-    width: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.p-datepicker-inline {
-    display: inline-block;
-    position: static;
-    overflow-x: auto;
-}
-
-/* Header */
-.p-datepicker-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.p-datepicker-header .p-datepicker-title {
-    margin: 0 auto;
-}
-
-.p-datepicker-prev,
-.p-datepicker-next {
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Multiple Month DatePicker */
-.p-datepicker-multiple-month .p-datepicker-group-container {
-    display: flex;
-}
-
-.p-datepicker-multiple-month .p-datepicker-group-container .p-datepicker-group {
-    flex: 1 1 auto;
-}
-
-/* DatePicker Table */
-.p-datepicker table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.p-datepicker td > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Month Picker */
-.p-monthpicker-month {
-    width: 33.3%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Year Picker */
-.p-yearpicker-year {
-    width: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-}
-
-/*  Button Bar */
-.p-datepicker-buttonbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Time Picker */
-.p-timepicker {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.p-timepicker button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-timepicker > div {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* Touch UI */
-.p-datepicker-touch-ui,
-.p-calendar .p-datepicker-touch-ui {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 80vw;
-    transform: translate(-50%, -50%);
-}
-</style>

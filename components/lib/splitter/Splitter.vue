@@ -1,54 +1,34 @@
 <template>
-    <div :class="containerClass" v-bind="ptm('root')">
+    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptm('root')">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
                 v-if="i !== panels.length - 1"
-                class="p-splitter-gutter"
+                ref="gutter"
+                :class="cx('gutter')"
                 role="separator"
                 tabindex="-1"
                 @mousedown="onGutterMouseDown($event, i)"
                 @touchstart="onGutterTouchStart($event, i)"
                 @touchmove="onGutterTouchMove($event, i)"
                 @touchend="onGutterTouchEnd($event, i)"
+                :data-p-gutter-resizing="false"
                 v-bind="ptm('gutter')"
             >
-                <div class="p-splitter-gutter-handle" tabindex="0" :style="gutterStyle" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterhandler')"></div>
+                <div :class="cx('gutterHandler')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterHandler')"></div>
             </div>
         </template>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import BaseSplitter from './BaseSplitter.vue';
 
 export default {
     name: 'Splitter',
-    extends: BaseComponent,
+    extends: BaseSplitter,
     emits: ['resizestart', 'resizeend'],
-    props: {
-        layout: {
-            type: String,
-            default: 'horizontal'
-        },
-        gutterSize: {
-            type: Number,
-            default: 4
-        },
-        stateKey: {
-            type: String,
-            default: null
-        },
-        stateStorage: {
-            type: String,
-            default: 'session'
-        },
-        step: {
-            type: Number,
-            default: 5
-        }
-    },
     dragging: false,
     mouseMoveListener: null,
     mouseUpListener: null,
@@ -78,7 +58,7 @@ export default {
             }
 
             if (!initialized) {
-                let children = [...this.$el.children].filter((child) => DomHandler.hasClass(child, 'p-splitter-panel'));
+                let children = [...this.$el.children].filter((child) => child.getAttribute('data-pc-name') === 'splitterpanel');
                 let _panelSizes = [];
 
                 this.panels.map((panel, i) => {
@@ -124,8 +104,8 @@ export default {
 
             this.prevPanelIndex = index;
             this.$emit('resizestart', { originalEvent: event, sizes: this.panelSizes });
-            DomHandler.addClass(this.gutterElement, 'p-splitter-gutter-resizing');
-            DomHandler.addClass(this.$el, 'p-splitter-resizing');
+            this.$refs.gutter[index].setAttribute('data-p-gutter-resizing', true);
+            this.$el.setAttribute('data-p-resizing', true);
         },
         onResize(event, step, isKeyDown) {
             let newPos, newPrevPanelSize, newNextPanelSize;
@@ -161,8 +141,8 @@ export default {
             }
 
             this.$emit('resizeend', { originalEvent: event, sizes: this.panelSizes });
-            DomHandler.removeClass(this.gutterElement, 'p-splitter-gutter-resizing');
-            DomHandler.removeClass(this.$el, 'p-splitter-resizing');
+            this.$refs.gutter.forEach((gutter) => gutter.setAttribute('data-p-gutter-resizing', false));
+            this.$el.setAttribute('data-p-resizing', false);
             this.clear();
         },
         repeat(event, index, step) {
@@ -347,7 +327,7 @@ export default {
 
             if (stateString) {
                 this.panelSizes = JSON.parse(stateString);
-                let children = [...this.$el.children].filter((child) => DomHandler.hasClass(child, 'p-splitter-panel'));
+                let children = [...this.$el.children].filter((child) => child.getAttribute('data-pc-name') === 'splitterpanel');
 
                 children.forEach((child, i) => {
                     child.style.flexBasis = 'calc(' + this.panelSizes[i] + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
@@ -360,9 +340,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return ['p-splitter p-component', 'p-splitter-' + this.layout];
-        },
         panels() {
             const panels = [];
 
@@ -390,64 +367,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-splitter {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.p-splitter-vertical {
-    flex-direction: column;
-}
-
-.p-splitter-panel {
-    flex-grow: 1;
-}
-
-.p-splitter-panel-nested {
-    display: flex;
-}
-
-.p-splitter-panel .p-splitter {
-    flex-grow: 1;
-    border: 0 none;
-}
-
-.p-splitter-gutter {
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: col-resize;
-}
-
-.p-splitter-horizontal.p-splitter-resizing {
-    cursor: col-resize;
-    user-select: none;
-}
-
-.p-splitter-horizontal > .p-splitter-gutter > .p-splitter-gutter-handle {
-    height: 24px;
-    width: 100%;
-}
-
-.p-splitter-horizontal > .p-splitter-gutter {
-    cursor: col-resize;
-}
-
-.p-splitter-vertical.p-splitter-resizing {
-    cursor: row-resize;
-    user-select: none;
-}
-
-.p-splitter-vertical > .p-splitter-gutter {
-    cursor: row-resize;
-}
-
-.p-splitter-vertical > .p-splitter-gutter > .p-splitter-gutter-handle {
-    width: 24px;
-    height: 100%;
-}
-</style>

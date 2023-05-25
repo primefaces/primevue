@@ -1,5 +1,5 @@
 <template>
-    <div :class="containerClass" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')">
         <svg
             viewBox="0 0 100 100"
             role="slider"
@@ -19,86 +19,20 @@
             @touchend="onTouchEnd"
             v-bind="ptm('svg')"
         >
-            <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" class="p-knob-range" v-bind="ptm('range')"></path>
-            <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" class="p-knob-value" v-bind="ptm('value')"></path>
-            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" class="p-knob-text" v-bind="ptm('label')">{{ valueToDisplay }}</text>
+            <path :d="rangePath" :stroke-width="strokeWidth" :stroke="rangeColor" :class="cx('range')" v-bind="ptm('range')"></path>
+            <path :d="valuePath" :stroke-width="strokeWidth" :stroke="valueColor" :class="cx('value')" v-bind="ptm('value')"></path>
+            <text v-if="showValue" :x="50" :y="57" text-anchor="middle" :fill="textColor" :class="cx('label')" v-bind="ptm('label')">{{ valueToDisplay }}</text>
         </svg>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseKnob from './BaseKnob.vue';
 
 export default {
     name: 'Knob',
-    extends: BaseComponent,
+    extends: BaseKnob,
     emits: ['update:modelValue', 'change'],
-    props: {
-        modelValue: {
-            type: Number,
-            default: null
-        },
-        size: {
-            type: Number,
-            default: 100
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        step: {
-            type: Number,
-            default: 1
-        },
-        min: {
-            type: Number,
-            default: 0
-        },
-        max: {
-            type: Number,
-            default: 100
-        },
-        valueColor: {
-            type: String,
-            default: 'var(--primary-color, Black)'
-        },
-        rangeColor: {
-            type: String,
-            default: 'var(--surface-border, LightGray)'
-        },
-        textColor: {
-            type: String,
-            default: 'var(--text-color-secondary, Black)'
-        },
-        strokeWidth: {
-            type: Number,
-            default: 14
-        },
-        showValue: {
-            type: Boolean,
-            default: true
-        },
-        valueTemplate: {
-            type: String,
-            default: '{value}'
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             radius: 40,
@@ -233,14 +167,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-knob p-component',
-                {
-                    'p-disabled': this.disabled
-                }
-            ];
-        },
         rangePath() {
             return `M ${this.minX} ${this.minY} A ${this.radius} ${this.radius} 0 1 1 ${this.maxX} ${this.maxY}`;
         },
@@ -291,24 +217,3 @@ export default {
 };
 //Derived and forked from https://github.com/kramer99/vue-knob-control
 </script>
-
-<style>
-@keyframes dash-frame {
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-.p-knob-range {
-    fill: none;
-    transition: stroke 0.1s ease-in;
-}
-.p-knob-value {
-    animation-name: dash-frame;
-    animation-fill-mode: forwards;
-    fill: none;
-}
-.p-knob-text {
-    font-size: 1.3rem;
-    text-align: center;
-}
-</style>

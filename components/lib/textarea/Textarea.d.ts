@@ -56,6 +56,11 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      * @type {TextareaPassThroughOptions}
      */
     pt?: TextareaPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

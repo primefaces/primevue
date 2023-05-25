@@ -72,6 +72,11 @@ export interface TagProps {
      * @type {TagPassThroughOptions}
      */
     pt?: TagPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

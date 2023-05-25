@@ -22,6 +22,7 @@ import FooterSection from './landing/FooterSection';
 import TemplateSection from './landing/TemplateSection';
 import ThemeSection from './landing/ThemeSection';
 import UsersSection from './landing/UsersSection';
+
 const Intro = defineAsyncComponent(() => import('./landing/Intro.vue'));
 
 export default {

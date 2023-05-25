@@ -101,6 +101,11 @@ export interface InplaceProps {
      * @type {InplacePassThroughOptions}
      */
     pt?: InplacePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

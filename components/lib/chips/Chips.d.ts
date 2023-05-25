@@ -176,6 +176,11 @@ export interface ChipsProps {
      * @type {ChipsPassThroughOptions}
      */
     pt?: ChipsPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 /**
  * Defines valid slots in Chips slots.

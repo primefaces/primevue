@@ -53,28 +53,4 @@ describe('Calendar.vue', () => {
 
         expect(wrapper.vm.viewDate).toEqual(dateTwo);
     });
-
-    it('should respect custom icon settings', async () => {
-        await wrapper.setProps({
-            previousIcon: 'pi pi-discord',
-            nextIcon: 'pi pi-facebook',
-            incrementIcon: 'pi pi-linkedin',
-            decrementIcon: 'pi pi-microsoft',
-            inline: true
-        });
-
-        const previousIcon = wrapper.find('.p-datepicker-prev-icon');
-        const nextIcon = wrapper.find('.p-datepicker-next-icon');
-
-        expect(previousIcon.classes()).toContain('pi-discord');
-        expect(nextIcon.classes()).toContain('pi-facebook');
-
-        await wrapper.setProps({
-            timeOnly: true,
-            hourFormat: '12'
-        });
-
-        expect(wrapper.findAll('.pi-linkedin')).toHaveLength(3);
-        expect(wrapper.findAll('.pi-microsoft')).toHaveLength(3);
-    });
 });

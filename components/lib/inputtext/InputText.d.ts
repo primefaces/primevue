@@ -43,6 +43,11 @@ export interface InputTextProps extends InputHTMLAttributes {
      * @type {InputTextPassThroughOptions}
      */
     pt?: InputTextPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

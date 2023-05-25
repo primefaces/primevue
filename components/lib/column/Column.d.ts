@@ -567,6 +567,11 @@ export interface ColumnProps {
      * @defaultValue false
      */
     hidden?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {ColumnPassThroughOptions}
+     */
+    pt?: ColumnPassThroughOptions;
 }
 
 /**

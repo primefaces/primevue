@@ -19,6 +19,7 @@ export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttribute
 export interface TabPanelPassThroughMethodOptions {
     props: TabPanelProps;
     parent: TabViewPassThroughOptions;
+    context: TabPanelContext;
 }
 
 /**
@@ -102,6 +103,17 @@ export interface TabPanelProps {
      */
     pt?: TabPanelPassThroughOptions;
 }
+
+/**
+ * Defines current options in TabPanel component.
+ */
+export interface TabPanelContext {
+    /**
+     * Current index of the tab.
+     */
+    index: number;
+}
+
 /**
  * Defines valid slots in TabPanel slots.
  */

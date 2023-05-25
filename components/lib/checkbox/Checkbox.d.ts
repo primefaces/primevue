@@ -144,6 +144,11 @@ export interface CheckboxProps {
      * @type {CheckboxPassThroughOptions}
      */
     pt?: CheckboxPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 export interface CheckboxSlots {
@@ -156,6 +161,10 @@ export interface CheckboxSlots {
          * State of the checkbox.
          */
         checked: boolean;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
 }
 

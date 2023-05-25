@@ -19,6 +19,7 @@ export declare type AccordionTabPassThroughOptionType = AccordionTabPassThroughA
 export interface AccordionTabPassThroughMethodOptions {
     props: AccordionTabProps;
     parent: AccordionPassThroughOptions;
+    context: AccordionTabContext;
 }
 
 /**
@@ -112,6 +113,16 @@ export interface AccordionTabProps {
      * @type {AccordionTabPassThroughOptions}
      */
     pt?: AccordionTabPassThroughOptions;
+}
+
+/**
+ * Defines current options in AccordionTab component.
+ */
+export interface AccordionTabContext {
+    /**
+     * Current index of the tab.
+     */
+    index: number;
 }
 
 /**

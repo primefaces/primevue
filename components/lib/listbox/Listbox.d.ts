@@ -316,6 +316,11 @@ export interface ListboxProps {
      * @type {ListboxPassThroughOptions}
      */
     pt?: ListboxPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
