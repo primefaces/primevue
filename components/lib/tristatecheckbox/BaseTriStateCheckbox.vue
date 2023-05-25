@@ -14,7 +14,7 @@ const classes = {
         }
     ],
     hiddenInputWrapper: 'p-hidden-accessible',
-    srOnlyAria: 'p-sr-only',
+    hiddenValueLabel: 'p-hidden-accessible',
     checkbox: ({ instance, props }) => [
         'p-checkbox-box',
         {

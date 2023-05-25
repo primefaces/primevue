@@ -55,9 +55,9 @@ export interface TriStateCheckboxPassThroughOptions {
      */
     hiddenInput?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the sr only aria's DOM element.
+     * Uses to pass attributes to the hidden value label's DOM element.
      */
-    srOnlyAria?: TriStateCheckboxPassThroughOptionType;
+    hiddenValueLabel?: TriStateCheckboxPassThroughOptionType;
 }
 
 /**
