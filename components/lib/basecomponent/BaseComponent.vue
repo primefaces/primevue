@@ -61,6 +61,9 @@ export default {
             return this.getPTValue(obj, key, params);
         },
         cx(key = '', params = {}) {
+            console.log(key);
+            console.log(!this.isUnstyled ? this.getOptionValue(this.$options.css && this.$options.css.classes, key, { instance: this, props: this.$props, state: this.$data, ...params }) : undefined);
+
             return !this.isUnstyled ? this.getOptionValue(this.$options.css && this.$options.css.classes, key, { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
         },
         cxo(obj = {}, key = '', params = {}) {
