@@ -17879,15 +17879,15 @@
                             "readonly": false,
                             "type": "EditorPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the formats's DOM element."
+                            "description": "Uses to pass attributes to the formats' DOM element."
                         },
                         {
-                            "name": "select",
+                            "name": "header",
                             "optional": true,
                             "readonly": false,
                             "type": "EditorPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the select's DOM element."
+                            "description": "Uses to pass attributes to the header's DOM element."
                         },
                         {
                             "name": "option",
@@ -17898,12 +17898,92 @@
                             "description": "Uses to pass attributes to the option's DOM element."
                         },
                         {
-                            "name": "button",
+                            "name": "bold",
                             "optional": true,
                             "readonly": false,
                             "type": "EditorPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the button's DOM element."
+                            "description": "Uses to pass attributes to the bold's DOM element."
+                        },
+                        {
+                            "name": "italic",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the italic's DOM element."
+                        },
+                        {
+                            "name": "underline",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the underline's DOM element."
+                        },
+                        {
+                            "name": "color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the color's DOM element."
+                        },
+                        {
+                            "name": "background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the background's DOM element."
+                        },
+                        {
+                            "name": "list",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "select",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the select's DOM element."
+                        },
+                        {
+                            "name": "link",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the link's DOM element."
+                        },
+                        {
+                            "name": "image",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the image's DOM element."
+                        },
+                        {
+                            "name": "codeBlock",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the code block's DOM element."
+                        },
+                        {
+                            "name": "clean",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "EditorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the clean's DOM element."
                         },
                         {
                             "name": "content",
@@ -18003,6 +18083,14 @@
                             "type": "EditorPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
