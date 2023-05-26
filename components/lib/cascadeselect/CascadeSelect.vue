@@ -1,12 +1,12 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onContainerClick($event)" v-bind="ptm('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick($event)" v-bind="ptm('root')">
+        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
                 :id="inputId"
                 type="text"
-                :style="inputStyle"
                 :class="inputClass"
+                :style="inputStyle"
                 readonly
                 :disabled="disabled"
                 :placeholder="placeholder"
@@ -24,27 +24,27 @@
                 v-bind="{ ...inputProps, ...ptm('input') }"
             />
         </div>
-        <span :class="labelClass" v-bind="ptm('label')">
+        <span :class="cx('label')" v-bind="ptm('label')">
             <slot name="value" :value="modelValue" :placeholder="placeholder">
                 {{ label }}
             </slot>
         </span>
-        <div class="p-cascadeselect-trigger" role="button" tabindex="-1" aria-hidden="true" v-bind="ptm('dropdownButton')">
-            <slot v-if="loading" name="loadingicon" class="p-cascadeselect-trigger-icon">
-                <span v-if="loadingIcon" :class="['p-cascadeselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
-                <SpinnerIcon v-else class="p-cascadeselect-trigger-icon" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
+        <div :class="cx('dropdownButton')" role="button" tabindex="-1" aria-hidden="true" v-bind="ptm('dropdownButton')">
+            <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
+                <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
+                <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
             </slot>
-            <slot v-else name="dropdownicon" class="p-cascadeselect-trigger-icon">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-cascadeselect-trigger-icon', dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
+            <slot v-else name="dropdownicon" :class="cx('dropdownIcon')">
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
-        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('searchResultAria')">
+        <span role="status" aria-live="polite" :class="cx('searchResultAria')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('searchResultAria')" :data-p-hidden-accessible="true">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
-                    <div class="p-cascadeselect-items-wrapper" v-bind="ptm('wrapper')">
+                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('panel'), panelClass]" :style="panelStyle" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
+                    <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
                         <CascadeSelectSub
                             :id="id + '_tree'"
                             role="tree"
@@ -65,8 +65,7 @@
                             :pt="pt"
                         />
                     </div>
-
-                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')">
+                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
                 </div>
@@ -76,123 +75,19 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import AngleRightIcon from 'primevue/icons/angleright';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SpinnerIcon from 'primevue/icons/spinner';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BaseCascadeSelect from './BaseCascadeSelect.vue';
 import CascadeSelectSub from './CascadeSelectSub.vue';
 
 export default {
     name: 'CascadeSelect',
-    extends: BaseComponent,
+    extends: BaseCascadeSelect,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
-    props: {
-        modelValue: null,
-        options: Array,
-        optionLabel: null,
-        optionValue: null,
-        optionDisabled: null,
-        optionGroupLabel: null,
-        optionGroupChildren: null,
-        placeholder: String,
-        disabled: Boolean,
-        dataKey: null,
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        panelClass: {
-            type: [String, Object],
-            default: null
-        },
-        panelStyle: {
-            type: Object,
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        dropdownIcon: {
-            type: String,
-            default: undefined
-        },
-        loadingIcon: {
-            type: String,
-            default: undefined
-        },
-        optionGroupIcon: {
-            type: String,
-            default: undefined
-        },
-        autoOptionFocus: {
-            type: Boolean,
-            default: true
-        },
-        selectOnFocus: {
-            type: Boolean,
-            default: false
-        },
-        searchLocale: {
-            type: String,
-            default: undefined
-        },
-        searchMessage: {
-            type: String,
-            default: null
-        },
-        selectionMessage: {
-            type: String,
-            default: null
-        },
-        emptySelectionMessage: {
-            type: String,
-            default: null
-        },
-        emptySearchMessage: {
-            type: String,
-            default: null
-        },
-        emptyMessage: {
-            type: String,
-            default: null
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -546,6 +441,8 @@ export default {
         },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+
+            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.scrollInView();
         },
@@ -781,37 +678,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-cascadeselect p-component p-inputwrapper',
-                {
-                    'p-disabled': this.disabled,
-                    'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.modelValue,
-                    'p-inputwrapper-focus': this.focused || this.overlayVisible,
-                    'p-overlay-open': this.overlayVisible
-                }
-            ];
-        },
-        labelClass() {
-            return [
-                'p-cascadeselect-label p-inputtext',
-                {
-                    'p-placeholder': this.label === this.placeholder,
-                    'p-cascadeselect-label-empty': !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
-                }
-            ];
-        },
-        panelStyleClass() {
-            return [
-                'p-cascadeselect-panel p-component',
-                this.panelClass,
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
         hasSelectedOption() {
             return ObjectUtils.isNotEmpty(this.modelValue);
         },
@@ -872,93 +738,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-cascadeselect {
-    display: inline-flex;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-}
-
-.p-cascadeselect-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.p-cascadeselect-label {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    flex: 1 1 auto;
-    width: 1%;
-    text-overflow: ellipsis;
-    cursor: pointer;
-}
-
-.p-cascadeselect-label-empty {
-    overflow: hidden;
-    visibility: hidden;
-}
-
-.p-cascadeselect .p-cascadeselect-panel {
-    min-width: 100%;
-}
-
-.p-cascadeselect-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.p-cascadeselect-item {
-    cursor: pointer;
-    font-weight: normal;
-    white-space: nowrap;
-}
-
-.p-cascadeselect-item-content {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-cascadeselect-group-icon {
-    margin-left: auto;
-}
-
-.p-cascadeselect-items {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    min-width: 100%;
-}
-
-.p-fluid .p-cascadeselect {
-    display: flex;
-}
-
-.p-fluid .p-cascadeselect .p-cascadeselect-label {
-    width: 1%;
-}
-
-.p-cascadeselect-sublist {
-    position: absolute;
-    min-width: 100%;
-    z-index: 1;
-    display: none;
-}
-
-.p-cascadeselect-item-active {
-    overflow: visible !important;
-}
-
-.p-cascadeselect-item-active > .p-cascadeselect-sublist {
-    display: block;
-    left: 100%;
-    top: 0;
-}
-</style>

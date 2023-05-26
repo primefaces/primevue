@@ -1,9 +1,9 @@
 <template>
-    <ul class="p-cascadeselect-panel p-cascadeselect-items" v-bind="ptm('list')">
+    <ul :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('sublist')">
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
-                :class="getOptionClass(processedOption)"
+                :class="getCXOptions('item', { processedOption })"
                 role="treeitem"
                 :aria-label="getOptionLabelToRender(processedOption)"
                 :aria-selected="isOptionGroup(processedOption) ? undefined : isOptionSelected(processedOption)"
@@ -12,21 +12,24 @@
                 :aria-setsize="options.length"
                 :aria-posinset="index + 1"
                 v-bind="ptm('item')"
+                :data-p-item-group="isOptionGroup(processedOption)"
+                :data-p-highlight="isOptionActive(processedOption)"
+                :data-p-focus="isOptionFocused(processedOption)"
+                :data-p-disabled="isOptionDisabled(processedOption)"
             >
-                <div v-ripple class="p-cascadeselect-item-content" @click="onOptionClick($event, processedOption)" v-bind="ptm('content')">
+                <div v-ripple :class="cx('content')" @click="onOptionClick($event, processedOption)" v-bind="ptm('content')">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
-                    <span v-else class="p-cascadeselect-item-text" v-bind="ptm('text')">{{ getOptionLabelToRender(processedOption) }}</span>
-                    <component
-                        v-if="isOptionGroup(processedOption)"
-                        :is="templates['optiongroupicon'] ? templates['optiongroupicon'] : optionGroupIcon ? 'span' : 'AngleRightIcon'"
-                        :class="['p-cascadeselect-group-icon', optionGroupIcon]"
-                        aria-hidden="true"
-                    />
+                    <span v-else :class="cx('text')" v-bind="ptm('text')">{{ getOptionLabelToRender(processedOption) }}</span>
+                    <template v-if="isOptionGroup(processedOption)">
+                        <component v-if="templates['optiongroupicon']" :is="templates['optiongroupicon']" aria-hidden="true" />
+                        <span v-else-if="optionGroupIcon" :class="[cx('groupIcon'), optionGroupIcon]" aria-hidden="true" v-bind="ptm('groupIcon')" />
+                        <AngleRightIcon v-else :class="cx('groupIcon')" aria-hidden="true" v-bind="ptm('groupIcon')" />
+                    </template>
                 </div>
                 <CascadeSelectSub
                     v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)"
                     role="group"
-                    class="p-cascadeselect-sublist"
+                    :class="cx('sublist')"
                     :selectId="selectId"
                     :focusedOptionId="focusedOptionId"
                     :options="getOptionGroupChildren(processedOption)"
@@ -48,14 +51,14 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import BaseCascadeSelect from './BaseCascadeSelect.vue';
 
 export default {
     name: 'CascadeSelectSub',
-    extends: BaseComponent,
+    extends: BaseCascadeSelect,
     emits: ['option-change'],
     props: {
         selectId: String,
@@ -127,16 +130,11 @@ export default {
                 this.$el.style.left = '-100%';
             }
         },
-        getOptionClass(processedOption) {
-            return [
-                'p-cascadeselect-item',
-                {
-                    'p-cascadeselect-item-group': this.isOptionGroup(processedOption),
-                    'p-cascadeselect-item-active p-highlight': this.isOptionActive(processedOption),
-                    'p-focus': this.isOptionFocused(processedOption),
-                    'p-disabled': this.isOptionDisabled(processedOption)
-                }
-            ];
+        getCXOptions(key, params) {
+            return this.cx(key, {
+                ...params,
+                cascadesub: this
+            });
         }
     },
     directives: {
