@@ -1,7 +1,7 @@
 <template>
     <li
         ref="currentNode"
-        :class="containerClass"
+        :class="getCXOptions('node')"
         role="treeitem"
         :aria-label="label(node)"
         :aria-selected="ariaSelected"
@@ -12,27 +12,28 @@
         :aria-checked="ariaChecked"
         :tabindex="index === 0 ? 0 : -1"
         @keydown="onKeyDown"
-        v-bind="getPTOptions('node')"
+        v-bind="level === 1 ? getPTOptions('node') : ptm('subgroup')"
+        data-pc-section="treeitem"
     >
-        <div :class="contentClass" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')">
-            <button v-ripple type="button" class="p-tree-toggler p-link" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">
-                <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" class="p-tree-toggler-icon" />
-                <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" class="p-tree-toggler-icon" v-bind="getPTOptions('togglerIcon')" />
-                <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" class="p-tree-toggler-icon" v-bind="getPTOptions('togglerIcon')" />
+        <div :class="getCXOptions('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')">
+            <button v-ripple type="button" :class="cx('toggler')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">
+                <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
+                <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
+                <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
             </button>
-            <div v-if="checkboxMode" class="p-checkbox p-component" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
-                <div :class="checkboxClass" role="checkbox" v-bind="getPTOptions('checkbox')">
-                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
-                    <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" class="p-checkbox-icon" v-bind="getPTOptions('checkboxIcon')" />
+            <div v-if="checkboxMode" :class="cx('checkboxContainer')" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
+                <div :class="getCXOptions('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')">
+                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxIcon')" />
+                    <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxIcon')" v-bind="getPTOptions('checkboxIcon')" />
                 </div>
             </div>
-            <span :class="icon" v-bind="getPTOptions('nodeIcon')"></span>
-            <span class="p-treenode-label" v-bind="getPTOptions('label')">
+            <span :class="getCXOptions('nodeIcon')" v-bind="getPTOptions('nodeIcon')"></span>
+            <span :class="cx('label')" v-bind="getPTOptions('label')">
                 <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
                 <template v-else>{{ label(node) }}</template>
             </span>
         </div>
-        <ul v-if="hasChildren && expanded" class="p-treenode-children" role="group" v-bind="ptm('subgroup')">
+        <ul v-if="hasChildren && expanded" :class="cx('subgroup')" role="group" v-bind="ptm('subgroup')">
             <TreeNode
                 v-for="childNode of node.children"
                 :key="childNode.key"
@@ -52,17 +53,17 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import MinusIcon from 'primevue/icons/minus';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
+import BaseTree from './BaseTree.vue';
 
 export default {
     name: 'TreeNode',
-    extends: BaseComponent,
+    extends: BaseTree,
     emits: ['node-toggle', 'node-click', 'checkbox-change'],
     props: {
         node: {
@@ -96,13 +97,6 @@ export default {
     },
     nodeTouched: false,
     toggleClicked: false,
-    mounted() {
-        const hasTreeSelectParent = this.$refs.currentNode.closest('.p-treeselect-items-wrapper');
-
-        if (hasTreeSelectParent) {
-            this.setAllNodesTabIndexes();
-        }
-    },
     methods: {
         toggle() {
             this.$emit('node-toggle', this.node);
@@ -123,8 +117,13 @@ export default {
                 }
             });
         },
+        getCXOptions(key) {
+            return this.cx(key, {
+                treenode: this
+            });
+        },
         onClick(event) {
-            if (this.toggleClicked || DomHandler.hasClass(event.target, 'p-tree-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-tree-toggler')) {
+            if (this.toggleClicked || DomHandler.getAttribute(event.target, '[data-pc-section="toggler"]') || DomHandler.getAttribute(event.target.parentElement, '[data-pc-section="toggler"]')) {
                 this.toggleClicked = false;
 
                 return;
@@ -233,7 +232,7 @@ export default {
             });
         },
         onArrowLeft(event) {
-            const togglerElement = DomHandler.findSingle(event.currentTarget, '.p-tree-toggler');
+            const togglerElement = DomHandler.findSingle(event.currentTarget, '[data-pc-section="toggler"]');
 
             if (this.level === 0 && !this.expanded) {
                 return false;
@@ -261,7 +260,7 @@ export default {
             this.setAllNodesTabIndexes();
         },
         setAllNodesTabIndexes() {
-            const nodes = DomHandler.find(this.$refs.currentNode.closest('.p-tree-container'), '.p-treenode');
+            const nodes = DomHandler.find(this.$refs.currentNode.closest('[data-pc-section="container"]'), '[data-pc-section="treeitem"]');
 
             const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
 
@@ -281,7 +280,7 @@ export default {
         },
         setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
-                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '.p-treenode')];
+                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '[data-pc-section="node"]')];
 
                 event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 
@@ -388,7 +387,7 @@ export default {
         getParentNodeElement(nodeElement) {
             const parentNodeElement = nodeElement.parentElement.parentElement;
 
-            return DomHandler.hasClass(parentNodeElement, 'p-treenode') ? parentNodeElement : null;
+            return DomHandler.getAttribute(parentNodeElement, '[data-pc-section="node"]') ? parentNodeElement : null;
         },
         focusNode(element) {
             element.focus();
@@ -397,7 +396,7 @@ export default {
             return this.selectionMode === 'checkbox';
         },
         isSameNode(event) {
-            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('.p-treenode')));
+            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[data-pc-section="node"]')));
         }
     },
     computed: {
@@ -415,25 +414,6 @@ export default {
         },
         selected() {
             return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.node.key] === true : false;
-        },
-        containerClass() {
-            return ['p-treenode', { 'p-treenode-leaf': this.leaf }];
-        },
-        contentClass() {
-            return [
-                'p-treenode-content',
-                this.node.styleClass,
-                {
-                    'p-treenode-selectable': this.selectable,
-                    'p-highlight': this.checkboxMode ? this.checked : this.selected
-                }
-            ];
-        },
-        icon() {
-            return ['p-treenode-icon', this.node.icon];
-        },
-        checkboxClass() {
-            return ['p-checkbox-box', { 'p-highlight': this.checked, 'p-indeterminate': this.partialChecked }];
         },
         checkboxMode() {
             return this.selectionMode === 'checkbox' && this.node.selectable !== false;
