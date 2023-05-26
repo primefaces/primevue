@@ -84,7 +84,10 @@ function onClick(event) {
 }
 
 function onKeydown(event) {
-    event.code === 'Escape' && hide(event.currentTarget, hideDelay);
+    const el = event.currentTarget;
+    const hideDelay = el.$_ptooltipHideDelay;
+
+    event.code === 'Escape' && hide(el, hideDelay);
 }
 
 function tooltipActions(el) {
