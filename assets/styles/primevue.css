@@ -1,4 +1,5 @@
 @import '../../components/lib/common/Common.css';
+/* Todo: badge.css should be removed for unstyled */
 @import '../../components/lib/badge/Badge.css';
 @import '../../components/lib/button/Button.css';
 @import '../../components/lib/checkbox/Checkbox.css';

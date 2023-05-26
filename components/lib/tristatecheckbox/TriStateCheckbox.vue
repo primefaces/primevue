@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')">
+        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 :id="inputId"
@@ -16,57 +16,30 @@
                 v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
-        <span class="p-sr-only" aria-live="polite" v-bind="ptm('srOnlyAria')">{{ ariaValueLabel }}</span>
-        <div ref="box" :class="['p-checkbox-box', { 'p-highlight': modelValue != null, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="getPTOptions('checbox')">
-            <slot v-if="modelValue === true" name="checkicon">
-                <component :is="'CheckIcon'" class="p-checkbox-icon" v-bind="ptm('checkIcon')" />
+        <span role="status" :class="cx('hiddenValueLabel')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenValueLabel')" :data-p-hidden-accessible="true">{{ ariaValueLabel }}</span>
+        <div ref="box" :class="cx('checkbox')" v-bind="getPTOptions('checkbox')" :data-p-highlight="modelValue != null" :data-p-disabled="disabled" :data-p-focused="focused">
+            <slot v-if="modelValue === true" name="checkicon" :class="cx('checkIcon')">
+                <component :is="'CheckIcon'" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />
             </slot>
-            <slot v-else-if="modelValue === false" name="uncheckicon">
-                <component :is="'TimesIcon'" class="p-checkbox-icon" v-bind="ptm('uncheckIcon')" />
+            <slot v-else-if="modelValue === false" name="uncheckicon" :class="cx('uncheckIcon')">
+                <component :is="'TimesIcon'" :class="cx('uncheckIcon')" v-bind="ptm('uncheckIcon')" />
             </slot>
-            <slot v-else name="nullableicon">
-                <span class="p-checkbox-icon" v-bind="ptm('nullableIcon')"></span>
+            <slot v-else name="nullableicon" :class="cx('nullableIcon')">
+                <span :class="cx('nullableIcon')" v-bind="ptm('nullableIcon')"></span>
             </slot>
         </div>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import TimesIcon from 'primevue/icons/times';
+import BaseTriStateCheckbox from './BaseTriStateCheckbox.vue';
 
 export default {
     name: 'TriStateCheckbox',
-    extends: BaseComponent,
+    extends: BaseTriStateCheckbox,
     emits: ['click', 'update:modelValue', 'change', 'keydown', 'focus', 'blur'],
-    props: {
-        modelValue: null,
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             focused: false
@@ -126,16 +99,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-checkbox p-component',
-                {
-                    'p-checkbox-checked': this.modelValue === true,
-                    'p-checkbox-disabled': this.disabled,
-                    'p-checkbox-focused': this.focused
-                }
-            ];
-        },
         ariaValueLabel() {
             return this.modelValue ? this.$primevue.config.locale.aria.trueLabel : this.modelValue === false ? this.$primevue.config.locale.aria.falseLabel : this.$primevue.config.locale.aria.nullLabel;
         }

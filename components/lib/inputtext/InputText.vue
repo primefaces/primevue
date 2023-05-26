@@ -1,17 +1,14 @@
 <template>
-    <input :class="['p-inputtext p-component', { 'p-filled': filled }]" :value="modelValue" @input="onInput" v-bind="ptm('root')" />
+    <input :class="cx('root')" :value="modelValue" @input="onInput" v-bind="ptm('root')" />
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseInputText from './BaseInputText.vue';
 
 export default {
     name: 'InputText',
-    extends: BaseComponent,
+    extends: BaseInputText,
     emits: ['update:modelValue'],
-    props: {
-        modelValue: null
-    },
     methods: {
         onInput(event) {
             this.$emit('update:modelValue', event.target.value);

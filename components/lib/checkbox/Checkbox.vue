@@ -1,6 +1,6 @@
 <template>
-    <div :class="containerClass" @click="onClick($event)" v-bind="ptm('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')">
+        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 :id="inputId"
@@ -19,80 +19,23 @@
                 v-bind="ptm('hiddenInput')"
             />
         </div>
-        <div ref="box" :class="['p-checkbox-box', inputClass, { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" :style="inputStyle" v-bind="{ ...inputProps, ...ptm('input') }">
-            <slot name="icon" :checked="checked">
-                <component :is="checked ? 'CheckIcon' : null" class="p-checkbox-icon" v-bind="ptm('icon')" />
+        <div ref="box" :class="[cx('input'), inputClass]" :style="inputStyle" v-bind="{ ...inputProps, ...ptm('input') }" :data-p-highlight="checked" :data-p-disabled="disabled" :data-p-focused="focused">
+            <slot name="icon" :checked="checked" :class="cx('icon')">
+                <component :is="checked ? 'CheckIcon' : null" :class="cx('icon')" v-bind="ptm('icon')" />
             </slot>
         </div>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import { ObjectUtils } from 'primevue/utils';
+import BaseCheckbox from './BaseCheckbox.vue';
 
 export default {
     name: 'Checkbox',
-    extends: BaseComponent,
+    extends: BaseCheckbox,
     emits: ['click', 'update:modelValue', 'change', 'input', 'focus', 'blur'],
-    props: {
-        value: null,
-        modelValue: null,
-        binary: Boolean,
-        name: {
-            type: String,
-            default: null
-        },
-        trueValue: {
-            type: null,
-            default: true
-        },
-        falseValue: {
-            type: null,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        required: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: null
-        },
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputClass: {
-            type: [String, Object],
-            default: null
-        },
-        inputStyle: {
-            type: Object,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             focused: false
@@ -129,16 +72,6 @@ export default {
     computed: {
         checked() {
             return this.binary ? this.modelValue === this.trueValue : ObjectUtils.contains(this.value, this.modelValue);
-        },
-        containerClass() {
-            return [
-                'p-checkbox p-component',
-                {
-                    'p-checkbox-checked': this.checked,
-                    'p-checkbox-disabled': this.disabled,
-                    'p-checkbox-focused': this.focused
-                }
-            ];
         }
     },
     components: {

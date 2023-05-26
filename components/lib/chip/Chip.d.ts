@@ -97,6 +97,11 @@ export interface ChipProps {
      * @type {ChipPassThroughOptions}
      */
     pt?: ChipPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

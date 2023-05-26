@@ -58,6 +58,11 @@ export interface BadgeProps {
      * @type {BadgePassThroughOptions}
      */
     pt?: BadgePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

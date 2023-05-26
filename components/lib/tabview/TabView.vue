@@ -1,50 +1,54 @@
 <template>
-    <div :class="contentClasses" v-bind="ptm('root')">
-        <div class="p-tabview-nav-container" v-bind="ptm('navcontainer')">
+    <div :class="cx('root')" v-bind="ptm('root')">
+        <div :class="cx('navContainer')" v-bind="ptm('navContainer')">
             <button
                 v-if="scrollable && !isPrevButtonDisabled"
                 ref="prevBtn"
                 v-ripple
                 type="button"
-                class="p-tabview-nav-prev p-tabview-nav-btn p-link"
+                :class="cx('previousButton')"
                 :tabindex="tabindex"
                 :aria-label="prevButtonAriaLabel"
                 @click="onPrevButtonClick"
-                v-bind="{ ...previousButtonProps, ...ptm('prevbutton') }"
+                v-bind="{ ...previousButtonProps, ...ptm('previousButton') }"
             >
                 <slot name="previcon">
-                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previcon')" />
+                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previousIcon')" />
                 </slot>
             </button>
-            <div ref="content" class="p-tabview-nav-content" @scroll="onScroll" v-bind="ptm('navcontent')">
-                <ul ref="nav" class="p-tabview-nav" role="tablist" v-bind="ptm('nav')">
+            <div ref="content" :class="cx('navContent')" @scroll="onScroll" v-bind="ptm('navContent')">
+                <ul ref="nav" :class="cx('nav')" role="tablist" v-bind="ptm('nav')">
                     <li
-                        v-for="(tab, i) of tabs"
-                        :key="getKey(tab, i)"
+                        v-for="(tab, index) of tabs"
+                        :key="getKey(tab, index)"
                         :style="getTabProp(tab, 'headerStyle')"
-                        :class="getTabHeaderClass(tab, i)"
+                        :class="cx('tab.header', { tab, index })"
                         role="presentation"
-                        :data-index="i"
-                        v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root'), ...getTabPT(tab, 'header') }"
+                        data-pc-name="tabpanel"
+                        :data-p-highlight="d_activeIndex === index"
+                        :data-p-disabled="getTabProp(tab, 'disabled')"
+                        :data-pc-index="index"
+                        :data-p-active="d_activeIndex === index"
+                        v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'header', index) }"
                     >
                         <a
-                            :id="getTabHeaderActionId(i)"
+                            :id="getTabHeaderActionId(index)"
                             v-ripple
-                            class="p-tabview-nav-link p-tabview-header-action"
-                            :tabindex="getTabProp(tab, 'disabled') || !isTabActive(i) ? -1 : tabindex"
+                            :class="cx('tab.headerAction')"
+                            :tabindex="getTabProp(tab, 'disabled') || !isTabActive(index) ? -1 : tabindex"
                             role="tab"
                             :aria-disabled="getTabProp(tab, 'disabled')"
-                            :aria-selected="isTabActive(i)"
-                            :aria-controls="getTabContentId(i)"
-                            @click="onTabClick($event, tab, i)"
-                            @keydown="onTabKeyDown($event, tab, i)"
-                            v-bind="{ ...getTabProp(tab, 'headerActionProps'), ...getTabPT(tab, 'headeraction') }"
+                            :aria-selected="isTabActive(index)"
+                            :aria-controls="getTabContentId(index)"
+                            @click="onTabClick($event, tab, index)"
+                            @keydown="onTabKeyDown($event, tab, index)"
+                            v-bind="{ ...getTabProp(tab, 'headerActionProps'), ...getTabPT(tab, 'headerAction', index) }"
                         >
-                            <span v-if="tab.props && tab.props.header" class="p-tabview-title" v-bind="getTabPT(tab, 'headertitle')">{{ tab.props.header }}</span>
+                            <span v-if="tab.props && tab.props.header" :class="cx('tab.headerTitle')" v-bind="getTabPT(tab, 'headerTitle', index)">{{ tab.props.header }}</span>
                             <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                         </a>
                     </li>
-                    <li ref="inkbar" class="p-tabview-ink-bar" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></li>
+                    <li ref="inkbar" :class="cx('inkbar')" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></li>
                 </ul>
             </div>
             <button
@@ -52,27 +56,30 @@
                 ref="nextBtn"
                 v-ripple
                 type="button"
-                class="p-tabview-nav-next p-tabview-nav-btn p-link"
+                :class="cx('nextButton')"
                 :tabindex="tabindex"
                 :aria-label="nextButtonAriaLabel"
                 @click="onNextButtonClick"
-                v-bind="{ ...nextButtonProps, ...ptm('nextbutton') }"
+                v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
             >
                 <slot name="nexticon">
-                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" aria-hidden="true" :class="nextIcon" v-bind="ptm('nexticon')" />
+                    <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" aria-hidden="true" :class="nextIcon" v-bind="ptm('nextIcon')" />
                 </slot>
             </button>
         </div>
-        <div class="p-tabview-panels" v-bind="ptm('panelcontainer')">
-            <template v-for="(tab, i) of tabs" :key="getKey(tab, i)">
+        <div :class="cx('panelContainer')" v-bind="ptm('panelContainer')">
+            <template v-for="(tab, index) of tabs" :key="getKey(tab, index)">
                 <div
-                    v-if="lazy ? isTabActive(i) : true"
-                    v-show="lazy ? true : isTabActive(i)"
+                    v-if="lazy ? isTabActive(index) : true"
+                    v-show="lazy ? true : isTabActive(index)"
                     :style="getTabProp(tab, 'contentStyle')"
-                    :class="getTabContentClass(tab)"
+                    :class="cx('tab.content', { tab })"
                     role="tabpanel"
-                    :aria-labelledby="getTabHeaderActionId(i)"
-                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root'), ...getTabPT(tab, 'content') }"
+                    :aria-labelledby="getTabHeaderActionId(index)"
+                    data-pc-name="tabpanel"
+                    :data-pc-index="index"
+                    :data-p-active="d_activeIndex === index"
+                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'content', index) }"
                 >
                     <component :is="tab"></component>
                 </div>
@@ -82,54 +89,16 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BaseTabView from './BaseTabView.vue';
 
 export default {
     name: 'TabView',
-    extends: BaseComponent,
+    extends: BaseTabView,
     emits: ['update:activeIndex', 'tab-change', 'tab-click'],
-    props: {
-        activeIndex: {
-            type: Number,
-            default: 0
-        },
-        lazy: {
-            type: Boolean,
-            default: false
-        },
-        scrollable: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        selectOnFocus: {
-            type: Boolean,
-            default: false
-        },
-        previousButtonProps: {
-            type: null,
-            default: null
-        },
-        nextButtonProps: {
-            type: null,
-            default: null
-        },
-        prevIcon: {
-            type: String,
-            default: undefined
-        },
-        nextIcon: {
-            type: String,
-            default: undefined
-        }
-    },
     data() {
         return {
             id: this.$attrs.id,
@@ -176,14 +145,19 @@ export default {
         getTabContentId(index) {
             return `${this.id}_${index}_content`;
         },
-        getTabPT(tab, key) {
-            return this.ptmo(this.getTabProp(tab, 'pt'), key, {
+        getTabPT(tab, key, index) {
+            const tabMetaData = {
                 props: tab.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
+                },
+                context: {
+                    index
                 }
-            });
+            };
+
+            return { ...this.ptm(`tab.${key}`, { tab: tabMetaData }), ...this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData) };
         },
         onScroll(event) {
             this.scrollable && this.updateButtonState();
@@ -285,18 +259,18 @@ export default {
             const headerElement = selfCheck ? tabElement : tabElement.nextElementSibling;
 
             return headerElement
-                ? DomHandler.hasClass(headerElement, 'p-disabled') || DomHandler.hasClass(headerElement, 'p-tabview-ink-bar')
+                ? DomHandler.getAttribute(headerElement, 'data-p-disabled') || DomHandler.getAttribute(headerElement, 'data-pc-section') === 'inkbar'
                     ? this.findNextHeaderAction(headerElement)
-                    : DomHandler.findSingle(headerElement, '.p-tabview-header-action')
+                    : DomHandler.findSingle(headerElement, '[data-pc-section="headeraction"]')
                 : null;
         },
         findPrevHeaderAction(tabElement, selfCheck = false) {
             const headerElement = selfCheck ? tabElement : tabElement.previousElementSibling;
 
             return headerElement
-                ? DomHandler.hasClass(headerElement, 'p-disabled') || DomHandler.hasClass(headerElement, 'p-tabview-ink-bar')
+                ? DomHandler.getAttribute(headerElement, 'data-p-disabled') || DomHandler.getAttribute(headerElement, 'data-pc-section') === 'inkbar'
                     ? this.findPrevHeaderAction(headerElement)
-                    : DomHandler.findSingle(headerElement, '.p-tabview-header-action')
+                    : DomHandler.findSingle(headerElement, '[data-pc-section="headeraction"]')
                 : null;
         },
         findFirstHeaderAction() {
@@ -353,30 +327,9 @@ export default {
             const { prevBtn, nextBtn } = this.$refs;
 
             return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + DomHandler.getWidth(el) : acc), 0);
-        },
-        getTabHeaderClass(tab, i) {
-            return [
-                'p-tabview-header',
-                this.getTabProp(tab, 'headerClass'),
-                {
-                    'p-highlight': this.d_activeIndex === i,
-                    'p-disabled': this.getTabProp(tab, 'disabled')
-                }
-            ];
-        },
-        getTabContentClass(tab) {
-            return ['p-tabview-panel', this.getTabProp(tab, 'contentClass')];
         }
     },
     computed: {
-        contentClasses() {
-            return [
-                'p-tabview p-component',
-                {
-                    'p-tabview-scrollable': this.scrollable
-                }
-            ];
-        },
         tabs() {
             return this.$slots.default().reduce((tabs, child) => {
                 if (this.isTabPanel(child)) {
@@ -408,75 +361,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-tabview-nav-container {
-    position: relative;
-}
-
-.p-tabview-scrollable .p-tabview-nav-container {
-    overflow: hidden;
-}
-
-.p-tabview-nav-content {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    overscroll-behavior: contain auto;
-}
-
-.p-tabview-nav {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    flex: 1 1 auto;
-}
-
-.p-tabview-header-action {
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    position: relative;
-    text-decoration: none;
-    overflow: hidden;
-}
-
-.p-tabview-ink-bar {
-    display: none;
-    z-index: 1;
-}
-
-.p-tabview-header-action:focus {
-    z-index: 1;
-}
-
-.p-tabview-title {
-    line-height: 1;
-    white-space: nowrap;
-}
-
-.p-tabview-nav-btn {
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-tabview-nav-prev {
-    left: 0;
-}
-
-.p-tabview-nav-next {
-    right: 0;
-}
-
-.p-tabview-nav-content::-webkit-scrollbar {
-    display: none;
-}
-</style>

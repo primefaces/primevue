@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { beforeEach } from 'vitest';
 import Avatar from './Avatar.vue';
+
 let wrapper = null;
 
 beforeEach(() => {

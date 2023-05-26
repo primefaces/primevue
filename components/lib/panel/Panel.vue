@@ -1,10 +1,10 @@
 <template>
-    <div :class="classes.root" v-bind="ptm('root')">
-        <div :class="classes.header" v-bind="ptm('header')">
-            <slot :id="ariaId + '_header'" name="header" :class="classes.title">
-                <span v-if="header" :id="ariaId + '_header'" :class="classes.title" v-bind="ptm('title')">{{ header }}</span>
+    <div :class="cx('root')" v-bind="ptm('root')">
+        <div :class="cx('header')" v-bind="ptm('header')">
+            <slot :id="ariaId + '_header'" name="header" :class="cx('title')">
+                <span v-if="header" :id="ariaId + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
             </slot>
-            <div :class="classes.icons" v-bind="ptm('icons')">
+            <div :class="cx('icons')" v-bind="ptm('icons')">
                 <slot name="icons"></slot>
                 <button
                     v-if="toggleable"
@@ -12,7 +12,7 @@
                     v-ripple
                     type="button"
                     role="button"
-                    :class="classes.toggler"
+                    :class="cx('toggler')"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="ariaId + '_content'"
                     :aria-expanded="!d_collapsed"
@@ -27,11 +27,11 @@
             </div>
         </div>
         <transition name="p-toggleable-content">
-            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="classes.toggleablecontent" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
-                <div :class="classes.content" v-bind="ptm('content')">
+            <div v-show="!d_collapsed" :id="ariaId + '_content'" :class="cx('toggleablecontent')" role="region" :aria-labelledby="ariaId + '_header'" v-bind="ptm('toggleablecontent')">
+                <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
-                <div v-if="$slots.footer" :class="classes.footer" v-bind="ptm('footer')">
+                <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
                     <slot name="footer"></slot>
                 </div>
             </div>
@@ -40,29 +40,16 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import MinusIcon from 'primevue/icons/minus';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
-import { useStyle } from 'primevue/usestyle';
 import { UniqueComponentId } from 'primevue/utils';
-import { getComputedClasses, styles } from './PanelStyle';
-
-const styleInstance = useStyle(styles, { id: 'primevue_panel_style', manual: true });
+import BasePanel from './BasePanel.vue';
 
 export default {
     name: 'Panel',
-    extends: BaseComponent,
+    extends: BasePanel,
     emits: ['update:collapsed', 'toggle'],
-    props: {
-        header: String,
-        toggleable: Boolean,
-        collapsed: Boolean,
-        toggleButtonProps: {
-            type: null,
-            default: null
-        }
-    },
     data() {
         return {
             d_collapsed: this.collapsed
@@ -71,12 +58,6 @@ export default {
     watch: {
         collapsed(newValue) {
             this.d_collapsed = newValue;
-        },
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && styleInstance.load();
-            }
         }
     },
     methods: {
@@ -101,9 +82,6 @@ export default {
         },
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps['aria-label'] ? this.toggleButtonProps['aria-label'] : this.header;
-        },
-        classes() {
-            return this.isUnstyled ? {} : getComputedClasses(this.$props, this.$data);
         }
     },
     components: {

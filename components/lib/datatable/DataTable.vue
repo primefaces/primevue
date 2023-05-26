@@ -48,7 +48,7 @@
         <div class="p-datatable-wrapper" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
             <DTVirtualScroller
                 ref="virtualScroller"
-                v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }"
+                v-bind="virtualScrollerOptions"
                 :items="processedData"
                 :columns="columns"
                 :style="scrollHeight !== 'flex' ? { height: scrollHeight } : undefined"
@@ -58,6 +58,7 @@
                 inline
                 autoSize
                 :showSpacer="false"
+                :pt="ptm('virtualScroller')"
             >
                 <template #content="slotProps">
                     <table ref="table" role="table" :class="tableStyleClass" :style="[tableStyle, slotProps.spacerStyle]" v-bind="{ ...tableProps, ...ptm('table') }">

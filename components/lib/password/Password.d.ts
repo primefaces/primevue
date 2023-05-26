@@ -52,6 +52,10 @@ export interface PasswordPassThroughOptions {
      */
     meter?: PasswordPassThroughOptionType;
     /**
+     * Uses to pass attributes to the meter label's DOM element.
+     */
+    meterLabel?: PasswordPassThroughOptionType;
+    /**
      * Uses to pass attributes to the info's DOM element.
      */
     info?: PasswordPassThroughOptionType;
@@ -227,6 +231,11 @@ export interface PasswordProps extends InputHTMLAttributes {
      * @type {PasswordPassThroughOptions}
      */
     pt?: PasswordPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

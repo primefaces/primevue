@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { TabPanelPassThroughOptionType } from '../tabpanel';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TabViewPassThroughOptionType = TabViewPassThroughAttributes | ((options: { props: TabViewProps; state: TabViewState }) => TabViewPassThroughAttributes) | null | undefined;
@@ -55,6 +56,10 @@ export interface TabViewPassThroughOptions {
      * Uses to pass attributes to the list's DOM element.
      */
     nav?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to TabPanel helper components.
+     */
+    tab?: TabPanelPassThroughOptionType;
     /**
      * Uses to pass attributes to the inkbar's DOM element.
      */
@@ -166,6 +171,11 @@ export interface TabViewProps {
      * @type {TabViewPassThroughOptions}
      */
     pt?: TabViewPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

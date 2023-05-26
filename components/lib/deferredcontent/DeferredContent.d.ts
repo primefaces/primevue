@@ -58,6 +58,11 @@ export interface DeferredContentProps {
      * @type {DeferredContentPassThroughOptions}
      */
     pt?: DeferredContentPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -88,6 +88,11 @@ export interface AvatarProps {
      * @type {AvatarPassThroughOptions}
      */
     pt?: AvatarPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

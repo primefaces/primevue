@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" :class="containerClass" @click="onContainerClick" v-bind="ptm('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+    <div ref="container" :class="cx('root')" @click="onContainerClick" v-bind="ptm('root')">
+        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
                 :id="inputId"
@@ -22,20 +22,20 @@
                 v-bind="{ ...inputProps, ...ptm('input') }"
             />
         </div>
-        <div class="p-multiselect-label-container" v-bind="ptm('labelContainer')">
-            <div :class="labelClass" v-bind="ptm('label')">
+        <div :class="cx('labelContainer')" v-bind="ptm('labelContainer')">
+            <div :class="cx('label')" v-bind="ptm('label')">
                 <slot name="value" :value="modelValue" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" class="p-multiselect-token" v-bind="ptm('token')">
+                        <div v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('token')" v-bind="ptm('token')">
                             <slot name="chip" :value="item">
-                                <span class="p-multiselect-token-label" v-bind="ptm('tokenLabel')">{{ getLabelByValue(item) }}</span>
+                                <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getLabelByValue(item) }}</span>
                             </slot>
-                            <slot v-if="!disabled" name="removetokenicon" class="p-multiselect-token-icon" :onClick="(event) => removeOption(event, item)">
-                                <span v-if="removeTokenIcon" :class="['p-multiselect-token-icon', removeTokenIcon]" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
-                                <TimesCircleIcon v-else class="p-multiselect-token-icon" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
+                            <slot v-if="!disabled" name="removetokenicon" :class="cx('removeTokenIcon')" :onClick="(event) => removeOption(event, item)">
+                                <span v-if="removeTokenIcon" :class="[cx('removeTokenIcon'), removeTokenIcon]" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
+                                <TimesCircleIcon v-else :class="cx('removeTokenIcon')" @click.stop="removeOption($event, item)" v-bind="ptm('removeTokenIcon')" />
                             </slot>
                         </div>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
@@ -43,38 +43,49 @@
                 </slot>
             </div>
         </div>
-        <div class="p-multiselect-trigger" v-bind="ptm('trigger')">
-            <slot v-if="loading" name="loadingicon" class="p-multiselect-trigger-icon">
-                <span v-if="loadingIcon" :class="['p-multiselect-trigger-icon pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('triggerIcon')" />
-                <SpinnerIcon v-else class="p-multiselect-trigger-icon" spin aria-hidden="true" v-bind="ptm('triggerIcon')" />
+        <div :class="cx('trigger')" v-bind="ptm('triggger')">
+            <slot v-if="loading" name="loadingicon" :class="cx('triggerIcon')">
+                <span v-if="loadingIcon" :class="[cx('triggerIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('triggerIcon')" />
+                <SpinnerIcon v-else :class="cx('triggerIcon')" spin aria-hidden="true" v-bind="ptm('triggerIcon')" />
             </slot>
-            <slot v-else name="dropdownicon" class="p-multiselect-trigger-icon">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="['p-multiselect-trigger-icon', dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
+            <slot v-else name="dropdownicon" :class="cx('dropdownIcon')">
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="panelStyleClass" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
-                    <span ref="firstHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onFirstHiddenFocus" v-bind="ptm('hiddenFirstFocusableEl')"></span>
+                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="[cx('panel'), panelClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="{ ...panelProps, ...ptm('panel') }">
+                    <span
+                        ref="firstHiddenFocusableElementOnOverlay"
+                        role="presentation"
+                        aria-hidden="true"
+                        :class="cx('hiddenFirstFocusableEl')"
+                        :style="sx('hiddenAccessible', isUnstyled)"
+                        :tabindex="0"
+                        @focus="onFirstHiddenFocus"
+                        v-bind="ptm('hiddenFirstFocusableEl')"
+                        :data-p-hidden-accessible="true"
+                        :data-p-hidden-focusable="true"
+                    ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
-                    <div v-if="(showToggleAll && selectionLimit == null) || filter" class="p-multiselect-header" v-bind="ptm('header')">
-                        <div v-if="showToggleAll && selectionLimit == null" :class="headerCheckboxClass" @click="onToggleAll" v-bind="ptm('headerCheckboxContainer')">
-                            <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+                    <div v-if="(showToggleAll && selectionLimit == null) || filter" :class="cx('header')" v-bind="ptm('header')">
+                        <div v-if="showToggleAll && selectionLimit == null" :class="cx('headerCheckboxContainer')" @click="onToggleAll" v-bind="ptm('headerCheckboxContainer')">
+                            <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
                                 <input type="checkbox" readonly :checked="allSelected" :aria-label="toggleAllAriaLabel" @focus="onHeaderCheckboxFocus" @blur="onHeaderCheckboxBlur" v-bind="ptm('headerCheckbox')" />
                             </div>
-                            <div :class="['p-checkbox-box', { 'p-highlight': allSelected, 'p-focus': headerCheckboxFocused }]" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
-                                <slot name="headercheckboxicon" :allSelected="allSelected" class="p-checkbox-icon">
-                                    <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="['p-checkbox-icon', { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
+                            <div :class="cx('headerCheckbox')" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
+                                <slot name="headercheckboxicon" :allSelected="allSelected" :class="cx('headerCheckboxIcon')">
+                                    <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
                                 </slot>
                             </div>
                         </div>
-                        <div v-if="filter" class="p-multiselect-filter-container" v-bind="ptm('filterContainer')">
+                        <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
                             <input
                                 ref="filterInput"
                                 type="text"
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
-                                class="p-multiselect-filter p-inputtext p-component"
+                                :class="cx('filterInput')"
                                 :placeholder="filterPlaceholder"
                                 role="searchbox"
                                 autocomplete="off"
@@ -85,32 +96,25 @@
                                 @input="onFilterChange"
                                 v-bind="{ ...filterInputProps, ...ptm('filterInput') }"
                             />
-                            <slot name="filtericon" class="p-multiselect-filter-icon">
-                                <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="['p-multiselect-filter-icon', filterIcon]" v-bind="ptm('filterIcon')" />
+                            <slot name="filtericon" :class="cx('filterIcon')">
+                                <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
                             </slot>
                         </div>
-                        <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')">
+                        <span v-if="filter" role="status" aria-live="polite" :class="cx('hiddenFilterResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
                             {{ filterResultMessageText }}
                         </span>
-                        <button v-ripple class="p-multiselect-close p-link" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
-                            <slot name="closeicon" class="p-multiselect-close-icon">
-                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-multiselect-close-icon', closeIcon]" v-bind="ptm('closeIcon')" />
+                        <button v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="onCloseClick" type="button" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
+                            <slot name="closeicon" :class="cx('closeIcon')">
+                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')" />
                             </slot>
                         </button>
                     </div>
-                    <div class="p-multiselect-items-wrapper" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
-                        <VirtualScroller :ref="virtualScrollerRef" v-bind="{ ...virtualScrollerOptions, ...ptm('virtualScroller') }" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled">
+                    <div :class="cx('wrapper')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
+                        <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="['p-multiselect-items p-component', styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" v-bind="ptm('list')">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                        <li
-                                            v-if="isOptionGroup(option)"
-                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
-                                            :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                            class="p-multiselect-item-group"
-                                            role="option"
-                                            v-bind="ptm('itemGroup')"
-                                        >
+                                        <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
                                             <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                         </li>
                                         <li
@@ -118,7 +122,7 @@
                                             :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                             v-ripple
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                            :class="['p-multiselect-item', { 'p-highlight': isSelected(option), 'p-focus': focusedOptionIndex === getOptionIndex(i, getItemOptions), 'p-disabled': isOptionDisabled(option) }]"
+                                            :class="cx('item', { option, index: i, getItemOptions })"
                                             role="option"
                                             :aria-label="getOptionLabel(option)"
                                             :aria-selected="isSelected(option)"
@@ -128,13 +132,16 @@
                                             @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions), true)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                             v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'item')"
+                                            :data-p-highlight="isSelected(option)"
+                                            :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
+                                            :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <div class="p-checkbox p-component" v-bind="ptm('checkboxContainer')">
-                                                <div :class="['p-checkbox-box', { 'p-highlight': isSelected(option) }]" v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkbox')">
-                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)" class="p-checkbox-icon">
+                                            <div :class="cx('checkboxContainer')" v-bind="ptm('checkboxContainer')">
+                                                <div :class="cx('checkbox', { option })" v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkbox')">
+                                                    <slot name="itemcheckboxicon" :selected="isSelected(option)" :class="cx('checkboxIcon')">
                                                         <component
                                                             :is="checkboxIcon ? 'span' : 'CheckIcon'"
-                                                            :class="['p-checkbox-icon', { [checkboxIcon]: isSelected(option) }]"
+                                                            :class="[cx('checkboxIcon'), { [checkboxIcon]: isSelected(option) }]"
                                                             v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkboxIcon')"
                                                         />
                                                     </slot>
@@ -145,10 +152,10 @@
                                             </slot>
                                         </li>
                                     </template>
-                                    <li v-if="filterValue && (!items || (items && items.length === 0))" class="p-multiselect-empty-message" role="option" v-bind="ptm('emptyMessage')">
+                                    <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                                         <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                                     </li>
-                                    <li v-else-if="!options || (options && options.length === 0)" class="p-multiselect-empty-message" role="option" v-bind="ptm('emptyMessage')">
+                                    <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                                         <slot name="empty">{{ emptyMessageText }}</slot>
                                     </li>
                                 </ul>
@@ -159,13 +166,32 @@
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-                    <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('emptyMessage')">
+                    <span
+                        v-if="!options || (options && options.length === 0)"
+                        role="status"
+                        aria-live="polite"
+                        :class="cx('hiddenEmptyMessage')"
+                        :style="sx('hiddenAccessible', isUnstyled)"
+                        v-bind="ptm('hiddenEmptyMessage')"
+                        :data-p-hidden-accessible="true"
+                    >
                         {{ emptyMessageText }}
                     </span>
-                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')">
+                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
-                    <span ref="lastHiddenFocusableElementOnOverlay" role="presentation" aria-hidden="true" class="p-hidden-accessible p-hidden-focusable" :tabindex="0" @focus="onLastHiddenFocus" v-bind="ptm('hiddenLastFocusableEl')"></span>
+                    <span
+                        ref="lastHiddenFocusableElementOnOverlay"
+                        role="presentation"
+                        aria-hidden="true"
+                        :class="cx('hiddenLastFocusableEl')"
+                        :style="sx('hiddenAccessible', isUnstyled)"
+                        :tabindex="0"
+                        @focus="onLastHiddenFocus"
+                        v-bind="ptm('hiddenLastFocusableEl')"
+                        :data-p-hidden-accessible="true"
+                        :data-p-hidden-focusable="true"
+                    ></span>
                 </div>
             </transition>
         </Portal>
@@ -174,7 +200,6 @@
 
 <script>
 import { FilterService } from 'primevue/api';
-import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SearchIcon from 'primevue/icons/search';
@@ -186,170 +211,12 @@ import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import VirtualScroller from 'primevue/virtualscroller';
+import BaseMultiSelect from './BaseMultiSelect.vue';
 
 export default {
     name: 'MultiSelect',
-    extends: BaseComponent,
+    extends: BaseMultiSelect,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
-    props: {
-        modelValue: null,
-        options: Array,
-        optionLabel: null,
-        optionValue: null,
-        optionDisabled: null,
-        optionGroupLabel: null,
-        optionGroupChildren: null,
-        scrollHeight: {
-            type: String,
-            default: '200px'
-        },
-        placeholder: String,
-        disabled: Boolean,
-        inputId: {
-            type: String,
-            default: null
-        },
-        inputProps: {
-            type: null,
-            default: null
-        },
-        panelClass: {
-            type: String,
-            default: null
-        },
-        panelStyle: {
-            type: null,
-            default: null
-        },
-        panelProps: {
-            type: null,
-            default: null
-        },
-        filterInputProps: {
-            type: null,
-            default: null
-        },
-        closeButtonProps: {
-            type: null,
-            default: null
-        },
-        dataKey: null,
-        filter: Boolean,
-        filterPlaceholder: String,
-        filterLocale: String,
-        filterMatchMode: {
-            type: String,
-            default: 'contains'
-        },
-        filterFields: {
-            type: Array,
-            default: null
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        display: {
-            type: String,
-            default: 'comma'
-        },
-        selectedItemsLabel: {
-            type: String,
-            default: '{0} items selected'
-        },
-        maxSelectedLabels: {
-            type: Number,
-            default: null
-        },
-        selectionLimit: {
-            type: Number,
-            default: null
-        },
-        showToggleAll: {
-            type: Boolean,
-            default: true
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        checkboxIcon: {
-            type: String,
-            default: undefined
-        },
-        closeIcon: {
-            type: String,
-            default: undefined
-        },
-        dropdownIcon: {
-            type: String,
-            default: undefined
-        },
-        filterIcon: {
-            type: String,
-            default: undefined
-        },
-        loadingIcon: {
-            type: String,
-            default: undefined
-        },
-        removeTokenIcon: {
-            type: String,
-            default: undefined
-        },
-        selectAll: {
-            type: Boolean,
-            default: null
-        },
-        resetFilterOnHide: {
-            type: Boolean,
-            default: false
-        },
-        virtualScrollerOptions: {
-            type: Object,
-            default: null
-        },
-        autoOptionFocus: {
-            type: Boolean,
-            default: true
-        },
-        autoFilterFocus: {
-            type: Boolean,
-            default: false
-        },
-        filterMessage: {
-            type: String,
-            default: null
-        },
-        selectionMessage: {
-            type: String,
-            default: null
-        },
-        emptySelectionMessage: {
-            type: String,
-            default: null
-        },
-        emptyFilterMessage: {
-            type: String,
-            default: null
-        },
-        emptyMessage: {
-            type: String,
-            default: null
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -567,12 +434,12 @@ export default {
             }
         },
         onFirstHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
             DomHandler.focus(focusableEl);
         },
         onLastHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not(.p-hidden-focusable)') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
             DomHandler.focus(focusableEl);
         },
@@ -818,6 +685,8 @@ export default {
         },
         onOverlayEnter(el) {
             ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+
+            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.scrollInView();
 
@@ -937,7 +806,7 @@ export default {
             this.filterValue = null;
         },
         hasFocusableElements() {
-            return DomHandler.getFocusableElements(this.overlay, ':not(.p-hidden-focusable)').length > 0;
+            return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
@@ -1090,47 +959,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-multiselect p-component p-inputwrapper',
-                {
-                    'p-multiselect-chip': this.display === 'chip',
-                    'p-disabled': this.disabled,
-                    'p-focus': this.focused,
-                    'p-inputwrapper-filled': this.modelValue && this.modelValue.length,
-                    'p-inputwrapper-focus': this.focused || this.overlayVisible,
-                    'p-overlay-open': this.overlayVisible
-                }
-            ];
-        },
-        labelClass() {
-            return [
-                'p-multiselect-label',
-                {
-                    'p-placeholder': this.label === this.placeholder,
-                    'p-multiselect-label-empty': !this.placeholder && (!this.modelValue || this.modelValue.length === 0)
-                }
-            ];
-        },
-        panelStyleClass() {
-            return [
-                'p-multiselect-panel p-component',
-                this.panelClass,
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
-        headerCheckboxClass() {
-            return [
-                'p-checkbox p-component',
-                {
-                    'p-checkbox-checked': this.allSelected,
-                    'p-checkbox-focused': this.headerCheckboxFocused
-                }
-            ];
-        },
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
@@ -1250,118 +1078,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-multiselect {
-    display: inline-flex;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-}
-
-.p-multiselect-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.p-multiselect-label-container {
-    overflow: hidden;
-    flex: 1 1 auto;
-    cursor: pointer;
-}
-
-.p-multiselect-label {
-    display: block;
-    white-space: nowrap;
-    cursor: pointer;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.p-multiselect-label-empty {
-    overflow: hidden;
-    visibility: hidden;
-}
-
-.p-multiselect-token {
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-}
-
-.p-multiselect-token-icon {
-    cursor: pointer;
-}
-
-.p-multiselect .p-multiselect-panel {
-    min-width: 100%;
-}
-
-.p-multiselect-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.p-multiselect-items-wrapper {
-    overflow: auto;
-}
-
-.p-multiselect-items {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.p-multiselect-item {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-weight: normal;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-}
-
-.p-multiselect-item-group {
-    cursor: auto;
-}
-
-.p-multiselect-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.p-multiselect-filter-container {
-    position: relative;
-    flex: 1 1 auto;
-}
-
-.p-multiselect-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.p-multiselect-filter-container .p-inputtext {
-    width: 100%;
-}
-
-.p-multiselect-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    overflow: hidden;
-    position: relative;
-    margin-left: auto;
-}
-
-.p-fluid .p-multiselect {
-    display: flex;
-}
-</style>

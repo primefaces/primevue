@@ -73,6 +73,11 @@ export interface SkeletonProps {
      * @type {SkeletonPassThroughOptions}
      */
     pt?: SkeletonPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

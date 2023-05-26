@@ -119,7 +119,7 @@ export interface DropdownPassThroughOptions {
      */
     item?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the emptyMessage's DOM element.
+     * Uses to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DropdownPassThroughOptionType;
     /**
@@ -130,6 +130,10 @@ export interface DropdownPassThroughOptions {
      * Uses to pass attributes to the hidden filter result's DOM element.
      */
     hiddenFilterResult?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden empty message's DOM element.
+     */
+    hiddenEmptyMessage?: DropdownPassThroughOptionType;
     /**
      * Uses to pass attributes to the hidden selected message's DOM element.
      */
@@ -412,6 +416,11 @@ export interface DropdownProps {
      * @type {DropdownPassThroughOptions}
      */
     pt?: DropdownPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

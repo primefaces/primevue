@@ -1,19 +1,19 @@
 <template>
-    <div class="p-card p-component" v-bind="ptm('root')">
-        <div v-if="$slots.header" class="p-card-header" v-bind="ptm('header')">
+    <div :class="cx('root')" v-bind="ptm('root')">
+        <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
-        <div class="p-card-body" v-bind="ptm('body')">
-            <div v-if="$slots.title" class="p-card-title" v-bind="ptm('title')">
+        <div :class="cx('body')" v-bind="ptm('body')">
+            <div v-if="$slots.title" :class="cx('title')">
                 <slot name="title"></slot>
             </div>
-            <div v-if="$slots.subtitle" class="p-card-subtitle" v-bind="ptm('subtitle')">
+            <div v-if="$slots.subtitle" :class="cx('subtitle')" v-bind="ptm('subtitle')">
                 <slot name="subtitle"></slot>
             </div>
-            <div class="p-card-content" v-bind="ptm('content')">
+            <div :class="cx('content')" v-bind="ptm('content')">
                 <slot name="content"></slot>
             </div>
-            <div v-if="$slots.footer" class="p-card-footer" v-bind="ptm('footer')">
+            <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
                 <slot name="footer"></slot>
             </div>
         </div>
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseCard from './BaseCard.vue';
 
 export default {
     name: 'Card',
-    extends: BaseComponent
+    extends: BaseCard
 };
 </script>

@@ -140,6 +140,11 @@ export interface SelectButtonProps {
      * @type {SelectButtonPassThroughOptions}
      */
     pt?: SelectButtonPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

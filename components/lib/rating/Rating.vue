@@ -1,7 +1,7 @@
 <template>
-    <div :class="containerClass" v-bind="ptm('root')">
-        <div v-if="cancel" :class="['p-rating-item p-rating-cancel-item', { 'p-focus': focusedOptionIndex === 0 }]" @click="onOptionClick($event, 0)" v-bind="ptm('cancelItem')">
-            <span class="p-hidden-accessible" v-bind="ptm('hiddenCancelInputWrapper')">
+    <div :class="cx('root')" v-bind="ptm('root')">
+        <div v-if="cancel" :class="cx('cancelItem')" @click="onOptionClick($event, 0)" v-bind="ptm('cancelItem')" :data-p-focused="focusedOptionIndex === 0">
+            <span :class="cx('hiddenCancelInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenCancelInputWrapper')" :data-p-hidden-accessible="true">
                 <input
                     type="radio"
                     value="0"
@@ -16,13 +16,13 @@
                     v-bind="ptm('hiddenCancelInput')"
                 />
             </span>
-            <slot name="cancelicon">
-                <component :is="cancelIcon ? 'span' : 'BanIcon'" :class="['p-rating-icon p-rating-cancel', cancelIcon]" v-bind="ptm('cancelIcon')" />
+            <slot name="cancelicon" :class="cx('cancelIcon')">
+                <component :is="cancelIcon ? 'span' : 'BanIcon'" :class="[cx('cancelIcon'), cancelIcon]" v-bind="ptm('cancelIcon')" />
             </slot>
         </div>
         <template v-for="value in stars" :key="value">
-            <div :class="['p-rating-item', { 'p-rating-item-active': value <= modelValue, 'p-focus': value === focusedOptionIndex }]" @click="onOptionClick($event, value)" v-bind="getPTOptions(value, 'item')">
-                <span class="p-hidden-accessible" v-bind="ptm('hiddenItemInputWrapper')">
+            <div :class="cx('item', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions(value, 'item')" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
+                <span :class="cx('hiddenItemInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenItemInputWrapper')" :data-p-hidden-accessible="true">
                     <input
                         type="radio"
                         :value="value"
@@ -37,11 +37,11 @@
                         v-bind="ptm('hiddenItemInput')"
                     />
                 </span>
-                <slot v-if="value <= modelValue" name="onicon" :value="value">
-                    <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="['p-rating-icon', onIcon]" v-bind="ptm('onIcon')" />
+                <slot v-if="value <= modelValue" name="onicon" :value="value" :class="cx('onIcon')">
+                    <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="[cx('onIcon'), onIcon]" v-bind="ptm('onIcon')" />
                 </slot>
-                <slot v-else name="officon" :value="value">
-                    <component :is="offIcon ? 'span' : 'StarIcon'" :class="['p-rating-icon', offIcon]" v-bind="ptm('offIcon')" />
+                <slot v-else name="officon" :value="value" :class="cx('offIcon')">
+                    <component :is="offIcon ? 'span' : 'StarIcon'" :class="[cx('offIcon'), offIcon]" v-bind="ptm('offIcon')" />
                 </slot>
             </div>
         </template>
@@ -49,50 +49,16 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import BanIcon from 'primevue/icons/ban';
 import StarIcon from 'primevue/icons/star';
 import StarFillIcon from 'primevue/icons/starfill';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BaseRating from './BaseRating.vue';
 
 export default {
     name: 'Rating',
-    extends: BaseComponent,
+    extends: BaseRating,
     emits: ['update:modelValue', 'change', 'focus', 'blur'],
-    props: {
-        modelValue: {
-            type: Number,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        readonly: {
-            type: Boolean,
-            default: false
-        },
-        stars: {
-            type: Number,
-            default: 5
-        },
-        cancel: {
-            type: Boolean,
-            default: true
-        },
-        onIcon: {
-            type: String,
-            default: undefined
-        },
-        offIcon: {
-            type: String,
-            default: undefined
-        },
-        cancelIcon: {
-            type: String,
-            default: undefined
-        }
-    },
     data() {
         return {
             name: this.$attrs.name,
@@ -150,17 +116,6 @@ export default {
             return value === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, value);
         }
     },
-    computed: {
-        containerClass() {
-            return [
-                'p-rating',
-                {
-                    'p-readonly': this.readonly,
-                    'p-disabled': this.disabled
-                }
-            ];
-        }
-    },
     components: {
         StarFillIcon: StarFillIcon,
         StarIcon: StarIcon,
@@ -168,21 +123,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-rating {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.p-rating-item {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.p-rating.p-readonly .p-rating-item {
-    cursor: default;
-}
-</style>
