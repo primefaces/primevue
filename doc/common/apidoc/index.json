@@ -28998,6 +28998,14 @@
                             "description": "Uses to pass attributes to the meter's DOM element."
                         },
                         {
+                            "name": "meterLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the meter label's DOM element."
+                        },
+                        {
                             "name": "info",
                             "optional": true,
                             "readonly": false,
