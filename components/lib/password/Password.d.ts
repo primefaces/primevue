@@ -52,6 +52,10 @@ export interface PasswordPassThroughOptions {
      */
     meter?: PasswordPassThroughOptionType;
     /**
+     * Uses to pass attributes to the meter label's DOM element.
+     */
+    meterLabel?: PasswordPassThroughOptionType;
+    /**
      * Uses to pass attributes to the info's DOM element.
      */
     info?: PasswordPassThroughOptionType;

@@ -206,6 +206,11 @@ export interface ToastProps {
      * @type {ToastPassThroughOptions}
      */
     pt?: ToastPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
