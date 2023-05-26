@@ -436,8 +436,14 @@ export default {
         isMonthSelected(month) {
             if (this.isComparable()) {
                 let value = this.isRangeSelection() ? this.value[0] : this.value;
-                return !this.isMultipleSelection() ? (value.getMonth() === month && value.getFullYear() === this.currentYear) : false;
+                const isMonthSelected = (valueDate) => valueDate.getMonth() === month && valueDate.getFullYear() === this.currentYear;
+
+                if (this.isMultipleSelection()) {
+                    return value.some(isMonthSelected);
+                }
+                return isMonthSelected(value);
             }
+
             return false;
         },
         isYearSelected(year) {
