@@ -6,7 +6,7 @@
             </div>
         </div>
         <div v-if="indeterminate" :class="cx('value')" v-bind="ptm('value')">
-            <div  :class="cx('label')" v-bind="ptm('label')"></div>
+            <div :class="cx('label')" v-bind="ptm('label')"></div>
         </div>
     </div>
 </template>
