@@ -15,14 +15,14 @@
         v-bind="level === 1 ? getPTOptions('node') : ptm('subgroup')"
         data-pc-section="treeitem"
     >
-        <div :class="getCXOptions('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')">
+        <div :class="getCXOptions('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
             <button v-ripple type="button" :class="cx('toggler')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">
                 <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
                 <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
                 <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
             </button>
             <div v-if="checkboxMode" :class="cx('checkboxContainer')" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
-                <div :class="getCXOptions('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')">
+                <div :class="getCXOptions('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialchecked">
                     <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxIcon')" />
                     <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxIcon')" v-bind="getPTOptions('checkboxIcon')" />
                 </div>
@@ -97,6 +97,9 @@ export default {
     },
     nodeTouched: false,
     toggleClicked: false,
+    mounted() {
+        this.setAllNodesTabIndexes();
+    },
     methods: {
         toggle() {
             this.$emit('node-toggle', this.node);
@@ -280,7 +283,7 @@ export default {
         },
         setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
-                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '[data-pc-section="node"]')];
+                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '[data-pc-section="treeitem"]')];
 
                 event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 
@@ -387,7 +390,7 @@ export default {
         getParentNodeElement(nodeElement) {
             const parentNodeElement = nodeElement.parentElement.parentElement;
 
-            return DomHandler.getAttribute(parentNodeElement, '[data-pc-section="node"]') ? parentNodeElement : null;
+            return DomHandler.getAttribute(parentNodeElement, '[data-pc-section="treeitem"]') ? parentNodeElement : null;
         },
         focusNode(element) {
             element.focus();
@@ -396,7 +399,7 @@ export default {
             return this.selectionMode === 'checkbox';
         },
         isSameNode(event) {
-            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[data-pc-section="node"]')));
+            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[data-pc-section="treeitem"]')));
         }
     },
     computed: {
