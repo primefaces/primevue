@@ -18,6 +18,7 @@ const styles = `
 
 .p-chip-remove-icon {
     line-height: 1.5;
+    min-width: 12px;
     cursor: pointer;
 }
 
