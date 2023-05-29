@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')">
+    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="tristatecheckbox">
         <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"

@@ -1,5 +1,5 @@
 <template>
-    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root')" />
+    <input :class="cx('root')" :readonly="readonly" @input="onInput" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" @keypress="onKeyPress" @paste="onPaste" v-bind="ptm('root')" data-pc-name="inputmask" />
 </template>
 
 <script>

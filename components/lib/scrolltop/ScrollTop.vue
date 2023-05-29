@@ -1,6 +1,6 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave">
-        <button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" type="button" :aria-label="scrollTopAriaLabel" v-bind="ptm('root')">
+        <button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" type="button" :aria-label="scrollTopAriaLabel" v-bind="ptm('root')" data-pc-name="scrolltop">
             <slot name="icon" :class="cx('icon')">
                 <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon]" v-bind="ptm('icon')" />
             </slot>

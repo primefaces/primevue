@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')">
+    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="radiobutton">
         <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input ref="input" :id="inputId" type="radio" :name="name" :checked="checked" :disabled="disabled" :value="value" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" @focus="onFocus" @blur="onBlur" v-bind="ptm('hiddenInput')" />
         </div>

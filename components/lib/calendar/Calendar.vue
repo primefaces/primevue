@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
+    <span ref="container" :id="id" :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="calendar">
         <input
             v-if="!inline"
             :ref="inputRef"

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tree">
         <template v-if="loading">
             <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">

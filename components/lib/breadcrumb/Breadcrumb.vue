@@ -1,5 +1,5 @@
 <template>
-    <nav :class="cx('root')" v-bind="ptm('root')">
+    <nav :class="cx('root')" v-bind="ptm('root')" data-pc-name="breadcrumb">
         <ol :class="cx('menu')" v-bind="ptm('menu')">
             <BreadcrumbItem v-if="home" :item="home" :class="cx('home')" :templates="$slots" :exact="exact" :pt="pt" v-bind="ptm('home')" />
             <template v-for="(item, i) of model" :key="item.label">
