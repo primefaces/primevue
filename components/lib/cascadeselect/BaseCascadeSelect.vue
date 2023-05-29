@@ -111,7 +111,7 @@ const classes = {
     dropdownButton: 'p-cascadeselect-trigger',
     loadingIcon: 'p-cascadeselect-trigger-icon',
     dropdownIcon: 'p-cascadeselect-trigger-icon',
-    searchResultAria: 'p-hidden-accessible',
+    hiddenSearchResult: 'p-hidden-accessible',
     panel: ({ instance }) => [
         'p-cascadeselect-panel p-component',
         {

@@ -165,7 +165,7 @@
                                                     >
                                                         <slot name="date" :date="date">{{ date.day }}</slot>
                                                     </span>
-                                                    <div v-if="isSelected(date)" :class="cx('ariaSelectedDay')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaSelectedDay')" :data-p-hidden-accessible="true">
+                                                    <div v-if="isSelected(date)" :class="cx('hiddenSelectedDay')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenSelectedDay')" :data-p-hidden-accessible="true">
                                                         {{ date.day }}
                                                     </div>
                                                 </td>
@@ -188,7 +188,7 @@
                                 :data-p-highlight="isMonthSelected(i)"
                             >
                                 {{ m.value }}
-                                <div v-if="isMonthSelected(i)" :class="cx('ariaMonth')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaMonth')" :data-p-hidden-accessible="true">
+                                <div v-if="isMonthSelected(i)" :class="cx('hiddenMonth')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenMonth')" :data-p-hidden-accessible="true">
                                     {{ m.value }}
                                 </div>
                             </span>
@@ -206,7 +206,7 @@
                                 :data-p-highlight="isYearSelected(y.value)"
                             >
                                 {{ y.value }}
-                                <div v-if="isYearSelected(y.value)" :class="cx('ariaYear')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('ariaYear')" :data-p-hidden-accessible="true">
+                                <div v-if="isYearSelected(y.value)" :class="cx('hiddenYear')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenYear')" :data-p-hidden-accessible="true">
                                     {{ y.value }}
                                 </div>
                             </span>

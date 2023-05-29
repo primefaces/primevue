@@ -38,7 +38,7 @@
                 <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
-        <span role="status" aria-live="polite" :class="cx('searchResultAria')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('searchResultAria')" :data-p-hidden-accessible="true">
+        <span role="status" aria-live="polite" :class="cx('hiddenSearchResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
