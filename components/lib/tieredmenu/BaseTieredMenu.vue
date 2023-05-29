@@ -60,6 +60,7 @@ const classes = {
     menu: 'p-tieredmenu-root-list',
     menuitem: ({ context, processedItem }) => [
         'p-menuitem',
+        context.getItemProp(processedItem, 'class'),
         {
             'p-menuitem-active p-highlight': context.isItemActive(processedItem),
             'p-focus': context.isItemFocused(processedItem),
@@ -74,10 +75,11 @@ const classes = {
             'router-link-active-exact': context.exact && isExactActive
         }
     ],
-    icon: 'p-menuitem-icon',
+    icon: ({ context, processedItem }) => ['p-menuitem-icon', context.getItemProp(processedItem, 'icon')],
     text: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',
-    submenu: 'p-submenu-list'
+    submenu: 'p-submenu-list',
+    separator: ({ context, processedItem }) => ['p-menuitem-separator', context.getItemProp(processedItem, 'class')]
 };
 
 const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_tieredmenu_style', manual: true });
