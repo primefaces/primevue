@@ -576,6 +576,14 @@
                             "type": "boolean",
                             "default": "",
                             "description": "Whether the tab is last."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Whether the tab is active."
                         }
                     ],
                     "methods": []
