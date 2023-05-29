@@ -106,7 +106,8 @@ export default {
                     index,
                     count,
                     first: index === 0,
-                    last: index === count - 1
+                    last: index === count - 1,
+                    active: this.isTabActive(index)
                 }
             };
 

@@ -135,6 +135,10 @@ export interface AccordionTabContext {
      * Whether the tab is last.
      */
     last: boolean;
+    /**
+     * Whether the tab is active.
+     */
+    active: boolean;
 }
 
 /**
