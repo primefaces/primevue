@@ -36130,12 +36130,28 @@
                             "description": "Uses to pass attributes to the submenu icon's DOM element."
                         },
                         {
+                            "name": "submenu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TieredMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu's DOM element."
+                        },
+                        {
                             "name": "separator",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
