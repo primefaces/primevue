@@ -122,13 +122,13 @@ const classes = {
     wrapper: 'p-cascadeselect-items-wrapper',
     hiddenSelectedMessage: 'p-hidden-accessible',
     list: 'p-cascadeselect-panel p-cascadeselect-items',
-    item: ({ cascadesub, processedOption }) => [
+    item: ({ context, processedOption }) => [
         'p-cascadeselect-item',
         {
-            'p-cascadeselect-item-group': cascadesub.isOptionGroup(processedOption),
-            'p-cascadeselect-item-active p-highlight': cascadesub.isOptionActive(processedOption),
-            'p-focus': cascadesub.isOptionFocused(processedOption),
-            'p-disabled': cascadesub.isOptionDisabled(processedOption)
+            'p-cascadeselect-item-group': context.isOptionGroup(processedOption),
+            'p-cascadeselect-item-active p-highlight': context.isOptionActive(processedOption),
+            'p-focus': context.isOptionFocused(processedOption),
+            'p-disabled': context.isOptionDisabled(processedOption)
         }
     ],
     content: 'p-cascadeselect-item-content',

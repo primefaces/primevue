@@ -133,7 +133,7 @@ export default {
         getCXOptions(key, params) {
             return this.cx(key, {
                 ...params,
-                cascadesub: this
+                context: this
             });
         }
     },

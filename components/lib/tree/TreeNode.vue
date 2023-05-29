@@ -122,7 +122,7 @@ export default {
         },
         getCXOptions(key) {
             return this.cx(key, {
-                treenode: this
+                context: this
             });
         },
         onClick(event) {
