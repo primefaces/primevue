@@ -1,29 +1,29 @@
 <template>
     <Portal>
         <transition name="p-confirm-popup" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="cx('root')" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
                 <template v-if="!$slots.message">
-                    <div class="p-confirm-popup-content" v-bind="ptm('content')">
-                        <slot name="icon" class="p-confirm-popup-icon">
-                            <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-popup-icon" />
-                            <span v-else-if="confirmation.icon" :class="iconClass" v-bind="ptm('icon')" />
+                    <div :class="cx('content')" v-bind="ptm('content')">
+                        <slot name="icon">
+                            <component v-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" />
+                            <span v-else-if="confirmation.icon" :class="cx('icon')" v-bind="ptm('icon')" />
                         </slot>
-                        <span class="p-confirm-popup-message" v-bind="ptm('message')">{{ confirmation.message }}</span>
+                        <span :class="cx('message')" v-bind="ptm('message')">{{ confirmation.message }}</span>
                     </div>
                 </template>
                 <component v-else :is="$slots.message" :message="confirmation"></component>
-                <div class="p-confirm-popup-footer" v-bind="ptm('footer')">
-                    <CPButton :label="rejectLabel" :class="rejectClass" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" :pt="ptm('rejectButton')">
+                <div :class="cx('footer')" v-bind="ptm('footer')">
+                    <CPButton :label="rejectLabel" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" :class="cx('rejectButton')" :pt="ptm('rejectButton')">
                         <template #icon="iconProps">
                             <slot name="rejecticon">
-                                <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
+                                <span :class="cx('rejectButtonIcon', getCXOptions(rejectIcon, iconProps))" v-bind="ptm('rejectButton')['icon']" />
                             </slot>
                         </template>
                     </CPButton>
-                    <CPButton :label="acceptLabel" :class="acceptClass" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" :pt="ptm('acceptButton')">
+                    <CPButton :label="acceptLabel" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" :class="cx('acceptButton')" :pt="ptm('acceptButton')">
                         <template #icon="iconProps">
                             <slot name="accepticon">
-                                <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
+                                <span :class="cx('acceptButtonIcon', getCXOptions(acceptIcon, iconProps))" v-bind="ptm('acceptButton')['icon']" />
                             </slot>
                         </template>
                     </CPButton>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseConfirmPopup from './BaseConfirmPopup';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import FocusTrap from 'primevue/focustrap';
@@ -44,11 +44,9 @@ import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue
 
 export default {
     name: 'ConfirmPopup',
-    extends: BaseComponent,
+    extends: BaseConfirmPopup,
     inheritAttrs: false,
-    props: {
-        group: String
-    },
+
     data() {
         return {
             visible: false,
@@ -268,23 +266,14 @@ export default {
                 ConfirmationEventBus.emit('close', this.closeListener);
                 DomHandler.focus(this.target);
             }
+        },
+        getCXOptions(icon, iconProps) {
+            return { contenxt: { icon, iconClass: iconProps.class } };
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-confirm-popup p-component',
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
         message() {
             return this.confirmation ? this.confirmation.message : null;
-        },
-        iconClass() {
-            return ['p-confirm-popup-icon', this.confirmation ? this.confirmation.icon : null];
         },
         acceptLabel() {
             return this.confirmation ? this.confirmation.acceptLabel || this.$primevue.config.locale.accept : null;
@@ -297,12 +286,6 @@ export default {
         },
         rejectIcon() {
             return this.confirmation ? this.confirmation.rejectIcon : null;
-        },
-        acceptClass() {
-            return ['p-confirm-popup-accept p-button-sm', this.confirmation ? this.confirmation.acceptClass : null];
-        },
-        rejectClass() {
-            return ['p-confirm-popup-reject p-button-sm', this.confirmation ? this.confirmation.rejectClass || 'p-button-text' : null];
         }
     },
     components: {
@@ -314,75 +297,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-confirm-popup {
-    position: absolute;
-    margin-top: 10px;
-    top: 0;
-    left: 0;
-}
-
-.p-confirm-popup-flipped {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-/* Animation */
-.p-confirm-popup-enter-from {
-    opacity: 0;
-    transform: scaleY(0.8);
-}
-
-.p-confirm-popup-leave-to {
-    opacity: 0;
-}
-
-.p-confirm-popup-enter-active {
-    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.p-confirm-popup-leave-active {
-    transition: opacity 0.1s linear;
-}
-
-.p-confirm-popup:after,
-.p-confirm-popup:before {
-    bottom: 100%;
-    left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
-    content: ' ';
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-}
-
-.p-confirm-popup:after {
-    border-width: 8px;
-    margin-left: -8px;
-}
-
-.p-confirm-popup:before {
-    border-width: 10px;
-    margin-left: -10px;
-}
-
-.p-confirm-popup-flipped:after,
-.p-confirm-popup-flipped:before {
-    bottom: auto;
-    top: 100%;
-}
-
-.p-confirm-popup.p-confirm-popup-flipped:after {
-    border-bottom-color: transparent;
-}
-
-.p-confirm-popup.p-confirm-popup-flipped:before {
-    border-bottom-color: transparent;
-}
-
-.p-confirm-popup .p-confirm-popup-content {
-    display: flex;
-    align-items: center;
-}
-</style>
