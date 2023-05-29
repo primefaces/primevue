@@ -5245,7 +5245,7 @@
                             "description": "Uses to pass attributes to the day label's DOM element."
                         },
                         {
-                            "name": "ariaSelectedDay",
+                            "name": "hiddenSelectedDay",
                             "optional": true,
                             "readonly": false,
                             "type": "CalendarPassThroughOptionType",
@@ -5269,7 +5269,7 @@
                             "description": "Uses to pass attributes to the month's DOM element."
                         },
                         {
-                            "name": "ariaMonth",
+                            "name": "hiddenMonth",
                             "optional": true,
                             "readonly": false,
                             "type": "CalendarPassThroughOptionType",
@@ -5293,7 +5293,7 @@
                             "description": "Uses to pass attributes to the year's DOM element."
                         },
                         {
-                            "name": "ariaYear",
+                            "name": "hiddenYear",
                             "optional": true,
                             "readonly": false,
                             "type": "CalendarPassThroughOptionType",
@@ -7104,7 +7104,7 @@
                             "description": "Uses to pass attributes to the hidden selected message's DOM element."
                         },
                         {
-                            "name": "searchResultAria",
+                            "name": "hiddenSearchResult",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
