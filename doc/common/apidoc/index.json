@@ -17639,7 +17639,16 @@
                 "DynamicDialogProps": {
                     "description": "Defines valid properties in DynamicDialog component.",
                     "relatedProp": "",
-                    "props": [],
+                    "props": [
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
                     "methods": []
                 },
                 "DynamicDialogEmits": {
