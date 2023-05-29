@@ -169,6 +169,11 @@ export interface MenuProps {
      * @type {MenuPassThroughOptions}
      */
     pt?: MenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
