@@ -68,7 +68,7 @@ describe('AutoComplete.vue', () => {
         expect(wrapper.find('.p-autocomplete-items').exists()).toBe(true);
         expect(wrapper.findAll('.p-autocomplete-item').length).toBe(0);
         expect(wrapper.find('.p-autocomplete-empty-message').exists()).toBe(true);
-    })
+    });
 
     it('dropdown', () => {
         it('should have correct custom icon', async () => {
