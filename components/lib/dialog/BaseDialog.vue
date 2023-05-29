@@ -203,10 +203,10 @@ const classes = {
     footer: 'p-dialog-footer'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_avatar_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_dialog_style', manual: true });
 
 export default {
-    name: 'BaseAvatar',
+    name: 'BaseDialog',
     extends: BaseComponent,
     props: {
         header: {
