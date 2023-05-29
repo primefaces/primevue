@@ -1,13 +1,13 @@
 <template>
     <Portal :appendTo="appendTo">
         <transition name="p-overlaypanel" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :class="containerClass" :aria-modal="visible" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }">
-                <div class="p-overlaypanel-content" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
+            <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" :class="cx('root')" v-bind="{ ...$attrs, ...ptm('root') }">
+                <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
-                <button v-if="showCloseIcon" v-ripple class="p-overlaypanel-close p-link" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
+                <button v-if="showCloseIcon" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
                     <slot name="closeicon">
-                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="['p-overlaypanel-close-icon ', closeIcon]" v-bind="ptm('closeIcon')"></component>
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="cx('closeIcon')" v-bind="ptm('closeIcon')"></component>
                     </slot>
                 </button>
             </div>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseOverlayPanel from './BaseOverlayPanel';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
@@ -26,39 +26,9 @@ import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUti
 
 export default {
     name: 'OverlayPanel',
-    extends: BaseComponent,
+    extends: BaseOverlayPanel,
     inheritAttrs: false,
     emits: ['show', 'hide'],
-    props: {
-        dismissable: {
-            type: Boolean,
-            default: true
-        },
-        showCloseIcon: {
-            type: Boolean,
-            default: false
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        breakpoints: {
-            type: Object,
-            default: null
-        },
-        closeIcon: {
-            type: String,
-            default: undefined
-        }
-    },
     data() {
         return {
             visible: false
@@ -184,7 +154,7 @@ export default {
             this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
-                DomHandler.addClass(this.container, 'p-overlaypanel-flipped');
+                !this.isUnstyled && DomHandler.addClass(this.container, 'p-overlaypanel-flipped');
             }
         },
         onContentKeydown(event) {
@@ -303,15 +273,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-overlaypanel p-component',
-                {
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
         attributeSelector() {
             return UniqueComponentId();
         },
@@ -329,78 +290,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-overlaypanel {
-    position: absolute;
-    margin-top: 10px;
-    top: 0;
-    left: 0;
-}
-
-.p-overlaypanel-flipped {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.p-overlaypanel-close {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Animation */
-.p-overlaypanel-enter-from {
-    opacity: 0;
-    transform: scaleY(0.8);
-}
-
-.p-overlaypanel-leave-to {
-    opacity: 0;
-}
-
-.p-overlaypanel-enter-active {
-    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.p-overlaypanel-leave-active {
-    transition: opacity 0.1s linear;
-}
-
-.p-overlaypanel:after,
-.p-overlaypanel:before {
-    bottom: 100%;
-    left: calc(var(--overlayArrowLeft, 0) + 1.25rem);
-    content: ' ';
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-}
-
-.p-overlaypanel:after {
-    border-width: 8px;
-    margin-left: -8px;
-}
-
-.p-overlaypanel:before {
-    border-width: 10px;
-    margin-left: -10px;
-}
-
-.p-overlaypanel-flipped:after,
-.p-overlaypanel-flipped:before {
-    bottom: auto;
-    top: 100%;
-}
-
-.p-overlaypanel.p-overlaypanel-flipped:after {
-    border-bottom-color: transparent;
-}
-
-.p-overlaypanel.p-overlaypanel-flipped:before {
-    border-bottom-color: transparent;
-}
-</style>
