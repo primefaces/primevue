@@ -42,11 +42,11 @@ const classes = {
     home: 'p-breadcrumb-home',
     separator: 'p-menuitem-separator',
     menuitem: ({ context }) => ['p-menuitem', { 'p-disabled': context.disabled() }],
-    action: ({ context, routerProps }) => [
+    action: ({ context, isActive, isExactActive }) => [
         'p-menuitem-link',
         {
-            'router-link-active': routerProps && routerProps.isActive,
-            'router-link-active-exact': context.exact && routerProps && routerProps.isExactActive
+            'router-link-active': isActive,
+            'router-link-active-exact': context.exact && isExactActive
         }
     ],
     icon: 'p-menuitem-icon',
