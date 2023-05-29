@@ -12,7 +12,13 @@ import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 /**
  * Defines valid properties in DynamicDialog component.
  */
-export interface DynamicDialogProps {}
+export interface DynamicDialogProps {
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
+}
 
 /**
  * Defines valid emits in DynamicDialog component.
