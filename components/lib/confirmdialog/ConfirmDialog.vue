@@ -12,27 +12,28 @@
         :draggable="draggable"
         @update:visible="onHide"
         :pt="pt"
+        :unstyled="unstyled"
     >
         <template v-if="!$slots.message">
-            <slot name="icon" class="p-confirm-dialog-icon">
-                <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-dialog-icon" />
-                <span v-else-if="confirmation.icon" :class="iconClass" v-bind="ptm('icon')" />
+            <slot name="icon">
+                <component v-if="$slots.icon" :is="$slots.icon" class="p-confirm-dialog-icon" :class="cx('icon')" />
+                <span v-else-if="confirmation.icon" :class="cx('icon')" v-bind="ptm('icon')" />
             </slot>
-            <span class="p-confirm-dialog-message" v-bind="ptm('message')">{{ message }}</span>
+            <span :class="cx('message')" v-bind="ptm('message')">{{ message }}</span>
         </template>
         <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
-            <CDButton :label="rejectLabel" :class="rejectClass" iconPos="left" @click="reject()" :autofocus="autoFocusReject" :pt="ptm('rejectButton')">
+            <CDButton :label="rejectLabel" :class="cx('rejectButton')" iconPos="left" @click="reject()" :autofocus="autoFocusReject" :pt="ptm('rejectButton')">
                 <template #icon="iconProps">
                     <slot name="rejecticon">
-                        <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
+                        <span :class="cx('rejectButtonIcon', getCXOptions(rejectIcon, iconProps))" v-bind="ptm('rejectButton')['icon']" />
                     </slot>
                 </template>
             </CDButton>
-            <CDButton :label="acceptLabel" :class="acceptClass" iconPos="left" @click="accept()" :autofocus="autoFocusAccept" :pt="ptm('acceptButton')">
+            <CDButton :label="acceptLabel" :class="cx('acceptButton')" iconPos="left" @click="accept()" :autofocus="autoFocusAccept" :pt="ptm('acceptButton')">
                 <template #icon="iconProps">
                     <slot name="accepticon">
-                        <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
+                        <span :class="cx('acceptButtonIcon', getCXOptions(acceptIcon, iconProps))" v-bind="ptm('acceptButton')['icon']" />
                     </slot>
                 </template>
             </CDButton>
@@ -41,25 +42,15 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseConfirmDialog from './BaseConfirmDialog';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import Dialog from 'primevue/dialog';
 
 export default {
     name: 'ConfirmDialog',
-    extends: BaseComponent,
-    props: {
-        group: String,
-        breakpoints: {
-            type: Object,
-            default: null
-        },
-        draggable: {
-            type: Boolean,
-            default: true
-        }
-    },
+    extends: BaseConfirmDialog,
+
     confirmListener: null,
     closeListener: null,
     data() {
@@ -118,6 +109,9 @@ export default {
             }
 
             this.visible = false;
+        },
+        getCXOptions(icon, iconProps) {
+            return { contenxt: { icon, iconClass: iconProps.class } };
         }
     },
     computed: {
@@ -133,9 +127,6 @@ export default {
         position() {
             return this.confirmation ? this.confirmation.position : null;
         },
-        iconClass() {
-            return ['p-confirm-dialog-icon', this.confirmation ? this.confirmation.icon : null];
-        },
         acceptLabel() {
             return this.confirmation ? this.confirmation.acceptLabel || this.$primevue.config.locale.accept : null;
         },
@@ -147,12 +138,6 @@ export default {
         },
         rejectIcon() {
             return this.confirmation ? this.confirmation.rejectIcon : null;
-        },
-        acceptClass() {
-            return ['p-confirm-dialog-accept', this.confirmation ? this.confirmation.acceptClass : null];
-        },
-        rejectClass() {
-            return ['p-confirm-dialog-reject', this.confirmation ? this.confirmation.rejectClass || 'p-button-text' : null];
         },
         autoFocusAccept() {
             return this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;

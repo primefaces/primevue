@@ -146,6 +146,11 @@ export interface ConfirmDialogProps {
      * @type {ConfirmDialogPassThroughOptions}
      */
     pt?: ConfirmDialogPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
