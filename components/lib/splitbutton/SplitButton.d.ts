@@ -163,6 +163,11 @@ export interface SplitButtonProps {
      * @type {SplitButtonPassThroughOptions}
      */
     pt?: SplitButtonPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
