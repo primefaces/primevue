@@ -768,9 +768,15 @@ export default {
 
             let data = [...value];
 
+            let lookupMap = new Map();
+
+            for (let item of data) {
+                lookupMap.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
+            }
+
             data.sort((data1, data2) => {
-                let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
-                let value2 = ObjectUtils.resolveFieldData(data2, this.d_sortField);
+                let value1 = lookupMap(data1);
+                let value2 = lookupMap(data2);
 
                 let result = null;
 
@@ -837,16 +843,43 @@ export default {
 
             this.d_multiSortMeta = [...this.d_multiSortMeta];
         },
+        getActiveFilters(filters) {
+            const removeEmptyFilters = ([key, value]) => {
+                if (value.constraints) {
+                    const filteredConstraints = value.constraints.filter((constraint) => constraint.value !== null);
+
+                    if (filteredConstraints.length > 0) {
+                        return [key, { ...value, constraints: filteredConstraints }];
+                    }
+                } else if (value.value !== null) {
+                    return [key, value];
+                }
+
+                return undefined;
+            };
+
+            const filterValidEntries = (entry) => entry !== undefined;
+
+            const entries = Object.entries(filters).map(removeEmptyFilters).filter(filterValidEntries);
+
+            return Object.fromEntries(entries);
+        },
         filter(data) {
             if (!data) {
                 return;
+            }
+
+            let activeFilters = this.getActiveFilters(this.filters);
+
+            if (Object.keys(activeFilters).length == 0) {
+                return data;
             }
 
             this.clearEditingMetaData();
 
             let globalFilterFieldsArray;
 
-            if (this.filters['global']) {
+            if (activeFilters['global']) {
                 globalFilterFieldsArray = this.globalFilterFields || this.columns.map((col) => this.columnProp(col, 'filterField') || this.columnProp(col, 'field'));
             }
 
@@ -857,11 +890,11 @@ export default {
                 let globalMatch = false;
                 let localFiltered = false;
 
-                for (let prop in this.filters) {
-                    if (Object.prototype.hasOwnProperty.call(this.filters, prop) && prop !== 'global') {
+                for (let prop in activeFilters) {
+                    if (Object.prototype.hasOwnProperty.call(activeFilters, prop) && prop !== 'global') {
                         localFiltered = true;
                         let filterField = prop;
-                        let filterMeta = this.filters[filterField];
+                        let filterMeta = activeFilters[filterField];
 
                         if (filterMeta.operator) {
                             for (let filterConstraint of filterMeta.constraints) {
@@ -881,11 +914,11 @@ export default {
                     }
                 }
 
-                if (this.filters['global'] && !globalMatch && globalFilterFieldsArray) {
+                if (localMatch && activeFilters['global'] && !globalMatch && globalFilterFieldsArray) {
                     for (let j = 0; j < globalFilterFieldsArray.length; j++) {
                         let globalFilterField = globalFilterFieldsArray[j];
 
-                        globalMatch = FilterService.filters[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
+                        globalMatch = FilterService.filters[activeFilters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), activeFilters['global'].value, this.filterLocale);
 
                         if (globalMatch) {
                             break;
@@ -895,7 +928,7 @@ export default {
 
                 let matches;
 
-                if (this.filters['global']) {
+                if (activeFilters['global']) {
                     matches = localFiltered ? localFiltered && localMatch && globalMatch : globalMatch;
                 } else {
                     matches = localFiltered && localMatch;
