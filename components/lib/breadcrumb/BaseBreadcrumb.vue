@@ -41,19 +41,19 @@ const classes = {
     menu: 'p-breadcrumb-list',
     home: 'p-breadcrumb-home',
     separator: 'p-menuitem-separator',
-    menuitem: ({ context }) => ['p-menuitem', { 'p-disabled': context.disabled() }],
-    action: ({ context, isActive, isExactActive }) => [
+    menuitem: ({ instance }) => ['p-menuitem', { 'p-disabled': instance.disabled() }],
+    action: ({ instance, isActive, isExactActive }) => [
         'p-menuitem-link',
         {
             'router-link-active': isActive,
-            'router-link-active-exact': context.exact && isExactActive
+            'router-link-active-exact': instance.exact && isExactActive
         }
     ],
     icon: 'p-menuitem-icon',
     label: 'p-menuitem-text'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_breadcrumb_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_breadcrumb_style', manual: true });
 
 export default {
     name: 'BaseBreadcrumb',
@@ -73,15 +73,13 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

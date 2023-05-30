@@ -122,13 +122,13 @@ const classes = {
     wrapper: 'p-cascadeselect-items-wrapper',
     hiddenSelectedMessage: 'p-hidden-accessible',
     list: 'p-cascadeselect-panel p-cascadeselect-items',
-    item: ({ context, processedOption }) => [
+    item: ({ instance, processedOption }) => [
         'p-cascadeselect-item',
         {
-            'p-cascadeselect-item-group': context.isOptionGroup(processedOption),
-            'p-cascadeselect-item-active p-highlight': context.isOptionActive(processedOption),
-            'p-focus': context.isOptionFocused(processedOption),
-            'p-disabled': context.isOptionDisabled(processedOption)
+            'p-cascadeselect-item-group': instance.isOptionGroup(processedOption),
+            'p-cascadeselect-item-active p-highlight': instance.isOptionActive(processedOption),
+            'p-focus': instance.isOptionFocused(processedOption),
+            'p-disabled': instance.isOptionDisabled(processedOption)
         }
     ],
     content: 'p-cascadeselect-item-content',
@@ -137,7 +137,7 @@ const classes = {
     sublist: 'p-cascadeselect-sublist'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_cascadeselect_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_cascadeselect_style', manual: true });
 
 export default {
     name: 'BaseCascadeSelect',
@@ -248,15 +248,13 @@ export default {
     },
     css: {
         classes,
-        inlineStyles
+        inlineStyles,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

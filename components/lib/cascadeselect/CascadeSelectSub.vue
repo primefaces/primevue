@@ -3,7 +3,7 @@
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
-                :class="getCXOptions('item', { processedOption })"
+                :class="cx('item', { processedOption })"
                 role="treeitem"
                 :aria-label="getOptionLabelToRender(processedOption)"
                 :aria-selected="isOptionGroup(processedOption) ? undefined : isOptionSelected(processedOption)"
@@ -51,14 +51,14 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
-import BaseCascadeSelect from './BaseCascadeSelect.vue';
 
 export default {
     name: 'CascadeSelectSub',
-    extends: BaseCascadeSelect,
+    extends: BaseComponent,
     emits: ['option-change'],
     props: {
         selectId: String,
@@ -129,12 +129,6 @@ export default {
             if (parseInt(containerOffset.left, 10) + itemOuterWidth + sublistWidth > viewport.width - DomHandler.calculateScrollbarWidth()) {
                 this.$el.style.left = '-100%';
             }
-        },
-        getCXOptions(key, params) {
-            return this.cx(key, {
-                ...params,
-                context: this
-            });
         }
     },
     directives: {

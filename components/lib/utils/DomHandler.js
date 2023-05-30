@@ -623,7 +623,7 @@ export default {
                 parentNode === 'TEXTAREA' ||
                 parentNode === 'BUTTON' ||
                 parentNode === 'A' ||
-                !!element.closest('.p-button, .p-checkbox, .p-radiobutton')
+                !!element.closest('.p-button, .p-checkbox, .p-radiobutton') // @todo Add [data-pc-section="button"]
             );
         }
 

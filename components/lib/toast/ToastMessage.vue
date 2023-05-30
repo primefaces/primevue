@@ -19,13 +19,13 @@
 </template>
 
 <script>
-import BaseToast from './BaseToast.vue';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
 import TimesIcon from 'primevue/icons/times';
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
+import BaseToast from './BaseToast.vue';
 
 export default {
     name: 'ToastMessage',
