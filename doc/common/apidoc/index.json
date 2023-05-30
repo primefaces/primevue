@@ -27859,12 +27859,12 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "left",
+                            "name": "start",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the left's DOM element."
+                            "description": "Uses to pass attributes to the start's DOM element."
                         },
                         {
                             "name": "firstPageButton",
