@@ -1,7 +1,7 @@
 <template>
     <PanelMenuSub
         :id="panelId + '_list'"
-        :class="getCXOptions('menu')"
+        :class="cx('menu')"
         role="tree"
         :tabindex="-1"
         :aria-activedescendant="focused ? focusedItemId : undefined"
@@ -21,13 +21,13 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
-import BasePanelMenu from './BasePanelMenu.vue';
 import PanelMenuSub from './PanelMenuSub.vue';
 
 export default {
     name: 'PanelMenuList',
-    extends: BasePanelMenu,
+    extends: BaseComponent,
     emits: ['item-toggle', 'header-focus'],
     props: {
         panelId: {
@@ -74,12 +74,6 @@ export default {
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
-        },
-        getCXOptions(key, params) {
-            return this.cx(key, {
-                ...params,
-                context: this
-            });
         },
         isItemVisible(processedItem) {
             return this.getItemProp(processedItem, 'visible') !== false;

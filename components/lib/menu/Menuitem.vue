@@ -2,7 +2,7 @@
     <li
         v-if="visible()"
         :id="id"
-        :class="[getCXOptions('menuitem'), item.class]"
+        :class="[cx('menuitem'), item.class]"
         role="menuitem"
         :style="item.style"
         :aria-label="label()"
@@ -11,19 +11,19 @@
         :data-p-focused="isItemFocused()"
         :data-p-disabled="disabled() || false"
     >
-        <div :class="getCXOptions('content')" @click="onItemClick($event)" v-bind="getPTOptions('content')">
+        <div :class="cx('content')" @click="onItemClick($event)" v-bind="getPTOptions('content')">
             <template v-if="!templates.item">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                    <a v-ripple :href="href" :class="getCXOptions('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions('action')">
-                        <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[getCXOptions('icon'), item.icon]" />
-                        <span v-else-if="item.icon" :class="[getCXOptions('icon'), item.icon]" v-bind="getPTOptions('icon')" />
-                        <span :class="getCXOptions('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
+                    <a v-ripple :href="href" :class="cx('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions('action')">
+                        <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
+                        <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon')" />
+                        <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                     </a>
                 </router-link>
-                <a v-else v-ripple :href="item.url" :class="getCXOptions('action')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
-                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[getCXOptions('icon'), item.icon]" />
-                    <span v-else-if="item.icon" :class="[getCXOptions('icon'), item.icon]" v-bind="getPTOptions('icon')" />
-                    <span :class="getCXOptions('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
+                <a v-else v-ripple :href="item.url" :class="cx('action')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
+                    <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon')" />
+                    <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                 </a>
             </template>
             <component v-else :is="templates.item" :item="item"></component>
@@ -32,13 +32,13 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
-import BaseMenu from './BaseMenu.vue';
 
 export default {
     name: 'Menuitem',
-    extends: BaseMenu,
+    extends: BaseComponent,
     inheritAttrs: false,
     emits: ['item-click'],
     props: {
@@ -57,12 +57,6 @@ export default {
                 context: {
                     focused: this.isItemFocused()
                 }
-            });
-        },
-        getCXOptions(key, params) {
-            return this.cx(key, {
-                ...params,
-                context: this
             });
         },
         isItemFocused() {

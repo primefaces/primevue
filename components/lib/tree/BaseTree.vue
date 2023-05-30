@@ -127,7 +127,7 @@ const classes = {
     subgroup: 'p-context-children'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_tree_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_tree_style', manual: true });
 
 export default {
     name: 'BaseTree',
@@ -199,15 +199,13 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

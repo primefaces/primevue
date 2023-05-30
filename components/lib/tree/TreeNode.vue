@@ -53,17 +53,17 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import MinusIcon from 'primevue/icons/minus';
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
-import BaseTree from './BaseTree.vue';
 
 export default {
     name: 'TreeNode',
-    extends: BaseTree,
+    extends: BaseComponent,
     emits: ['node-toggle', 'node-click', 'checkbox-change'],
     props: {
         node: {
