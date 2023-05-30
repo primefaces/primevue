@@ -4,7 +4,7 @@
             <slot name="header"></slot>
         </div>
         <div :class="cx('body')" v-bind="ptm('body')">
-            <div v-if="$slots.title" :class="cx('title')">
+            <div v-if="$slots.title" :class="cx('title')" v-bind="ptm('title')">
                 <slot name="title"></slot>
             </div>
             <div v-if="$slots.subtitle" :class="cx('subtitle')" v-bind="ptm('subtitle')">
