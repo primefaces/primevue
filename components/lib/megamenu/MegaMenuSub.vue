@@ -1,12 +1,12 @@
 <template>
-    <ul v-bind="ptm('menu')">
-        <li v-if="submenu" :class="getSubmenuHeaderClass(submenu)" :style="getItemProp(submenu, 'style')" role="presentation" v-bind="ptm('submenuHeader')">{{ getItemLabel(submenu) }}</li>
+    <ul :class="level === 0 ? getCXOptions('menu') : getCXOptions('submenu')" :tabindex="tabindex" v-bind="level === 0 ? ptm('menu') : ptm('submenu')">
+        <li v-if="submenu" :class="[getCXOptions('submenuHeader', { submenu }), getItemProp(submenu, 'class')]" :style="getItemProp(submenu, 'style')" role="presentation" v-bind="ptm('submenuHeader')">{{ getItemLabel(submenu) }}</li>
         <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
                 :id="getItemId(processedItem)"
                 :style="getItemProp(processedItem, 'style')"
-                :class="getItemClass(processedItem)"
+                :class="[getCXOptions('menuitem', { processedItem }), getItemProp(processedItem, 'class')]"
                 role="menuitem"
                 :aria-label="getItemLabel(processedItem)"
                 :aria-disabled="isItemDisabled(processedItem) || undefined"
@@ -16,46 +16,40 @@
                 :aria-setsize="getAriaSetSize()"
                 :aria-posinset="getAriaPosInset(index)"
                 v-bind="getPTOptions(processedItem, 'menuitem')"
+                :data-p-highlight="isItemActive(processedItem)"
+                :data-p-focused="isItemFocused(processedItem)"
+                :data-p-disabled="isItemDisabled(processedItem)"
             >
-                <div class="p-menuitem-content" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions(processedItem, 'content')">
+                <div :class="getCXOptions('content')" @click="onItemClick($event, processedItem)" @mouseenter="onItemMouseEnter($event, processedItem)" v-bind="getPTOptions(processedItem, 'content')">
                     <template v-if="!templates.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
-                            <a v-ripple :href="href" :class="getItemActionClass(processedItem, { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, 'action')">
-                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
-                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="getPTOptions(processedItem, 'icon')" />
-                                <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
+                            <a v-ripple :href="href" :class="getCXOptions('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, 'action')">
+                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" />
+                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, 'icon')" />
+                                <span :class="getCXOptions('text')" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
                             </a>
                         </router-link>
-                        <a
-                            v-else
-                            v-ripple
-                            :href="getItemProp(processedItem, 'url')"
-                            :class="getItemActionClass(processedItem)"
-                            :target="getItemProp(processedItem, 'target')"
-                            tabindex="-1"
-                            aria-hidden="true"
-                            v-bind="getPTOptions(processedItem, 'action')"
-                        >
-                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getItemIconClass(processedItem)" />
-                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getItemIconClass(processedItem)" v-bind="getPTOptions(processedItem, 'icon')" />
-                            <span class="p-menuitem-text" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
+                        <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getCXOptions('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, 'action')">
+                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" />
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, 'icon')" />
+                            <span :class="getCXOptions('text')" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
                             <template v-if="isItemGroup(processedItem)">
-                                <component v-if="templates.submenuicon" :is="templates.submenuicon" :active="isItemActive(processedItem)" class="p-submenu-icon" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
-                                <component v-else :is="horizontal ? 'AngleDownIcon' : 'AngleRightIcon'" class="p-submenu-icon" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
+                                <component v-if="templates.submenuicon" :is="templates.submenuicon" :active="isItemActive(processedItem)" :class="getCXOptions('submenuIcon')" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
+                                <component v-else :is="horizontal ? 'AngleDownIcon' : 'AngleRightIcon'" :class="getCXOptions('submenuIcon')" v-bind="getPTOptions(processedItem, 'submenuIcon')" />
                             </template>
                         </a>
                     </template>
                     <component v-else :is="templates.item" :item="processedItem.item"></component>
                 </div>
-                <div v-if="isItemVisible(processedItem) && isItemGroup(processedItem)" class="p-megamenu-panel" v-bind="ptm('panel')">
-                    <div class="p-megamenu-grid" v-bind="ptm('grid')">
-                        <div v-for="col of processedItem.items" :key="getItemKey(col)" :class="getColumnClass(processedItem)" v-bind="ptm('column')">
+                <div v-if="isItemVisible(processedItem) && isItemGroup(processedItem)" :class="getCXOptions('panel')" v-bind="ptm('panel')">
+                    <div :class="getCXOptions('grid')" v-bind="ptm('grid')">
+                        <div v-for="col of processedItem.items" :key="getItemKey(col)" :class="getCXOptions('column', { processedItem })" v-bind="ptm('column')">
                             <MegaMenuSub
                                 v-for="submenu of col"
                                 :key="getSubListKey(submenu)"
                                 :id="getSubListId(submenu)"
+                                :style="getSXOptions('submenu', { processedItem })"
                                 role="menu"
-                                class="p-submenu-list p-megamenu-submenu"
                                 :menuId="menuId"
                                 :focusedItemId="focusedItemId"
                                 :submenu="submenu"
@@ -74,8 +68,8 @@
             <li
                 v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')"
                 :id="getItemId(processedItem)"
+                :class="[getCXOptions('separator'), getItemProp(processedItem, 'class')]"
                 :style="getItemProp(processedItem, 'style')"
-                :class="getSeparatorItemClass(processedItem)"
                 role="separator"
                 v-bind="ptm('separator')"
             ></li>
@@ -84,15 +78,15 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import AngleDownIcon from 'primevue/icons/angledown';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import BaseMegaMenu from './BaseMegaMenu.vue';
 
 export default {
     name: 'MegaMenuSub',
-    extends: BaseComponent,
+    extends: BaseMegaMenu,
     emits: ['item-click', 'item-mouseenter'],
     props: {
         menuId: {
@@ -130,6 +124,10 @@ export default {
         exact: {
             type: Boolean,
             default: true
+        },
+        tabindex: {
+            type: Number,
+            default: 0
         }
     },
     methods: {
@@ -157,6 +155,18 @@ export default {
                     active: this.isItemActive(processedItem),
                     focused: this.isItemFocused(processedItem)
                 }
+            });
+        },
+        getCXOptions(key, params) {
+            return this.cx(key, {
+                ...params,
+                context: this
+            });
+        },
+        getSXOptions(key, params) {
+            return this.sx(key, true, {
+                ...params,
+                context: this
             });
         },
         isItemActive(processedItem) {
@@ -189,69 +199,6 @@ export default {
         },
         getAriaPosInset(index) {
             return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
-        },
-        getSubmenuHeaderClass(processedItem) {
-            return [
-                'p-megamenu-submenu-header p-submenu-header',
-                this.getItemProp(processedItem, 'class'),
-                {
-                    'p-disabled': this.isItemDisabled(processedItem)
-                }
-            ];
-        },
-        getColumnClass(processedItem) {
-            let length = this.isItemGroup(processedItem) ? processedItem.items.length : 0;
-            let columnClass;
-
-            switch (length) {
-                case 2:
-                    columnClass = 'p-megamenu-col-6';
-                    break;
-
-                case 3:
-                    columnClass = 'p-megamenu-col-4';
-                    break;
-
-                case 4:
-                    columnClass = 'p-megamenu-col-3';
-                    break;
-
-                case 6:
-                    columnClass = 'p-megamenu-col-2';
-                    break;
-
-                default:
-                    columnClass = 'p-megamenu-col-12';
-                    break;
-            }
-
-            return columnClass;
-        },
-        getItemClass(processedItem) {
-            return [
-                'p-menuitem',
-                this.getItemProp(processedItem, 'class'),
-                {
-                    'p-menuitem-active p-highlight': this.isItemActive(processedItem),
-                    'p-focus': this.isItemFocused(processedItem),
-                    'p-disabled': this.isItemDisabled(processedItem)
-                }
-            ];
-        },
-        getItemActionClass(processedItem, routerProps) {
-            return [
-                'p-menuitem-link',
-                {
-                    'router-link-active': routerProps && routerProps.isActive,
-                    'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
-                }
-            ];
-        },
-        getItemIconClass(processedItem) {
-            return ['p-menuitem-icon', this.getItemProp(processedItem, 'icon')];
-        },
-        getSeparatorItemClass(processedItem) {
-            return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
         }
     },
     components: {
