@@ -1,6 +1,6 @@
 <template>
     <transition name="p-contextmenusub" @enter="onEnter">
-        <ul v-if="root ? true : visible" ref="container" v-bind="ptm('menu')">
+        <ul v-if="root ? true : visible" ref="container" :tabindex="tabindex" v-bind="ptm('menu')">
             <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
                 <li
                     v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -119,6 +119,10 @@ export default {
         activeItemPath: {
             type: Object,
             default: null
+        },
+        tabindex: {
+            type: Number,
+            default: 0
         }
     },
     methods: {
