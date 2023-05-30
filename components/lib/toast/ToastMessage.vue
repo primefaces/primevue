@@ -25,11 +25,11 @@ import InfoCircleIcon from 'primevue/icons/infocircle';
 import TimesIcon from 'primevue/icons/times';
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
-import BaseToast from './BaseToast.vue';
+import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'ToastMessage',
-    extends: BaseToast,
+    extends: BaseComponent,
     emits: ['close'],
     closeTimeout: null,
     props: {
