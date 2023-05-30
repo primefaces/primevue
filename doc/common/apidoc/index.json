@@ -23601,6 +23601,14 @@
                             "description": "Uses to pass attributes to the submenu header's DOM element."
                         },
                         {
+                            "name": "submenu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the submenu's DOM element."
+                        },
+                        {
                             "name": "separator",
                             "optional": true,
                             "readonly": false,
@@ -23800,6 +23808,14 @@
                             "type": "MegaMenuPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
