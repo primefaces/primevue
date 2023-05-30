@@ -77,7 +77,8 @@ const classes = {
     icon: 'p-menuitem-icon',
     text: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',
-    submenu: 'p-submenu-list'
+    submenu: 'p-submenu-list',
+    separator: 'p-menuitem-separator'
 };
 
 const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_tieredmenu_style', manual: true });

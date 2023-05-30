@@ -5,7 +5,7 @@
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
                 :id="getItemId(processedItem)"
                 :style="getItemProp(processedItem, 'style')"
-                :class="getCXOptions('menuitem', { processedItem })"
+                :class="[getCXOptions('menuitem', { processedItem }), getItemProp(processedItem, 'class')]"
                 role="menuitem"
                 :aria-label="getItemLabel(processedItem)"
                 :aria-disabled="isItemDisabled(processedItem) || undefined"
@@ -23,14 +23,14 @@
                     <template v-if="!templates.item">
                         <router-link v-if="getItemProp(processedItem, 'to') && !isItemDisabled(processedItem)" v-slot="{ navigate, href, isActive, isExactActive }" :to="getItemProp(processedItem, 'to')" custom>
                             <a v-ripple :href="href" :class="getCXOptions('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, 'action')">
-                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getCXOptions('icon', { processedItem })" />
-                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="getCXOptions('icon', { processedItem })" v-bind="getPTOptions(processedItem, 'icon')" />
+                                <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" />
+                                <span v-else-if="getItemProp(processedItem, 'icon')" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, 'icon')" />
                                 <span :class="getCXOptions('label')" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="getCXOptions('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, 'action')">
-                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="getCXOptions('icon', { processedItem })" />
-                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="getCXOptions('icon', { processedItem })" v-bind="getPTOptions(processedItem, 'icon')" />
+                            <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" />
+                            <span v-else-if="getItemProp(processedItem, 'icon')" :class="[getCXOptions('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, 'icon')" />
                             <span :class="getCXOptions('label')" v-bind="getPTOptions(processedItem, 'label')">{{ getItemLabel(processedItem) }}</span>
                             <template v-if="getItemProp(processedItem, 'items')">
                                 <component v-if="templates.submenuicon" :is="templates.submenuicon" :root="root" :active="isItemActive(processedItem)" :class="getCXOptions('submenuIcon')" />
@@ -60,8 +60,8 @@
             <li
                 v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')"
                 :id="getItemId(processedItem)"
+                :class="[getCXOptions('separator'), getItemProp(processedItem, 'class')]"
                 :style="getItemProp(processedItem, 'style')"
-                :class="getCXOptions('separator', { processedItem })"
                 role="separator"
                 v-bind="ptm('separator')"
             ></li>

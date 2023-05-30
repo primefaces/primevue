@@ -61,7 +61,7 @@
                 v-if="isItemVisible(processedItem) && getItemProp(processedItem, 'separator')"
                 :id="getItemId(processedItem)"
                 :style="getItemProp(processedItem, 'style')"
-                :class="getSeparatorItemClass(processedItem)"
+                :class="[getCXOptions('separator'), getItemProp(processedItem, 'class')]"
                 role="separator"
                 v-bind="ptm('separator')"
             ></li>
@@ -176,9 +176,6 @@ export default {
         },
         getAriaPosInset(index) {
             return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
-        },
-        getSeparatorItemClass(processedItem) {
-            return ['p-menuitem-separator', this.getItemProp(processedItem, 'class')];
         }
     },
     components: {
