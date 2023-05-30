@@ -1,6 +1,6 @@
 <template>
-    <button v-ripple :class="containerClass" type="button" v-bind="getPTOptions('prevPageButton')">
-        <component :is="template || 'AngleLeftIcon'" class="p-paginator-icon" v-bind="getPTOptions('prevPageIcon')" />
+    <button v-ripple :class="cx('prevPageButton')" type="button" v-bind="getPTOptions('prevPageButton')">
+        <component :is="template || 'AngleLeftIcon'" :class="cx('prevPageIcon')" v-bind="getPTOptions('prevPageIcon')" />
     </button>
 </template>
 
@@ -25,16 +25,6 @@ export default {
                     disabled: this.$attrs.disabled
                 }
             });
-        }
-    },
-    computed: {
-        containerClass() {
-            return [
-                'p-paginator-prev p-paginator-element p-link',
-                {
-                    'p-disabled': this.$attrs.disabled
-                }
-            ];
         }
     },
     components: {

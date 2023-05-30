@@ -1,7 +1,7 @@
 <template>
     <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptm('root')">
-        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" class="p-paginator p-component" :class="getPaginatorClasses(key)" v-bind="ptm('paginator')">
-            <div v-if="$slots.start" class="p-paginator-left-content" v-bind="ptm('left')">
+        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('paginator')" data-pc-name="paginator">
+            <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                 <slot name="start" :state="currentState"></slot>
             </div>
             <template v-for="item in value" :key="item">
@@ -34,7 +34,7 @@
                 <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :aria-label="getAriaLabel('jumpToPageDropdownLabel')" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
                 <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
             </template>
-            <div v-if="$slots.end" class="p-paginator-right-content" v-bind="ptm('end')">
+            <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
                 <slot name="end" :state="currentState"></slot>
             </div>
         </div>
@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { UniqueComponentId } from 'primevue/utils';
+import BasePaginator from './BasePaginator.vue';
 import CurrrentPageReport from './CurrentPageReport.vue';
 import FirstPageLink from './FirstPageLink.vue';
 import JumpToPageDropdown from './JumpToPageDropdown.vue';
@@ -56,42 +56,8 @@ import RowsPerPageDropdown from './RowsPerPageDropdown.vue';
 
 export default {
     name: 'Paginator',
-    extends: BaseComponent,
+    extends: BasePaginator,
     emits: ['update:first', 'update:rows', 'page'],
-    props: {
-        totalRecords: {
-            type: Number,
-            default: 0
-        },
-        rows: {
-            type: Number,
-            default: 0
-        },
-        first: {
-            type: Number,
-            default: 0
-        },
-        pageLinkSize: {
-            type: Number,
-            default: 5
-        },
-        rowsPerPageOptions: {
-            type: Array,
-            default: null
-        },
-        template: {
-            type: [Object, String],
-            default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
-        },
-        currentPageReportTemplate: {
-            type: null,
-            default: '({currentPage} of {totalPages})'
-        },
-        alwaysShow: {
-            type: Boolean,
-            default: true
-        }
-    },
     data() {
         return {
             d_first: this.first,
@@ -215,14 +181,6 @@ export default {
         hasBreakpoints() {
             return typeof this.template === 'object';
         },
-        getPaginatorClasses(key) {
-            return [
-                {
-                    'p-paginator-default': !this.hasBreakpoints(),
-                    [`p-paginator-${key}`]: this.hasBreakpoints()
-                }
-            ];
-        },
         setPaginatorAttribute() {
             if (this.$refs.paginator && this.$refs.paginator.length >= 0) {
                 [...this.$refs.paginator].forEach((el) => {
@@ -329,45 +287,3 @@ export default {
     }
 };
 </script>
-
-<style lang="css">
-.p-paginator-default {
-    display: flex;
-}
-
-.p-paginator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.p-paginator-left-content {
-    margin-right: auto;
-}
-
-.p-paginator-right-content {
-    margin-left: auto;
-}
-
-.p-paginator-page,
-.p-paginator-next,
-.p-paginator-last,
-.p-paginator-first,
-.p-paginator-prev,
-.p-paginator-current {
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    user-select: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-paginator-element:focus {
-    z-index: 1;
-    position: relative;
-}
-</style>
