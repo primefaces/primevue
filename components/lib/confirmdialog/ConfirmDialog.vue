@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import BaseConfirmDialog from './BaseConfirmDialog';
+import BaseConfirmDialog from './BaseConfirmDialog.vue';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import Dialog from 'primevue/dialog';

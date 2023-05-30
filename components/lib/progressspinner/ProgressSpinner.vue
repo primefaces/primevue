@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import BaseProgressSpinner from './BaseProgressSpinner';
+import BaseProgressSpinner from './BaseProgressSpinner.vue';
 
 export default {
     name: 'ProgressSpinner',

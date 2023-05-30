@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import BaseAvatar from './BaseAvatar';
+import BaseAvatar from './BaseAvatar.vue';
 
 export default {
     name: 'Avatar',

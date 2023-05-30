@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import BaseOverlayPanel from './BaseOverlayPanel';
+import BaseOverlayPanel from './BaseOverlayPanel.vue';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';

@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import BaseConfirmPopup from './BaseConfirmPopup';
+import BaseConfirmPopup from './BaseConfirmPopup.vue';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import FocusTrap from 'primevue/focustrap';

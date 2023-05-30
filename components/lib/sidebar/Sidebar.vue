@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import BaseSidebar from './BaseSidebar';
+import BaseSidebar from './BaseSidebar.vue';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import Portal from 'primevue/portal';
