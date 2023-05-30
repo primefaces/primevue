@@ -50,9 +50,7 @@ const classes = {
         }
     ],
     button: 'p-splitbutton-defaultbutton',
-    icon: ({ props }) => props.icon,
-    menuButton: 'p-splitbutton-menubutton',
-    menuButtonIcon: ({ props }) => props.menuButtonIcon
+    menuButton: 'p-splitbutton-menubutton'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_splitbutton_style', manual: true });
