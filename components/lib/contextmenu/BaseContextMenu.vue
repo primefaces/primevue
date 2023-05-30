@@ -56,7 +56,6 @@ const classes = {
     menu: 'p-contextmenu-root-list',
     menuitem: ({ context, processedItem }) => [
         'p-menuitem',
-        context.getItemProp(processedItem, 'class'),
         {
             'p-menuitem-active p-highlight': context.isItemActive(processedItem),
             'p-focus': context.isItemFocused(processedItem),
@@ -71,11 +70,11 @@ const classes = {
             'router-link-active-exact': context.exact && isExactActive
         }
     ],
-    icon: ({ context, processedItem }) => ['p-menuitem-icon', context.getItemProp(processedItem, 'icon')],
+    icon: 'p-menuitem-icon',
     label: 'p-menuitem-text',
     submenuIcon: 'p-submenu-icon',
     submenu: 'p-submenu-list',
-    separator: ({ context, processedItem }) => ['p-menuitem-separator', context.getItemProp(processedItem, 'class')]
+    separator: 'p-menuitem-separator'
 };
 
 const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_contextmenu_style', manual: true });

@@ -26,10 +26,10 @@
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
-                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="cx('separator', { item })" :style="child.style" role="separator" v-bind="ptm('separator')"></li>
+                                <li v-else-if="visible(child) && child.separator" :key="'separator' + i + j" :class="[cx('separator'), item.class]" :style="child.style" role="separator" v-bind="ptm('separator')"></li>
                             </template>
                         </template>
-                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="cx('separator', { item })" :style="item.style" role="separator" v-bind="ptm('separator')"></li>
+                        <li v-else-if="visible(item) && item.separator" :key="'separator' + i.toString()" :class="[cx('separator'), item.class]" :style="item.style" role="separator" v-bind="ptm('separator')"></li>
                         <PVMenuitem v-else :key="label(item) + i.toString()" :id="id + '_' + i" :item="item" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
                     </template>
                 </ul>

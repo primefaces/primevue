@@ -2,7 +2,7 @@
     <li
         v-if="visible()"
         :id="id"
-        :class="getCXOptions('menuitem', { item })"
+        :class="[getCXOptions('menuitem'), item.class]"
         role="menuitem"
         :style="item.style"
         :aria-label="label()"
@@ -15,14 +15,14 @@
             <template v-if="!templates.item">
                 <router-link v-if="item.to && !disabled()" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                     <a v-ripple :href="href" :class="getCXOptions('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions('action')">
-                        <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="getCXOptions('icon', { item })" />
-                        <span v-else-if="item.icon" :class="getCXOptions('icon', { item })" v-bind="getPTOptions('icon')" />
+                        <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[getCXOptions('icon'), item.icon]" />
+                        <span v-else-if="item.icon" :class="[getCXOptions('icon'), item.icon]" v-bind="getPTOptions('icon')" />
                         <span :class="getCXOptions('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                     </a>
                 </router-link>
                 <a v-else v-ripple :href="item.url" :class="getCXOptions('action')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('action')">
-                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="getCXOptions('icon', { item })" />
-                    <span v-else-if="item.icon" :class="getCXOptions('icon', { item })" v-bind="getPTOptions('icon')" />
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="[getCXOptions('icon'), item.icon]" />
+                    <span v-else-if="item.icon" :class="[getCXOptions('icon'), item.icon]" v-bind="getPTOptions('icon')" />
                     <span :class="getCXOptions('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                 </a>
             </template>

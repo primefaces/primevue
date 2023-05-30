@@ -35,11 +35,10 @@ const classes = {
     start: 'p-menu-start',
     menu: 'p-menu-list p-reset',
     submenuHeader: 'p-submenu-header',
-    separator: ({ item }) => ['p-menuitem-separator', item.class],
+    separator: 'p-menuitem-separator',
     end: 'p-menu-end',
-    menuitem: ({ context, item }) => [
+    menuitem: ({ context }) => [
         'p-menuitem',
-        item.class,
         {
             'p-focus': context.id === context.focusedOptionId,
             'p-disabled': context.disabled()
@@ -53,7 +52,7 @@ const classes = {
             'router-link-active-exact': context.exact && isExactActive
         }
     ],
-    icon: ({ item }) => ['p-menuitem-icon', item.icon],
+    icon: 'p-menuitem-icon',
     label: 'p-menuitem-text'
 };
 
