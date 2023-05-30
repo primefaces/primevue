@@ -37,10 +37,6 @@ const styles = `
 }
 `;
 
-const inlineStyles = {
-    submenu: ({ context, processedItem }) => ({ display: context.isItemActive(processedItem) ? 'block' : 'none' })
-};
-
 const classes = {
     root: 'p-panelmenu p-component',
     panel: 'p-panelmenu-panel',
@@ -110,8 +106,7 @@ export default {
         }
     },
     css: {
-        classes,
-        inlineStyles
+        classes
     },
     watch: {
         isUnstyled: {
