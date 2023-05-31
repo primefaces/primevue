@@ -16,7 +16,7 @@
         </div>
         <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]" v-bind="getColumnPTOptions('checkbox')">
             <component v-if="rowCheckboxIconTemplate" :is="rowCheckboxIconTemplate" :checked="checked" class="p-checkbox-icon" />
-            <CheckIcon v-else class="p-checkbox-icon" v-bind="getColumnPTOptions('checkboxIcon')" />
+            <CheckIcon v-else-if="!rowCheckboxIconTemplate && !!checked" class="p-checkbox-icon" v-bind="getColumnPTOptions('checkboxIcon')" />
         </div>
     </div>
 </template>
