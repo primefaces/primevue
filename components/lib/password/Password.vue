@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" :style="sx('root')" v-bind="ptm('root')" data-pc-name="password">
         <PInputText
             ref="input"
             :id="inputId"

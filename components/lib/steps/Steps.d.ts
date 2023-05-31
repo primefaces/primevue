@@ -85,6 +85,11 @@ export interface StepsProps {
      * @type {StepsPassThroughOptions}
      */
     pt?: StepsPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

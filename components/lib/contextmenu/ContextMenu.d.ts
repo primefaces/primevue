@@ -61,6 +61,10 @@ export interface ContextMenuPassThroughOptions {
      */
     submenuIcon?: ContextMenuPassThroughOptionType;
     /**
+     * Uses to pass attributes to the submenu's DOM element.
+     */
+    submenu?: ContextMenuPassThroughOptionType;
+    /**
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: ContextMenuPassThroughOptionType;
@@ -192,6 +196,11 @@ export interface ContextMenuProps {
      * @type {ContextMenuPassThroughOptions}
      */
     pt?: ContextMenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

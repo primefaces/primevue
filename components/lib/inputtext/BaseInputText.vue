@@ -116,7 +116,7 @@ const classes = {
     root: ({ instance }) => ['p-inputtext p-component', { 'p-filled': instance.filled }]
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_inputtext_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_inputtext_style', manual: true });
 
 export default {
     name: 'BaseInputText',
@@ -125,15 +125,13 @@ export default {
         modelValue: null
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="knob">
         <svg
             viewBox="0 0 100 100"
             role="slider"

@@ -63,7 +63,7 @@ const classes = {
     info: 'p-password-info'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_password_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_password_style', manual: true });
 
 export default {
     name: 'BasePassword',
@@ -169,15 +169,13 @@ export default {
     },
     css: {
         classes,
-        inlineStyles
+        inlineStyles,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
     <transition name="p-message" appear>
-        <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')">
+        <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')" data-pc-name="message">
             <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
                 <slot name="messageicon" class="p-message-icon">
                     <component :is="icon ? 'span' : iconComponent" :class="cx('icon')" v-bind="ptm('icon')"></component>
@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import BaseMessage from './BaseMessage.vue';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
 import TimesIcon from 'primevue/icons/times';
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
+import BaseMessage from './BaseMessage.vue';
 
 export default {
     name: 'Message',

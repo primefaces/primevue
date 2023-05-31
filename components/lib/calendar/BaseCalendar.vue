@@ -200,13 +200,13 @@ const classes = {
     weekLabelContainer: 'p-disabled',
     day: ({ date }) => [{ 'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today }],
     dayLabel: ({ instance, date }) => [{ 'p-highlight': instance.isSelected(date), 'p-disabled': !date.selectable }],
-    ariaSelectedDay: 'p-hidden-accessible',
+    hiddenSelectedDay: 'p-hidden-accessible',
     monthPicker: 'p-monthpicker',
     month: ({ instance, month, index }) => ['p-monthpicker-month', { 'p-highlight': instance.isMonthSelected(index), 'p-disabled': !month.selectable }],
-    ariaMonth: 'p-hidden-accessible',
+    hiddenMonth: 'p-hidden-accessible',
     yearPicker: 'p-yearpicker',
     year: ({ instance, year }) => ['p-yearpicker-year', { 'p-highlight': instance.isYearSelected(year.value), 'p-disabled': !year.selectable }],
-    ariaYear: 'p-hidden-accessible',
+    hiddenYear: 'p-hidden-accessible',
     timePicker: 'p-timepicker',
     hourPicker: 'p-hour-picker',
     incrementButton: 'p-link',
@@ -222,7 +222,7 @@ const classes = {
     clearButton: 'p-button-text'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_calendar_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_calendar_style', manual: true });
 
 export default {
     name: 'BaseCalendar',
@@ -445,15 +445,13 @@ export default {
     },
     css: {
         inlineStyles,
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

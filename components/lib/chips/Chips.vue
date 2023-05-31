@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="chips">
         <ul
             ref="container"
             :class="cx('container')"

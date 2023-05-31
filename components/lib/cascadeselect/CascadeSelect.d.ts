@@ -91,13 +91,17 @@ export interface CascadeSelectPassThroughOptions {
      */
     text?: CascadeSelectPassThroughOptionType;
     /**
+     * Uses to pass attributes to the group icon's DOM element.
+     */
+    groupIcon?: CascadeSelectPassThroughOptionType;
+    /**
      * Uses to pass attributes to the hidden selected message's DOM element.
      */
     hiddenSelectedMessage?: CascadeSelectPassThroughOptionType;
     /**
      * Uses to pass attributes to the search result message text aria's DOM element.
      */
-    searchResultAria?: CascadeSelectPassThroughOptionType;
+    hiddenSearchResult?: CascadeSelectPassThroughOptionType;
     /**
      * Uses to pass attributes to the selected message text aria's DOM element.
      */
@@ -313,6 +317,11 @@ export interface CascadeSelectProps {
      * @type {CascadeSelectPassThroughOptions}
      */
     pt?: CascadeSelectPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

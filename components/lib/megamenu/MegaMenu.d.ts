@@ -76,6 +76,10 @@ export interface MegaMenuPassThroughOptions {
      */
     submenuHeader?: MegaMenuPassThroughOptionType;
     /**
+     * Uses to pass attributes to the submenu's DOM element.
+     */
+    submenu?: MegaMenuPassThroughOptionType;
+    /**
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: MegaMenuPassThroughOptionType;
@@ -195,6 +199,11 @@ export interface MegaMenuProps {
      * @type {MegaMenuPassThroughOptions}
      */
     pt?: MegaMenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

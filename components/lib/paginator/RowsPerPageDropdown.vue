@@ -1,5 +1,15 @@
 <template>
-    <RPPDropdown :modelValue="rows" :options="rowsOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-rpp-options" :disabled="disabled" :pt="ptm('RPPDropdown')"></RPPDropdown>
+    <RPPDropdown
+        :modelValue="rows"
+        :options="rowsOptions"
+        optionLabel="label"
+        optionValue="value"
+        @update:modelValue="onChange($event)"
+        :class="cx('RPPDropdown')"
+        :disabled="disabled"
+        :pt="ptm('RPPDropdown')"
+        data-pc-section="rppdropdown"
+    ></RPPDropdown>
 </template>
 
 <script>

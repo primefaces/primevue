@@ -1,12 +1,11 @@
 <template>
-    <div :ref="containerRef" :id="id" :class="containerClass" v-bind="ptm('root')">
-        <div v-if="$slots.start" class="p-megamenu-start" v-bind="ptm('start')">
+    <div :ref="containerRef" :id="id" :class="cx('root')" v-bind="ptm('root')" data-pc-name="megamenu">
+        <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
         <MegaMenuSub
             :ref="menubarRef"
             :id="id + '_list'"
-            class="p-megamenu-root-list"
             :tabindex="!disabled ? tabindex : -1"
             role="menubar"
             :aria-label="ariaLabel"
@@ -29,20 +28,20 @@
             @item-click="onItemClick"
             @item-mouseenter="onItemMouseEnter"
         />
-        <div v-if="$slots.end" class="p-megamenu-end" v-bind="ptm('end')">
+        <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
             <slot name="end"></slot>
         </div>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import BaseMegaMenu from './BaseMegaMenu.vue';
 import MegaMenuSub from './MegaMenuSub.vue';
 
 export default {
     name: 'MegaMenu',
-    extends: BaseComponent,
+    extends: BaseMegaMenu,
     emits: ['focus', 'blur'],
     props: {
         model: {
@@ -384,7 +383,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = DomHandler.findSingle(this.menubar, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
+                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="action"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
 
@@ -580,15 +579,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-megamenu p-component',
-                {
-                    'p-megamenu-horizontal': this.horizontal,
-                    'p-megamenu-vertical': this.vertical
-                }
-            ];
-        },
         processedItems() {
             return this.createProcessedItems(this.model || []);
         },
@@ -622,116 +612,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-megamenu {
-    display: flex;
-}
-
-.p-megamenu-root-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-megamenu-root-list > .p-menuitem {
-    position: relative;
-}
-
-.p-megamenu .p-menuitem-link {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-megamenu .p-menuitem-text {
-    line-height: 1;
-}
-
-.p-megamenu-panel {
-    display: none;
-    position: absolute;
-    width: auto;
-    z-index: 1;
-}
-
-.p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {
-    display: block;
-}
-
-.p-megamenu-submenu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-/* Horizontal */
-.p-megamenu-horizontal {
-    align-items: center;
-}
-
-.p-megamenu-horizontal .p-megamenu-root-list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.p-megamenu-horizontal .p-megamenu-end {
-    margin-left: auto;
-    align-self: center;
-}
-
-/* Vertical */
-.p-megamenu-vertical {
-    flex-direction: column;
-}
-
-.p-megamenu-vertical .p-megamenu-root-list {
-    flex-direction: column;
-}
-
-.p-megamenu-vertical .p-megamenu-root-list > .p-menuitem-active > .p-megamenu-panel {
-    left: 100%;
-    top: 0;
-}
-
-.p-megamenu-vertical .p-megamenu-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link > .p-submenu-icon {
-    margin-left: auto;
-}
-
-.p-megamenu-grid {
-    display: flex;
-}
-
-.p-megamenu-col-2,
-.p-megamenu-col-3,
-.p-megamenu-col-4,
-.p-megamenu-col-6,
-.p-megamenu-col-12 {
-    flex: 0 0 auto;
-    padding: 0.5rem;
-}
-
-.p-megamenu-col-2 {
-    width: 16.6667%;
-}
-
-.p-megamenu-col-3 {
-    width: 25%;
-}
-
-.p-megamenu-col-4 {
-    width: 33.3333%;
-}
-
-.p-megamenu-col-6 {
-    width: 50%;
-}
-
-.p-megamenu-col-12 {
-    width: 100%;
-}
-</style>

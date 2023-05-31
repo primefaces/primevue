@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="scrollpanel">
         <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
             <div ref="content" :class="cx('content')" @scroll="onScroll" @mouseenter="moveBar" v-bind="ptm('content')">
                 <slot></slot>
@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import BaseScrollPanel from './BaseScrollPanel.vue';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BaseScrollPanel from './BaseScrollPanel.vue';
 
 export default {
     name: 'ScrollPanel',

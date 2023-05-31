@@ -1,7 +1,7 @@
 <template>
-    <div :class="containerClass" :style="style" v-bind="ptm('root')">
+    <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="splitbutton" :data-pc-severity="severity">
         <slot>
-            <PVSButton type="button" class="p-splitbutton-defaultbutton" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps">
+            <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps">
                 <template #icon="slotProps">
                     <slot name="icon">
                         <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
@@ -12,7 +12,7 @@
         <PVSButton
             ref="button"
             type="button"
-            class="p-splitbutton-menubutton"
+            :class="cx('menuButton')"
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
@@ -33,94 +33,16 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import TieredMenu from 'primevue/tieredmenu';
 import { UniqueComponentId } from 'primevue/utils';
+import BaseSplitButton from './BaseSplitButton.vue';
 
 export default {
     name: 'SplitButton',
-    extends: BaseComponent,
+    extends: BaseSplitButton,
     emits: ['click'],
-    props: {
-        label: {
-            type: String,
-            default: null
-        },
-        icon: {
-            type: String,
-            default: null
-        },
-        model: {
-            type: Array,
-            default: null
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        class: {
-            type: null,
-            default: null
-        },
-        style: {
-            type: null,
-            default: null
-        },
-        buttonProps: {
-            type: null,
-            default: null
-        },
-        menuButtonProps: {
-            type: null,
-            default: null
-        },
-        menuButtonIcon: {
-            type: String,
-            default: undefined
-        },
-        severity: {
-            type: String,
-            default: null
-        },
-        raised: {
-            type: Boolean,
-            default: false
-        },
-        rounded: {
-            type: Boolean,
-            default: false
-        },
-        text: {
-            type: Boolean,
-            default: false
-        },
-        outlined: {
-            type: Boolean,
-            default: false
-        },
-        size: {
-            type: String,
-            default: null
-        },
-        plain: {
-            type: Boolean,
-            default: false
-        }
-    },
     data() {
         return {
             isExpanded: false
@@ -150,19 +72,7 @@ export default {
             return UniqueComponentId();
         },
         containerClass() {
-            return [
-                'p-splitbutton p-component',
-                this.class,
-                {
-                    [`p-button-${this.severity}`]: this.severity,
-                    'p-button-raised': this.raised,
-                    'p-button-rounded': this.rounded,
-                    'p-button-text': this.text,
-                    'p-button-outlined': this.outlined,
-                    'p-button-sm': this.size === 'small',
-                    'p-button-lg': this.size === 'large'
-                }
-            ];
+            return [this.cx('root'), this.class];
         }
     },
     components: {
@@ -172,37 +82,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-.p-splitbutton {
-    display: inline-flex;
-    position: relative;
-}
-
-.p-splitbutton .p-splitbutton-defaultbutton,
-.p-splitbutton.p-button-rounded > .p-splitbutton-defaultbutton.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-defaultbutton.p-button {
-    flex: 1 1 auto;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: 0 none;
-}
-
-.p-splitbutton-menubutton,
-.p-splitbutton.p-button-rounded > .p-splitbutton-menubutton.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-menubutton.p-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.p-splitbutton .p-menu {
-    min-width: 100%;
-}
-
-.p-fluid .p-splitbutton {
-    display: flex;
-}
-</style>

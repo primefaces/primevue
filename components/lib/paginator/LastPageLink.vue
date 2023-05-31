@@ -1,6 +1,6 @@
 <template>
-    <button v-ripple :class="containerClass" type="button" v-bind="getPTOptions('lastPageButton')">
-        <component :is="template || 'AngleDoubleRightIcon'" class="p-paginator-icon" v-bind="getPTOptions('lastPageIcon')" />
+    <button v-ripple :class="cx('lastPageButton')" type="button" v-bind="getPTOptions('lastPageButton')">
+        <component :is="template || 'AngleDoubleRightIcon'" :class="cx('lastPageIcon')" v-bind="getPTOptions('lastPageIcon')" />
     </button>
 </template>
 
@@ -25,16 +25,6 @@ export default {
                     disabled: this.$attrs.disabled
                 }
             });
-        }
-    },
-    computed: {
-        containerClass() {
-            return [
-                'p-paginator-last p-paginator-element p-link',
-                {
-                    'p-disabled': this.$attrs.disabled
-                }
-            ];
         }
     },
     components: {

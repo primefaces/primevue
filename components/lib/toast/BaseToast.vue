@@ -105,7 +105,32 @@ const classes = {
             'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
-    ]
+    ],
+    container: ({ props }) => [
+        'p-toast-message',
+        props.message.styleClass,
+        {
+            'p-toast-message-info': props.message.severity === 'info',
+            'p-toast-message-warn': props.message.severity === 'warn',
+            'p-toast-message-error': props.message.severity === 'error',
+            'p-toast-message-success': props.message.severity === 'success'
+        }
+    ],
+    content: ({ props }) => `p-toast-message-content ${props.message.contentStyleClass || ''}`,
+    icon: ({ props }) => [
+        'p-toast-message-icon',
+        {
+            [props.infoIcon]: props.message.severity === 'info',
+            [props.warnIcon]: props.message.severity === 'warn',
+            [props.errorIcon]: props.message.severity === 'error',
+            [props.successIcon]: props.message.severity === 'success'
+        }
+    ],
+    text: 'p-toast-message-text',
+    summary: 'p-toast-summary',
+    detail: 'p-toast-detail',
+    button: 'p-toast-icon-close p-link',
+    buttonIcon: ({ props }) => ['p-toast-icon-close-icon', props.closeIcon]
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_toast_style', manual: true });
@@ -160,15 +185,13 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

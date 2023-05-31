@@ -92,6 +92,10 @@ export interface PanelMenuPassThroughOptions {
      */
     label?: PanelMenuPassThroughOptionType;
     /**
+     * Uses to pass attributes to the submenu's DOM element.
+     */
+    submenu?: PanelMenuPassThroughOptionType;
+    /**
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: PanelMenuPassThroughOptionType;
@@ -193,6 +197,11 @@ export interface PanelMenuProps {
      * @type {PanelMenuPassThroughOptions}
      */
     pt?: PanelMenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

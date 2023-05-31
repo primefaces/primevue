@@ -192,7 +192,7 @@ const classes = {
     hiddenLastFocusableEl: 'p-hidden-accessible p-hidden-focusable'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_multiselect_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_multiselect_style', manual: true });
 
 export default {
     name: 'BaseMultiSelect',
@@ -358,15 +358,13 @@ export default {
     },
     css: {
         classes,
-        inlineStyles
+        inlineStyles,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

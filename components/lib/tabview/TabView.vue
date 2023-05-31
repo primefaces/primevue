@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tabview">
         <div :class="cx('navContainer')" v-bind="ptm('navContainer')">
             <button
                 v-if="scrollable && !isPrevButtonDisabled"

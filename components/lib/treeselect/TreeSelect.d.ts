@@ -196,6 +196,11 @@ export interface TreeSelectProps {
      * @type {TreeSelectPassThroughOptions}
      */
     pt?: TreeSelectPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -256,7 +261,12 @@ export interface TreeSelectSlots {
     /**
      * Custom indicator template.
      */
-    triggericon(): VNode[];
+    triggericon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom item toggler icon template.
      * @param {Object} scope - item toggler icon slot's params.

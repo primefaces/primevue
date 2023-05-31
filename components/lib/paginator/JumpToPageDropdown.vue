@@ -1,5 +1,15 @@
 <template>
-    <JTPDropdown :modelValue="page" :options="pageOptions" optionLabel="label" optionValue="value" @update:modelValue="onChange($event)" class="p-paginator-page-options" :disabled="disabled" :pt="ptm('JTPDropdown')"></JTPDropdown>
+    <JTPDropdown
+        :modelValue="page"
+        :options="pageOptions"
+        optionLabel="label"
+        optionValue="value"
+        @update:modelValue="onChange($event)"
+        :class="cx('JTPDropdown')"
+        :disabled="disabled"
+        :pt="ptm('JTPDropdown')"
+        data-pc-section="jtpdropdown"
+    ></JTPDropdown>
 </template>
 
 <script>

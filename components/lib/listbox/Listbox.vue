@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" :class="cx('root')" @focusout="onFocusout" v-bind="ptm('root')">
+    <div :id="id" :class="cx('root')" @focusout="onFocusout" v-bind="ptm('root')" data-pc-name="listbox">
         <span
             ref="firstHiddenFocusableElement"
             role="presentation"

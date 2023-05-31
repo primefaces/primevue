@@ -40,7 +40,7 @@ const classes = {
     footer: 'p-panel-footer'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_panel_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_panel_style', manual: true });
 
 export default {
     name: 'BasePanel',
@@ -55,15 +55,13 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

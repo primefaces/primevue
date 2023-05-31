@@ -1,34 +1,16 @@
 <template>
-    <div class="p-chart" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="chart">
         <canvas ref="canvas" :width="width" :height="height" @click="onCanvasClick($event)" v-bind="{ ...canvasProps, ...ptm('canvas') }"></canvas>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseChart from './BaseChart.vue';
 
 export default {
     name: 'Chart',
-    extends: BaseComponent,
+    extends: BaseChart,
     emits: ['select', 'loaded'],
-    props: {
-        type: String,
-        data: null,
-        options: null,
-        plugins: null,
-        width: {
-            type: Number,
-            default: 300
-        },
-        height: {
-            type: Number,
-            default: 150
-        },
-        canvasProps: {
-            type: null,
-            default: null
-        }
-    },
     chart: null,
     watch: {
         /*
@@ -112,9 +94,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-chart {
-    position: relative;
-}
-</style>
