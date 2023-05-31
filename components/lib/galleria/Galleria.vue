@@ -145,7 +145,7 @@ export default {
     },
     beforeUnmount() {
         if (this.fullScreen) {
-            DomHandler.removeClass(document.body, 'p-overflow-hidden');
+            !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
         }
 
         this.mask = null;
@@ -161,16 +161,16 @@ export default {
         },
         onEnter(el) {
             this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
-            DomHandler.addClass(document.body, 'p-overflow-hidden');
+            !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
             this.focus();
         },
         onBeforeLeave() {
-            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
         },
         onAfterLeave(el) {
             ZIndexUtils.clear(el);
             this.containerVisible = false;
-            DomHandler.removeClass(document.body, 'p-overflow-hidden');
+            !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
         },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {
