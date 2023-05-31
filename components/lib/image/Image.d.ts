@@ -168,6 +168,11 @@ export interface ImageProps {
      * @type {ImagePassThroughOptions}
      */
     pt?: ImagePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
