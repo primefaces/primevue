@@ -1,41 +1,31 @@
 <template>
-    <div class="p-galleria-thumbnail-wrapper" v-bind="ptm('thumbnailWrapper')">
-        <div class="p-galleria-thumbnail-container" v-bind="ptm('thumbnailContainer')">
+    <div :class="cx('thumbnailWrapper')" v-bind="ptm('thumbnailWrapper')">
+        <div :class="cx('thumbnailContainer')" v-bind="ptm('thumbnailContainer')">
             <button
                 v-if="showThumbnailNavigators"
                 v-ripple
-                :class="navBackwardClass"
+                :class="cx('previousThumbnailButton')"
                 :disabled="isNavBackwardDisabled()"
                 type="button"
                 :aria-label="ariaPrevButtonLabel"
                 @click="navBackward($event)"
                 v-bind="{ ...prevButtonProps, ...ptm('previousThumbnailButton') }"
             >
-                <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" class="p-galleria-thumbnail-prev-icon" v-bind="ptm('previousThumbnailIcon')" />
+                <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('previousThumbnailIcon')" v-bind="ptm('previousThumbnailIcon')" />
             </button>
-            <div class="p-galleria-thumbnail-items-container" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailItemsContainer')">
-                <div
-                    ref="itemsContainer"
-                    class="p-galleria-thumbnail-items"
-                    role="tablist"
-                    @transitionend="onTransitionEnd"
-                    @touchstart="onTouchStart($event)"
-                    @touchmove="onTouchMove($event)"
-                    @touchend="onTouchEnd($event)"
-                    v-bind="ptm('thumbnailItems')"
-                >
+            <div :class="cx('thumbnailItemsContainer')" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailItemsContainer')">
+                <div ref="itemsContainer" :class="cx('thumbnailItems')" role="tablist" @transitionend="onTransitionEnd" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" v-bind="ptm('thumbnailItems')">
                     <div
                         v-for="(item, index) of value"
                         :key="`p-galleria-thumbnail-item-${index}`"
-                        :class="[
-                            'p-galleria-thumbnail-item',
-                            {
-                                'p-galleria-thumbnail-item-current': activeIndex === index,
-                                'p-galleria-thumbnail-item-active': isItemActive(index),
-                                'p-galleria-thumbnail-item-start': firstItemAciveIndex() === index,
-                                'p-galleria-thumbnail-item-end': lastItemActiveIndex() === index
-                            }
-                        ]"
+                        :class="
+                            cx('thumbnailItem', {
+                                context: {
+                                    index,
+                                    activeIndex
+                                }
+                            })
+                        "
                         role="tab"
                         :aria-selected="activeIndex === index"
                         :aria-controls="containerId + '_item_' + index"
@@ -43,7 +33,7 @@
                         v-bind="ptm('thumbnailItem')"
                     >
                         <div
-                            class="p-galleria-thumbnail-item-content"
+                            :class="cx('thumbnailItemContent')"
                             :tabindex="activeIndex === index ? '0' : '-1'"
                             :aria-label="ariaPageLabel(index + 1)"
                             :aria-current="activeIndex === index ? 'page' : undefined"
@@ -58,14 +48,14 @@
             <button
                 v-if="showThumbnailNavigators"
                 v-ripple
-                :class="navForwardClass"
+                :class="cx('nextThumbnailButton')"
                 :disabled="isNavForwardDisabled()"
                 type="button"
                 :aria-label="ariaNextButtonLabel"
                 @click="navForward($event)"
                 v-bind="{ ...nextButtonProps, ...ptm('nextThumbnailButton') }"
             >
-                <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-galleria-thumbnail-next-icon" v-bind="ptm('nextThumbnailIcon')" />
+                <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" :class="cx('nextThumbnailIcon')" v-bind="ptm('nextThumbnailIcon')" />
             </button>
         </div>
     </div>
@@ -526,22 +516,6 @@ export default {
         }
     },
     computed: {
-        navBackwardClass() {
-            return [
-                'p-galleria-thumbnail-prev p-link',
-                {
-                    'p-disabled': this.isNavBackwardDisabled()
-                }
-            ];
-        },
-        navForwardClass() {
-            return [
-                'p-galleria-thumbnail-next p-link',
-                {
-                    'p-disabled': this.isNavForwardDisabled()
-                }
-            ];
-        },
         ariaPrevButtonLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.prevPageLabel : undefined;
         },
