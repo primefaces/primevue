@@ -60,6 +60,10 @@ export interface MenubarPassThroughOptions {
      */
     submenuIcon?: MenubarPassThroughOptionType;
     /**
+     * Uses to pass attributes to the submenu's DOM element.
+     */
+    submenu?: MenubarPassThroughOptionType;
+    /**
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: MenubarPassThroughOptionType;
@@ -182,6 +186,11 @@ export interface MenubarProps {
      * @type {MenubarPassThroughOptions}
      */
     pt?: MenubarPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

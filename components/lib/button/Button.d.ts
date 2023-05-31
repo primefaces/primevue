@@ -142,6 +142,11 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @type {ButtonPassThroughOptions}
      */
     pt?: ButtonPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

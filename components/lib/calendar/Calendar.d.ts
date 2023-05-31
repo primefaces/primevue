@@ -199,7 +199,7 @@ export interface CalendarPassThroughOptions {
     /**
      * Uses to pass attributes to the aria selected day's DOM element.
      */
-    ariaSelectedDay?: CalendarPassThroughOptionType;
+    hiddenSelectedDay?: CalendarPassThroughOptionType;
     /**
      * Uses to pass attributes to the month picker's DOM element.
      */
@@ -211,7 +211,7 @@ export interface CalendarPassThroughOptions {
     /**
      * Uses to pass attributes to the aria month's DOM element.
      */
-    ariaMonth?: CalendarPassThroughOptionType;
+    hiddenMonth?: CalendarPassThroughOptionType;
     /**
      * Uses to pass attributes to the year picker's DOM element.
      */
@@ -223,7 +223,7 @@ export interface CalendarPassThroughOptions {
     /**
      * Uses to pass attributes to the aria year's DOM element.
      */
-    ariaYear?: CalendarPassThroughOptionType;
+    hiddenYear?: CalendarPassThroughOptionType;
     /**
      * Uses to pass attributes to the time picker's DOM element.
      */

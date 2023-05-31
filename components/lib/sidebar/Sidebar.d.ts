@@ -127,6 +127,11 @@ export interface SidebarProps {
      * @type {SidebarPassThroughOptions}
      */
     pt?: SidebarPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

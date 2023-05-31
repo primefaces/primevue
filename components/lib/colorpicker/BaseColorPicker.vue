@@ -32,7 +32,7 @@ const classes = {
     hueHandle: 'p-colorpicker-hue-handle'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_colorpicker_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_colorpicker_style', manual: true });
 
 export default {
     name: 'BaseColorPicker',
@@ -77,15 +77,13 @@ export default {
         panelClass: null
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

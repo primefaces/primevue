@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="toolbar" :aria-labelledby="ariaLabelledby" data-pc-name="toolbar" data-pc-section="root" v-bind="ptm('root')">
+    <div :class="cx('root')" role="toolbar" :aria-labelledby="ariaLabelledby" v-bind="ptm('root')" data-pc-name="toolbar">
         <div :class="cx('start')" data-pc-section="start" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>

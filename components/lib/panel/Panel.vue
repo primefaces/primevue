@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="panel">
         <div :class="cx('header')" v-bind="ptm('header')">
             <slot :id="ariaId + '_header'" name="header" :class="cx('title')">
                 <span v-if="header" :id="ariaId + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>

@@ -33,9 +33,9 @@ export interface PaginatorPassThroughOptions {
      */
     root?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the left's DOM element.
+     * Uses to pass attributes to the start's DOM element.
      */
-    left?: PaginatorPassThroughOptionType;
+    start?: PaginatorPassThroughOptionType;
     /**
      * Uses to pass attributes to the first page button's DOM element.
      */

@@ -1,11 +1,10 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
-            <div v-if="visible" :ref="containerRef" :id="id" :class="containerClass" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }">
+            <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="{ ...$attrs, ...ptm('root') }" data-pc-name="tieredmenu">
                 <TieredMenuSub
                     :ref="menubarRef"
                     :id="id + '_list'"
-                    class="p-tieredmenu-root-list"
                     :tabindex="!disabled ? tabindex : -1"
                     role="menubar"
                     :aria-label="ariaLabel"
@@ -33,59 +32,17 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BaseTieredMenu from './BaseTieredMenu.vue';
 import TieredMenuSub from './TieredMenuSub.vue';
 
 export default {
     name: 'TieredMenu',
-    extends: BaseComponent,
+    extends: BaseTieredMenu,
     inheritAttrs: false,
     emits: ['focus', 'blur', 'before-show', 'before-hide', 'hide', 'show'],
-    props: {
-        popup: {
-            type: Boolean,
-            default: false
-        },
-        model: {
-            type: Array,
-            default: null
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        exact: {
-            type: Boolean,
-            default: true
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -386,7 +343,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = DomHandler.findSingle(this.menubar, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, '.p-menuitem-link');
+                const anchorElement = element && DomHandler.findSingle(element, '[data-pc-section="action"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
 
@@ -424,6 +381,7 @@ export default {
                 ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
 
+            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             DomHandler.focus(this.menubar);
             this.scrollInView();
@@ -624,16 +582,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-tieredmenu p-component',
-                {
-                    'p-tieredmenu-overlay': this.popup,
-                    'p-input-filled': this.$primevue.config.inputStyle === 'filled',
-                    'p-ripple-disabled': this.$primevue.config.ripple === false
-                }
-            ];
-        },
         processedItems() {
             return this.createProcessedItems(this.model || []);
         },
@@ -652,51 +600,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-tieredmenu-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.p-tieredmenu ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.p-tieredmenu .p-submenu-list {
-    position: absolute;
-    min-width: 100%;
-    z-index: 1;
-    display: none;
-}
-
-.p-tieredmenu .p-menuitem-link {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-tieredmenu .p-menuitem-text {
-    line-height: 1;
-}
-
-.p-tieredmenu .p-menuitem {
-    position: relative;
-}
-
-.p-tieredmenu .p-menuitem-link .p-submenu-icon {
-    margin-left: auto;
-}
-
-.p-tieredmenu .p-menuitem-active > .p-submenu-list {
-    display: block;
-    left: 100%;
-    top: 0;
-}
-</style>

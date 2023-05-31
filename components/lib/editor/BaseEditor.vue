@@ -970,7 +970,7 @@ const classes = {
     content: 'p-editor-content'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_editor_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_editor_style', manual: true });
 
 export default {
     name: 'BaseEditor',
@@ -984,15 +984,13 @@ export default {
         modules: null
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

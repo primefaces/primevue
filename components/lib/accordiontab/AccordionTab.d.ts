@@ -123,6 +123,22 @@ export interface AccordionTabContext {
      * Current index of the tab.
      */
     index: number;
+    /**
+     * Count of tabs
+     */
+    count: number;
+    /**
+     * Whether the tab is first.
+     */
+    first: boolean;
+    /**
+     * Whether the tab is last.
+     */
+    last: boolean;
+    /**
+     * Whether the tab is active.
+     */
+    active: boolean;
 }
 
 /**

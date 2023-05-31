@@ -298,6 +298,11 @@ export interface TreeProps {
      * @type {TreePassThroughOptions}
      */
     pt?: TreePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -307,11 +312,21 @@ export interface TreeSlots {
     /**
      * Custom loading icon template.
      */
-    loadingicon(): VNode[];
+    loadingicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom search icon template.
      */
-    searchicon(): VNode[];
+    searchicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom toggler icon template.
      */

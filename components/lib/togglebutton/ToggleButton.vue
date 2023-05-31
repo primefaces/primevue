@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" v-ripple :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" :data-p-active="modelValue === true">
+    <div ref="container" v-ripple :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" :data-p-active="modelValue === true" data-pc-name="togglebutton">
         <span :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 :id="inputId"

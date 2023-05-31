@@ -1,10 +1,10 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="card">
         <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
         <div :class="cx('body')" v-bind="ptm('body')">
-            <div v-if="$slots.title" :class="cx('title')">
+            <div v-if="$slots.title" :class="cx('title')" v-bind="ptm('title')">
                 <slot name="title"></slot>
             </div>
             <div v-if="$slots.subtitle" :class="cx('subtitle')" v-bind="ptm('subtitle')">

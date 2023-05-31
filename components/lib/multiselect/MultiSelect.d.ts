@@ -185,7 +185,6 @@ export interface MultiSelectPassThroughOptions {
      * Uses to pass attributes to the option's DOM element.
      */
     option?: MultiSelectPassThroughOptionType;
-
     /**
      * Uses to pass attributes to the emptyMessage's DOM element.
      */

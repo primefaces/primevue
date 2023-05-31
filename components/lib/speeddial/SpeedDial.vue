@@ -1,9 +1,9 @@
 <template>
-    <div :ref="containerRef" :class="containerClass" :style="style" v-bind="ptm('root')">
+    <div :ref="containerRef" :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="speeddial">
         <slot name="button" :toggle="onClick">
             <SDButton
                 type="button"
-                :class="buttonClassName"
+                :class="[cx('button'), buttonClass]"
                 @click="onClick($event)"
                 :disabled="disabled"
                 @keydown="onTogglerKeydown"
@@ -16,24 +16,15 @@
             >
                 <template #icon>
                     <slot name="icon" :visible="d_visible">
-                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="hideIcon" v-bind="ptm('button')['icon']" />
-                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="showIcon" v-bind="ptm('button')['icon']" />
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="cx('buttonIcon')" v-bind="ptm('button')['icon']" />
+                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="cx('buttonIcon')" v-bind="ptm('button')['icon']" />
                     </slot>
                 </template>
             </SDButton>
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" class="p-speeddial-list" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" v-bind="ptm('menu')">
+        <ul :ref="listRef" :id="id + '_list'" :class="cx('menu')" role="menu" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" :aria-activedescendant="focused ? focusedOptionId : undefined" tabindex="-1" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
-                <li
-                    v-if="isItemVisible(item)"
-                    :id="`${id}_${index}`"
-                    :aria-controls="`${id}_item`"
-                    class="p-speeddial-item"
-                    :class="itemClass(`${id}_${index}`)"
-                    :style="getItemStyle(index)"
-                    role="menuitem"
-                    v-bind="getPTOptions(`${id}_${index}`, 'menuitem')"
-                >
+                <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" :class="cx('menuitem', { id: `${id}_${index}` })" :style="getItemStyle(index)" role="menuitem" v-bind="getPTOptions(`${id}_${index}`, 'menuitem')">
                     <template v-if="!$slots.item">
                         <a
                             v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
@@ -41,13 +32,13 @@
                             :tabindex="-1"
                             :href="item.url || '#'"
                             role="menuitem"
-                            :class="['p-speeddial-action', { 'p-disabled': item.disabled }]"
+                            :class="cx('action', { item })"
                             :target="item.target"
                             @click="onItemClick($event, item)"
                             :aria-label="item.label"
                             v-bind="getPTOptions(`${id}_${index}`, 'action')"
                         >
-                            <span v-if="item.icon" :class="['p-speeddial-action-icon', item.icon]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
+                            <span v-if="item.icon" :class="[cx('actionIcon'), item.icon]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item" :onClick="(event) => onItemClick(event, item)"></component>
@@ -56,83 +47,22 @@
         </ul>
     </div>
     <template v-if="mask">
-        <div :class="maskClassName" :style="maskStyle" v-bind="ptm('mask')"></div>
+        <div :class="[cx('mask'), maskClass]" :style="maskStyle" v-bind="ptm('mask')"></div>
     </template>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import Button from 'primevue/button';
 import PlusIcon from 'primevue/icons/plus';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BaseSpeedDial from './BaseSpeedDial.vue';
 
 export default {
     name: 'SpeedDial',
-    extends: BaseComponent,
+    extends: BaseSpeedDial,
     emits: ['click', 'show', 'hide', 'focus', 'blur'],
-    props: {
-        model: null,
-        visible: {
-            type: Boolean,
-            default: false
-        },
-        direction: {
-            type: String,
-            default: 'up'
-        },
-        transitionDelay: {
-            type: Number,
-            default: 30
-        },
-        type: {
-            type: String,
-            default: 'linear'
-        },
-        radius: {
-            type: Number,
-            default: 0
-        },
-        mask: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        hideOnClickOutside: {
-            type: Boolean,
-            default: true
-        },
-        buttonClass: null,
-        maskStyle: null,
-        maskClass: null,
-        showIcon: {
-            type: String,
-            default: undefined
-        },
-        hideIcon: {
-            type: String,
-            default: undefined
-        },
-        rotateAnimation: {
-            type: Boolean,
-            default: true
-        },
-        tooltipOptions: null,
-        style: null,
-        class: null,
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     documentClickListener: null,
     container: null,
     list: null,
@@ -157,8 +87,8 @@ export default {
         this.id = this.id || UniqueComponentId();
 
         if (this.type !== 'linear') {
-            const button = DomHandler.findSingle(this.container, '.p-speeddial-button');
-            const firstItem = DomHandler.findSingle(this.list, '.p-speeddial-item');
+            const button = DomHandler.findSingle(this.container, '[data-pc-section="button"]');
+            const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
 
             if (button && firstItem) {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
@@ -306,7 +236,7 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
-            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
             const itemIndex = [...items].findIndex((item) => item.id === this.focusedOptionIndex);
 
             this.onItemClick(event, this.model[itemIndex]);
@@ -394,7 +324,7 @@ export default {
             event.preventDefault();
         },
         changeFocusedOptionIndex(index) {
-            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
 
             if (filteredItems[index]) {
@@ -402,7 +332,7 @@ export default {
             }
         },
         findPrevOptionIndex(index) {
-            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[filteredItems.length - 1].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
@@ -412,7 +342,7 @@ export default {
             return matchedOptionIndex;
         },
         findNextOptionIndex(index) {
-            const items = DomHandler.find(this.container, '.p-speeddial-item');
+            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[0].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
@@ -512,44 +442,11 @@ export default {
         },
         listRef(el) {
             this.list = el;
-        },
-        itemClass(id) {
-            return [
-                {
-                    'p-focus': this.isItemActive(id)
-                }
-            ];
         }
     },
     computed: {
         containerClass() {
-            return [
-                `p-speeddial p-component p-speeddial-${this.type}`,
-                {
-                    [`p-speeddial-direction-${this.direction}`]: this.type !== 'circle',
-                    'p-speeddial-opened': this.d_visible,
-                    'p-disabled': this.disabled
-                },
-                this.class
-            ];
-        },
-        buttonClassName() {
-            return [
-                'p-speeddial-button p-button-rounded',
-                {
-                    'p-speeddial-rotate': this.rotateAnimation && !this.hideIcon
-                },
-                this.buttonClass
-            ];
-        },
-        maskClassName() {
-            return [
-                'p-speeddial-mask',
-                {
-                    'p-speeddial-mask-visible': this.d_visible
-                },
-                this.maskClass
-            ];
+            return [this.cx('root'), this.class];
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
@@ -565,119 +462,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-speeddial {
-    position: absolute;
-    display: flex;
-}
-
-.p-speeddial-button {
-    z-index: 1;
-}
-
-.p-speeddial-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: top 0s linear 0.2s;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.p-speeddial-item {
-    transform: scale(0);
-    opacity: 0;
-    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 0.8s;
-    will-change: transform;
-}
-
-.p-speeddial-action {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-}
-
-.p-speeddial-circle .p-speeddial-item,
-.p-speeddial-semi-circle .p-speeddial-item,
-.p-speeddial-quarter-circle .p-speeddial-item {
-    position: absolute;
-}
-
-.p-speeddial-rotate {
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    will-change: transform;
-}
-
-.p-speeddial-mask {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.p-speeddial-mask-visible {
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.p-speeddial-opened .p-speeddial-list {
-    pointer-events: auto;
-}
-
-.p-speeddial-opened .p-speeddial-item {
-    transform: scale(1);
-    opacity: 1;
-}
-
-.p-speeddial-opened .p-speeddial-rotate {
-    transform: rotate(45deg);
-}
-
-/* Direction */
-.p-speeddial-direction-up {
-    align-items: center;
-    flex-direction: column-reverse;
-}
-
-.p-speeddial-direction-up .p-speeddial-list {
-    flex-direction: column-reverse;
-}
-
-.p-speeddial-direction-down {
-    align-items: center;
-    flex-direction: column;
-}
-
-.p-speeddial-direction-down .p-speeddial-list {
-    flex-direction: column;
-}
-
-.p-speeddial-direction-left {
-    justify-content: center;
-    flex-direction: row-reverse;
-}
-
-.p-speeddial-direction-left .p-speeddial-list {
-    flex-direction: row-reverse;
-}
-
-.p-speeddial-direction-right {
-    justify-content: center;
-    flex-direction: row;
-}
-
-.p-speeddial-direction-right .p-speeddial-list {
-    flex-direction: row;
-}
-</style>

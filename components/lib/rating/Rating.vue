@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="rating">
         <div v-if="cancel" :class="cx('cancelItem')" @click="onOptionClick($event, 0)" v-bind="ptm('cancelItem')" :data-p-focused="focusedOptionIndex === 0">
             <span :class="cx('hiddenCancelInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenCancelInputWrapper')" :data-p-hidden-accessible="true">
                 <input

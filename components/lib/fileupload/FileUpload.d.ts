@@ -244,10 +244,6 @@ export interface FileUploadPassThroughOptions {
      */
     label?: FileUploadPassThroughOptionType;
     /**
-     * Uses to pass attributes to the basic button's DOM element.
-     */
-    basicButton?: FileUploadPassThroughOptionType;
-    /**
      * Uses to pass attributes to the upload icon's DOM element.
      */
     uploadIcon?: FileUploadPassThroughOptionType;
@@ -411,6 +407,11 @@ export interface FileUploadProps {
      * @type {FileUploadPassThroughOptions}
      */
     pt?: FileUploadPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

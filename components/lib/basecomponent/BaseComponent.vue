@@ -27,6 +27,19 @@ export default {
             default: undefined
         }
     },
+    inject: {
+        $parentInstance: {
+            default: undefined
+        }
+    },
+    watch: {
+        isUnstyled: {
+            immediate: true,
+            handler(newValue) {
+                !newValue && this.$options.css && this.$css.loadStyle();
+            }
+        }
+    },
     methods: {
         _getOptionValue(options, key = '', params = {}) {
             const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
@@ -61,16 +74,12 @@ export default {
             return this._getPTValue(obj, key, params);
         },
         cx(key = '', params = {}) {
-            return !this.isUnstyled ? this._getOptionValue(this.$options.css && this.$options.css.classes, key, { instance: this, props: this.$props, state: this.$data, ...params }) : undefined;
-        },
-        cxo(obj = {}, key = '', params = {}) {
-            // @todo
-            return !this.isUnstyled ? this._getOptionValue(obj.css && obj.css.classes, key, { instance: obj, props: obj && obj.props, state: obj && obj.data, ...params }) : undefined;
+            return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
             if (when) {
-                const self = this._getOptionValue(this.$options.css && this.$options.css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
-                const base = this._getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, ...params });
+                const self = this._getOptionValue(this.$css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
+                const base = this._getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
 
                 return [base, self];
             }
@@ -80,13 +89,13 @@ export default {
     },
     computed: {
         defaultPT() {
-            return this._getOptionValue(this.$primevue.config.pt, this.$.type.name, this.defaultsParams);
-        },
-        defaultsParams() {
-            return { instance: this };
+            return this._getOptionValue(this.$primevue.config.pt, this.$.type.name, { instance: this });
         },
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;
+        },
+        $css() {
+            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...(this.$parentInstance || {}).$css, ...this.$options.css };
         }
     }
 };

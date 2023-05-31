@@ -245,6 +245,7 @@ function addServices() {
     addEntry('toasteventbus', 'ToastEventBus.js', 'toasteventbus');
     addEntry('overlayeventbus', 'OverlayEventBus.js', 'overlayeventbus');
     addEntry('usetoast', 'UseToast.js', 'usetoast');
+    addEntry('usestyle', 'UseStyle.js', 'usestyle');
     addEntry('terminalservice', 'TerminalService.js', 'terminalservice');
     addEntry('usedialog', 'UseDialog.js', 'usedialog');
     addEntry('dialogservice', 'DialogService.js', 'dialogservice');

@@ -60,7 +60,7 @@ const inlineStyles = {
     root: ({ props }) => [{ display: 'flex', 'flex-wrap': 'nowrap' }, props.layout === 'vertical' ? { 'flex-direction': 'column' } : '']
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_splitter_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_splitter_style', manual: true });
 
 export default {
     name: 'BaseSplitter',
@@ -89,15 +89,13 @@ export default {
     },
     css: {
         classes,
-        inlineStyles
+        inlineStyles,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

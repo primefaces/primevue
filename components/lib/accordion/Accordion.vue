@@ -95,6 +95,7 @@ export default {
             return `${this.id}_${index}_content`;
         },
         getTabPT(tab, key, index) {
+            const count = this.tabs.length;
             const tabMetaData = {
                 props: tab.props,
                 parent: {
@@ -102,7 +103,11 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index
+                    index,
+                    count,
+                    first: index === 0,
+                    last: index === count - 1,
+                    active: this.isTabActive(index)
                 }
             };
 

@@ -19,19 +19,53 @@
 </template>
 
 <script>
-import BaseToastMessage from './BaseToastMessage.vue';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
 import TimesIcon from 'primevue/icons/times';
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
+import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'ToastMessage',
-    extends: BaseToastMessage,
+    extends: BaseComponent,
     emits: ['close'],
     closeTimeout: null,
+    props: {
+        message: {
+            type: null,
+            default: null
+        },
+        templates: {
+            type: Object,
+            default: null
+        },
+        closeIcon: {
+            type: String,
+            default: null
+        },
+        infoIcon: {
+            type: String,
+            default: null
+        },
+        warnIcon: {
+            type: String,
+            default: null
+        },
+        errorIcon: {
+            type: String,
+            default: null
+        },
+        successIcon: {
+            type: String,
+            default: null
+        },
+        closeButtonProps: {
+            type: null,
+            default: null
+        }
+    },
     mounted() {
         if (this.message.life) {
             this.closeTimeout = setTimeout(() => {

@@ -1,5 +1,5 @@
 <template>
-    <fieldset :class="cx('root')" v-bind="ptm('root')">
+    <fieldset :class="cx('root')" v-bind="ptm('root')" data-pc-name="fieldset">
         <legend :class="cx('legend')" v-bind="ptm('legend')">
             <slot v-if="!toggleable" name="legend">
                 <span :id="ariaId + '_header'" :class="cx('legendtitle')" v-bind="ptm('legendtitle')">{{ legend }}</span>
