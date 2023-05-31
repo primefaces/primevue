@@ -116,7 +116,7 @@ const styles = `
 `;
 
 const inlineStyles = {
-    submenu: ({ context, processedItem }) => ({ display: context.isItemActive(processedItem) ? 'block' : 'none' })
+    submenu: ({ instance, processedItem }) => ({ display: instance.isItemActive(processedItem) ? 'block' : 'none' })
 };
 
 const classes = {
@@ -129,26 +129,26 @@ const classes = {
     ],
     start: 'p-megamenu-start',
     menu: 'p-megamenu-root-list',
-    submenuHeader: ({ context, processedItem }) => [
+    submenuHeader: ({ instance, processedItem }) => [
         'p-megamenu-submenu-header p-submenu-header',
         {
-            'p-disabled': context.isItemDisabled(processedItem)
+            'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
-    menuitem: ({ context, processedItem }) => [
+    menuitem: ({ instance, processedItem }) => [
         'p-menuitem',
         {
-            'p-menuitem-active p-highlight': context.isItemActive(processedItem),
-            'p-focus': context.isItemFocused(processedItem),
-            'p-disabled': context.isItemDisabled(processedItem)
+            'p-menuitem-active p-highlight': instance.isItemActive(processedItem),
+            'p-focus': instance.isItemFocused(processedItem),
+            'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ context, isActive, isExactActive }) => [
+    action: ({ props, isActive, isExactActive }) => [
         'p-menuitem-link',
         {
             'router-link-active': isActive,
-            'router-link-active-exact': context.exact && isExactActive
+            'router-link-active-exact': props.exact && isExactActive
         }
     ],
     icon: 'p-menuitem-icon',
@@ -156,8 +156,8 @@ const classes = {
     submenuIcon: 'p-submenu-icon',
     panel: 'p-megamenu-panel',
     grid: 'p-megamenu-grid',
-    column: ({ context, processedItem }) => {
-        let length = context.isItemGroup(processedItem) ? processedItem.items.length : 0;
+    column: ({ instance, processedItem }) => {
+        let length = instance.isItemGroup(processedItem) ? processedItem.items.length : 0;
         let columnClass;
 
         switch (length) {
@@ -189,7 +189,7 @@ const classes = {
     end: 'p-megamenu-end'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_megamenu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_megamenu_style', manual: true });
 
 export default {
     name: 'BaseMegaMenu',
@@ -226,15 +226,13 @@ export default {
     },
     css: {
         classes,
-        inlineStyles
+        inlineStyles,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

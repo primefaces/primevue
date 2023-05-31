@@ -39,11 +39,11 @@ const styles = `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ props, instance }) => [
         'p-badge p-component',
         {
             'p-badge-no-gutter': ObjectUtils.isNotEmpty(props.value) && String(props.value).length === 1,
-            'p-badge-dot': ObjectUtils.isEmpty(props.value) && !props.$slots.default,
+            'p-badge-dot': ObjectUtils.isEmpty(props.value) && !instance.$slots.default,
             'p-badge-lg': props.size === 'large',
             'p-badge-xl': props.size === 'xlarge',
             'p-badge-info': props.severity === 'info',
@@ -74,15 +74,13 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

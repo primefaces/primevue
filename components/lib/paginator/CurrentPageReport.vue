@@ -1,5 +1,5 @@
 <template>
-    <span class="p-paginator-current" v-bind="ptm('current')">{{ text }}</span>
+    <span :class="cx('current')" v-bind="ptm('current')">{{ text }}</span>
 </template>
 
 <script>

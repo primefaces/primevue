@@ -146,7 +146,7 @@
                                         @click="onOptionSelect($event, option)"
                                         @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                         :data-p-highlight="isSelected(option)"
-                                        :data-p-focus="focusedOptionIndex === getOptionIndex(index, getItemOptions)"
+                                        :data-p-focus="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                         :data-p-disabled="isOptionDisabled(option)"
                                         v-bind="getPTOptions(option, getItemOptions, i, 'item')"
                                     >

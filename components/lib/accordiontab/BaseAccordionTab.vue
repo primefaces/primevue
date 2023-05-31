@@ -14,6 +14,11 @@ export default {
         contentClass: null,
         contentProps: null,
         disabled: Boolean
+    },
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

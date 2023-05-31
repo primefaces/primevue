@@ -37,26 +37,26 @@ const classes = {
     submenuHeader: 'p-submenu-header',
     separator: 'p-menuitem-separator',
     end: 'p-menu-end',
-    menuitem: ({ context }) => [
+    menuitem: ({ instance }) => [
         'p-menuitem',
         {
-            'p-focus': context.id === context.focusedOptionId,
-            'p-disabled': context.disabled()
+            'p-focus': instance.id === instance.focusedOptionId,
+            'p-disabled': instance.disabled()
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ context, isActive, isExactActive }) => [
+    action: ({ props, isActive, isExactActive }) => [
         'p-menuitem-link',
         {
             'router-link-active': isActive,
-            'router-link-active-exact': context.exact && isExactActive
+            'router-link-active-exact': props.exact && isExactActive
         }
     ],
     icon: 'p-menuitem-icon',
     label: 'p-menuitem-text'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_menu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_menu_style', manual: true });
 
 export default {
     name: 'BaseMenu',
@@ -100,15 +100,13 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

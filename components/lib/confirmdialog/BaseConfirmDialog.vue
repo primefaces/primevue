@@ -27,6 +27,11 @@ export default {
     },
     css: {
         classes
+    },
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

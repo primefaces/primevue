@@ -54,20 +54,20 @@ const classes = {
         }
     ],
     menu: 'p-contextmenu-root-list',
-    menuitem: ({ context, processedItem }) => [
+    menuitem: ({ instance, processedItem }) => [
         'p-menuitem',
         {
-            'p-menuitem-active p-highlight': context.isItemActive(processedItem),
-            'p-focus': context.isItemFocused(processedItem),
-            'p-disabled': context.isItemDisabled(processedItem)
+            'p-menuitem-active p-highlight': instance.isItemActive(processedItem),
+            'p-focus': instance.isItemFocused(processedItem),
+            'p-disabled': instance.isItemDisabled(processedItem)
         }
     ],
     content: 'p-menuitem-content',
-    action: ({ context, isActive, isExactActive }) => [
+    action: ({ props, isActive, isExactActive }) => [
         'p-menuitem-link',
         {
             'router-link-active': isActive,
-            'router-link-active-exact': context.exact && isExactActive
+            'router-link-active-exact': props.exact && isExactActive
         }
     ],
     icon: 'p-menuitem-icon',
@@ -77,7 +77,7 @@ const classes = {
     separator: 'p-menuitem-separator'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_contextmenu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_contextmenu_style', manual: true });
 
 export default {
     name: 'BaseContextMenu',
@@ -121,15 +121,13 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>

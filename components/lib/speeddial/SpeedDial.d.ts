@@ -228,6 +228,11 @@ export interface SpeedDialProps {
      * @type {SpeedDialPassThroughOptions}
      */
     pt?: SpeedDialPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

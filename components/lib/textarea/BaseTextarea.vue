@@ -23,7 +23,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_textarea_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_textarea_style', manual: true });
 
 export default {
     name: 'BaseTextarea',
@@ -33,15 +33,13 @@ export default {
         autoResize: Boolean
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
-    watch: {
-        isUnstyled: {
-            immediate: true,
-            handler(newValue) {
-                !newValue && loadStyle();
-            }
-        }
+    provide() {
+        return {
+            $parentInstance: this
+        };
     }
 };
 </script>
