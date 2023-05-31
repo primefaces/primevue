@@ -1,7 +1,7 @@
 <template>
     <li
         ref="currentNode"
-        :class="getCXOptions('node')"
+        :class="cx('node')"
         role="treeitem"
         :aria-label="label(node)"
         :aria-selected="ariaSelected"
@@ -15,19 +15,19 @@
         v-bind="level === 1 ? getPTOptions('node') : ptm('subgroup')"
         data-pc-section="treeitem"
     >
-        <div :class="getCXOptions('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
+        <div :class="cx('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
             <button v-ripple type="button" :class="cx('toggler')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">
                 <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('togglerIcon')" />
                 <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
                 <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
             </button>
             <div v-if="checkboxMode" :class="cx('checkboxContainer')" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
-                <div :class="getCXOptions('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialchecked">
+                <div :class="cx('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialchecked">
                     <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxIcon')" />
                     <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxIcon')" v-bind="getPTOptions('checkboxIcon')" />
                 </div>
             </div>
-            <span :class="getCXOptions('nodeIcon')" v-bind="getPTOptions('nodeIcon')"></span>
+            <span :class="cx('nodeIcon')" v-bind="getPTOptions('nodeIcon')"></span>
             <span :class="cx('label')" v-bind="getPTOptions('label')">
                 <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" />
                 <template v-else>{{ label(node) }}</template>
@@ -118,11 +118,6 @@ export default {
                     selected: this.selected,
                     checked: this.checked
                 }
-            });
-        },
-        getCXOptions(key) {
-            return this.cx(key, {
-                context: this
             });
         },
         onClick(event) {
@@ -390,7 +385,7 @@ export default {
         getParentNodeElement(nodeElement) {
             const parentNodeElement = nodeElement.parentElement.parentElement;
 
-            return DomHandler.getAttribute(parentNodeElement, '[data-pc-section="treeitem"]') ? parentNodeElement : null;
+            return DomHandler.getAttribute(parentNodeElement, 'data-pc-section') === 'treeitem' ? parentNodeElement : null;
         },
         focusNode(element) {
             element.focus();
