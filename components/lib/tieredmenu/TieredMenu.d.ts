@@ -60,18 +60,13 @@ export interface TieredMenuPassThroughOptions {
      */
     submenuIcon?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu's DOM element.
-     */
-    submenu?: TieredMenuPassThroughOptionType;
-    /**
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: TieredMenuPassThroughOptionType;
     /**
-     * When enabled, it removes component related styles in the core.
-     * @defaultValue false
+     * Uses to pass attributes to the submenu's DOM element.
      */
-    unstyled?: boolean;
+    submenu?: TieredMenuPassThroughOptionType;
 }
 
 /**
@@ -200,6 +195,11 @@ export interface TieredMenuProps {
      * @type {TieredMenuPassThroughOptions}
      */
     pt?: TieredMenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
