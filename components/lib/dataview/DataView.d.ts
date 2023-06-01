@@ -202,6 +202,11 @@ export interface DataViewProps {
      * @type {DataViewPassThroughOptions}
      */
     pt?: DataViewPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
