@@ -2375,10 +2375,10 @@ export default {
                 cell = DomHandler.findSingle(this.overlay, 'span[data-p-highlight="true"]');
 
                 if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.overlay, 'td[data-p-today="true"] span:not([data-p-disabled="true"]):not([data-p-ink="true"]');
+                    let todayCell = DomHandler.findSingle(this.overlay, 'td.p-datepicker-today span:not(.p-disabled):not(.p-ink)');
 
                     if (todayCell) cell = todayCell;
-                    else cell = DomHandler.findSingle(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"]');
+                    else cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink)');
                 }
             }
 
