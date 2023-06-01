@@ -218,6 +218,11 @@ export interface OrganizationChartProps {
      * @type {OrganizationChartPassThroughOptions}
      */
     pt?: OrganizationChartPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
