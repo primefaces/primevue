@@ -14880,6 +14880,14 @@
                             "type": "DataViewPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "grid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataViewPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the grid's DOM element."
                         }
                     ],
                     "methods": []
