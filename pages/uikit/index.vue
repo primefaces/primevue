@@ -293,19 +293,7 @@
 </template>
 
 <script>
-import FetchPricing from '@/service/PricingService';
-
 export default {
-    data() {
-        return {
-            pricing: null
-        };
-    },
-    mounted() {
-        FetchPricing().then((data) => {
-            this.pricing = data;
-        });
-    },
     methods: {
         isDarkTheme() {
             return this.$appState.darkTheme === true;
