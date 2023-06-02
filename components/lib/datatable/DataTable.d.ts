@@ -596,9 +596,9 @@ export interface DataTablePassThroughOptions {
      */
     rowgroupHeader?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the row's DOM element.
+     * Uses to pass attributes to the body row's DOM element.
      */
-    row?: DataTablePassThroughOptionType;
+    bodyRow?: DataTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the row expansion's DOM element.
      */

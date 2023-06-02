@@ -42,7 +42,7 @@
                     @dragleave="onRowDragLeave($event)"
                     @dragend="onRowDragEnd($event)"
                     @drop="onRowDrop($event)"
-                    v-bind="ptm('row')"
+                    v-bind="ptm('bodyRow')"
                     :data-p-selectable-row="selectionMode ? true : false"
                     :data-p-highlight="selection && isSelected(rowData)"
                     :data-p-highlight-contextmenu="contextMenuSelection && isSelectedWithContextMenu(rowData)"

@@ -16,6 +16,7 @@ export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((opti
 export interface RowPassThroughMethodOptions {
     props: RowProps;
     parent: ColumnGroupPassThroughOptions;
+    context: RowContext;
 }
 
 /**
@@ -45,6 +46,16 @@ export interface RowProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+}
+
+/**
+ * Defines current options in Row component.
+ */
+export interface RowContext {
+    /**
+     * Current index of the row.
+     */
+    index: number;
 }
 
 /**

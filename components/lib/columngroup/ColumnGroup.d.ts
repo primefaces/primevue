@@ -16,6 +16,7 @@ export declare type ColumnGroupPassThroughOptionType = ColumnGroupPassThroughAtt
 export interface ColumnGroupPassThroughMethodOptions {
     props: ColumnGroupProps;
     parent: DataTablePassThroughOptions;
+    context: ColumnGroupContext;
 }
 
 /**
@@ -54,6 +55,16 @@ export interface ColumnGroupProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+}
+
+/**
+ * Defines current options in ColumnGroup component.
+ */
+export interface ColumnGroupContext {
+    /**
+     * Current type of the column group.
+     */
+    type: string;
 }
 
 /**
