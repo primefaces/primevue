@@ -102,29 +102,29 @@ const classes = {
     searchIcon: 'p-tree-filter-icon',
     wrapper: 'p-tree-wrapper',
     container: 'p-tree-container',
-    node: ({ context }) => ['p-context', { 'p-context-leaf': context.leaf }],
-    content: ({ context }) => [
-        'p-context-content',
-        context.node.styleClass,
+    node: ({ instance }) => ['p-treenode', { 'p-treenode-leaf': instance.leaf }],
+    content: ({ instance }) => [
+        'p-treenode-content',
+        instance.node.styleClass,
         {
-            'p-context-selectable': context.selectable,
-            'p-highlight': context.checkboxMode ? context.checked : context.selected
+            'p-treenode-selectable': instance.selectable,
+            'p-highlight': instance.checkboxMode ? instance.checked : instance.selected
         }
     ],
     toggler: 'p-tree-toggler p-link',
     togglerIcon: 'p-tree-toggler-icon',
     checkboxContainer: 'p-checkbox p-component',
-    checkbox: ({ context }) => [
+    checkbox: ({ instance }) => [
         'p-checkbox-box',
         {
-            'p-highlight': context.checked,
-            'p-indeterminate': context.partialChecked
+            'p-highlight': instance.checked,
+            'p-indeterminate': instance.partialChecked
         }
     ],
     checkboxIcon: 'p-checkbox-icon',
-    nodeIcon: ({ context }) => ['p-context-icon', context.node.icon],
-    label: 'p-context-label',
-    subgroup: 'p-context-children'
+    nodeIcon: ({ instance }) => ['p-treenode-icon', instance.node.icon],
+    label: 'p-treenode-label',
+    subgroup: 'p-treenode-children'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_tree_style', manual: true });

@@ -1,15 +1,9 @@
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseColumnGroup from './BaseColumnGroup.vue';
 
 export default {
     name: 'ColumnGroup',
-    extends: BaseComponent,
-    props: {
-        type: {
-            type: String,
-            default: null
-        }
-    },
+    extends: BaseColumnGroup,
     render() {
         return null;
     }

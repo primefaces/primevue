@@ -97,7 +97,7 @@ export default {
         getTabPT(tab, key, index) {
             const count = this.tabs.length;
             const tabMetaData = {
-                props: tab.props,
+                props: tab.props || {},
                 parent: {
                     props: this.$props,
                     state: this.$data

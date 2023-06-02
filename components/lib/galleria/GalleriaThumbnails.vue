@@ -1,49 +1,40 @@
 <template>
-    <div class="p-galleria-thumbnail-wrapper" v-bind="ptm('thumbnailWrapper')">
-        <div class="p-galleria-thumbnail-container" v-bind="ptm('thumbnailContainer')">
+    <div :class="cx('thumbnailWrapper')" v-bind="ptm('thumbnailWrapper')">
+        <div :class="cx('thumbnailContainer')" v-bind="ptm('thumbnailContainer')">
             <button
                 v-if="showThumbnailNavigators"
                 v-ripple
-                :class="navBackwardClass"
+                :class="cx('previousThumbnailButton')"
                 :disabled="isNavBackwardDisabled()"
                 type="button"
                 :aria-label="ariaPrevButtonLabel"
                 @click="navBackward($event)"
                 v-bind="{ ...prevButtonProps, ...ptm('previousThumbnailButton') }"
             >
-                <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" class="p-galleria-thumbnail-prev-icon" v-bind="ptm('previousThumbnailIcon')" />
+                <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('previousThumbnailIcon')" v-bind="ptm('previousThumbnailIcon')" />
             </button>
-            <div class="p-galleria-thumbnail-items-container" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailItemsContainer')">
-                <div
-                    ref="itemsContainer"
-                    class="p-galleria-thumbnail-items"
-                    role="tablist"
-                    @transitionend="onTransitionEnd"
-                    @touchstart="onTouchStart($event)"
-                    @touchmove="onTouchMove($event)"
-                    @touchend="onTouchEnd($event)"
-                    v-bind="ptm('thumbnailItems')"
-                >
+            <div :class="cx('thumbnailItemsContainer')" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailItemsContainer')">
+                <div ref="itemsContainer" :class="cx('thumbnailItems')" role="tablist" @transitionend="onTransitionEnd" @touchstart="onTouchStart($event)" @touchmove="onTouchMove($event)" @touchend="onTouchEnd($event)" v-bind="ptm('thumbnailItems')">
                     <div
                         v-for="(item, index) of value"
                         :key="`p-galleria-thumbnail-item-${index}`"
-                        :class="[
-                            'p-galleria-thumbnail-item',
-                            {
-                                'p-galleria-thumbnail-item-current': activeIndex === index,
-                                'p-galleria-thumbnail-item-active': isItemActive(index),
-                                'p-galleria-thumbnail-item-start': firstItemAciveIndex() === index,
-                                'p-galleria-thumbnail-item-end': lastItemActiveIndex() === index
-                            }
-                        ]"
+                        :class="
+                            cx('thumbnailItem', {
+                                context: {
+                                    index,
+                                    activeIndex
+                                }
+                            })
+                        "
                         role="tab"
+                        :data-p-active="activeIndex === index"
                         :aria-selected="activeIndex === index"
                         :aria-controls="containerId + '_item_' + index"
                         @keydown="onThumbnailKeydown($event, index)"
                         v-bind="ptm('thumbnailItem')"
                     >
                         <div
-                            class="p-galleria-thumbnail-item-content"
+                            :class="cx('thumbnailItemContent')"
                             :tabindex="activeIndex === index ? '0' : '-1'"
                             :aria-label="ariaPageLabel(index + 1)"
                             :aria-current="activeIndex === index ? 'page' : undefined"
@@ -58,14 +49,14 @@
             <button
                 v-if="showThumbnailNavigators"
                 v-ripple
-                :class="navForwardClass"
+                :class="cx('nextThumbnailButton')"
                 :disabled="isNavForwardDisabled()"
                 type="button"
                 :aria-label="ariaNextButtonLabel"
                 @click="navForward($event)"
                 v-bind="{ ...nextButtonProps, ...ptm('nextThumbnailButton') }"
             >
-                <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" class="p-galleria-thumbnail-next-icon" v-bind="ptm('nextThumbnailIcon')" />
+                <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" :class="cx('nextThumbnailIcon')" v-bind="ptm('nextThumbnailIcon')" />
             </button>
         </div>
     </div>
@@ -190,7 +181,7 @@ export default {
             this.$refs.itemsContainer.style.transform = this.isVertical ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
 
             if (this.d_oldActiveItemIndex !== this.d_activeIndex) {
-                DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
+                !this.isUnstyled && DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
             }
 
@@ -226,7 +217,7 @@ export default {
             }
 
             if (this.$refs.itemsContainer) {
-                DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
+                !this.isUnstyled && DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transform = this.isVertical ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
             }
@@ -343,7 +334,7 @@ export default {
             }
         },
         onRightKey() {
-            const indicators = DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item');
+            const indicators = DomHandler.find(this.$refs.itemsContainer, '[data-pc-section="thumbnailitem"]');
             const activeIndex = this.findFocusedIndicatorIndex();
 
             this.changedFocusedIndicator(activeIndex, activeIndex + 1 === indicators.length ? indicators.length - 1 : activeIndex + 1);
@@ -359,29 +350,30 @@ export default {
             this.changedFocusedIndicator(activeIndex, 0);
         },
         onEndKey() {
-            const indicators = DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item');
+            const indicators = DomHandler.find(this.$refs.itemsContainer, '[data-pc-section="thumbnailitem"]');
             const activeIndex = this.findFocusedIndicatorIndex();
 
             this.changedFocusedIndicator(activeIndex, indicators.length - 1);
         },
         onTabKey() {
-            const indicators = [...DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item')];
-            const highlightedIndex = indicators.findIndex((ind) => DomHandler.hasClass(ind, 'p-galleria-thumbnail-item-current'));
+            const indicators = [...DomHandler.find(this.$refs.itemsContainer, '[data-pc-section="thumbnailitem"]')];
+            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-active') === true);
 
-            const activeIndicator = DomHandler.findSingle(this.$refs.itemsContainer, '.p-galleria-thumbnail-item > [tabindex="0"');
+            const activeIndicator = DomHandler.findSingle(this.$refs.itemsContainer, '[tabindex="0"]');
+
             const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);
 
             indicators[activeIndex].children[0].tabIndex = '-1';
             indicators[highlightedIndex].children[0].tabIndex = '0';
         },
         findFocusedIndicatorIndex() {
-            const indicators = [...DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item')];
-            const activeIndicator = DomHandler.findSingle(this.$refs.itemsContainer, '.p-galleria-thumbnail-item > [tabindex="0"]');
+            const indicators = [...DomHandler.find(this.$refs.itemsContainer, '[data-pc-section="thumbnailitem"]')];
+            const activeIndicator = DomHandler.findSingle(this.$refs.itemsContainer, '[data-pc-section="thumbnailitem"] > [tabindex="0"]');
 
             return indicators.findIndex((ind) => ind === activeIndicator.parentElement);
         },
         changedFocusedIndicator(prevInd, nextInd) {
-            const indicators = DomHandler.find(this.$refs.itemsContainer, '.p-galleria-thumbnail-item');
+            const indicators = DomHandler.find(this.$refs.itemsContainer, '[data-pc-section="thumbnailitem"]');
 
             indicators[prevInd].children[0].tabIndex = '-1';
             indicators[nextInd].children[0].tabIndex = '0';
@@ -389,7 +381,7 @@ export default {
         },
         onTransitionEnd() {
             if (this.$refs.itemsContainer) {
-                DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
+                !this.isUnstyled && DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = '';
             }
         },
@@ -526,22 +518,6 @@ export default {
         }
     },
     computed: {
-        navBackwardClass() {
-            return [
-                'p-galleria-thumbnail-prev p-link',
-                {
-                    'p-disabled': this.isNavBackwardDisabled()
-                }
-            ];
-        },
-        navForwardClass() {
-            return [
-                'p-galleria-thumbnail-next p-link',
-                {
-                    'p-disabled': this.isNavForwardDisabled()
-                }
-            ];
-        },
         ariaPrevButtonLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.prevPageLabel : undefined;
         },

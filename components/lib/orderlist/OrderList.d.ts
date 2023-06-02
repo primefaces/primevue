@@ -211,6 +211,11 @@ export interface OrderListProps {
      * @type {OrderListPassThroughOptions}
      */
     pt?: OrderListPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

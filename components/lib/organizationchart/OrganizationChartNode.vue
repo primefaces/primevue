@@ -1,36 +1,58 @@
 <template>
-    <table class="p-organizationchart-table" v-bind="ptm('table')">
+    <table :class="cx('table')" v-bind="ptm('table')">
         <tbody v-bind="ptm('body')">
             <tr v-if="node" v-bind="ptm('row')">
                 <td :colspan="colspan" v-bind="ptm('cell')">
-                    <div :class="nodeContentClass" @click="onNodeClick" v-bind="getPTOptions('node')">
+                    <div :class="cx('node')" @click="onNodeClick" v-bind="getPTOptions('node')">
                         <component :is="templates[node.type] || templates['default']" :node="node" />
-                        <a v-if="toggleable" tabindex="0" class="p-node-toggler" @click="toggleNode" @keydown="onKeydown" v-bind="getPTOptions('nodeToggler')">
+                        <a v-if="toggleable" tabindex="0" :class="cx('nodeToggler')" @click="toggleNode" @keydown="onKeydown" v-bind="getPTOptions('nodeToggler')">
                             <component v-if="templates.togglericon" :is="templates.togglericon" :expanded="expanded" class="p-node-toggler-icon" />
-                            <component v-else :is="expanded ? 'ChevronDownIcon' : 'ChevronUpIcon'" class="p-node-toggler-icon" v-bind="getPTOptions('nodeTogglerIcon')" />
+                            <component v-else :is="expanded ? 'ChevronDownIcon' : 'ChevronUpIcon'" :class="cx('nodeTogglerIcon')" v-bind="getPTOptions('nodeTogglerIcon')" />
                         </a>
                     </div>
                 </td>
             </tr>
-            <tr :style="childStyle" class="p-organizationchart-lines" v-bind="ptm('lines')">
+            <tr :style="childStyle" :class="cx('lines')" v-bind="ptm('lines')">
                 <td :colspan="colspan">
-                    <div class="p-organizationchart-line-down" v-bind="ptm('lineDown')"></div>
+                    <div :class="cx('lineDown')" v-bind="ptm('lineDown')"></div>
                 </td>
             </tr>
-            <tr :style="childStyle" class="p-organizationchart-lines" v-bind="ptm('lines')">
+            <tr :style="childStyle" :class="cx('lines')" v-bind="ptm('lines')">
                 <template v-if="node.children && node.children.length === 1">
                     <td :colspan="colspan" v-bind="ptm('lineCell')">
-                        <div class="p-organizationchart-line-down" v-bind="ptm('lineDown')"></div>
+                        <div :class="cx('lineDown')" v-bind="ptm('lineDown')"></div>
                     </td>
                 </template>
                 <template v-if="node.children && node.children.length > 1">
                     <template v-for="(child, i) of node.children" :key="child.key">
-                        <td class="p-organizationchart-line-left" :class="{ 'p-organizationchart-line-top': !(i === 0) }" v-bind="getNodeOptions(!(i === 0), 'lineLeft')">&nbsp;</td>
-                        <td class="p-organizationchart-line-right" :class="{ 'p-organizationchart-line-top': !(i === node.children.length - 1) }" v-bind="getNodeOptions(!(i === node.children.length - 1), 'lineRight')">&nbsp;</td>
+                        <td
+                            :class="
+                                cx('lineLeft', {
+                                    context: {
+                                        i
+                                    }
+                                })
+                            "
+                            v-bind="getNodeOptions(!(i === 0), 'lineLeft')"
+                        >
+                            &nbsp;
+                        </td>
+                        <td
+                            :class="
+                                cx('lineRight', {
+                                    context: {
+                                        i
+                                    }
+                                })
+                            "
+                            v-bind="getNodeOptions(!(i === node.children.length - 1), 'lineRight')"
+                        >
+                            &nbsp;
+                        </td>
                     </template>
                 </template>
             </tr>
-            <tr :style="childStyle" class="p-organizationchart-nodes" v-bind="ptm('nodes')">
+            <tr :style="childStyle" :class="cx('nodes')" v-bind="ptm('nodes')">
                 <td v-for="child of node.children" :key="child.key" colspan="2" v-bind="ptm('nodeCell')">
                     <OrganizationChartNode
                         :node="child"
@@ -42,6 +64,7 @@
                         :selectionKeys="selectionKeys"
                         @node-click="onChildNodeClick"
                         :pt="pt"
+                        :unstyled="unstyled"
                     />
                 </td>
             </tr>
@@ -105,7 +128,7 @@ export default {
             });
         },
         onNodeClick(event) {
-            if (DomHandler.hasClass(event.target, 'p-node-toggler') || DomHandler.hasClass(event.target, 'p-node-toggler-icon')) {
+            if (DomHandler.getAttribute(event.target, 'nodeToggler') || DomHandler.getAttribute(event.target, 'nodeTogglerIcon')) {
                 return;
             }
 
@@ -130,9 +153,6 @@ export default {
         }
     },
     computed: {
-        nodeContentClass() {
-            return ['p-organizationchart-node-content', this.node.styleClass, { 'p-organizationchart-selectable-node': this.selectable, 'p-highlight': this.selected }];
-        },
         leaf() {
             return this.node.leaf === false ? false : !(this.node.children && this.node.children.length);
         },
