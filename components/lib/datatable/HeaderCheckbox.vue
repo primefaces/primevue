@@ -1,6 +1,6 @@
 <template>
-    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused, 'p-disabled': disabled }]" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPTOptions('headerCheckboxWrapper')">
-        <div class="p-hidden-accessible" v-bind="getColumnPTOptions('hiddenHeaderInputWrapper')">
+    <div :class="cx('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPTOptions('headerCheckboxWrapper')">
+        <div :class="cx('hiddenHeaderInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPTOptions('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 type="checkbox"
@@ -13,9 +13,9 @@
                 v-bind="getColumnPTOptions('hiddenHeaderInput')"
             />
         </div>
-        <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="getColumnPTOptions('headerCheckbox')">
-            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" class="p-checkbox-icon" />
-            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" class="p-checkbox-icon" v-bind="getColumnPTOptions('headerCheckboxIcon')" />
+        <div ref="box" :class="cx('headerCheckbox')" v-bind="getColumnPTOptions('headerCheckbox')">
+            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" :class="cx('headerCheckboxIcon')" />
+            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" :class="cx('headerCheckboxIcon')" v-bind="getColumnPTOptions('headerCheckboxIcon')" />
         </div>
     </div>
 </template>

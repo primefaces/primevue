@@ -1,5 +1,5 @@
 <template>
-    <thead class="p-datatable-thead" role="rowgroup" v-bind="{ ...ptm('thead'), ...getColumnGroupPTOptions('root') }">
+    <thead :class="cx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead'), ...getColumnGroupPTOptions('root') } : ptm('thead')" data-pc-section="thead">
         <template v-if="!columnGroup">
             <tr role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
@@ -91,7 +91,7 @@
             </tr>
         </template>
         <template v-else>
-            <tr v-for="(row, i) of getHeaderRows()" :key="i" role="row" v-bind="getRowPTOptions(row, 'root')">
+            <tr v-for="(row, i) of getHeaderRows()" :key="i" role="row" v-bind="{ ...ptm('headerRow'), ...getRowPTOptions(row, 'root') }">
                 <template v-for="(col, j) of getHeaderColumns(row)" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || j">
                     <DTHeaderCell
                         v-if="!columnProp(col, 'hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp(col, 'field')) && typeof col.children !== 'string'"
@@ -269,14 +269,7 @@ export default {
             return column.props && column.props.pt ? column.props.pt : undefined; //@todo
         },
         getFilterColumnHeaderClass(column) {
-            return [
-                'p-filter-column',
-                this.columnProp(column, 'filterHeaderClass'),
-                this.columnProp(column, 'class'),
-                {
-                    'p-frozen-column': this.columnProp(column, 'frozen')
-                }
-            ];
+            return [this.cx('headerCell', { column }), this.columnProp(column, 'filterHeaderClass'), this.columnProp(column, 'class')];
         },
         getFilterColumnHeaderStyle(column) {
             return [this.columnProp(column, 'filterHeaderStyle'), this.columnProp(column, 'style')];

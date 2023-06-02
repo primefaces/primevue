@@ -1,23 +1,23 @@
 <template>
-    <tbody :ref="bodyRef" class="p-datatable-tbody" role="rowgroup" :style="bodyStyle" v-bind="ptm('tbody')">
+    <tbody :ref="bodyRef" :class="cx('tbody')" role="rowgroup" :style="bodyStyle" v-bind="ptm('tbody')">
         <template v-if="!empty">
             <template v-for="(rowData, index) of value">
                 <tr
                     v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))"
                     :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'"
-                    class="p-rowgroup-header"
+                    :class="cx('rowgroupHeader')"
                     :style="rowGroupHeaderStyle"
                     role="row"
                     v-bind="ptm('rowgroupHeader')"
                 >
                     <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
-                        <button v-if="expandableRowGroups" class="p-row-toggler p-link" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPTOptions('rowGroupToggler')">
+                        <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPTOptions('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
-                                <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="['p-row-toggler-icon', expandedRowIcon]" />
-                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" class="p-row-toggler-icon" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
-                                <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="['p-row-toggler-icon', collapsedRowIcon]" />
-                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" class="p-row-toggler-icon" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
+                                <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="[cx('rowGroupTogglerIcon'), expandedRowIcon]" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
+                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
+                                <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="[cx('rowGroupTogglerIcon'), collapsedRowIcon]" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
+                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
                             </template>
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
@@ -43,6 +43,9 @@
                     @dragend="onRowDragEnd($event)"
                     @drop="onRowDrop($event)"
                     v-bind="ptm('row')"
+                    :data-p-selectable-row="selectionMode ? true : false"
+                    :data-p-highlight="selection && isSelected(rowData)"
+                    :data-p-highlight-contextmenu="contextMenuSelection && isSelectedWithContextMenu(rowData)"
                 >
                     <template v-for="(col, i) of columns">
                         <DTBodyCell
@@ -83,7 +86,7 @@
                     v-if="templates['expansion'] && expandedRows && isRowExpanded(rowData)"
                     :key="getRowKey(rowData, getRowIndex(index)) + '_expansion'"
                     :id="expandedRowId + '_' + index + '_expansion'"
-                    class="p-datatable-row-expansion"
+                    :class="cx('rowExpansion')"
                     role="row"
                     v-bind="ptm('rowExpansion')"
                 >
@@ -94,7 +97,7 @@
                 <tr
                     v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))"
                     :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'"
-                    class="p-rowgroup-footer"
+                    :class="cx('rowgroupFooter')"
                     role="row"
                     v-bind="ptm('rowgroupFooter')"
                 >
@@ -104,7 +107,7 @@
                 </tr>
             </template>
         </template>
-        <tr v-else class="p-datatable-emptymessage" role="row" v-bind="ptm('emptyMessage')">
+        <tr v-else :class="cx('emptyMessage')" role="row" v-bind="ptm('emptyMessage')">
             <td :colspan="columnsLength" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
                 <component v-if="templates.empty" :is="templates.empty" />
             </td>
@@ -341,22 +344,6 @@ export default {
         getRowClass(rowData) {
             let rowStyleClass = [];
 
-            if (this.selectionMode) {
-                rowStyleClass.push('p-selectable-row');
-            }
-
-            if (this.selection) {
-                rowStyleClass.push({
-                    'p-highlight': this.isSelected(rowData)
-                });
-            }
-
-            if (this.contextMenuSelection) {
-                rowStyleClass.push({
-                    'p-highlight-contextmenu': this.isSelectedWithContextMenu(rowData)
-                });
-            }
-
             if (this.rowClass) {
                 let rowClassValue = this.rowClass(rowData);
 
@@ -365,7 +352,7 @@ export default {
                 }
             }
 
-            return rowStyleClass;
+            return [this.cx('row', { rowData }), rowStyleClass];
         },
         shouldRenderRowGroupFooter(value, rowData, i) {
             if (this.expandableRowGroups && !this.isRowGroupExpanded(rowData)) {

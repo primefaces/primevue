@@ -77,13 +77,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                this.columnProp('footerClass'),
-                this.columnProp('class'),
-                {
-                    'p-frozen-column': this.columnProp('frozen')
-                }
-            ];
+            return [this.columnProp('footerClass'), this.columnProp('class'), this.cx('footerCell')];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');

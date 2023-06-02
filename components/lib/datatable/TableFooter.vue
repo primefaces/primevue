@@ -1,5 +1,5 @@
 <template>
-    <tfoot v-if="hasFooter" class="p-datatable-tfoot" role="rowgroup" v-bind="{ ...ptm('tfoot'), ...getColumnGroupPTOptions('root') }">
+    <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot'), ...getColumnGroupPTOptions('root') } : ptm('tfoot')" data-pc-section="tfoot">
         <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                 <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
