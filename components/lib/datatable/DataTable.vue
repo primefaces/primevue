@@ -60,7 +60,6 @@
                 autoSize
                 :showSpacer="false"
                 :pt="ptm('virtualScroller')"
-                data-pc-section="virtualscroller"
             >
                 <template #content="slotProps">
                     <table ref="table" role="table" :class="[cx('table'), tableClass]" :style="[tableStyle, slotProps.spacerStyle]" v-bind="{ ...tableProps, ...ptm('table') }">
