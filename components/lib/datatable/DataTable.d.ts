@@ -8,7 +8,10 @@
  *
  */
 import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
+import { ColumnPassThroughOptionType } from '../column';
+import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
+import { RowPassThroughOptionType } from '../row';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
@@ -635,6 +638,18 @@ export interface DataTablePassThroughOptions {
      * Uses to pass attributes to the reorder indicator down's DOM element.
      */
     reorderIndicatorDown?: DataTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the ColumnGroup helper components.
+     */
+    columnGroup?: ColumnGroupPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Row helper components.
+     */
+    row?: RowPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Column helper components.
+     */
+    column?: ColumnPassThroughOptionType;
 }
 
 /**
