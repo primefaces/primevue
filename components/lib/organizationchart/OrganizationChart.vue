@@ -1,5 +1,5 @@
 <template>
-    <div class="p-organizationchart p-component" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')">
         <OrganizationChartNode
             :node="value"
             :templates="$slots"
@@ -10,40 +10,19 @@
             :selectionMode="selectionMode"
             :selectionKeys="selectionKeys"
             :pt="pt"
+            :unstyled="unstyled"
         />
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseOrganizationChart from './BaseOrganizationChart.vue';
 import OrganizationChartNode from './OrganizationChartNode.vue';
 
 export default {
     name: 'OrganizationChart',
-    extends: BaseComponent,
+    extends: BaseOrganizationChart,
     emits: ['node-unselect', 'node-select', 'update:selectionKeys', 'node-expand', 'node-collapse', 'update:collapsedKeys'],
-    props: {
-        value: {
-            type: null,
-            default: null
-        },
-        selectionKeys: {
-            type: null,
-            default: null
-        },
-        selectionMode: {
-            type: String,
-            default: null
-        },
-        collapsible: {
-            type: Boolean,
-            default: false
-        },
-        collapsedKeys: {
-            type: null,
-            default: null
-        }
-    },
     data() {
         return {
             d_collapsedKeys: this.collapsedKeys || {}
@@ -96,58 +75,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-organizationchart-table {
-    border-spacing: 0;
-    border-collapse: separate;
-    margin: 0 auto;
-}
-
-.p-organizationchart-table > tbody > tr > td {
-    text-align: center;
-    vertical-align: top;
-    padding: 0 0.75rem;
-}
-
-.p-organizationchart-node-content {
-    display: inline-block;
-    position: relative;
-}
-
-.p-organizationchart-node-content .p-node-toggler {
-    position: absolute;
-    bottom: -0.75rem;
-    margin-left: -0.75rem;
-    z-index: 2;
-    left: 50%;
-    user-select: none;
-    cursor: pointer;
-    width: 1.5rem;
-    height: 1.5rem;
-    text-decoration: none;
-}
-
-.p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
-    position: relative;
-    top: 0.25rem;
-}
-
-.p-organizationchart-line-down {
-    margin: 0 auto;
-    height: 20px;
-    width: 1px;
-}
-
-.p-organizationchart-line-right {
-    border-radius: 0px;
-}
-
-.p-organizationchart-line-left {
-    border-radius: 0;
-}
-
-.p-organizationchart-selectable-node {
-    cursor: pointer;
-}
-</style>

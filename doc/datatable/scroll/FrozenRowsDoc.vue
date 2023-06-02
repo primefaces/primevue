@@ -230,3 +230,9 @@ onMounted(() => {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+::v-deep(.p-datatable-frozen-tbody > tr) {
+    font-weight: 700;
+}
+</style>

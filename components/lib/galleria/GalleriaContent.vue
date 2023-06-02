@@ -1,12 +1,12 @@
 <template>
-    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="galleriaClass" :style="$attrs.containerStyle" v-bind="{ ...$attrs.containerProps, ...ptm('root') }">
-        <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" class="p-galleria-close p-link" :aria-label="closeAriaLabel" @click="$emit('mask-hide')" v-bind="ptm('closeButton')">
-            <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" class="p-galleria-close-icon" v-bind="ptm('closeIcon')" />
+    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="cx('root')" :style="$attrs.containerStyle" v-bind="{ ...$attrs.containerProps, ...ptm('root') }">
+        <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="$emit('mask-hide')" v-bind="ptm('closeButton')">
+            <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" :class="cx('closeIcon')" v-bind="ptm('closeIcon')" />
         </button>
-        <div v-if="$attrs.templates && $attrs.templates['header']" class="p-galleria-header" v-bind="ptm('header')">
+        <div v-if="$attrs.templates && $attrs.templates['header']" :class="cx('header')" v-bind="ptm('header')">
             <component :is="$attrs.templates['header']" />
         </div>
-        <div class="p-galleria-content" :aria-live="$attrs.autoPlay ? 'polite' : 'off'" v-bind="ptm('content')">
+        <div :class="cx('content')" :aria-live="$attrs.autoPlay ? 'polite' : 'off'" v-bind="ptm('content')">
             <GalleriaItem
                 :id="id"
                 v-model:activeIndex="activeIndex"
@@ -21,6 +21,7 @@
                 @start-slideshow="startSlideShow"
                 @stop-slideshow="stopSlideShow"
                 :pt="pt"
+                :unstyled="unstyled"
             />
 
             <GalleriaThumbnails
@@ -40,9 +41,10 @@
                 :nextButtonProps="$attrs.nextButtonProps"
                 @stop-slideshow="stopSlideShow"
                 :pt="pt"
+                :unstyled="unstyled"
             />
         </div>
-        <div v-if="$attrs.templates && $attrs.templates['footer']" class="p-galleria-footer" v-bind="ptm('footer')">
+        <div v-if="$attrs.templates && $attrs.templates['footer']" :class="cx('footer')" v-bind="ptm('footer')">
             <component :is="$attrs.templates['footer']" />
         </div>
     </div>

@@ -256,6 +256,11 @@ export interface CarouselProps {
      * @type {CarouselPassThroughOptions}
      */
     pt?: CarouselPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -1,35 +1,32 @@
 <template>
-    <div :class="['p-carousel p-component', { 'p-carousel-vertical': isVertical(), 'p-carousel-horizontal': !isVertical() }]" role="region" v-bind="ptm('root')">
-        <div v-if="$slots.header" class="p-carousel-header" v-bind="ptm('header')">
+    <div :class="cx('root')" role="region" v-bind="ptm('root')">
+        <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
-        <div :class="contentClasses" v-bind="ptm('content')">
-            <div :class="containerClasses" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
-                <button
-                    v-if="showNavigators"
-                    v-ripple
-                    type="button"
-                    :class="['p-carousel-prev p-link', { 'p-disabled': backwardIsDisabled }]"
-                    :disabled="backwardIsDisabled"
-                    :aria-label="ariaPrevButtonLabel"
-                    @click="navBackward"
-                    v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
-                >
+        <div :class="cx('content')" v-bind="ptm('content')">
+            <div :class="cx('container')" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
+                <button v-if="showNavigators" v-ripple type="button" :class="cx('previousButton')" :disabled="backwardIsDisabled" :aria-label="ariaPrevButtonLabel" @click="navBackward" v-bind="{ ...prevButtonProps, ...ptm('previousButton') }">
                     <slot name="previousicon">
-                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" class="p-carousel-next-icon" v-bind="ptm('previousButtonIcon')" />
+                        <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
                     </slot>
                 </button>
 
-                <div class="p-carousel-items-content" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
-                    <div ref="itemsContainer" class="p-carousel-items-container" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
+                <div :class="cx('itemsContent')" :style="[{ height: isVertical() ? verticalViewPortHeight : 'auto' }]" @touchend="onTouchEnd" @touchstart="onTouchStart" @touchmove="onTouchMove" v-bind="ptm('itemsContent')">
+                    <div ref="itemsContainer" :class="cx('itemsContainer')" @transitionend="onTransitionEnd" v-bind="ptm('itemsContainer')">
                         <template v-if="isCircular()">
                             <div
                                 v-for="(item, index) of value.slice(-1 * d_numVisible)"
                                 :key="index + '_scloned'"
-                                :class="[
-                                    'p-carousel-item p-carousel-item-cloned',
-                                    { 'p-carousel-item-active': totalShiftedItems * -1 === value.length + d_numVisible, 'p-carousel-item-start': 0 === index, 'p-carousel-item-end': value.slice(-1 * d_numVisible).length - 1 === index }
-                                ]"
+                                :class="
+                                    cx('itemCloned', {
+                                        context: {
+                                            index,
+                                            value,
+                                            totalShiftedItems,
+                                            d_numVisible
+                                        }
+                                    })
+                                "
                                 v-bind="ptm('itemCloned')"
                             >
                                 <slot name="item" :data="item" :index="index"></slot>
@@ -38,7 +35,13 @@
                         <div
                             v-for="(item, index) of value"
                             :key="index"
-                            :class="['p-carousel-item', { 'p-carousel-item-active': firstIndex() <= index && lastIndex() >= index, 'p-carousel-item-start': firstIndex() === index, 'p-carousel-item-end': lastIndex() === index }]"
+                            :class="
+                                cx('item', {
+                                    context: {
+                                        index
+                                    }
+                                })
+                            "
                             role="group"
                             :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
                             :aria-label="ariaSlideNumber(index)"
@@ -51,7 +54,16 @@
                             <div
                                 v-for="(item, index) of value.slice(0, d_numVisible)"
                                 :key="index + '_fcloned'"
-                                :class="['p-carousel-item p-carousel-item-cloned', { 'p-carousel-item-active': totalShiftedItems === 0, 'p-carousel-item-start': 0 === index, 'p-carousel-item-end': value.slice(0, d_numVisible).length - 1 === index }]"
+                                :class="
+                                    cx('itemCloned', {
+                                        context: {
+                                            index,
+                                            value,
+                                            totalShiftedItems,
+                                            d_numVisible
+                                        }
+                                    })
+                                "
                                 v-bind="ptm('itemCloned')"
                             >
                                 <slot name="item" :data="item" :index="index"></slot>
@@ -60,25 +72,28 @@
                     </div>
                 </div>
 
-                <button
-                    v-if="showNavigators"
-                    v-ripple
-                    type="button"
-                    :class="['p-carousel-next p-link', { 'p-disabled': forwardIsDisabled }]"
-                    :disabled="forwardIsDisabled"
-                    :aria-label="ariaNextButtonLabel"
-                    @click="navForward"
-                    v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
-                >
+                <button v-if="showNavigators" v-ripple type="button" :class="cx('nextButton')" :disabled="forwardIsDisabled" :aria-label="ariaNextButtonLabel" @click="navForward" v-bind="{ ...nextButtonProps, ...ptm('nextButton') }">
                     <slot name="nexticon">
-                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" class="p-carousel-prev-icon" v-bind="ptm('nextButtonIcon')" />
+                        <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
                     </slot>
                 </button>
             </div>
-            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="indicatorsContentClasses" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
-                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="['p-carousel-indicator', { 'p-highlight': d_page === i }]" v-bind="ptm('indicator')">
+            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="cx('indicators')" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
+                <li
+                    v-for="(indicator, i) of totalIndicators"
+                    :key="'p-carousel-indicator-' + i.toString()"
+                    :class="
+                        cx('indicator', {
+                            context: {
+                                i
+                            }
+                        })
+                    "
+                    :data-p-highlight="d_page === i"
+                    v-bind="ptm('indicator')"
+                >
                     <button
-                        class="p-link"
+                        :class="cx('indicatorButton')"
                         type="button"
                         :tabindex="d_page === i ? '0' : '-1'"
                         :aria-label="ariaPageLabel(i + 1)"
@@ -89,14 +104,14 @@
                 </li>
             </ul>
         </div>
-        <div v-if="$slots.footer" class="p-carousel-footer" v-bind="ptm('footer')">
+        <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseCarousel from './BaseCarousel.vue';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
@@ -106,59 +121,8 @@ import { DomHandler, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'Carousel',
-    extends: BaseComponent,
+    extends: BaseCarousel,
     emits: ['update:page'],
-    props: {
-        value: null,
-        page: {
-            type: Number,
-            default: 0
-        },
-        numVisible: {
-            type: Number,
-            default: 1
-        },
-        numScroll: {
-            type: Number,
-            default: 1
-        },
-        responsiveOptions: Array,
-        orientation: {
-            type: String,
-            default: 'horizontal'
-        },
-        verticalViewPortHeight: {
-            type: String,
-            default: '300px'
-        },
-        contentClass: String,
-        containerClass: String,
-        indicatorsContentClass: String,
-        circular: {
-            type: Boolean,
-            default: false
-        },
-        autoplayInterval: {
-            type: Number,
-            default: 0
-        },
-        showNavigators: {
-            type: Boolean,
-            default: true
-        },
-        showIndicators: {
-            type: Boolean,
-            default: true
-        },
-        prevButtonProps: {
-            type: null,
-            default: null
-        },
-        nextButtonProps: {
-            type: null,
-            default: null
-        }
-    },
     isRemainingItemsAdded: false,
     data() {
         return {
@@ -347,7 +311,7 @@ export default {
             }
 
             if (this.$refs.itemsContainer) {
-                DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
+                !this.isUnstyled && DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transform = this.isVertical() ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
             }
@@ -428,7 +392,7 @@ export default {
         },
         onTransitionEnd() {
             if (this.$refs.itemsContainer) {
-                DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
+                !this.isUnstyled && DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = '';
 
                 if ((this.d_page === 0 || this.d_page === this.totalIndicators - 1) && this.isCircular()) {
@@ -503,7 +467,7 @@ export default {
             }
         },
         onRightKey() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
             const activeIndex = this.findFocusedIndicatorIndex();
 
             this.changedFocusedIndicator(activeIndex, activeIndex + 1 === indicators.length ? indicators.length - 1 : activeIndex + 1);
@@ -519,29 +483,29 @@ export default {
             this.changedFocusedIndicator(activeIndex, 0);
         },
         onEndKey() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]r')];
             const activeIndex = this.findFocusedIndicatorIndex();
 
             this.changedFocusedIndicator(activeIndex, indicators.length - 1);
         },
         onTabKey() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
-            const highlightedIndex = indicators.findIndex((ind) => DomHandler.hasClass(ind, 'p-highlight'));
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-highlight') === true);
 
-            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '.p-carousel-indicator > button[tabindex="0"]');
+            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
             const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);
 
             indicators[activeIndex].children[0].tabIndex = '-1';
             indicators[highlightedIndex].children[0].tabIndex = '0';
         },
         findFocusedIndicatorIndex() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
-            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '.p-carousel-indicator > button[tabindex="0"]');
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
 
             return indicators.findIndex((ind) => ind === activeIndicator.parentElement);
         },
         changedFocusedIndicator(prevInd, nextInd) {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '.p-carousel-indicator')];
+            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
 
             indicators[prevInd].children[0].tabIndex = '-1';
             indicators[nextInd].children[0].tabIndex = '0';
@@ -653,15 +617,6 @@ export default {
         forwardIsDisabled() {
             return this.value && (!this.circular || this.value.length < this.d_numVisible) && (this.d_page === this.totalIndicators - 1 || this.totalIndicators === 0);
         },
-        containerClasses() {
-            return ['p-carousel-container', this.containerClass];
-        },
-        contentClasses() {
-            return ['p-carousel-content ', this.contentClass];
-        },
-        indicatorsContentClasses() {
-            return ['p-carousel-indicators p-reset', this.indicatorsContentClass];
-        },
         ariaSlideLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slide : undefined;
         },
@@ -686,75 +641,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-carousel {
-    display: flex;
-    flex-direction: column;
-}
-
-.p-carousel-content {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-}
-
-.p-carousel-prev,
-.p-carousel-next {
-    align-self: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-carousel-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.p-carousel-items-content {
-    overflow: hidden;
-    width: 100%;
-}
-
-.p-carousel-items-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.p-carousel-indicators {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.p-carousel-indicator > button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Vertical */
-.p-carousel-vertical .p-carousel-container {
-    flex-direction: column;
-}
-
-.p-carousel-vertical .p-carousel-items-container {
-    flex-direction: column;
-    height: 100%;
-}
-
-/* Keyboard Support */
-.p-items-hidden .p-carousel-item {
-    visibility: hidden;
-}
-
-.p-items-hidden .p-carousel-item.p-carousel-item-active {
-    visibility: visible;
-}
-</style>

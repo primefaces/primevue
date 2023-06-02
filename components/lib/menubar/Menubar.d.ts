@@ -60,10 +60,6 @@ export interface MenubarPassThroughOptions {
      */
     submenuIcon?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu's DOM element.
-     */
-    submenu?: MenubarPassThroughOptionType;
-    /**
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: MenubarPassThroughOptionType;
@@ -75,6 +71,10 @@ export interface MenubarPassThroughOptions {
      * Uses to pass attributes to the mobile popup menu button icon's DOM element.
      */
     popupIcon?: MenubarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the submenu's DOM element.
+     */
+    submenu?: MenubarPassThroughOptionType;
     /**
      * Uses to pass attributes to the start of the component.
      */

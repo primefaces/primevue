@@ -66,6 +66,10 @@ export interface DataViewPassThroughOptions {
      */
     content?: DataViewPassThroughOptionType;
     /**
+     * Uses to pass attributes to the grid's DOM element.
+     */
+    grid?: DataViewPassThroughOptionType;
+    /**
      * Uses to pass attributes to the column's DOM element.
      */
     column?: DataViewPassThroughOptionType;
@@ -202,6 +206,11 @@ export interface DataViewProps {
      * @type {DataViewPassThroughOptions}
      */
     pt?: DataViewPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

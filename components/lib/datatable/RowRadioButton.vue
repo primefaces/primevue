@@ -1,10 +1,10 @@
 <template>
-    <div :class="['p-radiobutton p-component', { 'p-radiobutton-focused': focused }]" @click="onClick" v-bind="getColumnPTOptions('radiobuttonWrapper')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')">
+    <div :class="cx('radiobuttonWrapper')" @click="onClick" v-bind="getColumnPTOptions('radiobuttonWrapper')">
+        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPTOptions('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input ref="input" type="radio" :checked="checked" :disabled="$attrs.disabled" :name="name" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick" v-bind="getColumnPTOptions('hiddenInput')" />
         </div>
-        <div ref="box" :class="['p-radiobutton-box p-component', { 'p-highlight': checked, 'p-disabled': $attrs.disabled, 'p-focus': focused }]" v-bind="getColumnPTOptions('radiobutton')">
-            <div class="p-radiobutton-icon" v-bind="getColumnPTOptions('radiobuttonIcon')"></div>
+        <div ref="box" :class="cx('radiobutton')" v-bind="getColumnPTOptions('radiobutton')">
+            <div :class="cx('radiobuttonIcon')" v-bind="getColumnPTOptions('radiobuttonIcon')"></div>
         </div>
     </div>
 </template>

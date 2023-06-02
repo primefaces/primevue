@@ -348,6 +348,11 @@ export interface GalleriaProps {
      * @type {GalleriaPassThroughOptions}
      */
     pt?: GalleriaPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 /**
  * Defines valid slots in Galleria slots.

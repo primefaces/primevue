@@ -23,9 +23,8 @@ export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | 
  */
 export interface ColumnPassThroughMethodOptions {
     props: ColumnProps;
-    state: ColumnState;
-    context: ColumnContext;
     parent: DataTablePassThroughOptions;
+    context: ColumnContext;
 }
 
 /**
@@ -349,27 +348,6 @@ export interface ColumnState {
 }
 
 /**
- * Defines current options in Column component.
- */
-export interface ColumnContext {
-    /**
-     * Current checked state of row as a boolean.
-     * @defaultValue false
-     */
-    checked: boolean;
-    /**
-     * Current focused state of row as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
-    /**
-     * Current disabled state of row as a boolean.
-     * @defaultValue false
-     */
-    disabled: boolean;
-}
-
-/**
  * Defines valid properties in Column component.
  */
 export interface ColumnProps {
@@ -572,6 +550,36 @@ export interface ColumnProps {
      * @type {ColumnPassThroughOptions}
      */
     pt?: ColumnPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
+}
+
+/**
+ * Defines current options in Column component.
+ */
+export interface ColumnContext {
+    /**
+     * Current index of the column.
+     */
+    index: number;
+    /**
+     * Current checked state of row as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current focused state of row as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of row as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
