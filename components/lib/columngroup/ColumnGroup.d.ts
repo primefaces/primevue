@@ -49,6 +49,11 @@ export interface ColumnGroupProps {
      * @type {ColumnGroupPassThroughOptions}
      */
     pt?: ColumnGroupPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

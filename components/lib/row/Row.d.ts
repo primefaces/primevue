@@ -39,7 +39,13 @@ export interface RowPassThroughAttributes {
 /**
  * Defines valid properties in Row component.
  */
-export interface RowProps {}
+export interface RowProps {
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
+}
 
 /**
  * Defines valid slots in Row component.

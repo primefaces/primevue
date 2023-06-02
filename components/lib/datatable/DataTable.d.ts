@@ -1016,6 +1016,11 @@ export interface DataTableProps {
      * @type {DataTablePassThroughOptions}
      */
     pt?: DataTablePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
