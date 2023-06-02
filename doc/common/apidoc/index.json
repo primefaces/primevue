@@ -35473,14 +35473,6 @@
                             "description": "Uses to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "tab",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TabPanelPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to TabPanel helper components."
-                        },
-                        {
                             "name": "inkbar",
                             "optional": true,
                             "readonly": false,
@@ -35527,6 +35519,14 @@
                             "type": "TabViewPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the panel's DOM element."
+                        },
+                        {
+                            "name": "tab",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to TabPanel helper components."
                         }
                     ],
                     "methods": []
