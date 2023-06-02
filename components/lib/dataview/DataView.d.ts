@@ -66,6 +66,10 @@ export interface DataViewPassThroughOptions {
      */
     content?: DataViewPassThroughOptionType;
     /**
+     * Uses to pass attributes to the grid's DOM element.
+     */
+    grid?: DataViewPassThroughOptionType;
+    /**
      * Uses to pass attributes to the column's DOM element.
      */
     column?: DataViewPassThroughOptionType;
@@ -77,10 +81,6 @@ export interface DataViewPassThroughOptions {
      * Uses to pass attributes to the footer's DOM element.
      */
     footer?: DataViewPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the grid's DOM element.
-     */
-    grid?: DataViewPassThroughOptionType;
 }
 
 /**
