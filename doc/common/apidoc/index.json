@@ -9363,10 +9363,10 @@
                             "default": ""
                         },
                         {
-                            "name": "state",
+                            "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "ColumnState",
+                            "type": "DataTablePassThroughOptions",
                             "default": ""
                         },
                         {
@@ -9374,13 +9374,6 @@
                             "optional": false,
                             "readonly": false,
                             "type": "ColumnContext",
-                            "default": ""
-                        },
-                        {
-                            "name": "parent",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptions",
                             "default": ""
                         }
                     ],
@@ -10040,37 +10033,6 @@
                     ],
                     "methods": []
                 },
-                "ColumnContext": {
-                    "description": "Defines current options in Column component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "checked",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current checked state of row as a boolean."
-                        },
-                        {
-                            "name": "focused",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current focused state of row as a boolean."
-                        },
-                        {
-                            "name": "disabled",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current disabled state of row as a boolean."
-                        }
-                    ],
-                    "methods": []
-                },
                 "ColumnProps": {
                     "description": "Defines valid properties in Column component.",
                     "relatedProp": "",
@@ -10447,6 +10409,45 @@
                     ],
                     "methods": []
                 },
+                "ColumnContext": {
+                    "description": "Defines current options in Column component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the column."
+                        },
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current checked state of row as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focused state of row as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of row as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ColumnSlots": {
                     "description": "Defines valid slots in Column component.",
                     "relatedProp": "",
@@ -10734,6 +10735,13 @@
                             "readonly": false,
                             "type": "DataTablePassThroughOptions",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ColumnGroupContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -10793,6 +10801,21 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "ColumnGroupContext": {
+                    "description": "Defines current options in ColumnGroup component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "type",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current type of the column group."
                         }
                     ],
                     "methods": []
@@ -13382,12 +13405,12 @@
                             "description": "Uses to pass attributes to the rowgroup header's DOM element."
                         },
                         {
-                            "name": "row",
+                            "name": "bodyRow",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the row's DOM element."
+                            "description": "Uses to pass attributes to the body row's DOM element."
                         },
                         {
                             "name": "rowExpansion",
@@ -31708,6 +31731,13 @@
                             "readonly": false,
                             "type": "ColumnGroupPassThroughOptions",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "RowContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -31751,6 +31781,21 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "RowContext": {
+                    "description": "Defines current options in Row component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the row."
                         }
                     ],
                     "methods": []
