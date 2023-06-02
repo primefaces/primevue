@@ -13483,6 +13483,30 @@
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the reorder indicator down's DOM element."
+                        },
+                        {
+                            "name": "columnGroup",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnGroupPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the ColumnGroup helper components."
+                        },
+                        {
+                            "name": "row",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RowPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Row helper components."
+                        },
+                        {
+                            "name": "column",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Column helper components."
                         }
                     ],
                     "methods": []
