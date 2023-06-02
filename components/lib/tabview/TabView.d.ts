@@ -57,10 +57,6 @@ export interface TabViewPassThroughOptions {
      */
     nav?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to TabPanel helper components.
-     */
-    tab?: TabPanelPassThroughOptionType;
-    /**
      * Uses to pass attributes to the inkbar's DOM element.
      */
     inkbar?: TabViewPassThroughOptionType;
@@ -84,6 +80,10 @@ export interface TabViewPassThroughOptions {
      * Uses to pass attributes to the panel's DOM element.
      */
     panelContainer?: TabViewPassThroughOptionType;
+    /**
+     * Uses to pass attributes to TabPanel helper components.
+     */
+    tab?: TabPanelPassThroughOptionType;
 }
 
 /**
