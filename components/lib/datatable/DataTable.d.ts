@@ -623,10 +623,6 @@ export interface DataTablePassThroughOptions {
      */
     footerRow?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer cell's DOM element.
-     */
-    footerCell?: DataTablePassThroughOptionType;
-    /**
      * Uses to pass attributes to the resize helper's DOM element.
      */
     resizeHelper?: DataTablePassThroughOptionType;

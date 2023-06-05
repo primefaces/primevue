@@ -65,9 +65,9 @@
                             ></TTHeaderCell>
                         </template>
                     </tr>
-                    <tr v-if="hasColumnFilter()" v-bind="ptm('headerRow')">
+                    <tr v-if="hasColumnFilter()" v-bind="ptm('headerFilterRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerCell')">
+                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerFilterCell')">
                                 <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" :index="i" />
                             </th>
                         </template>
@@ -96,7 +96,7 @@
                         ></TTRow>
                     </template>
                     <tr v-else :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
-                        <td :colspan="columns.length" v-bind="ptm('bodyCell')">
+                        <td :colspan="columns.length" v-bind="ptm('emptyMessageCell')">
                             <slot name="empty"></slot>
                         </td>
                     </tr>

@@ -16,7 +16,7 @@
         </div>
         <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
         <template v-else>
-            <span v-bind="getColumnPT('cellContent')">{{ resolveFieldData(node.data, columnProp('field')) }}</span>
+            <span v-bind="getColumnPT('bodyCellContent')">{{ resolveFieldData(node.data, columnProp('field')) }}</span>
         </template>
     </td>
 </template>

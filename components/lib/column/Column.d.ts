@@ -274,13 +274,13 @@ export interface ColumnPassThroughOptions {
      */
     rowEditorInitIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor edit button's DOM element.
+     * Uses to pass attributes to the row editor save button's DOM element.
      */
-    rowEditorEditButton?: ColumnPassThroughOptionType;
+    rowEditorSaveButton?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor edit icon's DOM element.
+     * Uses to pass attributes to the row editor save icon's DOM element.
      */
-    rowEditorEditIcon?: ColumnPassThroughOptionType;
+    rowEditorSaveIcon?: ColumnPassThroughOptionType;
     /**
      * Uses to pass attributes to the row editor cancel button's DOM element.
      */
@@ -289,7 +289,14 @@ export interface ColumnPassThroughOptions {
      * Uses to pass attributes to the row editor cancel icon's DOM element.
      */
     rowEditorCancelIcon?: ColumnPassThroughOptionType;
-
+    /**
+     * Uses to pass attributes to the footer cell's DOM element.
+     */
+    footerCell?: ColumnPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the body cell content's DOM element.
+     */
+    bodyCellContent?: ColumnPassThroughOptionType;
     /**
      * Uses to pass attributes to the hidden input wrapper's DOM element.
      */

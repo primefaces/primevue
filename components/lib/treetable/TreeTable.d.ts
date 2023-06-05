@@ -212,21 +212,29 @@ export interface TreeTablePassThroughOptions {
      */
     headerRow?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header cell's DOM element.
+     * Uses to pass attributes to the header filter row's DOM element.
      */
-    headerCell?: TreeTablePassThroughOptionType;
+    headerFilterRow?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header filter cell's DOM element.
+     */
+    headerFilterCell?: TreeTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the tbody's DOM element.
      */
     tbody?: TreeTablePassThroughOptionType;
     /**
+     * Uses to pass attributes to the row's DOM element.
+     */
+    row?: TreeTablePassThroughOptionType;
+    /**
      * Uses to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the body cell's DOM element.
+     * Uses to pass attributes to the empty message cell's DOM element.
      */
-    bodyCell?: TreeTablePassThroughOptionType;
+    emptyMessageCell?: TreeTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the tfoot's DOM element.
      */
@@ -243,46 +251,6 @@ export interface TreeTablePassThroughOptions {
      * Uses to pass attributes to the resize helper's DOM element.
      */
     resizeHelper?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row toggler's DOM element.
-     */
-    rowToggler?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the row toggler icon's DOM element.
-     */
-    rowTogglerIcon?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the column resizer's DOM element.
-     */
-    columnResizer?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the sort badge's DOM element.
-     */
-    sortBadge?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the header title's DOM element.
-     */
-    headerTitle?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the checkbox wrapper's DOM element.
-     */
-    checkboxWrapper?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to checkbox's DOM element.
-     */
-    checkbox?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the checkbox icon's DOM element.
-     */
-    checkboxIcon?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
-     */
-    hiddenInputWrapper?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the hidden input's DOM element.
-     */
-    hiddenInput?: TreeTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the Column helper components.
      */
