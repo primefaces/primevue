@@ -47,7 +47,7 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </DTPaginator>
-        <div :class="cx('wrapper')" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
+        <div :class="cx('wrapper')" :style="[sx('wrapper'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('wrapper')">
             <DTVirtualScroller
                 ref="virtualScroller"
                 v-bind="virtualScrollerOptions"
