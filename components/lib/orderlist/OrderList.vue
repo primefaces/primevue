@@ -2,28 +2,28 @@
     <div :class="cx('root')" v-bind="ptm('root')">
         <div :class="cx('controls')" v-bind="ptm('controls')">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="moveUpButtonProps" :pt="ptm('moveUpButton')" :unstyle="unstyled">
+            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" :unstyled="unstyled" v-bind="{ ...moveUpButtonProps, ...ptm('moveUpButton') }">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="moveTopButtonProps" :pt="ptm('moveTopButton')" :unstyle="unstyled">
+            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveTopButtonProps, ...ptm('moveTopButton') }" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="moveDownButtonProps" :pt="ptm('moveDownButton')" :unstyle="unstyled">
+            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveDownButtonProps, ...ptm('moveDownButton') }" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
                         <AngleDownIcon v-bind="ptm('moveDownButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="moveBottomButtonProps" :pt="ptm('moveBottomButton')" :unstyle="unstyled">
+            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveBottomButtonProps, ...ptm('moveBottomButton') }" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
                         <AngleDoubleDownIcon v-bind="ptm('moveBottomButton')['icon']" />
@@ -83,7 +83,6 @@
 </template>
 
 <script>
-import BaseOrderList from './BaseOrderList.vue';
 import Button from 'primevue/button';
 import AngleDoubleDownIcon from 'primevue/icons/angledoubledown';
 import AngleDoubleUpIcon from 'primevue/icons/angledoubleup';
@@ -91,6 +90,7 @@ import AngleDownIcon from 'primevue/icons/angledown';
 import AngleUpIcon from 'primevue/icons/angleup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
+import BaseOrderList from './BaseOrderList.vue';
 
 export default {
     name: 'OrderList',
