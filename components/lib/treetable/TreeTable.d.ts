@@ -242,6 +242,46 @@ export interface TreeTablePassThroughOptions {
      * Uses to pass attributes to the resize helper's DOM element.
      */
     resizeHelper?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the row toggler's DOM element.
+     */
+    rowToggler?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the row toggler icon's DOM element.
+     */
+    rowTogglerIcon?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the column resizer's DOM element.
+     */
+    columnResizer?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the sort badge's DOM element.
+     */
+    sortBadge?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header title's DOM element.
+     */
+    headerTitle?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the checkbox wrapper's DOM element.
+     */
+    checkboxWrapper?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to checkbox's DOM element.
+     */
+    checkbox?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the checkbox icon's DOM element.
+     */
+    checkboxIcon?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     */
+    hiddenInputWrapper?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: TreeTablePassThroughOptionType;
 }
 
 /**
