@@ -13413,7 +13413,7 @@
                             "description": "Uses to pass attributes to the tbody's DOM element."
                         },
                         {
-                            "name": "rowgroupHeader",
+                            "name": "rowGroupHeader",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
@@ -13437,7 +13437,7 @@
                             "description": "Uses to pass attributes to the row expansion's DOM element."
                         },
                         {
-                            "name": "rowgroupFooter",
+                            "name": "rowGroupFooter",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
