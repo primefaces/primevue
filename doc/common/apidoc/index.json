@@ -28002,6 +28002,14 @@
                     "relatedProp": "PaginatorProps.pt",
                     "props": [
                         {
+                            "name": "paginatorWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the paginator wrapper's DOM element."
+                        },
+                        {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
