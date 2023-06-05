@@ -60,6 +60,7 @@
                                 :sortMode="sortMode"
                                 @column-click="onColumnHeaderClick"
                                 @column-resizestart="onColumnResizeStart"
+                                :index="i"
                                 :pt="pt"
                             ></TTHeaderCell>
                         </template>
@@ -67,7 +68,7 @@
                     <tr v-if="hasColumnFilter()" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerCell')">
-                                <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" />
+                                <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" :index="i" />
                             </th>
                         </template>
                     </tr>
@@ -103,7 +104,7 @@
                 <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="ptm('tfoot')">
                     <tr role="row" v-bind="ptm('footerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt"></TTFooterCell>
+                            <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :index="i" :pt="pt"></TTFooterCell>
                         </template>
                     </tr>
                 </tfoot>

@@ -32,6 +32,7 @@
                 :templates="templates"
                 @node-toggle="$emit('node-toggle', $event)"
                 @checkbox-toggle="toggleCheckbox"
+                :index="i"
                 :pt="pt"
             ></TTBodyCell>
         </template>

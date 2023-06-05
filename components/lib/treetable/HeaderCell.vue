@@ -7,19 +7,19 @@
         :tabindex="columnProp('sortable') ? '0' : null"
         :aria-sort="ariaSort"
         role="columnheader"
-        v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('headerCell') }"
+        v-bind="{ ...getColumnPT('root'), ...getColumnPT('headerCell') }"
         :data-p-sortable-column="columnProp('sortable')"
         :data-p-resizable-column="resizableColumns"
         :data-p-highlight="isColumnSorted()"
         :data-p-frozen-column="columnProp('frozen')"
     >
-        <span v-if="resizableColumns && !columnProp('frozen')" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPTOptions('columnResizer')"></span>
+        <span v-if="resizableColumns && !columnProp('frozen')" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
-        <span v-if="columnProp('header')" :class="cx('headerTitle')" v-bind="getColumnPTOptions('headerTitle')">{{ columnProp('header') }}</span>
-        <span v-if="columnProp('sortable')" v-bind="getColumnPTOptions('sort')">
+        <span v-if="columnProp('header')" :class="cx('headerTitle')" v-bind="getColumnPT('headerTitle')">{{ columnProp('header') }}</span>
+        <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
             <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" />
         </span>
-        <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPTOptions('sortBadge')">{{ getMultiSortMetaIndex() + 1 }}</span>
+        <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
 </template>
 
@@ -58,6 +58,10 @@ export default {
         sortMode: {
             type: String,
             default: 'single'
+        },
+        index: {
+            type: Number,
+            default: null
         }
     },
     data() {
@@ -79,14 +83,19 @@ export default {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
         },
-        getColumnPTOptions(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+        getColumnPT(key) {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
+                },
+                context: {
+                    index: this.index
                 }
-            });
+            };
+
+            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(), key, columnMetaData) };
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:

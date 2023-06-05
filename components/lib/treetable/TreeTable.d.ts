@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { TreeNode } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
@@ -282,6 +283,10 @@ export interface TreeTablePassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Column helper components.
+     */
+    column?: ColumnPassThroughOptionType;
 }
 
 /**

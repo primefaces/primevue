@@ -1,22 +1,22 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
-        <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggler')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPTOptions('rowToggler')">
+    <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+        <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggler')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPT('rowToggler')">
             <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('rowTogglerIcon')" />
-            <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPTOptions('rowTogglerIcon')" />
-            <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPTOptions('rowTogglerIcon')" />
+            <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
+            <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
         </button>
-        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnPTOptions('checkboxWrapper')">
-            <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPTOptions('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" v-bind="getColumnPTOptions('hiddenInput')" />
+        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnPT('checkboxWrapper')">
+            <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+                <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" v-bind="getColumnPT('hiddenInput')" />
             </div>
-            <div ref="checkboxEl" :class="cx('checkbox')" v-bind="getColumnCheckboxPTOptions('checkbox')">
+            <div ref="checkboxEl" :class="cx('checkbox')" v-bind="getColumnCheckboxPT('checkbox')">
                 <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxicon')" />
-                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxicon')" v-bind="getColumnCheckboxPTOptions('checkboxIcon')" />
+                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxicon')" v-bind="getColumnCheckboxPT('checkboxIcon')" />
             </div>
         </div>
         <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
         <template v-else>
-            <span v-bind="getColumnPTOptions('cellContent')">{{ resolveFieldData(node.data, columnProp('field')) }}</span>
+            <span v-bind="getColumnPT('cellContent')">{{ resolveFieldData(node.data, columnProp('field')) }}</span>
         </template>
     </td>
 </template>
@@ -74,6 +74,10 @@ export default {
         templates: {
             type: Object,
             default: null
+        },
+        index: {
+            type: Number,
+            default: null
         }
     },
     data() {
@@ -99,16 +103,24 @@ export default {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
         },
-        getColumnPTOptions(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+        getColumnPT(key) {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
+                },
+                context: {
+                    index: this.index
                 }
-            });
+            };
+
+            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(), key, columnMetaData) };
         },
-        getColumnCheckboxPTOptions(key) {
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo
+        },
+        getColumnCheckboxPT(key) {
             return this.ptmo(this.getColumnProp(), key, {
                 props: this.column.props,
                 parent: {
@@ -121,9 +133,6 @@ export default {
                     partialChecked: this.partialChecked
                 }
             });
-        },
-        getColumnProp() {
-            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
