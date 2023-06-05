@@ -558,6 +558,11 @@ export interface TreeTableProps {
      * @type {TreeTablePassThroughOptions}
      */
     pt?: TreeTablePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
