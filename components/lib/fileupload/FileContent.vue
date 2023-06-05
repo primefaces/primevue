@@ -24,6 +24,7 @@ import Button from 'primevue/button';
 import TimesIcon from 'primevue/icons/times';
 
 export default {
+    name: 'FileContent',
     extends: BaseComponent,
     emits: ['remove'],
     props: {
