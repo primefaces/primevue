@@ -40076,6 +40076,14 @@
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "column",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Column helper components."
                         }
                     ],
                     "methods": []
