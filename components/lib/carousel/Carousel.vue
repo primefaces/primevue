@@ -111,13 +111,13 @@
 </template>
 
 <script>
-import BaseCarousel from './BaseCarousel.vue';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import ChevronUpIcon from 'primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BaseCarousel from './BaseCarousel.vue';
 
 export default {
     name: 'Carousel',
@@ -553,7 +553,7 @@ export default {
                 }
             `;
 
-            if (this.responsiveOptions) {
+            if (this.responsiveOptions && !this.isUnstyled) {
                 let _responsiveOptions = [...this.responsiveOptions];
 
                 _responsiveOptions.sort((data1, data2) => {

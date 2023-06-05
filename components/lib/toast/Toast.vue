@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import BaseToast from './BaseToast.vue';
 import Portal from 'primevue/portal';
 import ToastEventBus from 'primevue/toasteventbus';
 import { ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BaseToast from './BaseToast.vue';
 import ToastMessage from './ToastMessage.vue';
 
 var messageIdx = 0;
@@ -111,7 +111,7 @@ export default {
             }
         },
         createStyle() {
-            if (!this.styleElement) {
+            if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 document.head.appendChild(this.styleElement);

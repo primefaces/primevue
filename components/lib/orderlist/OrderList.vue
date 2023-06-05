@@ -484,7 +484,7 @@ export default {
             }
         },
         createStyle() {
-            if (!this.styleElement) {
+            if (!this.styleElement && !this.isUnstyled) {
                 this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';

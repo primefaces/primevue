@@ -432,7 +432,7 @@ export default {
                 }
             `;
 
-            if (this.responsiveOptions) {
+            if (this.responsiveOptions && !this.isUnstyled) {
                 this.sortedResponsiveOptions = [...this.responsiveOptions];
                 this.sortedResponsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;

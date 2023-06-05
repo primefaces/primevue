@@ -141,7 +141,7 @@ export default {
             this.changePage(this.page);
         },
         createStyle() {
-            if (this.hasBreakpoints()) {
+            if (this.hasBreakpoints() && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 document.head.appendChild(this.styleElement);

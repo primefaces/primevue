@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import BaseOverlayPanel from './BaseOverlayPanel.vue';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import BaseOverlayPanel from './BaseOverlayPanel.vue';
 
 export default {
     name: 'OverlayPanel',
@@ -239,7 +239,7 @@ export default {
             this.container = el;
         },
         createStyle() {
-            if (!this.styleElement) {
+            if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 document.head.appendChild(this.styleElement);

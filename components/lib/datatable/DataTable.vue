@@ -408,7 +408,7 @@ export default {
     mounted() {
         this.$el.setAttribute(this.attributeSelector, '');
 
-        if (this.responsiveLayout === 'stack' && !this.scrollable) {
+        if (this.responsiveLayout === 'stack' && !this.scrollable && !this.unstyled) {
             this.createResponsiveStyle();
         }
 
