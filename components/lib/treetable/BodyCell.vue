@@ -1,17 +1,17 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
-        <button v-if="columnProp('expander')" v-ripple type="button" class="p-treetable-toggler p-link" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPTOptions('rowToggler')">
-            <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" class="p-tree-toggler-icon" />
-            <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" class="p-tree-toggler-icon" v-bind="getColumnPTOptions('rowTogglerIcon')" />
-            <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" class="p-tree-toggler-icon" v-bind="getColumnPTOptions('rowTogglerIcon')" />
+        <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggler')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPTOptions('rowToggler')">
+            <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('rowTogglerIcon')" />
+            <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPTOptions('rowTogglerIcon')" />
+            <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPTOptions('rowTogglerIcon')" />
         </button>
-        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="['p-checkbox p-treetable-checkbox p-component', { 'p-checkbox-focused': checkboxFocused }]" @click="toggleCheckbox" v-bind="getColumnPTOptions('checkboxWrapper')">
-            <div class="p-hidden-accessible" v-bind="getColumnPTOptions('hiddenInputWrapper')">
+        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnPTOptions('checkboxWrapper')">
+            <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPTOptions('hiddenInputWrapper')" :data-p-hidden-accessible="true">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" v-bind="getColumnPTOptions('hiddenInput')" />
             </div>
-            <div ref="checkboxEl" :class="checkboxClass" v-bind="getColumnCheckboxPTOptions('checkbox')">
-                <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" class="p-checkbox-icon" />
-                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" class="p-checkbox-icon" v-bind="getColumnCheckboxPTOptions('checkboxIcon')" />
+            <div ref="checkboxEl" :class="cx('checkbox')" v-bind="getColumnCheckboxPTOptions('checkbox')">
+                <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxicon')" />
+                <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxicon')" v-bind="getColumnCheckboxPTOptions('checkboxIcon')" />
             </div>
         </div>
         <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
@@ -165,13 +165,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                this.columnProp('bodyClass'),
-                this.columnProp('class'),
-                {
-                    'p-frozen-column': this.columnProp('frozen')
-                }
-            ];
+            return [this.columnProp('bodyClass'), this.columnProp('class'), this.cx('bodyCell')];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('bodyStyle');
@@ -187,9 +181,6 @@ export default {
         },
         checkboxSelectionMode() {
             return this.selectionMode === 'checkbox';
-        },
-        checkboxClass() {
-            return ['p-checkbox-box', { 'p-highlight': this.checked, 'p-focus': this.checkboxFocused, 'p-indeterminate': this.partialChecked }];
         }
     },
     components: {

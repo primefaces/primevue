@@ -1,13 +1,13 @@
 <template>
-    <div :class="containerClass" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')">
-        <div v-if="loading" class="p-treetable-loading" v-bind="ptm('loadingWrapper')">
-            <div class="p-treetable-loading-overlay p-component-overlay" v-bind="ptm('loadingOverlay')">
-                <slot name="loadingicon">
-                    <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="['p-treetable-loading-icon', loadingIcon]" v-bind="ptm('loadingIcon')" />
+    <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" role="table" v-bind="ptm('root')" data-pc-name="treetable">
+        <div v-if="loading" :class="cx('loadingWrapper')" v-bind="ptm('loadingWrapper')">
+            <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
+                <slot name="loadingicon" :class="cx('loadingIcon')">
+                    <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="[cx('loadingIcon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
         </div>
-        <div v-if="$slots.header" class="p-treetable-header" v-bind="ptm('header')">
+        <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
         <TTPaginator
@@ -19,10 +19,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            class="p-paginator-top"
+            :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :pt="ptm('paginator')"
+            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -43,9 +44,9 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </TTPaginator>
-        <div class="p-treetable-wrapper" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+        <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
             <table ref="table" role="table" v-bind="{ ...tableProps, ...ptm('table') }">
-                <thead class="p-treetable-thead" role="rowgroup" v-bind="ptm('thead')">
+                <thead :class="cx('thead')" role="rowgroup" v-bind="ptm('thead')">
                     <tr role="row" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTHeaderCell
@@ -70,7 +71,7 @@
                         </template>
                     </tr>
                 </thead>
-                <tbody class="p-treetable-tbody" role="rowgroup" v-bind="ptm('tbody')">
+                <tbody :class="cx('tbody')" role="rowgroup" v-bind="ptm('tbody')">
                     <template v-if="!empty">
                         <TTRow
                             v-for="(node, index) of dataToRender"
@@ -92,13 +93,13 @@
                             :pt="pt"
                         ></TTRow>
                     </template>
-                    <tr v-else class="p-treetable-emptymessage" v-bind="ptm('emptyMessage')">
+                    <tr v-else :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
                         <td :colspan="columns.length" v-bind="ptm('bodyCell')">
                             <slot name="empty"></slot>
                         </td>
                     </tr>
                 </tbody>
-                <tfoot v-if="hasFooter" class="p-treetable-tfoot" role="rowgroup" v-bind="ptm('tfoot')">
+                <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="ptm('tfoot')">
                     <tr role="row" v-bind="ptm('footerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                             <TTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt"></TTFooterCell>
@@ -116,10 +117,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            class="p-paginator-bottom"
+            :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :pt="pt"
+            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -140,26 +142,26 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </TTPaginator>
-        <div v-if="$slots.footer" class="p-treetable-footer" v-bind="ptm('footer')">
+        <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
-        <div ref="resizeHelper" class="p-column-resizer-helper p-highlight" style="display: none" v-bind="ptm('resizeHelper')"></div>
+        <div ref="resizeHelper" :class="cx('resizeHelper')" style="display: none" v-bind="ptm('resizeHelper')"></div>
     </div>
 </template>
 
 <script>
 import { FilterService } from 'primevue/api';
-import BaseComponent from 'primevue/basecomponent';
 import SpinnerIcon from 'primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import BaseTreeTable from './BaseTreeTable.vue';
 import FooterCell from './FooterCell.vue';
 import HeaderCell from './HeaderCell.vue';
 import TreeTableRow from './TreeTableRow.vue';
 
 export default {
     name: 'TreeTable',
-    extends: BaseComponent,
+    extends: BaseTreeTable,
     emits: [
         'node-expand',
         'node-collapse',
@@ -177,160 +179,6 @@ export default {
         'filter',
         'column-resize-end'
     ],
-    props: {
-        value: {
-            type: null,
-            default: null
-        },
-        expandedKeys: {
-            type: null,
-            default: null
-        },
-        selectionKeys: {
-            type: null,
-            default: null
-        },
-        selectionMode: {
-            type: String,
-            default: null
-        },
-        metaKeySelection: {
-            type: Boolean,
-            default: true
-        },
-        rows: {
-            type: Number,
-            default: 0
-        },
-        first: {
-            type: Number,
-            default: 0
-        },
-        totalRecords: {
-            type: Number,
-            default: 0
-        },
-        paginator: {
-            type: Boolean,
-            default: false
-        },
-        paginatorPosition: {
-            type: String,
-            default: 'bottom'
-        },
-        alwaysShowPaginator: {
-            type: Boolean,
-            default: true
-        },
-        paginatorTemplate: {
-            type: String,
-            default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown'
-        },
-        pageLinkSize: {
-            type: Number,
-            default: 5
-        },
-        rowsPerPageOptions: {
-            type: Array,
-            default: null
-        },
-        currentPageReportTemplate: {
-            type: String,
-            default: '({currentPage} of {totalPages})'
-        },
-        lazy: {
-            type: Boolean,
-            default: false
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        loadingIcon: {
-            type: String,
-            default: undefined
-        },
-        rowHover: {
-            type: Boolean,
-            default: false
-        },
-        autoLayout: {
-            type: Boolean,
-            default: false
-        },
-        sortField: {
-            type: [String, Function],
-            default: null
-        },
-        sortOrder: {
-            type: Number,
-            default: null
-        },
-        defaultSortOrder: {
-            type: Number,
-            default: 1
-        },
-        multiSortMeta: {
-            type: Array,
-            default: null
-        },
-        sortMode: {
-            type: String,
-            default: 'single'
-        },
-        removableSort: {
-            type: Boolean,
-            default: false
-        },
-        filters: {
-            type: Object,
-            default: null
-        },
-        filterMode: {
-            type: String,
-            default: 'lenient'
-        },
-        filterLocale: {
-            type: String,
-            default: undefined
-        },
-        resizableColumns: {
-            type: Boolean,
-            default: false
-        },
-        columnResizeMode: {
-            type: String,
-            default: 'fit'
-        },
-        indentation: {
-            type: Number,
-            default: 1
-        },
-        showGridlines: {
-            type: Boolean,
-            default: false
-        },
-        scrollable: {
-            type: Boolean,
-            default: false
-        },
-        scrollDirection: {
-            type: String,
-            default: 'vertical'
-        },
-        scrollHeight: {
-            type: String,
-            default: null
-        },
-        responsiveLayout: {
-            type: String,
-            default: null
-        },
-        tableProps: {
-            type: Object,
-            default: null
-        }
-    },
     documentColumnResizeListener: null,
     documentColumnResizeEndListener: null,
     lastResizeHelperX: null,
@@ -491,13 +339,7 @@ export default {
             this.$emit('update:first', this.d_first);
         },
         getFilterColumnHeaderClass(column) {
-            return [
-                'p-filter-column',
-                this.columnProp(column, 'filterHeaderClass'),
-                {
-                    'p-frozen-column': this.columnProp(column, 'frozen')
-                }
-            ];
+            return [this.cx('headerCell', { column }), this.columnProp(column, 'filterHeaderClass')];
         },
         onColumnHeaderClick(e) {
             let event = e.originalEvent;
@@ -508,10 +350,10 @@ export default {
                 const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (
-                    DomHandler.hasClass(targetNode, 'p-sortable-column') ||
-                    DomHandler.hasClass(targetNode, 'p-column-title') ||
-                    DomHandler.hasClass(targetNode, 'p-sortable-column-icon') ||
-                    DomHandler.hasClass(targetNode.parentElement, 'p-sortable-column-icon')
+                    DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headerTitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sortIcon' ||
+                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sortIcon'
                 ) {
                     DomHandler.clearSelection();
 
@@ -855,7 +697,7 @@ export default {
             }
         },
         onColumnKeyDown(event, col) {
-            if (event.code === 'Enter' && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+            if (event.code === 'Enter' && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.onColumnHeaderClick(event, col);
             }
         },
@@ -899,24 +741,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-treetable p-component',
-                {
-                    'p-treetable-hoverable-rows': this.rowHover || this.rowSelectionMode,
-                    'p-treetable-auto-layout': this.autoLayout,
-                    'p-treetable-resizable': this.resizableColumns,
-                    'p-treetable-resizable-fit': this.resizableColumns && this.columnResizeMode === 'fit',
-                    'p-treetable-gridlines': this.showGridlines,
-                    'p-treetable-scrollable': this.scrollable,
-                    'p-treetable-scrollable-vertical': this.scrollable && this.scrollDirection === 'vertical',
-                    'p-treetable-scrollable-horizontal': this.scrollable && this.scrollDirection === 'horizontal',
-                    'p-treetable-scrollable-both': this.scrollable && this.scrollDirection === 'both',
-                    'p-treetable-flex-scrollable': this.scrollable && this.scrollHeight === 'flex',
-                    'p-treetable-responsive-scroll': this.responsiveLayout === 'scroll'
-                }
-            ];
-        },
         columns() {
             let cols = [];
             let children = this.$slots.default();
@@ -1015,174 +839,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-treetable {
-    position: relative;
-}
-
-.p-treetable table {
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed;
-}
-
-.p-treetable .p-sortable-column {
-    cursor: pointer;
-    user-select: none;
-}
-
-.p-treetable-responsive-scroll > .p-treetable-wrapper {
-    overflow-x: auto;
-}
-
-.p-treetable-responsive-scroll > .p-treetable-wrapper > table,
-.p-treetable-auto-layout > .p-treetable-wrapper > table {
-    table-layout: auto;
-}
-
-.p-treetable-hoverable-rows .p-treetable-tbody > tr {
-    cursor: pointer;
-}
-
-.p-treetable-toggler {
-    cursor: pointer;
-    user-select: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-treetable-toggler + .p-checkbox {
-    vertical-align: middle;
-}
-
-.p-treetable-toggler + .p-checkbox + span {
-    vertical-align: middle;
-}
-
-/* Resizable */
-.p-treetable-resizable > .p-treetable-wrapper {
-    overflow-x: auto;
-}
-
-.p-treetable-resizable .p-treetable-thead > tr > th,
-.p-treetable-resizable .p-treetable-tfoot > tr > td,
-.p-treetable-resizable .p-treetable-tbody > tr > td {
-    overflow: hidden;
-}
-
-.p-treetable-resizable .p-resizable-column:not(.p-frozen-column) {
-    background-clip: padding-box;
-    position: relative;
-}
-
-.p-treetable-resizable-fit .p-resizable-column:last-child .p-column-resizer {
-    display: none;
-}
-
-.p-treetable .p-column-resizer {
-    display: block;
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    margin: 0;
-    width: 0.5rem;
-    height: 100%;
-    padding: 0px;
-    cursor: col-resize;
-    border: 1px solid transparent;
-}
-
-.p-treetable .p-column-resizer-helper {
-    width: 1px;
-    position: absolute;
-    z-index: 10;
-    display: none;
-}
-
-.p-treetable .p-treetable-loading-overlay {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-/* Scrollable */
-.p-treetable-scrollable .p-treetable-wrapper {
-    position: relative;
-    overflow: auto;
-}
-
-.p-treetable-scrollable .p-treetable-table {
-    display: block;
-}
-
-.p-treetable-scrollable .p-treetable-thead,
-.p-treetable-scrollable .p-treetable-tbody,
-.p-treetable-scrollable .p-treetable-tfoot {
-    display: block;
-}
-
-.p-treetable-scrollable .p-treetable-thead > tr,
-.p-treetable-scrollable .p-treetable-tbody > tr,
-.p-treetable-scrollable .p-treetable-tfoot > tr {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-}
-
-.p-treetable-scrollable .p-treetable-thead > tr > th,
-.p-treetable-scrollable .p-treetable-tbody > tr > td,
-.p-treetable-scrollable .p-treetable-tfoot > tr > td {
-    display: flex;
-    flex: 1 1 0;
-    align-items: center;
-}
-
-.p-treetable-scrollable .p-treetable-thead {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-.p-treetable-scrollable .p-treetable-tfoot {
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
-}
-
-.p-treetable-scrollable .p-frozen-column {
-    position: sticky;
-    background: inherit;
-}
-
-.p-treetable-scrollable th.p-frozen-column {
-    z-index: 1;
-}
-
-.p-treetable-scrollable-both .p-treetable-thead > tr > th,
-.p-treetable-scrollable-both .p-treetable-tbody > tr > td,
-.p-treetable-scrollable-both .p-treetable-tfoot > tr > td,
-.p-treetable-scrollable-horizontal .p-treetable-thead > tr > th .p-treetable-scrollable-horizontal .p-treetable-tbody > tr > td,
-.p-treetable-scrollable-horizontal .p-treetable-tfoot > tr > td {
-    flex: 0 0 auto;
-}
-
-.p-treetable-flex-scrollable {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.p-treetable-flex-scrollable .p-treetable-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
-}
-</style>
