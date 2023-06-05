@@ -10,14 +10,14 @@
                     role="row"
                     v-bind="ptm('rowgroupHeader')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
-                        <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPTOptions('rowGroupToggler')">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+                        <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPT('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
-                                <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="[cx('rowGroupTogglerIcon'), expandedRowIcon]" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
-                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
-                                <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="[cx('rowGroupTogglerIcon'), collapsedRowIcon]" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
-                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
+                                <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="[cx('rowGroupTogglerIcon'), expandedRowIcon]" v-bind="getColumnPT('rowGroupTogglerIcon')" />
+                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPT('rowGroupTogglerIcon')" />
+                                <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="[cx('rowGroupTogglerIcon'), collapsedRowIcon]" v-bind="getColumnPT('rowGroupTogglerIcon')" />
+                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPT('rowGroupTogglerIcon')" />
                             </template>
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
@@ -91,7 +91,7 @@
                     role="row"
                     v-bind="ptm('rowExpansion')"
                 >
-                    <td :colspan="columnsLength" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
+                    <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
@@ -102,14 +102,14 @@
                     role="row"
                     v-bind="ptm('rowgroupFooter')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
             </template>
         </template>
         <tr v-else :class="cx('emptyMessage')" role="row" v-bind="ptm('emptyMessage')">
-            <td :colspan="columnsLength" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
+            <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                 <component v-if="templates.empty" :is="templates.empty" />
             </td>
         </tr>
@@ -305,7 +305,7 @@ export default {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
-        getColumnPTOptions(column, key) {
+        getColumnPT(column, key) {
             return this.ptmo(this.getColumnProp(column), key, {
                 props: column.props,
                 parent: {

@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPTOptions('headerCheckboxWrapper')">
-        <div :class="cx('hiddenHeaderInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPTOptions('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
+    <div :class="cx('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPT('headerCheckboxWrapper')">
+        <div :class="cx('hiddenHeaderInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 type="checkbox"
@@ -10,12 +10,12 @@
                 :aria-label="headerCheckboxAriaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="getColumnPTOptions('hiddenHeaderInput')"
+                v-bind="getColumnPT('hiddenHeaderInput')"
             />
         </div>
-        <div ref="box" :class="cx('headerCheckbox')" v-bind="getColumnPTOptions('headerCheckbox')">
+        <div ref="box" :class="cx('headerCheckbox')" v-bind="getColumnPT('headerCheckbox')">
             <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" :class="cx('headerCheckboxIcon')" />
-            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" :class="cx('headerCheckboxIcon')" v-bind="getColumnPTOptions('headerCheckboxIcon')" />
+            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" :class="cx('headerCheckboxIcon')" v-bind="getColumnPT('headerCheckboxIcon')" />
         </div>
     </div>
 </template>
@@ -44,7 +44,7 @@ export default {
         };
     },
     methods: {
-        getColumnPTOptions(key) {
+        getColumnPT(key) {
             return this.ptmo(this.getColumnProp(), key, {
                 props: this.column.props,
                 parent: {
