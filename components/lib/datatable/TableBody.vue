@@ -5,10 +5,10 @@
                 <tr
                     v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))"
                     :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'"
-                    :class="cx('rowgroupHeader')"
+                    :class="cx('rowGroupHeader')"
                     :style="rowGroupHeaderStyle"
                     role="row"
-                    v-bind="ptm('rowgroupHeader')"
+                    v-bind="ptm('rowGroupHeader')"
                 >
                     <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                         <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPT('rowGroupToggler')">
@@ -98,9 +98,9 @@
                 <tr
                     v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))"
                     :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'"
-                    :class="cx('rowgroupFooter')"
+                    :class="cx('rowGroupFooter')"
                     role="row"
-                    v-bind="ptm('rowgroupFooter')"
+                    v-bind="ptm('rowGroupFooter')"
                 >
                     <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />

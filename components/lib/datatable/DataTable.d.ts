@@ -597,7 +597,7 @@ export interface DataTablePassThroughOptions {
     /**
      * Uses to pass attributes to the rowgroup header's DOM element.
      */
-    rowgroupHeader?: DataTablePassThroughOptionType;
+    rowGroupHeader?: DataTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the body row's DOM element.
      */
@@ -609,7 +609,7 @@ export interface DataTablePassThroughOptions {
     /**
      * Uses to pass attributes to the rowgroup footer's DOM element.
      */
-    rowgroupFooter?: DataTablePassThroughOptionType;
+    rowGroupFooter?: DataTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the empty message's DOM element.
      */
