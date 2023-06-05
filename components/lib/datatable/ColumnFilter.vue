@@ -30,7 +30,7 @@
                     v-focustrap="{ autoFocus: true }"
                     :aria-modal="overlayVisible"
                     role="dialog"
-                    :class="[cx('filterOverlay'), filterMenuclass]"
+                    :class="[cx('filterOverlay'), filterMenuClass]"
                     @keydown.escape="hide"
                     @click="onContentClick"
                     @mousedown="onContentMouseDown"
