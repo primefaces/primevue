@@ -9892,20 +9892,20 @@
                             "description": "Uses to pass attributes to the row editor init icon's DOM element."
                         },
                         {
-                            "name": "rowEditorEditButton",
+                            "name": "rowEditorSaveButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the row editor edit button's DOM element."
+                            "description": "Uses to pass attributes to the row editor save button's DOM element."
                         },
                         {
-                            "name": "rowEditorEditIcon",
+                            "name": "rowEditorSaveIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the row editor edit icon's DOM element."
+                            "description": "Uses to pass attributes to the row editor save icon's DOM element."
                         },
                         {
                             "name": "rowEditorCancelButton",
@@ -9922,6 +9922,22 @@
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the row editor cancel icon's DOM element."
+                        },
+                        {
+                            "name": "footerCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer cell's DOM element."
+                        },
+                        {
+                            "name": "bodyCellContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the body cell content's DOM element."
                         },
                         {
                             "name": "hiddenHeaderInputWrapper",
@@ -13451,14 +13467,6 @@
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footerr ow's DOM element."
-                        },
-                        {
-                            "name": "footerCell",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the footer cell's DOM element."
                         },
                         {
                             "name": "resizeHelper",
@@ -39942,12 +39950,20 @@
                             "description": "Uses to pass attributes to the header row's DOM element."
                         },
                         {
-                            "name": "headerCell",
+                            "name": "headerFilterRow",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the header cell's DOM element."
+                            "description": "Uses to pass attributes to the header filter row's DOM element."
+                        },
+                        {
+                            "name": "headerFilterCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header filter cell's DOM element."
                         },
                         {
                             "name": "tbody",
@@ -39958,6 +39974,14 @@
                             "description": "Uses to pass attributes to the tbody's DOM element."
                         },
                         {
+                            "name": "row",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row's DOM element."
+                        },
+                        {
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
@@ -39966,12 +39990,12 @@
                             "description": "Uses to pass attributes to the empty message's DOM element."
                         },
                         {
-                            "name": "bodyCell",
+                            "name": "emptyMessageCell",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the body cell's DOM element."
+                            "description": "Uses to pass attributes to the empty message cell's DOM element."
                         },
                         {
                             "name": "tfoot",
@@ -40004,86 +40028,6 @@
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the resize helper's DOM element."
-                        },
-                        {
-                            "name": "rowToggler",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row toggler's DOM element."
-                        },
-                        {
-                            "name": "rowTogglerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the row toggler icon's DOM element."
-                        },
-                        {
-                            "name": "columnResizer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the column resizer's DOM element."
-                        },
-                        {
-                            "name": "sortBadge",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the sort badge's DOM element."
-                        },
-                        {
-                            "name": "headerTitle",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header title's DOM element."
-                        },
-                        {
-                            "name": "checkboxWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the checkbox wrapper's DOM element."
-                        },
-                        {
-                            "name": "checkbox",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to checkbox's DOM element."
-                        },
-                        {
-                            "name": "checkboxIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the checkbox icon's DOM element."
-                        },
-                        {
-                            "name": "hiddenInputWrapper",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the hidden input wrapper's DOM element."
-                        },
-                        {
-                            "name": "hiddenInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the hidden input's DOM element."
                         },
                         {
                             "name": "column",
