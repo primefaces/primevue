@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="splitbutton" :data-pc-severity="severity">
         <slot>
-            <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps">
+            <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :unstyled="unstyled" :pt="ptm('button')" v-bind="buttonProps">
                 <template #icon="slotProps">
                     <slot name="icon">
                         <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
@@ -19,6 +19,7 @@
             :aria-controls="ariaId + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
+            :unstyled="unstyled"
             :pt="ptm('menuButton')"
             v-bind="menuButtonProps"
         >
@@ -28,7 +29,7 @@
                 </slot>
             </template>
         </PVSButton>
-        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :pt="ptm('menu')" />
+        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')" />
     </div>
 </template>
 

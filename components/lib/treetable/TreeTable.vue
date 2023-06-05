@@ -22,6 +22,7 @@
             :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :unstyled="unstyled"
             :pt="ptm('paginator')"
             data-pc-section="paginator"
         >
@@ -120,6 +121,7 @@
             :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :unstyled="unstyled"
             :pt="pt"
             data-pc-section="paginator"
         >

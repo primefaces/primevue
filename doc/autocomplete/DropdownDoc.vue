@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
+        <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" unstyled />
     </div>
     <DocSectionCode :code="code" />
 </template>

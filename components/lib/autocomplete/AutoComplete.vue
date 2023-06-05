@@ -100,6 +100,7 @@
             :disabled="disabled"
             aria-hidden="true"
             @click="onDropdownClick"
+            :unstyled="unstyled"
             :pt="ptm('dropdownButton')"
             data-pc-section="dropdownbutton"
         >

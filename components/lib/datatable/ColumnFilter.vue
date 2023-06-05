@@ -67,6 +67,7 @@
                                 optionLabel="label"
                                 optionValue="value"
                                 @update:modelValue="onOperatorChange($event)"
+                                :unstyled="unstyled"
                                 :pt="getColumnPTOptions('filterOperatorDropdown')"
                                 data-pc-section="filteroperatordropdown"
                             ></CFDropdown>
@@ -82,6 +83,7 @@
                                     optionValue="value"
                                     :aria-label="filterConstraintAriaLabel"
                                     @update:modelValue="onMenuMatchModeChange($event, i)"
+                                    :unstyled="unstyled"
                                     :pt="getColumnPTOptions('filterMatchModeDropdown')"
                                     data-pc-section="filtermatchmodedropdown"
                                 ></CFDropdown>
@@ -93,6 +95,7 @@
                                         :class="cx('filterRemoveButton')"
                                         @click="removeConstraint(i)"
                                         :label="removeRuleButtonLabel"
+                                        :unstyled="unstyled"
                                         :pt="getColumnPTOptions('filterRemoveButton')"
                                         data-pc-section="filterremovebutton"
                                     >
@@ -104,7 +107,16 @@
                             </div>
                         </div>
                         <div v-if="isShowAddConstraint" :class="cx('filterAddRule')" v-bind="getColumnPTOptions('filterAddRule')">
-                            <CFButton type="button" :label="addRuleButtonLabel" iconPos="left" :class="cx('filterAddRuleButton')" @click="addConstraint()" :pt="getColumnPTOptions('filterAddRuleButton')" data-pc-section="filteraddrulebutton">
+                            <CFButton
+                                type="button"
+                                :label="addRuleButtonLabel"
+                                iconPos="left"
+                                :class="cx('filterAddRuleButton')"
+                                @click="addConstraint()"
+                                :unstyled="unstyled"
+                                :pt="getColumnPTOptions('filterAddRuleButton')"
+                                data-pc-section="filteraddrulebutton"
+                            >
                                 <template #icon="iconProps">
                                     <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" v-bind="getColumnPTOptions('filterAddRuleButton')['icon']" />
                                 </template>
@@ -117,6 +129,7 @@
                                 :class="cx('filterClearButton')"
                                 :label="clearButtonLabel"
                                 @click="clearFilter"
+                                :unstyled="unstyled"
                                 :pt="getColumnPTOptions('filterClearButton')"
                                 data-pc-section="filterclearbutton"
                             ></CFButton>
@@ -128,7 +141,8 @@
                                     :class="cx('filterApplyButton')"
                                     :label="applyButtonLabel"
                                     @click="applyFilter()"
-                                    v-bind="getColumnPTOptions('filterApplyButton')"
+                                    :unstyled="unstyled"
+                                    :pt="getColumnPTOptions('filterApplyButton')"
                                     data-pc-section="filterapplybutton"
                                 ></CFButton>
                                 <component v-else :is="filterApplyTemplate" :field="field" :filterModel="filters[field]" :filterCallback="applyFilter" />

@@ -7,6 +7,7 @@
         @update:modelValue="onChange($event)"
         :class="cx('RPPDropdown')"
         :disabled="disabled"
+        :unstyled="unstyled"
         :pt="ptm('RPPDropdown')"
         data-pc-section="rppdropdown"
     ></RPPDropdown>

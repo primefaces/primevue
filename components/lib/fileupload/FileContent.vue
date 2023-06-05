@@ -4,10 +4,10 @@
         <div :class="cx('details')" v-bind="ptm('details')">
             <div :class="cx('fileName')" v-bind="ptm('fileName')">{{ file.name }}</div>
             <span :class="cx('fileSize')" v-bind="ptm('fileSize')">{{ formatSize(file.size) }}</span>
-            <FileUploadBadge :value="badgeValue" :class="cx('badge')" :severity="badgeSeverity" :pt="ptm('badge')" />
+            <FileUploadBadge :value="badgeValue" :class="cx('badge')" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('badge')" />
         </div>
         <div :class="cx('actions')" v-bind="ptm('actions')">
-            <FileUploadButton @click="$emit('remove', index)" text rounded severity="danger" :class="cx('removeButton')" :pt="ptm('removeButton')">
+            <FileUploadButton @click="$emit('remove', index)" text rounded severity="danger" :class="cx('removeButton')" :unstyled="unstyled" :pt="ptm('removeButton')">
                 <template #icon="iconProps">
                     <component v-if="templates.fileremoveicon" :is="templates.fileremoveicon" :class="iconProps.class" :file="file" :index="index" />
                     <TimesIcon v-else :class="iconProps.class" aria-hidden="true" v-bind="ptm('removeButton')['icon']" />
