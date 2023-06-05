@@ -93,6 +93,7 @@
                             @column-drop="onColumnHeaderDrop($event)"
                             @column-resizestart="onColumnResizeStart($event)"
                             @checkbox-change="toggleRowsWithCheckbox($event)"
+                            :unstyled="unstyled"
                             :pt="pt"
                         />
                         <DTTableBody
@@ -149,6 +150,8 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
                         <DTTableBody
                             ref="bodyRef"
@@ -205,6 +208,7 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
                             :pt="pt"
                         />
                         <tbody

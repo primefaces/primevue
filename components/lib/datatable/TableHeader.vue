@@ -84,8 +84,9 @@
                             @constraint-add="$emit('constraint-add', $event)"
                             @constraint-remove="$emit('constraint-remove', $event)"
                             @apply-click="$emit('apply-click', $event)"
-                            :pt="pt"
                             :column="col"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
                     </th>
                 </template>

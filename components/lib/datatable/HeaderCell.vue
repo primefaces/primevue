@@ -73,8 +73,9 @@
                 @constraint-add="$emit('constraint-add', $event)"
                 @constraint-remove="$emit('constraint-remove', $event)"
                 @apply-click="$emit('apply-click', $event)"
-                :pt="pt"
                 :column="column"
+                :unstyled="unstyled"
+                :pt="pt"
             />
         </div>
     </th>

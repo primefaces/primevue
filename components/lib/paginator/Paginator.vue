@@ -29,10 +29,20 @@
                     :options="rowsPerPageOptions"
                     @rows-change="onRowChange($event)"
                     :disabled="empty"
+                    :unstyled="unstyled"
                     :pt="pt"
                 />
-                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :aria-label="getAriaLabel('jumpToPageDropdownLabel')" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
-                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
+                <JumpToPageDropdown
+                    v-else-if="item === 'JumpToPageDropdown'"
+                    :aria-label="getAriaLabel('jumpToPageDropdownLabel')"
+                    :page="page"
+                    :pageCount="pageCount"
+                    @page-change="changePage($event)"
+                    :disabled="empty"
+                    :unstyled="unstyled"
+                    :pt="pt"
+                />
+                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :unstyled="unstyled" :pt="pt" />
             </template>
             <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
                 <slot name="end" :state="currentState"></slot>

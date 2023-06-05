@@ -78,6 +78,7 @@
                             @row-edit-save="onRowEditSave($event)"
                             @row-edit-cancel="onRowEditCancel($event)"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
                             :pt="pt"
                         />
                     </template>
