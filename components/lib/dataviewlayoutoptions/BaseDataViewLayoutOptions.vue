@@ -17,8 +17,6 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_dataviewlayoutoptions_style', manual: true });
-
 export default {
     name: 'BaseDataViewLayoutOptions',
     extends: BaseComponent,
@@ -26,8 +24,7 @@ export default {
         modelValue: String
     },
     css: {
-        classes,
-        loadStyle
+        classes
     },
     provide() {
         return {
