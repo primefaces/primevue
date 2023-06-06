@@ -19,6 +19,8 @@ const classes = {
     footer: 'p-dataview-footer'
 };
 
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_dataview_style', manual: true });
+
 export default {
     name: 'BaseDataView',
     extends: BaseComponent,
@@ -89,7 +91,8 @@ export default {
         }
     },
     css: {
-        classes
+        classes,
+        loadStyle
     },
     provide() {
         return {
