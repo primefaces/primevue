@@ -34127,13 +34127,25 @@
                         },
                         {
                             "name": "icon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu button icon template."
                         },
                         {
                             "name": "menubuttonicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu button icon template."
                         }
