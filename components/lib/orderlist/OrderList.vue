@@ -59,20 +59,14 @@
                         :id="id + '_' + i"
                         v-ripple
                         role="option"
-                        :class="
-                            cx('item', {
-                                context: {
-                                    active: isSelected(item),
-                                    focused: `${id}_${i}` === focusedOptionId
-                                }
-                            })
-                        "
-                        :data-p-highlight="isSelected(item)"
+                        :class="cx('item', { item, id: `${id}_${i}` })"
                         @click="onItemClick($event, item, i)"
                         @touchend="onItemTouchEnd"
                         :aria-selected="isSelected(item)"
                         @mousedown="onOptionMouseDown(i)"
                         v-bind="getPTOptions(item, 'item')"
+                        :data-p-highlight="isSelected(item)"
+                        :data-p-focused="`${id}_${i}` === focusedOptionId"
                     >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -448,13 +442,13 @@ export default {
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem) return !(DomHandler.getAttribute(nextItem, 'data-p-section') === 'item') ? this.findNextItem(nextItem) : nextItem;
+            if (nextItem) return !(DomHandler.getAttribute(nextItem, 'data-pc-section') === 'item') ? this.findNextItem(nextItem) : nextItem;
             else return null;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem) return !(DomHandler.getAttribute(nextItem, 'data-p-section') === 'item') ? this.findPrevItem(prevItem) : prevItem;
+            if (prevItem) return !(DomHandler.getAttribute(nextItem, 'data-pc-section') === 'item') ? this.findPrevItem(prevItem) : prevItem;
             else return null;
         },
         updateListScroll() {

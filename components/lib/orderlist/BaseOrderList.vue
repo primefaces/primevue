@@ -53,11 +53,11 @@ const classes = {
     header: 'p-orderlist-header',
     container: 'p-orderlist-list-container',
     list: 'p-orderlist-list',
-    item: ({ context }) => [
+    item: ({ instance, item, id }) => [
         'p-orderlist-item',
         {
-            'p-highlight': context.active,
-            'p-focus': context.focused
+            'p-highlight': instance.isSelected(item),
+            'p-focus': id === instance.focusedOptionId
         }
     ]
 };
