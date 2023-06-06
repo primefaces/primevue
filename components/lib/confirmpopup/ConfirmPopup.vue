@@ -16,14 +16,14 @@
                     <CPButton :label="rejectLabel" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" :class="cx('rejectButton')" :pt="ptm('rejectButton')">
                         <template #icon="iconProps">
                             <slot name="rejecticon">
-                                <span :class="cx('rejectButtonIcon', getCXOptions(rejectIcon, iconProps))" v-bind="ptm('rejectButton')['icon']" />
+                                <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
                             </slot>
                         </template>
                     </CPButton>
                     <CPButton :label="acceptLabel" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" :class="cx('acceptButton')" :pt="ptm('acceptButton')">
                         <template #icon="iconProps">
                             <slot name="accepticon">
-                                <span :class="cx('acceptButtonIcon', getCXOptions(acceptIcon, iconProps))" v-bind="ptm('acceptButton')['icon']" />
+                                <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
                             </slot>
                         </template>
                     </CPButton>

@@ -26,14 +26,14 @@
             <CDButton :label="rejectLabel" :class="cx('rejectButton')" iconPos="left" @click="reject()" :autofocus="autoFocusReject" :pt="ptm('rejectButton')">
                 <template #icon="iconProps">
                     <slot name="rejecticon">
-                        <span :class="cx('rejectButtonIcon', getCXOptions(rejectIcon, iconProps))" v-bind="ptm('rejectButton')['icon']" />
+                        <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
                     </slot>
                 </template>
             </CDButton>
             <CDButton :label="acceptLabel" :class="cx('acceptButton')" iconPos="left" @click="accept()" :autofocus="autoFocusAccept" :pt="ptm('acceptButton')">
                 <template #icon="iconProps">
                     <slot name="accepticon">
-                        <span :class="cx('acceptButtonIcon', getCXOptions(acceptIcon, iconProps))" v-bind="ptm('acceptButton')['icon']" />
+                        <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
                     </slot>
                 </template>
             </CDButton>

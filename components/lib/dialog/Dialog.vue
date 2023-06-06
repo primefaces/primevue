@@ -30,7 +30,7 @@
                             </button>
                         </div>
                     </div>
-                    <div :ref="contentRef" :class="cx('content')" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
+                    <div :ref="contentRef" :class="[cx('content'), contentClass]" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
                         <slot></slot>
                     </div>
                     <div v-if="footer || $slots.footer" :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
