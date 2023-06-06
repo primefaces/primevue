@@ -47,12 +47,13 @@ const classes = {
     ],
     sourceControls: 'p-picklist-buttons p-picklist-source-controls',
     sourceWrapper: 'p-picklist-list-wrapper p-picklist-source-wrapper',
+    sourceHeader: 'p-picklist-header',
     sourceList: 'p-picklist-list p-picklist-source-list',
-    item: ({ context }) => [
+    item: ({ instance, item, id, listIndex }) => [
         'p-picklist-item',
         {
-            'p-highlight': context.active,
-            'p-focus': context.focused
+            'p-highlight': instance.isSelected(item, listIndex),
+            'p-focus': id === instance.focusedOptionId
         }
     ],
     buttons: 'p-picklist-buttons p-picklist-transfer-buttons',

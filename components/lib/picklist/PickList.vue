@@ -33,7 +33,7 @@
             <slot name="sourcecontrolsend"></slot>
         </div>
         <div :class="cx('sourceWrapper')" v-bind="ptm('sourceWrapper')">
-            <div v-if="$slots.sourceheader" class="p-picklist-header" v-bind="ptm('sourceHeader')">
+            <div v-if="$slots.sourceheader" :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')">
                 <slot name="sourceheader"></slot>
             </div>
             <transition-group
@@ -56,15 +56,7 @@
                     <li
                         :id="idSource + '_' + i"
                         v-ripple
-                        :class="
-                            cx('item', {
-                                context: {
-                                    active: isSelected(item, 0),
-                                    focused: `${idSource}_${i}` === focusedOptionId
-                                }
-                            })
-                        "
-                        :data-p-highlight="isSelected(item, 1)"
+                        :class="cx('item', { item, id: `${idSource}_${i}`, listIndex: 0 })"
                         @click="onItemClick($event, item, i, 0)"
                         @dblclick="onItemDblClick($event, item, 0)"
                         @touchend="onItemTouchEnd"
@@ -72,6 +64,8 @@
                         role="option"
                         :aria-selected="isSelected(item, 0)"
                         v-bind="getPTOptions(item, 'item')"
+                        :data-p-highlight="isSelected(item, 0)"
+                        :data-p-focused="`${id}_${i}` === focusedOptionId"
                     >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
@@ -134,15 +128,7 @@
                     <li
                         :id="idTarget + '_' + i"
                         v-ripple
-                        :class="
-                            cx('item', {
-                                context: {
-                                    active: isSelected(item, 1),
-                                    focused: `${idTarget}_${i}` === focusedOptionId
-                                }
-                            })
-                        "
-                        :data-p-highlight="isSelected(item, 1)"
+                        :class="cx('item', { item, id: `${idTarget}_${i}`, listIndex: 1 })"
                         @click="onItemClick($event, item, i, 1)"
                         @dblclick="onItemDblClick($event, item, 1)"
                         @keydown="onItemKeyDown($event, 'targetList')"
@@ -151,6 +137,8 @@
                         role="option"
                         :aria-selected="isSelected(item, 1)"
                         v-bind="getPTOptions(item, 'item')"
+                        :data-p-highlight="isSelected(item, 1)"
+                        :data-p-focused="`${id}_${i}` === focusedOptionId"
                     >
                         <slot name="item" :item="item" :index="i"> </slot>
                     </li>
