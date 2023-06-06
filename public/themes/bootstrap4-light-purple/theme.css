@@ -2352,6 +2352,9 @@
   font-size: 1.25rem;
   padding: 0.625rem 0.9375rem;
 }
+.p-splitbutton.p-button-lg > .p-button.p-button-icon-only {
+  width: auto;
+}
 .p-splitbutton.p-button-lg > .p-button .p-button-icon {
   font-size: 1.25rem;
 }
