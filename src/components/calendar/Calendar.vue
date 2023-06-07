@@ -435,6 +435,10 @@ export default {
         },
         isMonthSelected(month) {
             if (this.isComparable()) {
+                if (this.view !== 'month') {
+                    return false;
+                }
+                
                 let value = this.isRangeSelection() ? this.value[0] : this.value;
                 const isMonthSelected = (valueDate) => valueDate.getMonth() === month && valueDate.getFullYear() === this.currentYear;
 
@@ -448,6 +452,10 @@ export default {
         },
         isYearSelected(year) {
             if (this.isComparable()) {
+                if (this.view !== 'year') {
+                    return false;
+                }
+
                 let value = this.isRangeSelection() ? this.value[0] : this.value;
                 return !this.isMultipleSelection() && this.isComparable() ? (value.getFullYear() === year) : false;
             }
