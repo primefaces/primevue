@@ -86,7 +86,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.columnProp('footerClass'), this.columnProp('class'), this.cx('footerCell')];
+            return [this.columnProp('footerClass'), this.columnProp('class'), this.cxo('footerCell')];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');

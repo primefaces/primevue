@@ -22,14 +22,14 @@
         :data-p-frozen-column="columnProp('frozen')"
         :data-p-reorderable-column="reorderableColumns"
     >
-        <span v-if="resizableColumns && !columnProp('frozen')" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
-        <div :class="cx('headerContent')" v-bind="getColumnPT('headerContent')">
+        <span v-if="resizableColumns && !columnProp('frozen')" :class="cxo('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
+        <div :class="cxo('headerContent')" v-bind="getColumnPT('headerContent')">
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
-            <span v-if="columnProp('header')" :class="cx('headerTitle')" v-bind="getColumnPT('headerTitle')">{{ columnProp('header') }}</span>
+            <span v-if="columnProp('header')" :class="cxo('headerTitle')" v-bind="getColumnPT('headerTitle')">{{ columnProp('header') }}</span>
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
-                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" />
+                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cxo('sortIcon')" />
             </span>
-            <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getBadgeValue() }}</span>
+            <span v-if="isMultiSorted()" :class="cxo('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getBadgeValue() }}</span>
             <DTHeaderCheckbox
                 v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
                 :checked="allRowsSelected"
@@ -302,7 +302,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.cx('headerCell'), this.filterColumn ? this.columnProp('filterHeaderClass') : this.columnProp('headerClass'), this.columnProp('class')];
+            return [this.cxo('headerCell'), this.filterColumn ? this.columnProp('filterHeaderClass') : this.columnProp('headerClass'), this.columnProp('class')];
         },
         containerStyle() {
             let headerStyle = this.filterColumn ? this.columnProp('filterHeaderStyle') : this.columnProp('headerStyle');

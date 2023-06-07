@@ -1,5 +1,5 @@
 <template>
-    <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead'), ...getColumnGroupPT('root') } : ptm('thead')" data-pc-section="thead">
+    <thead :class="cxo('thead')" :style="sxo('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead'), ...getColumnGroupPT('root') } : ptm('thead')" data-pc-section="thead">
         <template v-if="!columnGroup">
             <tr role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">

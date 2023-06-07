@@ -76,9 +76,22 @@ export default {
         cx(key = '', params = {}) {
             return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params }) : undefined;
         },
+        cxo(key = '', params = {}) {
+            return !this.isUnstyled ? this._getOptionValue(this.$parentInstance.$parentInstance.$css.classes, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params }) : undefined;
+        },
         sx(key = '', when = true, params = {}) {
             if (when) {
                 const self = this._getOptionValue(this.$css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
+                const base = this._getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
+
+                return [base, self];
+            }
+
+            return undefined;
+        },
+        sxo(key = '', when = true, params = {}) {
+            if (when) {
+                const self = this._getOptionValue(this.$parentInstance.$parentInstance.$css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
                 const base = this._getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
 
                 return [base, self];

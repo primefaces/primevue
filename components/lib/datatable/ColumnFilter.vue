@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('columnFilter')" v-bind="getColumnPT('columnFilter')">
-        <div v-if="display === 'row'" :class="cx('filterInput')" v-bind="{ ...filterInputProps, ...getColumnPT('filterInput') }">
+    <div :class="cxo('columnFilter')" v-bind="getColumnPT('columnFilter')">
+        <div v-if="display === 'row'" :class="cxo('filterInput')" v-bind="{ ...filterInputProps, ...getColumnPT('filterInput') }">
             <component :is="filterElement" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
         </div>
         <button
@@ -11,14 +11,14 @@
             aria-haspopup="true"
             :aria-expanded="overlayVisible"
             :aria-controls="overlayId"
-            :class="cx('filterMenuButton')"
+            :class="cxo('filterMenuButton')"
             @click="toggleMenu($event)"
             @keydown="onToggleButtonKeyDown($event)"
             v-bind="getColumnPT('filterMenuButton')"
         >
             <component :is="filterIconTemplate || 'FilterIcon'" />
         </button>
-        <button v-if="showClearButton && display === 'row'" :class="cx('headerFilterClearButton')" type="button" @click="clearFilter()" v-bind="getColumnPT('headerFilterClearButton')">
+        <button v-if="showClearButton && display === 'row'" :class="cxo('headerFilterClearButton')" type="button" @click="clearFilter()" v-bind="getColumnPT('headerFilterClearButton')">
             <component :is="filterClearIconTemplate || 'FilterSlashIcon'" v-bind="getColumnPT('filterClearIcon')" />
         </button>
         <Portal>
@@ -30,7 +30,7 @@
                     v-focustrap="{ autoFocus: true }"
                     :aria-modal="overlayVisible"
                     role="dialog"
-                    :class="[cx('filterOverlay'), filterMenuClass]"
+                    :class="[cxo('filterOverlay'), filterMenuClass]"
                     @keydown.escape="hide"
                     @click="onContentClick"
                     @mousedown="onContentMouseDown"
@@ -38,11 +38,11 @@
                 >
                     <component :is="filterHeaderTemplate" :field="field" :filterModel="filters[field]" :filterCallback="filterCallback" />
                     <template v-if="display === 'row'">
-                        <ul :class="cx('filterRowItems')" v-bind="getColumnPT('filterRowItems')">
+                        <ul :class="cxo('filterRowItems')" v-bind="getColumnPT('filterRowItems')">
                             <li
                                 v-for="(matchMode, i) of matchModes"
                                 :key="matchMode.label"
-                                :class="cx('filterRowItem', { matchMode })"
+                                :class="cxo('filterRowItem', { matchMode })"
                                 @click="onRowMatchModeChange(matchMode.value)"
                                 @keydown="onRowMatchModeKeyDown($event)"
                                 @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
@@ -51,19 +51,19 @@
                             >
                                 {{ matchMode.label }}
                             </li>
-                            <li :class="cx('filterSeparator')" v-bind="getColumnPT('filterSeparator')"></li>
-                            <li :class="cx('filterRowItem')" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()" v-bind="getColumnPT('filterRowItem')">
+                            <li :class="cxo('filterSeparator')" v-bind="getColumnPT('filterSeparator')"></li>
+                            <li :class="cxo('filterRowItem')" @click="clearFilter()" @keydown="onRowMatchModeKeyDown($event)" @keydown.enter="onRowClearItemClick()" v-bind="getColumnPT('filterRowItem')">
                                 {{ noFilterLabel }}
                             </li>
                         </ul>
                     </template>
                     <template v-else>
-                        <div v-if="isShowOperator" :class="cx('filterOperator')" v-bind="getColumnPT('filterOperator')">
+                        <div v-if="isShowOperator" :class="cxo('filterOperator')" v-bind="getColumnPT('filterOperator')">
                             <CFDropdown
                                 :options="operatorOptions"
                                 :modelValue="operator"
                                 :aria-label="filterOperatorAriaLabel"
-                                :class="cx('filterOperatorDropdown')"
+                                :class="cxo('filterOperatorDropdown')"
                                 optionLabel="label"
                                 optionValue="value"
                                 @update:modelValue="onOperatorChange($event)"
@@ -72,13 +72,13 @@
                                 data-pc-section="filteroperatordropdown"
                             ></CFDropdown>
                         </div>
-                        <div :class="cx('filterConstraints')" v-bind="getColumnPT('filterConstraints')">
-                            <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" :class="cx('filterConstraint')" v-bind="getColumnPT('filterConstraint')">
+                        <div :class="cxo('filterConstraints')" v-bind="getColumnPT('filterConstraints')">
+                            <div v-for="(fieldConstraint, i) of fieldConstraints" :key="i" :class="cxo('filterConstraint')" v-bind="getColumnPT('filterConstraint')">
                                 <CFDropdown
                                     v-if="isShowMatchModes"
                                     :options="matchModes"
                                     :modelValue="fieldConstraint.matchMode"
-                                    :class="cx('filterMatchModeDropdown')"
+                                    :class="cxo('filterMatchModeDropdown')"
                                     optionLabel="label"
                                     optionValue="value"
                                     :aria-label="filterConstraintAriaLabel"
@@ -92,7 +92,7 @@
                                     <CFButton
                                         v-if="showRemoveIcon"
                                         type="button"
-                                        :class="cx('filterRemoveButton')"
+                                        :class="cxo('filterRemoveButton')"
                                         @click="removeConstraint(i)"
                                         :label="removeRuleButtonLabel"
                                         :unstyled="unstyled"
@@ -106,12 +106,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-if="isShowAddConstraint" :class="cx('filterAddRule')" v-bind="getColumnPT('filterAddRule')">
+                        <div v-if="isShowAddConstraint" :class="cxo('filterAddRule')" v-bind="getColumnPT('filterAddRule')">
                             <CFButton
                                 type="button"
                                 :label="addRuleButtonLabel"
                                 iconPos="left"
-                                :class="cx('filterAddRuleButton')"
+                                :class="cxo('filterAddRuleButton')"
                                 @click="addConstraint()"
                                 :unstyled="unstyled"
                                 :pt="getColumnPT('filterAddRuleButton')"
@@ -122,11 +122,11 @@
                                 </template>
                             </CFButton>
                         </div>
-                        <div :class="cx('filterButtonbar')" v-bind="getColumnPT('filterButtonbar')">
+                        <div :class="cxo('filterButtonbar')" v-bind="getColumnPT('filterButtonbar')">
                             <CFButton
                                 v-if="!filterClearTemplate && showClearButton"
                                 type="button"
-                                :class="cx('filterClearButton')"
+                                :class="cxo('filterClearButton')"
                                 :label="clearButtonLabel"
                                 @click="clearFilter"
                                 :unstyled="unstyled"
@@ -138,7 +138,7 @@
                                 <CFButton
                                     v-if="!filterApplyTemplate"
                                     type="button"
-                                    :class="cx('filterApplyButton')"
+                                    :class="cxo('filterApplyButton')"
                                     :label="applyButtonLabel"
                                     @click="applyFilter()"
                                     :unstyled="unstyled"
