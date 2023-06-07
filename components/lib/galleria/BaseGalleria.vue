@@ -288,9 +288,8 @@ const styles = `
 `;
 
 const classes = {
-    mask: ({ props, instance }) => [
+    mask: ({ instance }) => [
         'p-galleria-mask p-component-overlay p-component-overlay-enter',
-        props.maskClass,
         {
             'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
@@ -364,32 +363,112 @@ export default {
     name: 'BaseGalleria',
     extends: BaseComponent,
     props: {
-        label: {
+        id: {
             type: String,
             default: null
         },
-        icon: {
+        value: {
+            type: Array,
+            default: null
+        },
+        activeIndex: {
+            type: Number,
+            default: 0
+        },
+        fullScreen: {
+            type: Boolean,
+            default: false
+        },
+        visible: {
+            type: Boolean,
+            default: false
+        },
+        numVisible: {
+            type: Number,
+            default: 3
+        },
+        responsiveOptions: {
+            type: Array,
+            default: null
+        },
+        showItemNavigators: {
+            type: Boolean,
+            default: false
+        },
+        showThumbnailNavigators: {
+            type: Boolean,
+            default: true
+        },
+        showItemNavigatorsOnHover: {
+            type: Boolean,
+            default: false
+        },
+        changeItemOnIndicatorHover: {
+            type: Boolean,
+            default: false
+        },
+        circular: {
+            type: Boolean,
+            default: false
+        },
+        autoPlay: {
+            type: Boolean,
+            default: false
+        },
+        transitionInterval: {
+            type: Number,
+            default: 4000
+        },
+        showThumbnails: {
+            type: Boolean,
+            default: true
+        },
+        thumbnailsPosition: {
+            type: String,
+            default: 'bottom'
+        },
+        verticalThumbnailViewPortHeight: {
+            type: String,
+            default: '300px'
+        },
+        showIndicators: {
+            type: Boolean,
+            default: false
+        },
+        showIndicatorsOnItem: {
+            type: Boolean,
+            default: false
+        },
+        indicatorsPosition: {
+            type: String,
+            default: 'bottom'
+        },
+        baseZIndex: {
+            type: Number,
+            default: 0
+        },
+        maskClass: {
             type: String,
             default: null
         },
-        image: {
-            type: String,
+        containerStyle: {
+            type: null,
             default: null
         },
-        size: {
-            type: String,
-            default: 'normal'
-        },
-        shape: {
-            type: String,
-            default: 'square'
-        },
-        'aria-labelledby': {
-            type: String,
+        containerClass: {
+            type: null,
             default: null
         },
-        'aria-label': {
-            type: String,
+        containerProps: {
+            type: null,
+            default: null
+        },
+        prevButtonProps: {
+            type: null,
+            default: null
+        },
+        nextButtonProps: {
+            type: null,
             default: null
         }
     },

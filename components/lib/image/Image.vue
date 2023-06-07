@@ -1,7 +1,7 @@
 <template>
-    <span :class="cx('root')" :style="style" v-bind="ptm('root')">
-        <slot name="image" :class="imageClass" :style="imageStyle" :onError="onError">
-            <img :style="imageStyle" :class="cx('image')" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
+    <span :class="[cx('root'), containerClass]" :style="style" v-bind="ptm('root')">
+        <slot name="image" :onError="onError">
+            <img :style="imageStyle" :class="[cx('image'), imageClass]" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
         </slot>
         <button v-if="preview" ref="previewButton" :class="cx('button')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('button') }">
             <slot name="indicatoricon">
@@ -183,13 +183,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                'p-image p-component',
-                this.class,
-                {
-                    'p-image-preview-container': this.preview
-                }
-            ];
+            return this.class;
         },
         rotateClass() {
             return 'p-image-preview-rotate-' + this.rotate;
