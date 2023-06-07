@@ -128,7 +128,7 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            if (DomHandler.isClickable(event.target) || DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtoggler' || DomHandler.getAttribute(event.target.parentElement, 'data-pc-section') === 'rowtoggler') {
+            if (DomHandler.isClickable(event.target) || DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtoggler' || DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtogglericon' || event.target.tagName === 'path') {
                 return;
             }
 
