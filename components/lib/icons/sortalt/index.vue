@@ -29,7 +29,7 @@ export default {
     extends: BaseIcon,
     computed: {
         pathId() {
-            return `pr_icon_clip_${UniqueComponentId}`;
+            return `pv_icon_clip_${UniqueComponentId()}`;
         }
     }
 };
