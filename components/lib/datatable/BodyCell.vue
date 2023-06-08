@@ -15,7 +15,7 @@
         :data-p-cell-editing="d_editing"
         :data-p-frozen-column="columnProp('frozen')"
     >
-        <span v-if="responsiveLayout === 'stack'" :class="cxo('columnTitle')" v-bind="getColumnPT('columnTitle')">{{ columnProp('header') }}</span>
+        <span v-if="responsiveLayout === 'stack'" :class="cx('columnTitle')" v-bind="getColumnPT('columnTitle')">{{ columnProp('header') }}</span>
         <component v-if="column.children && column.children.body && !d_editing" :is="column.children.body" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :editorInitCallback="editorInitCallback" />
         <component
             v-else-if="column.children && column.children.editor && d_editing"
@@ -45,30 +45,30 @@
             />
         </template>
         <template v-else-if="columnProp('rowReorder')">
-            <component v-if="column.children && column.children.rowreordericon" :is="column.children.rowreordericon" :class="cxo('rowReorderIcon')" />
-            <i v-else-if="columnProp('rowReorderIcon')" :class="[cxo('rowReorderIcon'), columnProp('rowReorderIcon')]" />
-            <BarsIcon v-else :class="cxo('rowReorderIcon')" data-pc-section="rowreordericon" />
+            <component v-if="column.children && column.children.rowreordericon" :is="column.children.rowreordericon" :class="cx('rowReorderIcon')" />
+            <i v-else-if="columnProp('rowReorderIcon')" :class="[cx('rowReorderIcon'), columnProp('rowReorderIcon')]" />
+            <BarsIcon v-else :class="cx('rowReorderIcon')" data-pc-section="rowreordericon" />
         </template>
         <template v-else-if="columnProp('expander')">
-            <button v-ripple :class="cxo('rowToggler')" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow" v-bind="getColumnPT('rowToggler')">
+            <button v-ripple :class="cx('rowToggler')" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow" v-bind="getColumnPT('rowToggler')">
                 <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :rowExpanded="isRowExpanded" />
                 <template v-else>
-                    <span v-if="isRowExpanded && expandedRowIcon" :class="[cxo('rowTogglerIcon'), expandedRowIcon]" />
-                    <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" :class="cxo('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
-                    <span v-else-if="!isRowExpanded && collapsedRowIcon" :class="[cxo('rowTogglerIcon'), collapsedRowIcon]" />
-                    <ChevronRightIcon v-else-if="!isRowExpanded && !collapsedRowIcon" :class="cxo('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
+                    <span v-if="isRowExpanded && expandedRowIcon" :class="[cx('rowTogglerIcon'), expandedRowIcon]" />
+                    <ChevronDownIcon v-else-if="isRowExpanded && !expandedRowIcon" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
+                    <span v-else-if="!isRowExpanded && collapsedRowIcon" :class="[cx('rowTogglerIcon'), collapsedRowIcon]" />
+                    <ChevronRightIcon v-else-if="!isRowExpanded && !collapsedRowIcon" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
                 </template>
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
-            <button v-if="!d_editing" v-ripple :class="cxo('rowEditorInitButton')" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPT('rowEditorInitButton')">
-                <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="cxo('rowEditorInitIcon')" v-bind="getColumnPT('rowEditorInitIcon')" />
+            <button v-if="!d_editing" v-ripple :class="cx('rowEditorInitButton')" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPT('rowEditorInitButton')">
+                <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="cx('rowEditorInitIcon')" v-bind="getColumnPT('rowEditorInitIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple :class="cxo('rowEditorSaveButton')" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPT('rowEditorSaveButton')">
-                <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="cxo('rowEditorSaveIcon')" v-bind="getColumnPT('rowEditorSaveIcon')" />
+            <button v-if="d_editing" v-ripple :class="cx('rowEditorSaveButton')" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPT('rowEditorSaveButton')">
+                <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="cx('rowEditorSaveIcon')" v-bind="getColumnPT('rowEditorSaveIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple :class="cxo('rowEditorCancelButton')" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPT('rowEditorCancelButton')">
-                <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="cxo('rowEditorCancelIcon')" v-bind="getColumnPT('rowEditorCancelIcon')" />
+            <button v-if="d_editing" v-ripple :class="cx('rowEditorCancelButton')" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPT('rowEditorCancelButton')">
+                <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="cx('rowEditorCancelIcon')" v-bind="getColumnPT('rowEditorCancelIcon')" />
             </button>
         </template>
         <template v-else>{{ resolveFieldData() }}</template>
@@ -91,6 +91,7 @@ import RowRadioButton from './RowRadioButton.vue';
 
 export default {
     name: 'BodyCell',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
     props: {
@@ -464,7 +465,7 @@ export default {
             return this.columnProp('field');
         },
         containerClass() {
-            return [this.columnProp('bodyClass'), this.columnProp('class'), this.cxo('bodyCell')];
+            return [this.columnProp('bodyClass'), this.columnProp('class'), this.cx('bodyCell')];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('bodyStyle');

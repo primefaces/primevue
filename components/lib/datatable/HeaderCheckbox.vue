@@ -1,6 +1,6 @@
 <template>
-    <div :class="cxo('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPT('headerCheckboxWrapper')">
-        <div :class="cxo('hiddenHeaderInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
+    <div :class="cx('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPT('headerCheckboxWrapper')">
+        <div :class="cx('hiddenHeaderInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 type="checkbox"
@@ -13,9 +13,9 @@
                 v-bind="getColumnPT('hiddenHeaderInput')"
             />
         </div>
-        <div ref="box" :class="cxo('headerCheckbox')" v-bind="getColumnPT('headerCheckbox')">
-            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" :class="cxo('headerCheckboxIcon')" />
-            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" :class="cxo('headerCheckboxIcon')" v-bind="getColumnPT('headerCheckboxIcon')" />
+        <div ref="box" :class="cx('headerCheckbox')" v-bind="getColumnPT('headerCheckbox')">
+            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" :class="cx('headerCheckboxIcon')" />
+            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" :class="cx('headerCheckboxIcon')" v-bind="getColumnPT('headerCheckboxIcon')" />
         </div>
     </div>
 </template>
@@ -27,6 +27,7 @@ import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'HeaderCheckbox',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: ['change'],
     props: {
