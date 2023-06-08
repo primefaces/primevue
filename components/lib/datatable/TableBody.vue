@@ -125,6 +125,7 @@ import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TableBody',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: [
         'rowgroup-toggle',

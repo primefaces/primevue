@@ -137,6 +137,7 @@ import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {
     name: 'TableHeader',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: [
         'column-click',
