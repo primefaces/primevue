@@ -7,7 +7,7 @@
                 </div>
                 <button v-if="showCloseIcon" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" autofocus @click="hide" @keydown="onButtonKeydown" v-bind="ptm('closeButton')">
                     <slot name="closeicon">
-                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="cx('closeIcon')" v-bind="ptm('closeIcon')"></component>
+                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
                     </slot>
                 </button>
             </div>
@@ -104,6 +104,7 @@ export default {
         },
         onEnter(el) {
             this.container.setAttribute(this.attributeSelector, '');
+            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
 
             if (this.dismissable) {
