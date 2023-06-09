@@ -18,20 +18,17 @@
                     <div
                         v-for="(item, index) of value"
                         :key="`p-galleria-thumbnail-item-${index}`"
-                        :class="
-                            cx('thumbnailItem', {
-                                context: {
-                                    index,
-                                    activeIndex
-                                }
-                            })
-                        "
+                        :class="cx('thumbnailItem', { index, activeIndex })"
                         role="tab"
                         :data-p-active="activeIndex === index"
                         :aria-selected="activeIndex === index"
                         :aria-controls="containerId + '_item_' + index"
                         @keydown="onThumbnailKeydown($event, index)"
                         v-bind="ptm('thumbnailItem')"
+                        :data-p-galleria-thumbnail-item-current="activeIndex === index"
+                        :data-p-galleria-thumbnail-item-active="isItemActive(index)"
+                        :data-p-galleria-thumbnail-item-start="firstItemAciveIndex() === index"
+                        :data-p-galleria-thumbnail-item-end="lastItemActiveIndex() === index"
                     >
                         <div
                             :class="cx('thumbnailItemContent')"
@@ -427,7 +424,7 @@ export default {
             }
 
             let innerHTML = `
-                #${this.containerId} .p-galleria-thumbnail-item {
+                #${this.containerId} [data-pc-section="thumbnailitem"] {
                     flex: 1 0 ${100 / this.d_numVisible}%
                 }
             `;

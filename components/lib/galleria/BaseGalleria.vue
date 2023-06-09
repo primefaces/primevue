@@ -295,7 +295,21 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    root: ({ instance }) => instance.galleriaClass,
+    root: ({ instance }) => {
+        const thumbnailsPosClass = instance.$attrs.showThumbnails && instance.getPositionClass('p-galleria-thumbnails', instance.$attrs.thumbnailsPosition);
+        const indicatorPosClass = instance.$attrs.showIndicators && instance.getPositionClass('p-galleria-indicators', instance.$attrs.indicatorsPosition);
+
+        return [
+            'p-galleria p-component',
+            {
+                'p-galleria-fullscreen': instance.$attrs.fullScreen,
+                'p-galleria-indicator-onitem': instance.$attrs.showIndicatorsOnItem,
+                'p-galleria-item-nav-onhover': instance.$attrs.showItemNavigatorsOnHover && !instance.$attrs.fullScreen
+            },
+            thumbnailsPosClass,
+            indicatorPosClass
+        ];
+    },
     closeButton: 'p-galleria-close p-link',
     closeIcon: 'p-galleria-close-icon',
     header: 'p-galleria-header',
@@ -320,10 +334,10 @@ const classes = {
     nextItemIcon: 'p-galleria-item-next-icon',
     caption: 'p-galleria-caption',
     indicators: 'p-galleria-indicators p-reset',
-    indicator: ({ instance, context }) => [
+    indicator: ({ instance, index }) => [
         'p-galleria-indicator',
         {
-            'p-highlight': instance.isIndicatorItemActive(context.index)
+            'p-highlight': instance.isIndicatorItemActive(index)
         }
     ],
     indicatorButton: 'p-link',
@@ -338,13 +352,13 @@ const classes = {
     previousThumbnailIcon: 'p-galleria-thumbnail-prev-icon',
     thumbnailItemsContainer: 'p-galleria-thumbnail-items-container',
     thumbnailItems: 'p-galleria-thumbnail-items',
-    thumbnailItem: ({ instance, context }) => [
+    thumbnailItem: ({ instance, index, activeIndex }) => [
         'p-galleria-thumbnail-item',
         {
-            'p-galleria-thumbnail-item-current': context.activeIndex === context.index,
-            'p-galleria-thumbnail-item-active': instance.isItemActive(context.index),
-            'p-galleria-thumbnail-item-start': instance.firstItemAciveIndex() === context.index,
-            'p-galleria-thumbnail-item-end': instance.lastItemActiveIndex() === context.index
+            'p-galleria-thumbnail-item-current': activeIndex === index,
+            'p-galleria-thumbnail-item-active': instance.isItemActive(index),
+            'p-galleria-thumbnail-item-start': instance.firstItemAciveIndex() === index,
+            'p-galleria-thumbnail-item-end': instance.lastItemActiveIndex() === index
         }
     ],
     thumbnailItemContent: 'p-galleria-thumbnail-item-content',

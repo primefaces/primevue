@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import BaseGalleria from './BaseGalleria.vue';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseGalleria from './BaseGalleria.vue';
 import GalleriaContent from './GalleriaContent.vue';
 
 export default {
