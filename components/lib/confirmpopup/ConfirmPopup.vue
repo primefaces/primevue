@@ -183,7 +183,8 @@ export default {
             this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
-                DomHandler.addClass(this.container, 'p-confirm-popup-flipped');
+                this.container.setAttribute('data-p-confirm-popup-flipped', 'true');
+                !this.isUnstyled && DomHandler.addClass(this.container, 'p-confirm-popup-flipped');
             }
         },
         bindOutsideClickListener() {

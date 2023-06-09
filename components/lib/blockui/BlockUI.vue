@@ -65,7 +65,7 @@ export default {
             if (this.fullScreen) {
                 if (!this.isUnstyled) {
                     document.body.removeChild(this.mask);
-                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 }
             } else {
                 this.$refs.container.removeChild(this.mask);

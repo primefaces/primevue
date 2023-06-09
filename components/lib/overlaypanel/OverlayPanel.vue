@@ -155,6 +155,7 @@ export default {
             this.container.style.setProperty('--overlayArrowLeft', `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
+                this.container.setAttribute('data-p-overlaypanel-flipped', 'true');
                 !this.isUnstyled && DomHandler.addClass(this.container, 'p-overlaypanel-flipped');
             }
         },

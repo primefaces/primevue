@@ -1201,7 +1201,8 @@ export default {
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
 
-            DomHandler.addClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-unselectable-text');
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
@@ -1250,7 +1251,8 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            DomHandler.removeClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();
 
@@ -1455,17 +1457,30 @@ export default {
                 let prevRowElement = rowElement.previousElementSibling;
 
                 if (pageY < rowMidY) {
-                    DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                    !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
 
                     this.droppedRowIndex = index;
-                    if (prevRowElement) DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
-                    else DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+
+                    if (prevRowElement) {
+                        prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
+                        !this.isUnstyled && DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    } else {
+                        rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
+                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    }
                 } else {
-                    if (prevRowElement) DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
-                    else DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    if (prevRowElement) {
+                        prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                        !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    } else {
+                        rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
+                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    }
 
                     this.droppedRowIndex = index + 1;
-                    DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
+                    !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
                 }
 
                 event.preventDefault();
@@ -1476,11 +1491,14 @@ export default {
             let prevRowElement = rowElement.previousElementSibling;
 
             if (prevRowElement) {
-                DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
             }
 
-            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
-            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
+            rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+            rowElement.setAttribute('data-p-datatable-dragpoint-top', 'false');
+            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
         },
         onRowDragEnd(event) {
             this.rowDragging = false;

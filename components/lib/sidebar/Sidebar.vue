@@ -78,7 +78,7 @@ export default {
         },
         onBeforeLeave() {
             if (this.modal) {
-                DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+                !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
             }
         },
         onLeave() {
@@ -121,14 +121,16 @@ export default {
             }
 
             if (this.blockScroll) {
-                DomHandler.addClass(document.body, 'p-overflow-hidden');
+                document.body.setAttribute('data-p-overflow-hidden', 'true');
+                !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         disableDocumentSettings() {
             this.unbindOutsideClickListener();
 
             if (this.blockScroll) {
-                DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                document.body.setAttribute('data-p-overflow-hidden', 'false');
+                !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         onKeydown(event) {

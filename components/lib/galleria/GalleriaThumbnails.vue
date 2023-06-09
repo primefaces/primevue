@@ -178,6 +178,7 @@ export default {
             this.$refs.itemsContainer.style.transform = this.isVertical ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
 
             if (this.d_oldActiveItemIndex !== this.d_activeIndex) {
+                document.body.setAttribute('data-p-items-hidden', 'false');
                 !this.isUnstyled && DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
             }
@@ -214,6 +215,7 @@ export default {
             }
 
             if (this.$refs.itemsContainer) {
+                document.body.setAttribute('data-p-items-hidden', 'false');
                 !this.isUnstyled && DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transform = this.isVertical ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
@@ -378,6 +380,7 @@ export default {
         },
         onTransitionEnd() {
             if (this.$refs.itemsContainer) {
+                document.body.setAttribute('data-p-items-hidden', 'true');
                 !this.isUnstyled && DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = '';
             }

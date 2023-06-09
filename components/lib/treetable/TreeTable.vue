@@ -602,7 +602,8 @@ export default {
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
 
-            DomHandler.addClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-unselectable-text');
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
@@ -646,7 +647,8 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            DomHandler.removeClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'false');
+            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();
         },
