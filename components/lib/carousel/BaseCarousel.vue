@@ -83,22 +83,22 @@ const classes = {
     previousButtonIcon: 'p-carousel-next-icon',
     itemsContent: 'p-carousel-items-content',
     itemsContainer: 'p-carousel-items-container',
-    itemCloned: ({ context }) => [
+    itemCloned: ({ index, value, totalShiftedItems, d_numVisible }) => [
         'p-carousel-item p-carousel-item-cloned',
         {
-            'p-carousel-item-active': context.totalShiftedItems * -1 === context.value?.length + context.d_numVisible,
-            'p-carousel-item-start': 0 === context.index,
-            'p-carousel-item-end': context.value?.slice(-1 * context.d_numVisible).length - 1 === context.index
+            'p-carousel-item-active': totalShiftedItems * -1 === value.length + d_numVisible,
+            'p-carousel-item-start': 0 === index,
+            'p-carousel-item-end': value.slice(-1 * d_numVisible).length - 1 === index
         }
     ],
-    item: ({ instance, context }) => [
+    item: ({ instance, index }) => [
         'p-carousel-item',
-        { 'p-carousel-item-active': instance.firstIndex() <= context.index && instance.lastIndex() >= context.index, 'p-carousel-item-start': instance.firstIndex() === context.index, 'p-carousel-item-end': instance.lastIndex() === context.index }
+        { 'p-carousel-item-active': instance.firstIndex() <= index && instance.lastIndex() >= index, 'p-carousel-item-start': instance.firstIndex() === index, 'p-carousel-item-end': instance.lastIndex() === index }
     ],
     nextButton: ({ instance }) => ['p-carousel-next p-link', { 'p-disabled': instance.forwardIsDisabled }],
     nextButtonIcon: 'p-carousel-prev-icon',
     indicators: ({ props }) => ['p-carousel-indicators p-reset', props.indicatorsContentClass],
-    indicator: ({ context, instance }) => ['p-carousel-indicator', { 'p-highlight': instance.d_page === context.i }],
+    indicator: ({ instance, i }) => ['p-carousel-indicator', { 'p-highlight': instance.d_page === i }],
     indicatorButton: 'p-link',
     footer: 'p-carousel-footer'
 };
