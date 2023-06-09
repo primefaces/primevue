@@ -28,9 +28,7 @@
                         <td
                             :class="
                                 cx('lineLeft', {
-                                    context: {
-                                        i
-                                    }
+                                    i
                                 })
                             "
                             v-bind="getNodeOptions(!(i === 0), 'lineLeft')"
@@ -40,9 +38,7 @@
                         <td
                             :class="
                                 cx('lineRight', {
-                                    context: {
-                                        i
-                                    }
+                                    i
                                 })
                             "
                             v-bind="getNodeOptions(!(i === node.children.length - 1), 'lineRight')"

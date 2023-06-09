@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseBlockUI from './BaseBlockUI.vue';
 
 export default {
     name: 'BlockUI',
-    extends: BaseComponent,
+    extends: BaseBlockUI,
     emits: ['block', 'unblock'],
     mask: null,
     data() {

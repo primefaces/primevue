@@ -4,10 +4,7 @@ import { useStyle } from 'primevue/usestyle';
 
 const styles = `
 .p-overlaypanel {
-    position: absolute;
     margin-top: 10px;
-    top: 0;
-    left: 0;
 }
 
 .p-overlaypanel-flipped {
@@ -87,7 +84,7 @@ const classes = {
     ],
     content: 'p-overlaypanel-content',
     closeButton: 'p-overlaypanel-close p-link',
-    closeIcon: ({ props }) => ['p-overlaypanel-close-icon ', props.closeIcon]
+    closeIcon: 'p-overlaypanel-close-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_overlaypanel_style', manual: true });

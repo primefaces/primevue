@@ -66,8 +66,8 @@ const classes = {
     lines: 'p-organizationchart-lines',
     lineDown: 'p-organizationchart-line-down',
     lines: 'p-organizationchart-lines',
-    lineLeft: ({ context }) => ['p-organizationchart-line-left', { 'p-organizationchart-line-top': !(context.i === 0) }],
-    lineRight: ({ context, props }) => ['p-organizationchart-line-right', { 'p-organizationchart-line-top': !(context.i === props.node.children.length - 1) }],
+    lineLeft: ({ i }) => ['p-organizationchart-line-left', { 'p-organizationchart-line-top': !(i === 0) }],
+    lineRight: ({ props, i }) => ['p-organizationchart-line-right', { 'p-organizationchart-line-top': !(i === props.node.children.length - 1) }],
     nodes: 'p-organizationchart-nodes'
 };
 

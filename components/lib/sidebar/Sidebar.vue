@@ -9,7 +9,7 @@
                         </div>
                         <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')">
                             <slot name="closeicon">
-                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="cx('closeIcon')" v-bind="ptm('closeIcon')"></component>
+                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
                             </slot>
                         </button>
                     </div>
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import BaseSidebar from './BaseSidebar.vue';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseSidebar from './BaseSidebar.vue';
 
 export default {
     name: 'Sidebar',

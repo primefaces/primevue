@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="timeline">
         <div v-for="(item, index) of value" :key="getKey(item, index)" :class="cx('event')" v-bind="ptm('event')">
             <div :class="cx('opposite')" v-bind="ptm('opposite')">
                 <slot name="opposite" :item="item" :index="index"></slot>

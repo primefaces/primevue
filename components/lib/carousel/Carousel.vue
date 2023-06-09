@@ -19,12 +19,10 @@
                                 :key="index + '_scloned'"
                                 :class="
                                     cx('itemCloned', {
-                                        context: {
-                                            index,
-                                            value,
-                                            totalShiftedItems,
-                                            d_numVisible
-                                        }
+                                        index,
+                                        value,
+                                        totalShiftedItems,
+                                        d_numVisible
                                     })
                                 "
                                 v-bind="ptm('itemCloned')"
@@ -37,9 +35,7 @@
                             :key="index"
                             :class="
                                 cx('item', {
-                                    context: {
-                                        index
-                                    }
+                                    index
                                 })
                             "
                             role="group"
@@ -56,12 +52,10 @@
                                 :key="index + '_fcloned'"
                                 :class="
                                     cx('itemCloned', {
-                                        context: {
-                                            index,
-                                            value,
-                                            totalShiftedItems,
-                                            d_numVisible
-                                        }
+                                        index,
+                                        value,
+                                        totalShiftedItems,
+                                        d_numVisible
                                     })
                                 "
                                 v-bind="ptm('itemCloned')"
@@ -84,9 +78,7 @@
                     :key="'p-carousel-indicator-' + i.toString()"
                     :class="
                         cx('indicator', {
-                            context: {
-                                i
-                            }
+                            i
                         })
                     "
                     :data-p-highlight="d_page === i"
