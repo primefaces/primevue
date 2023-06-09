@@ -70,6 +70,7 @@ const styles = `
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
+    max-width: 100%;
 }
 
 .p-autocomplete-token-icon {
@@ -322,3 +323,9 @@ export default {
     }
 };
 </script>
+
+<style>
+.p-icon {
+    min-width: 1rem;
+}
+</style>
