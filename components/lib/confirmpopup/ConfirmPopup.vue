@@ -14,14 +14,14 @@
                 <component v-else :is="$slots.message" :message="confirmation"></component>
                 <div :class="cx('footer')" v-bind="ptm('footer')">
                     <CPButton :label="rejectLabel" @click="reject()" @keydown="onRejectKeydown" :autofocus="autoFocusReject" :class="cx('rejectButton')" :pt="ptm('rejectButton')">
-                        <template #icon="iconProps">
+                        <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                             <slot name="rejecticon">
                                 <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
                             </slot>
                         </template>
                     </CPButton>
                     <CPButton :label="acceptLabel" @click="accept()" @keydown="onAcceptKeydown" :autofocus="autoFocusAccept" :class="cx('acceptButton')" :pt="ptm('acceptButton')">
-                        <template #icon="iconProps">
+                        <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                             <slot name="accepticon">
                                 <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
                             </slot>
@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import BaseConfirmPopup from './BaseConfirmPopup.vue';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import FocusTrap from 'primevue/focustrap';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseConfirmPopup from './BaseConfirmPopup.vue';
 
 export default {
     name: 'ConfirmPopup',

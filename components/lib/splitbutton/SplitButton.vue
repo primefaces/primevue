@@ -2,7 +2,7 @@
     <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="splitbutton" :data-pc-severity="severity">
         <slot>
             <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :unstyled="unstyled" :pt="ptm('button')" v-bind="buttonProps">
-                <template #icon="slotProps">
+                <template v-if="icon" #icon="slotProps">
                     <slot name="icon" :class="slotProps.class">
                         <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
                     </slot>
