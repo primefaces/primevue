@@ -1,5 +1,5 @@
 <template>
-    <tfoot v-if="hasFooter" :class="cx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot'), ...getColumnGroupPT('root') } : ptm('tfoot')" data-pc-section="tfoot">
+    <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot'), ...getColumnGroupPT('root') } : ptm('tfoot')" data-pc-section="tfoot">
         <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                 <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
@@ -22,6 +22,7 @@ import FooterCell from './FooterCell.vue';
 
 export default {
     name: 'TableFooter',
+    hostName: 'DataTable',
     extends: BaseComponent,
     props: {
         columnGroup: {

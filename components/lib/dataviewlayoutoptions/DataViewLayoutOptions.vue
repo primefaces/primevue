@@ -1,11 +1,11 @@
 <template>
-    <div class="p-dataview-layout-options p-selectbutton p-buttonset" role="group" v-bind="ptm('root')">
-        <button :aria-label="listViewAriaLabel" :class="buttonListClass" @click="changeLayout('list')" type="button" :aria-pressed="isListButtonPressed" v-bind="ptm('listButton')">
+    <div :class="cx('root')" role="group" v-bind="ptm('root')">
+        <button :aria-label="listViewAriaLabel" :class="cx('listButton')" @click="changeLayout('list')" type="button" :aria-pressed="isListButtonPressed" v-bind="ptm('listButton')">
             <slot name="listicon">
                 <BarsIcon v-bind="ptm('listIcon')" />
             </slot>
         </button>
-        <button :aria-label="gridViewAriaLabel" :class="buttonGridClass" @click="changeLayout('grid')" type="button" :aria-pressed="isGridButtonPressed" v-bind="ptm('gridButton')">
+        <button :aria-label="gridViewAriaLabel" :class="cx('gridButton')" @click="changeLayout('grid')" type="button" :aria-pressed="isGridButtonPressed" v-bind="ptm('gridButton')">
             <slot name="gridicon">
                 <ThLargeIcon v-bind="ptm('gridIcon')" />
             </slot>
@@ -14,17 +14,14 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import BarsIcon from 'primevue/icons/bars';
 import ThLargeIcon from 'primevue/icons/thlarge';
+import BaseDataViewLayoutOptions from './BaseDataViewLayoutOptions.vue';
 
 export default {
     name: 'DataViewLayoutOptions',
-    extends: BaseComponent,
+    extends: BaseDataViewLayoutOptions,
     emits: ['update:modelValue'],
-    props: {
-        modelValue: String
-    },
     data() {
         return {
             isListButtonPressed: false,
@@ -45,12 +42,6 @@ export default {
         }
     },
     computed: {
-        buttonListClass() {
-            return ['p-button p-button-icon-only', { 'p-highlight': this.modelValue === 'list' }];
-        },
-        buttonGridClass() {
-            return ['p-button p-button-icon-only', { 'p-highlight': this.modelValue === 'grid' }];
-        },
         listViewAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.listView : undefined;
         },

@@ -30,7 +30,7 @@
                             </button>
                         </div>
                     </div>
-                    <div :ref="contentRef" :class="cx('content')" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
+                    <div :ref="contentRef" :class="[cx('content'), contentClass]" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
                         <slot></slot>
                     </div>
                     <div v-if="footer || $slots.footer" :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import BaseDialog from './BaseDialog.vue';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import WindowMaximizeIcon from 'primevue/icons/windowmaximize';
@@ -52,6 +51,7 @@ import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import { computed } from 'vue';
+import BaseDialog from './BaseDialog.vue';
 
 export default {
     name: 'Dialog',
@@ -250,7 +250,7 @@ export default {
             this.closeButton = el;
         },
         createStyle() {
-            if (!this.styleElement) {
+            if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 document.head.appendChild(this.styleElement);

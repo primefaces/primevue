@@ -29,6 +29,10 @@ export interface PaginatorPassThroughMethodOptions {
  */
 export interface PaginatorPassThroughOptions {
     /**
+     * Uses to pass attributes to the paginator wrapper's DOM element.
+     */
+    paginatorWrapper?: PaginatorPassThroughOptionType;
+    /**
      * Uses to pass attributes to the root's DOM element.
      */
     root?: PaginatorPassThroughOptionType;

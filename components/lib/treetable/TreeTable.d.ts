@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { TreeNode } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
@@ -211,21 +212,29 @@ export interface TreeTablePassThroughOptions {
      */
     headerRow?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header cell's DOM element.
+     * Uses to pass attributes to the header filter row's DOM element.
      */
-    headerCell?: TreeTablePassThroughOptionType;
+    headerFilterRow?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the header filter cell's DOM element.
+     */
+    headerFilterCell?: TreeTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the tbody's DOM element.
      */
     tbody?: TreeTablePassThroughOptionType;
     /**
+     * Uses to pass attributes to the row's DOM element.
+     */
+    row?: TreeTablePassThroughOptionType;
+    /**
      * Uses to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the body cell's DOM element.
+     * Uses to pass attributes to the empty message cell's DOM element.
      */
-    bodyCell?: TreeTablePassThroughOptionType;
+    emptyMessageCell?: TreeTablePassThroughOptionType;
     /**
      * Uses to pass attributes to the tfoot's DOM element.
      */
@@ -242,6 +251,10 @@ export interface TreeTablePassThroughOptions {
      * Uses to pass attributes to the resize helper's DOM element.
      */
     resizeHelper?: TreeTablePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Column helper components.
+     */
+    column?: ColumnPassThroughOptionType;
 }
 
 /**
@@ -518,6 +531,11 @@ export interface TreeTableProps {
      * @type {TreeTablePassThroughOptions}
      */
     pt?: TreeTablePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

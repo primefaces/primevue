@@ -15,10 +15,10 @@
                 :aria-label="ariaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="ptm('hiddenInput')"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
-        <span :class="cx('slider')" v-bind="{ ...inputProps, ...ptm('slider') }"></span>
+        <span :class="cx('slider')" v-bind="ptm('slider')"></span>
     </div>
 </template>
 

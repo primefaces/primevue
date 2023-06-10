@@ -1,5 +1,5 @@
 <template>
-    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="cx('root')" :style="$attrs.containerStyle" v-bind="{ ...$attrs.containerProps, ...ptm('root') }">
+    <div v-if="$attrs.value && $attrs.value.length > 0" :id="id" :class="[cx('root'), $attrs.containerClass]" :style="$attrs.containerStyle" v-bind="{ ...$attrs.containerProps, ...ptm('root') }" data-pc-name="galleria">
         <button v-if="$attrs.fullScreen" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="$emit('mask-hide')" v-bind="ptm('closeButton')">
             <component :is="$attrs.templates['closeicon'] || 'TimesIcon'" :class="cx('closeIcon')" v-bind="ptm('closeIcon')" />
         </button>
@@ -127,22 +127,6 @@ export default {
         }
     },
     computed: {
-        galleriaClass() {
-            const thumbnailsPosClass = this.$attrs.showThumbnails && this.getPositionClass('p-galleria-thumbnails', this.$attrs.thumbnailsPosition);
-            const indicatorPosClass = this.$attrs.showIndicators && this.getPositionClass('p-galleria-indicators', this.$attrs.indicatorsPosition);
-
-            return [
-                'p-galleria p-component',
-                {
-                    'p-galleria-fullscreen': this.$attrs.fullScreen,
-                    'p-galleria-indicator-onitem': this.$attrs.showIndicatorsOnItem,
-                    'p-galleria-item-nav-onhover': this.$attrs.showItemNavigatorsOnHover && !this.$attrs.fullScreen
-                },
-                thumbnailsPosClass,
-                indicatorPosClass,
-                this.$attrs.containerClass
-            ];
-        },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }

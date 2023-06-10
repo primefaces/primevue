@@ -9892,20 +9892,20 @@
                             "description": "Uses to pass attributes to the row editor init icon's DOM element."
                         },
                         {
-                            "name": "rowEditorEditButton",
+                            "name": "rowEditorSaveButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the row editor edit button's DOM element."
+                            "description": "Uses to pass attributes to the row editor save button's DOM element."
                         },
                         {
-                            "name": "rowEditorEditIcon",
+                            "name": "rowEditorSaveIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the row editor edit icon's DOM element."
+                            "description": "Uses to pass attributes to the row editor save icon's DOM element."
                         },
                         {
                             "name": "rowEditorCancelButton",
@@ -9922,6 +9922,22 @@
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the row editor cancel icon's DOM element."
+                        },
+                        {
+                            "name": "footerCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the footer cell's DOM element."
+                        },
+                        {
+                            "name": "bodyCellContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the body cell content's DOM element."
                         },
                         {
                             "name": "hiddenHeaderInputWrapper",
@@ -13397,7 +13413,7 @@
                             "description": "Uses to pass attributes to the tbody's DOM element."
                         },
                         {
-                            "name": "rowgroupHeader",
+                            "name": "rowGroupHeader",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
@@ -13421,7 +13437,7 @@
                             "description": "Uses to pass attributes to the row expansion's DOM element."
                         },
                         {
-                            "name": "rowgroupFooter",
+                            "name": "rowGroupFooter",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
@@ -13451,14 +13467,6 @@
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footerr ow's DOM element."
-                        },
-                        {
-                            "name": "footerCell",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DataTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the footer cell's DOM element."
                         },
                         {
                             "name": "resizeHelper",
@@ -15410,6 +15418,14 @@
                             "type": "DataViewLayoutOptionsPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
@@ -27994,6 +28010,14 @@
                     "relatedProp": "PaginatorProps.pt",
                     "props": [
                         {
+                            "name": "paginatorWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaginatorPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the paginator wrapper's DOM element."
+                        },
+                        {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
@@ -30372,6 +30396,14 @@
                             "type": "PickListPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
@@ -34095,13 +34127,25 @@
                         },
                         {
                             "name": "icon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu button icon template."
                         },
                         {
                             "name": "menubuttonicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu button icon template."
                         }
@@ -39918,12 +39962,20 @@
                             "description": "Uses to pass attributes to the header row's DOM element."
                         },
                         {
-                            "name": "headerCell",
+                            "name": "headerFilterRow",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the header cell's DOM element."
+                            "description": "Uses to pass attributes to the header filter row's DOM element."
+                        },
+                        {
+                            "name": "headerFilterCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the header filter cell's DOM element."
                         },
                         {
                             "name": "tbody",
@@ -39934,6 +39986,14 @@
                             "description": "Uses to pass attributes to the tbody's DOM element."
                         },
                         {
+                            "name": "row",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreeTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the row's DOM element."
+                        },
+                        {
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
@@ -39942,12 +40002,12 @@
                             "description": "Uses to pass attributes to the empty message's DOM element."
                         },
                         {
-                            "name": "bodyCell",
+                            "name": "emptyMessageCell",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the body cell's DOM element."
+                            "description": "Uses to pass attributes to the empty message cell's DOM element."
                         },
                         {
                             "name": "tfoot",
@@ -39980,6 +40040,14 @@
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the resize helper's DOM element."
+                        },
+                        {
+                            "name": "column",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the Column helper components."
                         }
                     ],
                     "methods": []
@@ -40424,6 +40492,14 @@
                             "type": "TreeTablePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
@@ -41802,6 +41878,14 @@
                             "type": "VirtualScrollerPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": [
@@ -41866,7 +41950,13 @@
                         },
                         {
                             "name": "loadingicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom loading icon template."
                         }

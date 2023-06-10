@@ -1,5 +1,5 @@
 <template>
-    <thead :class="cx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead'), ...getColumnGroupPT('root') } : ptm('thead')" data-pc-section="thead">
+    <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead'), ...getColumnGroupPT('root') } : ptm('thead')" data-pc-section="thead">
         <template v-if="!columnGroup">
             <tr role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
@@ -84,8 +84,9 @@
                             @constraint-add="$emit('constraint-add', $event)"
                             @constraint-remove="$emit('constraint-remove', $event)"
                             @apply-click="$emit('apply-click', $event)"
-                            :pt="pt"
                             :column="col"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
                     </th>
                 </template>
@@ -136,6 +137,7 @@ import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {
     name: 'TableHeader',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: [
         'column-click',

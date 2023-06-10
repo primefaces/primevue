@@ -62,6 +62,7 @@
                             @node-select="onNodeSelect"
                             @node-unselect="onNodeUnselect"
                             :level="0"
+                            :unstyled="unstyled"
                             :pt="ptm('tree')"
                             data-pc-section="tree"
                         >

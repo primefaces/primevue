@@ -1,10 +1,10 @@
 <template>
-    <div :class="cx('radiobuttonWrapper')" @click="onClick" v-bind="getColumnPTOptions('radiobuttonWrapper')">
-        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPTOptions('hiddenInputWrapper')" :data-p-hidden-accessible="true">
-            <input ref="input" type="radio" :checked="checked" :disabled="$attrs.disabled" :name="name" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick" v-bind="getColumnPTOptions('hiddenInput')" />
+    <div :class="cx('radiobuttonWrapper')" @click="onClick" v-bind="getColumnPT('radiobuttonWrapper')">
+        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+            <input ref="input" type="radio" :checked="checked" :disabled="$attrs.disabled" :name="name" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick" v-bind="getColumnPT('hiddenInput')" />
         </div>
-        <div ref="box" :class="cx('radiobutton')" v-bind="getColumnPTOptions('radiobutton')">
-            <div :class="cx('radiobuttonIcon')" v-bind="getColumnPTOptions('radiobuttonIcon')"></div>
+        <div ref="box" :class="cx('radiobutton')" v-bind="getColumnPT('radiobutton')">
+            <div :class="cx('radiobuttonIcon')" v-bind="getColumnPT('radiobuttonIcon')"></div>
         </div>
     </div>
 </template>
@@ -15,6 +15,7 @@ import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'RowRadioButton',
+    hostName: 'DataTable',
     extends: BaseComponent,
     inheritAttrs: false,
     emits: ['change'],
@@ -22,7 +23,11 @@ export default {
         value: null,
         checked: null,
         name: null,
-        column: null
+        column: null,
+        index: {
+            type: Number,
+            default: null
+        }
     },
     data() {
         return {
@@ -30,7 +35,7 @@ export default {
         };
     },
     methods: {
-        getColumnPTOptions(key) {
+        getColumnPT(key) {
             return this.ptmo(this.getColumnProp(), key, {
                 props: this.column.props,
                 parent: {
@@ -38,6 +43,7 @@ export default {
                     state: this.$data
                 },
                 context: {
+                    index: this.index,
                     checked: this.checked,
                     focused: this.focused,
                     disabled: this.$attrs.disabled

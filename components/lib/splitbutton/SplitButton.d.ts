@@ -181,11 +181,21 @@ export interface SplitButtonSlots {
     /**
      * Custom menu button icon template.
      */
-    icon(): VNode[];
+    icon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom menu button icon template.
      */
-    menubuttonicon(): VNode[];
+    menubuttonicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

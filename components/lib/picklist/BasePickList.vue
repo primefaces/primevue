@@ -3,21 +3,21 @@ import BaseComponent from 'primevue/basecomponent';
 import { useStyle } from 'primevue/usestyle';
 
 const styles = `
-.p-orderlist {
+.p-picklist {
     display: flex;
 }
 
-.p-orderlist-controls {
+.p-picklist-buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.p-orderlist-list-container {
-    flex: 1 1 auto;
+.p-picklist-list-wrapper {
+    flex: 1 1 50%;
 }
 
-.p-orderlist-list {
+.p-picklist-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -26,55 +26,56 @@ const styles = `
     max-height: 24rem;
 }
 
-.p-orderlist-item {
+.p-picklist-item {
     cursor: pointer;
     overflow: hidden;
     position: relative;
 }
 
-.p-orderlist.p-state-disabled .p-orderlist-item,
-.p-orderlist.p-state-disabled .p-button {
-    cursor: default;
-}
-
-.p-orderlist.p-state-disabled .p-orderlist-list {
-    overflow: hidden;
+.p-picklist-item.p-picklist-flip-enter-active.p-picklist-flip-enter-to,
+.p-picklist-item.p-picklist-flip-leave-active.p-picklist-flip-leave-to {
+    transition: none !important;
 }
 `;
 
 const classes = {
     root: ({ props }) => [
-        'p-orderlist p-component',
+        'p-picklist p-component',
         {
-            'p-orderlist-striped': props.stripedRows
+            'p-picklist-striped': props.stripedRows
         }
     ],
-    controls: 'p-orderlist-controls',
-    header: 'p-orderlist-header',
-    container: 'p-orderlist-list-container',
-    list: 'p-orderlist-list',
-    item: ({ instance, item, id }) => [
-        'p-orderlist-item',
+    sourceControls: 'p-picklist-buttons p-picklist-source-controls',
+    sourceWrapper: 'p-picklist-list-wrapper p-picklist-source-wrapper',
+    sourceHeader: 'p-picklist-header',
+    sourceList: 'p-picklist-list p-picklist-source-list',
+    item: ({ instance, item, id, listIndex }) => [
+        'p-picklist-item',
         {
-            'p-highlight': instance.isSelected(item),
+            'p-highlight': instance.isSelected(item, listIndex),
             'p-focus': id === instance.focusedOptionId
         }
-    ]
+    ],
+    buttons: 'p-picklist-buttons p-picklist-transfer-buttons',
+    targetWrapper: 'p-picklist-list-wrapper p-picklist-target-wrapper',
+    targetHeader: 'p-picklist-header',
+    targetList: 'p-picklist-list p-picklist-target',
+    targetControls: 'p-picklist-buttons p-picklist-target-controls'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_orderlist_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_picklist_style', manual: true });
 
 export default {
-    name: 'BaseOrderList',
+    name: 'BasePickList',
     extends: BaseComponent,
     props: {
         modelValue: {
             type: Array,
-            default: null
+            default: () => [[], []]
         },
         selection: {
             type: Array,
-            default: null
+            default: () => [[], []]
         },
         dataKey: {
             type: String,
@@ -100,11 +101,19 @@ export default {
             type: Boolean,
             default: false
         },
-        tabindex: {
-            type: Number,
-            default: 0
+        showSourceControls: {
+            type: Boolean,
+            default: true
         },
-        listProps: {
+        showTargetControls: {
+            type: Boolean,
+            default: true
+        },
+        targetListProps: {
+            type: null,
+            default: null
+        },
+        sourceListProps: {
             type: null,
             default: null
         },
@@ -124,13 +133,25 @@ export default {
             type: null,
             default: null
         },
-        'aria-labelledby': {
-            type: String,
+        moveToTargetProps: {
+            type: null,
             default: null
         },
-        'aria-label': {
-            type: String,
+        moveAllToTargetProps: {
+            type: null,
             default: null
+        },
+        moveToSourceProps: {
+            type: null,
+            default: null
+        },
+        moveAllToSourceProps: {
+            type: null,
+            default: null
+        },
+        tabindex: {
+            type: Number,
+            default: 0
         }
     },
     css: {

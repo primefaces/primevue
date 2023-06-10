@@ -1,6 +1,6 @@
 <template>
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" v-bind="pti()">
-        <g clip-path="url(#clip0_323_12417)">
+        <g :clipPath="`url(#${pathId})`">
             <path
                 d="M13.4018 13.1893H0.598161C0.49329 13.189 0.390283 13.1615 0.299143 13.1097C0.208003 13.0578 0.131826 12.9832 0.0780112 12.8932C0.0268539 12.8015 0 12.6982 0 12.5931C0 12.4881 0.0268539 12.3848 0.0780112 12.293L6.47985 1.08982C6.53679 1.00399 6.61408 0.933574 6.70484 0.884867C6.7956 0.836159 6.897 0.810669 7 0.810669C7.103 0.810669 7.2044 0.836159 7.29516 0.884867C7.38592 0.933574 7.46321 1.00399 7.52015 1.08982L13.922 12.293C13.9731 12.3848 14 12.4881 14 12.5931C14 12.6982 13.9731 12.8015 13.922 12.8932C13.8682 12.9832 13.792 13.0578 13.7009 13.1097C13.6097 13.1615 13.5067 13.189 13.4018 13.1893ZM1.63046 11.989H12.3695L7 2.59425L1.63046 11.989Z"
                 fill="currentColor"
@@ -15,17 +15,24 @@
             />
         </g>
         <defs>
-            <clipPath id="clip0_323_12417">
+            <clipPath :id="`${pathId}`">
                 <rect width="14" height="14" fill="white" />
             </clipPath>
         </defs>
     </svg>
 </template>
+
 <script>
 import BaseIcon from 'primevue/baseicon';
+import { UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'ExclamationTriangleIcon',
-    extends: BaseIcon
+    extends: BaseIcon,
+    computed: {
+        pathId() {
+            return `pv_icon_clip_${UniqueComponentId()}`;
+        }
+    }
 };
 </script>

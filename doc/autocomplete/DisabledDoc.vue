@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Invalid state style is added using the <i>p-invalid</i> class to indicate a failed validation.</p>
+        <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <AutoComplete disabled placeholder="Disabled" />

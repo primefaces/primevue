@@ -444,7 +444,8 @@ export default {
 
             this.colorDragging = true;
             this.pickColor(event);
-            DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
+            this.$el.setAttribute('p-colorpicker-dragging', 'true');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
             event.preventDefault();
         },
         onDrag(event) {
@@ -461,7 +462,8 @@ export default {
         onDragEnd() {
             this.colorDragging = false;
             this.hueDragging = false;
-            DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');
+            this.$el.setAttribute('p-colorpicker-dragging', 'false');
+            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');
             this.unbindDragListeners();
         },
         onHueMousedown(event) {
@@ -479,7 +481,7 @@ export default {
 
             this.hueDragging = true;
             this.pickHue(event);
-            DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
         },
         isInputClicked(event) {
             return this.$refs.input && this.$refs.input.isSameNode(event.target);

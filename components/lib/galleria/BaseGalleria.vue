@@ -288,15 +288,28 @@ const styles = `
 `;
 
 const classes = {
-    mask: ({ props, instance }) => [
+    mask: ({ instance }) => [
         'p-galleria-mask p-component-overlay p-component-overlay-enter',
-        props.maskClass,
         {
             'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    root: ({ instance }) => instance.galleriaClass,
+    root: ({ instance }) => {
+        const thumbnailsPosClass = instance.$attrs.showThumbnails && instance.getPositionClass('p-galleria-thumbnails', instance.$attrs.thumbnailsPosition);
+        const indicatorPosClass = instance.$attrs.showIndicators && instance.getPositionClass('p-galleria-indicators', instance.$attrs.indicatorsPosition);
+
+        return [
+            'p-galleria p-component',
+            {
+                'p-galleria-fullscreen': instance.$attrs.fullScreen,
+                'p-galleria-indicator-onitem': instance.$attrs.showIndicatorsOnItem,
+                'p-galleria-item-nav-onhover': instance.$attrs.showItemNavigatorsOnHover && !instance.$attrs.fullScreen
+            },
+            thumbnailsPosClass,
+            indicatorPosClass
+        ];
+    },
     closeButton: 'p-galleria-close p-link',
     closeIcon: 'p-galleria-close-icon',
     header: 'p-galleria-header',
@@ -321,10 +334,10 @@ const classes = {
     nextItemIcon: 'p-galleria-item-next-icon',
     caption: 'p-galleria-caption',
     indicators: 'p-galleria-indicators p-reset',
-    indicator: ({ instance, context }) => [
+    indicator: ({ instance, index }) => [
         'p-galleria-indicator',
         {
-            'p-highlight': instance.isIndicatorItemActive(context.index)
+            'p-highlight': instance.isIndicatorItemActive(index)
         }
     ],
     indicatorButton: 'p-link',
@@ -339,13 +352,13 @@ const classes = {
     previousThumbnailIcon: 'p-galleria-thumbnail-prev-icon',
     thumbnailItemsContainer: 'p-galleria-thumbnail-items-container',
     thumbnailItems: 'p-galleria-thumbnail-items',
-    thumbnailItem: ({ instance, context }) => [
+    thumbnailItem: ({ instance, index, activeIndex }) => [
         'p-galleria-thumbnail-item',
         {
-            'p-galleria-thumbnail-item-current': context.activeIndex === context.index,
-            'p-galleria-thumbnail-item-active': instance.isItemActive(context.index),
-            'p-galleria-thumbnail-item-start': instance.firstItemAciveIndex() === context.index,
-            'p-galleria-thumbnail-item-end': instance.lastItemActiveIndex() === context.index
+            'p-galleria-thumbnail-item-current': activeIndex === index,
+            'p-galleria-thumbnail-item-active': instance.isItemActive(index),
+            'p-galleria-thumbnail-item-start': instance.firstItemAciveIndex() === index,
+            'p-galleria-thumbnail-item-end': instance.lastItemActiveIndex() === index
         }
     ],
     thumbnailItemContent: 'p-galleria-thumbnail-item-content',
@@ -364,32 +377,112 @@ export default {
     name: 'BaseGalleria',
     extends: BaseComponent,
     props: {
-        label: {
+        id: {
             type: String,
             default: null
         },
-        icon: {
+        value: {
+            type: Array,
+            default: null
+        },
+        activeIndex: {
+            type: Number,
+            default: 0
+        },
+        fullScreen: {
+            type: Boolean,
+            default: false
+        },
+        visible: {
+            type: Boolean,
+            default: false
+        },
+        numVisible: {
+            type: Number,
+            default: 3
+        },
+        responsiveOptions: {
+            type: Array,
+            default: null
+        },
+        showItemNavigators: {
+            type: Boolean,
+            default: false
+        },
+        showThumbnailNavigators: {
+            type: Boolean,
+            default: true
+        },
+        showItemNavigatorsOnHover: {
+            type: Boolean,
+            default: false
+        },
+        changeItemOnIndicatorHover: {
+            type: Boolean,
+            default: false
+        },
+        circular: {
+            type: Boolean,
+            default: false
+        },
+        autoPlay: {
+            type: Boolean,
+            default: false
+        },
+        transitionInterval: {
+            type: Number,
+            default: 4000
+        },
+        showThumbnails: {
+            type: Boolean,
+            default: true
+        },
+        thumbnailsPosition: {
+            type: String,
+            default: 'bottom'
+        },
+        verticalThumbnailViewPortHeight: {
+            type: String,
+            default: '300px'
+        },
+        showIndicators: {
+            type: Boolean,
+            default: false
+        },
+        showIndicatorsOnItem: {
+            type: Boolean,
+            default: false
+        },
+        indicatorsPosition: {
+            type: String,
+            default: 'bottom'
+        },
+        baseZIndex: {
+            type: Number,
+            default: 0
+        },
+        maskClass: {
             type: String,
             default: null
         },
-        image: {
-            type: String,
+        containerStyle: {
+            type: null,
             default: null
         },
-        size: {
-            type: String,
-            default: 'normal'
-        },
-        shape: {
-            type: String,
-            default: 'square'
-        },
-        'aria-labelledby': {
-            type: String,
+        containerClass: {
+            type: null,
             default: null
         },
-        'aria-label': {
-            type: String,
+        containerProps: {
+            type: null,
+            default: null
+        },
+        prevButtonProps: {
+            type: null,
+            default: null
+        },
+        nextButtonProps: {
+            type: null,
             default: null
         }
     },
