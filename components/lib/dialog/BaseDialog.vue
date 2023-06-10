@@ -199,7 +199,7 @@ const classes = {
     maximizableIcon: ({ props, instance }) => `p-dialog-header-maximize-icon ${instance.maximized ? props.minimizeIcon : props.maximizeIcon}`,
     closeButton: 'p-dialog-header-icon p-dialog-header-close p-link',
     closeButtonIcon: ({ props }) => ['p-dialog-header-close-icon', props.closeIcon],
-    content: ({ props }) => ['p-dialog-content', props.contentClass],
+    content: 'p-dialog-content',
     footer: 'p-dialog-footer'
 };
 

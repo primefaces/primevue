@@ -24,6 +24,7 @@
             :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :unstyled="unstyled"
             :pt="ptm('paginator')"
             data-pc-section="paginator"
         >
@@ -46,7 +47,7 @@
                 <slot name="paginatorlastpagelinkicon"></slot>
             </template>
         </DTPaginator>
-        <div :class="cx('wrapper')" :style="{ maxHeight: virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
+        <div :class="cx('wrapper')" :style="[sx('wrapper'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('wrapper')">
             <DTVirtualScroller
                 ref="virtualScroller"
                 v-bind="virtualScrollerOptions"
@@ -92,6 +93,7 @@
                             @column-drop="onColumnHeaderDrop($event)"
                             @column-resizestart="onColumnResizeStart($event)"
                             @checkbox-change="toggleRowsWithCheckbox($event)"
+                            :unstyled="unstyled"
                             :pt="pt"
                         />
                         <DTTableBody
@@ -148,6 +150,8 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
+                            :pt="pt"
                         />
                         <DTTableBody
                             ref="bodyRef"
@@ -204,6 +208,7 @@
                             @row-edit-cancel="onRowEditCancel($event)"
                             :editingMeta="d_editingMeta"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
                             :pt="pt"
                         />
                         <tbody
@@ -232,6 +237,7 @@
             :class="cx('paginator')"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
+            :unstyled="unstyled"
             :pt="ptm('paginator')"
             data-pc-section="paginator"
         >
@@ -402,7 +408,7 @@ export default {
     mounted() {
         this.$el.setAttribute(this.attributeSelector, '');
 
-        if (this.responsiveLayout === 'stack' && !this.scrollable) {
+        if (this.responsiveLayout === 'stack' && !this.scrollable && !this.unstyled) {
             this.createResponsiveStyle();
         }
 
@@ -458,10 +464,11 @@ export default {
 
                 if (
                     DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headerTitle' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headerContent' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sortIcon' ||
-                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sortIcon'
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headertitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headercontent' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon'
                 ) {
                     DomHandler.clearSelection();
 
@@ -1194,7 +1201,8 @@ export default {
         onColumnResize(event) {
             let containerLeft = DomHandler.getOffset(this.$el).left;
 
-            DomHandler.addClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-unselectable-text');
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
@@ -1243,7 +1251,8 @@ export default {
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
-            DomHandler.removeClass(this.$el, 'p-unselectable-text');
+            this.$el.setAttribute('data-p-unselectable-text', 'true');
+            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
 
             this.unbindColumnResizeEvents();
 
@@ -1448,17 +1457,30 @@ export default {
                 let prevRowElement = rowElement.previousElementSibling;
 
                 if (pageY < rowMidY) {
-                    DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                    !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
 
                     this.droppedRowIndex = index;
-                    if (prevRowElement) DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
-                    else DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+
+                    if (prevRowElement) {
+                        prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
+                        !this.isUnstyled && DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    } else {
+                        rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
+                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    }
                 } else {
-                    if (prevRowElement) DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
-                    else DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    if (prevRowElement) {
+                        prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                        !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                    } else {
+                        rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
+                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                    }
 
                     this.droppedRowIndex = index + 1;
-                    DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
+                    !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
                 }
 
                 event.preventDefault();
@@ -1469,11 +1491,14 @@ export default {
             let prevRowElement = rowElement.previousElementSibling;
 
             if (prevRowElement) {
-                DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+                !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
             }
 
-            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
-            DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
+            rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
+            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+            rowElement.setAttribute('data-p-datatable-dragpoint-top', 'false');
+            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
         },
         onRowDragEnd(event) {
             this.rowDragging = false;

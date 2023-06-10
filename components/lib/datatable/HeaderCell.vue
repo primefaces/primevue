@@ -27,7 +27,7 @@
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
             <span v-if="columnProp('header')" :class="cx('headerTitle')" v-bind="getColumnPT('headerTitle')">{{ columnProp('header') }}</span>
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
-                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" />
+                <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" data-pc-section="sorticon" :class="cx('sortIcon')" />
             </span>
             <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getBadgeValue() }}</span>
             <DTHeaderCheckbox
@@ -73,8 +73,9 @@
                 @constraint-add="$emit('constraint-add', $event)"
                 @constraint-remove="$emit('constraint-remove', $event)"
                 @apply-click="$emit('apply-click', $event)"
-                :pt="pt"
                 :column="column"
+                :unstyled="unstyled"
+                :pt="pt"
             />
         </div>
     </th>
@@ -91,6 +92,7 @@ import HeaderCheckbox from './HeaderCheckbox.vue';
 
 export default {
     name: 'HeaderCell',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: [
         'column-click',

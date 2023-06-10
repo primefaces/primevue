@@ -22,7 +22,7 @@
                 <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('togglerIcon')" v-bind="getPTOptions('togglerIcon')" />
             </button>
             <div v-if="checkboxMode" :class="cx('checkboxContainer')" aria-hidden="true" v-bind="getPTOptions('checkboxContainer')">
-                <div :class="cx('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialchecked">
+                <div :class="cx('checkbox')" role="checkbox" v-bind="getPTOptions('checkbox')" :data-p-checked="checked" :data-p-partialchecked="partialChecked">
                     <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="checked" :partialChecked="partialChecked" :class="cx('checkboxIcon')" />
                     <component v-else :is="checked ? 'CheckIcon' : partialChecked ? 'MinusIcon' : null" :class="cx('checkboxIcon')" v-bind="getPTOptions('checkboxIcon')" />
                 </div>

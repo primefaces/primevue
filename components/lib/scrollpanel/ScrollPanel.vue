@@ -117,15 +117,19 @@ export default {
 
             this.frame = this.requestAnimationFrame(() => {
                 if (this.scrollXRatio >= 1) {
+                    this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'true');
                     !this.isUnstyled && DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-hidden');
                 } else {
+                    this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                     !this.isUnstyled && DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
                     this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
                 }
 
                 if (this.scrollYRatio >= 1) {
+                    this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'true');
                     !this.isUnstyled && DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-hidden');
                 } else {
+                    this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                     !this.isUnstyled && DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
                     this.$refs.yBar.style.cssText = 'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
                 }
@@ -135,7 +139,9 @@ export default {
             this.isYBarClicked = true;
             this.$refs.yBar.focus();
             this.lastPageY = e.pageY;
+            this.$refs.yBar.setAttribute('data-p-scrollpanel-grabbed', 'true');
             !this.isUnstyled && DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
+            document.body.setAttribute('data-p-scrollpanel-grabbed', 'true');
             !this.isUnstyled && DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
 
             this.bindDocumentMouseListeners();
@@ -145,7 +151,9 @@ export default {
             this.isXBarClicked = true;
             this.$refs.xBar.focus();
             this.lastPageX = e.pageX;
+            this.$refs.yBar.setAttribute('data-p-scrollpanel-grabbed', 'false');
             !this.isUnstyled && DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
+            document.body.setAttribute('data-p-scrollpanel-grabbed', 'false');
             !this.isUnstyled && DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
 
             this.bindDocumentMouseListeners();
@@ -274,8 +282,11 @@ export default {
             }
         },
         onDocumentMouseUp() {
+            this.$refs.yBar.setAttribute('data-p-scrollpanel-grabbed', 'false');
             !this.isUnstyled && DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
+            this.$refs.xBar.setAttribute('data-p-scrollpanel-grabbed', 'false');
             !this.isUnstyled && DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
+            document.body.setAttribute('data-p-scrollpanel-grabbed', 'false');
             !this.isUnstyled && DomHandler.removeClass(document.body, 'p-scrollpanel-grabbed');
 
             this.unbindDocumentMouseListeners();

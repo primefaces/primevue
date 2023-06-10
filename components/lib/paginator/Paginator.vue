@@ -1,6 +1,6 @@
 <template>
-    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptm('root')">
-        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('paginator')" data-pc-name="paginator">
+    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptm('paginatorWrapper')">
+        <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('root')" data-pc-name="paginator">
             <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                 <slot name="start" :state="currentState"></slot>
             </div>
@@ -29,10 +29,20 @@
                     :options="rowsPerPageOptions"
                     @rows-change="onRowChange($event)"
                     :disabled="empty"
+                    :unstyled="unstyled"
                     :pt="pt"
                 />
-                <JumpToPageDropdown v-else-if="item === 'JumpToPageDropdown'" :aria-label="getAriaLabel('jumpToPageDropdownLabel')" :page="page" :pageCount="pageCount" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
-                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :pt="pt" />
+                <JumpToPageDropdown
+                    v-else-if="item === 'JumpToPageDropdown'"
+                    :aria-label="getAriaLabel('jumpToPageDropdownLabel')"
+                    :page="page"
+                    :pageCount="pageCount"
+                    @page-change="changePage($event)"
+                    :disabled="empty"
+                    :unstyled="unstyled"
+                    :pt="pt"
+                />
+                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :unstyled="unstyled" :pt="pt" />
             </template>
             <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
                 <slot name="end" :state="currentState"></slot>
@@ -131,7 +141,7 @@ export default {
             this.changePage(this.page);
         },
         createStyle() {
-            if (this.hasBreakpoints()) {
+            if (this.hasBreakpoints() && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 document.head.appendChild(this.styleElement);

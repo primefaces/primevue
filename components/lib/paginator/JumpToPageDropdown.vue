@@ -7,6 +7,7 @@
         @update:modelValue="onChange($event)"
         :class="cx('JTPDropdown')"
         :disabled="disabled"
+        :unstyled="unstyled"
         :pt="ptm('JTPDropdown')"
         data-pc-section="jtpdropdown"
     ></JTPDropdown>

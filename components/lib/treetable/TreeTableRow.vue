@@ -15,6 +15,7 @@
         @keydown="onKeyDown"
         @touchend="onTouchEnd"
         v-bind="ptm('row')"
+        :data-p-highlight="selected"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
             <TTBodyCell
@@ -31,6 +32,7 @@
                 :templates="templates"
                 @node-toggle="$emit('node-toggle', $event)"
                 @checkbox-toggle="toggleCheckbox"
+                :index="i"
                 :pt="pt"
             ></TTBodyCell>
         </template>
@@ -126,7 +128,7 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            if (DomHandler.isClickable(event.target) || DomHandler.hasClass(event.target, 'p-treetable-toggler') || DomHandler.hasClass(event.target.parentElement, 'p-treetable-toggler')) {
+            if (DomHandler.isClickable(event.target) || DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtoggler' || DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtogglericon' || event.target.tagName === 'path') {
                 return;
             }
 
@@ -197,7 +199,7 @@ export default {
         },
         onArrowRightKey(event) {
             const ishiddenIcon = DomHandler.findSingle(event.currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = DomHandler.findSingle(this.$refs.node, '.p-treetable-toggler');
+            const togglerElement = DomHandler.findSingle(this.$refs.node, '[data-pc-section="rowtoggler"]');
 
             if (ishiddenIcon) return;
 
@@ -216,7 +218,7 @@ export default {
 
             const currentTarget = event.currentTarget;
             const ishiddenIcon = DomHandler.findSingle(currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = DomHandler.findSingle(currentTarget, '.p-treetable-toggler');
+            const togglerElement = DomHandler.findSingle(currentTarget, '[data-pc-section="rowtoggler"]');
 
             if (this.expanded && !ishiddenIcon) {
                 togglerElement.click();
@@ -263,14 +265,14 @@ export default {
         },
         onTabKey() {
             const rows = [...DomHandler.find(this.$refs.node.parentElement, 'tr')];
-            const hasSelectedRow = rows.some((row) => DomHandler.hasClass(row, 'p-highlight') || row.getAttribute('aria-checked') === 'true');
+            const hasSelectedRow = rows.some((row) => DomHandler.getAttribute(row, 'data-p-highlight') || row.getAttribute('aria-checked') === 'true');
 
             rows.forEach((row) => {
                 row.tabIndex = -1;
             });
 
             if (hasSelectedRow) {
-                const selectedNodes = rows.filter((node) => DomHandler.hasClass(node, 'p-highlight') || node.getAttribute('aria-checked') === 'true');
+                const selectedNodes = rows.filter((node) => DomHandler.getAttribute(node, 'data-p-highlight') || node.getAttribute('aria-checked') === 'true');
 
                 selectedNodes[0].tabIndex = 0;
 
@@ -391,12 +393,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                this.node.styleClass,
-                {
-                    'p-highlight': this.selected
-                }
-            ];
+            return [this.node.styleClass, this.cx('root')];
         },
         expanded() {
             return this.expandedKeys && this.expandedKeys[this.node.key] === true;

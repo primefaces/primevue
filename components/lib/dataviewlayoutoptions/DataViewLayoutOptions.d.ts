@@ -83,6 +83,11 @@ export interface DataViewLayoutOptionsProps {
      * @type {DataViewLayoutOptionsPassThroughOptions}
      */
     pt?: DataViewLayoutOptionsPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -1,5 +1,5 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('footerCell') }">
+    <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('footerCell') }">
         <component v-if="column.children && column.children.footer" :is="column.children.footer" :column="column" />
         {{ columnProp('footer') }}
     </td>
@@ -15,6 +15,10 @@ export default {
     props: {
         column: {
             type: Object,
+            default: null
+        },
+        index: {
+            type: Number,
             default: null
         }
     },
@@ -37,14 +41,19 @@ export default {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
         },
-        getColumnPTOptions(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+        getColumnPT(key) {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
+                },
+                context: {
+                    index: this.index
                 }
-            });
+            };
+
+            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(), key, columnMetaData) };
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
@@ -77,13 +86,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                this.columnProp('footerClass'),
-                this.columnProp('class'),
-                {
-                    'p-frozen-column': this.columnProp('frozen')
-                }
-            ];
+            return [this.columnProp('footerClass'), this.columnProp('class'), this.cx('footerCell')];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');

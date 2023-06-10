@@ -30,7 +30,7 @@
         />
         <component v-else-if="column.children && column.children.body && !column.children.editor && d_editing" :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" :column="column" :pt="pt" />
+            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" :column="column" :index="index" :unstyled="unstyled" :pt="pt" />
             <DTCheckbox
                 v-else-if="columnProp('selectionMode') === 'multiple'"
                 :value="rowData"
@@ -39,6 +39,8 @@
                 :aria-selected="selected ? true : undefined"
                 @change="toggleRowWithCheckbox($event, rowIndex)"
                 :column="column"
+                :index="index"
+                :unstyled="unstyled"
                 :pt="pt"
             />
         </template>
@@ -89,6 +91,7 @@ import RowRadioButton from './RowRadioButton.vue';
 
 export default {
     name: 'BodyCell',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
     props: {

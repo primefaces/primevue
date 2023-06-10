@@ -41,6 +41,9 @@ export default {
         }
     },
     methods: {
+        _getHostInstance(instance) {
+            return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
+        },
         _getOptionValue(options, key = '', params = {}) {
             const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
             const fKey = fKeys.shift();
@@ -51,10 +54,10 @@ export default {
                     : undefined
                 : ObjectUtils.getItemValue(options, params);
         },
-        _getPTValue(obj = {}, key = '', params = {}) {
+        _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
             const datasetPrefix = 'data-pc-';
             const self = this._getOptionValue(obj, key, params);
-            const globalPT = this._getOptionValue(this.defaultPT, key, params);
+            const globalPT = searchInDefaultPT ? this._getOptionValue(this.defaultPT, key, params) : undefined;
             const merged = mergeProps(self, globalPT, {
                 ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(this.$.type.name) }),
                 [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
@@ -71,7 +74,7 @@ export default {
             return this._getPTValue(this.pt, key, { props: this.$props, state: this.$data, ...params });
         },
         ptmo(obj = {}, key = '', params = {}) {
-            return this._getPTValue(obj, key, params);
+            return this._getPTValue(obj, key, params, false);
         },
         cx(key = '', params = {}) {
             return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params }) : undefined;
@@ -95,7 +98,7 @@ export default {
             return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;
         },
         $css() {
-            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...(this.$parentInstance || {}).$css, ...this.$options.css };
+            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$css, ...this.$options.css };
         }
     }
 };

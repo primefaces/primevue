@@ -5,19 +5,19 @@
                 <tr
                     v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader(value, rowData, getRowIndex(index))"
                     :key="getRowKey(rowData, getRowIndex(index)) + '_subheader'"
-                    :class="cx('rowgroupHeader')"
+                    :class="cx('rowGroupHeader')"
                     :style="rowGroupHeaderStyle"
                     role="row"
-                    v-bind="ptm('rowgroupHeader')"
+                    v-bind="ptm('rowGroupHeader')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
-                        <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPTOptions('rowGroupToggler')">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+                        <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="getColumnPT('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
-                                <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="[cx('rowGroupTogglerIcon'), expandedRowIcon]" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
-                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
-                                <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="[cx('rowGroupTogglerIcon'), collapsedRowIcon]" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
-                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPTOptions('rowGroupTogglerIcon')" />
+                                <span v-if="isRowGroupExpanded(rowData) && expandedRowIcon" :class="[cx('rowGroupTogglerIcon'), expandedRowIcon]" v-bind="getColumnPT('rowGroupTogglerIcon')" />
+                                <ChevronDownIcon v-else-if="isRowGroupExpanded(rowData) && !expandedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPT('rowGroupTogglerIcon')" />
+                                <span v-else-if="!isRowGroupExpanded(rowData) && collapsedRowIcon" :class="[cx('rowGroupTogglerIcon'), collapsedRowIcon]" v-bind="getColumnPT('rowGroupTogglerIcon')" />
+                                <ChevronRightIcon v-else-if="!isRowGroupExpanded(rowData) && !collapsedRowIcon" :class="cx('rowGroupTogglerIcon')" v-bind="getColumnPT('rowGroupTogglerIcon')" />
                             </template>
                         </button>
                         <component :is="templates['groupheader']" :data="rowData" :index="getRowIndex(index)" />
@@ -78,6 +78,7 @@
                             @row-edit-save="onRowEditSave($event)"
                             @row-edit-cancel="onRowEditCancel($event)"
                             @editing-meta-change="onEditingMetaChange"
+                            :unstyled="unstyled"
                             :pt="pt"
                         />
                     </template>
@@ -90,25 +91,25 @@
                     role="row"
                     v-bind="ptm('rowExpansion')"
                 >
-                    <td :colspan="columnsLength" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
+                    <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
                 <tr
                     v-if="templates['groupfooter'] && rowGroupMode === 'subheader' && shouldRenderRowGroupFooter(value, rowData, getRowIndex(index))"
                     :key="getRowKey(rowData, getRowIndex(index)) + '_subfooter'"
-                    :class="cx('rowgroupFooter')"
+                    :class="cx('rowGroupFooter')"
                     role="row"
-                    v-bind="ptm('rowgroupFooter')"
+                    v-bind="ptm('rowGroupFooter')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
             </template>
         </template>
         <tr v-else :class="cx('emptyMessage')" role="row" v-bind="ptm('emptyMessage')">
-            <td :colspan="columnsLength" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('bodyCell') }">
+            <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
                 <component v-if="templates.empty" :is="templates.empty" />
             </td>
         </tr>
@@ -124,6 +125,7 @@ import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TableBody',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: [
         'rowgroup-toggle',
@@ -304,7 +306,7 @@ export default {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
-        getColumnPTOptions(column, key) {
+        getColumnPT(column, key) {
             return this.ptmo(this.getColumnProp(column), key, {
                 props: column.props,
                 parent: {

@@ -18,20 +18,17 @@
                     <div
                         v-for="(item, index) of value"
                         :key="`p-galleria-thumbnail-item-${index}`"
-                        :class="
-                            cx('thumbnailItem', {
-                                context: {
-                                    index,
-                                    activeIndex
-                                }
-                            })
-                        "
+                        :class="cx('thumbnailItem', { index, activeIndex })"
                         role="tab"
                         :data-p-active="activeIndex === index"
                         :aria-selected="activeIndex === index"
                         :aria-controls="containerId + '_item_' + index"
                         @keydown="onThumbnailKeydown($event, index)"
                         v-bind="ptm('thumbnailItem')"
+                        :data-p-galleria-thumbnail-item-current="activeIndex === index"
+                        :data-p-galleria-thumbnail-item-active="isItemActive(index)"
+                        :data-p-galleria-thumbnail-item-start="firstItemAciveIndex() === index"
+                        :data-p-galleria-thumbnail-item-end="lastItemActiveIndex() === index"
                     >
                         <div
                             :class="cx('thumbnailItemContent')"
@@ -181,6 +178,7 @@ export default {
             this.$refs.itemsContainer.style.transform = this.isVertical ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
 
             if (this.d_oldActiveItemIndex !== this.d_activeIndex) {
+                document.body.setAttribute('data-p-items-hidden', 'false');
                 !this.isUnstyled && DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
             }
@@ -217,6 +215,7 @@ export default {
             }
 
             if (this.$refs.itemsContainer) {
+                document.body.setAttribute('data-p-items-hidden', 'false');
                 !this.isUnstyled && DomHandler.removeClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transform = this.isVertical ? `translate3d(0, ${totalShiftedItems * (100 / this.d_numVisible)}%, 0)` : `translate3d(${totalShiftedItems * (100 / this.d_numVisible)}%, 0, 0)`;
                 this.$refs.itemsContainer.style.transition = 'transform 500ms ease 0s';
@@ -381,6 +380,7 @@ export default {
         },
         onTransitionEnd() {
             if (this.$refs.itemsContainer) {
+                document.body.setAttribute('data-p-items-hidden', 'true');
                 !this.isUnstyled && DomHandler.addClass(this.$refs.itemsContainer, 'p-items-hidden');
                 this.$refs.itemsContainer.style.transition = '';
             }
@@ -427,12 +427,12 @@ export default {
             }
 
             let innerHTML = `
-                #${this.containerId} .p-galleria-thumbnail-item {
+                #${this.containerId} [data-pc-section="thumbnailitem"] {
                     flex: 1 0 ${100 / this.d_numVisible}%
                 }
             `;
 
-            if (this.responsiveOptions) {
+            if (this.responsiveOptions && !this.isUnstyled) {
                 this.sortedResponsiveOptions = [...this.responsiveOptions];
                 this.sortedResponsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;

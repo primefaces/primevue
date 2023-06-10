@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseBlockUI from './BaseBlockUI.vue';
 
 export default {
     name: 'BlockUI',
-    extends: BaseComponent,
+    extends: BaseBlockUI,
     emits: ['block', 'unblock'],
     mask: null,
     data() {
@@ -65,7 +65,7 @@ export default {
             if (this.fullScreen) {
                 if (!this.isUnstyled) {
                     document.body.removeChild(this.mask);
-                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 }
             } else {
                 this.$refs.container.removeChild(this.mask);

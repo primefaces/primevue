@@ -1,9 +1,9 @@
 <template>
     <template v-if="!disabled">
-        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptm('root')">
+        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="[style, sx('root')]" @scroll="onScroll" v-bind="ptm('root')" data-pc-name="virtualscroller">
             <slot
                 name="content"
-                :styleClass="contentClass"
+                :styleClass="cx('content')"
                 :items="loadedItems"
                 :getItemOptions="getOptions"
                 :loading="d_loading"
@@ -18,21 +18,21 @@
                 :horizontal="isHorizontal()"
                 :both="isBoth()"
             >
-                <div :ref="contentRef" :class="contentClass" :style="contentStyle" v-bind="ptm('content')">
+                <div :ref="contentRef" :class="cx('content')" :style="contentStyle" v-bind="ptm('content')">
                     <template v-for="(item, index) of loadedItems" :key="index">
                         <slot name="item" :item="item" :options="getOptions(index)"></slot>
                     </template>
                 </div>
             </slot>
-            <div v-if="showSpacer" class="p-virtualscroller-spacer" :style="spacerStyle" v-bind="ptm('spacer')"></div>
-            <div v-if="!loaderDisabled && showLoader && d_loading" :class="loaderClass" v-bind="ptm('loader')">
+            <div v-if="showSpacer" :class="cx('spacer')" :style="spacerStyle" v-bind="ptm('spacer')"></div>
+            <div v-if="!loaderDisabled && showLoader && d_loading" :class="cx('loader')" v-bind="ptm('loader')">
                 <template v-if="$slots && $slots.loader">
                     <template v-for="(_, index) of loaderArr" :key="index">
                         <slot name="loader" :options="getLoaderOptions(index, isBoth() && { numCols: d_numItemsInViewport.cols })"></slot>
                     </template>
                 </template>
-                <slot name="loadingicon">
-                    <SpinnerIcon spin class="p-virtualscroller-loading-icon" v-bind="ptm('loadingIcon')" />
+                <slot name="loadingicon" :class="cx('loadingIcon')">
+                    <SpinnerIcon spin :class="cx('loadingIcon')" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
         </div>
@@ -44,96 +44,14 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import SpinnerIcon from 'primevue/icons/spinner';
 import { DomHandler } from 'primevue/utils';
+import BaseVirtualScroller from './BaseVirtualScroller.vue';
 
 export default {
     name: 'VirtualScroller',
-    extends: BaseComponent,
+    extends: BaseVirtualScroller,
     emits: ['update:numToleratedItems', 'scroll', 'scroll-index-change', 'lazy-load'],
-    props: {
-        id: {
-            type: String,
-            default: null
-        },
-        style: null,
-        class: null,
-        items: {
-            type: Array,
-            default: null
-        },
-        itemSize: {
-            type: [Number, Array],
-            default: 0
-        },
-        scrollHeight: null,
-        scrollWidth: null,
-        orientation: {
-            type: String,
-            default: 'vertical'
-        },
-        numToleratedItems: {
-            type: Number,
-            default: null
-        },
-        delay: {
-            type: Number,
-            default: 0
-        },
-        resizeDelay: {
-            type: Number,
-            default: 10
-        },
-        lazy: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        loaderDisabled: {
-            type: Boolean,
-            default: false
-        },
-        columns: {
-            type: Array,
-            default: null
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        showSpacer: {
-            type: Boolean,
-            default: true
-        },
-        showLoader: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        },
-        step: {
-            type: Number,
-            default: 0
-        },
-        appendOnly: {
-            type: Boolean,
-            default: false
-        },
-        autoSize: {
-            type: Boolean,
-            default: false
-        }
-    },
     data() {
         return {
             first: this.isBoth() ? { rows: 0, cols: 0 } : 0,
@@ -686,7 +604,7 @@ export default {
             return this.step ? this.page !== this.getPageByFirst(first ?? this.first) : true;
         },
         setContentEl(el) {
-            this.content = el || this.content || DomHandler.findSingle(this.element, '.p-virtualscroller-content');
+            this.content = el || this.content || DomHandler.findSingle(this.element, '[data-pc-section="content"]');
         },
         elementRef(el) {
             this.element = el;
@@ -697,31 +615,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                'p-virtualscroller',
-                {
-                    'p-virtualscroller-inline': this.inline,
-                    'p-virtualscroller-both p-both-scroll': this.isBoth(),
-                    'p-virtualscroller-horizontal p-horizontal-scroll': this.isHorizontal()
-                },
-                this.class
-            ];
-        },
-        contentClass() {
-            return [
-                'p-virtualscroller-content',
-                {
-                    'p-virtualscroller-loading': this.d_loading
-                }
-            ];
-        },
-        loaderClass() {
-            return [
-                'p-virtualscroller-loader',
-                {
-                    'p-component-overlay': !this.$slots.loader
-                }
-            ];
+            return [this.cx('root'), this.class];
         },
         loadedItems() {
             if (this.items && !this.d_loading) {
@@ -753,66 +647,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-virtualscroller {
-    position: relative;
-    overflow: auto;
-    contain: strict;
-    transform: translateZ(0);
-    will-change: scroll-position;
-    outline: 0 none;
-}
-
-.p-virtualscroller-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* contain: content; */
-    min-height: 100%;
-    min-width: 100%;
-    will-change: transform;
-}
-
-.p-virtualscroller-spacer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1px;
-    width: 1px;
-    transform-origin: 0 0;
-    pointer-events: none;
-}
-
-.p-virtualscroller .p-virtualscroller-loader {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.p-virtualscroller-loader.p-component-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-virtualscroller-loading-icon {
-    font-size: 2rem;
-}
-
-.p-virtualscroller-loading-icon.p-icon {
-    width: 2rem;
-    height: 2rem;
-}
-
-.p-virtualscroller-horizontal > .p-virtualscroller-content {
-    display: flex;
-}
-
-/* Inline */
-.p-virtualscroller-inline .p-virtualscroller-content {
-    position: static;
-}
-</style>

@@ -308,6 +308,11 @@ export interface VirtualScrollerProps {
      * @type {VirtualScrollerPassThroughOptions}
      */
     pt?: VirtualScrollerPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -408,7 +413,12 @@ export interface VirtualScrollerSlots {
     /**
      * Custom loading icon template.
      */
-    loadingicon(): VNode[];
+    loadingicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

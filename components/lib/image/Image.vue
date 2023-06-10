@@ -1,7 +1,7 @@
 <template>
-    <span :class="cx('root')" :style="style" v-bind="ptm('root')">
-        <slot name="image" :class="imageClass" :style="imageStyle" :onError="onError">
-            <img :style="imageStyle" :class="cx('image')" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
+    <span :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="image">
+        <slot name="image" :onError="onError">
+            <img :style="imageStyle" :class="[cx('image'), imageClass]" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
         </slot>
         <button v-if="preview" ref="previewButton" :class="cx('button')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('button') }">
             <slot name="indicatoricon">
@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import BaseImage from './BaseImage.vue';
 import FocusTrap from 'primevue/focustrap';
 import EyeIcon from 'primevue/icons/eye';
 import RefreshIcon from 'primevue/icons/refresh';
@@ -64,6 +63,7 @@ import TimesIcon from 'primevue/icons/times';
 import UndoIcon from 'primevue/icons/undo';
 import Portal from 'primevue/portal';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseImage from './BaseImage.vue';
 
 export default {
     name: 'Image',
@@ -183,13 +183,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                'p-image p-component',
-                this.class,
-                {
-                    'p-image-preview-container': this.preview
-                }
-            ];
+            return [this.cx('root'), this.class];
         },
         rotateClass() {
             return 'p-image-preview-rotate-' + this.rotate;

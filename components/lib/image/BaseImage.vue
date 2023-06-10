@@ -71,7 +71,6 @@ const styles = `
 const classes = {
     root: ({ props }) => [
         'p-image p-component',
-        props.class,
         {
             'p-image-preview-container': props.preview
         }
@@ -82,8 +81,18 @@ const classes = {
     mask: 'p-image-mask p-component-overlay p-component-overlay-enter',
     rotateRightButton: 'p-image-action p-link',
     rotateLeftButton: 'p-image-action p-link',
-    zoomOutButton: ({ instance }) => ['p-image-action p-link', { 'p-disabled': instance.isZoomOutDisabled }],
-    zoomInButton: ({ instance }) => ['p-image-action p-link', { 'p-disabled': instance.isZoomInDisabled }],
+    zoomOutButton: ({ instance }) => [
+        'p-image-action p-link',
+        {
+            'p-disabled': instance.isZoomOutDisabled
+        }
+    ],
+    zoomInButton: ({ instance }) => [
+        'p-image-action p-link',
+        {
+            'p-disabled': instance.isZoomInDisabled
+        }
+    ],
     closeButton: 'p-image-action p-link',
     preview: 'p-image-preview'
 };

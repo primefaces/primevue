@@ -3,8 +3,8 @@
         <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
-        <div :class="cx('content')" v-bind="ptm('content')">
-            <div :class="cx('container')" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
+        <div :class="[cx('content'), contentClass]" v-bind="ptm('content')">
+            <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
                 <button v-if="showNavigators" v-ripple type="button" :class="cx('previousButton')" :disabled="backwardIsDisabled" :aria-label="ariaPrevButtonLabel" @click="navBackward" v-bind="{ ...prevButtonProps, ...ptm('previousButton') }">
                     <slot name="previousicon">
                         <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
@@ -17,17 +17,11 @@
                             <div
                                 v-for="(item, index) of value.slice(-1 * d_numVisible)"
                                 :key="index + '_scloned'"
-                                :class="
-                                    cx('itemCloned', {
-                                        context: {
-                                            index,
-                                            value,
-                                            totalShiftedItems,
-                                            d_numVisible
-                                        }
-                                    })
-                                "
+                                :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })"
                                 v-bind="ptm('itemCloned')"
+                                :data-p-carousel-item-active="totalShiftedItems * -1 === value.length + d_numVisible"
+                                :data-p-carousel-item-start="index === 0"
+                                :data-p-carousel-item-end="value.slice(-1 * d_numVisible).length - 1 === index"
                             >
                                 <slot name="item" :data="item" :index="index"></slot>
                             </div>
@@ -35,37 +29,20 @@
                         <div
                             v-for="(item, index) of value"
                             :key="index"
-                            :class="
-                                cx('item', {
-                                    context: {
-                                        index
-                                    }
-                                })
-                            "
+                            :class="cx('item', { index })"
                             role="group"
                             :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
                             :aria-label="ariaSlideNumber(index)"
                             :aria-roledescription="ariaSlideLabel"
                             v-bind="ptm('item')"
+                            :data-p-carousel-item-active="firstIndex() <= index && lastIndex() >= index"
+                            :data-p-carousel-item-start="firstIndex() === index"
+                            :data-p-carousel-item-end="lastIndex() === index"
                         >
                             <slot name="item" :data="item" :index="index"></slot>
                         </div>
                         <template v-if="isCircular()">
-                            <div
-                                v-for="(item, index) of value.slice(0, d_numVisible)"
-                                :key="index + '_fcloned'"
-                                :class="
-                                    cx('itemCloned', {
-                                        context: {
-                                            index,
-                                            value,
-                                            totalShiftedItems,
-                                            d_numVisible
-                                        }
-                                    })
-                                "
-                                v-bind="ptm('itemCloned')"
-                            >
+                            <div v-for="(item, index) of value.slice(0, d_numVisible)" :key="index + '_fcloned'" :class="cx('itemCloned', { index, value, totalShiftedItems, d_numVisible })" v-bind="ptm('itemCloned')">
                                 <slot name="item" :data="item" :index="index"></slot>
                             </div>
                         </template>
@@ -78,20 +55,8 @@
                     </slot>
                 </button>
             </div>
-            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="cx('indicators')" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
-                <li
-                    v-for="(indicator, i) of totalIndicators"
-                    :key="'p-carousel-indicator-' + i.toString()"
-                    :class="
-                        cx('indicator', {
-                            context: {
-                                i
-                            }
-                        })
-                    "
-                    :data-p-highlight="d_page === i"
-                    v-bind="ptm('indicator')"
-                >
+            <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
+                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator')" :data-p-highlight="d_page === i">
                     <button
                         :class="cx('indicatorButton')"
                         type="button"
@@ -111,13 +76,13 @@
 </template>
 
 <script>
-import BaseCarousel from './BaseCarousel.vue';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import ChevronUpIcon from 'primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BaseCarousel from './BaseCarousel.vue';
 
 export default {
     name: 'Carousel',
@@ -553,7 +518,7 @@ export default {
                 }
             `;
 
-            if (this.responsiveOptions) {
+            if (this.responsiveOptions && !this.isUnstyled) {
                 let _responsiveOptions = [...this.responsiveOptions];
 
                 _responsiveOptions.sort((data1, data2) => {

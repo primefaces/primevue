@@ -7,10 +7,6 @@ const styles = `
     position: relative;
 }
 
-.p-datatable > .p-datatable-wrapper {
-    overflow: auto;
-}
-
 .p-datatable-table {
     border-spacing: 0px;
     width: 100%;
@@ -43,7 +39,6 @@ const styles = `
 }
 
 .p-datatable-scrollable-table > .p-datatable-thead {
-    position: sticky;
     top: 0;
     z-index: 1;
 }
@@ -54,7 +49,6 @@ const styles = `
 }
 
 .p-datatable-scrollable-table > .p-datatable-tfoot {
-    position: sticky;
     bottom: 0;
     z-index: 1;
 }
@@ -244,6 +238,12 @@ const styles = `
     left: 0;
 }
 `;
+
+const inlineStyles = {
+    wrapper: { overflow: 'auto' },
+    thead: { position: 'sticky' },
+    tfoot: { position: 'sticky' }
+};
 
 const classes = {
     root: ({ instance, props }) => [
@@ -730,6 +730,7 @@ export default {
     },
     css: {
         classes,
+        inlineStyles,
         loadStyle
     },
     provide() {
