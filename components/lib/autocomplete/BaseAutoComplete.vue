@@ -327,5 +327,8 @@ export default {
 <style>
 .p-icon {
     min-width: 1rem;
+    cursor: pointer;
+    margin-left: 0.25rem;
+    vertical-align: middle;
 }
 </style>
