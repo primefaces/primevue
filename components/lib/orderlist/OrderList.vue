@@ -2,7 +2,7 @@
     <div :class="cx('root')" v-bind="ptm('root')">
         <div :class="cx('controls')" v-bind="ptm('controls')">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" :unstyled="unstyled" v-bind="{ ...moveUpButtonProps, ...ptm('moveUpButton') }">
+            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveUpButtonProps, ...ptm('moveUpButton') }" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" />

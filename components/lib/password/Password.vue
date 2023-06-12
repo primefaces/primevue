@@ -20,6 +20,7 @@
             @keyup="onKeyUp"
             @invalid="onInvalid"
             v-bind="{ ...inputProps, ...ptm('input') }"
+            :unstyled="unstyled"
         />
         <slot v-if="toggleMask && unmasked" name="hideicon" :onClick="onMaskToggle">
             <component :is="hideIcon ? 'i' : 'EyeSlashIcon'" :class="hideIcon" @click="onMaskToggle" v-bind="ptm('hideIcon')" />

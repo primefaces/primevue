@@ -23,6 +23,7 @@
             @focus="onInputFocus"
             @blur="onInputBlur"
             v-bind="{ ...inputProps, ...ptm('input') }"
+            :unstyled="unstyled"
             data-pc-section="input"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
@@ -33,6 +34,7 @@
                 :tabindex="-1"
                 aria-hidden="true"
                 v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+                :unstyled="unstyled"
                 data-pc-section="incrementbutton"
             >
                 <template #icon>
@@ -48,6 +50,7 @@
                 :tabindex="-1"
                 aria-hidden="true"
                 v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+                :unstyled="unstyled"
                 data-pc-section="decrementbutton"
             >
                 <template #icon>
@@ -65,6 +68,7 @@
             :tabindex="-1"
             aria-hidden="true"
             v-bind="{ ...incrementButtonProps, ...ptm('incrementButton') }"
+            :unstyled="unstyled"
             data-pc-section="incrementbutton"
         >
             <template #icon>
@@ -81,6 +85,7 @@
             :tabindex="-1"
             aria-hidden="true"
             v-bind="{ ...decrementButtonProps, ...ptm('decrementButton') }"
+            :unstyled="unstyled"
             data-pc-section="decrementbutton"
         >
             <template #icon>

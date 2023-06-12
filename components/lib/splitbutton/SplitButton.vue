@@ -1,7 +1,7 @@
 <template>
     <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="splitbutton" :data-pc-severity="severity">
         <slot>
-            <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :unstyled="unstyled" :pt="ptm('button')" v-bind="buttonProps">
+            <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps" :unstyled="unstyled">
                 <template v-if="icon" #icon="slotProps">
                     <slot name="icon" :class="slotProps.class">
                         <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
@@ -19,9 +19,9 @@
             :aria-controls="ariaId + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
-            :unstyled="unstyled"
             :pt="ptm('menuButton')"
             v-bind="menuButtonProps"
+            :unstyled="unstyled"
         >
             <template #icon="slotProps">
                 <slot name="menubuttonicon" :class="slotProps.class">

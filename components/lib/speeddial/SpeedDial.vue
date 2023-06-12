@@ -13,6 +13,7 @@
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
                 :pt="ptm('button')"
+                :unstyled="unstyled"
             >
                 <template #icon>
                     <slot name="icon" :visible="d_visible">
