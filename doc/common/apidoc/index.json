@@ -38408,22 +38408,6 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "loadingOverlay",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the loading overlay's DOM element."
-                        },
-                        {
-                            "name": "loadingIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the loading icon's DOM element."
-                        },
-                        {
                             "name": "filterContainer",
                             "optional": true,
                             "readonly": false,
@@ -38542,6 +38526,22 @@
                             "type": "TreePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the subgroup's DOM element."
+                        },
+                        {
+                            "name": "loadingOverlay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading overlay's DOM element."
+                        },
+                        {
+                            "name": "loadingIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
                         }
                     ],
                     "methods": []
