@@ -111,14 +111,6 @@ export interface TreePassThroughOptions {
      */
     root?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading overlay's DOM element.
-     */
-    loadingOverlay?: TreePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the loading icon's DOM element.
-     */
-    loadingIcon?: TreePassThroughOptionType;
-    /**
      * Uses to pass attributes to the filter container's DOM element.
      */
     filterContainer?: TreePassThroughOptionType;
@@ -178,6 +170,14 @@ export interface TreePassThroughOptions {
      * Uses to pass attributes to the subgroup's DOM element.
      */
     subgroup?: TreePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading overlay's DOM element.
+     */
+    loadingOverlay?: TreePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: TreePassThroughOptionType;
 }
 
 /**
