@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The element to block should be placed as a child of BlockUI and <i>blocked</i> property is required to control the state.</p>
+        <p>FocusTrap is enabled by attaching the directive with the v- prefix.</p>
     </DocSectionText>
     <div class="flex justify-content-center p-fluid">
         <div v-focustrap class="card">
