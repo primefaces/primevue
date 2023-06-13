@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
+import BaseTimeline from './BaseTimeline.vue';
 
 export default {
     name: 'Timeline',
-    extends: BaseComponent,
+    extends: BaseTimeline,
     methods: {
         getKey(item, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
