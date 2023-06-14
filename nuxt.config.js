@@ -49,17 +49,6 @@ export default defineNuxtConfig({
                     src: 'https://www.googletagmanager.com/gtag/js?id=UA-93461466-1'
                 },
                 {
-                    id: 'ga-analytics',
-                    strategy: 'lazyOnload',
-                    children: `
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'UA-93461466-1');
-                    `
-                },
-                {
                     src: baseUrl + 'scripts/prism.js',
                     'data-manual': true
                 }

@@ -136,6 +136,23 @@ function getTooltipElement(el) {
     return document.getElementById(el.$_ptooltipId);
 }
 
+function setGlobalPTOptions(el, container) {
+    const addCSS = (element, section) => {
+        section.class && DomHandler.addMultipleClasses(element, section.class);
+        section.style && DomHandler.addStyles(element, section.style);
+    };
+
+    el.$_ptooltipPTOptions.css && addCSS(container, el.$_ptooltipPTOptions.css.root);
+    el.$_ptooltipPTCss && addCSS(container, el.$_ptooltipPTCss.root);
+
+    for (let section of ['arrow', 'text']) {
+        const element = DomHandler.findSingle(container, `[data-pc-section="${section}"]`);
+
+        el.$_ptooltipPTOptions.css[section] && addCSS(element, el.$_ptooltipPTOptions.css[section]);
+        el.$_ptooltipPTCss[section] && addCSS(element, el.$_ptooltipPTCss[section]);
+    }
+}
+
 function create(el) {
     const id = el.$_ptooltipIdAttr !== '' ? el.$_ptooltipIdAttr : UniqueComponentId() + '_tooltip';
 
@@ -144,15 +161,22 @@ function create(el) {
     let container = document.createElement('div');
 
     container.id = id;
+    container.setAttribute('data-pc-section', 'root');
+    container.setAttribute('data-pc-name', 'tooltip');
 
     let tooltipArrow = document.createElement('div');
 
-    tooltipArrow.className = 'p-tooltip-arrow';
+    tooltipArrow.setAttribute('data-pc-section', 'arrow');
     container.appendChild(tooltipArrow);
 
     let tooltipText = document.createElement('div');
 
-    tooltipText.className = 'p-tooltip-text';
+    tooltipText.setAttribute('data-pc-section', 'text');
+
+    if (!el.$_ptooltipUnstyled) {
+        tooltipArrow.className = 'p-tooltip-arrow';
+        tooltipText.className = 'p-tooltip-text';
+    }
 
     if (el.$_ptooltipEscape) {
         tooltipText.innerHTML = el.$_ptooltipValue;
@@ -170,6 +194,8 @@ function create(el) {
     if (el.$_ptooltipFitContent) {
         container.style.width = 'fit-content';
     }
+
+    setGlobalPTOptions(el, container);
 
     return container;
 }
@@ -306,7 +332,7 @@ function preAlign(el, position) {
 
     tooltipElement.style.left = -999 + 'px';
     tooltipElement.style.top = -999 + 'px';
-    tooltipElement.className = `p-tooltip p-component p-tooltip-${position} ${el.$_ptooltipClass || ''}`;
+    tooltipElement.className += el.$_ptooltipUnstyled ? el.$_ptooltipClass : ` p-tooltip p-component p-tooltip-${position} ${el.$_ptooltipClass || ''}`;
 }
 
 function isOutOfBounds(el) {
@@ -356,28 +382,36 @@ const Tooltip = {
             target.$_ptooltipEscape = false;
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
+            target.$_ptooltipIdAttr = '';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
+            target.$_ptooltipPTCss = '';
         } else if (typeof options.value === 'object' && options.value) {
             if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') return;
             else {
-                /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
                 target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
-                target.$_ptooltipClass = options.value.class;
+                target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
                 target.$_ptooltipIdAttr = options.value.id || '';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
+                target.$_ptooltipPTCss = options.value.pt && options.value.pt.css;
             }
         }
 
-        target.$_ptooltipZIndex = options.instance.$primevue && options.instance.$primevue.config && options.instance.$primevue.config.zIndex.tooltip;
+        if (options.instance.$primevue && options.instance.$primevue.config) {
+            target.$_ptooltipZIndex = options.instance.$primevue.config.zIndex.tooltip;
+            target.$_ptooltipUnstyled = options.instance.$primevue.config.unstyled || false;
+            target.$_ptooltipPTOptions = options.instance.$primevue.config.pt && options.instance.$primevue.config.pt.directives && options.instance.$primevue.config.pt.directives.tooltip;
+        }
+
         bindEvents(target);
     },
     unmounted(el) {
         let target = getTarget(el);
+
         remove(target);
         unbindEvents(target);
 
@@ -388,10 +422,12 @@ const Tooltip = {
     },
     updated(el, options) {
         let target = getTarget(el);
+
         target.$_ptooltipModifiers = getModifiers(options);
 
         if (!options.value) {
             unbindEvents(target);
+
             return;
         }
 
@@ -403,25 +439,31 @@ const Tooltip = {
             target.$_ptooltipIdAttr = '';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
+            target.$_ptooltipPTCss = '';
 
             bindEvents(target);
         } else if (typeof options.value === 'object' && options.value) {
             if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') {
                 unbindEvents(target);
+
                 return;
             } else {
-                /* eslint-disable */
                 target.$_ptooltipValue = options.value.value;
                 target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : false;
-                target.$_ptooltipClass = options.value.class;
+                target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
                 target.$_ptooltipIdAttr = options.value.id || '';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
+                target.$_ptooltipPTCss = options.value.pt && options.value.pt.css;
 
                 bindEvents(target);
             }
+        }
+
+        if (options.instance.$primevue && options.instance.$primevue.config) {
+            target.$_ptooltipPTOptions = options.instance.$primevue.config.pt && options.instance.$primevue.config.pt.directives && options.instance.$primevue.config.pt.directives.tooltip;
         }
     }
 };

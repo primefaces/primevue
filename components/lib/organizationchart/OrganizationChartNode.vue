@@ -13,7 +13,7 @@
                 </td>
             </tr>
             <tr :style="childStyle" :class="cx('lines')" v-bind="ptm('lines')">
-                <td :colspan="colspan">
+                <td :colspan="colspan" v-bind="ptm('lineCell')">
                     <div :class="cx('lineDown')" v-bind="ptm('lineDown')"></div>
                 </td>
             </tr>

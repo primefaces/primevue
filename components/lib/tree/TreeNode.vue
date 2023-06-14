@@ -13,7 +13,6 @@
         :tabindex="index === 0 ? 0 : -1"
         @keydown="onKeyDown"
         v-bind="level === 1 ? getPTOptions('node') : ptm('subgroup')"
-        data-pc-section="treeitem"
     >
         <div :class="cx('content')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('content')" :data-p-highlight="checkboxMode ? checked : selected" :data-p-selectable="selectable">
             <button v-ripple type="button" :class="cx('toggler')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('toggler')">

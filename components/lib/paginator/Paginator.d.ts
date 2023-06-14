@@ -193,7 +193,7 @@ export interface PaginatorProps {
      */
     rowsPerPageOptions?: number[] | undefined;
     /**
-     * Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint.
+     * Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;
      *
      * - FirstPageLink
      * - PrevPageLink
