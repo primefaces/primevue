@@ -28304,7 +28304,7 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint.\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
+                            "description": "Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
                         },
                         {
                             "name": "currentPageReportTemplate",
