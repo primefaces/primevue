@@ -1,5 +1,4 @@
 <template>
-
     <div :class="containerClass">
         <div class="p-megamenu-start" v-if="$slots.start">
             <slot name="start"></slot>
@@ -24,7 +23,7 @@
                         <div class="p-megamenu-grid">
                             <div v-for="(column,columnIndex) of category.items" :key="label(category) + '_column_' + columnIndex" :class="getColumnClassName(category)">
                                 <ul v-for="(submenu,submenuIndex) of column" class="p-megamenu-submenu" :key="label(submenu) + '_submenu_' + submenuIndex" role="menu">
-                                    <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation">{{label(submenu)}}</li>
+                                    <li :class="getSubmenuHeaderClass(submenu)" :style="submenu.style" role="presentation"><a :href="submenu.to" >{{label(submenu)}}</a ></li>
                                     <template v-for="(item, i) of submenu.items">
                                         <li role="none" :class="getSubmenuItemClass(item)" :style="item.style" v-if="visible(item) && !item.separator" :key="label(item) + i">
                                             <router-link v-if="item.to && !disabled(item)" :to="item.to" custom v-slot="{navigate, href, isActive, isExactActive}" >
