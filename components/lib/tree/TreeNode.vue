@@ -259,8 +259,6 @@ export default {
         setAllNodesTabIndexes() {
             const nodes = DomHandler.find(this.$refs.currentNode.closest('[data-pc-section="container"]'), '[role="treeitem"]');
 
-            console.log(nodes);
-
             const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
 
             [...nodes].forEach((node) => {
