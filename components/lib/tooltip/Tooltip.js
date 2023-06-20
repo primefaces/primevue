@@ -91,7 +91,7 @@ function onKeydown(event) {
 }
 
 function tooltipActions(el) {
-    if (el.$_ptooltipDisabled) {
+    if (el.$_ptooltipDisabled || !DomHandler.isExist(el) ) {
         return;
     }
 
