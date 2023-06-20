@@ -283,12 +283,12 @@ export interface PickListProps {
     stripedRows?: boolean | undefined;
     /**
      * Whether to show buttons of source list.
-     * @defaultValue false
+     * @defaultValue true
      */
     showSourceControls?: boolean | undefined;
     /**
      * Whether to show buttons of target list.
-     * @defaultValue false
+     * @defaultValue true
      */
     showTargetControls?: boolean | undefined;
     /**
