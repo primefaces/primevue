@@ -50,7 +50,7 @@ export interface PaginatorPassThroughOptions {
     firstPageIcon?: PaginatorPassThroughOptionType;
     /**
      * Uses to pass attributes to the prev page button's DOM element.
-     * @deprecated
+     * @deprecated since v3.30.0. Use 'previousPageButton' property instead.
      */
     prevPageButton?: PaginatorPassThroughOptionType;
     /**
@@ -59,7 +59,7 @@ export interface PaginatorPassThroughOptions {
     previousPageButton?: PaginatorPassThroughOptionType;
     /**
      * Uses to pass attributes to the prev page icon's DOM element.
-     * @deprecated
+     * @deprecated since v3.30.0. Use 'previousPageIcon' property instead.
      */
     prevPageIcon?: PaginatorPassThroughOptionType;
     /**
@@ -96,7 +96,7 @@ export interface PaginatorPassThroughOptions {
     current?: PaginatorPassThroughOptionType;
     /**
      * Uses to pass attributes to the Dropdown component.
-     * @deprecated
+     * @deprecated since v3.30.0. Use 'rowPerPageDropdown' property instead.
      */
     RPPDropdown?: DropdownPassThroughOptionType;
     /**
@@ -106,7 +106,7 @@ export interface PaginatorPassThroughOptions {
     rowPerPageDropdown?: DropdownPassThroughOptionType;
     /**
      * Uses to pass attributes to the Dropdown component.
-     * deprecated
+     * @deprecated since v3.30.0. Use 'jumpToPageDropdown' property instead.
      */
     JTPDropdown?: DropdownPassThroughOptionType;
     /**
@@ -116,7 +116,7 @@ export interface PaginatorPassThroughOptions {
     jumpToPageDropdown?: DropdownPassThroughOptionType;
     /**
      * Uses to pass attributes to the Dropdown component.
-     * @deprecated
+     * @deprecated since v3.30.0. Use 'jumpToPageInput' property instead.
      */
     JTPInput?: InputNumberPassThroughOptionType;
     /**
