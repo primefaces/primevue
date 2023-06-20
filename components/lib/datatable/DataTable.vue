@@ -26,7 +26,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -239,7 +238,6 @@
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
             :pt="ptm('paginator')"
-            data-pc-section="paginator"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>

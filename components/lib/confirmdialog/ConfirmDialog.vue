@@ -23,17 +23,17 @@
         </template>
         <component v-else :is="$slots.message" :message="confirmation"></component>
         <template #footer>
-            <CDButton :label="rejectLabel" :class="cx('rejectButton')" @click="reject()" :autofocus="autoFocusReject" :unstyled="unstyled" :pt="ptm('rejectButton')">
+            <CDButton :label="rejectLabel" :class="cx('rejectButton')" @click="reject()" :autofocus="autoFocusReject" :unstyled="unstyled" :pt="ptm('rejectButton')" data-pc-name="rejectbutton">
                 <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                     <slot name="rejecticon">
-                        <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" />
+                        <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" data-pc-name="rejectbuttonicon" />
                     </slot>
                 </template>
             </CDButton>
-            <CDButton :label="acceptLabel" :class="cx('acceptButton')" @click="accept()" :autofocus="autoFocusAccept" :unstyled="unstyled" :pt="ptm('acceptButton')">
+            <CDButton :label="acceptLabel" :class="cx('acceptButton')" @click="accept()" :autofocus="autoFocusAccept" :unstyled="unstyled" :pt="ptm('acceptButton')" data-pc-name="acceptbutton">
                 <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                     <slot name="accepticon">
-                        <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" />
+                        <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" data-pc-name="acceptbuttonicon" />
                     </slot>
                 </template>
             </CDButton>
