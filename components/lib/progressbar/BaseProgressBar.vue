@@ -114,15 +114,16 @@ const styles = `
 `;
 
 const classes = {
-    root: ({ props, instance }) => [
+    root: ({ instance }) => [
         'p-progressbar p-component',
         {
             'p-progressbar-determinate': instance.determinate,
             'p-progressbar-indeterminate': instance.indeterminate
         }
     ],
-    value: ({ instance }) => (instance.determinate ? 'p-progressbar-value p-progressbar-value-animate' : 'p-progressbar-indeterminate-container'),
-    label: ({ instance }) => (instance.determinate ? 'p-progressbar-label' : 'p-progressbar-value p-progressbar-value-animate')
+    container: 'p-progressbar-indeterminate-container',
+    value: 'p-progressbar-value p-progressbar-value-animate',
+    label: 'p-progressbar-label'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_progressbar_style', manual: true });

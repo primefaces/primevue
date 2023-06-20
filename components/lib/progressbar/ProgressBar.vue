@@ -1,12 +1,12 @@
 <template>
-    <div role="progressbar" :class="cx('root')" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100" v-bind="ptm('root')" data-pc-name="progressbar">
+    <div role="progressbar" :class="cx('root')" aria-valuemin="0" :aria-valuenow="value" aria-valuemax="100" v-bind="ptm('root')">
         <div v-if="determinate" :class="cx('value')" :style="progressStyle" v-bind="ptm('value')">
             <div v-if="value != null && value !== 0 && showValue" :class="cx('label')" v-bind="ptm('label')">
                 <slot>{{ value + '%' }}</slot>
             </div>
         </div>
-        <div v-if="indeterminate" :class="cx('value')" v-bind="ptm('value')">
-            <div :class="cx('label')" v-bind="ptm('label')"></div>
+        <div v-if="indeterminate" :class="cx('container')" v-bind="ptm('root')">
+            <div :class="cx('value')" v-bind="ptm('value')"></div>
         </div>
     </div>
 </template>
