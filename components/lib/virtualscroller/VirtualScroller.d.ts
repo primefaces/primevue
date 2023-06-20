@@ -116,10 +116,6 @@ export interface VirtualScrollerPassThroughOptions {
      */
     content?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the spacer's DOM element.
-     */
-    spacer?: VirtualScrollerPassThroughOptionType;
-    /**
      * Uses to pass attributes to the loader's DOM element.
      */
     loader?: VirtualScrollerPassThroughOptionType;
@@ -127,6 +123,10 @@ export interface VirtualScrollerPassThroughOptions {
      * Uses to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the spacer's DOM element.
+     */
+    spacer?: VirtualScrollerPassThroughOptionType;
 }
 
 /**
