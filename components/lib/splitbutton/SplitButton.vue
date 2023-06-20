@@ -49,10 +49,15 @@ export default {
             isExpanded: false
         };
     },
+    mounted() {
+        this.$watch('$refs.menu.visible', (newValue) => {
+            this.isExpanded = newValue;
+        });
+    },
     methods: {
         onDropdownButtonClick() {
             this.$refs.menu.toggle({ currentTarget: this.$el, relatedTarget: this.$refs.button.$el });
-            this.isExpanded = !this.$refs.menu.visible;
+            this.isExpanded = this.$refs.menu.visible;
         },
         onDropdownKeydown(event) {
             if (event.code === 'ArrowDown' || event.code === 'ArrowUp') {
