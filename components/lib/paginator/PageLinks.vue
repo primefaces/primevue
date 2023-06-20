@@ -1,15 +1,16 @@
 <template>
-    <span class="p-paginator-pages" v-bind="ptm('pages')">
+    <span :class="cx('pages')" v-bind="ptm('pages')">
         <button
             v-for="pageLink of value"
             :key="pageLink"
             v-ripple
-            :class="['p-paginator-page p-paginator-element p-link', { 'p-highlight': pageLink - 1 === page }]"
+            :class="cx('pageButton', { pageLink })"
             type="button"
             :aria-label="ariaPageLabel(pageLink)"
             :aria-current="pageLink - 1 === page ? 'page' : undefined"
             @click="onPageLinkClick($event, pageLink)"
             v-bind="getPTOptions(pageLink - 1, 'pageButton')"
+            :data-p-highlight="pageLink - 1 === page"
         >
             {{ pageLink }}
         </button>

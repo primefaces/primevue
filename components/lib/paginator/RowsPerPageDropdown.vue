@@ -5,11 +5,11 @@
         optionLabel="label"
         optionValue="value"
         @update:modelValue="onChange($event)"
-        :class="cx('RPPDropdown')"
+        :class="cx('rowPerPageDropdown')"
         :disabled="disabled"
         :unstyled="unstyled"
-        :pt="ptm('RPPDropdown')"
-        data-pc-section="rppdropdown"
+        :pt="ptm('rowPerPageDropdown')"
+        data-pc-section="rowperpagedropdown"
     ></RPPDropdown>
 </template>
 

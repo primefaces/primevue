@@ -50,12 +50,22 @@ export interface PaginatorPassThroughOptions {
     firstPageIcon?: PaginatorPassThroughOptionType;
     /**
      * Uses to pass attributes to the prev page button's DOM element.
+     * @deprecated
      */
     prevPageButton?: PaginatorPassThroughOptionType;
     /**
+     * Uses to pass attributes to the prev page button's DOM element.
+     */
+    previousPageButton?: PaginatorPassThroughOptionType;
+    /**
      * Uses to pass attributes to the prev page icon's DOM element.
+     * @deprecated
      */
     prevPageIcon?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the prev page icon's DOM element.
+     */
+    previousPageIcon?: PaginatorPassThroughOptionType;
     /**
      * Uses to pass attributes to the next page button's DOM element.
      */
@@ -86,19 +96,34 @@ export interface PaginatorPassThroughOptions {
     current?: PaginatorPassThroughOptionType;
     /**
      * Uses to pass attributes to the Dropdown component.
-     * @see {@link DropdownPassThroughOptionType}
+     * @deprecated
      */
     RPPDropdown?: DropdownPassThroughOptionType;
     /**
      * Uses to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptionType}
      */
+    rowPerPageDropdown?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Dropdown component.
+     * deprecated
+     */
     JTPDropdown?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Dropdown component.
+     * @see {@link DropdownPassThroughOptionType}
+     */
+    jumpToPageDropdown?: DropdownPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the Dropdown component.
+     * @deprecated
+     */
+    JTPInput?: InputNumberPassThroughOptionType;
     /**
      * Uses to pass attributes to the Dropdown component.
      * @see {@link InputNumberPassThroughOptionType}
      */
-    JTPInput?: InputNumberPassThroughOptionType;
+    jumpToPageInput?: InputNumberPassThroughOptionType;
     /**
      * Uses to pass attributes to the end's DOM element.
      */

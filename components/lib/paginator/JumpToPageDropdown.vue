@@ -5,11 +5,11 @@
         optionLabel="label"
         optionValue="value"
         @update:modelValue="onChange($event)"
-        :class="cx('JTPDropdown')"
+        :class="cx('jumpToPageDropdown')"
         :disabled="disabled"
         :unstyled="unstyled"
-        :pt="ptm('JTPDropdown')"
-        data-pc-section="jtpdropdown"
+        :pt="ptm('jumpTpPageDropdown')"
+        data-pc-section="jumptopagedropdown"
     ></JTPDropdown>
 </template>
 

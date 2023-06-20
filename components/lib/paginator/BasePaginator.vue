@@ -61,13 +61,13 @@ const classes = {
         }
     ],
     firstPageIcon: 'p-paginator-icon',
-    prevPageButton: ({ instance }) => [
+    previousPageButton: ({ instance }) => [
         'p-paginator-prev p-paginator-element p-link',
         {
             'p-disabled': instance.$attrs.disabled
         }
     ],
-    prevPageIcon: 'p-paginator-icon',
+    previousPageIcon: 'p-paginator-icon',
     nextPageButton: ({ instance }) => [
         'p-paginator-next p-paginator-element p-link',
         {
@@ -82,10 +82,17 @@ const classes = {
         }
     ],
     lastPageIcon: 'p-paginator-icon',
+    pages: 'p-paginator-pages',
+    pageButton: ({ props, pageLink }) => [
+        'p-paginator-page p-paginator-element p-link',
+        {
+            'p-highlight': pageLink - 1 === props.page
+        }
+    ],
     current: 'p-paginator-current',
-    RPPDropdown: 'p-paginator-rpp-options',
-    JTPDropdown: 'p-paginator-page-options',
-    JTPInput: 'p-paginator-page-input'
+    rowPerPageDropdown: 'p-paginator-rpp-options',
+    jumpToPageDropdown: 'p-paginator-page-options',
+    jumpToPageInput: 'p-paginator-page-input'
 };
 
 const { load: loadStyle } = useStyle(styles, { id: 'primevue_paginator_style', manual: true });
