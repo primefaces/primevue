@@ -10673,7 +10673,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>sorted</b>: boolean, // Current sort state.\n  \t <b>sortOrder</b>: boolean, // Current sort order state.\n  }",
+                                    "type": "{\n  \t <b>sorted</b>: boolean, // Current sort state.\n  \t <b>sortOrder</b>: number, // Current sort order state.\n  }",
                                     "description": "sort icon slot's params."
                                 }
                             ],
