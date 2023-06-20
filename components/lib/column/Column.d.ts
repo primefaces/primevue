@@ -867,7 +867,7 @@ export interface ColumnSlots {
         /**
          * Current sort order state.
          */
-        sortOrder: boolean;
+        sortOrder: number;
     }): VNode[];
     /**
      * Custom header checkbox icon template.
