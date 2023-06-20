@@ -2,7 +2,7 @@
     <div :class="cx('container')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
         <div :class="cx('content')" v-bind="ptm('content')">
             <template v-if="!templates.message">
-                <component :is="templates.icon ? templates.icon : iconComponent.name ? iconComponent : 'span'" :class="cx('icon')" v-bind="ptm('icon')" />
+                <component :is="templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('icon')" v-bind="ptm('icon')" />
                 <div :class="cx('text')" v-bind="ptm('text')">
                     <span :class="cx('summary')" v-bind="ptm('summary')">{{ message.summary }}</span>
                     <div :class="cx('detail')" v-bind="ptm('detail')">{{ message.detail }}</div>
@@ -19,13 +19,13 @@
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import ExclamationTriangleIcon from 'primevue/icons/exclamationtriangle';
 import InfoCircleIcon from 'primevue/icons/infocircle';
 import TimesIcon from 'primevue/icons/times';
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
-import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'ToastMessage',
