@@ -257,7 +257,9 @@ export default {
             this.setAllNodesTabIndexes();
         },
         setAllNodesTabIndexes() {
-            const nodes = DomHandler.find(this.$refs.currentNode.closest('[data-pc-section="container"]'), '[data-pc-section="treeitem"]');
+            const nodes = DomHandler.find(this.$refs.currentNode.closest('[data-pc-section="container"]'), '[role="treeitem"]');
+
+            console.log(nodes);
 
             const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
 
@@ -277,7 +279,7 @@ export default {
         },
         setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
-                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '[data-pc-section="treeitem"]')];
+                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '[role="treeitem"]')];
 
                 event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 
@@ -384,7 +386,7 @@ export default {
         getParentNodeElement(nodeElement) {
             const parentNodeElement = nodeElement.parentElement.parentElement;
 
-            return DomHandler.getAttribute(parentNodeElement, 'data-pc-section') === 'treeitem' ? parentNodeElement : null;
+            return DomHandler.getAttribute(parentNodeElement, 'role') === 'treeitem' ? parentNodeElement : null;
         },
         focusNode(element) {
             element.focus();
@@ -393,7 +395,7 @@ export default {
             return this.selectionMode === 'checkbox';
         },
         isSameNode(event) {
-            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[data-pc-section="treeitem"]')));
+            return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[role="treeitem"]')));
         }
     },
     computed: {
