@@ -69,7 +69,7 @@ function createHiddenFocusableElements(el, binding) {
     const createFocusableElement = (onFocus) => {
         const element = document.createElement('span');
 
-        element.classList = 'p-hidden-accessible p-hidden-focusable';
+        element.classList.value = 'p-hidden-accessible p-hidden-focusable';
         element.tabIndex = tabIndex;
         element.setAttribute('aria-hidden', 'true');
         element.setAttribute('role', 'presentation');
