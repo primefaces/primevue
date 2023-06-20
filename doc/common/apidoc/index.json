@@ -41508,14 +41508,6 @@
                             "description": "Uses to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "spacer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "VirtualScrollerPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the spacer's DOM element."
-                        },
-                        {
                             "name": "loader",
                             "optional": true,
                             "readonly": false,
@@ -41530,6 +41522,14 @@
                             "type": "VirtualScrollerPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the loading icon's DOM element."
+                        },
+                        {
+                            "name": "spacer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "VirtualScrollerPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the spacer's DOM element."
                         }
                     ],
                     "methods": []
