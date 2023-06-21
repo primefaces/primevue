@@ -10,6 +10,89 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
 /**
+ * Custom passthrough(pt) hooks options.
+ */
+export interface TooltipPassThroughHooksOptions {
+    /**
+     * Called before bound element's attributes or event listeners are applied.
+     */
+    created?: DirectiveBinding;
+    /**
+     * Called right before the element is inserted into the DOM.
+     */
+    beforeMount?: DirectiveBinding;
+    /**
+     * Called when the bound element's parent component and all its children are mounted.
+     */
+    mounted?: DirectiveBinding;
+    /**
+     * Called before the parent component is updated.
+     */
+    beforeUpdate?: DirectiveBinding;
+    /**
+     * Called after the parent component and all of its children have updated all of its children have updated.
+     */
+    updated?: DirectiveBinding;
+    /**
+     * Called before the parent component is unmounted.
+     */
+    beforeUnmount?: DirectiveBinding;
+    /**
+     * Called when the parent component is unmounted.
+     */
+    unmounted?: DirectiveBinding;
+}
+
+/**
+ * Custom passthrough(pt) css options.
+ */
+export interface TooltipPassThroughCSSOptions {
+    /**
+     * Style class of the element.
+     */
+    class?: any;
+    /**
+     * Inline style of the element.
+     */
+    style?: any;
+}
+
+export interface TooltipPassThroughDirectiveOptions {
+    /**
+     * Uses to pass attributes to the life cycle hooks.
+     * @see {@link TooltipPassThroughHooksOptions}
+     */
+    hooks?: TooltipPassThroughHooksOptions;
+    /**
+     * Uses to pass attributes to the styles.
+     *  @see {@link TooltipPassThroughCSSOptions}
+     */
+    css?: TooltipPassThroughCSSOptions;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link TooltipOptions.pt}
+ */
+export interface TooltipPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     *  @see {@link TooltipPassThroughDirectiveOptions}
+     */
+    root?: TooltipPassThroughDirectiveOptions;
+    /**
+     * Uses to pass attributes to the text's DOM element.
+     *  @see {@link TooltipPassThroughDirectiveOptions}
+     */
+    text?: TooltipPassThroughDirectiveOptions;
+    /**
+     * Uses to pass attributes to the arrow's DOM element.
+     *  @see {@link TooltipPassThroughDirectiveOptions}
+     */
+    arrow?: TooltipPassThroughDirectiveOptions;
+}
+
+/**
  * Defines options of Tooltip.
  */
 export interface TooltipOptions {
@@ -50,6 +133,11 @@ export interface TooltipOptions {
      * @defaultValue 0
      */
     hideDelay?: number | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {TooltipPassThroughOptions}
+     */
+    pt?: TooltipPassThroughOptions;
 }
 
 /**
