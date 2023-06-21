@@ -62,6 +62,7 @@ let coreDependencies = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
     'primevue/config': 'primevue.config',
+    'primevue/basedirective': 'primevue.basedirective',
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
     'primevue/basecomponent': 'primevue.basecomponent',
