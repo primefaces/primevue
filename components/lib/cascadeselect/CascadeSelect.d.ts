@@ -63,13 +63,13 @@ export interface CascadeSelectPassThroughOptions {
      */
     dropdownButton?: CascadeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
-     */
-    loadingIcon?: CascadeSelectPassThroughOptionType;
-    /**
      * Uses to pass attributes to the dropdown icon's DOM element.
      */
     dropdownIcon?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: CascadeSelectPassThroughOptionType;
     /**
      * Uses to pass attributes to the panel's DOM element.
      */
@@ -102,10 +102,6 @@ export interface CascadeSelectPassThroughOptions {
      * Uses to pass attributes to the search result message text aria's DOM element.
      */
     hiddenSearchResult?: CascadeSelectPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the selected message text aria's DOM element.
-     */
-    selectedMessageAria?: CascadeSelectPassThroughOptionType;
 }
 
 /**
