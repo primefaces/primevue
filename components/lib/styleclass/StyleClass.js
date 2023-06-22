@@ -1,9 +1,12 @@
+import { BaseDirective } from 'primevue/basedirective';
 import { DomHandler } from 'primevue/utils';
 
 function bind(el, binding) {
-    el.$_pstyleclass_clicklistener = () => {
-        const target = resolveTarget(el, binding);
+    const target = resolveTarget(el, binding);
 
+    BaseDirective.directiveElement = target;
+
+    el.$_pstyleclass_clicklistener = () => {
         if (binding.value.toggleClass) {
             if (DomHandler.hasClass(target, binding.value.toggleClass)) DomHandler.removeClass(target, binding.value.toggleClass);
             else DomHandler.addClass(target, binding.value.toggleClass);
@@ -163,13 +166,13 @@ function isOutsideClick(event, target, el) {
     return !el.isSameNode(event.target) && !el.contains(event.target) && !target.contains(event.target);
 }
 
-const StyleClass = {
+const StyleClass = BaseDirective.extend('styleclass', {
     mounted(el, binding) {
         bind(el, binding);
     },
     unmounted(el) {
         unbind(el);
     }
-};
+});
 
 export default StyleClass;
