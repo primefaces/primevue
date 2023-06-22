@@ -871,10 +871,6 @@ export default {
 
             let activeFilters = this.getActiveFilters(this.filters);
 
-            if (Object.keys(activeFilters).length == 0) {
-                return data;
-            }
-
             this.clearEditingMetaData();
 
             let globalFilterFieldsArray;
@@ -939,7 +935,7 @@ export default {
                 }
             }
 
-            if (filteredValue.length === this.value.length) {
+            if (filteredValue.length === this.value.length || Object.keys(activeFilters).length == 0) {
                 filteredValue = data;
             }
 
