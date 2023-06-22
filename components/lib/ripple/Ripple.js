@@ -1,3 +1,4 @@
+import { BaseDirective } from 'primevue/basedirective';
 import { DomHandler } from 'primevue/utils';
 
 let timeout;
@@ -10,16 +11,23 @@ function unbindEvents(el) {
     el.removeEventListener('mousedown', onMouseDown);
 }
 
-function create(el) {
+function create(el, binding) {
     let ink = document.createElement('span');
 
-    ink.className = 'p-ink';
+    !el.$_prippleUnstyled && (ink.className = 'p-ink');
+    ink.setAttribute('data-pc-name', 'ripple');
+    ink.setAttribute('data-pc-section', 'root');
     ink.setAttribute('role', 'presentation');
     ink.setAttribute('aria-hidden', 'true');
     ink.setAttribute('data-p-ink', 'true');
+    ink.setAttribute('data-p-ink-active', 'false');
     el.appendChild(ink);
+    el.$_pDirectiveElement = ink;
 
     ink.addEventListener('animationend', onAnimationEnd);
+
+    BaseDirective.directiveElement = ink;
+    BaseDirective.handleCSS('ripple', ink, binding);
 }
 
 function remove(el) {
@@ -40,7 +48,8 @@ function onMouseDown(event) {
         return;
     }
 
-    DomHandler.removeClass(ink, 'p-ink-active');
+    !target.$_prippleUnstyled && DomHandler.removeClass(ink, 'p-ink-active');
+    ink.setAttribute('data-p-ink-active', 'false');
 
     if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
         let d = Math.max(DomHandler.getOuterWidth(target), DomHandler.getOuterHeight(target));
@@ -55,11 +64,14 @@ function onMouseDown(event) {
 
     ink.style.top = y + 'px';
     ink.style.left = x + 'px';
-    DomHandler.addClass(ink, 'p-ink-active');
+
+    !target.$_prippleUnstyled && DomHandler.addClass(ink, 'p-ink-active');
+    ink.setAttribute('data-p-ink-active', 'true');
 
     timeout = setTimeout(() => {
         if (ink) {
-            DomHandler.removeClass(ink, 'p-ink-active');
+            !target.$_prippleUnstyled && DomHandler.removeClass(ink, 'p-ink-active');
+            ink.setAttribute('data-p-ink-active', 'false');
         }
     }, 401);
 }
@@ -69,12 +81,13 @@ function onAnimationEnd(event) {
         clearTimeout(timeout);
     }
 
-    DomHandler.removeClass(event.currentTarget, 'p-ink-active');
+    !event.currentTarget.$_prippleUnstyled && DomHandler.removeClass(event.currentTarget, 'p-ink-active');
+    event.currentTarget.setAttribute('data-p-ink-active', 'false');
 }
 
 function getInk(el) {
     for (let i = 0; i < el.children.length; i++) {
-        if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
+        if (el.children[i].getAttribute('data-pc-name') === 'ripple') {
             return el.children[i];
         }
     }
@@ -82,16 +95,21 @@ function getInk(el) {
     return null;
 }
 
-const Ripple = {
+const Ripple = BaseDirective.extend('ripple', {
     mounted(el, binding) {
-        if (binding.instance.$primevue && binding.instance.$primevue.config && binding.instance.$primevue.config.ripple) {
-            create(el);
+        const primevue = binding.instance.$primevue;
+
+        if (primevue && primevue.config && primevue.config.ripple) {
+            el.$_prippleUnstyled = primevue.config.unstyled || false;
+
+            create(el, binding);
             bindEvents(el);
         }
     },
+
     unmounted(el) {
         remove(el);
     }
-};
+});
 
 export default Ripple;
