@@ -7080,20 +7080,20 @@
                             "description": "Uses to pass attributes to the dropdown button's DOM element."
                         },
                         {
-                            "name": "loadingIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CascadeSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the loading icon's DOM element."
-                        },
-                        {
                             "name": "dropdownIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the dropdown icon's DOM element."
+                        },
+                        {
+                            "name": "loadingIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the loading icon's DOM element."
                         },
                         {
                             "name": "panel",
@@ -7158,14 +7158,6 @@
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the search result message text aria's DOM element."
-                        },
-                        {
-                            "name": "selectedMessageAria",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CascadeSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the selected message text aria's DOM element."
                         }
                     ],
                     "methods": []
