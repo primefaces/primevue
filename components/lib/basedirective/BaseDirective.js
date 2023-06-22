@@ -57,7 +57,7 @@ export const BaseDirective = {
             Object.entries(option).forEach(([key, value]) => {
                 let styledElement;
 
-                if (key === 'root' && directiveName !== 'ripple' && directiveName !== 'badge') styledElement = el;
+                if (key === 'root' && directiveName !== 'badge') styledElement = el;
                 else {
                     styledElement = DomHandler.findSingle(el, `[data-pc-section="${ObjectUtils.convertToFlatCase(key)}"]`);
                 }
