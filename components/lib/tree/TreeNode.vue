@@ -184,7 +184,7 @@ export default {
             }
         },
         onArrowDown(event) {
-            const nodeElement = event.target;
+            const nodeElement = event.target.getAttribute('data-pc-section') === 'toggler' ? event.target.closest('[role="treeitem"]') : event.target;
             const listElement = nodeElement.children[1];
 
             if (listElement) {
