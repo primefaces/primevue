@@ -79,7 +79,7 @@ const classes = {
         {
             'p-button-icon-only': instance.hasIcon && !props.label,
             'p-button-vertical': (props.iconPos === 'top' || props.iconPos === 'bottom') && props.label,
-            'p-disabled': instance.$attrs.disabled || props.loading,
+            'p-disabled': instance.$attrs.disabled || instance.$attrs.disabled === '' || props.loading,
             'p-button-loading': props.loading,
             'p-button-loading-label-only': props.loading && !instance.hasIcon && props.label,
             'p-button-link': props.link,
