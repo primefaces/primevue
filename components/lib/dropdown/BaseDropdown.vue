@@ -98,13 +98,13 @@ input.p-dropdown-label {
 `;
 
 const classes = {
-    root: ({ props, state }) => [
+    root: ({ instance, props, state }) => [
         'p-dropdown p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
             'p-dropdown-clearable': props.showClear && !props.disabled,
             'p-focus': state.focused,
-            'p-inputwrapper-filled': props.hasSelectedOption,
+            'p-inputwrapper-filled': instance.hasSelectedOption,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-overlay-open': state.overlayVisible
         }

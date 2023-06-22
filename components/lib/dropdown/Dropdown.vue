@@ -48,7 +48,7 @@
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
         <slot v-if="showClear && modelValue != null" name="clearicon" :class="cx('clearIcon')" :onClick="onClearClick">
-            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="{ ...clearIconProps, ...ptm('clearIcon') }" />
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="{ ...clearIconProps, ...ptm('clearIcon') }" data-pc-section="clearicon" />
         </slot>
         <div :class="cx('trigger')" v-bind="ptm('trigger')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
@@ -422,7 +422,7 @@ export default {
                 return;
             }
 
-            if ((this.$refs.clearIcon && this.$refs.clearIcon.isSameNode(event.target)) || event.target.tagName === 'INPUT') {
+            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.tagName === 'path') {
                 return;
             } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
