@@ -6,6 +6,7 @@ const styles = `
 .p-dropdown {
     display: inline-flex;
     cursor: pointer;
+    position: relative;
     user-select: none;
 }
 
@@ -95,10 +96,6 @@ input.p-dropdown-label {
     width: 1%;
 }
 `;
-
-const inlineStyles = {
-    root: ({ props }) => ({ position: props.appendTo === 'self' ? 'relative' : undefined })
-};
 
 const classes = {
     root: ({ props, state }) => [
@@ -309,7 +306,6 @@ export default {
         }
     },
     css: {
-        inlineStyles,
         classes,
         loadStyle
     },
