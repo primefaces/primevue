@@ -17,6 +17,7 @@ export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | 
  */
 export interface ButtonPassThroughMethodOptions {
     props: ButtonProps;
+    context: ButtonContext;
 }
 
 /**
@@ -147,6 +148,17 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @defaultValue false
      */
     unstyled?: boolean;
+}
+
+/**
+ * Defines current options in Button component.
+ */
+export interface ButtonContext {
+    /**
+     * Current disabled state of the element as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**

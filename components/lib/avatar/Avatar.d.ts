@@ -7,6 +7,7 @@
  * @module avatar
  */
 import { VNode } from 'vue';
+import { AvatarGroupPassThroughOptions } from '../avatargroup';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | 
  */
 export interface AvatarPassThroughMethodOptions {
     props: AvatarProps;
+    parent: AvatarGroupPassThroughOptions;
 }
 
 /**
