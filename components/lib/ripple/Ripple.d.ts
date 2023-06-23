@@ -9,6 +9,45 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
 /**
+ * Defines options of Ripple.
+ */
+export interface RippleOptions {
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {RipplePassThroughOptions}
+     */
+    pt?: RipplePassThroughOptions;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link RippleOptions.pt}
+ */
+export interface RipplePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     *  @see {@link RipplePassThroughDirectiveOptions}
+     */
+    root?: RipplePassThroughDirectiveOptions;
+}
+
+/**
+ * Custom passthrough(pt) directive options.
+ */
+export interface RipplePassThroughDirectiveOptions {
+    /**
+     * Uses to pass attributes to the life cycle hooks.
+     * @see {@link RipplePassThroughHooksOptions}
+     */
+    hooks?: RipplePassThroughHooksOptions;
+    /**
+     * Uses to pass attributes to the styles.
+     *  @see {@link RipplePassThroughCSSOptions}
+     */
+    css?: RipplePassThroughCSSOptions;
+}
+
+/**
  * Custom passthrough(pt) hooks options.
  */
 export interface RipplePassThroughHooksOptions {
@@ -54,42 +93,6 @@ export interface RipplePassThroughCSSOptions {
      * Inline style of the element.
      */
     style?: any;
-}
-
-export interface RipplePassThroughDirectiveOptions {
-    /**
-     * Uses to pass attributes to the life cycle hooks.
-     * @see {@link RipplePassThroughHooksOptions}
-     */
-    hooks?: RipplePassThroughHooksOptions;
-    /**
-     * Uses to pass attributes to the styles.
-     *  @see {@link RipplePassThroughCSSOptions}
-     */
-    css?: RipplePassThroughCSSOptions;
-}
-
-/**
- * Custom passthrough(pt) options.
- * @see {@link RippleOptions.pt}
- */
-export interface RipplePassThroughOptions {
-    /**
-     * Uses to pass attributes to the root's DOM element.
-     *  @see {@link RipplePassThroughDirectiveOptions}
-     */
-    root?: RipplePassThroughDirectiveOptions;
-}
-
-/**
- * Defines options of Ripple.
- */
-export interface RippleOptions {
-    /**
-     * Uses to pass attributes to DOM elements inside the component.
-     * @type {RipplePassThroughOptions}
-     */
-    pt?: RipplePassThroughOptions;
 }
 
 /**

@@ -9,6 +9,65 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
 /**
+ * Defines options of FocusTrap.
+ */
+export interface FocusTrapOptions {
+    /**
+     * When present, it specifies that the directive should be disabled.
+     * @defaultValue false
+     */
+    disabled?: boolean | undefined;
+    /**
+     * When When disabled, focustrap will not focus by default.
+     * @defaultValue true
+     */
+    autoFocus?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {FocusTrapPassThroughOptions}
+     */
+    pt?: FocusTrapPassThroughOptions;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link FocusTrapOptions.pt}
+ */
+export interface FocusTrapPassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     *  @see {@link FocusTrapPassThroughDirectiveOptions}
+     */
+    root?: FocusTrapPassThroughDirectiveOptions;
+    /**
+     * Uses to pass attributes to the first focusable element's DOM element.
+     *  @see {@link FocusTrapPassThroughDirectiveOptions}
+     */
+    firstFocusableElement?: FocusTrapPassThroughDirectiveOptions;
+    /**
+     * Uses to pass attributes to the last focusable element's DOM element.
+     *  @see {@link FocusTrapPassThroughDirectiveOptions}
+     */
+    lastFocusableElement?: FocusTrapPassThroughDirectiveOptions;
+}
+
+/**
+ * Custom passthrough(pt) directive options.
+ */
+export interface FocusTrapPassThroughDirectiveOptions {
+    /**
+     * Uses to pass attributes to the life cycle hooks.
+     * @see {@link FocusTrapPassThroughHooksOptions}
+     */
+    hooks?: FocusTrapPassThroughHooksOptions;
+    /**
+     * Uses to pass attributes to the styles.
+     *  @see {@link FocusTrapPassThroughCSSOptions}
+     */
+    css?: FocusTrapPassThroughCSSOptions;
+}
+
+/**
  * Custom passthrough(pt) hooks options.
  */
 export interface FocusTrapPassThroughHooksOptions {
@@ -54,62 +113,6 @@ export interface FocusTrapPassThroughCSSOptions {
      * Inline style of the element.
      */
     style?: any;
-}
-
-export interface FocusTrapPassThroughDirectiveOptions {
-    /**
-     * Uses to pass attributes to the life cycle hooks.
-     * @see {@link FocusTrapPassThroughHooksOptions}
-     */
-    hooks?: FocusTrapPassThroughHooksOptions;
-    /**
-     * Uses to pass attributes to the styles.
-     *  @see {@link FocusTrapPassThroughCSSOptions}
-     */
-    css?: FocusTrapPassThroughCSSOptions;
-}
-
-/**
- * Custom passthrough(pt) options.
- * @see {@link FocusTrapOptions.pt}
- */
-export interface FocusTrapPassThroughOptions {
-    /**
-     * Uses to pass attributes to the root's DOM element.
-     *  @see {@link FocusTrapPassThroughDirectiveOptions}
-     */
-    root?: FocusTrapPassThroughDirectiveOptions;
-    /**
-     * Uses to pass attributes to the first focusable element's DOM element.
-     *  @see {@link FocusTrapPassThroughDirectiveOptions}
-     */
-    firstFocusableElement?: FocusTrapPassThroughDirectiveOptions;
-    /**
-     * Uses to pass attributes to the last focusable element's DOM element.
-     *  @see {@link FocusTrapPassThroughDirectiveOptions}
-     */
-    lastFocusableElement?: FocusTrapPassThroughDirectiveOptions;
-}
-
-/**
- * Defines options of FocusTrap.
- */
-export interface FocusTrapOptions {
-    /**
-     * When present, it specifies that the directive should be disabled.
-     * @defaultValue false
-     */
-    disabled?: boolean | undefined;
-    /**
-     * When When disabled, focustrap will not focus by default.
-     * @defaultValue true
-     */
-    autoFocus?: boolean | undefined;
-    /**
-     * Uses to pass attributes to DOM elements inside the component.
-     * @type {FocusTrapPassThroughOptions}
-     */
-    pt?: FocusTrapPassThroughOptions;
 }
 
 /**

@@ -4140,6 +4140,59 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "BadgeOptions": {
+                    "description": "Defines options of Badge.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BadgePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "BadgePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "BadgeOptions.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BadgePassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "BadgePassThroughDirectiveOptions": {
+                    "description": "Custom passthrough(pt) directive options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BadgePassThroughHooksOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the life cycle hooks."
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BadgePassThroughCSSOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the styles."
+                        }
+                    ],
+                    "methods": []
+                },
                 "BadgePassThroughHooksOptions": {
                     "description": "Custom passthrough(pt) hooks options.",
                     "relatedProp": "",
@@ -4226,58 +4279,6 @@
                     ],
                     "methods": []
                 },
-                "BadgePassThroughDirectiveOptions": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "hooks",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "BadgePassThroughHooksOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "BadgePassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
-                        }
-                    ],
-                    "methods": []
-                },
-                "BadgePassThroughOptions": {
-                    "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "BadgeOptions.pt",
-                    "props": [
-                        {
-                            "name": "root",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "BadgePassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the root's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "BadgeOptions": {
-                    "description": "Defines options of Badge.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "pt",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "BadgePassThroughOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to DOM elements inside the component."
-                        }
-                    ],
-                    "methods": []
-                },
                 "BadgeDirectiveModifiers": {
                     "description": "Defines modifiers of Badge directive.",
                     "relatedProp": "",
@@ -4344,6 +4345,7 @@
             }
         }
     },
+    "basedirective/BaseDirective": {},
     "blockui": {
         "description": "BlockUI represents people using icons, labels and images.\n\n[Live Demo](https://www.primevue.org/blockui)",
         "components": {
@@ -19758,6 +19760,91 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "FocusTrapOptions": {
+                    "description": "Defines options of FocusTrap.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "disabled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the directive should be disabled."
+                        },
+                        {
+                            "name": "autoFocus",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "When When disabled, focustrap will not focus by default."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FocusTrapPassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "FocusTrapPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "FocusTrapOptions.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FocusTrapPassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "firstFocusableElement",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FocusTrapPassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the first focusable element's DOM element."
+                        },
+                        {
+                            "name": "lastFocusableElement",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FocusTrapPassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the last focusable element's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "FocusTrapPassThroughDirectiveOptions": {
+                    "description": "Custom passthrough(pt) directive options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FocusTrapPassThroughHooksOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the life cycle hooks."
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FocusTrapPassThroughCSSOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the styles."
+                        }
+                    ],
+                    "methods": []
+                },
                 "FocusTrapPassThroughHooksOptions": {
                     "description": "Custom passthrough(pt) hooks options.",
                     "relatedProp": "",
@@ -19840,90 +19927,6 @@
                             "type": "any",
                             "default": "",
                             "description": "Inline style of the element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "FocusTrapPassThroughDirectiveOptions": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "hooks",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FocusTrapPassThroughHooksOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FocusTrapPassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
-                        }
-                    ],
-                    "methods": []
-                },
-                "FocusTrapPassThroughOptions": {
-                    "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "FocusTrapOptions.pt",
-                    "props": [
-                        {
-                            "name": "root",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FocusTrapPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the root's DOM element."
-                        },
-                        {
-                            "name": "firstFocusableElement",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FocusTrapPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the first focusable element's DOM element."
-                        },
-                        {
-                            "name": "lastFocusableElement",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FocusTrapPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the last focusable element's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "FocusTrapOptions": {
-                    "description": "Defines options of FocusTrap.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "disabled",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "When present, it specifies that the directive should be disabled."
-                        },
-                        {
-                            "name": "autoFocus",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "true",
-                            "description": "When When disabled, focustrap will not focus by default."
-                        },
-                        {
-                            "name": "pt",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FocusTrapPassThroughOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -32073,6 +32076,59 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "RippleOptions": {
+                    "description": "Defines options of Ripple.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RipplePassThroughOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "RipplePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "RippleOptions.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RipplePassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "RipplePassThroughDirectiveOptions": {
+                    "description": "Custom passthrough(pt) directive options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RipplePassThroughHooksOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the life cycle hooks."
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "RipplePassThroughCSSOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the styles."
+                        }
+                    ],
+                    "methods": []
+                },
                 "RipplePassThroughHooksOptions": {
                     "description": "Custom passthrough(pt) hooks options.",
                     "relatedProp": "",
@@ -32155,58 +32211,6 @@
                             "type": "any",
                             "default": "",
                             "description": "Inline style of the element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "RipplePassThroughDirectiveOptions": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "hooks",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RipplePassThroughHooksOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RipplePassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
-                        }
-                    ],
-                    "methods": []
-                },
-                "RipplePassThroughOptions": {
-                    "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "RippleOptions.pt",
-                    "props": [
-                        {
-                            "name": "root",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RipplePassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the root's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "RippleOptions": {
-                    "description": "Defines options of Ripple.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "pt",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RipplePassThroughOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
@@ -35249,84 +35253,6 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "StyleClassPassThroughHooksOptions": {
-                    "description": "Custom passthrough(pt) hooks options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "created",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before bound element's attributes or event listeners are applied."
-                        },
-                        {
-                            "name": "beforeMount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called right before the element is inserted into the DOM."
-                        },
-                        {
-                            "name": "mounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the bound element's parent component and all its children are mounted."
-                        },
-                        {
-                            "name": "beforeUpdate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is updated."
-                        },
-                        {
-                            "name": "updated",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
-                        },
-                        {
-                            "name": "beforeUnmount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is unmounted."
-                        },
-                        {
-                            "name": "unmounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the parent component is unmounted."
-                        }
-                    ],
-                    "methods": []
-                },
-                "StyleClassPassThroughDirectiveOptions": {
-                    "description": "Defines passthrough(pt) options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "hooks",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "StyleClassPassThroughHooksOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        }
-                    ],
-                    "methods": []
-                },
                 "StyleClassOptions": {
                     "description": "Defines options of StyleClass.",
                     "relatedProp": "",
@@ -35402,6 +35328,92 @@
                             "type": "string",
                             "default": "",
                             "description": "Adds or removes a class when no enter-leave animation is required."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StyleClassPassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to DOM elements inside the component."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StyleClassPassThroughDirectiveOptions": {
+                    "description": "Custom passthrough(pt) directive options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StyleClassPassThroughHooksOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the life cycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "StyleClassPassThroughHooksOptions": {
+                    "description": "Custom passthrough(pt) hooks options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "created",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called before bound element's attributes or event listeners are applied."
+                        },
+                        {
+                            "name": "beforeMount",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called right before the element is inserted into the DOM."
+                        },
+                        {
+                            "name": "mounted",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called when the bound element's parent component and all its children are mounted."
+                        },
+                        {
+                            "name": "beforeUpdate",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called before the parent component is updated."
+                        },
+                        {
+                            "name": "updated",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
+                        },
+                        {
+                            "name": "beforeUnmount",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called before the parent component is unmounted."
+                        },
+                        {
+                            "name": "unmounted",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called when the parent component is unmounted."
                         }
                     ],
                     "methods": []
@@ -38625,145 +38637,6 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "TooltipPassThroughHooksOptions": {
-                    "description": "Custom passthrough(pt) hooks options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "created",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before bound element's attributes or event listeners are applied."
-                        },
-                        {
-                            "name": "beforeMount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called right before the element is inserted into the DOM."
-                        },
-                        {
-                            "name": "mounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the bound element's parent component and all its children are mounted."
-                        },
-                        {
-                            "name": "beforeUpdate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is updated."
-                        },
-                        {
-                            "name": "updated",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
-                        },
-                        {
-                            "name": "beforeUnmount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is unmounted."
-                        },
-                        {
-                            "name": "unmounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the parent component is unmounted."
-                        }
-                    ],
-                    "methods": []
-                },
-                "TooltipPassThroughCSSOptions": {
-                    "description": "Custom passthrough(pt) css options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "class",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Style class of the element."
-                        },
-                        {
-                            "name": "style",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Inline style of the element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "TooltipPassThroughDirectiveOptions": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "hooks",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughHooksOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
-                        }
-                    ],
-                    "methods": []
-                },
-                "TooltipPassThroughOptions": {
-                    "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "TooltipOptions.pt",
-                    "props": [
-                        {
-                            "name": "root",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the root's DOM element."
-                        },
-                        {
-                            "name": "text",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the text's DOM element."
-                        },
-                        {
-                            "name": "arrow",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the arrow's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
                 "TooltipOptions": {
                     "description": "Defines options of Tooltip.",
                     "relatedProp": "",
@@ -38886,6 +38759,146 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "Focus event for Tooltip."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TooltipPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TooltipOptions.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipPassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "text",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipPassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the text's DOM element."
+                        },
+                        {
+                            "name": "arrow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipPassThroughDirectiveOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the arrow's DOM element."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TooltipPassThroughDirectiveOptions": {
+                    "description": "Custom passthrough(pt) directive options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipPassThroughHooksOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the life cycle hooks."
+                        },
+                        {
+                            "name": "css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipPassThroughCSSOptions",
+                            "default": "",
+                            "description": "Uses to pass attributes to the styles."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TooltipPassThroughHooksOptions": {
+                    "description": "Custom passthrough(pt) hooks options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "created",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called before bound element's attributes or event listeners are applied."
+                        },
+                        {
+                            "name": "beforeMount",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called right before the element is inserted into the DOM."
+                        },
+                        {
+                            "name": "mounted",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called when the bound element's parent component and all its children are mounted."
+                        },
+                        {
+                            "name": "beforeUpdate",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called before the parent component is updated."
+                        },
+                        {
+                            "name": "updated",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
+                        },
+                        {
+                            "name": "beforeUnmount",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called before the parent component is unmounted."
+                        },
+                        {
+                            "name": "unmounted",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveBinding<any>",
+                            "default": "",
+                            "description": "Called when the parent component is unmounted."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TooltipPassThroughCSSOptions": {
+                    "description": "Custom passthrough(pt) css options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "class",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Style class of the element."
+                        },
+                        {
+                            "name": "style",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Inline style of the element."
                         }
                     ],
                     "methods": []

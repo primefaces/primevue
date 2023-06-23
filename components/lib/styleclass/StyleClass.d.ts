@@ -9,51 +9,6 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
 /**
- * Custom passthrough(pt) hooks options.
- */
-export interface StyleClassPassThroughHooksOptions {
-    /**
-     * Called before bound element's attributes or event listeners are applied.
-     */
-    created?: DirectiveBinding;
-    /**
-     * Called right before the element is inserted into the DOM.
-     */
-    beforeMount?: DirectiveBinding;
-    /**
-     * Called when the bound element's parent component and all its children are mounted.
-     */
-    mounted?: DirectiveBinding;
-    /**
-     * Called before the parent component is updated.
-     */
-    beforeUpdate?: DirectiveBinding;
-    /**
-     * Called after the parent component and all of its children have updated all of its children have updated.
-     */
-    updated?: DirectiveBinding;
-    /**
-     * Called before the parent component is unmounted.
-     */
-    beforeUnmount?: DirectiveBinding;
-    /**
-     * Called when the parent component is unmounted.
-     */
-    unmounted?: DirectiveBinding;
-}
-
-/**
- * Defines passthrough(pt) options.
- */
-export interface StyleClassPassThroughDirectiveOptions {
-    /**
-     * Uses to pass attributes to the life cycle hooks.
-     * @see {@link StyleClassPassThroughHooksOptions}
-     */
-    hooks?: StyleClassPassThroughHooksOptions;
-}
-
-/**
  * Defines options of StyleClass.
  */
 export interface StyleClassOptions {
@@ -94,6 +49,56 @@ export interface StyleClassOptions {
      * Adds or removes a class when no enter-leave animation is required.
      */
     toggleClass?: string | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {StyleClassPassThroughDirectiveOptions}
+     */
+    pt?: StyleClassPassThroughDirectiveOptions;
+}
+
+/**
+ * Custom passthrough(pt) directive options.
+ */
+export interface StyleClassPassThroughDirectiveOptions {
+    /**
+     * Uses to pass attributes to the life cycle hooks.
+     * @see {@link StyleClassPassThroughHooksOptions}
+     */
+    hooks?: StyleClassPassThroughHooksOptions;
+}
+
+/**
+ * Custom passthrough(pt) hooks options.
+ */
+export interface StyleClassPassThroughHooksOptions {
+    /**
+     * Called before bound element's attributes or event listeners are applied.
+     */
+    created?: DirectiveBinding;
+    /**
+     * Called right before the element is inserted into the DOM.
+     */
+    beforeMount?: DirectiveBinding;
+    /**
+     * Called when the bound element's parent component and all its children are mounted.
+     */
+    mounted?: DirectiveBinding;
+    /**
+     * Called before the parent component is updated.
+     */
+    beforeUpdate?: DirectiveBinding;
+    /**
+     * Called after the parent component and all of its children have updated all of its children have updated.
+     */
+    updated?: DirectiveBinding;
+    /**
+     * Called before the parent component is unmounted.
+     */
+    beforeUnmount?: DirectiveBinding;
+    /**
+     * Called when the parent component is unmounted.
+     */
+    unmounted?: DirectiveBinding;
 }
 
 /**

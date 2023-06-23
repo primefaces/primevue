@@ -9,6 +9,45 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
 /**
+ * Defines options of Badge.
+ */
+export interface BadgeOptions {
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
+     * @type {BadgePassThroughOptions}
+     */
+    pt?: BadgePassThroughOptions;
+}
+
+/**
+ * Custom passthrough(pt) options.
+ * @see {@link BadgeOptions.pt}
+ */
+export interface BadgePassThroughOptions {
+    /**
+     * Uses to pass attributes to the root's DOM element.
+     *  @see {@link BadgePassThroughDirectiveOptions}
+     */
+    root?: BadgePassThroughDirectiveOptions;
+}
+
+/**
+ * Custom passthrough(pt) directive options.
+ */
+export interface BadgePassThroughDirectiveOptions {
+    /**
+     * Uses to pass attributes to the life cycle hooks.
+     * @see {@link BadgePassThroughHooksOptions}
+     */
+    hooks?: BadgePassThroughHooksOptions;
+    /**
+     * Uses to pass attributes to the styles.
+     *  @see {@link BadgePassThroughCSSOptions}
+     */
+    css?: BadgePassThroughCSSOptions;
+}
+
+/**
  * Custom passthrough(pt) hooks options.
  */
 export interface BadgePassThroughHooksOptions {
@@ -54,42 +93,6 @@ export interface BadgePassThroughCSSOptions {
      * Inline style of the element.
      */
     style?: any;
-}
-
-export interface BadgePassThroughDirectiveOptions {
-    /**
-     * Uses to pass attributes to the life cycle hooks.
-     * @see {@link BadgePassThroughHooksOptions}
-     */
-    hooks?: BadgePassThroughHooksOptions;
-    /**
-     * Uses to pass attributes to the styles.
-     *  @see {@link BadgePassThroughCSSOptions}
-     */
-    css?: BadgePassThroughCSSOptions;
-}
-
-/**
- * Custom passthrough(pt) options.
- * @see {@link BadgeOptions.pt}
- */
-export interface BadgePassThroughOptions {
-    /**
-     * Uses to pass attributes to the root's DOM element.
-     *  @see {@link BadgePassThroughDirectiveOptions}
-     */
-    root?: BadgePassThroughDirectiveOptions;
-}
-
-/**
- * Defines options of Badge.
- */
-export interface BadgeOptions {
-    /**
-     * Uses to pass attributes to DOM elements inside the component.
-     * @type {BadgePassThroughOptions}
-     */
-    pt?: BadgePassThroughOptions;
 }
 
 /**
