@@ -18,6 +18,7 @@ export declare type CheckboxPassThroughOptionType = CheckboxPassThroughAttribute
 export interface CheckboxPassThroughMethodOptions {
     props: CheckboxProps;
     state: CheckboxState;
+    context: CheckboxContext;
 }
 
 /**
@@ -151,6 +152,30 @@ export interface CheckboxProps {
     unstyled?: boolean;
 }
 
+/**
+ * Defines current options in Checkbox component.
+ */
+export interface CheckboxContext {
+    /**
+     * Current checked state of the item as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
+/**
+ * Defines valid slots in Checkbox component.
+ */
 export interface CheckboxSlots {
     /**
      * Custom icon template.

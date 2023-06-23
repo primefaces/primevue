@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="checkbox">
+    <div :class="cx('root')" @click="onClick($event)" v-bind="getPTOptions('root')" data-pc-name="checkbox">
         <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
@@ -19,9 +19,9 @@
                 v-bind="ptm('hiddenInput')"
             />
         </div>
-        <div ref="box" :class="[cx('input'), inputClass]" :style="inputStyle" v-bind="{ ...inputProps, ...ptm('input') }" :data-p-highlight="checked" :data-p-disabled="disabled" :data-p-focused="focused">
+        <div ref="box" :class="[cx('input'), inputClass]" :style="inputStyle" v-bind="{ ...inputProps, ...getPTOptions('input') }" :data-p-highlight="checked" :data-p-disabled="disabled" :data-p-focused="focused">
             <slot name="icon" :checked="checked" :class="cx('icon')">
-                <component :is="checked ? 'CheckIcon' : null" :class="cx('icon')" v-bind="ptm('icon')" />
+                <CheckIcon v-if="checked" :class="cx('icon')" v-bind="getPTOptions('icon')" />
             </slot>
         </div>
     </div>
@@ -42,6 +42,15 @@ export default {
         };
     },
     methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    checked: this.checked,
+                    focused: this.focused,
+                    disabled: this.disabled
+                }
+            });
+        },
         onClick(event) {
             if (!this.disabled && !this.readonly) {
                 let newModelValue;
