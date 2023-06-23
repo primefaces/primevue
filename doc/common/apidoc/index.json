@@ -4147,7 +4147,7 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "BadgeOptions": {
+                "BadgeDirectiveOptions": {
                     "description": "Defines options of Badge.",
                     "relatedProp": "",
                     "props": [
@@ -4155,29 +4155,29 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgePassThroughOptions",
+                            "type": "BadgeDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
                 },
-                "BadgePassThroughOptions": {
+                "BadgeDirectivePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "BadgeOptions.pt",
+                    "relatedProp": "BadgeDirectiveOptions.pt",
                     "props": [
                         {
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgePassThroughDirectiveOptions",
+                            "type": "BadgeDirectivePassThroughDirectiveOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
                         }
                     ],
                     "methods": []
                 },
-                "BadgePassThroughDirectiveOptions": {
+                "BadgeDirectivePassThroughDirectiveOptions": {
                     "description": "Custom passthrough(pt) directive options.",
                     "relatedProp": "",
                     "props": [
@@ -4185,7 +4185,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgePassThroughHooksOptions",
+                            "type": "BadgeDirectivePassThroughHooksOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the life cycle hooks."
                         },
@@ -4193,14 +4193,14 @@
                             "name": "css",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgePassThroughCSSOptions",
+                            "type": "BadgeDirectivePassThroughCSSOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the styles."
                         }
                     ],
                     "methods": []
                 },
-                "BadgePassThroughHooksOptions": {
+                "BadgeDirectivePassThroughHooksOptions": {
                     "description": "Custom passthrough(pt) hooks options.",
                     "relatedProp": "",
                     "props": [
@@ -4263,7 +4263,7 @@
                     ],
                     "methods": []
                 },
-                "BadgePassThroughCSSOptions": {
+                "BadgeDirectivePassThroughCSSOptions": {
                     "description": "Custom passthrough(pt) css options.",
                     "relatedProp": "",
                     "props": [
@@ -4333,7 +4333,7 @@
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | BadgeOptions",
+                            "type": "string | BadgeDirectiveOptions",
                             "default": "",
                             "description": "Value of the Badge."
                         },
@@ -19851,14 +19851,14 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapPassThroughOptions",
+                            "type": "FocusTrapDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
                 },
-                "FocusTrapPassThroughOptions": {
+                "FocusTrapDirectivePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "FocusTrapOptions.pt",
                     "props": [
@@ -19866,7 +19866,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapPassThroughDirectiveOptions",
+                            "type": "FocusTrapDirectivePassThroughDirectiveOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
@@ -19874,7 +19874,7 @@
                             "name": "firstFocusableElement",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapPassThroughDirectiveOptions",
+                            "type": "FocusTrapDirectivePassThroughDirectiveOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the first focusable element's DOM element."
                         },
@@ -19882,14 +19882,14 @@
                             "name": "lastFocusableElement",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapPassThroughDirectiveOptions",
+                            "type": "FocusTrapDirectivePassThroughDirectiveOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the last focusable element's DOM element."
                         }
                     ],
                     "methods": []
                 },
-                "FocusTrapPassThroughDirectiveOptions": {
+                "FocusTrapDirectivePassThroughDirectiveOptions": {
                     "description": "Custom passthrough(pt) directive options.",
                     "relatedProp": "",
                     "props": [
@@ -19897,7 +19897,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapPassThroughHooksOptions",
+                            "type": "FocusTrapDirectivePassThroughHooksOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the life cycle hooks."
                         },
@@ -19905,14 +19905,14 @@
                             "name": "css",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapPassThroughCSSOptions",
+                            "type": "FocusTrapDirectivePassThroughCSSOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the styles."
                         }
                     ],
                     "methods": []
                 },
-                "FocusTrapPassThroughHooksOptions": {
+                "FocusTrapDirectivePassThroughHooksOptions": {
                     "description": "Custom passthrough(pt) hooks options.",
                     "relatedProp": "",
                     "props": [
@@ -19975,7 +19975,7 @@
                     ],
                     "methods": []
                 },
-                "FocusTrapPassThroughCSSOptions": {
+                "FocusTrapDirectivePassThroughCSSOptions": {
                     "description": "Custom passthrough(pt) css options.",
                     "relatedProp": "",
                     "props": [
@@ -32151,14 +32151,14 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "RipplePassThroughOptions",
+                            "type": "RippleDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
                 },
-                "RipplePassThroughOptions": {
+                "RippleDirectivePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "RippleOptions.pt",
                     "props": [
@@ -32166,22 +32166,15 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "RipplePassThroughDirectiveOptions",
+                            "type": "RippleDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "RipplePassThroughDirectiveOptions": {
-                    "description": "Custom passthrough(pt) directive options.",
-                    "relatedProp": "",
-                    "props": [
+                        },
                         {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "RipplePassThroughHooksOptions",
+                            "type": "RippleDirectivePassThroughHooksOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the life cycle hooks."
                         },
@@ -32189,14 +32182,14 @@
                             "name": "css",
                             "optional": true,
                             "readonly": false,
-                            "type": "RipplePassThroughCSSOptions",
+                            "type": "RippleDirectivePassThroughCSSOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the styles."
                         }
                     ],
                     "methods": []
                 },
-                "RipplePassThroughHooksOptions": {
+                "RippleDirectivePassThroughHooksOptions": {
                     "description": "Custom passthrough(pt) hooks options.",
                     "relatedProp": "",
                     "props": [
@@ -32259,7 +32252,7 @@
                     ],
                     "methods": []
                 },
-                "RipplePassThroughCSSOptions": {
+                "RippleDirectivePassThroughCSSOptions": {
                     "description": "Custom passthrough(pt) css options.",
                     "relatedProp": "",
                     "props": [
@@ -35400,14 +35393,14 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "StyleClassPassThroughDirectiveOptions",
+                            "type": "StyleClassDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
                         }
                     ],
                     "methods": []
                 },
-                "StyleClassPassThroughDirectiveOptions": {
+                "StyleClassDirectivePassThroughOptions": {
                     "description": "Custom passthrough(pt) directive options.",
                     "relatedProp": "",
                     "props": [
@@ -35415,14 +35408,14 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "StyleClassPassThroughHooksOptions",
+                            "type": "StyleClassDirectivePassThroughHooksOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the life cycle hooks."
                         }
                     ],
                     "methods": []
                 },
-                "StyleClassPassThroughHooksOptions": {
+                "StyleClassDirectivePassThroughHooksOptions": {
                     "description": "Custom passthrough(pt) hooks options.",
                     "relatedProp": "",
                     "props": [
