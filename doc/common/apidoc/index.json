@@ -8174,6 +8174,13 @@
                             "readonly": false,
                             "type": "CheckboxState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CheckboxContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -8404,7 +8411,39 @@
                     ],
                     "methods": []
                 },
+                "CheckboxContext": {
+                    "description": "Defines current options in Checkbox component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "checked",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current checked state of the item as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state of the item as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the item as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "CheckboxSlots": {
+                    "description": "Defines valid slots in Checkbox component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": [
