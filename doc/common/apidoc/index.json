@@ -3726,6 +3726,13 @@
                             "readonly": false,
                             "type": "AvatarProps",
                             "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "AvatarGroupPassThroughOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -4785,6 +4792,13 @@
                             "readonly": false,
                             "type": "ButtonProps",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ButtonContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -5016,6 +5030,21 @@
                     ],
                     "methods": [],
                     "extendedTypes": "ButtonHTMLAttributes"
+                },
+                "ButtonContext": {
+                    "description": "Defines current options in Button component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the element as a boolean."
+                        }
+                    ],
+                    "methods": []
                 },
                 "ButtonSlots": {
                     "description": "Defines valid slots in Button component.",
