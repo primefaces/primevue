@@ -11,46 +11,46 @@ import { DirectiveBinding, ObjectDirective } from 'vue';
 /**
  * Defines options of Badge.
  */
-export interface BadgeOptions {
+export interface BadgeDirectiveOptions {
     /**
      * Uses to pass attributes to DOM elements inside the component.
-     * @type {BadgePassThroughOptions}
+     * @type {BadgeDirectivePassThroughOptions}
      */
-    pt?: BadgePassThroughOptions;
+    pt?: BadgeDirectivePassThroughOptions;
 }
 
 /**
  * Custom passthrough(pt) options.
- * @see {@link BadgeOptions.pt}
+ * @see {@link BadgeDirectiveOptions.pt}
  */
-export interface BadgePassThroughOptions {
+export interface BadgeDirectivePassThroughOptions {
     /**
      * Uses to pass attributes to the root's DOM element.
-     *  @see {@link BadgePassThroughDirectiveOptions}
+     *  @see {@link BadgeDirectivePassThroughDirectiveOptions}
      */
-    root?: BadgePassThroughDirectiveOptions;
+    root?: BadgeDirectivePassThroughDirectiveOptions;
 }
 
 /**
  * Custom passthrough(pt) directive options.
  */
-export interface BadgePassThroughDirectiveOptions {
+export interface BadgeDirectivePassThroughDirectiveOptions {
     /**
      * Uses to pass attributes to the life cycle hooks.
-     * @see {@link BadgePassThroughHooksOptions}
+     * @see {@link BadgeDirectivePassThroughHooksOptions}
      */
-    hooks?: BadgePassThroughHooksOptions;
+    hooks?: BadgeDirectivePassThroughHooksOptions;
     /**
      * Uses to pass attributes to the styles.
-     *  @see {@link BadgePassThroughCSSOptions}
+     *  @see {@link BadgeDirectivePassThroughCSSOptions}
      */
-    css?: BadgePassThroughCSSOptions;
+    css?: BadgeDirectivePassThroughCSSOptions;
 }
 
 /**
  * Custom passthrough(pt) hooks options.
  */
-export interface BadgePassThroughHooksOptions {
+export interface BadgeDirectivePassThroughHooksOptions {
     /**
      * Called before bound element's attributes or event listeners are applied.
      */
@@ -84,7 +84,7 @@ export interface BadgePassThroughHooksOptions {
 /**
  * Custom passthrough(pt) css options.
  */
-export interface BadgePassThroughCSSOptions {
+export interface BadgeDirectivePassThroughCSSOptions {
     /**
      * Style class of the element.
      */
@@ -128,7 +128,7 @@ export interface BadgeDirectiveBinding extends Omit<DirectiveBinding, 'modifiers
     /**
      * Value of the Badge.
      */
-    value?: string | BadgeOptions | undefined;
+    value?: string | BadgeDirectiveOptions | undefined;
     /**
      * Modifiers of the Badge.
      * @type {BadgeDirectiveModifiers}

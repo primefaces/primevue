@@ -51,26 +51,26 @@ export interface StyleClassOptions {
     toggleClass?: string | undefined;
     /**
      * Uses to pass attributes to DOM elements inside the component.
-     * @type {StyleClassPassThroughDirectiveOptions}
+     * @type {StyleClassDirectivePassThroughOptions}
      */
-    pt?: StyleClassPassThroughDirectiveOptions;
+    pt?: StyleClassDirectivePassThroughOptions;
 }
 
 /**
  * Custom passthrough(pt) directive options.
  */
-export interface StyleClassPassThroughDirectiveOptions {
+export interface StyleClassDirectivePassThroughOptions {
     /**
      * Uses to pass attributes to the life cycle hooks.
-     * @see {@link StyleClassPassThroughHooksOptions}
+     * @see {@link StyleClassDirectivePassThroughHooksOptions}
      */
-    hooks?: StyleClassPassThroughHooksOptions;
+    hooks?: StyleClassDirectivePassThroughHooksOptions;
 }
 
 /**
  * Custom passthrough(pt) hooks options.
  */
-export interface StyleClassPassThroughHooksOptions {
+export interface StyleClassDirectivePassThroughHooksOptions {
     /**
      * Called before bound element's attributes or event listeners are applied.
      */

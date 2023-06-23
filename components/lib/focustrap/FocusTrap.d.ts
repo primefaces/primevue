@@ -24,53 +24,53 @@ export interface FocusTrapOptions {
     autoFocus?: boolean | undefined;
     /**
      * Uses to pass attributes to DOM elements inside the component.
-     * @type {FocusTrapPassThroughOptions}
+     * @type {FocusTrapDirectivePassThroughOptions}
      */
-    pt?: FocusTrapPassThroughOptions;
+    pt?: FocusTrapDirectivePassThroughOptions;
 }
 
 /**
  * Custom passthrough(pt) options.
  * @see {@link FocusTrapOptions.pt}
  */
-export interface FocusTrapPassThroughOptions {
+export interface FocusTrapDirectivePassThroughOptions {
     /**
      * Uses to pass attributes to the root's DOM element.
-     *  @see {@link FocusTrapPassThroughDirectiveOptions}
+     *  @see {@link FocusTrapDirectivePassThroughDirectiveOptions}
      */
-    root?: FocusTrapPassThroughDirectiveOptions;
+    root?: FocusTrapDirectivePassThroughDirectiveOptions;
     /**
      * Uses to pass attributes to the first focusable element's DOM element.
-     *  @see {@link FocusTrapPassThroughDirectiveOptions}
+     *  @see {@link FocusTrapDirectivePassThroughDirectiveOptions}
      */
-    firstFocusableElement?: FocusTrapPassThroughDirectiveOptions;
+    firstFocusableElement?: FocusTrapDirectivePassThroughDirectiveOptions;
     /**
      * Uses to pass attributes to the last focusable element's DOM element.
-     *  @see {@link FocusTrapPassThroughDirectiveOptions}
+     *  @see {@link FocusTrapDirectivePassThroughDirectiveOptions}
      */
-    lastFocusableElement?: FocusTrapPassThroughDirectiveOptions;
+    lastFocusableElement?: FocusTrapDirectivePassThroughDirectiveOptions;
 }
 
 /**
  * Custom passthrough(pt) directive options.
  */
-export interface FocusTrapPassThroughDirectiveOptions {
+export interface FocusTrapDirectivePassThroughDirectiveOptions {
     /**
      * Uses to pass attributes to the life cycle hooks.
-     * @see {@link FocusTrapPassThroughHooksOptions}
+     * @see {@link FocusTrapDirectivePassThroughHooksOptions}
      */
-    hooks?: FocusTrapPassThroughHooksOptions;
+    hooks?: FocusTrapDirectivePassThroughHooksOptions;
     /**
      * Uses to pass attributes to the styles.
-     *  @see {@link FocusTrapPassThroughCSSOptions}
+     *  @see {@link FocusTrapDirectivePassThroughCSSOptions}
      */
-    css?: FocusTrapPassThroughCSSOptions;
+    css?: FocusTrapDirectivePassThroughCSSOptions;
 }
 
 /**
  * Custom passthrough(pt) hooks options.
  */
-export interface FocusTrapPassThroughHooksOptions {
+export interface FocusTrapDirectivePassThroughHooksOptions {
     /**
      * Called before bound element's attributes or event listeners are applied.
      */
@@ -104,7 +104,7 @@ export interface FocusTrapPassThroughHooksOptions {
 /**
  * Custom passthrough(pt) css options.
  */
-export interface FocusTrapPassThroughCSSOptions {
+export interface FocusTrapDirectivePassThroughCSSOptions {
     /**
      * Style class of the element.
      */

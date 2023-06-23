@@ -14,43 +14,43 @@ import { DirectiveBinding, ObjectDirective } from 'vue';
 export interface RippleOptions {
     /**
      * Uses to pass attributes to DOM elements inside the component.
-     * @type {RipplePassThroughOptions}
+     * @type {RippleDirectivePassThroughOptions}
      */
-    pt?: RipplePassThroughOptions;
+    pt?: RippleDirectivePassThroughOptions;
 }
 
 /**
  * Custom passthrough(pt) options.
  * @see {@link RippleOptions.pt}
  */
-export interface RipplePassThroughOptions {
+export interface RippleDirectivePassThroughOptions {
     /**
      * Uses to pass attributes to the root's DOM element.
-     *  @see {@link RipplePassThroughDirectiveOptions}
+     *  @see {@link RippleDirectivePassThroughOptions}
      */
-    root?: RipplePassThroughDirectiveOptions;
+    root?: RippleDirectivePassThroughOptions;
 }
 
 /**
  * Custom passthrough(pt) directive options.
  */
-export interface RipplePassThroughDirectiveOptions {
+export interface RippleDirectivePassThroughOptions {
     /**
      * Uses to pass attributes to the life cycle hooks.
-     * @see {@link RipplePassThroughHooksOptions}
+     * @see {@link RippleDirectivePassThroughHooksOptions}
      */
-    hooks?: RipplePassThroughHooksOptions;
+    hooks?: RippleDirectivePassThroughHooksOptions;
     /**
      * Uses to pass attributes to the styles.
-     *  @see {@link RipplePassThroughCSSOptions}
+     *  @see {@link RippleDirectivePassThroughCSSOptions}
      */
-    css?: RipplePassThroughCSSOptions;
+    css?: RippleDirectivePassThroughCSSOptions;
 }
 
 /**
  * Custom passthrough(pt) hooks options.
  */
-export interface RipplePassThroughHooksOptions {
+export interface RippleDirectivePassThroughHooksOptions {
     /**
      * Called before bound element's attributes or event listeners are applied.
      */
@@ -84,7 +84,7 @@ export interface RipplePassThroughHooksOptions {
 /**
  * Custom passthrough(pt) css options.
  */
-export interface RipplePassThroughCSSOptions {
+export interface RippleDirectivePassThroughCSSOptions {
     /**
      * Style class of the element.
      */
