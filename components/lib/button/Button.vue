@@ -1,5 +1,5 @@
 <template>
-    <button v-ripple :class="cx('root')" type="button" :aria-label="defaultAriaLabel" :disabled="disabled" v-bind="ptm('root', { disabled })" data-pc-name="button" :data-pc-severity="severity">
+    <button v-ripple :class="cx('root')" type="button" :aria-label="defaultAriaLabel" :disabled="disabled" v-bind="getPTOptions('root')" data-pc-name="button" :data-pc-severity="severity">
         <slot>
             <slot v-if="loading" name="loadingicon" :class="[cx('loadingIcon'), cx('icon')]">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), cx('icon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
@@ -22,6 +22,15 @@ import BaseButton from './BaseButton.vue';
 export default {
     name: 'Button',
     extends: BaseButton,
+    methods: {
+        getPTOptions(key) {
+            return this.ptm(key, {
+                context: {
+                    disabled: this.disabled
+                }
+            });
+        }
+    },
     computed: {
         disabled() {
             return this.$attrs.disabled || this.$attrs.disabled === '' || this.loading;
