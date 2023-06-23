@@ -1,7 +1,6 @@
 import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export const BaseDirective = {
-    directiveElement: null,
     extend: (directiveName, hooks) => {
         return {
             created: (el, binding, vnode, prevVnode) => {
@@ -39,9 +38,9 @@ export const BaseDirective = {
         let _directive = _config && _config.pt && _config.pt.directives && _config.pt.directives[directiveName];
 
         // global pt hook
-        _directive && _directive.hooks && _directive.hooks[hookName] && _directive.hooks[hookName](BaseDirective.directiveElement, el, binding, vnode, prevVnode);
+        _directive && _directive.hooks && _directive.hooks[hookName] && _directive.hooks[hookName](el.$pEl, el, binding, vnode, prevVnode);
         // options pt hook
-        binding.value && typeof binding.value === 'object' && binding.value.pt && binding.value.pt.hooks && binding.value.pt.hooks[hookName] && binding.value.pt.hooks[hookName](BaseDirective.directiveElement, el, binding, vnode, prevVnode);
+        binding.value && typeof binding.value === 'object' && binding.value.pt && binding.value.pt.hooks && binding.value.pt.hooks[hookName] && binding.value.pt.hooks[hookName](el.$pEl, el, binding, vnode, prevVnode);
     },
     handleCSS: (directiveName, el, binding) => {
         let _config = binding.instance.$primevue && binding.instance.$primevue.config;

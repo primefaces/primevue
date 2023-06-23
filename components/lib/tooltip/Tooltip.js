@@ -190,8 +190,7 @@ function create(el, options) {
         container.style.width = 'fit-content';
     }
 
-    el.$_pDirectiveElement = container;
-    BaseDirective.directiveElement = container;
+    el.$pEl = container;
     BaseDirective.handleCSS('tooltip', container, options);
 
     return container;

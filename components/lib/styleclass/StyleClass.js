@@ -4,7 +4,7 @@ import { DomHandler } from 'primevue/utils';
 function bind(el, binding) {
     const target = resolveTarget(el, binding);
 
-    BaseDirective.directiveElement = target;
+    el.$pEl = target;
 
     el.$_pstyleclass_clicklistener = () => {
         if (binding.value.toggleClass) {

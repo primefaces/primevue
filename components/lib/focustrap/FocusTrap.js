@@ -121,7 +121,7 @@ const FocusTrap = BaseDirective.extend('focustrap', {
         el.setAttribute('data-pc-section', 'root');
         el.setAttribute('data-pc-name', 'focustrap');
 
-        BaseDirective.directiveElement = el;
+        el.$pEl = el;
         BaseDirective.handleCSS('focustrap', el, binding);
     },
 

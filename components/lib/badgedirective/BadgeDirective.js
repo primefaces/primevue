@@ -34,9 +34,8 @@ const BadgeDirective = BaseDirective.extend('badge', {
         !el.$_pbadgeUnstyled && DomHandler.addClass(el, 'p-overlay-badge');
         el.setAttribute('data-p-overlay-badge', 'true');
         el.appendChild(badge);
-        el.$_pDirectiveElement = badge;
+        el.$pEl = badge;
 
-        BaseDirective.directiveElement = badge;
         BaseDirective.handleCSS('badge', el, binding);
     },
     updated(el, binding) {

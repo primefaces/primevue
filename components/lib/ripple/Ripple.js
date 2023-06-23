@@ -22,11 +22,10 @@ function create(el, binding) {
     ink.setAttribute('data-p-ink', 'true');
     ink.setAttribute('data-p-ink-active', 'false');
     el.appendChild(ink);
-    el.$_pDirectiveElement = ink;
+    el.$pEl = ink;
 
     ink.addEventListener('animationend', onAnimationEnd);
 
-    BaseDirective.directiveElement = ink;
     BaseDirective.handleCSS('ripple', ink, binding);
 }
 
