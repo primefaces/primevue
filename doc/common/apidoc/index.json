@@ -4345,7 +4345,6 @@
             }
         }
     },
-    "basedirective/BaseDirective": {},
     "blockui": {
         "description": "BlockUI represents people using icons, labels and images.\n\n[Live Demo](https://www.primevue.org/blockui)",
         "components": {
