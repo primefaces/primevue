@@ -20,8 +20,12 @@ export declare class DomHandler {
     static addClass(el: HTMLElement, className: string): void;
     static removeClass(el: HTMLElement, className: string): void;
     static hasClass(el: HTMLElement, className: string): boolean;
+    static addStyles(el: HTMLElement, styles: object): void;
     static find(el: HTMLElement, selector: string): any[];
     static findSingle(el: HTMLElement, selector: string): any;
+    static getAttribute(el: HTMLElement, name: string): any;
+    static isAttributeEquals(el: HTMLElement, name: string, value: any): boolean;
+    static isAttributeNotEquals(el: HTMLElement, name: string, value: any): boolean;
     static getHeight(el: HTMLElement): number;
     static getWidth(el: HTMLElement): number;
     static absolutePosition(el: HTMLElement, target: HTMLElement): void;

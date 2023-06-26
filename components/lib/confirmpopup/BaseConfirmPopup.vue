@@ -90,7 +90,7 @@ const classes = {
     acceptButton: ({ instance }) => ['p-confirm-dialog-accept', instance.confirmation ? instance.confirmation.acceptClass : null]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_confirmPopup_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { id: 'primevue_confirmpopup_style', manual: true });
 
 export default {
     name: 'BaseConfirmPopup',
