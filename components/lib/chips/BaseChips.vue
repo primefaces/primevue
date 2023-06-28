@@ -73,6 +73,10 @@ export default {
     name: 'BaseChips',
     extends: BaseComponent,
     props: {
+        addable: {
+            type: Boolean,
+            default: false
+        },
         modelValue: {
             type: Array,
             default: null

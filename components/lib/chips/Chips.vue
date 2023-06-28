@@ -52,6 +52,9 @@
                     v-bind="{ ...inputProps, ...ptm('input') }"
                 />
             </li>
+            <li v-if="addable" :class="cx('addButton')" role="option" v-bind="ptm('addButton')">
+                <Button class="custom-button" data-custom-attribute="value" @click="addItem($event, inputValue, true)" :disabled="maxedOut">Add</Button>
+            </li>
         </ul>
     </div>
 </template>
@@ -221,6 +224,7 @@ export default {
                 if (this.allowDuplicate || value.indexOf(item) === -1) {
                     value.push(item);
                     this.updateModel(event, value, preventDefault);
+                    this.$refs.container.focus(); // Set focus to the chips container after adding the item
                 }
             }
         },
