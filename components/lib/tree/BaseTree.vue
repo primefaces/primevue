@@ -127,7 +127,7 @@ const classes = {
     subgroup: 'p-treenode-children'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_tree_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'tree', manual: true });
 
 export default {
     name: 'BaseTree',

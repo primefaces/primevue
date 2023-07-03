@@ -203,7 +203,7 @@ const classes = {
     footer: 'p-dialog-footer'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_dialog_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'dialog', manual: true });
 
 export default {
     name: 'BaseDialog',

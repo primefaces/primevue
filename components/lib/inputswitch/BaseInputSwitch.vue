@@ -37,11 +37,10 @@ const classes = {
             'p-focus': instance.focused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     slider: 'p-inputswitch-slider'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_inputswitch_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'inputswitch', manual: true });
 
 export default {
     name: 'BaseInputSwitch',

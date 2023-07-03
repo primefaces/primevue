@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="radiobutton">
-        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input ref="input" :id="inputId" type="radio" :name="name" :checked="checked" :disabled="disabled" :value="value" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" @focus="onFocus" @blur="onBlur" v-bind="ptm('hiddenInput')" />
         </div>
         <div ref="box" :class="[cx('input'), inputClass]" :style="inputStyle" v-bind="{ ...inputProps, ...ptm('input') }" :data-p-highlight="checked" :data-p-disabled="disabled" :data-p-focused="focused">

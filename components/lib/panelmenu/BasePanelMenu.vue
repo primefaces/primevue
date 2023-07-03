@@ -82,7 +82,7 @@ const classes = {
     separator: 'p-menuitem-separator'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_panelmenu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'panelmenu', manual: true });
 
 export default {
     name: 'BasePanelMenu',

@@ -17,7 +17,7 @@ export function useStyle(css, options = {}) {
     const isLoaded = ref(false);
 
     const defaultDocument = DomHandler.isClient() ? window.document : undefined;
-    const { document = defaultDocument, immediate = true, manual = false, id = `primevue_style_${++_id}` } = options;
+    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined } = options;
 
     const cssRef = ref(css);
 
@@ -26,13 +26,14 @@ export function useStyle(css, options = {}) {
     const load = () => {
         if (!document) return;
 
-        const el = document.getElementById(id) || document.createElement('style');
+        const el = document.querySelector(`style[data-primevue-style-id="${name}"]`) || document.getElementById(id) || document.createElement('style');
 
         if (!el.isConnected) {
             el.type = 'text/css';
-            el.id = id;
-            if (options.media) el.media = options.media;
+            id && (el.id = id);
+            media && (el.media = media);
             document.head.appendChild(el);
+            name && el.setAttribute('data-primevue-style-id', name);
         }
 
         if (isLoaded.value) return;

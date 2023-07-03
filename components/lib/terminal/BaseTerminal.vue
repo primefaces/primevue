@@ -37,7 +37,7 @@ const classes = {
     commandText: 'p-terminal-input'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_terminal_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'terminal', manual: true });
 
 export default {
     name: 'BaseTerminal',

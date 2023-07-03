@@ -1,3 +1,7 @@
+import BaseDirective from 'primevue/basedirective';
+import { useStyle } from 'primevue/usestyle';
+
+const styles = `
 .p-tooltip {
     position:absolute;
     display:none;
@@ -59,3 +63,21 @@
     margin-left: -.25rem;
     border-width: 0 .25em .25rem;
 }
+`;
+
+const classes = {
+    root: 'p-tooltip p-component',
+    arrow: 'p-tooltip-arrow',
+    text: 'p-tooltip-text'
+};
+
+const { load: loadStyle } = useStyle(styles, { name: 'tooltip', manual: true });
+
+const BaseTooltip = BaseDirective.extend({
+    css: {
+        classes,
+        loadStyle
+    }
+});
+
+export default BaseTooltip;

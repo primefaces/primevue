@@ -126,7 +126,6 @@ const classes = {
             'p-overlay-open': instance.overlayVisible
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     labelContainer: 'p-multiselect-label-container',
     label: ({ instance, props }) => [
         'p-multiselect-label',
@@ -148,7 +147,6 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    hiddenFirstFocusableEl: 'p-hidden-accessible p-hidden-focusable',
     header: 'p-multiselect-header',
     headerCheckboxContainer: ({ instance }) => [
         'p-checkbox p-component',
@@ -157,7 +155,6 @@ const classes = {
             'p-checkbox-focused': instance.headerCheckboxFocused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     headerCheckbox: ({ instance }) => [
         'p-checkbox-box',
         {
@@ -169,7 +166,6 @@ const classes = {
     filterContainer: 'p-multiselect-filter-container',
     filterInput: 'p-multiselect-filter p-inputtext p-component',
     filterIcon: 'p-multiselect-filter-icon',
-    hiddenFilterResult: 'p-hidden-accessible',
     closeButton: 'p-multiselect-close p-link',
     closeIcon: 'p-multiselect-close-icon',
     wrapper: 'p-multiselect-items-wrapper',
@@ -186,13 +182,10 @@ const classes = {
     checkboxContainer: 'p-checkbox p-component',
     checkbox: ({ instance, option }) => ['p-checkbox-box', { 'p-highlight': instance.isSelected(option) }],
     checkboxIcon: 'p-checkbox-icon',
-    emptyMessage: 'p-multiselect-empty-message',
-    hiddenEmptyMessage: 'p-hidden-accessible',
-    hiddenSelectedMessage: 'p-hidden-accessible',
-    hiddenLastFocusableEl: 'p-hidden-accessible p-hidden-focusable'
+    emptyMessage: 'p-multiselect-empty-message'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_multiselect_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'multiselect', manual: true });
 
 export default {
     name: 'BaseMultiSelect',

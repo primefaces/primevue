@@ -60,5 +60,5 @@ export default defineNuxtConfig({
             contextPath: baseUrl
         }
     },
-    css: ['@/assets/styles/primevue.css', '/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css', '@/components/lib/colorpicker/ColorPicker.css']
+    css: ['/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css']
 });

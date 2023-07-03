@@ -42,7 +42,7 @@ const classes = {
     icon: 'p-scrolltop-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_scrolltop_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'scrolltop', manual: true });
 
 export default {
     name: 'BaseScrollTop',

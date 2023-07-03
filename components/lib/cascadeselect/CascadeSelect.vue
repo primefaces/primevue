@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick($event)" v-bind="ptm('root')" data-pc-name="cascadeselect">
-        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
                 :id="inputId"
@@ -38,7 +38,7 @@
                 <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
-        <span role="status" aria-live="polite" :class="cx('hiddenSearchResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
+        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
@@ -65,7 +65,7 @@
                             :pt="pt"
                         />
                     </div>
-                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
                 </div>

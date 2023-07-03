@@ -97,7 +97,7 @@ const classes = {
     preview: 'p-image-preview'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_image_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'image', manual: true });
 
 export default {
     name: 'BaseImage',

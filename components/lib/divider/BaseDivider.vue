@@ -104,7 +104,7 @@ const classes = {
     content: 'p-divider-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_divider_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'divider', manual: true });
 
 export default {
     name: 'BaseDivider',

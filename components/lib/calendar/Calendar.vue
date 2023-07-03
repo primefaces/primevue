@@ -165,7 +165,7 @@
                                                     >
                                                         <slot name="date" :date="date">{{ date.day }}</slot>
                                                     </span>
-                                                    <div v-if="isSelected(date)" :class="cx('hiddenSelectedDay')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenSelectedDay')" :data-p-hidden-accessible="true">
+                                                    <div v-if="isSelected(date)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenSelectedDay')" :data-p-hidden-accessible="true">
                                                         {{ date.day }}
                                                     </div>
                                                 </td>
@@ -188,7 +188,7 @@
                                 :data-p-highlight="isMonthSelected(i)"
                             >
                                 {{ m.value }}
-                                <div v-if="isMonthSelected(i)" :class="cx('hiddenMonth')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenMonth')" :data-p-hidden-accessible="true">
+                                <div v-if="isMonthSelected(i)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenMonth')" :data-p-hidden-accessible="true">
                                     {{ m.value }}
                                 </div>
                             </span>
@@ -206,7 +206,7 @@
                                 :data-p-highlight="isYearSelected(y.value)"
                             >
                                 {{ y.value }}
-                                <div v-if="isYearSelected(y.value)" :class="cx('hiddenYear')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenYear')" :data-p-hidden-accessible="true">
+                                <div v-if="isYearSelected(y.value)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenYear')" :data-p-hidden-accessible="true">
                                     {{ y.value }}
                                 </div>
                             </span>
@@ -1543,8 +1543,7 @@ export default {
                 this.mask.addEventListener('click', this.maskClickListener);
 
                 document.body.appendChild(this.mask);
-                document.body.setAttribute('data-p-overflow-hidden', 'true');
-                !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         disableModality() {
@@ -1578,8 +1577,7 @@ export default {
             }
 
             if (!hasBlockerMasks) {
-                document.body.removeAttribute('data-p-overflow-hidden');
-                !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         updateCurrentMetaData() {

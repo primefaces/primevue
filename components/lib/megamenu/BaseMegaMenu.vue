@@ -189,7 +189,7 @@ const classes = {
     end: 'p-megamenu-end'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_megamenu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'megamenu', manual: true });
 
 export default {
     name: 'BaseMegaMenu',

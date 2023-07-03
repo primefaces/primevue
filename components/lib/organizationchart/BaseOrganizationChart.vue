@@ -71,7 +71,7 @@ const classes = {
     nodes: 'p-organizationchart-nodes'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_organizationchart_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'organizationchart', manual: true });
 
 export default {
     name: 'BaseOrganizationChart',

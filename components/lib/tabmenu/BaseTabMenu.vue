@@ -60,7 +60,7 @@ const classes = {
     inkbar: 'p-tabmenu-ink-bar'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_tabmenu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'tabmenu', manual: true });
 
 export default {
     name: 'BaseTabMenu',

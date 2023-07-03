@@ -9,7 +9,7 @@
                 <span v-if="icon" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></span>
             </slot>
             <span :class="cx('label')" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
-            <span v-if="badge" :class="[cx('badge'), badgeClass]" v-bind="ptm('badge')">{{ badge }}</span>
+            <Badge v-if="badge" :value="badge" :class="badgeClass" :unstyled="unstyled" v-bind="ptm('badge')"></Badge>
         </slot>
     </button>
 </template>
@@ -17,6 +17,7 @@
 <script>
 import SpinnerIcon from 'primevue/icons/spinner';
 import Ripple from 'primevue/ripple';
+import Badge from 'primevue/badge';
 import BaseButton from './BaseButton.vue';
 
 export default {
@@ -43,7 +44,8 @@ export default {
         }
     },
     components: {
-        SpinnerIcon
+        SpinnerIcon,
+        Badge
     },
     directives: {
         ripple: Ripple

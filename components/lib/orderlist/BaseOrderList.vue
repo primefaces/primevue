@@ -62,7 +62,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_orderlist_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'orderlist', manual: true });
 
 export default {
     name: 'BaseOrderList',

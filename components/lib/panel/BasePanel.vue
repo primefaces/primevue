@@ -40,7 +40,7 @@ const classes = {
     footer: 'p-panel-footer'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_panel_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'panel', manual: true });
 
 export default {
     name: 'BasePanel',

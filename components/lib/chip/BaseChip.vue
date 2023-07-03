@@ -38,7 +38,7 @@ const classes = {
     removeIcon: 'p-chip-remove-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_chip_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'chip', manual: true });
 
 export default {
     name: 'BaseChip',

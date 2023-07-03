@@ -1,3 +1,7 @@
+import BaseDirective from 'primevue/basedirective';
+import { useStyle } from 'primevue/usestyle';
+
+const styles = `
 .p-badge {
     display: inline-block;
     border-radius: 10px;
@@ -30,3 +34,19 @@
     padding: 0;
     border-radius: 50%;
 }
+`;
+
+const classes = {
+    root: 'p-badge p-component'
+};
+
+const { load: loadStyle } = useStyle(styles, { name: 'badge', manual: true });
+
+const BaseBadgeDirective = BaseDirective.extend({
+    css: {
+        classes,
+        loadStyle
+    }
+});
+
+export default BaseBadgeDirective;

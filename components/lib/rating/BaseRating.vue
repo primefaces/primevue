@@ -34,7 +34,6 @@ const classes = {
             'p-focus': instance.focusedOptionIndex === 0
         }
     ],
-    hiddenCancelInputWrapper: 'p-hidden-accessible',
     cancelIcon: 'p-rating-icon p-rating-cancel',
     item: ({ instance, props, value }) => [
         'p-rating-item',
@@ -43,12 +42,11 @@ const classes = {
             'p-focus': value === instance.focusedOptionIndex
         }
     ],
-    hiddenItemInputWrapper: 'p-hidden-accessible',
     onIcon: 'p-rating-icon',
     offIcon: 'p-rating-icon'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_rating_style', manual: true });
+const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { name: 'rating', manual: true });
 
 export default {
     name: 'BaseRating',

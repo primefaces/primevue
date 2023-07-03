@@ -53,7 +53,7 @@ const classes = {
     label: 'p-menuitem-text'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_breadcrumb_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'breadcrumb', manual: true });
 
 export default {
     name: 'BaseBreadcrumb',

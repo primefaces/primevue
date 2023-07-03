@@ -50,7 +50,6 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    hiddenAccesible: 'p-hidden-accessible',
     panel: ({ instance }) => [
         'p-password-panel p-component',
         {
@@ -63,7 +62,7 @@ const classes = {
     info: 'p-password-info'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_password_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'password', manual: true });
 
 export default {
     name: 'BasePassword',

@@ -77,7 +77,7 @@ const classes = {
     label: 'p-steps-title'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_steps_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'steps', manual: true });
 
 export default {
     name: 'BaseSteps',

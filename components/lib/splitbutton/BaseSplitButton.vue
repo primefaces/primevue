@@ -53,7 +53,7 @@ const classes = {
     menuButton: 'p-splitbutton-menubutton'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_splitbutton_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'splitbutton', manual: true });
 
 export default {
     name: 'BaseSplitButton',

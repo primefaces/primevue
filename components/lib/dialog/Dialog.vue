@@ -189,19 +189,19 @@ export default {
 
             if (!this.modal) {
                 if (this.maximized) {
-                    !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
+                    DomHandler.addClass(document.body, 'p-overflow-hidden');
                 } else {
-                    !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 }
             }
         },
         enableDocumentSettings() {
-            if (this.modal || (this.maximizable && this.maximized && !this.isUnstyled)) {
+            if (this.modal || (this.maximizable && this.maximized)) {
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         unbindDocumentState() {
-            if (this.modal || (this.maximizable && this.maximized && !this.isUnstyled)) {
+            if (this.modal || (this.maximizable && this.maximized)) {
                 DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },

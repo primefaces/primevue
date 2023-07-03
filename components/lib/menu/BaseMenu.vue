@@ -56,7 +56,7 @@ const classes = {
     label: 'p-menuitem-text'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_menu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'menu', manual: true });
 
 export default {
     name: 'BaseMenu',

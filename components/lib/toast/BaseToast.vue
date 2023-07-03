@@ -133,7 +133,7 @@ const classes = {
     buttonIcon: ({ props }) => ['p-toast-icon-close-icon', props.closeIcon]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_toast_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'toast', manual: true });
 
 export default {
     name: 'BaseToast',

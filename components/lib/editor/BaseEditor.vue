@@ -970,7 +970,7 @@ const classes = {
     content: 'p-editor-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_editor_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'editor', manual: true });
 
 export default {
     name: 'BaseEditor',

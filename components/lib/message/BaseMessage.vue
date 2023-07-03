@@ -57,7 +57,7 @@ const classes = {
     buttonIcon: ({ props }) => ['p-message-close-icon', props.closeIcon]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_message_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'message', manual: true });
 
 export default {
     name: 'BaseMessage',

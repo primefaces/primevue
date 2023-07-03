@@ -21,7 +21,7 @@ const classes = {
     root: ({ instance }) => ['p-splitter-panel', { 'p-splitter-panel-nested': instance.isNested }]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_splitterpanel_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'splitterpanel', manual: true });
 
 export default {
     name: 'BaseSplitterPanel',

@@ -31,7 +31,7 @@ const classes = {
     end: 'p-toolbar-group-end p-toolbar-group-right'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_toolbar_style', manual: true });
+const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { name: 'toolbar', manual: true });
 
 export default {
     name: 'BaseToolbar',

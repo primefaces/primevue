@@ -126,7 +126,6 @@ const classes = {
     inputToken: 'p-autocomplete-input-token',
     loadingIcon: 'p-autocomplete-loader',
     dropdownButton: 'p-autocomplete-dropdown',
-    hiddenSearchResult: 'p-hidden-accessible',
     panel: ({ instance }) => [
         'p-autocomplete-panel p-component',
         {
@@ -144,11 +143,10 @@ const classes = {
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
-    emptyMessage: 'p-autocomplete-empty-message',
-    hiddenSelectedMessage: 'p-hidden-accessible'
+    emptyMessage: 'p-autocomplete-empty-message'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_autocomplete_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'autocomplete', manual: true });
 
 export default {
     name: 'BaseAutoComplete',

@@ -28,7 +28,7 @@ const classes = {
     content: 'p-inplace-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_inplace_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'inplace', manual: true });
 
 export default {
     name: 'BaseInplace',

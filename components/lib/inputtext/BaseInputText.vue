@@ -116,7 +116,7 @@ const classes = {
     root: ({ instance }) => ['p-inputtext p-component', { 'p-filled': instance.filled }]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_inputtext_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'inputtext', manual: true });
 
 export default {
     name: 'BaseInputText',

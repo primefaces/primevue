@@ -203,7 +203,7 @@ const classes = {
     content: 'p-sidebar-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_sidebar_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'sidebar', manual: true });
 
 export default {
     name: 'BaseSidebar',

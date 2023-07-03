@@ -156,7 +156,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_speeddial_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'speeddial', manual: true });
 
 export default {
     name: 'BaseSpeedDial',

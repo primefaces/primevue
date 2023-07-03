@@ -23,7 +23,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_textarea_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'textarea', manual: true });
 
 export default {
     name: 'BaseTextarea',

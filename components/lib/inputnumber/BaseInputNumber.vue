@@ -132,7 +132,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_inputnumber_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'inputnumber', manual: true });
 
 export default {
     name: 'BaseInputNumber',

@@ -121,16 +121,14 @@ export default {
             }
 
             if (this.blockScroll) {
-                document.body.setAttribute('data-p-overflow-hidden', 'true');
-                !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         disableDocumentSettings() {
             this.unbindOutsideClickListener();
 
             if (this.blockScroll) {
-                document.body.setAttribute('data-p-overflow-hidden', 'false');
-                !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         onKeydown(event) {

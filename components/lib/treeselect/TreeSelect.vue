@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" :style="sx('root')" @click="onClick" v-bind="ptm('root')" data-pc-name="treeselect">
-        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
                 :id="inputId"

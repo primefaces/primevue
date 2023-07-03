@@ -28,7 +28,7 @@ const classes = {
     root: 'p-blockui-container'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_blockui_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'blockui', manual: true });
 
 export default {
     name: 'BaseBlockUI',

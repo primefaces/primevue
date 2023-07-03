@@ -31,7 +31,6 @@ const classes = {
             'p-checkbox-focused': instance.focused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     input: ({ instance, props }) => [
         'p-checkbox-box',
         {
@@ -43,7 +42,7 @@ const classes = {
     icon: 'p-checkbox-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_checkbox_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'checkbox', manual: true });
 
 export default {
     name: 'BaseCheckbox',

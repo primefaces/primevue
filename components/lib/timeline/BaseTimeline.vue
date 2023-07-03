@@ -125,7 +125,7 @@ const classes = {
     content: 'p-timeline-event-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_timeline_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'timeline', manual: true });
 
 export default {
     name: 'BaseTimeline',

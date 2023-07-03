@@ -95,7 +95,7 @@ const classes = {
     jumpToPageInput: 'p-paginator-page-input'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_paginator_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'paginator', manual: true });
 
 export default {
     name: 'BasePaginator',

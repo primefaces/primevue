@@ -4,11 +4,11 @@ import { useStyle } from 'primevue/usestyle';
 
 const styles = `
 .p-colorpicker-panel .p-colorpicker-color {
-    background: transparent url("./images/color.png") no-repeat left top;
+    background: linear-gradient(to top, #000 0%, rgb(0 0 0 / 0) 100%), linear-gradient(to right, #fff 0%, rgb(255 255 255 / 0) 100%)
 }
 
 .p-colorpicker-panel .p-colorpicker-hue {
-    background: transparent url("./images/hue.png") no-repeat left top;
+    background: linear-gradient(0deg, red 0, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, red)
 }
 `;
 
@@ -32,7 +32,7 @@ const classes = {
     hueHandle: 'p-colorpicker-hue-handle'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_colorpicker_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'colorpicker', manual: true });
 
 export default {
     name: 'BaseColorPicker',

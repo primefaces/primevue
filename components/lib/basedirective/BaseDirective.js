@@ -1,69 +1,109 @@
-import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { loadBaseStyle } from 'primevue/base';
+import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
-export const BaseDirective = {
-    extend: (directiveName, hooks) => {
+const BaseDirective = {
+    _getMeta: (...args) => [ObjectUtils.isObject(args[0]) ? undefined : args[0], ObjectUtils.getItemValue(ObjectUtils.isObject(args[0]) ? args[0] : args[1])],
+    _getOptionValue: (options, key = '', params = {}) => {
+        const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
+        const fKey = fKeys.shift();
+
+        return fKey
+            ? ObjectUtils.isObject(options)
+                ? BaseDirective._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                : undefined
+            : ObjectUtils.getItemValue(options, params);
+    },
+    _getPTValue: (instance = {}, obj = {}, key = '', params = {}, searchInDefaultPT = true) => {
+        const datasetPrefix = 'data-pc-';
+        const self = BaseDirective._getOptionValue(obj, key, params);
+        const globalPT = searchInDefaultPT ? BaseDirective._getOptionValue(instance.defaultPT, key, params) : undefined;
+        const merged = mergeProps(self, globalPT, {
+            ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(instance.$name) }),
+            [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
+        });
+
+        return merged;
+    },
+    _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
+        const config = binding?.instance?.$primevue?.config;
+        const globalHook = config?.pt?.directives?.[directiveName]?.hooks?.[hookName];
+        const selfHook = binding?.value?.pt?.hooks?.[hookName];
+
+        globalHook?.(el, binding, vnode, prevVnode);
+        selfHook?.(el, binding, vnode, prevVnode);
+    },
+    _extend: (name, options = {}) => {
+        const handleHook = (hook, el, binding, vnode, prevVnode) => {
+            el.$instance = el.$instance || {};
+
+            const config = binding?.instance?.$primevue?.config;
+            const $instance = el.$instance[name] || {};
+            const $options = ObjectUtils.isEmpty($instance) ? { ...options, ...options?.methods } : {};
+
+            el.$instance[name] = {
+                ...$instance,
+                /* new instance variables to pass in directive methods */
+                $name: name,
+                $host: el,
+                $binding: binding,
+                $el: $instance['$el'] || undefined,
+                $css: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.css },
+                /* computed instance variables */
+                defaultPT: config?.pt?.directives?.[name],
+                isUnstyled: config?.unstyled,
+                /* instance's methods */
+                ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance[name], el.$instance?.[name]?.$binding?.value?.pt, key, { ...params }),
+                ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance?.[name], obj, key, params, false),
+                cx: (key = '', params = {}) => (!el.$instance?.[name]?.isUnstyled ? BaseDirective._getOptionValue(el.$instance?.[name]?.$css?.classes, key, { ...params }) : undefined),
+                sx: (key = '', when = true, params = {}) => (when ? BaseDirective._getOptionValue(el.$instance?.[name]?.$css?.inlineStyles, key, { ...params }) : undefined),
+                ...$options
+            };
+
+            $instance[hook]?.(el, binding, vnode, prevVnode); // handle hook in directive implementation
+            BaseDirective._hook(name, hook, el, binding, vnode, prevVnode); // handle hooks during directive uses (global and self-definition)
+        };
+
         return {
             created: (el, binding, vnode, prevVnode) => {
-                hooks['created'] && hooks['created'](el, binding, vnode, prevVnode);
-                BaseDirective.handleHook(directiveName, 'created', el, binding, vnode, prevVnode);
+                handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
-                hooks['beforeMount'] && hooks['beforeMount'](el, binding, vnode, prevVnode);
-                BaseDirective.handleHook(directiveName, 'beforeMount', el, binding, vnode, prevVnode);
+                const instance = el.$instance[name];
+
+                loadBaseStyle();
+                !instance?.isUnstyled && instance?.$css?.loadStyle();
+                handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {
-                hooks['mounted'] && hooks['mounted'](el, binding, vnode, prevVnode);
-                BaseDirective.handleHook(directiveName, 'mounted', el, binding, vnode, prevVnode);
+                handleHook('mounted', el, binding, vnode, prevVnode);
             },
             beforeUpdate: (el, binding, vnode, prevVnode) => {
-                hooks['beforeUpdate'] && hooks['beforeUpdate'](el, binding, vnode, prevVnode);
-                BaseDirective.handleHook(directiveName, 'beforeUpdate', el, binding, vnode, prevVnode);
+                handleHook('beforeUpdate', el, binding, vnode, prevVnode);
             },
             updated: (el, binding, vnode, prevVnode) => {
-                hooks['updated'] && hooks['updated'](el, binding, vnode, prevVnode);
-                BaseDirective.handleHook(directiveName, 'updated', el, binding, vnode, prevVnode);
+                handleHook('updated', el, binding, vnode, prevVnode);
             },
             beforeUnmount: (el, binding, vnode, prevVnode) => {
-                hooks['beforeUnmount'] && hooks['beforeUnmount'](el, binding, vnode, prevVnode);
-                BaseDirective.handleHook(directiveName, 'beforeUnmount', el, binding, vnode, prevVnode);
+                handleHook('beforeUnmount', el, binding, vnode, prevVnode);
             },
             unmounted: (el, binding, vnode, prevVnode) => {
-                hooks['unmounted'] && hooks['unmounted'](el, binding, vnode, prevVnode);
-                BaseDirective.handleHook(directiveName, 'unmounted', el, binding, vnode, prevVnode);
+                handleHook('unmounted', el, binding, vnode, prevVnode);
             }
         };
     },
-    handleHook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
-        let _config = binding.instance.$primevue && binding.instance.$primevue.config;
-        let _directive = _config && _config.pt && _config.pt.directives && _config.pt.directives[directiveName];
+    extend: (...args) => {
+        const [name, options] = BaseDirective._getMeta(...args);
 
-        // global pt hook
-        _directive && _directive.hooks && _directive.hooks[hookName] && _directive.hooks[hookName](el.$pEl, el, binding, vnode, prevVnode);
-        // options pt hook
-        binding.value && typeof binding.value === 'object' && binding.value.pt && binding.value.pt.hooks && binding.value.pt.hooks[hookName] && binding.value.pt.hooks[hookName](el.$pEl, el, binding, vnode, prevVnode);
-    },
-    handleCSS: (directiveName, el, binding) => {
-        let _config = binding.instance.$primevue && binding.instance.$primevue.config;
-        let _directive = _config && _config.pt && _config.pt.directives && _config.pt.directives[directiveName];
-        let ptCSSOptions = [];
+        return {
+            extend: (..._args) => {
+                const [_name, _options] = BaseDirective._getMeta(..._args);
 
-        // global pt css
-        _directive && _directive.css && ptCSSOptions.push(_directive.css);
-        // options pt css
-        binding.value && binding.value.pt && binding.value.pt.css && ptCSSOptions.push(binding.value.pt.css);
-
-        for (let option of ptCSSOptions) {
-            Object.entries(option).forEach(([key, value]) => {
-                let styledElement;
-
-                if (key === 'root' && directiveName !== 'badge') styledElement = el;
-                else {
-                    styledElement = DomHandler.findSingle(el, `[data-pc-section="${ObjectUtils.convertToFlatCase(key)}"]`);
-                }
-
-                value.class && DomHandler.addMultipleClasses(styledElement, value.class);
-                value.style && DomHandler.addStyles(styledElement, value.style);
-            });
-        }
+                return BaseDirective.extend(_name, { ...options, ...options?.methods, ..._options });
+            },
+            ...BaseDirective._extend(name, options)
+        };
     }
 };
+
+export default BaseDirective;

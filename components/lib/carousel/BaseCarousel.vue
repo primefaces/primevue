@@ -128,7 +128,7 @@ const classes = {
     footer: 'p-carousel-footer'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_carousel_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'carousel', manual: true });
 
 export default {
     name: 'BaseCarousel',

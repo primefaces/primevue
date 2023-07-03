@@ -70,7 +70,6 @@ const classes = {
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     labelContainer: 'p-treeselect-label-container',
     label: ({ instance, props }) => [
         'p-treeselect-label',
@@ -94,7 +93,7 @@ const classes = {
     emptyMessage: 'p-treeselect-empty-message'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_treeselect_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'treeselect', manual: true });
 
 export default {
     name: 'BaseTreeSelect',

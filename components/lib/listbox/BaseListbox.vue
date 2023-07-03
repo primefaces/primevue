@@ -46,12 +46,10 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    hiddenFirstFocusableEl: 'p-hidden-accessible p-hidden-focusable',
     header: 'p-listbox-header',
     filterContainer: 'p-listbox-filter-container',
     filterInput: 'p-listbox-filter p-inputtext p-component',
     filterIcon: 'p-listbox-filter-icon',
-    hiddenFilterResult: 'p-hidden-accessible',
     wrapper: 'p-listbox-list-wrapper',
     list: 'p-listbox-list',
     itemGroup: 'p-listbox-item-group',
@@ -63,13 +61,10 @@ const classes = {
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
-    emptyMessage: 'p-listbox-empty-message',
-    hiddenEmptyMessage: 'p-hidden-accessible',
-    hiddenSelectedMessage: 'p-hidden-accessible',
-    hiddenLastFocusableEl: 'p-hidden-accessible p-hidden-focusable'
+    emptyMessage: 'p-listbox-empty-message'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_listbox_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'listbox', manual: true });
 
 export default {
     name: 'BaseListbox',

@@ -1,19 +1,19 @@
-import { BaseDirective } from 'primevue/basedirective';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import BaseBadgeDirective from './BaseBadgeDirective';
 
-const BadgeDirective = BaseDirective.extend('badge', {
+const BadgeDirective = BaseBadgeDirective.extend('badge', {
     mounted(el, binding) {
         const id = UniqueComponentId() + '_badge';
 
-        el.$_pbadgeId = id;
         el.$_pbadgeUnstyled = binding.instance.$primevue.config.unstyled || false;
 
-        let badge = document.createElement('span');
+        const badge = DomHandler.createElement('span', {
+            id,
+            class: this.cx('root'),
+            'p-bind': this.ptm('root')
+        });
 
-        badge.id = id;
-        !el.$_pbadgeUnstyled && (badge.className = 'p-badge p-component');
-        badge.setAttribute('data-pc-name', 'badge');
-        badge.setAttribute('data-pc-section', 'root');
+        el.$_pbadgeId = badge.getAttribute('id');
 
         for (let modifier in binding.modifiers) {
             !el.$_pbadgeUnstyled && DomHandler.addClass(badge, 'p-badge-' + modifier);
@@ -34,9 +34,8 @@ const BadgeDirective = BaseDirective.extend('badge', {
         !el.$_pbadgeUnstyled && DomHandler.addClass(el, 'p-overlay-badge');
         el.setAttribute('data-p-overlay-badge', 'true');
         el.appendChild(badge);
-        el.$pEl = badge;
 
-        BaseDirective.handleCSS('badge', el, binding);
+        this.$el = badge;
     },
     updated(el, binding) {
         !el.$_pbadgeUnstyled && DomHandler.addClass(el, 'p-overlay-badge');

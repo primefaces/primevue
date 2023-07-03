@@ -103,16 +103,10 @@ const classes = {
             'p-button-icon-bottom': props.iconPos === 'bottom' && props.label
         }
     ],
-    label: 'p-button-label',
-    badge: ({ props }) => [
-        'p-badge p-component',
-        {
-            'p-badge-no-gutter': props.badge && String(props.badge).length === 1
-        }
-    ]
+    label: 'p-button-label'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_button_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'button', manual: true });
 
 export default {
     name: 'BaseButton',

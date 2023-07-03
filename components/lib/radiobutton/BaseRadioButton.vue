@@ -44,7 +44,6 @@ const classes = {
             'p-radiobutton-focused': instance.focused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     input: ({ instance, props }) => [
         'p-radiobutton-box',
         {
@@ -56,7 +55,7 @@ const classes = {
     icon: 'p-radiobutton-icon'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_radiobutton_style', manual: true });
+const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { name: 'radiobutton', manual: true });
 
 export default {
     name: 'BaseRadioButton',

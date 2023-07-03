@@ -309,7 +309,6 @@ const classes = {
             'p-disabled': instance.disabled
         }
     ],
-    hiddenHeaderInputWrapper: 'p-hidden-accessible',
     headerCheckbox: ({ instance }) => [
         'p-checkbox-box p-component',
         {
@@ -423,7 +422,6 @@ const classes = {
             'p-checkbox-focused': instance.focused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     checkbox: ({ instance }) => [
         'p-checkbox-box p-component',
         {
@@ -465,7 +463,7 @@ const classes = {
     reorderIndicatorDown: 'p-datatable-reorder-indicator-down'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_datatable_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'datatable', manual: true });
 
 export default {
     name: 'BaseDataTable',

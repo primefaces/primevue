@@ -35,7 +35,7 @@ const classes = {
     value: 'p-tag-value'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_tag_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'tag', manual: true });
 
 export default {
     name: 'BaseTag',

@@ -371,7 +371,7 @@ const classes = {
     nextThumbnailIcon: 'p-galleria-thumbnail-next-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_galleria_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'galleria', manual: true });
 
 export default {
     name: 'BaseGalleria',

@@ -36,7 +36,7 @@ const classes = {
     circle: 'p-progress-spinner-circle'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_progressspinner_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'progressspinner', manual: true });
 
 export default {
     name: 'BaseProgressSpinner',

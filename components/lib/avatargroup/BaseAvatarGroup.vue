@@ -17,7 +17,7 @@ const classes = {
     root: 'p-avatar-group p-component'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_avatargroup_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'avatargroup', manual: true });
 
 export default {
     name: 'BaseAvatarGroup',

@@ -10,8 +10,6 @@ const classes = {
             'p-checkbox-focused': instance.focused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
-    hiddenValueLabel: 'p-hidden-accessible',
     checkbox: ({ instance, props }) => [
         'p-checkbox-box',
         {
