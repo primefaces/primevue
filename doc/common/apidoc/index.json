@@ -41967,6 +41967,83 @@
             }
         }
     },
+    "usestyle/UseStyle": {
+        "functions": {
+            "description": "Defines the custom functions used by the module.",
+            "values": {
+                "useStyle": {
+                    "name": "useStyle",
+                    "parameters": [
+                        {
+                            "name": "css",
+                            "type": "string"
+                        },
+                        {
+                            "name": "options",
+                            "type": "StyleOptions"
+                        }
+                    ],
+                    "returnType": "Object"
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StyleOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "document",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "HTMLElement",
+                            "default": ""
+                        },
+                        {
+                            "name": "immediate",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
+                            "name": "manual",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "id",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "media",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        }
+    },
     "usetoast/UseToast": {
         "functions": {
             "description": "Defines the custom functions used by the module.",
