@@ -23,6 +23,8 @@ export declare class DomHandler {
     static addStyles(el: HTMLElement, styles: object): void;
     static find(el: HTMLElement, selector: string): any[];
     static findSingle(el: HTMLElement, selector: string): any;
+    static createElement(type: string, attributes: object, ...children: any): HTMLElement;
+    static setAttributes(el: HTMLElement, attributes: object): void;
     static getAttribute(el: HTMLElement, name: string): any;
     static isAttributeEquals(el: HTMLElement, name: string, value: any): boolean;
     static isAttributeNotEquals(el: HTMLElement, name: string, value: any): boolean;
