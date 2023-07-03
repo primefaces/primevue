@@ -26,6 +26,9 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
         this.unbind(el);
     },
     methods: {
+        getComputedSelector(selector) {
+            return `:not(.p-hidden-focusable):not([data-p-hidden-focusable="true"])${selector}`;
+        },
         bind(el, binding) {
             const { onFocusIn, onFocusOut } = binding.value || {};
 
@@ -61,16 +64,16 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
         },
         autoFocus(el, binding) {
             const { autoFocusSelector = '', firstFocusableSelector = '', autoFocus = false } = binding.value || {};
-            let focusableElement = DomHandler.getFirstFocusableElement(el, `[autofocus]:not([data-p-hidden-focusable="true"])${autoFocusSelector}`);
+            let focusableElement = DomHandler.getFirstFocusableElement(el, `[autofocus]${this.getComputedSelector(autoFocusSelector)}`);
 
-            autoFocus && !focusableElement && (focusableElement = DomHandler.getFirstFocusableElement(el, `:not([data-p-hidden-focusable="true"])${firstFocusableSelector}`));
+            autoFocus && !focusableElement && (focusableElement = DomHandler.getFirstFocusableElement(el, this.getComputedSelector(firstFocusableSelector)));
             DomHandler.focus(focusableElement);
         },
         onFirstHiddenElementFocus(event) {
             const { currentTarget, relatedTarget } = event;
             const focusableElement =
                 relatedTarget === currentTarget.$_pfocustrap_lasthiddenfocusableelement
-                    ? DomHandler.getFirstFocusableElement(currentTarget.parentElement, `:not([data-p-hidden-focusable="true"])${currentTarget.$_pfocustrap_focusableselector}`)
+                    ? DomHandler.getFirstFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
                     : currentTarget.$_pfocustrap_lasthiddenfocusableelement;
 
             DomHandler.focus(focusableElement);
@@ -79,7 +82,7 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
             const { currentTarget, relatedTarget } = event;
             const focusableElement =
                 relatedTarget === currentTarget.$_pfocustrap_firsthiddenfocusableelement
-                    ? DomHandler.getLastFocusableElement(currentTarget.parentElement, `:not([data-p-hidden-focusable="true"])${currentTarget.$_pfocustrap_focusableselector}`)
+                    ? DomHandler.getLastFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
                     : currentTarget.$_pfocustrap_firsthiddenfocusableelement;
 
             DomHandler.focus(focusableElement);
@@ -95,7 +98,7 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
                     'aria-hidden': true,
                     'data-p-hidden-accessible': true,
                     'data-p-hidden-focusable': true,
-                    onFocus
+                    onFocus: onFocus?.bind(this)
                 });
             };
 

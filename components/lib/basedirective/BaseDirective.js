@@ -35,13 +35,14 @@ const BaseDirective = {
     },
     _extend: (name, options = {}) => {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {
-            el.$instance = el.$instance || {};
+            el._$instances = el._$instances || {};
 
             const config = binding?.instance?.$primevue?.config;
-            const $instance = el.$instance[name] || {};
+            const $instance = el._$instances[name] || {};
             const $options = ObjectUtils.isEmpty($instance) ? { ...options, ...options?.methods } : {};
 
-            el.$instance[name] = {
+            el.$instance = $instance;
+            el._$instances[name] = {
                 ...$instance,
                 /* new instance variables to pass in directive methods */
                 $name: name,
@@ -53,10 +54,10 @@ const BaseDirective = {
                 defaultPT: config?.pt?.directives?.[name],
                 isUnstyled: config?.unstyled,
                 /* instance's methods */
-                ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance[name], el.$instance?.[name]?.$binding?.value?.pt, key, { ...params }),
-                ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance?.[name], obj, key, params, false),
-                cx: (key = '', params = {}) => (!el.$instance?.[name]?.isUnstyled ? BaseDirective._getOptionValue(el.$instance?.[name]?.$css?.classes, key, { ...params }) : undefined),
-                sx: (key = '', when = true, params = {}) => (when ? BaseDirective._getOptionValue(el.$instance?.[name]?.$css?.inlineStyles, key, { ...params }) : undefined),
+                ptm: (key = '', params = {}) => BaseDirective._getPTValue(el._$instances[name], el._$instances?.[name]?.$binding?.value?.pt, key, { ...params }),
+                ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el._$instances?.[name], obj, key, params, false),
+                cx: (key = '', params = {}) => (!el._$instances?.[name]?.isUnstyled ? BaseDirective._getOptionValue(el._$instances?.[name]?.$css?.classes, key, { ...params }) : undefined),
+                sx: (key = '', when = true, params = {}) => (when ? BaseDirective._getOptionValue(el._$instances?.[name]?.$css?.inlineStyles, key, { ...params }) : undefined),
                 ...$options
             };
 
@@ -69,10 +70,8 @@ const BaseDirective = {
                 handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
-                const instance = el.$instance[name];
-
                 loadBaseStyle();
-                !instance?.isUnstyled && instance?.$css?.loadStyle();
+                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle();
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {
