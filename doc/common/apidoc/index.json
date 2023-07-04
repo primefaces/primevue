@@ -22819,6 +22819,14 @@
                             "description": "Value of the component."
                         },
                         {
+                            "name": "size",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"small\" | \"large\"",
+                            "default": "",
+                            "description": "Defines the size of the component."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
