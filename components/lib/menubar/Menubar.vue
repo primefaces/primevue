@@ -134,7 +134,7 @@ export default {
                 ZIndexUtils.set('menu', this.menubar, this.$primevue.config.zIndex.menu);
                 setTimeout(() => {
                     this.show();
-                }, 0);
+                }, 1);
             }
 
             this.bindOutsideClickListener();
@@ -147,6 +147,7 @@ export default {
         },
         hide(event, isFocus) {
             if (this.mobileActive) {
+                this.mobileActive = false;
                 setTimeout(() => {
                     DomHandler.focus(this.$refs.menubutton);
                 }, 0);
@@ -419,8 +420,8 @@ export default {
                     const isOutsideContainer = this.menubar !== event.target && !this.menubar.contains(event.target);
                     const isOutsideMenuButton = this.mobileActive && this.$refs.menubutton !== event.target && !this.$refs.menubutton.contains(event.target);
 
-                    if (isOutsideContainer) {
-                        isOutsideMenuButton ? (this.mobileActive = false) : this.hide();
+                    if (isOutsideMenuButton && isOutsideContainer) {
+                        this.hide();
                     }
                 };
 
