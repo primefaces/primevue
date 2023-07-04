@@ -357,9 +357,13 @@ export default {
             const overflowRegex = /(auto|scroll)/;
 
             const overflowCheck = (node) => {
-                let styleDeclaration = window['getComputedStyle'](node, null);
+                try {
+                    let styleDeclaration = window['getComputedStyle'](node, null);
 
-                return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
+                    return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
+                } catch (err) {
+                    return false;
+                }
             };
 
             for (let parent of parents) {
