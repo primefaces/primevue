@@ -80,7 +80,7 @@ export default {
 
             let selected = this.isSelected(option);
 
-            if (selected && this.unselectable) {
+            if (selected && (this.unselectable || !this.allowEmpty)) {
                 return;
             }
 

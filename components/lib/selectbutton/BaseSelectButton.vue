@@ -27,6 +27,10 @@ export default {
             type: Boolean,
             default: false
         },
+        allowEmpty: {
+            type: Boolean,
+            default: true
+        },
         disabled: Boolean,
         dataKey: null,
         'aria-labelledby': {
