@@ -1,11 +1,11 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Apply <i>.p-inputtext-sm</i> to reduce the size of the input element or <i>.p-inputtext-lg</i> to enlarge it.</p>
+        <p>InputText provides <i>small</i> and <i>large</i> sizes as alternatives to the standard.</p>
     </DocSectionText>
     <div class="card flex flex-column align-items-center gap-3">
-        <InputText v-model="value1" type="text" class="p-inputtext-sm" placeholder="Small" />
+        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />
-        <InputText v-model="value3" type="text" class="p-inputtext-lg" placeholder="Large" />
+        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -19,15 +19,15 @@ export default {
             value3: null,
             code: {
                 basic: `
-<InputText v-model="value1" type="text" class="p-inputtext-sm" placeholder="Small" />
+<InputText v-model="value1" type="text" size="small" placeholder="Small" />
 <InputText v-model="value2" type="text" placeholder="Normal" />
-<InputText v-model="value3" type="text" class="p-inputtext-lg" placeholder="Large" />`,
+<InputText v-model="value3" type="text" size="large" placeholder="Large" />`,
                 options: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <InputText v-model="value1" type="text" class="p-inputtext-sm" placeholder="Small" />
+        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />
-        <InputText v-model="value3" type="text" class="p-inputtext-lg" placeholder="Large" />
+        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
 </template>
 
@@ -45,9 +45,9 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-column align-items-center gap-3">
-        <InputText v-model="value1" type="text" class="p-inputtext-sm" placeholder="Small" />
+        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />
-        <InputText v-model="value3" type="text" class="p-inputtext-lg" placeholder="Large" />
+        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
 </template>
 
