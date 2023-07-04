@@ -39,6 +39,10 @@ export interface InputTextProps extends InputHTMLAttributes {
      */
     modelValue?: Nullable<string>;
     /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * Uses to pass attributes to DOM elements inside the component.
      * @type {InputTextPassThroughOptions}
      */

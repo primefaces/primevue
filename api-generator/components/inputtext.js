@@ -6,6 +6,12 @@ const InputTextProps = [
         description: 'Value of the component.'
     },
     {
+        name: 'size',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the size of the component, valid values are "small" and "large".'
+    },
+    {
         name: 'pt',
         type: 'any',
         default: 'null',
