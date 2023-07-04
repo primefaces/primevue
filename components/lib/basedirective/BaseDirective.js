@@ -27,11 +27,11 @@ const BaseDirective = {
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const config = binding?.instance?.$primevue?.config;
-        const globalHook = config?.pt?.directives?.[directiveName]?.hooks?.[hookName];
         const selfHook = binding?.value?.pt?.hooks?.[hookName];
+        const globalHook = config?.pt?.directives?.[directiveName]?.hooks?.[hookName];
 
-        globalHook?.(el, binding, vnode, prevVnode);
         selfHook?.(el, binding, vnode, prevVnode);
+        globalHook?.(el, binding, vnode, prevVnode);
     },
     _extend: (name, options = {}) => {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {

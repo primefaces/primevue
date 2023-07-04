@@ -382,10 +382,40 @@ export default {
             }
         }
     },
+    beforeCreate() {
+        this.pt?.hooks?.['beforeCreate']?.();
+        this.$primevue?.config?.pt?.[this.$.type.name]?.hooks?.['beforeCreate']?.();
+    },
+    created() {
+        this._hook('created');
+    },
     beforeMount() {
         loadBaseStyle();
+        this._hook('beforeMount');
+    },
+    mounted() {
+        this._hook('mounted');
+    },
+    beforeUpdate() {
+        this._hook('beforeUpdate');
+    },
+    updated() {
+        this._hook('updated');
+    },
+    beforeUnmount() {
+        this._hook('beforeUnmount');
+    },
+    unmounted() {
+        this._hook('unmounted');
     },
     methods: {
+        _hook(hookName) {
+            const selfHook = this._getOptionValue(this.pt, `hooks.${hookName}`);
+            const globalHook = this._getOptionValue(this.globalPT, `hooks.${hookName}`);
+
+            selfHook?.();
+            globalHook?.();
+        },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
         },
