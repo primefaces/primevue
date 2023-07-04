@@ -185,7 +185,7 @@ export default {
     setAttributes(element, attributes = {}) {
         if (element) {
             const computedStyles = (rule, value) => {
-                const styles = element?.$attr?.[rule] ? [element?.$attr?.[rule]] : [];
+                const styles = element?.$attrs?.[rule] ? [element?.$attrs?.[rule]] : [];
 
                 return [value].flat().reduce((cv, v) => {
                     if (v !== null && v !== undefined) {
@@ -216,7 +216,7 @@ export default {
                         this.setAttributes(element, value);
                     } else {
                         value = key === 'class' ? [...new Set(computedStyles('class', value))].join(' ').trim() : key === 'style' ? computedStyles('style', value).join(';').trim() : value;
-                        (element.$attr = element.$attr || {}) && (element.$attr[key] = value);
+                        (element.$attrs = element.$attrs || {}) && (element.$attrs[key] = value);
                         element.setAttribute(key, value);
                     }
                 }
