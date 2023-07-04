@@ -77,6 +77,7 @@ import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'PanelMenuSub',
+    hostName: 'PanelMenu',
     extends: BaseComponent,
     emits: ['item-toggle'],
     props: {

@@ -67,6 +67,7 @@ import BodyCell from './BodyCell.vue';
 
 export default {
     name: 'TreeTableRow',
+    hostName: 'TreeTable',
     extends: BaseComponent,
     emits: ['node-click', 'node-toggle', 'checkbox-change', 'nodeClick', 'nodeToggle', 'checkboxChange'],
     props: {

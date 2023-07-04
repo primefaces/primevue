@@ -32,6 +32,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'BodyCell',
+    hostName: 'TreeTable',
     extends: BaseComponent,
     emits: ['node-toggle', 'checkbox-toggle'],
     props: {

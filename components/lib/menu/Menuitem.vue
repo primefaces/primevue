@@ -38,6 +38,7 @@ import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'Menuitem',
+    hostName: 'Menu',
     extends: BaseComponent,
     inheritAttrs: false,
     emits: ['item-click'],

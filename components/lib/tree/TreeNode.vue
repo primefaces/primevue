@@ -62,6 +62,7 @@ import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'TreeNode',
+    hostName: 'Tree',
     extends: BaseComponent,
     emits: ['node-toggle', 'node-click', 'checkbox-change'],
     props: {

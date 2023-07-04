@@ -76,6 +76,7 @@ import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'OrganizationChartNode',
+    hostName: 'OrganizationChart',
     extends: BaseComponent,
     emits: ['node-click', 'node-toggle'],
     props: {

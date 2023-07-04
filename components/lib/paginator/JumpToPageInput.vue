@@ -18,6 +18,7 @@ import InputNumber from 'primevue/inputnumber';
 
 export default {
     name: 'JumpToPageInput',
+    hostName: 'Paginator',
     extends: BaseComponent,
     inheritAttrs: false,
     emits: ['page-change'],

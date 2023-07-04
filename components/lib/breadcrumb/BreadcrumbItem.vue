@@ -23,6 +23,7 @@ import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'BreadcrumbItem',
+    hostName: 'Breadcrumb',
     extends: BaseComponent,
     props: {
         item: null,

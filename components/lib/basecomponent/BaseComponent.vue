@@ -467,7 +467,7 @@ export default {
     },
     computed: {
         defaultPT() {
-            return this._getOptionValue(this.$primevue.config.pt, this.$.type.name, { instance: this });
+            return this._getOptionValue(this.$primevue.config.pt, this.$options.hostName || this.$.type.name, { instance: this });
         },
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;

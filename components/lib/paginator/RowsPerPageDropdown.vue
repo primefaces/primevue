@@ -19,6 +19,7 @@ import Dropdown from 'primevue/dropdown';
 
 export default {
     name: 'RowsPerPageDropdown',
+    hostName: 'Paginator',
     extends: BaseComponent,
     emits: ['rows-change'],
     props: {

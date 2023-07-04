@@ -7,6 +7,7 @@ import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'CurrentPageReport',
+    hostName: 'Paginator',
     extends: BaseComponent,
     props: {
         pageCount: {

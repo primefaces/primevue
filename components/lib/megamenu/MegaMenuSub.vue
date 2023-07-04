@@ -86,6 +86,7 @@ import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'MegaMenuSub',
+    hostName: 'MegaMenu',
     extends: BaseComponent,
     emits: ['item-click', 'item-mouseenter'],
     props: {
