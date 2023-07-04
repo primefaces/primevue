@@ -446,10 +446,10 @@ export default {
              */
         },
         ptm(key = '', params = {}) {
-            return this._getPTValue(this.pt, key, { props: this.$props, state: this.$data, ...params });
+            return this._getPTValue(this.pt, key, { instance: this, props: this.$props, state: this.$data, ...params });
         },
         ptmo(obj = {}, key = '', params = {}) {
-            return this._getPTValue(obj, key, params, false);
+            return this._getPTValue(obj, key, { instance: this, ...params }, false);
         },
         cx(key = '', params = {}) {
             return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params }) : undefined;
