@@ -51,7 +51,7 @@
                         <div class="flex flex-column align-items-center gap-3 py-5">
                             <img class="w-9 shadow-2 border-round" :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.name" />
                             <div class="text-2xl font-bold">{{ slotProps.data.name }}</div>
-                            <Rating value="{product.rating}" readonly :cancel="false"></Rating>
+                            <Rating :modelValue="slotProps.data.rating" readonly :cancel="false"></Rating>
                         </div>
                         <div class="flex align-items-center justify-content-between">
                             <span class="text-2xl font-semibold">${{ slotProps.data.price }}</span>
@@ -120,7 +120,7 @@ export default {
                 <div class="flex flex-column align-items-center gap-3 py-5">
                     <img class="w-9 shadow-2 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.name" />
                     <div class="text-2xl font-bold">{{ slotProps.data.name }}</div>
-                    <Rating value="{product.rating}" readonly :cancel="false"></Rating>
+                                    <Rating :modelValue="slotProps.data.rating" readonly :cancel="false"></Rating>
                 </div>
                 <div class="flex align-items-center justify-content-between">
                     <span class="text-2xl font-semibold">\${{ slotProps.data.price }}</span>
@@ -178,7 +178,7 @@ export default {
                         <div class="flex flex-column align-items-center gap-3 py-5">
                             <img class="w-9 shadow-2 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.name" />
                             <div class="text-2xl font-bold">{{ slotProps.data.name }}</div>
-                            <Rating value="{product.rating}" readonly :cancel="false"></Rating>
+                                            <Rating :modelValue="slotProps.data.rating" readonly :cancel="false"></Rating>
                         </div>
                         <div class="flex align-items-center justify-content-between">
                             <span class="text-2xl font-semibold">\${{ slotProps.data.price }}</span>
@@ -271,7 +271,7 @@ export default {
                         <div class="flex flex-column align-items-center gap-3 py-5">
                             <img class="w-9 shadow-2 border-round" :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.name" />
                             <div class="text-2xl font-bold">{{ slotProps.data.name }}</div>
-                            <Rating value="{product.rating}" readonly :cancel="false"></Rating>
+                                            <Rating :modelValue="slotProps.data.rating" readonly :cancel="false"></Rating>
                         </div>
                         <div class="flex align-items-center justify-content-between">
                             <span class="text-2xl font-semibold">\${{ slotProps.data.price }}</span>
