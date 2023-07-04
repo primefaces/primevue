@@ -5,7 +5,7 @@
                 <slot>{{ value + '%' }}</slot>
             </div>
         </div>
-        <div v-if="indeterminate" :class="cx('container')" v-bind="ptm('root')">
+        <div v-if="indeterminate" :class="cx('container')" v-bind="ptm('container')">
             <div :class="cx('value')" v-bind="ptm('value')"></div>
         </div>
     </div>
