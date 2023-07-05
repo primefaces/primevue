@@ -222,12 +222,6 @@ export default {
                 this.documentKeydownListener = null;
             }
         },
-        getPositionClass() {
-            const positions = ['left', 'right', 'top', 'topleft', 'topright', 'bottom', 'bottomleft', 'bottomright'];
-            const pos = positions.find((item) => item === this.position);
-
-            return pos ? `p-dialog-${pos}` : '';
-        },
         containerRef(el) {
             this.container = el;
         },

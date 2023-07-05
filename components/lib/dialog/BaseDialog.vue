@@ -160,13 +160,18 @@ const inlineStyles = {
 };
 
 const classes = {
-    mask: ({ props, instance }) => [
-        'p-dialog-mask',
-        {
-            'p-component-overlay p-component-overlay-enter': props.modal
-        },
-        instance.getPositionClass()
-    ],
+    mask: ({ props }) => {
+        const positions = ['left', 'right', 'top', 'topleft', 'topright', 'bottom', 'bottomleft', 'bottomright'];
+        const pos = positions.find((item) => item === props.position);
+
+        return [
+            'p-dialog-mask',
+            {
+                'p-component-overlay p-component-overlay-enter': props.modal
+            },
+            pos ? `p-dialog-${pos}` : ''
+        ];
+    },
     root: ({ props, instance }) => [
         'p-dialog p-component',
         {
