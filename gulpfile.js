@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     flatten = require('gulp-flatten');
 
-/** @deprecated */
 gulp.task('build-css', function () {
     return gulp
         .src(['./components/lib/common/Common.css', './components/**/*.css'])
@@ -27,4 +26,4 @@ gulp.task('images', function () {
 });
 
 //Building project with run sequence
-gulp.task('build-styles', gulp.series('build-themes'));
+gulp.task('build-styles', gulp.series('build-css', 'build-themes'));
