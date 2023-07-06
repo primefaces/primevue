@@ -5634,14 +5634,6 @@
                             "description": "Uses to pass attributes to the day label's DOM element."
                         },
                         {
-                            "name": "hiddenSelectedDay",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the aria selected day's DOM element."
-                        },
-                        {
                             "name": "monthPicker",
                             "optional": true,
                             "readonly": false,
@@ -5658,14 +5650,6 @@
                             "description": "Uses to pass attributes to the month's DOM element."
                         },
                         {
-                            "name": "hiddenMonth",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the aria month's DOM element."
-                        },
-                        {
                             "name": "yearPicker",
                             "optional": true,
                             "readonly": false,
@@ -5680,14 +5664,6 @@
                             "type": "CalendarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the year's DOM element."
-                        },
-                        {
-                            "name": "hiddenYear",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the aria year's DOM element."
                         },
                         {
                             "name": "timePicker",
@@ -5800,6 +5776,30 @@
                             "type": "ButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "hiddenSelectedDay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria selected day's DOM element."
+                        },
+                        {
+                            "name": "hiddenMonth",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria month's DOM element."
+                        },
+                        {
+                            "name": "hiddenYear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria year's DOM element."
                         },
                         {
                             "name": "hooks",
