@@ -107,11 +107,11 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
 
             firstFocusableElement.$_pfocustrap_lasthiddenfocusableelement = lastFocusableElement;
             firstFocusableElement.$_pfocustrap_focusableselector = firstFocusableSelector;
-            firstFocusableElement.setAttribute('data-pc-section', 'firstfocusableelement');
+            firstFocusableElement.setAttribute('data-pd-focustrap-section', 'firstfocusableelement');
 
             lastFocusableElement.$_pfocustrap_firsthiddenfocusableelement = firstFocusableElement;
             lastFocusableElement.$_pfocustrap_focusableselector = lastFocusableSelector;
-            lastFocusableElement.setAttribute('data-pc-section', 'lastfocusableelement');
+            lastFocusableElement.setAttribute('data-pd-focustrap-section', 'lastfocusableelement');
 
             el.prepend(firstFocusableElement);
             el.append(lastFocusableElement);

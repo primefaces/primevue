@@ -15,12 +15,13 @@ const BaseDirective = {
             : ObjectUtils.getItemValue(options, params);
     },
     _getPTValue: (instance = {}, obj = {}, key = '', params = {}, searchInDefaultPT = true) => {
-        const datasetPrefix = 'data-pc-';
+        const name = ObjectUtils.convertToFlatCase(instance.$name);
+        const datasetPrefix = name ? `data-pd-${name}` : '';
         const self = BaseDirective._getOptionValue(obj, key, params);
         const globalPT = searchInDefaultPT ? BaseDirective._getOptionValue(instance.defaultPT, key, params) : undefined;
         const merged = mergeProps(self, globalPT, {
-            ...(key === 'root' && instance.$name !== 'focustrap' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(instance.$name) }),
-            [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
+            ...(key === 'root' && { [datasetPrefix]: true }),
+            [`${datasetPrefix}-section`]: ObjectUtils.convertToFlatCase(key)
         });
 
         return merged;

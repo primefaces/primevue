@@ -91,13 +91,7 @@ const Ripple = BaseRipple.extend('ripple', {
             event.currentTarget.setAttribute('data-p-ink-active', 'false');
         },
         getInk(el) {
-            for (let i = 0; i < el.children.length; i++) {
-                if (el.children[i].getAttribute('data-pc-name') === 'ripple') {
-                    return el.children[i];
-                }
-            }
-
-            return null;
+            return el && el.children ? [...el.children].find((child) => DomHandler.getAttribute(child, 'data-pd-ripple')) : undefined;
         }
     }
 });
