@@ -13,6 +13,7 @@
 
 <script>
 import { NodeService } from '/service/NodeService';
+
 export default {
     data() {
         return {
@@ -33,6 +34,8 @@ export default {
 </template>
 
 <script>
+import { NodeService } from './service/NodeService';
+
 export default {
     data() {
         return {
@@ -56,6 +59,7 @@ export default {
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
 const selectedValue = ref(null);
