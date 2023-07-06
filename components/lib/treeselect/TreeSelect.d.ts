@@ -65,7 +65,7 @@ export interface TreeSelectPassThroughOptions {
      */
     wrapper?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the trigger's DOM element.
+     * Uses to pass attributes to Tree component.
      * @see {@link TreePassThroughOptionType}
      */
     tree?: TreePassThroughOptionType;
