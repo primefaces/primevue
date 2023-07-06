@@ -19,7 +19,7 @@ const BaseDirective = {
         const self = BaseDirective._getOptionValue(obj, key, params);
         const globalPT = searchInDefaultPT ? BaseDirective._getOptionValue(instance.defaultPT, key, params) : undefined;
         const merged = mergeProps(self, globalPT, {
-            ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(instance.$name) }),
+            ...(key === 'root' && instance.$name !== 'focustrap' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(instance.$name) }),
             [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
         });
 
@@ -70,11 +70,11 @@ const BaseDirective = {
                 handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
-                loadBaseStyle();
-                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle();
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {
+                loadBaseStyle();
+                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle();
                 handleHook('mounted', el, binding, vnode, prevVnode);
             },
             beforeUpdate: (el, binding, vnode, prevVnode) => {
