@@ -44,9 +44,9 @@
             </div>
         </div>
         <div :class="cx('trigger')" v-bind="ptm('triggger')">
-            <slot v-if="loading" name="loadingicon" :class="cx('triggerIcon')">
-                <span v-if="loadingIcon" :class="[cx('triggerIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('triggerIcon')" />
-                <SpinnerIcon v-else :class="cx('triggerIcon')" spin aria-hidden="true" v-bind="ptm('triggerIcon')" />
+            <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
+                <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
+                <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
             </slot>
             <slot v-else name="dropdownicon" :class="cx('dropdownIcon')">
                 <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />

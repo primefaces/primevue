@@ -138,7 +138,7 @@ const classes = {
     tokenLabel: 'p-multiselect-token-label',
     removeTokenIcon: 'p-multiselect-token-icon',
     trigger: 'p-multiselect-trigger',
-    triggerIcon: 'p-multiselect-trigger-icon',
+    loadingIcon: 'p-multiselect-trigger-icon',
     dropdownIcon: 'p-multiselect-trigger-icon',
     panel: ({ instance }) => [
         'p-multiselect-panel p-component',
