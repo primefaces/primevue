@@ -55,6 +55,11 @@ export interface TooltipOptions {
      * @type {TooltipPassThroughOptions}
      */
     pt?: TooltipPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

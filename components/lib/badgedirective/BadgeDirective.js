@@ -5,11 +5,11 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
     mounted(el, binding) {
         const id = UniqueComponentId() + '_badge';
 
-        el.$_pbadgeUnstyled = binding.instance.$primevue.config.unstyled || false;
+        el.$_pbadgeUnstyled = binding.instance.$primevue.config.unstyled || binding.value?.unstyled || false;
 
         const badge = DomHandler.createElement('span', {
             id,
-            class: this.cx('root'),
+            class: !el.$_pbadgeUnstyled && this.cx('root'),
             'p-bind': this.ptm('root')
         });
 

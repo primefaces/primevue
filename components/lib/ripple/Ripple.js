@@ -6,9 +6,9 @@ const Ripple = BaseRipple.extend('ripple', {
         const primevue = binding.instance.$primevue;
 
         if (primevue && primevue.config && primevue.config.ripple) {
-            el.$_prippleUnstyled = primevue.config.unstyled || false;
+            el.$_prippleUnstyled = primevue.config.unstyled || binding.value?.unstyled || false;
 
-            this.create(el, binding);
+            this.create(el);
             this.bindEvents(el);
         }
     },
@@ -23,13 +23,13 @@ const Ripple = BaseRipple.extend('ripple', {
         unbindEvents(el) {
             el.removeEventListener('mousedown', this.onMouseDown.bind(this));
         },
-        create(el, binding) {
+        create(el) {
             const ink = DomHandler.createElement('span', {
                 role: 'presentation',
                 'aria-hidden': true,
                 'data-p-ink': true,
                 'data-p-ink-active': false,
-                class: this.cx('root'),
+                class: !el.$_prippleUnstyled && this.cx('root'),
                 onAnimationEnd: this.onAnimationEnd,
                 'p-bind': this.ptm('root')
             });

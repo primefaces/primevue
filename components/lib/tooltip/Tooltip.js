@@ -31,12 +31,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             }
         }
 
-        if (options.instance.$primevue && options.instance.$primevue.config) {
-            let _config = options.instance.$primevue && options.instance.$primevue.config;
-
-            target.$_ptooltipZIndex = _config.zIndex.tooltip;
-            target.$_ptooltipUnstyled = _config.unstyled || false;
-        }
+        target.$_ptooltipZIndex = options.instance.$primevue.config?.zIndex?.tooltip;
+        target.$_ptooltipUnstyled = options.instance.$primevue.config?.unstyled || options.value?.unstyled || false;
 
         this.bindEvents(target, options);
     },
@@ -78,6 +74,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 this.bindEvents(target, options);
             }
         }
+
+        target.$_ptooltipUnstyled = options.instance.$primevue.config?.unstyled || options.value?.unstyled || false;
     },
     unmounted(el, options) {
         let target = this.getTarget(el);
@@ -226,12 +224,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         },
         create(el, options) {
             const tooltipArrow = DomHandler.createElement('div', {
-                class: this.cx('arrow'),
+                class: !el.$_ptooltipUnstyled && this.cx('arrow'),
                 'p-bind': this.ptm('arrow')
             });
 
             const tooltipText = DomHandler.createElement('div', {
-                class: this.cx('text'),
+                class: !el.$_ptooltipUnstyled && this.cx('text'),
                 'p-bind': this.ptm('text')
             });
 
@@ -251,7 +249,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                         display: 'inline-block',
                         width: el.$_ptooltipFitContent ? 'fit-content' : undefined
                     },
-                    class: [this.cx('root'), el.$_ptooltipClass],
+                    class: [!el.$_ptooltipUnstyled && this.cx('root'), el.$_ptooltipClass],
                     'p-bind': this.ptm('root')
                 },
                 tooltipArrow,

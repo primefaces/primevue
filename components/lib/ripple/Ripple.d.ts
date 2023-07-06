@@ -17,6 +17,11 @@ export interface RippleOptions {
      * @type {RippleDirectivePassThroughOptions}
      */
     pt?: RippleDirectivePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
