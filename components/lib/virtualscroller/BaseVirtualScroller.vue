@@ -93,7 +93,7 @@ const classes = {
     loadingIcon: 'p-virtualscroller-loading-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { name: 'virtualscroller', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'virtualscroller' });
 
 export default {
     name: 'BaseVirtualScroller',
