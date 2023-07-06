@@ -8,6 +8,7 @@
  *
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -282,6 +283,11 @@ export interface CalendarPassThroughOptions {
      * @see {@link ButtonPassThroughOptionType}
      */
     clearButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

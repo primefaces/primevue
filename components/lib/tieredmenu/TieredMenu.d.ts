@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -67,6 +68,11 @@ export interface TieredMenuPassThroughOptions {
      * Uses to pass attributes to the submenu's DOM element.
      */
     submenu?: TieredMenuPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

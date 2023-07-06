@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type CheckboxPassThroughOptionType = CheckboxPassThroughAttributes | ((options: CheckboxPassThroughMethodOptions) => CheckboxPassThroughAttributes) | null | undefined;
@@ -46,6 +47,11 @@ export interface CheckboxPassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: CheckboxPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

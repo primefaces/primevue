@@ -7,6 +7,7 @@
  * @module terminal
  *
  */
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TerminalPassThroughOptionType = TerminalPassThroughAttributes | ((options: TerminalPassThroughMethodOptions) => TerminalPassThroughAttributes) | null | undefined;
@@ -60,6 +61,11 @@ export interface TerminalPassThroughOptions {
      * Uses to pass attributes to the command text's DOM element.
      */
     commandText?: TerminalPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

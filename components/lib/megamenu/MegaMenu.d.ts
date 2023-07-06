@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -91,6 +92,11 @@ export interface MegaMenuPassThroughOptions {
      * Uses to pass attributes to the end of the component.
      */
     end?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes) | null | undefined;
@@ -38,6 +39,11 @@ export interface SelectButtonPassThroughOptions {
      * Uses to pass attributes to the label's DOM element.
      */
     label?: SelectButtonPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

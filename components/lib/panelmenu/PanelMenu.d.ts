@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -99,6 +100,11 @@ export interface PanelMenuPassThroughOptions {
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: PanelMenuPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

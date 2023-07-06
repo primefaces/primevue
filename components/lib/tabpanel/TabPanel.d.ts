@@ -8,6 +8,7 @@
  *
  */
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { TabViewPassThroughOptions } from '../tabview';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -47,6 +48,11 @@ export interface TabPanelPassThroughOptions {
      * Uses to pass attributes to the list's DOM element.
      */
     content?: TabPanelPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 export interface TabPanelPassThroughAttributes {

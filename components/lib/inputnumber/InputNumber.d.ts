@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { InputTextPassThroughOptionType } from '../inputtext';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
@@ -80,6 +81,11 @@ export interface InputNumberPassThroughOptions {
      * @see {@link ButtonPassThroughOptions}
      */
     decrementButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

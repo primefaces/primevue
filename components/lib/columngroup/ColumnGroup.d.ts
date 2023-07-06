@@ -5,6 +5,7 @@
  * [Live Demo](https://www.primevue.org/datatable/)
  * @module columngroup
  */
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { DataTablePassThroughOptions } from '../datatable';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -28,6 +29,11 @@ export interface ColumnGroupPassThroughOptions {
      * Uses to pass attributes to the root's DOM element.
      */
     root?: ColumnGroupPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

@@ -81,7 +81,7 @@ import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { TimelinePassThroughOptions } from '../timeline';
 import { ToastPassThroughOptions } from '../toast';
 import { ToolbarPassThroughOptions } from '../toolbar';
-import { TooltipPassThroughOptions } from '../tooltip';
+import { TooltipDirectivePassThroughOptions } from '../tooltip';
 import { TreePassThroughOptions } from '../tree';
 import { TreeSelectPassThroughOptions } from '../treeselect';
 import { TreeTablePassThroughOptions } from '../treetable';
@@ -111,7 +111,6 @@ interface PrimeVuePTOptions {
     autocomplete?: DefaultPTOptions<AutoCompletePassThroughOptions>;
     avatar?: DefaultPTOptions<AvatarPassThroughOptions>;
     badge?: DefaultPTOptions<BadgePassThroughOptions>;
-    badgedirective?: DefaultPTOptions<BadgeDirectivePassThroughOptions>;
     blockui?: DefaultPTOptions<BlockUIPassThroughOptions>;
     breadcrumb?: DefaultPTOptions<BreadcrumbPassThroughOptions>;
     button?: DefaultPTOptions<ButtonPassThroughOptions>;
@@ -140,7 +139,6 @@ interface PrimeVuePTOptions {
     editor?: DefaultPTOptions<EditorPassThroughOptions>;
     fieldset?: DefaultPTOptions<FieldsetPassThroughOptions>;
     fileupload?: DefaultPTOptions<FileUploadPassThroughOptions>;
-    focustrap?: DefaultPTOptions<FocusTrapDirectivePassThroughOptions>;
     galleria?: DefaultPTOptions<GalleriaPassThroughOptions>;
     image?: DefaultPTOptions<ImagePassThroughOptions>;
     inlinemessage?: DefaultPTOptions<InlineMessagePassThroughOptions>;
@@ -167,7 +165,6 @@ interface PrimeVuePTOptions {
     progressbar?: DefaultPTOptions<ProgressBarPassThroughOptions>;
     progressspinner?: DefaultPTOptions<ProgressSpinnerPassThroughOptions>;
     radiobutton?: DefaultPTOptions<RadioButtonPassThroughOptions>;
-    ripple?: DefaultPTOptions<RippleDirectivePassThroughOptions>;
     row?: DefaultPTOptions<RowPassThroughOptions>;
     scrollpanel?: DefaultPTOptions<ScrollPanelPassThroughOptions>;
     scrolltop?: DefaultPTOptions<ScrollTopPassThroughOptions>;
@@ -178,7 +175,6 @@ interface PrimeVuePTOptions {
     splitbutton?: DefaultPTOptions<SplitButtonPassThroughOptions>;
     splitter?: DefaultPTOptions<SplitterPassThroughOptions>;
     steps?: DefaultPTOptions<StepsPassThroughOptions>;
-    styleclass?: DefaultPTOptions<StyleClassDirectivePassThroughOptions>;
     tabmenu?: DefaultPTOptions<TabMenuPassThroughOptions>;
     tabpanel?: DefaultPTOptions<TabPanelPassThroughOptions>;
     tabview?: DefaultPTOptions<TabViewPassThroughOptions>;
@@ -189,11 +185,17 @@ interface PrimeVuePTOptions {
     timeline?: DefaultPTOptions<TimelinePassThroughOptions>;
     toast?: DefaultPTOptions<ToastPassThroughOptions>;
     toolbar?: DefaultPTOptions<ToolbarPassThroughOptions>;
-    tooltip?: DefaultPTOptions<TooltipPassThroughOptions>;
     tree?: DefaultPTOptions<TreePassThroughOptions>;
     treeselect?: DefaultPTOptions<TreeSelectPassThroughOptions>;
     treetable?: DefaultPTOptions<TreeTablePassThroughOptions>;
     virtualscroller?: DefaultPTOptions<VirtualScrollerPassThroughOptions>;
+    directives?: {
+        badge?: BadgeDirectivePassThroughOptions;
+        tooltip?: TooltipDirectivePassThroughOptions;
+        styleclass?: StyleClassDirectivePassThroughOptions;
+        focustrap?: FocusTrapDirectivePassThroughOptions;
+        ripple?: RippleDirectivePassThroughOptions;
+    };
 }
 
 interface PrimeVueLocaleAriaOptions {

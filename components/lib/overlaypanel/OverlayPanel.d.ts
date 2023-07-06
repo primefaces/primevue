@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughAttributes | ((options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes) | null | undefined;
@@ -41,6 +42,11 @@ export interface OverlayPanelPassThroughOptions {
      * Uses to pass attributes to the close icon's DOM element.
      */
     closeIcon?: OverlayPanelPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

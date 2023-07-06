@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type CardPassThroughOptionType = CardPassThroughAttributes | null | undefined;
@@ -45,6 +46,11 @@ export interface CardPassThroughOptions {
      * Uses to pass attributes to the footer's DOM element.
      */
     footer?: CardPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

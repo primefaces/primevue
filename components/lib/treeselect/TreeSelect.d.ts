@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -79,6 +80,11 @@ export interface TreeSelectPassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: TreeSelectPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

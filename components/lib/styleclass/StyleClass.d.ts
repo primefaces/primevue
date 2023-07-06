@@ -7,6 +7,7 @@
  * @module styleclass
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
+import { DirectiveHooks } from '../basedirective';
 
 /**
  * Defines options of StyleClass.
@@ -61,44 +62,10 @@ export interface StyleClassOptions {
  */
 export interface StyleClassDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the life cycle hooks.
-     * @see {@link StyleClassDirectivePassThroughHooksOptions}
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseDirective.DirectiveHooks}
      */
-    hooks?: StyleClassDirectivePassThroughHooksOptions;
-}
-
-/**
- * Custom passthrough(pt) hooks options.
- */
-export interface StyleClassDirectivePassThroughHooksOptions {
-    /**
-     * Called before bound element's attributes or event listeners are applied.
-     */
-    created?: DirectiveBinding;
-    /**
-     * Called right before the element is inserted into the DOM.
-     */
-    beforeMount?: DirectiveBinding;
-    /**
-     * Called when the bound element's parent component and all its children are mounted.
-     */
-    mounted?: DirectiveBinding;
-    /**
-     * Called before the parent component is updated.
-     */
-    beforeUpdate?: DirectiveBinding;
-    /**
-     * Called after the parent component and all of its children have updated all of its children have updated.
-     */
-    updated?: DirectiveBinding;
-    /**
-     * Called before the parent component is unmounted.
-     */
-    beforeUnmount?: DirectiveBinding;
-    /**
-     * Called when the parent component is unmounted.
-     */
-    unmounted?: DirectiveBinding;
+    hooks?: DirectiveHooks;
 }
 
 /**

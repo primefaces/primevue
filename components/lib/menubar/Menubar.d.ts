@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -83,6 +84,11 @@ export interface MenubarPassThroughOptions {
      * Uses to pass attributes to the end of the component.
      */
     end?: MenubarPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

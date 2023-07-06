@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type BlockUIPassThroughOptionType = BlockUIPassThroughAttributes | ((options: BlockUIPassThroughMethodOptions) => BlockUIPassThroughAttributes) | null | undefined;
@@ -29,6 +30,11 @@ export interface BlockUIPassThroughOptions {
      * Uses to pass attributes to the root's DOM element.
      */
     root?: BlockUIPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

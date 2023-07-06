@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { TreeNode } from '../tree';
@@ -255,6 +256,11 @@ export interface TreeTablePassThroughOptions {
      * Uses to pass attributes to the Column helper components.
      */
     column?: ColumnPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

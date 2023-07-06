@@ -7,6 +7,9 @@
  * @module ripple
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
+import { DirectiveHooks } from '../basedirective';
+
+export declare type RippleDirectivePassThroughOptionType = RippleDirectivePassThroughAttributes | null | undefined;
 
 /**
  * Defines options of Ripple.
@@ -31,73 +34,20 @@ export interface RippleOptions {
 export interface RippleDirectivePassThroughOptions {
     /**
      * Uses to pass attributes to the root's DOM element.
-     *  @see {@link RippleDirectivePassThroughOptions}
      */
-    root?: RippleDirectivePassThroughOptions;
+    root?: RippleDirectivePassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseDirective.DirectiveHooks}
+     */
+    hooks?: DirectiveHooks;
 }
 
 /**
- * Custom passthrough(pt) directive options.
+ * Custom passthrough attributes for each DOM elements
  */
-export interface RippleDirectivePassThroughOptions {
-    /**
-     * Uses to pass attributes to the life cycle hooks.
-     * @see {@link RippleDirectivePassThroughHooksOptions}
-     */
-    hooks?: RippleDirectivePassThroughHooksOptions;
-    /**
-     * Uses to pass attributes to the styles.
-     *  @see {@link RippleDirectivePassThroughCSSOptions}
-     */
-    css?: RippleDirectivePassThroughCSSOptions;
-}
-
-/**
- * Custom passthrough(pt) hooks options.
- */
-export interface RippleDirectivePassThroughHooksOptions {
-    /**
-     * Called before bound element's attributes or event listeners are applied.
-     */
-    created?: DirectiveBinding;
-    /**
-     * Called right before the element is inserted into the DOM.
-     */
-    beforeMount?: DirectiveBinding;
-    /**
-     * Called when the bound element's parent component and all its children are mounted.
-     */
-    mounted?: DirectiveBinding;
-    /**
-     * Called before the parent component is updated.
-     */
-    beforeUpdate?: DirectiveBinding;
-    /**
-     * Called after the parent component and all of its children have updated all of its children have updated.
-     */
-    updated?: DirectiveBinding;
-    /**
-     * Called before the parent component is unmounted.
-     */
-    beforeUnmount?: DirectiveBinding;
-    /**
-     * Called when the parent component is unmounted.
-     */
-    unmounted?: DirectiveBinding;
-}
-
-/**
- * Custom passthrough(pt) css options.
- */
-export interface RippleDirectivePassThroughCSSOptions {
-    /**
-     * Style class of the element.
-     */
-    class?: any;
-    /**
-     * Inline style of the element.
-     */
-    style?: any;
+export interface RippleDirectivePassThroughAttributes {
+    [key: string]: any;
 }
 
 /**

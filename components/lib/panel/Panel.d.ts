@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes) | null | undefined;
@@ -76,6 +77,11 @@ export interface PanelPassThroughOptions {
      * Uses to pass attributes to the footer's DOM element.
      */
     footer?: PanelPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

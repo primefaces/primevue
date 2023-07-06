@@ -8,6 +8,7 @@
  *
  */
 import { AnchorHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type FieldsetPassThroughOptionType = FieldsetPassThroughAttributes | ((options: FieldsetPassThroughMethodOptions) => FieldsetPassThroughAttributes) | null | undefined;
@@ -68,6 +69,11 @@ export interface FieldsetPassThroughOptions {
      * Uses to pass attributes to the content's DOM element.
      */
     content?: FieldsetPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

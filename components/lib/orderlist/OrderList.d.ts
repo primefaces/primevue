@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -100,6 +101,11 @@ export interface OrderListPassThroughOptions {
      * Uses to pass attributes to the item's DOM element.
      */
     item?: OrderListPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

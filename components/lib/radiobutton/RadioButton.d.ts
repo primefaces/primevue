@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type RadioButtonPassThroughOptionType = RadioButtonPassThroughAttributes | ((options: RadioButtonPassThroughMethodOptions) => RadioButtonPassThroughAttributes) | null | undefined;
@@ -45,6 +46,11 @@ export interface RadioButtonPassThroughOptions {
      * Uses to pass attributes to the hidden accessible DOM element.
      */
     hiddenInput?: RadioButtonPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

@@ -8,6 +8,7 @@
  *
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes) | null | undefined;
@@ -102,6 +103,11 @@ export interface CascadeSelectPassThroughOptions {
      * Uses to pass attributes to the search result message text aria's DOM element.
      */
     hiddenSearchResult?: CascadeSelectPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

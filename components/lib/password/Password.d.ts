@@ -8,6 +8,7 @@
  *
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { InputTextPassThroughOptionType } from '../inputtext';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
@@ -63,6 +64,11 @@ export interface PasswordPassThroughOptions {
      * Uses to pass attributes to the hidden accessible DOM element.
      */
     hiddenAccesible?: PasswordPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

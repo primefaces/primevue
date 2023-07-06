@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { InputNumberPassThroughOptionType } from '../inputnumber';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
@@ -128,6 +129,11 @@ export interface PaginatorPassThroughOptions {
      * Uses to pass attributes to the end's DOM element.
      */
     end?: PaginatorPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

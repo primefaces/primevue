@@ -7,6 +7,7 @@
  * @module knob
  *
  */
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes) | null | undefined;
@@ -44,6 +45,11 @@ export interface KnobPassThroughOptions {
      * Uses to pass attributes to the label's DOM element.
      */
     label?: KnobPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MessagePassThroughOptions } from '../message';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
@@ -247,6 +248,11 @@ export interface FileUploadPassThroughOptions {
      * Uses to pass attributes to the upload icon's DOM element.
      */
     uploadIcon?: FileUploadPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

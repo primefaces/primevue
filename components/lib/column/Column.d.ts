@@ -10,6 +10,7 @@
  */
 
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
@@ -313,6 +314,11 @@ export interface ColumnPassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: ColumnPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | ((options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes) | null | undefined;
 
@@ -159,6 +160,11 @@ export interface EditorPassThroughOptions {
      * Uses to pass attributes to the content's DOM element.
      */
     content?: EditorPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

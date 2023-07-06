@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes) | null | undefined;
@@ -45,6 +46,11 @@ export interface ToggleButtonPassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: ToggleButtonPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

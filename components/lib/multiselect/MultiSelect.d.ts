@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
@@ -213,6 +214,11 @@ export interface MultiSelectPassThroughOptions {
      * Uses to pass attributes to the hidden last focusable element's DOM element.
      */
     hiddenLastFocusableEl?: MultiSelectPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

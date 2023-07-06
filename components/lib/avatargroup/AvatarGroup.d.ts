@@ -7,6 +7,7 @@
  * @module avatargroup
  *
  */
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | null | undefined;
@@ -27,6 +28,11 @@ export interface AvatarGroupPassThroughOptions {
      * Uses to pass attributes to the root's DOM element.
      */
     root?: AvatarGroupPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

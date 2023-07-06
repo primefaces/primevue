@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions) => TreePassThroughAttributes) | null | undefined;
@@ -178,6 +179,11 @@ export interface TreePassThroughOptions {
      * Uses to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: TreePassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

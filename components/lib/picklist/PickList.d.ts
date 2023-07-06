@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -188,6 +189,11 @@ export interface PickListPassThroughOptions {
      * Uses to pass attributes to the Button component.
      */
     targetMoveBottomButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

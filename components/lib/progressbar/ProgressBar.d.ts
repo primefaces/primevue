@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes) | null | undefined;
@@ -36,6 +37,11 @@ export interface ProgressBarPassThroughOptions {
      * Uses to pass attributes to the label's DOM element.
      */
     label?: ProgressBarPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

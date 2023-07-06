@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent/BaseComponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type SplitterPanelPassThroughOptionType = SplitterPanelPassThroughAttributes | ((options: SplitterPanelPassThroughMethodOptions) => SplitterPanelPassThroughAttributes) | null | undefined;
@@ -28,6 +29,11 @@ export interface SplitterPanelPassThroughOptions {
      * Uses to pass attributes to the root's DOM element.
      */
     root?: SplitterPanelPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
