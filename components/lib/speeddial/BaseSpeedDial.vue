@@ -133,7 +133,6 @@ const classes = {
             'p-speeddial-rotate': props.rotateAnimation && !props.hideIcon
         }
     ],
-    buttonIcon: ({ instance, props }) => (instance.d_visible && !!props.hideIcon ? props.hideIcon : props.showIcon),
     menu: 'p-speeddial-list',
     menuitem: ({ instance, id }) => [
         'p-speeddial-item',

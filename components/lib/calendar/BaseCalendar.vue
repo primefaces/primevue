@@ -169,7 +169,6 @@ const classes = {
     dropdownButton: 'p-datepicker-trigger',
     panel: ({ instance, props, state }) => [
         'p-datepicker p-component',
-        props.panelClass,
         {
             'p-datepicker-inline': props.inline,
             'p-disabled': props.disabled,
