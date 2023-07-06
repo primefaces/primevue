@@ -53,7 +53,7 @@
                     v-if="inline || overlayVisible"
                     :ref="overlayRef"
                     :id="panelId"
-                    :class="cx('panel')"
+                    :class="[cx('panel'), panelClass]"
                     :style="panelStyle"
                     :role="inline ? null : 'dialog'"
                     :aria-modal="inline ? null : 'true'"

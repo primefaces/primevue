@@ -12,7 +12,6 @@ const classes = {
         }
     ],
     icon: ({ instance, props }) => [
-        props.modelValue ? props.onIcon : props.offIcon,
         'p-button-icon',
         {
             'p-button-icon-left': props.iconPos === 'left' && instance.label,

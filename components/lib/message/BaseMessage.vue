@@ -51,10 +51,10 @@ const styles = `
 const classes = {
     root: ({ props }) => 'p-message p-component p-message-' + props.severity,
     wrapper: 'p-message-wrapper',
-    icon: ({ props }) => ['p-message-icon', props.icon],
+    icon: 'p-message-icon',
     text: 'p-message-text',
     button: 'p-message-close p-link',
-    buttonIcon: ({ props }) => ['p-message-close-icon', props.closeIcon]
+    buttonIcon: 'p-message-close-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { name: 'message', manual: true });

@@ -17,7 +17,7 @@
             />
         </span>
         <slot name="icon" :value="modelValue" :class="cx('icon')">
-            <span v-if="onIcon || offIcon" :class="cx('icon')" v-bind="ptm('icon')" />
+            <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="ptm('icon')" />
         </slot>
         <span :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
     </div>

@@ -35,7 +35,6 @@ export default {
     extends: BaseToast,
     inheritAttrs: false,
     emits: ['close', 'life-end'],
-
     data() {
         return {
             messages: []
