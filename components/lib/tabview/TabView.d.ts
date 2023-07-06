@@ -8,7 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { TabPanelPassThroughOptionType } from '../tabpanel';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 

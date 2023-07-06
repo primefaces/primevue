@@ -5,7 +5,7 @@
  * [Live Demo](https://www.primevue.org/datatable/)
  * @module columngroup
  */
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { DataTablePassThroughOptions } from '../datatable';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 

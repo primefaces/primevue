@@ -8,7 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';

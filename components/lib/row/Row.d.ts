@@ -5,7 +5,7 @@
  *
  * @module row
  */
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ColumnGroupPassThroughOptions } from '../columngroup';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 

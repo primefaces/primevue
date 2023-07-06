@@ -7,7 +7,7 @@
  * @module progressspinner
  *
  */
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ProgressSpinnerPassThroughOptionType = ProgressSpinnerPassThroughAttributes | ((options: ProgressSpinnerPassThroughMethodOptions) => ProgressSpinnerPassThroughAttributes) | null | undefined;

@@ -8,7 +8,7 @@
  *
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptionType } from '../inputtext';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 

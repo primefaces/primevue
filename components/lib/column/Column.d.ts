@@ -10,7 +10,7 @@
  */
 
 import { VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';

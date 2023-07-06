@@ -8,7 +8,7 @@
  *
  */
 import { VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { InputNumberPassThroughOptionType } from '../inputnumber';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';

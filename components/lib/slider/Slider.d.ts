@@ -7,7 +7,7 @@
  * @module slider
  *
  */
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | ((options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes) | null | undefined;

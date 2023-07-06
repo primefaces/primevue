@@ -8,7 +8,7 @@
  *
  */
 import { VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type SidebarPassThroughOptionType = SidebarPassThroughAttributes | ((options: SidebarPassThroughMethodOptions) => SidebarPassThroughAttributes) | null | undefined;

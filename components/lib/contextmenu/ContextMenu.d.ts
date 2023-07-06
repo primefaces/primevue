@@ -9,7 +9,7 @@
  *
  */
 import { VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 

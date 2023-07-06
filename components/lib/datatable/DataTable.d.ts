@@ -8,7 +8,7 @@
  *
  */
 import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ColumnPassThroughOptionType } from '../column';
 import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';

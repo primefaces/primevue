@@ -8,7 +8,7 @@
  *
  */
 import { VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { TreeNode } from '../tree';

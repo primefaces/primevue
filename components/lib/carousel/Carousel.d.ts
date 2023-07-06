@@ -8,7 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type CarouselPassThroughOptionType = CarouselPassThroughAttributes | ((options: CarouselPassThroughMethodOptions) => CarouselPassThroughAttributes) | null | undefined;

@@ -8,7 +8,7 @@
  *
  */
 import { InputHTMLAttributes } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type InputSwitchPassThroughOptionType = InputSwitchPassThroughAttributes | ((options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes) | null | undefined;

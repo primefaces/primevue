@@ -8,7 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 

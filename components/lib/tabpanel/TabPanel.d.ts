@@ -8,7 +8,7 @@
  *
  */
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../basecomponent/BaseComponent';
+import { ComponentHooks } from '../basecomponent';
 import { TabViewPassThroughOptions } from '../tabview';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
