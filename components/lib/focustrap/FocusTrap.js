@@ -27,7 +27,7 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
     },
     methods: {
         getComputedSelector(selector) {
-            return `:not(.p-hidden-focusable):not([data-p-hidden-focusable="true"])${selector}`;
+            return `:not(.p-hidden-focusable):not([data-p-hidden-focusable="true"])${selector ?? ''}`;
         },
         bind(el, binding) {
             const { onFocusIn, onFocusOut } = binding.value || {};
@@ -35,10 +35,14 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
             el.$_pfocustrap_mutationobserver = new MutationObserver((mutationList) => {
                 mutationList.forEach((mutation) => {
                     if (mutation.type === 'childList' && !el.contains(document.activeElement)) {
-                        const findNextFocusableElement = (el) => {
-                            const focusableElement = DomHandler.isFocusableElement(el) ? el : DomHandler.getFirstFocusableElement(el);
+                        const findNextFocusableElement = (_el) => {
+                            const focusableElement = DomHandler.isFocusableElement(_el)
+                                ? DomHandler.isFocusableElement(_el, this.getComputedSelector(el.$_pfocustrap_focusableselector))
+                                    ? _el
+                                    : DomHandler.getFirstFocusableElement(el, this.getComputedSelector(el.$_pfocustrap_focusableselector))
+                                : DomHandler.getFirstFocusableElement(_el);
 
-                            return ObjectUtils.isNotEmpty(focusableElement) ? focusableElement : findNextFocusableElement(el.nextSibling);
+                            return ObjectUtils.isNotEmpty(focusableElement) ? focusableElement : findNextFocusableElement(_el.nextSibling);
                         };
 
                         DomHandler.focus(findNextFocusableElement(mutation.nextSibling));
@@ -72,7 +76,7 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
         onFirstHiddenElementFocus(event) {
             const { currentTarget, relatedTarget } = event;
             const focusableElement =
-                relatedTarget === currentTarget.$_pfocustrap_lasthiddenfocusableelement
+                relatedTarget === currentTarget.$_pfocustrap_lasthiddenfocusableelement || !this.$el?.contains(relatedTarget)
                     ? DomHandler.getFirstFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
                     : currentTarget.$_pfocustrap_lasthiddenfocusableelement;
 
@@ -81,7 +85,7 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
         onLastHiddenElementFocus(event) {
             const { currentTarget, relatedTarget } = event;
             const focusableElement =
-                relatedTarget === currentTarget.$_pfocustrap_firsthiddenfocusableelement
+                relatedTarget === currentTarget.$_pfocustrap_firsthiddenfocusableelement || !this.$el?.contains(relatedTarget)
                     ? DomHandler.getLastFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
                     : currentTarget.$_pfocustrap_firsthiddenfocusableelement;
 
