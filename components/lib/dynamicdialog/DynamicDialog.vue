@@ -2,11 +2,11 @@
     <template v-for="(instance, key) in instanceMap" :key="key">
         <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" :pt="pt" :unstyled="unstyled" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide">
             <template v-if="instance.options.templates && instance.options.templates.header" #header>
-                <component v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :is="header" :key="index + '_header'"></component>
+                <component v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :is="header" :key="index + '_header'" v-bind="instance.options.emits"></component>
             </template>
             <component :is="instance.content" v-bind="instance.options.emits"></component>
             <template v-if="instance.options.templates && instance.options.templates.footer" #footer>
-                <component v-for="(footer, index) in getTemplateItems(instance.options.templates.footer)" :is="footer" :key="index + '_footer'"></component>
+                <component v-for="(footer, index) in getTemplateItems(instance.options.templates.footer)" :is="footer" :key="index + '_footer'" v-bind="instance.options.emits"></component>
             </template>
         </DDialog>
     </template>

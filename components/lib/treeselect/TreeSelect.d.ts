@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttri
  * Custom passthrough(pt) option method.
  */
 export interface TreeSelectPassThroughMethodOptions {
+    instance: any;
     props: TreeSelectProps;
     state: TreeSelectState;
 }
@@ -63,7 +65,7 @@ export interface TreeSelectPassThroughOptions {
      */
     wrapper?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the trigger's DOM element.
+     * Uses to pass attributes to Tree component.
      * @see {@link TreePassThroughOptionType}
      */
     tree?: TreePassThroughOptionType;
@@ -79,6 +81,11 @@ export interface TreeSelectPassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: TreeSelectPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface StepsPassThroughMethodOptions {
+    instance: any;
     props: StepsProps;
 }
 
@@ -49,6 +51,11 @@ export interface StepsPassThroughOptions {
      * Uses to pass attributes to the label's DOM element.
      */
     label?: StepsPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

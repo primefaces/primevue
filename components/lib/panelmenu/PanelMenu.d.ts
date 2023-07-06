@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface PanelMenuPassThroughMethodOptions {
+    instance: any;
     props: PanelMenuProps;
     state: PanelMenuState;
     context: PanelMenuContext;
@@ -99,6 +101,11 @@ export interface PanelMenuPassThroughOptions {
      * Uses to pass attributes to the separator's DOM element.
      */
     separator?: PanelMenuPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

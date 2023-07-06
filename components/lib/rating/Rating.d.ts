@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface RatingPassThroughMethodOptions {
+    instance: any;
     props: RatingProps;
     state: RatingState;
     context: RatingContext;
@@ -66,6 +68,11 @@ export interface RatingPassThroughOptions {
      * Uses to pass attributes to the hidden item input's DOM element.
      */
     hiddenItemInput?: RatingPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

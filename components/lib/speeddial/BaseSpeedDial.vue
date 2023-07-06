@@ -133,7 +133,6 @@ const classes = {
             'p-speeddial-rotate': props.rotateAnimation && !props.hideIcon
         }
     ],
-    buttonIcon: ({ instance, props }) => (instance.d_visible && !!props.hideIcon ? props.hideIcon : props.showIcon),
     menu: 'p-speeddial-list',
     menuitem: ({ instance, id }) => [
         'p-speeddial-item',
@@ -156,7 +155,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_speeddial_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'speeddial', manual: true });
 
 export default {
     name: 'BaseSpeedDial',

@@ -21,6 +21,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -128,6 +135,14 @@
                             "type": "AccordionTabPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to AccordionTab helper components."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -351,6 +366,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -2653,6 +2675,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -2932,6 +2961,14 @@
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the selected message's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -3721,6 +3758,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -3785,6 +3829,14 @@
                             "type": "AvatarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the image's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -3953,6 +4005,14 @@
                             "type": "AvatarGroupPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -4025,6 +4085,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -4058,6 +4125,14 @@
                             "type": "BadgePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -4158,6 +4233,14 @@
                             "type": "BadgeDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
@@ -4170,118 +4253,30 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgeDirectivePassThroughDirectiveOptions",
+                            "type": "BadgeDirectivePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "BadgeDirectivePassThroughDirectiveOptions": {
-                    "description": "Custom passthrough(pt) directive options.",
-                    "relatedProp": "",
-                    "props": [
+                        },
                         {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgeDirectivePassThroughHooksOptions",
+                            "type": "DirectiveHooks",
                             "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "BadgeDirectivePassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
                 },
-                "BadgeDirectivePassThroughHooksOptions": {
-                    "description": "Custom passthrough(pt) hooks options.",
+                "BadgeDirectivePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "created",
-                            "optional": true,
+                            "name": "[key: string]",
+                            "optional": false,
                             "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before bound element's attributes or event listeners are applied."
-                        },
-                        {
-                            "name": "beforeMount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called right before the element is inserted into the DOM."
-                        },
-                        {
-                            "name": "mounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the bound element's parent component and all its children are mounted."
-                        },
-                        {
-                            "name": "beforeUpdate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is updated."
-                        },
-                        {
-                            "name": "updated",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
-                        },
-                        {
-                            "name": "beforeUnmount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is unmounted."
-                        },
-                        {
-                            "name": "unmounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the parent component is unmounted."
-                        }
-                    ],
-                    "methods": []
-                },
-                "BadgeDirectivePassThroughCSSOptions": {
-                    "description": "Custom passthrough(pt) css options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "class",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Style class of the element."
-                        },
-                        {
-                            "name": "style",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Inline style of the element."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -4350,6 +4345,140 @@
                     "extendedTypes": "Omit<DirectiveBinding, \"modifiers\" | \"value\">"
                 }
             }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "BadgeDirectivePassThroughOptionType": {
+                    "values": "BadgeDirectivePassThroughAttributes | null | undefined"
+                }
+            }
+        }
+    },
+    "basecomponent/BaseComponent": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "ComponentHooks": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "beforeCreate",
+                            "parameters": [],
+                            "returnType": "void"
+                        },
+                        {
+                            "name": "created",
+                            "parameters": [],
+                            "returnType": "void"
+                        },
+                        {
+                            "name": "beforeMount",
+                            "parameters": [],
+                            "returnType": "void"
+                        },
+                        {
+                            "name": "mounted",
+                            "parameters": [],
+                            "returnType": "void"
+                        },
+                        {
+                            "name": "beforeUpdate",
+                            "parameters": [],
+                            "returnType": "void"
+                        },
+                        {
+                            "name": "updated",
+                            "parameters": [],
+                            "returnType": "void"
+                        },
+                        {
+                            "name": "beforeUnmount",
+                            "parameters": [],
+                            "returnType": "void"
+                        },
+                        {
+                            "name": "unmounted",
+                            "parameters": [],
+                            "returnType": "void"
+                        }
+                    ]
+                },
+                "BaseComponentPassThroughOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "BaseComponentPassThroughMethodOptions": {
+                    "description": "",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | I",
+                            "default": ""
+                        },
+                        {
+                            "name": "props",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | P",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | S",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        }
+    },
+    "basedirective/BaseDirective": {
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "DirectiveHooks": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [],
+                    "extendedTypes": "Omit<ObjectDirective, \"getSSRProps\" | \"deep\">"
+                },
+                "BaseDirectivePassThroughOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveHooks",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                }
+            }
         }
     },
     "blockui": {
@@ -4373,6 +4502,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -4401,6 +4537,14 @@
                             "type": "BlockUIPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -4553,6 +4697,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -4629,6 +4780,14 @@
                             "type": "BreadcrumbPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the separator icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -4787,6 +4946,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -4846,6 +5012,14 @@
                             "type": "ButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the badge's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -5123,6 +5297,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -5453,14 +5634,6 @@
                             "description": "Uses to pass attributes to the day label's DOM element."
                         },
                         {
-                            "name": "hiddenSelectedDay",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the aria selected day's DOM element."
-                        },
-                        {
                             "name": "monthPicker",
                             "optional": true,
                             "readonly": false,
@@ -5477,14 +5650,6 @@
                             "description": "Uses to pass attributes to the month's DOM element."
                         },
                         {
-                            "name": "hiddenMonth",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the aria month's DOM element."
-                        },
-                        {
                             "name": "yearPicker",
                             "optional": true,
                             "readonly": false,
@@ -5499,14 +5664,6 @@
                             "type": "CalendarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the year's DOM element."
-                        },
-                        {
-                            "name": "hiddenYear",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "CalendarPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the aria year's DOM element."
                         },
                         {
                             "name": "timePicker",
@@ -5619,6 +5776,38 @@
                             "type": "ButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "hiddenSelectedDay",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria selected day's DOM element."
+                        },
+                        {
+                            "name": "hiddenMonth",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria month's DOM element."
+                        },
+                        {
+                            "name": "hiddenYear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CalendarPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the aria year's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -6494,6 +6683,14 @@
                             "type": "CardPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -6609,6 +6806,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -6757,6 +6961,14 @@
                             "type": "CarouselPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -7147,6 +7359,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -7326,6 +7545,14 @@
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the search result message text aria's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -7936,6 +8163,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -7964,6 +8198,14 @@
                             "type": "ChartPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the canvas's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -8162,6 +8404,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -8228,6 +8477,14 @@
                             "type": "CheckboxPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -8554,6 +8811,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -8613,6 +8877,14 @@
                             "type": "ChipPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the removeIcon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -8795,6 +9067,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -8918,6 +9197,14 @@
                             "type": "ChipsPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the input's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -9223,6 +9510,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -9337,6 +9631,14 @@
                             "type": "ColorPickerPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hue handler's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -9554,6 +9856,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -10169,6 +10478,14 @@
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -10938,6 +11255,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -10972,6 +11296,14 @@
                             "type": "ColumnGroupPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -11279,6 +11611,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -11394,6 +11733,14 @@
                             "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -11577,6 +11924,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -11652,6 +12006,14 @@
                             "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -11837,6 +12199,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -11943,6 +12312,14 @@
                             "type": "ContextMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the submenu's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -12316,6 +12693,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -13714,6 +14098,14 @@
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the Column helper components."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -15044,6 +15436,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -15166,6 +15565,14 @@
                             "type": "DataViewPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -15499,6 +15906,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -15558,6 +15972,14 @@
                             "type": "DataViewLayoutOptionsPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the grid icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -15701,6 +16123,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -15728,6 +16157,14 @@
                             "type": "DeferredContentPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -15842,6 +16279,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -15949,6 +16393,14 @@
                             "type": "DialogPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the mask's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -16426,6 +16878,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -16454,6 +16913,14 @@
                             "type": "DividerPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -16569,6 +17036,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -16651,6 +17125,14 @@
                             "type": "DockPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -16953,6 +17435,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -17193,6 +17682,14 @@
                             "type": "DropdownPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden last focusable element's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -18167,6 +18664,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -18439,6 +18943,14 @@
                             "type": "EditorPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -18648,6 +19160,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -18746,6 +19265,14 @@
                             "type": "FieldsetPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -18927,6 +19454,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -19322,6 +19856,14 @@
                             "type": "FileUploadPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the upload icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -19866,7 +20408,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapDirectivePassThroughDirectiveOptions",
+                            "type": "FocusTrapDirectivePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
@@ -19874,7 +20416,7 @@
                             "name": "firstFocusableElement",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapDirectivePassThroughDirectiveOptions",
+                            "type": "FocusTrapDirectivePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the first focusable element's DOM element."
                         },
@@ -19882,118 +20424,30 @@
                             "name": "lastFocusableElement",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapDirectivePassThroughDirectiveOptions",
+                            "type": "FocusTrapDirectivePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the last focusable element's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "FocusTrapDirectivePassThroughDirectiveOptions": {
-                    "description": "Custom passthrough(pt) directive options.",
-                    "relatedProp": "",
-                    "props": [
+                        },
                         {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapDirectivePassThroughHooksOptions",
+                            "type": "DirectiveHooks",
                             "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "FocusTrapDirectivePassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
                 },
-                "FocusTrapDirectivePassThroughHooksOptions": {
-                    "description": "Custom passthrough(pt) hooks options.",
+                "FocusTrapDirectivePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "created",
-                            "optional": true,
+                            "name": "[key: string]",
+                            "optional": false,
                             "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before bound element's attributes or event listeners are applied."
-                        },
-                        {
-                            "name": "beforeMount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called right before the element is inserted into the DOM."
-                        },
-                        {
-                            "name": "mounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the bound element's parent component and all its children are mounted."
-                        },
-                        {
-                            "name": "beforeUpdate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is updated."
-                        },
-                        {
-                            "name": "updated",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
-                        },
-                        {
-                            "name": "beforeUnmount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is unmounted."
-                        },
-                        {
-                            "name": "unmounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the parent component is unmounted."
-                        }
-                    ],
-                    "methods": []
-                },
-                "FocusTrapDirectivePassThroughCSSOptions": {
-                    "description": "Custom passthrough(pt) css options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "class",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Style class of the element."
-                        },
-                        {
-                            "name": "style",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Inline style of the element."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -20013,6 +20467,14 @@
                     ],
                     "methods": [],
                     "extendedTypes": "Omit<DirectiveBinding, \"modifiers\" | \"value\">"
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "FocusTrapDirectivePassThroughOptionType": {
+                    "values": "FocusTrapDirectivePassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -20038,6 +20500,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -20296,6 +20765,14 @@
                             "type": "GalleriaPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the mask's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -20918,6 +21395,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -21081,6 +21565,14 @@
                             "type": "ImagePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the preview's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -21314,6 +21806,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -21357,6 +21856,14 @@
                             "type": "InlineMessagePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the text's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -21486,6 +21993,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -21537,6 +22051,14 @@
                             "type": "ButtonPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -21751,6 +22273,14 @@
                             "type": "InputMaskPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -21955,6 +22485,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -22060,6 +22597,14 @@
                             "type": "ButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -22508,6 +23053,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -22559,6 +23111,14 @@
                             "type": "InputSwitchPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -22789,6 +23349,14 @@
                             "type": "InputTextPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -22817,6 +23385,14 @@
                             "type": "Nullable<string>",
                             "default": "",
                             "description": "Value of the component."
+                        },
+                        {
+                            "name": "size",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"small\" | \"large\"",
+                            "default": "",
+                            "description": "Defines the size of the component."
                         },
                         {
                             "name": "pt",
@@ -22888,6 +23464,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -22947,6 +23530,14 @@
                             "type": "KnobPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -23232,6 +23823,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -23424,6 +24022,14 @@
                             "type": "ListboxPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden last focusable element's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -23983,6 +24589,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -24137,6 +24750,14 @@
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the end of the component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -24485,6 +25106,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -24599,6 +25227,14 @@
                             "type": "MenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the end of the component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -24884,6 +25520,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -25022,6 +25665,14 @@
                             "type": "MenubarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the end of the component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -25461,6 +26112,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -25528,6 +26186,14 @@
                             "type": "MessagePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the button icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -25754,6 +26420,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -26130,6 +26803,14 @@
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden last focusable element's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -27005,6 +27686,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -27158,6 +27846,14 @@
                             "type": "OrderListPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the item's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -27519,6 +28215,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -27742,6 +28445,14 @@
                             "type": "OrganizationChartPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the nodeCell's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -28090,6 +28801,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -28141,6 +28859,14 @@
                             "type": "OverlayPanelPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the close icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -28336,6 +29062,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -28552,6 +29285,14 @@
                             "type": "PaginatorPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the end's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -28869,6 +29610,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -28983,6 +29731,14 @@
                             "type": "PanelPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the footer's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -29187,6 +29943,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -29357,6 +30120,14 @@
                             "type": "PanelMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the separator's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -29673,6 +30444,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -29764,6 +30542,14 @@
                             "type": "PasswordPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden accessible DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -30178,6 +30964,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -30531,6 +31324,14 @@
                             "type": "ButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -31155,6 +31956,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -31191,6 +31999,14 @@
                             "type": "ProgressBarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -31307,6 +32123,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -31343,6 +32166,14 @@
                             "type": "ProgressSpinnerPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the circle's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -31452,6 +32283,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -31511,6 +32349,14 @@
                             "type": "RadioButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden accessible DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -31730,6 +32576,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -31836,6 +32689,14 @@
                             "type": "RatingPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden item input's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -32154,6 +33015,14 @@
                             "type": "RippleDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
                     "methods": []
@@ -32166,7 +33035,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "RippleDirectivePassThroughOptions",
+                            "type": "RippleDirectivePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
@@ -32174,103 +33043,22 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "RippleDirectivePassThroughHooksOptions",
+                            "type": "DirectiveHooks",
                             "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "RippleDirectivePassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
                 },
-                "RippleDirectivePassThroughHooksOptions": {
-                    "description": "Custom passthrough(pt) hooks options.",
+                "RippleDirectivePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "created",
-                            "optional": true,
+                            "name": "[key: string]",
+                            "optional": false,
                             "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before bound element's attributes or event listeners are applied."
-                        },
-                        {
-                            "name": "beforeMount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called right before the element is inserted into the DOM."
-                        },
-                        {
-                            "name": "mounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the bound element's parent component and all its children are mounted."
-                        },
-                        {
-                            "name": "beforeUpdate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is updated."
-                        },
-                        {
-                            "name": "updated",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
-                        },
-                        {
-                            "name": "beforeUnmount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is unmounted."
-                        },
-                        {
-                            "name": "unmounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the parent component is unmounted."
-                        }
-                    ],
-                    "methods": []
-                },
-                "RippleDirectivePassThroughCSSOptions": {
-                    "description": "Custom passthrough(pt) css options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "class",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Style class of the element."
-                        },
-                        {
-                            "name": "style",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Inline style of the element."
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -32290,6 +33078,14 @@
                     ],
                     "methods": [],
                     "extendedTypes": "Omit<DirectiveBinding, \"modifiers\" | \"value\">"
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "RippleDirectivePassThroughOptionType": {
+                    "values": "RippleDirectivePassThroughAttributes | null | undefined"
                 }
             }
         }
@@ -32315,6 +33111,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -32350,6 +33153,14 @@
                             "type": "RowPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -32442,6 +33253,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -32501,6 +33319,14 @@
                             "type": "ScrollPanelPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the vertical panel's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -32640,6 +33466,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -32675,6 +33508,14 @@
                             "type": "ScrollTopPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -32815,6 +33656,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -32865,6 +33713,14 @@
                             "type": "SelectButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -33157,6 +34013,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -33232,6 +34095,14 @@
                             "type": "SidebarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the mask's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -33450,6 +34321,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -33470,6 +34348,14 @@
                             "type": "SkeletonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -33603,6 +34489,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -33655,6 +34548,14 @@
                             "type": "SliderPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the end handler's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -33883,6 +34784,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -33965,6 +34873,14 @@
                             "type": "SpeedDialPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the mask's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -34395,6 +35311,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -34446,6 +35369,14 @@
                             "type": "TieredMenuPassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to the TieredMenu component."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -34745,6 +35676,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -34834,6 +35772,14 @@
                             "type": "SplitterPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the gutter handler's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -35008,6 +35954,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -35028,6 +35981,14 @@
                             "type": "SplitterPanelPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -35136,6 +36097,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -35196,6 +36164,14 @@
                             "type": "StepsPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the label's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -35408,72 +36384,9 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "StyleClassDirectivePassThroughHooksOptions",
+                            "type": "DirectiveHooks",
                             "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        }
-                    ],
-                    "methods": []
-                },
-                "StyleClassDirectivePassThroughHooksOptions": {
-                    "description": "Custom passthrough(pt) hooks options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "created",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before bound element's attributes or event listeners are applied."
-                        },
-                        {
-                            "name": "beforeMount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called right before the element is inserted into the DOM."
-                        },
-                        {
-                            "name": "mounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the bound element's parent component and all its children are mounted."
-                        },
-                        {
-                            "name": "beforeUpdate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is updated."
-                        },
-                        {
-                            "name": "updated",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
-                        },
-                        {
-                            "name": "beforeUnmount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is unmounted."
-                        },
-                        {
-                            "name": "unmounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the parent component is unmounted."
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -35518,6 +36431,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -35601,6 +36521,14 @@
                             "type": "TabMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the inkbar's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -35820,6 +36748,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -35886,6 +36821,14 @@
                             "type": "TabPanelPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the list's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -36198,6 +37141,14 @@
                             "type": "TabPanelPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to TabPanel helper components."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -36457,6 +37408,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -36493,6 +37451,14 @@
                             "type": "TagPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the value's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -36624,6 +37590,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -36715,6 +37688,14 @@
                             "type": "TerminalPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the command text's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -36907,6 +37888,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -36927,6 +37915,14 @@
                             "type": "TextareaPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -37044,6 +38040,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -37150,6 +38153,14 @@
                             "type": "TieredMenuPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the submenu's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -37560,6 +38571,14 @@
                             "type": "TimelinePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the content's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -37729,6 +38748,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -37836,6 +38862,14 @@
                             "type": "ToastPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the button icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -38229,6 +39263,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -38288,6 +39329,14 @@
                             "type": "ToggleButtonPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -38568,6 +39617,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -38612,6 +39668,14 @@
                             "type": "ToolbarPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the right's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -38782,9 +39846,69 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TooltipPassThroughOptions",
+                            "type": "TooltipDirectivePassThroughOptions",
                             "default": "",
                             "description": "Uses to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TooltipDirectivePassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "TooltipOptions.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipDirectivePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "text",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipDirectivePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the text's DOM element."
+                        },
+                        {
+                            "name": "arrow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TooltipDirectivePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the arrow's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DirectiveHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TooltipDirectivePassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
                         }
                     ],
                     "methods": []
@@ -38836,146 +39960,6 @@
                     ],
                     "methods": []
                 },
-                "TooltipPassThroughOptions": {
-                    "description": "Custom passthrough(pt) options.",
-                    "relatedProp": "TooltipOptions.pt",
-                    "props": [
-                        {
-                            "name": "root",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the root's DOM element."
-                        },
-                        {
-                            "name": "text",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the text's DOM element."
-                        },
-                        {
-                            "name": "arrow",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughDirectiveOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the arrow's DOM element."
-                        }
-                    ],
-                    "methods": []
-                },
-                "TooltipPassThroughDirectiveOptions": {
-                    "description": "Custom passthrough(pt) directive options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "hooks",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughHooksOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the life cycle hooks."
-                        },
-                        {
-                            "name": "css",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TooltipPassThroughCSSOptions",
-                            "default": "",
-                            "description": "Uses to pass attributes to the styles."
-                        }
-                    ],
-                    "methods": []
-                },
-                "TooltipPassThroughHooksOptions": {
-                    "description": "Custom passthrough(pt) hooks options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "created",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before bound element's attributes or event listeners are applied."
-                        },
-                        {
-                            "name": "beforeMount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called right before the element is inserted into the DOM."
-                        },
-                        {
-                            "name": "mounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the bound element's parent component and all its children are mounted."
-                        },
-                        {
-                            "name": "beforeUpdate",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is updated."
-                        },
-                        {
-                            "name": "updated",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called after the parent component and all of its children have updated all of its children have updated."
-                        },
-                        {
-                            "name": "beforeUnmount",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called before the parent component is unmounted."
-                        },
-                        {
-                            "name": "unmounted",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DirectiveBinding<any>",
-                            "default": "",
-                            "description": "Called when the parent component is unmounted."
-                        }
-                    ],
-                    "methods": []
-                },
-                "TooltipPassThroughCSSOptions": {
-                    "description": "Custom passthrough(pt) css options.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "class",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Style class of the element."
-                        },
-                        {
-                            "name": "style",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Inline style of the element."
-                        }
-                    ],
-                    "methods": []
-                },
                 "TooltipDirectiveBinding": {
                     "description": "Binding of Tooltip directive.",
                     "relatedProp": "",
@@ -39001,6 +39985,14 @@
                     "extendedTypes": "Omit<DirectiveBinding, \"modifiers\" | \"value\">"
                 }
             }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "TooltipDirectivePassThroughOptionType": {
+                    "values": "TooltipDirectivePassThroughAttributes | null | undefined"
+                }
+            }
         }
     },
     "tree": {
@@ -39024,6 +40016,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -39330,6 +40329,14 @@
                             "type": "TreePassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the loading icon's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -39724,6 +40731,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -39822,7 +40836,7 @@
                             "readonly": false,
                             "type": "TreePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the trigger's DOM element."
+                            "description": "Uses to pass attributes to Tree component."
                         },
                         {
                             "name": "emptyMessage",
@@ -39847,6 +40861,14 @@
                             "type": "TreeSelectPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden input's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -40300,6 +41322,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -40836,6 +41865,14 @@
                             "type": "ColumnPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the Column helper components."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -41617,6 +42654,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
@@ -41707,6 +42751,14 @@
                             "type": "TriStateCheckboxPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the hidden value label's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []
@@ -41980,6 +43032,83 @@
             }
         }
     },
+    "usestyle/UseStyle": {
+        "functions": {
+            "description": "Defines the custom functions used by the module.",
+            "values": {
+                "useStyle": {
+                    "name": "useStyle",
+                    "parameters": [
+                        {
+                            "name": "css",
+                            "type": "string"
+                        },
+                        {
+                            "name": "options",
+                            "type": "StyleOptions"
+                        }
+                    ],
+                    "returnType": "Object"
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "StyleOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "document",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "HTMLElement",
+                            "default": ""
+                        },
+                        {
+                            "name": "immediate",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
+                            "name": "manual",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "id",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "media",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        }
+    },
     "usetoast/UseToast": {
         "functions": {
             "description": "Defines the custom functions used by the module.",
@@ -42093,6 +43222,13 @@
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
                         {
                             "name": "props",
                             "optional": false,
@@ -42318,6 +43454,14 @@
                             "type": "VirtualScrollerPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the spacer's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Uses to manage all lifecycle hooks"
                         }
                     ],
                     "methods": []

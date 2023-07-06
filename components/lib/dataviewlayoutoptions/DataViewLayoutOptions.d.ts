@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type DataViewLayoutOptionsPassThroughOptionType = DataViewLayoutOptionsPassThroughAttributes | ((options: DataViewLayoutOptionsPassThroughMethodOptions) => DataViewLayoutOptionsPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type DataViewLayoutOptionsPassThroughOptionType = DataViewLayoutO
  * Custom passthrough(pt) option method.
  */
 export interface DataViewLayoutOptionsPassThroughMethodOptions {
+    instance: any;
     props: DataViewLayoutOptionsProps;
     state: DataViewLayoutOptionsState;
 }
@@ -45,6 +47,11 @@ export interface DataViewLayoutOptionsPassThroughOptions {
      * Uses to pass attributes to the grid icon's DOM element.
      */
     gridIcon?: DataViewLayoutOptionsPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

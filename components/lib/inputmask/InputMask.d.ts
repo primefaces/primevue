@@ -7,6 +7,7 @@
  * @module inputmask
  *
  */
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type InputMaskPassThroughOptionType = InputMaskPassThroughAttributes | null | undefined;
@@ -20,6 +21,11 @@ export interface InputMaskPassThroughOptions {
      * Uses to pass attributes to the root's DOM element.
      */
     root?: InputMaskPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

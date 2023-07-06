@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('container')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
-        <div :class="cx('content')" v-bind="ptm('content')">
+        <div :class="[cx('content'), message.contentStyleClass]" v-bind="ptm('content')">
             <template v-if="!templates.message">
                 <component :is="templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('icon')" v-bind="ptm('icon')" />
                 <div :class="cx('text')" v-bind="ptm('text')">
@@ -11,7 +11,7 @@
             <component v-else :is="templates.message" :message="message"></component>
             <div v-if="message.closable !== false" v-bind="ptm('buttonContainer')">
                 <button v-ripple :class="cx('button')" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="{ ...closeButtonProps, ...ptm('button') }">
-                    <component :is="templates.closeicon || 'TimesIcon'" :class="cx('buttonIcon')" v-bind="ptm('buttonIcon')" />
+                    <component :is="templates.closeicon || 'TimesIcon'" :class="[cx('buttonIcon'), closeIcon]" v-bind="ptm('buttonIcon')" />
                 </button>
             </div>
         </div>

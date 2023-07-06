@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="rating">
         <div v-if="cancel" :class="cx('cancelItem')" @click="onOptionClick($event, 0)" v-bind="ptm('cancelItem')" :data-p-focused="focusedOptionIndex === 0">
-            <span :class="cx('hiddenCancelInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenCancelInputWrapper')" :data-p-hidden-accessible="true">
+            <span class="p-hidden-accessible" v-bind="ptm('hiddenCancelInputWrapper')" :data-p-hidden-accessible="true">
                 <input
                     type="radio"
                     value="0"
@@ -22,7 +22,7 @@
         </div>
         <template v-for="value in stars" :key="value">
             <div :class="cx('item', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions(value, 'item')" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
-                <span :class="cx('hiddenItemInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenItemInputWrapper')" :data-p-hidden-accessible="true">
+                <span class="p-hidden-accessible" v-bind="ptm('hiddenItemInputWrapper')" :data-p-hidden-accessible="true">
                     <input
                         type="radio"
                         :value="value"

@@ -81,6 +81,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'ContextMenuSub',
+    hostName: 'ContextMenu',
     extends: BaseComponent,
     emits: ['item-click', 'item-mouseenter'],
     props: {

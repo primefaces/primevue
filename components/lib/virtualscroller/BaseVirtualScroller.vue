@@ -5,6 +5,7 @@ import { useStyle } from 'primevue/usestyle';
 const styles = `
 .p-virtualscroller {
     position: relative;
+    overflow: auto;
     contain: strict;
     transform: translateZ(0);
     will-change: scroll-position;
@@ -64,36 +65,7 @@ const styles = `
 }
 `;
 
-const inlineStyles = {
-    root: { overflow: 'auto' }
-};
-
-const classes = {
-    root: ({ instance, props }) => [
-        'p-virtualscroller',
-        {
-            'p-virtualscroller-inline': props.inline,
-            'p-virtualscroller-both p-both-scroll': instance.isBoth(),
-            'p-virtualscroller-horizontal p-horizontal-scroll': instance.isHorizontal()
-        }
-    ],
-    content: ({ instance }) => [
-        'p-virtualscroller-content',
-        {
-            'p-virtualscroller-loading': instance.d_loading
-        }
-    ],
-    spacer: 'p-virtualscroller-spacer',
-    loader: ({ instance }) => [
-        'p-virtualscroller-loader',
-        {
-            'p-component-overlay': !instance.$slots.loader
-        }
-    ],
-    loadingIcon: 'p-virtualscroller-loading-icon'
-};
-
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_virtualscroller_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'virtualscroller' });
 
 export default {
     name: 'BaseVirtualScroller',
@@ -181,8 +153,6 @@ export default {
         }
     },
     css: {
-        classes,
-        inlineStyles,
         loadStyle
     },
     provide() {

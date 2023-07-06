@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ProgressBarPassThroughMethodOptions {
+    instance: any;
     props: ProgressBarProps;
 }
 
@@ -36,6 +38,11 @@ export interface ProgressBarPassThroughOptions {
      * Uses to pass attributes to the label's DOM element.
      */
     label?: ProgressBarPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

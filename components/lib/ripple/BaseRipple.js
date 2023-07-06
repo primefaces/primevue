@@ -1,3 +1,7 @@
+import BaseDirective from 'primevue/basedirective';
+import { useStyle } from 'primevue/usestyle';
+
+const styles = `
 .p-ripple {
     overflow: hidden;
     position: relative;
@@ -26,3 +30,19 @@
         transform: scale(2.5);
     }
 }
+`;
+
+const classes = {
+    root: 'p-ink'
+};
+
+const { load: loadStyle } = useStyle(styles, { name: 'ripple', manual: true });
+
+const BaseRipple = BaseDirective.extend({
+    css: {
+        classes,
+        loadStyle
+    }
+});
+
+export default BaseRipple;

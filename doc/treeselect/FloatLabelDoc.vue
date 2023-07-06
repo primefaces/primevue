@@ -13,6 +13,7 @@
 
 <script>
 import { NodeService } from '/service/NodeService';
+
 export default {
     data() {
         return {
@@ -21,18 +22,22 @@ export default {
             code: {
                 basic: `
 <span class="p-float-label">
-    <TreeSelect v-model="selectedValue" :options="nodes" placeholder="TreeSelect" />
+    <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+    <label>Tree Select</label>
 </span>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" placeholder="TreeSelect" />
+            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+            <label>Tree Select</label>
         </span>
     </div>
 </template>
 
 <script>
+import { NodeService } from './service/NodeService';
+
 export default {
     data() {
         return {
@@ -49,13 +54,15 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" placeholder="TreeSelect" />
+            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+            <label>Tree Select</label>
         </span>
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
 const selectedValue = ref(null);

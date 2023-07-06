@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions) => ButtonPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface ButtonPassThroughMethodOptions {
+    instance: any;
     props: ButtonProps;
     context: ButtonContext;
 }
@@ -45,6 +47,11 @@ export interface ButtonPassThroughOptions {
      * Uses to pass attributes to the badge's DOM element.
      */
     badge?: ButtonPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

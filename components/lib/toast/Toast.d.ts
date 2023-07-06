@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface ToastPassThroughMethodOptions {
+    instance: any;
     props: ToastProps;
     state: ToastState;
 }
@@ -69,6 +71,11 @@ export interface ToastPassThroughOptions {
      * Uses to pass attributes to the button icon's DOM element.
      */
     buttonIcon?: ToastPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

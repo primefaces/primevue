@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
@@ -19,6 +20,7 @@ export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface SplitButtonPassThroughMethodOptions {
+    instance: any;
     props: SplitButtonProps;
     state: SplitButtonState;
 }
@@ -46,6 +48,11 @@ export interface SplitButtonPassThroughOptions {
      * @see {@link TieredMenuPassThroughOptions}
      */
     menu?: TieredMenuPassThroughOptions;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

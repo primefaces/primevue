@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ColumnPassThroughOptionType } from '../column';
 import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
@@ -21,6 +22,7 @@ export declare type DataTablePassThroughOptionType = DataTablePassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface DataTablePassThroughMethodOptions {
+    instance: any;
     props: DataTableProps;
     state: DataTableState;
 }
@@ -646,6 +648,11 @@ export interface DataTablePassThroughOptions {
      * Uses to pass attributes to the Column helper components.
      */
     column?: ColumnPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

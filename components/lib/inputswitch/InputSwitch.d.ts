@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type InputSwitchPassThroughOptionType = InputSwitchPassThroughAttributes | ((options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type InputSwitchPassThroughOptionType = InputSwitchPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface InputSwitchPassThroughMethodOptions {
+    instance: any;
     props: InputSwitchProps;
     state: InputSwitchState;
 }
@@ -41,6 +43,11 @@ export interface InputSwitchPassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: InputSwitchPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

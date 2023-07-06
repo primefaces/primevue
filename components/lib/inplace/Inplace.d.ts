@@ -9,6 +9,7 @@
  */
 
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -18,6 +19,7 @@ export declare type InplacePassThroughOptionType = InplacePassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface InplacePassThroughMethodOptions {
+    instance: any;
     props: InplaceProps;
     state: InplaceState;
 }
@@ -44,6 +46,11 @@ export interface InplacePassThroughOptions {
      * @see {@link ButtonPassThroughOptions}
      */
     closeButton?: ButtonPassThroughOptions;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

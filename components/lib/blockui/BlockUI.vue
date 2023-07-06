@@ -38,7 +38,7 @@ export default {
                 this.mask = document.createElement('div');
                 !this.isUnstyled && this.mask.setAttribute('class', styleClass);
                 document.body.appendChild(this.mask);
-                !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
                 document.activeElement.blur();
             } else {
                 this.mask = document.createElement('div');
@@ -65,7 +65,7 @@ export default {
             if (this.fullScreen) {
                 if (!this.isUnstyled) {
                     document.body.removeChild(this.mask);
-                    !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
                 }
             } else {
                 this.$refs.container.removeChild(this.mask);

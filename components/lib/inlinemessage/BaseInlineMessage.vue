@@ -26,7 +26,7 @@ const classes = {
     text: 'p-inline-message-text'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_inlinemessage_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'inlinemessage', manual: true });
 
 export default {
     name: 'BaseInlineMessage',

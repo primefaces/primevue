@@ -11,6 +11,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'FooterCell',
+    hostName: 'TreeTable',
     extends: BaseComponent,
     props: {
         column: {

@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TagPassThroughOptionType = TagPassThroughAttributes | ((options: TagPassThroughMethodOptions) => TagPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type TagPassThroughOptionType = TagPassThroughAttributes | ((opti
  * Custom passthrough(pt) option method.
  */
 export interface TagPassThroughMethodOptions {
+    instance: any;
     props: TagProps;
 }
 
@@ -36,6 +38,11 @@ export interface TagPassThroughOptions {
      * Uses to pass attributes to the value's DOM element.
      */
     value?: TagPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

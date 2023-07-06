@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type DataViewPassThroughOptionType = DataViewPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface DataViewPassThroughMethodOptions {
+    instance: any;
     props: DataViewProps;
     state: DataViewState;
 }
@@ -81,6 +83,11 @@ export interface DataViewPassThroughOptions {
      * Uses to pass attributes to the footer's DOM element.
      */
     footer?: DataViewPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

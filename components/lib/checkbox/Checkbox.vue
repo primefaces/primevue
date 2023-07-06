@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" @click="onClick($event)" v-bind="getPTOptions('root')" data-pc-name="checkbox">
-        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 :id="inputId"

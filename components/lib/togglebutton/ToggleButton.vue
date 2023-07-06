@@ -1,6 +1,6 @@
 <template>
     <div ref="container" v-ripple :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" :data-p-active="modelValue === true" data-pc-name="togglebutton">
-        <span :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <span class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 :id="inputId"
                 type="checkbox"
@@ -17,7 +17,7 @@
             />
         </span>
         <slot name="icon" :value="modelValue" :class="cx('icon')">
-            <span v-if="onIcon || offIcon" :class="cx('icon')" v-bind="ptm('icon')" />
+            <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="ptm('icon')" />
         </slot>
         <span :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
     </div>

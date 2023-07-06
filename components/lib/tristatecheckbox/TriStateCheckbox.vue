@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" @click="onClick($event)" v-bind="ptm('root')" data-pc-name="tristatecheckbox">
-        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 :id="inputId"
@@ -16,7 +16,7 @@
                 v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
-        <span role="status" :class="cx('hiddenValueLabel')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenValueLabel')" :data-p-hidden-accessible="true">{{ ariaValueLabel }}</span>
+        <span role="status" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenValueLabel')" :data-p-hidden-accessible="true">{{ ariaValueLabel }}</span>
         <div ref="box" :class="cx('checkbox')" v-bind="getPTOptions('checkbox')" :data-p-highlight="modelValue != null" :data-p-disabled="disabled" :data-p-focused="focused">
             <slot v-if="modelValue === true" name="checkicon" :class="cx('checkIcon')">
                 <component :is="'CheckIcon'" :class="cx('checkIcon')" v-bind="ptm('checkIcon')" />

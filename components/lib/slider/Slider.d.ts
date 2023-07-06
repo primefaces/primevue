@@ -7,6 +7,7 @@
  * @module slider
  *
  */
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | ((options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes) | null | undefined;
@@ -15,6 +16,7 @@ export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface SliderPassThroughMethodOptions {
+    instance: any;
     props: SliderProps;
 }
 
@@ -43,6 +45,11 @@ export interface SliderPassThroughOptions {
      * Uses to pass attributes to the end handler's DOM element.
      */
     endHandler?: SliderPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

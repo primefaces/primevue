@@ -77,7 +77,7 @@ const classes = {
     separator: 'p-menuitem-separator'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_contextmenu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'contextmenu', manual: true });
 
 export default {
     name: 'BaseContextMenu',

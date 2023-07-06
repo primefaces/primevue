@@ -8,6 +8,7 @@
  *
  */
 import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type CalendarPassThroughOptionType = CalendarPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface CalendarPassThroughMethodOptions {
+    instance: any;
     props: CalendarProps;
     state: CalendarState;
 }
@@ -197,10 +199,6 @@ export interface CalendarPassThroughOptions {
      */
     dayLabel?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the aria selected day's DOM element.
-     */
-    hiddenSelectedDay?: CalendarPassThroughOptionType;
-    /**
      * Uses to pass attributes to the month picker's DOM element.
      */
     monthPicker?: CalendarPassThroughOptionType;
@@ -209,10 +207,6 @@ export interface CalendarPassThroughOptions {
      */
     month?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the aria month's DOM element.
-     */
-    hiddenMonth?: CalendarPassThroughOptionType;
-    /**
      * Uses to pass attributes to the year picker's DOM element.
      */
     yearPicker?: CalendarPassThroughOptionType;
@@ -220,10 +214,6 @@ export interface CalendarPassThroughOptions {
      * Uses to pass attributes to the year's DOM element.
      */
     year?: CalendarPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the aria year's DOM element.
-     */
-    hiddenYear?: CalendarPassThroughOptionType;
     /**
      * Uses to pass attributes to the time picker's DOM element.
      */
@@ -282,6 +272,23 @@ export interface CalendarPassThroughOptions {
      * @see {@link ButtonPassThroughOptionType}
      */
     clearButton?: ButtonPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the aria selected day's DOM element.
+     */
+    hiddenSelectedDay?: CalendarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the aria month's DOM element.
+     */
+    hiddenMonth?: CalendarPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the aria year's DOM element.
+     */
+    hiddenYear?: CalendarPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

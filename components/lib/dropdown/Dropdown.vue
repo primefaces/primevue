@@ -66,8 +66,7 @@
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
                         aria-hidden="true"
-                        :class="cx('hiddenFirstFocusableEl')"
-                        :style="sx('hiddenAccessible', isUnstyled)"
+                        class="p-hidden-accessible p-hidden-focusable"
                         :tabindex="0"
                         @focus="onFirstHiddenFocus"
                         v-bind="ptm('hiddenFirstFocusableEl')"
@@ -97,7 +96,7 @@
                                 <component :is="filterIcon ? 'span' : 'FilterIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
                             </slot>
                         </div>
-                        <span role="status" aria-live="polite" :class="cx('hiddenFilterResult')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
+                        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
                             {{ filterResultMessageText }}
                         </span>
                     </div>
@@ -131,17 +130,10 @@
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         </li>
                                     </template>
-                                    <li
-                                        v-if="filterValue && (!items || (items && items.length === 0))"
-                                        :class="cx('emptyMessage')"
-                                        :style="sx('hiddenAccessible', isUnstyled)"
-                                        role="option"
-                                        v-bind="ptm('emptyMessage')"
-                                        :data-p-hidden-accessible="true"
-                                    >
+                                    <li v-if="filterValue && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
                                         <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                                     </li>
-                                    <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" :style="sx('hiddenAccessible', isUnstyled)" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
+                                    <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
                                         <slot name="empty">{{ emptyMessageText }}</slot>
                                     </li>
                                 </ul>
@@ -152,26 +144,17 @@
                         </VirtualScroller>
                     </div>
                     <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
-                    <span
-                        v-if="!options || (options && options.length === 0)"
-                        role="status"
-                        aria-live="polite"
-                        :class="cx('emptyHiddenMessage')"
-                        :style="sx('hiddenAccessible', isUnstyled)"
-                        v-bind="ptm('hiddenEmptyMessage')"
-                        :data-p-hidden-accessible="true"
-                    >
+                    <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenEmptyMessage')" :data-p-hidden-accessible="true">
                         {{ emptyMessageText }}
                     </span>
-                    <span role="status" aria-live="polite" :class="cx('hiddenSelectedMessage')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
+                    <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
                     <span
                         ref="lastHiddenFocusableElementOnOverlay"
                         role="presentation"
                         aria-hidden="true"
-                        :class="cx('hiddenLastFocusableEl')"
-                        :style="sx('hiddenAccessible', isUnstyled)"
+                        class="p-hidden-accessible p-hidden-focusable"
                         :tabindex="0"
                         @focus="onLastHiddenFocus"
                         v-bind="ptm('hiddenLastFocusableEl')"

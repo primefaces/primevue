@@ -28,7 +28,7 @@
         <slot v-if="toggleMask && !unmasked" name="showicon" :onClick="onMaskToggle">
             <component :is="showIcon ? 'i' : 'EyeIcon'" :class="showIcon" @click="onMaskToggle" v-bind="ptm('showIcon')" />
         </slot>
-        <span :class="cx('hiddenAccesible')" :style="sx('hiddenAccessible', isUnstyled)" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
+        <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}
         </span>
         <Portal :appendTo="appendTo">

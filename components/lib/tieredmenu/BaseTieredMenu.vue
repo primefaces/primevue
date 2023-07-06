@@ -81,7 +81,7 @@ const classes = {
     separator: 'p-menuitem-separator'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_tieredmenu_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'tieredmenu', manual: true });
 
 export default {
     name: 'BaseTieredMenu',

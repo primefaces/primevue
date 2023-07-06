@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttributes | ((options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface ScrollTopPassThroughMethodOptions {
+    instance: any;
     props: ScrollTopProps;
     state: ScrollTopState;
 }
@@ -33,6 +35,11 @@ export interface ScrollTopPassThroughOptions {
      * Uses to pass attributes to the icon's DOM element.
      */
     icon?: ScrollTopPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

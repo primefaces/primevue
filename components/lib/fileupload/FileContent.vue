@@ -25,6 +25,7 @@ import TimesIcon from 'primevue/icons/times';
 
 export default {
     name: 'FileContent',
+    hostName: 'FileUpload',
     extends: BaseComponent,
     emits: ['remove'],
     props: {

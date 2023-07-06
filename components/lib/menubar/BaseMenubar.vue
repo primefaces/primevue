@@ -114,7 +114,7 @@ const classes = {
     end: 'p-menubar-end'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_menubar_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'menubar', manual: true });
 
 export default {
     name: 'BaseMenubar',

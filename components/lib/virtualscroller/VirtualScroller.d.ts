@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassTh
  * Custom passthrough(pt) option method.
  */
 export interface VirtualScrollerPassThroughMethodOptions {
+    instance: any;
     props: VirtualScrollerProps;
     state: VirtualScrollerState;
 }
@@ -127,6 +129,11 @@ export interface VirtualScrollerPassThroughOptions {
      * Uses to pass attributes to the spacer's DOM element.
      */
     spacer?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

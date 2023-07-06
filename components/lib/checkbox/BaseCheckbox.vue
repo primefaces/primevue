@@ -1,26 +1,5 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { useStyle } from 'primevue/usestyle';
-
-const styles = `
-.p-checkbox {
-    display: inline-flex;
-    cursor: pointer;
-    user-select: none;
-    vertical-align: bottom;
-    position: relative;
-}
-
-.p-checkbox.p-checkbox-disabled {
-    cursor: default;
-}
-
-.p-checkbox-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-`;
 
 const classes = {
     root: ({ instance, props }) => [
@@ -31,7 +10,6 @@ const classes = {
             'p-checkbox-focused': instance.focused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     input: ({ instance, props }) => [
         'p-checkbox-box',
         {
@@ -42,8 +20,6 @@ const classes = {
     ],
     icon: 'p-checkbox-icon'
 };
-
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_checkbox_style', manual: true });
 
 export default {
     name: 'BaseCheckbox',
@@ -106,8 +82,7 @@ export default {
         }
     },
     css: {
-        classes,
-        loadStyle
+        classes
     },
     provide() {
         return {

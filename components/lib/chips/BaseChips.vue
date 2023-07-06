@@ -67,7 +67,7 @@ const classes = {
     inputToken: 'p-chips-input-token'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_chips_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'chips', manual: true });
 
 export default {
     name: 'BaseChips',

@@ -54,7 +54,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_badge_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'badge', manual: true });
 
 export default {
     name: 'BaseBadge',

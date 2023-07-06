@@ -12,7 +12,7 @@ const classes = {
     root: 'p-chart'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_chart_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'chart', manual: true });
 
 export default {
     name: 'BaseChart',

@@ -27,6 +27,7 @@ import PanelMenuSub from './PanelMenuSub.vue';
 
 export default {
     name: 'PanelMenuList',
+    hostName: 'PanelMenu',
     extends: BaseComponent,
     emits: ['item-toggle', 'header-focus'],
     props: {

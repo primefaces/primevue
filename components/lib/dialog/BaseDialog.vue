@@ -4,14 +4,6 @@ import { useStyle } from 'primevue/usestyle';
 
 const styles = `
 .p-dialog-mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     pointer-events: none;
 }
 
@@ -20,8 +12,6 @@ const styles = `
 }
 
 .p-dialog {
-    display: flex;
-    flex-direction: column;
     pointer-events: auto;
     max-height: 90%;
     transform: scale(1);
@@ -145,44 +135,43 @@ const styles = `
     flex-grow: 1;
 }
 
-/* Position */
-.p-dialog-left {
-    justify-content: flex-start;
-}
-.p-dialog-right {
-    justify-content: flex-end;
-}
-.p-dialog-top {
-    align-items: flex-start;
-}
-.p-dialog-topleft {
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-.p-dialog-topright {
-    justify-content: flex-end;
-    align-items: flex-start;
-}
-.p-dialog-bottom {
-    align-items: flex-end;
-}
-.p-dialog-bottomleft {
-    justify-content: flex-start;
-    align-items: flex-end;
-}
-.p-dialog-bottomright {
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
 .p-confirm-dialog .p-dialog-content {
     display: flex;
     align-items: center;
 }
 `;
 
+/* Position */
+const inlineStyles = {
+    mask: ({ position }) => ({
+        position: 'fixed',
+        height: '100%',
+        width: '100%',
+        left: 0,
+        top: 0,
+        display: 'flex',
+        justifyContent: position === 'left' || position === 'topleft' || position === 'bottomleft' ? 'flex-start' : position === 'right' || position === 'topright' || position === 'bottomright' ? 'flex-end' : 'center',
+        alignItems: position === 'top' || position === 'topleft' || position === 'topright' ? 'flex-start' : position === 'bottom' || position === 'bottomleft' || position === 'bottomright' ? 'flex-end' : 'center'
+    }),
+    root: {
+        display: 'flex',
+        flexDirection: 'column'
+    }
+};
+
 const classes = {
-    mask: ({ props, instance }) => ['p-dialog-mask', { 'p-component-overlay p-component-overlay-enter': props.modal }, instance.getPositionClass()],
+    mask: ({ props }) => {
+        const positions = ['left', 'right', 'top', 'topleft', 'topright', 'bottom', 'bottomleft', 'bottomright'];
+        const pos = positions.find((item) => item === props.position);
+
+        return [
+            'p-dialog-mask',
+            {
+                'p-component-overlay p-component-overlay-enter': props.modal
+            },
+            pos ? `p-dialog-${pos}` : ''
+        ];
+    },
     root: ({ props, instance }) => [
         'p-dialog p-component',
         {
@@ -196,14 +185,14 @@ const classes = {
     headerTitle: 'p-dialog-title',
     headerIcons: 'p-dialog-header-icons',
     maximizableButton: 'p-dialog-header-icon p-dialog-header-maximize p-link',
-    maximizableIcon: ({ props, instance }) => `p-dialog-header-maximize-icon ${instance.maximized ? props.minimizeIcon : props.maximizeIcon}`,
+    maximizableIcon: 'p-dialog-header-maximize-icon',
     closeButton: 'p-dialog-header-icon p-dialog-header-close p-link',
-    closeButtonIcon: ({ props }) => ['p-dialog-header-close-icon', props.closeIcon],
+    closeButtonIcon: 'p-dialog-header-close-icon',
     content: 'p-dialog-content',
     footer: 'p-dialog-footer'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_dialog_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'dialog', manual: true });
 
 export default {
     name: 'BaseDialog',
@@ -317,6 +306,7 @@ export default {
     },
     css: {
         classes,
+        inlineStyles,
         loadStyle
     },
     provide() {

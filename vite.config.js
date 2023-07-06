@@ -3,6 +3,7 @@ import path from 'path';
 export default {
     resolve: {
         alias: {
+            'primevue/base': path.resolve(__dirname, './components/lib/base/Base.js'),
             'primevue/basedirective': path.resolve(__dirname, './components/lib/basedirective/BaseDirective.js'),
             'primevue/ripple': path.resolve(__dirname, './components/lib/ripple/Ripple.js'),
             'primevue/tooltip': path.resolve(__dirname, './components/lib/tooltip/Tooltip.js'),

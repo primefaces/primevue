@@ -78,6 +78,7 @@ import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'MenubarSub',
+    hostName: 'Menubar',
     extends: BaseComponent,
     emits: ['item-mouseenter', 'item-click'],
     props: {

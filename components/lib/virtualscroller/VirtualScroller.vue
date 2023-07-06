@@ -1,9 +1,9 @@
 <template>
     <template v-if="!disabled">
-        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="[style, sx('root')]" @scroll="onScroll" v-bind="ptm('root')" data-pc-name="virtualscroller">
+        <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptm('root')" data-pc-name="virtualscroller">
             <slot
                 name="content"
-                :styleClass="cx('content')"
+                :styleClass="contentClass"
                 :items="loadedItems"
                 :getItemOptions="getOptions"
                 :loading="d_loading"
@@ -18,21 +18,21 @@
                 :horizontal="isHorizontal()"
                 :both="isBoth()"
             >
-                <div :ref="contentRef" :class="cx('content')" :style="contentStyle" v-bind="ptm('content')">
+                <div :ref="contentRef" :class="contentClass" :style="contentStyle" v-bind="ptm('content')">
                     <template v-for="(item, index) of loadedItems" :key="index">
                         <slot name="item" :item="item" :options="getOptions(index)"></slot>
                     </template>
                 </div>
             </slot>
-            <div v-if="showSpacer" :class="cx('spacer')" :style="spacerStyle" v-bind="ptm('spacer')"></div>
-            <div v-if="!loaderDisabled && showLoader && d_loading" :class="cx('loader')" v-bind="ptm('loader')">
+            <div v-if="showSpacer" class="p-virtualscroller-spacer" :style="spacerStyle" v-bind="ptm('spacer')"></div>
+            <div v-if="!loaderDisabled && showLoader && d_loading" :class="loaderClass" v-bind="ptm('loader')">
                 <template v-if="$slots && $slots.loader">
                     <template v-for="(_, index) of loaderArr" :key="index">
                         <slot name="loader" :options="getLoaderOptions(index, isBoth() && { numCols: d_numItemsInViewport.cols })"></slot>
                     </template>
                 </template>
-                <slot name="loadingicon" :class="cx('loadingIcon')">
-                    <SpinnerIcon spin :class="cx('loadingIcon')" v-bind="ptm('loadingIcon')" />
+                <slot name="loadingicon">
+                    <SpinnerIcon spin class="p-virtualscroller-loading-icon" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
         </div>
@@ -615,7 +615,31 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.cx('root'), this.class];
+            return [
+                'p-virtualscroller',
+                this.class,
+                {
+                    'p-virtualscroller-inline': this.inline,
+                    'p-virtualscroller-both p-both-scroll': this.isBoth(),
+                    'p-virtualscroller-horizontal p-horizontal-scroll': this.isHorizontal()
+                }
+            ];
+        },
+        contentClass() {
+            return [
+                'p-virtualscroller-content',
+                {
+                    'p-virtualscroller-loading': this.d_loading
+                }
+            ];
+        },
+        loaderClass() {
+            return [
+                'p-virtualscroller-loader',
+                {
+                    'p-component-overlay': !this.$slots.loader
+                }
+            ];
         },
         loadedItems() {
             if (this.items && !this.d_loading) {

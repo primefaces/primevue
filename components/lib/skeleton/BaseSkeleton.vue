@@ -51,7 +51,7 @@ const classes = {
     ]
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_skeleton_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'skeleton', manual: true });
 
 export default {
     name: 'BaseSkeleton',

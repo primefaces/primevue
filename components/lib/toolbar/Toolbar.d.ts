@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ToolbarPassThroughOptionType = ToolbarPassThroughAttributes | ((options: ToolbarPassThroughMethodOptions) => ToolbarPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type ToolbarPassThroughOptionType = ToolbarPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface ToolbarPassThroughMethodOptions {
+    instance: any;
     props: ToolbarProps;
 }
 
@@ -40,6 +42,11 @@ export interface ToolbarPassThroughOptions {
      * Uses to pass attributes to the right's DOM element.
      */
     end?: ToolbarPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

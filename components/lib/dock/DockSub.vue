@@ -80,6 +80,7 @@ import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
 
 export default {
     name: 'DockSub',
+    hostName: 'Dock',
     extends: BaseComponent,
     emits: ['focus', 'blur'],
     props: {

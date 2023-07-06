@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type MessagePassThroughOptionType = MessagePassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface MessagePassThroughMethodOptions {
+    instance: any;
     props: MessageProps;
     state: MessageState;
 }
@@ -49,6 +51,11 @@ export interface MessagePassThroughOptions {
      * Uses to pass attributes to the button icon's DOM element.
      */
     buttonIcon?: MessagePassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

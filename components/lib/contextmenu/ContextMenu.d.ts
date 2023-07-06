@@ -9,6 +9,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -18,6 +19,7 @@ export declare type ContextMenuPassThroughOptionType = ContextMenuPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ContextMenuPassThroughMethodOptions {
+    instance: any;
     props: ContextMenuProps;
     state: ContextMenuState;
     context: ContextMenuContext;
@@ -68,6 +70,11 @@ export interface ContextMenuPassThroughOptions {
      * Uses to pass attributes to the submenu's DOM element.
      */
     submenu?: ContextMenuPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

@@ -4,14 +4,7 @@ import { useStyle } from 'primevue/usestyle';
 
 const styles = `
 .p-sidebar-mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: none;
-    justify-content: center;
-    align-items: center;
     pointer-events: none;
     background-color: transparent;
     transition-property: background-color;
@@ -91,23 +84,6 @@ const styles = `
     transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Position */
-.p-sidebar-left {
-    justify-content: flex-start;
-}
-
-.p-sidebar-right {
-    justify-content: flex-end;
-}
-
-.p-sidebar-top {
-    align-items: flex-start;
-}
-
-.p-sidebar-bottom {
-    align-items: flex-end;
-}
-
 /* Size */
 .p-sidebar-left .p-sidebar {
     width: 20rem;
@@ -177,17 +153,36 @@ const styles = `
 }
 `;
 
+/* Position */
+const inlineStyles = {
+    mask: ({ position }) => ({
+        position: 'fixed',
+        height: '100%',
+        width: '100%',
+        left: 0,
+        top: 0,
+        display: 'flex',
+        justifyContent: position === 'left' ? 'flex-start' : position === 'right' ? 'flex-end' : 'center',
+        alignItems: position === 'top' ? 'flex-start' : position === 'bottom' ? 'flex-end' : 'center'
+    })
+};
+
 const classes = {
-    mask: ({ instance, props }) => [
-        'p-sidebar-mask',
-        instance.getPositionClass(),
-        {
-            'p-component-overlay p-component-overlay-enter': props.modal,
-            'p-sidebar-mask-scrollblocker': props.blockScroll,
-            'p-sidebar-visible': instance.containerVisible,
-            'p-sidebar-full': instance.fullScreen
-        }
-    ],
+    mask: ({ instance, props }) => {
+        const positions = ['left', 'right', 'top', 'bottom'];
+        const pos = positions.find((item) => item === props.position);
+
+        return [
+            'p-sidebar-mask',
+            {
+                'p-component-overlay p-component-overlay-enter': props.modal,
+                'p-sidebar-mask-scrollblocker': props.blockScroll,
+                'p-sidebar-visible': instance.containerVisible,
+                'p-sidebar-full': instance.fullScreen
+            },
+            pos ? `p-sidebar-${pos}` : ''
+        ];
+    },
     root: ({ instance }) => [
         'p-sidebar p-component',
         {
@@ -203,7 +198,7 @@ const classes = {
     content: 'p-sidebar-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_sidebar_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'sidebar', manual: true });
 
 export default {
     name: 'BaseSidebar',
@@ -248,6 +243,7 @@ export default {
     },
     css: {
         classes,
+        inlineStyles,
         loadStyle
     },
     provide() {

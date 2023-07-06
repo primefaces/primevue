@@ -32,6 +32,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'HeaderCell',
+    hostName: 'TreeTable',
     extends: BaseComponent,
     emits: ['column-click', 'column-resizestart'],
     props: {

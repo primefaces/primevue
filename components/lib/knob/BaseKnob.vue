@@ -30,7 +30,7 @@ const classes = {
     label: 'p-knob-text'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_knob_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'knob', manual: true });
 
 export default {
     name: 'BaseKnob',

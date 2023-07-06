@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
@@ -17,6 +18,7 @@ export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface ListboxPassThroughMethodOptions {
+    instance: any;
     props: ListboxProps;
     state: ListboxState;
     context: ListboxContext;
@@ -118,6 +120,11 @@ export interface ListboxPassThroughOptions {
      * Uses to pass attributes to the hidden last focusable element's DOM element.
      */
     hiddenLastFocusableEl?: ListboxPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

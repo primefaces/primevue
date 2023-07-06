@@ -23,6 +23,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'PageLinks',
+    hostName: 'Paginator',
     extends: BaseComponent,
     inheritAttrs: false,
     emits: ['click'],

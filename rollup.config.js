@@ -1,3 +1,4 @@
+import { babel } from '@rollup/plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import vue from 'rollup-plugin-vue';
@@ -62,6 +63,7 @@ const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
     'primevue/config': 'primevue.config',
+    'primevue/base': 'primevue.base',
     'primevue/basedirective': 'primevue.basedirective',
     'primevue/ripple': 'primevue.ripple',
     'primevue/portal': 'primevue.portal',
@@ -109,6 +111,16 @@ const EXTERNAL = ['vue', 'chart.js/auto', 'quill'];
 const EXTERNAL_COMPONENT = [...EXTERNAL, ...Object.keys(CORE_DEPENDENCIES)];
 
 // plugins
+const BABEL_PLUGIN_OPTIONS = {
+    extensions: ['.js', '.vue'],
+    exclude: 'node_modules/**',
+    presets: ['@babel/preset-env'],
+    plugins: [],
+    skipPreflightCheck: true,
+    babelHelpers: 'runtime',
+    babelrc: false
+};
+
 const POSTCSS_PLUGIN_OPTIONS = {
     sourceMap: false
 };
@@ -121,7 +133,7 @@ const TERSER_PLUGIN_OPTIONS = {
     }
 };
 
-const PLUGINS = [vue(), postcss(POSTCSS_PLUGIN_OPTIONS)];
+const PLUGINS = [vue(), postcss(POSTCSS_PLUGIN_OPTIONS), babel(BABEL_PLUGIN_OPTIONS)];
 
 function addEntry(folder, inFile, outFile) {
     const exports = inFile === 'PrimeVue.js' ? 'named' : 'auto';
@@ -258,6 +270,7 @@ function addIcon() {
 }
 
 function addDirectives() {
+    addEntry('basedirective', 'BaseDirective.js', 'basedirective');
     addEntry('badgedirective', 'BadgeDirective.js', 'badgedirective');
     addEntry('ripple', 'Ripple.js', 'ripple');
     addEntry('tooltip', 'Tooltip.js', 'tooltip');
@@ -277,6 +290,10 @@ function addApi() {
     addEntry('api', 'Api.js', 'api');
 }
 
+function addBase() {
+    addEntry('base', 'Base.js', 'base');
+}
+
 function addServices() {
     addEntry('confirmationservice', 'ConfirmationService.js', 'confirmationservice');
     addEntry('confirmationeventbus', 'ConfirmationEventBus.js', 'confirmationeventbus');
@@ -293,6 +310,7 @@ function addServices() {
 }
 
 addUtils();
+addBase();
 addApi();
 addConfig();
 addDirectives();

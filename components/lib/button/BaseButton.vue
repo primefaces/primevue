@@ -1,77 +1,5 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import { useStyle } from 'primevue/usestyle';
-
-const styles = `
-.p-button {
-    margin: 0;
-    display: inline-flex;
-    cursor: pointer;
-    user-select: none;
-    align-items: center;
-    vertical-align: bottom;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.p-button-label {
-    flex: 1 1 auto;
-}
-
-.p-button-icon-right {
-    order: 1;
-}
-
-.p-button:disabled {
-    cursor: default;
-}
-
-.p-button-icon-only {
-    justify-content: center;
-}
-
-.p-button-icon-only .p-button-label {
-    visibility: hidden;
-    width: 0;
-    flex: 0 0 auto;
-}
-
-.p-button-vertical {
-    flex-direction: column;
-}
-
-.p-button-icon-bottom {
-    order: 2;
-}
-
-.p-buttonset .p-button {
-    margin: 0;
-}
-
-.p-buttonset .p-button:not(:last-child) {
-    border-right: 0 none;
-}
-
-.p-buttonset .p-button:not(:first-of-type):not(:last-of-type) {
-    border-radius: 0;
-}
-
-.p-buttonset .p-button:first-of-type {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.p-buttonset .p-button:last-of-type {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.p-buttonset .p-button:focus {
-    position: relative;
-    z-index: 1;
-}
-`;
 
 const classes = {
     root: ({ instance, props }) => [
@@ -103,16 +31,8 @@ const classes = {
             'p-button-icon-bottom': props.iconPos === 'bottom' && props.label
         }
     ],
-    label: 'p-button-label',
-    badge: ({ props }) => [
-        'p-badge p-component',
-        {
-            'p-badge-no-gutter': props.badge && String(props.badge).length === 1
-        }
-    ]
+    label: 'p-button-label'
 };
-
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_button_style', manual: true });
 
 export default {
     name: 'BaseButton',
@@ -184,8 +104,7 @@ export default {
         }
     },
     css: {
-        classes,
-        loadStyle
+        classes
     },
     provide() {
         return {

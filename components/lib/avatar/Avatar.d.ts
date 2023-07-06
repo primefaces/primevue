@@ -8,6 +8,7 @@
  */
 import { VNode } from 'vue';
 import { AvatarGroupPassThroughOptions } from '../avatargroup';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface AvatarPassThroughMethodOptions {
+    instance: any;
     props: AvatarProps;
     parent: AvatarGroupPassThroughOptions;
 }
@@ -48,6 +50,11 @@ export interface AvatarPassThroughOptions {
      * Uses to pass attributes to the image's DOM element.
      */
     image?: AvatarPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

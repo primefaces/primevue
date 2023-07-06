@@ -87,7 +87,7 @@ const classes = {
     closeIcon: 'p-overlaypanel-close-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_overlaypanel_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'overlaypanel', manual: true });
 
 export default {
     name: 'BaseOverlayPanel',

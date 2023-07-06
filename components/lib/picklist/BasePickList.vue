@@ -63,7 +63,7 @@ const classes = {
     targetControls: 'p-picklist-buttons p-picklist-target-controls'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_picklist_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'picklist', manual: true });
 
 export default {
     name: 'BasePickList',

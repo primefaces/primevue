@@ -68,7 +68,7 @@ const classes = {
     bary: 'p-scrollpanel-bar p-scrollpanel-bar-y'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_scrollpanel_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'scrollpanel', manual: true });
 
 export default {
     name: 'BaseScrollPanel',

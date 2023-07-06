@@ -100,7 +100,6 @@ const classes = {
             'p-overlay-open': instance.overlayVisible
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     label: ({ instance, props }) => [
         'p-cascadeselect-label p-inputtext',
         {
@@ -111,7 +110,6 @@ const classes = {
     dropdownButton: 'p-cascadeselect-trigger',
     loadingIcon: 'p-cascadeselect-trigger-icon',
     dropdownIcon: 'p-cascadeselect-trigger-icon',
-    hiddenSearchResult: 'p-hidden-accessible',
     panel: ({ instance }) => [
         'p-cascadeselect-panel p-component',
         {
@@ -120,7 +118,6 @@ const classes = {
         }
     ],
     wrapper: 'p-cascadeselect-items-wrapper',
-    hiddenSelectedMessage: 'p-hidden-accessible',
     list: 'p-cascadeselect-panel p-cascadeselect-items',
     item: ({ instance, processedOption }) => [
         'p-cascadeselect-item',
@@ -137,7 +134,7 @@ const classes = {
     sublist: 'p-cascadeselect-sublist'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_cascadeselect_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'cascadeselect', manual: true });
 
 export default {
     name: 'BaseCascadeSelect',

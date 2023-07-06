@@ -8,6 +8,7 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ChipsPassThroughOptionType = ChipsPassThroughAttributes | ((options: ChipsPassThroughMethodOptions) => ChipsPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type ChipsPassThroughOptionType = ChipsPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface ChipsPassThroughMethodOptions {
+    instance: any;
     props: ChipsProps;
     state: ChipsState;
 }
@@ -75,6 +77,11 @@ export interface ChipsPassThroughOptions {
      * Uses to pass attributes to the input's DOM element.
      */
     input?: ChipsPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

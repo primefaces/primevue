@@ -11,6 +11,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'FirstPageLink',
+    hostName: 'Paginator',
     extends: BaseComponent,
     props: {
         template: {

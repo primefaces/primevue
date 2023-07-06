@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPT('headerCheckboxWrapper')">
-        <div :class="cx('hiddenHeaderInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 type="checkbox"

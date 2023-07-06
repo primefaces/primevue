@@ -127,12 +127,10 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    hiddenFirstFocusableEl: 'p-hidden-accessible p-hidden-focusable',
     header: 'p-dropdown-header',
     filterContainer: 'p-dropdown-filter-container',
     filterInput: 'p-dropdown-filter p-inputtext p-component',
     filterIcon: 'p-dropdown-filter-icon',
-    hiddenFilterResult: 'p-hidden-accessible',
     wrapper: 'p-dropdown-items-wrapper',
     list: 'p-dropdown-items',
     itemGroup: 'p-dropdown-item-group',
@@ -144,13 +142,10 @@ const classes = {
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
-    emptyMessage: 'p-dropdown-empty-message',
-    hiddenEmptyMessage: 'p-hidden-accessible',
-    hiddenSelectedMessage: 'p-hidden-accessible',
-    hiddenLastFocusableEl: 'p-hidden-accessible p-hidden-focusable'
+    emptyMessage: 'p-dropdown-empty-message'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_dropdown_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'dropdown', manual: true });
 
 export default {
     name: 'BaseDropdown',

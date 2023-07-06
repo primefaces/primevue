@@ -10,6 +10,7 @@
  */
 
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
@@ -22,6 +23,7 @@ export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface ColumnPassThroughMethodOptions {
+    instance: any;
     props: ColumnProps;
     parent: DataTablePassThroughOptions;
     context: ColumnContext;
@@ -313,6 +315,11 @@ export interface ColumnPassThroughOptions {
      * Uses to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: ColumnPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

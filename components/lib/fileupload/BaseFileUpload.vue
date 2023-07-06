@@ -75,7 +75,7 @@ const classes = {
     removeButton: 'p-fileupload-file-remove'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_fileupload_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'fileupload', manual: true });
 
 export default {
     name: 'BaseFileUpload',

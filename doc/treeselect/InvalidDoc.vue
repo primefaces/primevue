@@ -10,6 +10,7 @@
 
 <script>
 import { NodeService } from '/service/NodeService';
+
 export default {
     data() {
         return {
@@ -26,16 +27,18 @@ export default {
 </template>
 
 <script>
+import { NodeService } from './service/NodeService';
+
 export default {
-data() {
-return {
-    nodes: null,
-    selectedValue: null,
-}
-},
-mounted() {
-NodeService.getTreeNodes().then((data) => (this.nodes = data));
-}
+    data() {
+        return {
+            nodes: null,
+            selectedValue: null,
+        }
+    },
+    mounted() {
+        NodeService.getTreeNodes().then((data) => (this.nodes = data));
+    }
 }
 <\/script>`,
                 composition: `
@@ -47,6 +50,7 @@ NodeService.getTreeNodes().then((data) => (this.nodes = data));
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
 const selectedValue = ref(null);

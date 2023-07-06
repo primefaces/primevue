@@ -128,24 +128,12 @@ export default {
 
     addMultipleClasses(element, className) {
         if (element && className) {
-            if (element.classList) {
-                let styles = className.split(' ');
-
-                for (let i = 0; i < styles.length; i++) {
-                    element.classList.add(styles[i]);
-                }
-            } else {
-                let styles = className.split(' ');
-
-                for (let i = 0; i < styles.length; i++) {
-                    element.className += ' ' + styles[i];
-                }
-            }
+            className.split(' ').forEach((style) => this.addClass(element, style));
         }
     },
 
     addClass(element, className) {
-        if (element && className) {
+        if (element && className && !this.hasClass(element, className)) {
             if (element.classList) element.classList.add(className);
             else element.className += ' ' + className;
         }
@@ -179,6 +167,61 @@ export default {
 
     findSingle(element, selector) {
         return this.isElement(element) ? element.querySelector(selector) : null;
+    },
+
+    createElement(type, attributes = {}, ...children) {
+        if (type) {
+            const element = document.createElement(type);
+
+            this.setAttributes(element, attributes);
+            element.append(...children);
+
+            return element;
+        }
+
+        return undefined;
+    },
+
+    setAttributes(element, attributes = {}) {
+        if (element) {
+            const computedStyles = (rule, value) => {
+                const styles = element?.$attrs?.[rule] ? [element?.$attrs?.[rule]] : [];
+
+                return [value].flat().reduce((cv, v) => {
+                    if (v !== null && v !== undefined) {
+                        const type = typeof v;
+
+                        if (type === 'string' || type === 'number') {
+                            cv.push(v);
+                        } else if (type === 'object') {
+                            const _cv = Array.isArray(v)
+                                ? computedStyles(rule, v)
+                                : Object.entries(v).map(([_k, _v]) => (rule === 'style' && (!!_v || _v === 0) ? `${_k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}:${_v}` : !!_v ? _k : undefined));
+
+                            cv = _cv.length ? cv.concat(_cv.filter((c) => !!c)) : cv;
+                        }
+                    }
+
+                    return cv;
+                }, styles);
+            };
+
+            Object.entries(attributes).forEach(([key, value]) => {
+                if (value !== undefined && value !== null) {
+                    const matchedEvent = key.match(/^on(.+)/);
+
+                    if (matchedEvent) {
+                        element.addEventListener(matchedEvent[1].toLowerCase(), value);
+                    } else if (key === 'p-bind') {
+                        this.setAttributes(element, value);
+                    } else {
+                        value = key === 'class' ? [...new Set(computedStyles('class', value))].join(' ').trim() : key === 'style' ? computedStyles('style', value).join(';').trim() : value;
+                        (element.$attrs = element.$attrs || {}) && (element.$attrs[key] = value);
+                        element.setAttribute(key, value);
+                    }
+                }
+            });
+        }
     },
 
     getAttribute(element, name) {
@@ -314,9 +357,13 @@ export default {
             const overflowRegex = /(auto|scroll)/;
 
             const overflowCheck = (node) => {
-                let styleDeclaration = window['getComputedStyle'](node, null);
+                try {
+                    let styleDeclaration = window['getComputedStyle'](node, null);
 
-                return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
+                    return overflowRegex.test(styleDeclaration.getPropertyValue('overflow')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowX')) || overflowRegex.test(styleDeclaration.getPropertyValue('overflowY'));
+                } catch (err) {
+                    return false;
+                }
             };
 
             for (let parent of parents) {
@@ -493,7 +540,13 @@ export default {
 
         let scrollDiv = document.createElement('div');
 
-        scrollDiv.className = 'p-scrollbar-measure';
+        this.addStyles(scrollDiv, {
+            width: '100px',
+            height: '100px',
+            overflow: 'scroll',
+            position: 'absolute',
+            top: '-9999px'
+        });
         document.body.appendChild(scrollDiv);
 
         let scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;

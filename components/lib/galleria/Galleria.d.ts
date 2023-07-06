@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttributes | ((options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes) | null | undefined;
 
@@ -15,6 +16,7 @@ export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface GalleriaPassThroughMethodOptions {
+    instance: any;
     props: GalleriaProps;
     state: GalleriaState;
 }
@@ -143,6 +145,11 @@ export interface GalleriaPassThroughOptions {
      * Uses to pass attributes to the mask's DOM element.
      */
     mask?: GalleriaPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

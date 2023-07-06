@@ -103,7 +103,7 @@ const classes = {
     panelContainer: 'p-tabview-panels'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_tabview_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'tabview', manual: true });
 
 export default {
     name: 'BaseTabView',

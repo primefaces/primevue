@@ -45,7 +45,7 @@ const classes = {
     }
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_accordion_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'accordion', manual: true });
 
 export default {
     name: 'BaseAccordion',

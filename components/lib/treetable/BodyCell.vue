@@ -6,7 +6,7 @@
             <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
         </button>
         <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnPT('checkboxWrapper')">
-            <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+            <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" v-bind="getColumnPT('hiddenInput')" />
             </div>
             <div ref="checkboxEl" :class="cx('checkbox')" v-bind="getColumnCheckboxPT('checkbox')">
@@ -32,6 +32,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'BodyCell',
+    hostName: 'TreeTable',
     extends: BaseComponent,
     emits: ['node-toggle', 'checkbox-toggle'],
     props: {

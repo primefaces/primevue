@@ -108,7 +108,6 @@ const classes = {
     ],
     container: ({ props }) => [
         'p-toast-message',
-        props.message.styleClass,
         {
             'p-toast-message-info': props.message.severity === 'info' || props.message.severity === undefined,
             'p-toast-message-warn': props.message.severity === 'warn',
@@ -116,7 +115,7 @@ const classes = {
             'p-toast-message-success': props.message.severity === 'success'
         }
     ],
-    content: ({ props }) => `p-toast-message-content ${props.message.contentStyleClass || ''}`,
+    content: 'p-toast-message-content',
     icon: ({ props }) => [
         'p-toast-message-icon',
         {
@@ -130,10 +129,10 @@ const classes = {
     summary: 'p-toast-summary',
     detail: 'p-toast-detail',
     button: 'p-toast-icon-close p-link',
-    buttonIcon: ({ props }) => ['p-toast-icon-close-icon', props.closeIcon]
+    buttonIcon: 'p-toast-icon-close-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_toast_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'toast', manual: true });
 
 export default {
     name: 'BaseToast',

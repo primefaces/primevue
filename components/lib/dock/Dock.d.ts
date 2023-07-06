@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((op
  * Custom passthrough(pt) option method.
  */
 export interface DockPassThroughMethodOptions {
+    instance: any;
     props: DockProps;
     state: DockState;
     context: DockContext;
@@ -55,6 +57,11 @@ export interface DockPassThroughOptions {
      * Uses to pass attributes to the icon's DOM element.
      */
     icon?: DockPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

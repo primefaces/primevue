@@ -239,7 +239,6 @@ const classes = {
             'p-checkbox-focused': instance.checkboxFocused
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     checkbox: ({ instance }) => [
         'p-checkbox-box',
         {
@@ -263,7 +262,7 @@ const classes = {
     resizeHelper: 'p-column-resizer-helper p-highlight'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_treetable_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'treetable', manual: true });
 
 export default {
     name: 'BaseTreeTable',

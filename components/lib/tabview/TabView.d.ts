@@ -8,6 +8,7 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { TabPanelPassThroughOptionType } from '../tabpanel';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -84,6 +85,11 @@ export interface TabViewPassThroughOptions {
      * Uses to pass attributes to TabPanel helper components.
      */
     tab?: TabPanelPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

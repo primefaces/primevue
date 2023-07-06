@@ -58,6 +58,7 @@ import { DomHandler, ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'CascadeSelectSub',
+    hostName: 'CascadeSelect',
     extends: BaseComponent,
     emits: ['option-change'],
     props: {

@@ -60,7 +60,7 @@ const classes = {
     handle: 'p-slider-handle'
 };
 
-const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { id: 'primevue_slider_style', manual: true });
+const { load: loadStyle, unload: unloadStyle } = useStyle(styles, { name: 'slider', manual: true });
 
 export default {
     name: 'BaseSlider',

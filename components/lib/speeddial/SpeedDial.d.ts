@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
@@ -18,6 +19,7 @@ export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface SpeedDialPassThroughMethodOptions {
+    instance: any;
     props: SpeedDialProps;
     state: SpeedDialState;
     context: SpeedDialContext;
@@ -57,6 +59,11 @@ export interface SpeedDialPassThroughOptions {
      * Uses to pass attributes to the mask's DOM element.
      */
     mask?: SpeedDialPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

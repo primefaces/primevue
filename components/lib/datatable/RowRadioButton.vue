@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('radiobuttonWrapper')" @click="onClick" v-bind="getColumnPT('radiobuttonWrapper')">
-        <div :class="cx('hiddenInputWrapper')" :style="sx('hiddenAccessible', isUnstyled)" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
             <input ref="input" type="radio" :checked="checked" :disabled="$attrs.disabled" :name="name" tabindex="0" @focus="onFocus($event)" @blur="onBlur($event)" @keydown.space.prevent="onClick" v-bind="getColumnPT('hiddenInput')" />
         </div>
         <div ref="box" :class="cx('radiobutton')" v-bind="getColumnPT('radiobutton')">

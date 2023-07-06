@@ -126,7 +126,7 @@ const classes = {
     label: 'p-progressbar-label'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_progressbar_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'progressbar', manual: true });
 
 export default {
     name: 'BaseProgressBar',

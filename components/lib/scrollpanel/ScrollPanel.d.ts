@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAttributes | ((options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ScrollPanelPassThroughMethodOptions {
+    instance: any;
     props: ScrollPanelProps;
     state: ScrollPanelState;
 }
@@ -45,6 +47,11 @@ export interface ScrollPanelPassThroughOptions {
      * Uses to pass attributes to the vertical panel's DOM element.
      */
     barY?: ScrollPanelPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

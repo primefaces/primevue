@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface TabMenuPassThroughMethodOptions {
+    instance: any;
     props: TabMenuProps;
     state: TabMenuState;
     context: TabMenuContext;
@@ -55,6 +57,11 @@ export interface TabMenuPassThroughOptions {
      * Uses to pass attributes to the inkbar's DOM element.
      */
     inkbar?: TabMenuPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

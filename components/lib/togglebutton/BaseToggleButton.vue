@@ -11,9 +11,7 @@ const classes = {
             'p-highlight': props.modelValue === true
         }
     ],
-    hiddenInputWrapper: 'p-hidden-accessible',
     icon: ({ instance, props }) => [
-        props.modelValue ? props.onIcon : props.offIcon,
         'p-button-icon',
         {
             'p-button-icon-left': props.iconPos === 'left' && instance.label,

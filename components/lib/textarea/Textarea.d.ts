@@ -8,6 +8,7 @@
  *
  */
 import { TextareaHTMLAttributes } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes) | null | undefined;
@@ -16,6 +17,7 @@ export declare type TextareaPassThroughOptionType = TextareaPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface TextareaPassThroughMethodOptions {
+    instance: any;
     props: TextareaProps;
 }
 
@@ -28,6 +30,11 @@ export interface TextareaPassThroughOptions {
      * Uses to pass attributes to the root's DOM element.
      */
     root?: TextareaPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

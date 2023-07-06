@@ -38,7 +38,7 @@ const classes = {
     content: 'p-fieldset-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_fieldset_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'fieldset', manual: true });
 
 export default {
     name: 'BaseFieldset',

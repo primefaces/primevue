@@ -137,7 +137,7 @@ const classes = {
     icon: 'p-dock-icon'
 };
 
-const { load: loadStyle } = useStyle(styles, { id: 'primevue_dock_style', manual: true });
+const { load: loadStyle } = useStyle(styles, { name: 'dock', manual: true });
 
 export default {
     name: 'BaseDock',

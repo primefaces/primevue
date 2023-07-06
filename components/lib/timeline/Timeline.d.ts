@@ -7,6 +7,7 @@
  * @module timeline
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TimelinePassThroughOptionType = TimelinePassThroughAttributes | null | undefined;
@@ -44,6 +45,11 @@ export interface TimelinePassThroughOptions {
      * Uses to pass attributes to the content's DOM element.
      */
     content?: TimelinePassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

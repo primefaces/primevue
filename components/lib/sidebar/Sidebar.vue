@@ -1,6 +1,6 @@
 <template>
     <Portal>
-        <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position })" v-bind="ptm('mask')">
             <transition name="p-sidebar" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear>
                 <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" role="complementary" :aria-modal="modal" @keydown="onKeydown" v-bind="{ ...$attrs, ...ptm('root') }">
                     <div :ref="headerContainerRef" :class="cx('header')" v-bind="ptm('header')">
@@ -121,16 +121,14 @@ export default {
             }
 
             if (this.blockScroll) {
-                document.body.setAttribute('data-p-overflow-hidden', 'true');
-                !this.isUnstyled && DomHandler.addClass(document.body, 'p-overflow-hidden');
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
             }
         },
         disableDocumentSettings() {
             this.unbindOutsideClickListener();
 
             if (this.blockScroll) {
-                document.body.setAttribute('data-p-overflow-hidden', 'false');
-                !this.isUnstyled && DomHandler.removeClass(document.body, 'p-overflow-hidden');
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
             }
         },
         onKeydown(event) {
@@ -152,12 +150,6 @@ export default {
         },
         closeButtonRef(el) {
             this.closeButton = el;
-        },
-        getPositionClass() {
-            const positions = ['left', 'right', 'top', 'bottom'];
-            const pos = positions.find((item) => item === this.position);
-
-            return pos ? `p-sidebar-${pos}` : '';
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {

@@ -19,6 +19,7 @@ import Dropdown from 'primevue/dropdown';
 
 export default {
     name: 'JumpToPageDropdown',
+    hostName: 'Paginator',
     extends: BaseComponent,
     emits: ['page-change'],
     props: {

@@ -77,6 +77,7 @@ import { ObjectUtils } from 'primevue/utils';
 
 export default {
     name: 'TieredMenuSub',
+    hostName: 'TieredMenu',
     extends: BaseComponent,
     emits: ['item-click', 'item-mouseenter'],
     props: {

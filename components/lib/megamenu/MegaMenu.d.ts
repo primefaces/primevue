@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
@@ -17,6 +18,7 @@ export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface MegaMenuPassThroughMethodOptions {
+    instance: any;
     props: MegaMenuProps;
     state: MegaMenuState;
     context: MegaMenuContext;
@@ -91,6 +93,11 @@ export interface MegaMenuPassThroughOptions {
      * Uses to pass attributes to the end of the component.
      */
     end?: MegaMenuPassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**

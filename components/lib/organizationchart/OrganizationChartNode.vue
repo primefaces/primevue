@@ -3,7 +3,7 @@
         <tbody v-bind="ptm('body')">
             <tr v-if="node" v-bind="ptm('row')">
                 <td :colspan="colspan" v-bind="ptm('cell')">
-                    <div :class="cx('node')" @click="onNodeClick" v-bind="getPTOptions('node')">
+                    <div :class="[cx('node'), node.styleClass]" @click="onNodeClick" v-bind="getPTOptions('node')">
                         <component :is="templates[node.type] || templates['default']" :node="node" />
                         <a v-if="toggleable" tabindex="0" :class="cx('nodeToggler')" @click="toggleNode" @keydown="onKeydown" v-bind="getPTOptions('nodeToggler')">
                             <component v-if="templates.togglericon" :is="templates.togglericon" :expanded="expanded" class="p-node-toggler-icon" />
@@ -25,26 +25,8 @@
                 </template>
                 <template v-if="node.children && node.children.length > 1">
                     <template v-for="(child, i) of node.children" :key="child.key">
-                        <td
-                            :class="
-                                cx('lineLeft', {
-                                    i
-                                })
-                            "
-                            v-bind="getNodeOptions(!(i === 0), 'lineLeft')"
-                        >
-                            &nbsp;
-                        </td>
-                        <td
-                            :class="
-                                cx('lineRight', {
-                                    i
-                                })
-                            "
-                            v-bind="getNodeOptions(!(i === node.children.length - 1), 'lineRight')"
-                        >
-                            &nbsp;
-                        </td>
+                        <td :class="cx('lineLeft', { index: i })" v-bind="getNodeOptions(!(i === 0), 'lineLeft')">&nbsp;</td>
+                        <td :class="cx('lineRight', { index: i })" v-bind="getNodeOptions(!(i === node.children.length - 1), 'lineRight')">&nbsp;</td>
                     </template>
                 </template>
             </tr>
@@ -76,6 +58,7 @@ import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'OrganizationChartNode',
+    hostName: 'OrganizationChart',
     extends: BaseComponent,
     emits: ['node-click', 'node-toggle'],
     props: {

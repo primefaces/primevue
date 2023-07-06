@@ -8,6 +8,7 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 export declare type ImagePassThroughOptionType = ImagePassThroughAttributes | ((options: ImagePassThroughMethodOptions) => ImagePassThroughAttributes) | null | undefined;
 
@@ -15,6 +16,7 @@ export declare type ImagePassThroughOptionType = ImagePassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface ImagePassThroughMethodOptions {
+    instance: any;
     props: ImageProps;
     state: ImageState;
 }
@@ -96,6 +98,11 @@ export interface ImagePassThroughOptions {
      * Uses to pass attributes to the preview's DOM element.
      */
     preview?: ImagePassThroughOptionType;
+    /**
+     * Uses to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
