@@ -4385,6 +4385,34 @@
                         }
                     ],
                     "methods": []
+                },
+                "BaseComponentPassThroughMethodOptions": {
+                    "description": "",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | I",
+                            "default": ""
+                        },
+                        {
+                            "name": "props",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | P",
+                            "default": ""
+                        },
+                        {
+                            "name": "state",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "null | S",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
                 }
             }
         }
