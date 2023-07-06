@@ -17,6 +17,7 @@ export declare type MessagePassThroughOptionType = MessagePassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface MessagePassThroughMethodOptions {
+    instance: any;
     props: MessageProps;
     state: MessageState;
 }

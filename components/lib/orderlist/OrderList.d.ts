@@ -18,6 +18,7 @@ export declare type OrderListPassThroughOptionType = OrderListPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface OrderListPassThroughMethodOptions {
+    instance: any;
     props: OrderListProps;
     state: OrderListState;
 }

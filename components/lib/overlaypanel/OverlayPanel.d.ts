@@ -17,6 +17,7 @@ export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughA
  * Custom passthrough(pt) option method.
  */
 export interface OverlayPanelPassThroughMethodOptions {
+    instance: any;
     props: OverlayPanelProps;
     state: OverlayPanelState;
 }

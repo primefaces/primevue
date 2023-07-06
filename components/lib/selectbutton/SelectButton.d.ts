@@ -17,6 +17,7 @@ export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughA
  * Custom passthrough(pt) option method.
  */
 export interface SelectButtonPassThroughMethodOptions {
+    instance: any;
     props: SelectButtonProps;
     state: SelectButtonState;
     context: SelectButtonContext;

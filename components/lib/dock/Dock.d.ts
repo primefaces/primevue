@@ -18,6 +18,7 @@ export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((op
  * Custom passthrough(pt) option method.
  */
 export interface DockPassThroughMethodOptions {
+    instance: any;
     props: DockProps;
     state: DockState;
     context: DockContext;

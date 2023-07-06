@@ -18,6 +18,7 @@ export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttri
  * Custom passthrough(pt) option method.
  */
 export interface TieredMenuPassThroughMethodOptions {
+    instance: any;
     props: TieredMenuProps;
     state: TieredMenuState;
     context: TieredMenuContext;

@@ -16,6 +16,7 @@ export declare type ProgressSpinnerPassThroughOptionType = ProgressSpinnerPassTh
  * Custom passthrough(pt) option method.
  */
 export interface ProgressSpinnerPassThroughMethodOptions {
+    instance: any;
     props: ProgressSpinnerProps;
 }
 

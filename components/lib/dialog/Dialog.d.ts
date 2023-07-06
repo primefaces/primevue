@@ -17,6 +17,7 @@ export declare type DialogPassThroughOptionType = DialogPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface DialogPassThroughMethodOptions {
+    instance: any;
     props: DialogProps;
     state: DialogState;
 }

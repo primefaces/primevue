@@ -17,6 +17,7 @@ export declare type CarouselPassThroughOptionType = CarouselPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface CarouselPassThroughMethodOptions {
+    instance: any;
     props: CarouselProps;
     state: CarouselState;
 }

@@ -17,6 +17,7 @@ export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassTh
  * Custom passthrough(pt) option method.
  */
 export interface VirtualScrollerPassThroughMethodOptions {
+    instance: any;
     props: VirtualScrollerProps;
     state: VirtualScrollerState;
 }

@@ -16,6 +16,7 @@ export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface GalleriaPassThroughMethodOptions {
+    instance: any;
     props: GalleriaProps;
     state: GalleriaState;
 }

@@ -17,6 +17,7 @@ export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ProgressBarPassThroughMethodOptions {
+    instance: any;
     props: ProgressBarProps;
 }
 

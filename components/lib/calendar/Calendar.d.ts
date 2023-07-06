@@ -18,6 +18,7 @@ export declare type CalendarPassThroughOptionType = CalendarPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface CalendarPassThroughMethodOptions {
+    instance: any;
     props: CalendarProps;
     state: CalendarState;
 }

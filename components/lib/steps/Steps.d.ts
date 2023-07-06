@@ -18,6 +18,7 @@ export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface StepsPassThroughMethodOptions {
+    instance: any;
     props: StepsProps;
 }
 

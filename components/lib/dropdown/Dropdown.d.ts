@@ -18,6 +18,7 @@ export declare type DropdownPassThroughOptionType = DropdownPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface DropdownPassThroughMethodOptions {
+    instance: any;
     props: DropdownProps;
     state: DropdownState;
     context: DropdownContext;

@@ -22,6 +22,7 @@ export declare type DataTablePassThroughOptionType = DataTablePassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface DataTablePassThroughMethodOptions {
+    instance: any;
     props: DataTableProps;
     state: DataTableState;
 }

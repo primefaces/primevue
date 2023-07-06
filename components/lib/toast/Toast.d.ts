@@ -17,6 +17,7 @@ export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface ToastPassThroughMethodOptions {
+    instance: any;
     props: ToastProps;
     state: ToastState;
 }

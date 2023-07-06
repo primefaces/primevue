@@ -17,6 +17,7 @@ export declare type FieldsetPassThroughOptionType = FieldsetPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface FieldsetPassThroughMethodOptions {
+    instance: any;
     props: FieldsetProps;
     state: FieldsetState;
 }

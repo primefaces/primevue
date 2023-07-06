@@ -18,6 +18,7 @@ export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface MultiSelectPassThroughMethodOptions {
+    instance: any;
     props: MultiSelectProps;
     state: MultiSelectState;
     context: MultiSelectContext;

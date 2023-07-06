@@ -20,6 +20,7 @@ export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface TreeTablePassThroughMethodOptions {
+    instance: any;
     props: TreeTableProps;
     state: TreeTableState;
 }

@@ -17,6 +17,7 @@ export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface AvatarPassThroughMethodOptions {
+    instance: any;
     props: AvatarProps;
     parent: AvatarGroupPassThroughOptions;
 }

@@ -17,6 +17,7 @@ export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | 
  * Custom passthrough(pt) option method.
  */
 export interface ButtonPassThroughMethodOptions {
+    instance: any;
     props: ButtonProps;
     context: ButtonContext;
 }

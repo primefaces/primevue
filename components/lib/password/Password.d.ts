@@ -18,6 +18,7 @@ export declare type PasswordPassThroughOptionType = PasswordPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface PasswordPassThroughMethodOptions {
+    instance: any;
     props: PasswordProps;
     state: PasswordState;
 }

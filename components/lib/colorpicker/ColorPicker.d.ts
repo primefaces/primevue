@@ -16,6 +16,7 @@ export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ColorPickerPassThroughMethodOptions {
+    instance: any;
     props: ColorPickerProps;
     state: ColorPickerState;
 }

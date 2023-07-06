@@ -19,6 +19,7 @@ export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughA
  * Custom passthrough(pt) option method.
  */
 export interface AutoCompletePassThroughMethodOptions {
+    instance: any;
     props: AutoCompleteProps;
     state: AutoCompleteState;
     context: AutoCompleteContext;

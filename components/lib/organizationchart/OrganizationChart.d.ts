@@ -17,6 +17,7 @@ export declare type OrganizationChartPassThroughOptionType = OrganizationChartPa
  * Custom passthrough(pt) option method.
  */
 export interface OrganizationChartPassThroughMethodOptions {
+    instance: any;
     props: OrganizationChartProps;
     state: OrganizationChartState;
     context: OrganizationChartContext;

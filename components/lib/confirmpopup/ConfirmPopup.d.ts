@@ -19,6 +19,7 @@ export declare type ConfirmPopupPassThroughOptionType = ConfirmPopupPassThroughA
  * Custom passthrough(pt) option method.
  */
 export interface ConfirmPopupPassThroughMethodOptions {
+    instance: any;
     props: ConfirmPopupProps;
     state: ConfirmPopupState;
 }

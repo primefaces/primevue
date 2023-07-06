@@ -16,6 +16,7 @@ export declare type ImagePassThroughOptionType = ImagePassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface ImagePassThroughMethodOptions {
+    instance: any;
     props: ImageProps;
     state: ImageState;
 }

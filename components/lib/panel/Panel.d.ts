@@ -17,6 +17,7 @@ export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface PanelPassThroughMethodOptions {
+    instance: any;
     props: PanelProps;
     state: PanelState;
 }

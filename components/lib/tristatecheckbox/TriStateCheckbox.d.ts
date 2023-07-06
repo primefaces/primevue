@@ -17,6 +17,7 @@ export declare type TriStateCheckboxPassThroughOptionType = TriStateCheckboxPass
  * Custom passthrough(pt) option method.
  */
 export interface TriStateCheckboxPassThroughMethodOptions {
+    instance: any;
     props: TriStateCheckboxProps;
     state: TriStateCheckboxState;
     context: TriStateCheckboxContext;

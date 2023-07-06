@@ -19,6 +19,7 @@ export declare type ContextMenuPassThroughOptionType = ContextMenuPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ContextMenuPassThroughMethodOptions {
+    instance: any;
     props: ContextMenuProps;
     state: ContextMenuState;
     context: ContextMenuContext;

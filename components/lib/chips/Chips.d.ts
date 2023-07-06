@@ -17,6 +17,7 @@ export declare type ChipsPassThroughOptionType = ChipsPassThroughAttributes | ((
  * Custom passthrough(pt) option method.
  */
 export interface ChipsPassThroughMethodOptions {
+    instance: any;
     props: ChipsProps;
     state: ChipsState;
 }

@@ -18,6 +18,7 @@ export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface TabPanelPassThroughMethodOptions {
+    instance: any;
     props: TabPanelProps;
     parent: TabViewPassThroughOptions;
     context: TabPanelContext;

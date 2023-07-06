@@ -16,6 +16,7 @@ export declare type SkeletonPassThroughOptionType = SkeletonPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface SkeletonPassThroughMethodOptions {
+    instance: any;
     props: SkeletonProps;
 }
 

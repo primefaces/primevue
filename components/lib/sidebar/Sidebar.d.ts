@@ -17,6 +17,7 @@ export declare type SidebarPassThroughOptionType = SidebarPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface SidebarPassThroughMethodOptions {
+    instance: any;
     props: SidebarProps;
     state: SidebarState;
 }

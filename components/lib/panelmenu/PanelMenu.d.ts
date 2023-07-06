@@ -18,6 +18,7 @@ export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface PanelMenuPassThroughMethodOptions {
+    instance: any;
     props: PanelMenuProps;
     state: PanelMenuState;
     context: PanelMenuContext;

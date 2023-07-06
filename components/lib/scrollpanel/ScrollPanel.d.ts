@@ -17,6 +17,7 @@ export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAtt
  * Custom passthrough(pt) option method.
  */
 export interface ScrollPanelPassThroughMethodOptions {
+    instance: any;
     props: ScrollPanelProps;
     state: ScrollPanelState;
 }

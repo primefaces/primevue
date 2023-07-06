@@ -18,6 +18,7 @@ export declare type PickListPassThroughOptionType = PickListPassThroughAttribute
  * Custom passthrough(pt) option method.
  */
 export interface PickListPassThroughMethodOptions {
+    instance: any;
     props: PickListProps;
     state: PickListState;
 }

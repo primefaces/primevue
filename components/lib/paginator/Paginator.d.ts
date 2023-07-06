@@ -19,6 +19,7 @@ export declare type PaginatorPassThroughOptionType = PaginatorPassThroughAttribu
  * Custom passthrough(pt) option method.
  */
 export interface PaginatorPassThroughMethodOptions {
+    instance: any;
     props: PaginatorProps;
     state: PaginatorState;
     context: PaginatorContext;

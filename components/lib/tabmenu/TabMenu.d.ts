@@ -18,6 +18,7 @@ export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes 
  * Custom passthrough(pt) option method.
  */
 export interface TabMenuPassThroughMethodOptions {
+    instance: any;
     props: TabMenuProps;
     state: TabMenuState;
     context: TabMenuContext;
