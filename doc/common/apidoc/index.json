@@ -40823,7 +40823,7 @@
                             "readonly": false,
                             "type": "TreePassThroughOptionType",
                             "default": "",
-                            "description": "Uses to pass attributes to the trigger's DOM element."
+                            "description": "Uses to pass attributes to Tree component."
                         },
                         {
                             "name": "emptyMessage",
