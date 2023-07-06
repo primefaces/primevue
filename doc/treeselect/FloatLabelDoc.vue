@@ -22,13 +22,15 @@ export default {
             code: {
                 basic: `
 <span class="p-float-label">
-    <TreeSelect v-model="selectedValue" :options="nodes" placeholder="TreeSelect" />
+    <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+    <label>Tree Select</label>
 </span>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" placeholder="TreeSelect" />
+            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+            <label>Tree Select</label>
         </span>
     </div>
 </template>
@@ -52,7 +54,8 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <TreeSelect v-model="selectedValue" :options="nodes" placeholder="TreeSelect" />
+            <TreeSelect v-model="selectedValue" :options="nodes" class="md:w-20rem w-full" />
+            <label>Tree Select</label>
         </span>
     </div>
 </template>
