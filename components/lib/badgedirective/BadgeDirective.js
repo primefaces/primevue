@@ -31,6 +31,7 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
             !el.unstyled && DomHandler.addClass(badge, 'p-badge-dot');
         }
 
+        el.setAttribute('data-pd-badge', true);
         !el.unstyled && DomHandler.addClass(el, 'p-overlay-badge');
         el.setAttribute('data-p-overlay-badge', 'true');
         el.appendChild(badge);

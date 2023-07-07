@@ -11,9 +11,7 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
             this.autoFocus(el, binding);
         }
 
-        DomHandler.setAttributes(el, {
-            'p-bind': this.ptm('root')
-        });
+        el.setAttribute('data-pd-focustrap', true);
 
         this.$el = el;
     },
@@ -111,11 +109,11 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
 
             firstFocusableElement.$_pfocustrap_lasthiddenfocusableelement = lastFocusableElement;
             firstFocusableElement.$_pfocustrap_focusableselector = firstFocusableSelector;
-            firstFocusableElement.setAttribute('data-pd-focustrap-section', 'firstfocusableelement');
+            firstFocusableElement.setAttribute('data-pc-section', 'firstfocusableelement');
 
             lastFocusableElement.$_pfocustrap_firsthiddenfocusableelement = firstFocusableElement;
             lastFocusableElement.$_pfocustrap_focusableselector = lastFocusableSelector;
-            lastFocusableElement.setAttribute('data-pd-focustrap-section', 'lastfocusableelement');
+            lastFocusableElement.setAttribute('data-pc-section', 'lastfocusableelement');
 
             el.prepend(firstFocusableElement);
             el.append(lastFocusableElement);

@@ -11,6 +11,8 @@ const Ripple = BaseRipple.extend('ripple', {
             this.create(el);
             this.bindEvents(el);
         }
+
+        el.setAttribute('data-pd-ripple', true);
     },
     unmounted(el) {
         this.remove(el);
@@ -91,7 +93,7 @@ const Ripple = BaseRipple.extend('ripple', {
             event.currentTarget.setAttribute('data-p-ink-active', 'false');
         },
         getInk(el) {
-            return el && el.children ? [...el.children].find((child) => DomHandler.getAttribute(child, 'data-pd-ripple')) : undefined;
+            return el && el.children ? [...el.children].find((child) => DomHandler.getAttribute(child, 'data-pc-name') === 'ripple') : undefined;
         }
     }
 });

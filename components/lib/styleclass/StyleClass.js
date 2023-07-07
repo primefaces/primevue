@@ -3,6 +3,8 @@ import BaseStyleClass from './BaseStyleClass';
 
 const StyleClass = BaseStyleClass.extend('styleclass', {
     mounted(el, binding) {
+        el.setAttribute('data-pd-styleclass', true);
+
         this.bind(el, binding);
     },
     unmounted(el) {

@@ -35,6 +35,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         target.unstyled = options.instance.$primevue?.config?.unstyled || options.value?.unstyled || false;
 
         this.bindEvents(target, options);
+
+        el.setAttribute('data-pd-tooltip', true);
     },
     updated(el, options) {
         let target = this.getTarget(el);
