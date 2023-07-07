@@ -79,10 +79,6 @@ export interface MultiSelectPassThroughOptions {
      */
     root?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
-     */
-    input?: MultiSelectPassThroughOptionType;
-    /**
      * Uses to pass attributes to the label container's DOM element.
      */
     labelContainer?: MultiSelectPassThroughOptionType;

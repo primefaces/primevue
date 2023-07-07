@@ -19,7 +19,7 @@
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"
-                v-bind="{ ...inputProps, ...ptm('input') }"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
         <div :class="cx('labelContainer')" v-bind="ptm('labelContainer')">
