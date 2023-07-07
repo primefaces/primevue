@@ -52,7 +52,7 @@ const BaseDirective = {
                 $css: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.css },
                 /* computed instance variables */
                 defaultPT: config?.pt?.directives?.[name],
-                isUnstyled: config?.unstyled,
+                isUnstyled: el.unstyled !== undefined ? el.unstyled : config?.unstyled,
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
                 ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),

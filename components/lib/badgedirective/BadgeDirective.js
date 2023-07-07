@@ -5,18 +5,18 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
     mounted(el, binding) {
         const id = UniqueComponentId() + '_badge';
 
-        el.$_pbadgeUnstyled = binding.instance.$primevue.config.unstyled || binding.value?.unstyled || false;
+        el.unstyled = binding.instance.$primevue?.config?.unstyled || binding.value?.unstyled || false;
 
         const badge = DomHandler.createElement('span', {
             id,
-            class: !el.$_pbadgeUnstyled && this.cx('root'),
+            class: !el.unstyled && this.cx('root'),
             'p-bind': this.ptm('root')
         });
 
         el.$_pbadgeId = badge.getAttribute('id');
 
         for (let modifier in binding.modifiers) {
-            !el.$_pbadgeUnstyled && DomHandler.addClass(badge, 'p-badge-' + modifier);
+            !el.unstyled && DomHandler.addClass(badge, 'p-badge-' + modifier);
         }
 
         if (binding.value != null) {
@@ -24,21 +24,21 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
             else el.$_badgeValue = binding.value;
             badge.appendChild(document.createTextNode(el.$_badgeValue));
 
-            if (String(el.$_badgeValue).length === 1 && !el.$_pbadgeUnstyled) {
-                !el.$_pbadgeUnstyled && DomHandler.addClass(badge, 'p-badge-no-gutter');
+            if (String(el.$_badgeValue).length === 1 && !el.unstyled) {
+                !el.unstyled && DomHandler.addClass(badge, 'p-badge-no-gutter');
             }
         } else {
-            !el.$_pbadgeUnstyled && DomHandler.addClass(badge, 'p-badge-dot');
+            !el.unstyled && DomHandler.addClass(badge, 'p-badge-dot');
         }
 
-        !el.$_pbadgeUnstyled && DomHandler.addClass(el, 'p-overlay-badge');
+        !el.unstyled && DomHandler.addClass(el, 'p-overlay-badge');
         el.setAttribute('data-p-overlay-badge', 'true');
         el.appendChild(badge);
 
         this.$el = badge;
     },
     updated(el, binding) {
-        !el.$_pbadgeUnstyled && DomHandler.addClass(el, 'p-overlay-badge');
+        !el.unstyled && DomHandler.addClass(el, 'p-overlay-badge');
         el.setAttribute('data-p-overlay-badge', 'true');
 
         if (binding.oldValue !== binding.value) {
@@ -47,7 +47,7 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
             if (typeof binding.value === 'object') el.$_badgeValue = binding.value.value;
             else el.$_badgeValue = binding.value;
 
-            if (!el.$_pbadgeUnstyled) {
+            if (!el.unstyled) {
                 if (el.$_badgeValue) {
                     if (DomHandler.hasClass(badge, 'p-badge-dot')) DomHandler.removeClass(badge, 'p-badge-dot');
 

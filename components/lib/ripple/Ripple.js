@@ -6,7 +6,7 @@ const Ripple = BaseRipple.extend('ripple', {
         const primevue = binding.instance.$primevue;
 
         if (primevue && primevue.config && primevue.config.ripple) {
-            el.$_prippleUnstyled = primevue.config.unstyled || binding.value?.unstyled || false;
+            el.unstyled = primevue.config.unstyled || binding.value?.unstyled || false;
 
             this.create(el);
             this.bindEvents(el);
@@ -29,7 +29,7 @@ const Ripple = BaseRipple.extend('ripple', {
                 'aria-hidden': true,
                 'data-p-ink': true,
                 'data-p-ink-active': false,
-                class: !el.$_prippleUnstyled && this.cx('root'),
+                class: !el.unstyled && this.cx('root'),
                 onAnimationEnd: this.onAnimationEnd,
                 'p-bind': this.ptm('root')
             });
@@ -55,7 +55,7 @@ const Ripple = BaseRipple.extend('ripple', {
                 return;
             }
 
-            !target.$_prippleUnstyled && DomHandler.removeClass(ink, 'p-ink-active');
+            !target.unstyled && DomHandler.removeClass(ink, 'p-ink-active');
             ink.setAttribute('data-p-ink-active', 'false');
 
             if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
@@ -72,12 +72,12 @@ const Ripple = BaseRipple.extend('ripple', {
             ink.style.top = y + 'px';
             ink.style.left = x + 'px';
 
-            !target.$_prippleUnstyled && DomHandler.addClass(ink, 'p-ink-active');
+            !target.unstyled && DomHandler.addClass(ink, 'p-ink-active');
             ink.setAttribute('data-p-ink-active', 'true');
 
             this.timeout = setTimeout(() => {
                 if (ink) {
-                    !target.$_prippleUnstyled && DomHandler.removeClass(ink, 'p-ink-active');
+                    !target.unstyled && DomHandler.removeClass(ink, 'p-ink-active');
                     ink.setAttribute('data-p-ink-active', 'false');
                 }
             }, 401);
@@ -87,7 +87,7 @@ const Ripple = BaseRipple.extend('ripple', {
                 clearTimeout(this.timeout);
             }
 
-            !event.currentTarget.$_prippleUnstyled && DomHandler.removeClass(event.currentTarget, 'p-ink-active');
+            !event.currentTarget.unstyled && DomHandler.removeClass(event.currentTarget, 'p-ink-active');
             event.currentTarget.setAttribute('data-p-ink-active', 'false');
         },
         getInk(el) {
