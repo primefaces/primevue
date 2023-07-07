@@ -18,13 +18,7 @@ gulp.task('build-css', function () {
 });
 
 gulp.task('build-primevuecss', function () {
-    return gulp
-        .src(['./assets/styles/primevue.css'])
-        .pipe(concat('primevue.css'))
-        .pipe(gulp.dest('dist/resources'))
-        .pipe(uglifycss({ uglyComments: true }))
-        .pipe(rename('primevue.min.css'))
-        .pipe(gulp.dest('dist/resources'));
+    return gulp.src(['./assets/styles/primevue.css']).pipe(concat('primevue.css')).pipe(gulp.dest('dist/resources')).pipe(rename('primevue.min.css')).pipe(gulp.dest('dist/resources'));
 });
 
 gulp.task('build-themes', function () {
