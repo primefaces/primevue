@@ -143,7 +143,7 @@ const styles = `
 
 /* Position */
 const inlineStyles = {
-    mask: ({ position }) => ({
+    mask: ({ position, modal }) => ({
         position: 'fixed',
         height: '100%',
         width: '100%',
@@ -151,7 +151,8 @@ const inlineStyles = {
         top: 0,
         display: 'flex',
         justifyContent: position === 'left' || position === 'topleft' || position === 'bottomleft' ? 'flex-start' : position === 'right' || position === 'topright' || position === 'bottomright' ? 'flex-end' : 'center',
-        alignItems: position === 'top' || position === 'topleft' || position === 'topright' ? 'flex-start' : position === 'bottom' || position === 'bottomleft' || position === 'bottomright' ? 'flex-end' : 'center'
+        alignItems: position === 'top' || position === 'topleft' || position === 'topright' ? 'flex-start' : position === 'bottom' || position === 'bottomleft' || position === 'bottomright' ? 'flex-end' : 'center',
+        pointerEvents: !modal && 'none'
     }),
     root: {
         display: 'flex',
