@@ -26533,14 +26533,6 @@
                             "description": "Uses to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the input's DOM element."
-                        },
-                        {
                             "name": "labelContainer",
                             "optional": true,
                             "readonly": false,
