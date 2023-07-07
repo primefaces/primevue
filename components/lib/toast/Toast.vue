@@ -1,6 +1,6 @@
 <template>
     <Portal>
-        <div ref="container" :class="cx('root')" v-bind="{ ...$attrs, ...ptm('root') }">
+        <div ref="container" :class="cx('root')" :style="sx('root', true, { position })" v-bind="{ ...$attrs, ...ptm('root') }">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave" v-bind="ptm('message')">
                 <ToastMessage
                     v-for="msg of messages"

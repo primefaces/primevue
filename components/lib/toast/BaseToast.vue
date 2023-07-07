@@ -4,7 +4,6 @@ import { useStyle } from 'primevue/usestyle';
 
 const styles = `
 .p-toast {
-    position: fixed;
     width: 25rem;
 }
 
@@ -17,41 +16,15 @@ const styles = `
     flex: 1 1 auto;
 }
 
-.p-toast-top-right {
-    top: 20px;
-    right: 20px;
-}
-
-.p-toast-top-left {
-    top: 20px;
-    left: 20px;
-}
-
-.p-toast-bottom-left {
-    bottom: 20px;
-    left: 20px;
-}
-
-.p-toast-bottom-right {
-    bottom: 20px;
-    right: 20px;
-}
-
 .p-toast-top-center {
-    top: 20px;
-    left: 50%;
     transform: translateX(-50%);
 }
 
 .p-toast-bottom-center {
-    bottom: 20px;
-    left: 50%;
     transform: translateX(-50%);
 }
 
 .p-toast-center {
-    left: 50%;
-    top: 50%;
     min-width: 20vw;
     transform: translate(-50%, -50%);
 }
@@ -97,6 +70,17 @@ const styles = `
     transition: max-height 0.45s cubic-bezier(0, 1, 0, 1), opacity 0.3s, margin-bottom 0.3s;
 }
 `;
+
+// Position
+const inlineStyles = {
+    root: ({ position }) => ({
+        position: 'fixed',
+        top: position === 'top-right' || position === 'top-left' || position === 'top-center' ? '20px' : position === 'center' ? '50%' : null,
+        right: (position === 'top-right' || position === 'bottom-right') && '20px',
+        bottom: (position === 'bottom-left' || position === 'bottom-right' || position === 'bottom-center') && '20px',
+        left: position === 'top-left' || position === 'bottom-left' ? '20px' : position === 'center' || position === 'top-center' || position === 'bottom-center' ? '50%' : null
+    })
+};
 
 const classes = {
     root: ({ props, instance }) => [
@@ -185,6 +169,7 @@ export default {
     },
     css: {
         classes,
+        inlineStyles,
         loadStyle
     },
     provide() {
