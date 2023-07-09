@@ -58,6 +58,7 @@ export const defaultOptions = {
         today: 'Today',
         weekHeader: 'Wk',
         firstDayOfWeek: 0,
+        showMonthAfterYear: false,
         dateFormat: 'mm/dd/yy',
         weak: 'Weak',
         medium: 'Medium',
