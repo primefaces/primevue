@@ -3,7 +3,7 @@
         <p>PrimeVue can easily be used with Nuxt 3 using a custom plugin.</p>
 
         <h3>nuxt.config.js</h3>
-        <p>Open the nuxt configuration file and add the css dependencies.</p>
+        <p>Open the nuxt configuration file and add the css dependencies. This step is only required when using styled mode and can be ignored in unstyled mode.</p>
 
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 
