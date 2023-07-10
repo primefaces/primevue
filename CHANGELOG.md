@@ -1,6 +1,6 @@
 # Changelog
 
-##[3.30.0](https://github.com/primefaces/primevue/tree/3.30.0) (2023-07-10)
+## [3.30.0](https://github.com/primefaces/primevue/tree/3.30.0) (2023-07-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.29.2...HEAD)
 
@@ -32,7 +32,7 @@
 
 - The `primevue[.min].css` has been deprecated [\#4110](https://github.com/primefaces/primevue/issues/4110)
 
-##[3.29.2](https://github.com/primefaces/primevue/tree/3.29.2) (2023-05-31)
+## [3.29.2](https://github.com/primefaces/primevue/tree/3.29.2) (2023-05-31)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.29.1...3.29.2)
 
@@ -40,7 +40,7 @@
 
 - Datatable: Custom checkbox render issue [\#4003](https://github.com/primefaces/primevue/issues/4003)
 
-##[3.29.1](https://github.com/primefaces/primevue/tree/3.29.1) (2023-05-15)
+## [3.29.1](https://github.com/primefaces/primevue/tree/3.29.1) (2023-05-15)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.29.0...3.29.1)
 
