@@ -36,7 +36,7 @@ app.use(PrimeVue);
 ## Theming
 PrimeVue has two theming has modes; styled or unstyled.
 
-### Styled Mode
+#### Styled Mode
 Styled mode is based on pre-skinned components with opinionated themes like Material, Bootstrap or PrimeOne themes. Theme is the required css file to be imported, visit the [Themes](https://primevue.org/theming) section for the complete list of available themes to choose from.
 
 ```javascript
@@ -52,7 +52,7 @@ body {
 }
 ```
 
-### Unstyled Mode
+#### Unstyled Mode
 Unstyled mode is disabled by default for all components. Using the PrimeVue plugin during installation, set `unstyled` as true to enable it globally. Visit the [Unstyled mode](https://primevue.org/unstyled) documentation for more information and examples.
 
 ```javascript
