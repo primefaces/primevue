@@ -21,10 +21,10 @@ const app = createApp(App);
 app.use(PrimeVue, { 
     pt: {
         panel: {
-            header: { className: 'bg-primary' }
+            header: { class: 'bg-primary' }
         },
         autocomplete: {
-            input: { root: { className: 'w-16rem' } }
+            input: { root: { class: 'w-16rem' } }
         }
     } 
 });`
