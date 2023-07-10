@@ -21,8 +21,7 @@ export default {
             code1: {
                 basic: `export default defineNuxtConfig({
     css: [
-        "primevue/resources/themes/lara-light-blue/theme.css",
-        "primevue/resources/primevue.css"
+        "primevue/resources/themes/lara-light-blue/theme.css"
     ],
 	build: {
 		transpile: ["primevue"]

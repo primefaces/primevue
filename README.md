@@ -92,8 +92,7 @@ Open the nuxt configuration file and add the css dependencies.
 ```javascript
 export default defineNuxtConfig({
     css: [
-        "primevue/resources/themes/lara-light-blue/theme.css",
-        "primevue/resources/primevue.css"
+        "primevue/resources/themes/lara-light-blue/theme.css"
     ],
     build: {
       transpile: ["primevue"]
