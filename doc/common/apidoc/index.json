@@ -4261,7 +4261,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "DirectiveHooks",
+                            "type": "DirectiveHooks<any, any>",
                             "default": "",
                             "description": "Uses to manage all lifecycle hooks"
                         }
@@ -4367,42 +4367,42 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "beforeCreate",
+                            "name": "onBeforeCreate",
                             "parameters": [],
                             "returnType": "void"
                         },
                         {
-                            "name": "created",
+                            "name": "onCreated",
                             "parameters": [],
                             "returnType": "void"
                         },
                         {
-                            "name": "beforeMount",
+                            "name": "onBeforeMount",
                             "parameters": [],
                             "returnType": "void"
                         },
                         {
-                            "name": "mounted",
+                            "name": "onMounted",
                             "parameters": [],
                             "returnType": "void"
                         },
                         {
-                            "name": "beforeUpdate",
+                            "name": "onBeforeUpdate",
                             "parameters": [],
                             "returnType": "void"
                         },
                         {
-                            "name": "updated",
+                            "name": "onUpdated",
                             "parameters": [],
                             "returnType": "void"
                         },
                         {
-                            "name": "beforeUnmount",
+                            "name": "onBeforeUnmount",
                             "parameters": [],
                             "returnType": "void"
                         },
                         {
-                            "name": "unmounted",
+                            "name": "onUnmounted",
                             "parameters": [],
                             "returnType": "void"
                         }
@@ -4459,11 +4459,155 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "DirectiveInstance": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "$name",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | string",
+                            "default": ""
+                        },
+                        {
+                            "name": "$host",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": ""
+                        },
+                        {
+                            "name": "$binding",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DirectiveBinding<V>",
+                            "default": ""
+                        },
+                        {
+                            "name": "$el",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | HTMLElement",
+                            "default": ""
+                        },
+                        {
+                            "name": "$css",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Object",
+                            "default": ""
+                        },
+                        {
+                            "name": "defaultPT",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
+                            "name": "isUnstyled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "DirectiveOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "el",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": ""
+                        },
+                        {
+                            "name": "binding",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DirectiveBinding<V>",
+                            "default": ""
+                        },
+                        {
+                            "name": "vnode",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "VNode<any, T, Object>",
+                            "default": ""
+                        },
+                        {
+                            "name": "prevVNode",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Prev",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "DirectiveHooks": {
                     "relatedProp": "",
-                    "props": [],
-                    "methods": [],
-                    "extendedTypes": "Omit<ObjectDirective, \"getSSRProps\" | \"deep\">"
+                    "props": [
+                        {
+                            "name": "onCreated",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onBeforeMount",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onMounted",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onBeforeUpdate",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onUpdated",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onBeforeUnmount",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onUnmounted",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
                 },
                 "BaseDirectivePassThroughOptions": {
                     "relatedProp": "",
@@ -4472,7 +4616,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "DirectiveHooks",
+                            "type": "DirectiveHooks<any, any>",
                             "default": ""
                         }
                     ],
@@ -20432,7 +20576,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "DirectiveHooks",
+                            "type": "DirectiveHooks<any, any>",
                             "default": "",
                             "description": "Uses to manage all lifecycle hooks"
                         }
@@ -33035,7 +33179,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "DirectiveHooks",
+                            "type": "DirectiveHooks<any, any>",
                             "default": "",
                             "description": "Uses to manage all lifecycle hooks"
                         }
@@ -36376,7 +36520,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "DirectiveHooks",
+                            "type": "DirectiveHooks<any, any>",
                             "default": "",
                             "description": "Uses to manage all lifecycle hooks"
                         }
@@ -39872,7 +40016,7 @@
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
-                            "type": "DirectiveHooks",
+                            "type": "DirectiveHooks<any, any>",
                             "default": "",
                             "description": "Uses to manage all lifecycle hooks"
                         }
