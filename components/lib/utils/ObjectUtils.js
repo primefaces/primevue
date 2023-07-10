@@ -201,9 +201,13 @@ export default {
         return null;
     },
 
-    convertToFlatCase(str) {
+    toFlatCase(str) {
         // convert snake, kebab, camel and pascal cases to flat case
         return this.isNotEmpty(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+    },
+
+    toCapitalCase(str) {
+        return this.isNotEmpty(str) ? str[0].toUpperCase() + str.slice(1) : str;
     },
 
     isEmpty(value) {

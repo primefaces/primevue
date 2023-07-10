@@ -1,12 +1,12 @@
 export interface ComponentHooks {
-    beforeCreate?(): void;
-    created?(): void;
-    beforeMount?(): void;
-    mounted?(): void;
-    beforeUpdate?(): void;
-    updated?(): void;
-    beforeUnmount?(): void;
-    unmounted?(): void;
+    onBeforeCreate?(): void;
+    onCreated?(): void;
+    onBeforeMount?(): void;
+    onMounted?(): void;
+    onBeforeUpdate?(): void;
+    onUpdated?(): void;
+    onBeforeUnmount?(): void;
+    onUnmounted?(): void;
 }
 
 export interface BaseComponentPassThroughOptions {

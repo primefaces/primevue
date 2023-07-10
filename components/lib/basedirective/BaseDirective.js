@@ -5,12 +5,12 @@ import { mergeProps } from 'vue';
 const BaseDirective = {
     _getMeta: (...args) => [ObjectUtils.isObject(args[0]) ? undefined : args[0], ObjectUtils.getItemValue(ObjectUtils.isObject(args[0]) ? args[0] : args[1])],
     _getOptionValue: (options, key = '', params = {}) => {
-        const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
+        const fKeys = ObjectUtils.toFlatCase(key).split('.');
         const fKey = fKeys.shift();
 
         return fKey
             ? ObjectUtils.isObject(options)
-                ? BaseDirective._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                ? BaseDirective._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.toFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
                 : undefined
             : ObjectUtils.getItemValue(options, params);
     },
@@ -19,19 +19,21 @@ const BaseDirective = {
         const self = BaseDirective._getOptionValue(obj, key, params);
         const globalPT = searchInDefaultPT ? BaseDirective._getOptionValue(instance.defaultPT, key, params) : undefined;
         const merged = mergeProps(self, globalPT, {
-            ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(instance.$name) }),
-            [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
+            ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
+            [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
         });
 
         return merged;
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
+        const name = `on${ObjectUtils.toCapitalCase(hookName)}`;
         const config = binding?.instance?.$primevue?.config;
-        const selfHook = binding?.value?.pt?.hooks?.[hookName];
-        const globalHook = config?.pt?.directives?.[directiveName]?.hooks?.[hookName];
+        const selfHook = binding?.value?.pt?.hooks?.[name];
+        const globalHook = config?.pt?.directives?.[directiveName]?.hooks?.[name];
+        const options = { el, binding, vnode, prevVnode };
 
-        selfHook?.(el, binding, vnode, prevVnode);
-        globalHook?.(el, binding, vnode, prevVnode);
+        selfHook?.(el?.$instance, options);
+        globalHook?.(el?.$instance, options);
     },
     _extend: (name, options = {}) => {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {

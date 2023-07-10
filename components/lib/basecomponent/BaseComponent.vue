@@ -400,30 +400,30 @@ export default {
         }
     },
     beforeCreate() {
-        this.pt?.hooks?.['beforeCreate']?.();
-        this.$primevue?.config?.pt?.[this.$.type.name]?.hooks?.['beforeCreate']?.();
+        this.pt?.hooks?.['onBeforeCreate']?.();
+        this.$primevue?.config?.pt?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
     },
     created() {
-        this._hook('created');
+        this._hook('onCreated');
     },
     beforeMount() {
         loadBaseStyle();
-        this._hook('beforeMount');
+        this._hook('onBeforeMount');
     },
     mounted() {
-        this._hook('mounted');
+        this._hook('onMounted');
     },
     beforeUpdate() {
-        this._hook('beforeUpdate');
+        this._hook('onBeforeUpdate');
     },
     updated() {
-        this._hook('updated');
+        this._hook('onUpdated');
     },
     beforeUnmount() {
-        this._hook('beforeUnmount');
+        this._hook('onBeforeUnmount');
     },
     unmounted() {
-        this._hook('unmounted');
+        this._hook('onUnmounted');
     },
     methods: {
         _hook(hookName) {
@@ -437,12 +437,12 @@ export default {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
         },
         _getOptionValue(options, key = '', params = {}) {
-            const fKeys = ObjectUtils.convertToFlatCase(key).split('.');
+            const fKeys = ObjectUtils.toFlatCase(key).split('.');
             const fKey = fKeys.shift();
 
             return fKey
                 ? ObjectUtils.isObject(options)
-                    ? this._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.convertToFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                    ? this._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.toFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
                     : undefined
                 : ObjectUtils.getItemValue(options, params);
         },
@@ -451,8 +451,8 @@ export default {
             const self = this._getOptionValue(obj, key, params);
             const globalPT = searchInDefaultPT ? this._getOptionValue(this.defaultPT, key, params) : undefined;
             const merged = mergeProps(self, globalPT, {
-                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.convertToFlatCase(this.$.type.name) }),
-                [`${datasetPrefix}section`]: ObjectUtils.convertToFlatCase(key)
+                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
+                [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
             });
 
             return merged;
