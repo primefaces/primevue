@@ -104,7 +104,7 @@ export default defineConfig({
         [`${path}main.js`]: {
             content: `import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
-import "primevue/resources/primevue.min.css";
+import "primevue/resources/primevue.min.css"; /* Deprecated */
 import "primeicons/primeicons.css";
 import "./index.css";
 import "./flags.css";
