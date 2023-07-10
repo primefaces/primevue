@@ -1,8 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Lifecycle hooks of components are exposed as pass through using the <i>hooks</i> property so that callback functions can be registered. Available callbacks are <i>beforeCreate</i>, <i>created</i>, <i>beforeUpdate</i>,
-            <i>updated</i>,<i>beforeMount</i>, <i>mounted</i>,<i>beforeUnmount</i> and <i>unmounted</i>. Refer to the Vue.js documentation for detailed information about lifecyce hooks.
+            Lifecycle hooks of components are exposed as pass through using the <i>hooks</i> property so that callback functions can be registered. Available callbacks are <i>onBeforeCreate</i>, <i>onCreated</i>, <i>onBeforeUpdate</i>,
+            <i>onUpdated</i>, <i>onBeforeMount</i>, <i>onMounted</i>, <i>onBeforeUnmount</i> and <i>onUnmounted</i>. Refer to the Vue.js documentation for detailed information about lifecycle hooks.
         </p>
     </DocSectionText>
 
@@ -31,10 +31,10 @@ export default {
         return {
             panelPT: {
                 hooks: {
-                    mounted: () => {
+                    onMounted: () => {
                         //panel mounted
                     },
-                    unmounted: () => {
+                    onUnmounted: () => {
                         //panel unmounted
                     }
                 }
@@ -55,10 +55,10 @@ import { ref } from 'vue';
 
 const panelPt = ref({
     hooks: {
-        mounted: () => {
+        onMounted: () => {
             //panel mounted
         },
-        unmounted: () => {
+        onUnmounted: () => {
             //panel unmounted
         }
     }
