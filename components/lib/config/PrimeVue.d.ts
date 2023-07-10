@@ -88,7 +88,7 @@ import { TreeTablePassThroughOptions } from '../treetable';
 import { DefaultPTOptions } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
-interface PrimeVueConfiguration {
+export interface PrimeVueConfiguration {
     ripple?: boolean;
     inputStyle?: string;
     locale?: PrimeVueLocaleOptions;
@@ -98,14 +98,14 @@ interface PrimeVueConfiguration {
     unstyled?: boolean;
 }
 
-interface PrimeVueZIndexOptions {
+export interface PrimeVueZIndexOptions {
     modal?: number;
     overlay?: number;
     menu?: number;
     tooltip?: number;
 }
 
-interface PrimeVuePTOptions {
+export interface PrimeVuePTOptions {
     accordion?: DefaultPTOptions<AccordionPassThroughOptions>;
     accordiontab?: DefaultPTOptions<AccordionTabPassThroughOptions>;
     autocomplete?: DefaultPTOptions<AutoCompletePassThroughOptions>;
@@ -198,7 +198,7 @@ interface PrimeVuePTOptions {
     };
 }
 
-interface PrimeVueLocaleAriaOptions {
+export interface PrimeVueLocaleAriaOptions {
     trueLabel?: string;
     falseLabel?: string;
     nullLabel?: string;
@@ -249,7 +249,7 @@ interface PrimeVueLocaleAriaOptions {
     rotateLeft?: string;
 }
 
-interface PrimeVueLocaleOptions {
+export interface PrimeVueLocaleOptions {
     startsWith?: string;
     contains?: string;
     notContains?: string;
@@ -317,13 +317,11 @@ interface PrimeVueLocaleOptions {
     aria?: PrimeVueLocaleAriaOptions;
 }
 
-interface SwitchTheme {
-    (currentTheme: string, newTheme: string, linkElementId: string, callback?: Function): void;
-}
+export type PrimeVueChangeTheme = (currentTheme: string, newTheme: string, linkElementId: string, callback?: Function) => void;
 
 export declare function usePrimeVue(): {
     config: PrimeVueConfiguration;
-    changeTheme: SwitchTheme;
+    changeTheme: PrimeVueChangeTheme;
 };
 
 declare const plugin: Plugin;
@@ -333,7 +331,7 @@ declare module 'vue/types/vue' {
     interface Vue {
         $primevue: {
             config: PrimeVueConfiguration;
-            changeTheme: SwitchTheme;
+            changeTheme: PrimeVueChangeTheme;
         };
     }
 }
@@ -342,7 +340,7 @@ declare module '@vue/runtime-core' {
     interface ComponentCustomProperties {
         $primevue: {
             config: PrimeVueConfiguration;
-            changeTheme: SwitchTheme;
+            changeTheme: PrimeVueChangeTheme;
         };
     }
 }
