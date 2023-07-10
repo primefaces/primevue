@@ -17,7 +17,7 @@ const app = createApp(App);
 app.use(PrimeVue, { 
     pt: {
         slider: {
-            handle: { className: 'bg-primary' }
+            handle: { class: 'bg-primary' }
         }
     } 
 });`
