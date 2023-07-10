@@ -6,7 +6,7 @@
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('lara') }]" @click="changeTheme('lara', 'blue')">PrimeOne</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('md') }]" @click="changeTheme('md', 'indigo')">Material</button>
             <button type="button" :class="['font-medium linkbox mr-3 mt-4', { active: theme && theme.startsWith('bootstrap4') }]" @click="changeTheme('bootstrap4', 'blue')">Bootstrap</button>
-            <a type="button" class="font-medium p-link linkbox mt-4" href="https://designer.primevue.org">more...</a>
+            <a type="button" class="font-medium px-link linkbox mt-4" href="https://designer.primevue.org">more...</a>
         </div>
         <div
             class="themes-main flex mt-7 justify-content-center px-5 lg:px-8"

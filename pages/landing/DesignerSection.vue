@@ -11,10 +11,10 @@
                     <div class="p-fluid">
                         <span class="font-semibold block mb-3">Primary</span>
                         <div>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #4f8ff7" @click="changeTheme('#4f8ff7', '#3575dd')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #03e8bf" @click="changeTheme('#03E8BF', '#02ba99')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link mr-3" style="background-color: #916aff" @click="changeTheme('#916AFF', '#7455cc')"></button>
-                            <button type="button" class="border-circle w-2rem h-2rem p-link" style="background-color: #ffbd80" @click="changeTheme('#FFBD80', '#cc9766')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link mr-3" style="background-color: #4f8ff7" @click="changeTheme('#4f8ff7', '#3575dd')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link mr-3" style="background-color: #03e8bf" @click="changeTheme('#03E8BF', '#02ba99')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link mr-3" style="background-color: #916aff" @click="changeTheme('#916AFF', '#7455cc')"></button>
+                            <button type="button" class="border-circle w-2rem h-2rem px-link" style="background-color: #ffbd80" @click="changeTheme('#FFBD80', '#cc9766')"></button>
                         </div>
 
                         <span class="font-semibold block mt-4 mb-3">Font</span>
