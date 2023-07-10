@@ -317,7 +317,14 @@ interface PrimeVueLocaleOptions {
     aria?: PrimeVueLocaleAriaOptions;
 }
 
-export declare function usePrimeVue(): { config: PrimeVueConfiguration };
+interface SwitchTheme {
+    (currentTheme: string, newTheme: string, linkElementId: string, callback?: Function): void;
+}
+
+export declare function usePrimeVue(): {
+    config: PrimeVueConfiguration;
+    changeTheme: SwitchTheme;
+};
 
 declare const plugin: Plugin;
 export default plugin;
@@ -326,6 +333,7 @@ declare module 'vue/types/vue' {
     interface Vue {
         $primevue: {
             config: PrimeVueConfiguration;
+            changeTheme: SwitchTheme;
         };
     }
 }
@@ -334,6 +342,7 @@ declare module '@vue/runtime-core' {
     interface ComponentCustomProperties {
         $primevue: {
             config: PrimeVueConfiguration;
+            changeTheme: SwitchTheme;
         };
     }
 }
