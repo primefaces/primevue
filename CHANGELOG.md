@@ -1,6 +1,38 @@
 # Changelog
 
-[3.29.2](https://github.com/primefaces/primevue/tree/3.29.2) (2023-05-31)
+##[3.30.0](https://github.com/primefaces/primevue/tree/3.30.0) (2023-07-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.29.2...HEAD)
+
+**Implemented New Features and Enhancements:**
+
+- InputText: `size` property [\#4106](https://github.com/primefaces/primevue/issues/4106)
+- Add `hooks` keyword to `pt` options to access all lifecycle methods on components and directives [\#4103](https://github.com/primefaces/primevue/issues/4103)
+- Pass all emits to templates on DynamicDialog  [\#4102](https://github.com/primefaces/primevue/issues/4102)
+- Improve `pt` options on components that use helper component [\#3983](https://github.com/primefaces/primevue/issues/3983)
+- Add `unstyled` mode for all components [\#3965](https://github.com/primefaces/primevue/issues/3965)
+
+**Fixed bugs:**
+
+- Button: Button width is to small when have a icon and a badge only [\#4083](https://github.com/primefaces/primevue/issues/4083)
+- SplitButton: aria-expanded not set correctly [\#4065](https://github.com/primefaces/primevue/issues/4065)
+- Toast: Crashing when no severity value is provided [\#4063](https://github.com/primefaces/primevue/issues/4063)
+- Positioning defect PrimeVue Button with icon slot  [\#4042](https://github.com/primefaces/primevue/issues/4042)
+- Tooltip: showDelay still triggers Tooltip when original element is removed [\#4029](https://github.com/primefaces/primevue/issues/4029)
+- tooltip: hideDelay is not defined [\#4025](https://github.com/primefaces/primevue/issues/4025)
+- `pt` implementation defects [\#4024](https://github.com/primefaces/primevue/issues/4024)
+- FocusTrap.js writes to read-only property `classList` which causes test failures under happy-dom [\#4015](https://github.com/primefaces/primevue/issues/4015)
+- The `getScrollableParents` method throws a exception in shadow dom [\#4014](https://github.com/primefaces/primevue/issues/4014)
+- TreeTable: event propagation issue [\#4010](https://github.com/primefaces/primevue/issues/4010)
+- Dynamic clipPath support for icons [\#3959](https://github.com/primefaces/primevue/issues/3959)
+- Accordion: pt options for root applied twice [\#3955](https://github.com/primefaces/primevue/issues/3955)
+- InputNumber: Incorrect formatting when in decimal mode with a suffix \(maybe all the time\) [\#3382](https://github.com/primefaces/primevue/issues/3382)
+
+**Deprecated:**
+
+- The `primevue[.min].css` has been deprecated [\#4110](https://github.com/primefaces/primevue/issues/4110)
+
+##[3.29.2](https://github.com/primefaces/primevue/tree/3.29.2) (2023-05-31)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.29.1...3.29.2)
 
@@ -8,7 +40,7 @@
 
 - Datatable: Custom checkbox render issue [\#4003](https://github.com/primefaces/primevue/issues/4003)
 
-[3.29.1](https://github.com/primefaces/primevue/tree/3.29.1) (2023-05-15)
+##[3.29.1](https://github.com/primefaces/primevue/tree/3.29.1) (2023-05-15)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.29.0...3.29.1)
 
