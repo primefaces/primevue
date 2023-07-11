@@ -340,7 +340,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "AccordionPassThroughOptionType": {
-                    "values": "AccordionPassThroughAttributes | (options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | null | undefined"
+                    "values": "AccordionPassThroughAttributes | (options: AccordionPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -654,7 +654,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "AccordionTabPassThroughOptionType": {
-                    "values": "AccordionTabPassThroughAttributes | (options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes | null | undefined"
+                    "values": "AccordionTabPassThroughAttributes | (options: AccordionTabPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -3731,7 +3731,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "AutoCompletePassThroughOptionType": {
-                    "values": "AutoCompletePassThroughAttributes | (options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes | null | undefined"
+                    "values": "AutoCompletePassThroughAttributes | (options: AutoCompletePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -3959,7 +3959,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "AvatarPassThroughOptionType": {
-                    "values": "AvatarPassThroughAttributes | (options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes | null | undefined"
+                    "values": "AvatarPassThroughAttributes | (options: AvatarPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -4209,7 +4209,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "BadgePassThroughOptionType": {
-                    "values": "BadgePassThroughAttributes | (options: BadgePassThroughMethodOptions) => BadgePassThroughAttributes | null | undefined"
+                    "values": "BadgePassThroughAttributes | (options: BadgePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -4814,7 +4814,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "BlockUIPassThroughOptionType": {
-                    "values": "BlockUIPassThroughAttributes | (options: BlockUIPassThroughMethodOptions) => BlockUIPassThroughAttributes | null | undefined"
+                    "values": "BlockUIPassThroughAttributes | (options: BlockUIPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -5063,7 +5063,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "BreadcrumbPassThroughOptionType": {
-                    "values": "BreadcrumbPassThroughAttributes | (options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes | null | undefined"
+                    "values": "BreadcrumbPassThroughAttributes | (options: BreadcrumbPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -5415,7 +5415,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ButtonPassThroughOptionType": {
-                    "values": "ButtonPassThroughAttributes | (options: ButtonPassThroughMethodOptions) => ButtonPassThroughAttributes | null | undefined"
+                    "values": "ButtonPassThroughAttributes | (options: ButtonPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -6746,7 +6746,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "CalendarPassThroughOptionType": {
-                    "values": "CalendarPassThroughAttributes | (options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | null | undefined"
+                    "values": "CalendarPassThroughAttributes | (options: CalendarPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -7476,7 +7476,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "CarouselPassThroughOptionType": {
-                    "values": "CarouselPassThroughAttributes | (options: CarouselPassThroughMethodOptions) => CarouselPassThroughAttributes | null | undefined"
+                    "values": "CarouselPassThroughAttributes | (options: CarouselPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -8255,7 +8255,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "CascadeSelectPassThroughOptionType": {
-                    "values": "CascadeSelectPassThroughAttributes | (options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes | null | undefined"
+                    "values": "CascadeSelectPassThroughAttributes | (options: CascadeSelectPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -8521,7 +8521,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ChartPassThroughOptionType": {
-                    "values": "ChartPassThroughAttributes | (options: ChartPassThroughMethodOptions) => ChartPassThroughAttributes | null | undefined"
+                    "values": "ChartPassThroughAttributes | (options: ChartPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -8928,7 +8928,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "CheckboxPassThroughOptionType": {
-                    "values": "CheckboxPassThroughAttributes | (options: CheckboxPassThroughMethodOptions) => CheckboxPassThroughAttributes | null | undefined"
+                    "values": "CheckboxPassThroughAttributes | (options: CheckboxPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -9184,7 +9184,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ChipPassThroughOptionType": {
-                    "values": "ChipPassThroughAttributes | (options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes | null | undefined"
+                    "values": "ChipPassThroughAttributes | (options: ChipPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -9627,7 +9627,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ChipsPassThroughOptionType": {
-                    "values": "ChipsPassThroughAttributes | (options: ChipsPassThroughMethodOptions) => ChipsPassThroughAttributes | null | undefined"
+                    "values": "ChipsPassThroughAttributes | (options: ChipsPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -9974,7 +9974,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ColorPickerPassThroughOptionType": {
-                    "values": "ColorPickerPassThroughAttributes | (options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | null | undefined"
+                    "values": "ColorPickerPassThroughAttributes | (options: ColorPickerPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -11372,7 +11372,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ColumnPassThroughOptionType": {
-                    "values": "ColumnPassThroughAttributes | (options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | null | undefined"
+                    "values": "ColumnPassThroughAttributes | (options: ColumnPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -11529,7 +11529,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ColumnGroupPassThroughOptionType": {
-                    "values": "ColumnGroupPassThroughAttributes | (options: ColumnGroupPassThroughMethodOptions) => ColumnGroupPassThroughAttributes | null | undefined"
+                    "values": "ColumnGroupPassThroughAttributes | (options: ColumnGroupPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -13543,7 +13543,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ConfirmDialogPassThroughOptionType": {
-                    "values": "ConfirmDialogPassThroughAttributes | (options: ConfirmDialogPassThroughMethodOptions) => ConfirmDialogPassThroughAttributes | null | undefined"
+                    "values": "ConfirmDialogPassThroughAttributes | (options: ConfirmDialogPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -13787,7 +13787,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ConfirmPopupPassThroughOptionType": {
-                    "values": "ConfirmPopupPassThroughAttributes | (options: ConfirmPopupPassThroughMethodOptions) => ConfirmPopupPassThroughAttributes | null | undefined"
+                    "values": "ConfirmPopupPassThroughAttributes | (options: ConfirmPopupPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -14295,7 +14295,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ContextMenuPassThroughOptionType": {
-                    "values": "ContextMenuPassThroughAttributes | (options: ContextMenuPassThroughMethodOptions) => ContextMenuPassThroughAttributes | null | undefined"
+                    "values": "ContextMenuPassThroughAttributes | (options: ContextMenuPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -17055,7 +17055,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DataTablePassThroughOptionType": {
-                    "values": "DataTablePassThroughAttributes | (options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | null | undefined"
+                    "values": "DataTablePassThroughAttributes | (options: DataTablePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -17525,7 +17525,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DataViewPassThroughOptionType": {
-                    "values": "DataViewPassThroughAttributes | (options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | null | undefined"
+                    "values": "DataViewPassThroughAttributes | (options: DataViewPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -17742,7 +17742,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DataViewLayoutOptionsPassThroughOptionType": {
-                    "values": "DataViewLayoutOptionsPassThroughAttributes | (options: DataViewLayoutOptionsPassThroughMethodOptions) => DataViewLayoutOptionsPassThroughAttributes | null | undefined"
+                    "values": "DataViewLayoutOptionsPassThroughAttributes | (options: DataViewLayoutOptionsPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -17898,7 +17898,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DeferredContentPassThroughOptionType": {
-                    "values": "DeferredContentPassThroughAttributes | (options: DeferredContentPassThroughMethodOptions) => DeferredContentPassThroughAttributes | null | undefined"
+                    "values": "DeferredContentPassThroughAttributes | (options: DeferredContentPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -18461,7 +18461,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DialogPassThroughOptionType": {
-                    "values": "DialogPassThroughAttributes | (options: DialogPassThroughMethodOptions) => DialogPassThroughAttributes | null | undefined"
+                    "values": "DialogPassThroughAttributes | (options: DialogPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -18655,7 +18655,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DividerPassThroughOptionType": {
-                    "values": "DividerPassThroughAttributes | (options: DividerPassThroughMethodOptions) => DividerPassThroughAttributes | null | undefined"
+                    "values": "DividerPassThroughAttributes | (options: DividerPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -19054,7 +19054,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DockPassThroughOptionType": {
-                    "values": "DockPassThroughAttributes | (options: DockPassThroughMethodOptions) => DockPassThroughAttributes | null | undefined"
+                    "values": "DockPassThroughAttributes | (options: DockPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -20091,7 +20091,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "DropdownPassThroughOptionType": {
-                    "values": "DropdownPassThroughAttributes | (options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes | null | undefined"
+                    "values": "DropdownPassThroughAttributes | (options: DropdownPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -20779,7 +20779,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "EditorPassThroughOptionType": {
-                    "values": "EditorPassThroughAttributes | (options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes | null | undefined"
+                    "values": "EditorPassThroughAttributes | (options: EditorPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -21074,7 +21074,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "FieldsetPassThroughOptionType": {
-                    "values": "FieldsetPassThroughAttributes | (options: FieldsetPassThroughMethodOptions) => FieldsetPassThroughAttributes | null | undefined"
+                    "values": "FieldsetPassThroughAttributes | (options: FieldsetPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -22002,7 +22002,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "FileUploadPassThroughOptionType": {
-                    "values": "FileUploadPassThroughAttributes | (options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes | null | undefined"
+                    "values": "FileUploadPassThroughAttributes | (options: FileUploadPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -22910,7 +22910,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "GalleriaPassThroughOptionType": {
-                    "values": "GalleriaPassThroughAttributes | (options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes | null | undefined"
+                    "values": "GalleriaPassThroughAttributes | (options: GalleriaPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -23425,7 +23425,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ImagePassThroughOptionType": {
-                    "values": "ImagePassThroughAttributes | (options: ImagePassThroughMethodOptions) => ImagePassThroughAttributes | null | undefined"
+                    "values": "ImagePassThroughAttributes | (options: ImagePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -23612,7 +23612,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "InlineMessagePassThroughOptionType": {
-                    "values": "InlineMessagePassThroughAttributes | (options: InlineMessagePassThroughMethodOptions) => InlineMessagePassThroughAttributes | null | undefined"
+                    "values": "InlineMessagePassThroughAttributes | (options: InlineMessagePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -23886,7 +23886,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "InplacePassThroughOptionType": {
-                    "values": "InplacePassThroughAttributes | (options: InplacePassThroughMethodOptions) => InplacePassThroughAttributes | null | undefined"
+                    "values": "InplacePassThroughAttributes | (options: InplacePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -24672,7 +24672,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "InputNumberPassThroughOptionType": {
-                    "values": "InputNumberPassThroughAttributes | (options: InputNumberPassThroughMethodOptions) => InputNumberPassThroughAttributes | null | undefined"
+                    "values": "InputNumberPassThroughAttributes | (options: InputNumberPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -24962,7 +24962,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "InputSwitchPassThroughOptionType": {
-                    "values": "InputSwitchPassThroughAttributes | (options: InputSwitchPassThroughMethodOptions) => InputSwitchPassThroughAttributes | null | undefined"
+                    "values": "InputSwitchPassThroughAttributes | (options: InputSwitchPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -25442,7 +25442,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "KnobPassThroughOptionType": {
-                    "values": "KnobPassThroughAttributes | (options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes | null | undefined"
+                    "values": "KnobPassThroughAttributes | (options: KnobPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -26208,7 +26208,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ListboxPassThroughOptionType": {
-                    "values": "ListboxPassThroughAttributes | (options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes | null | undefined"
+                    "values": "ListboxPassThroughAttributes | (options: ListboxPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -26689,7 +26689,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "MegaMenuPassThroughOptionType": {
-                    "values": "MegaMenuPassThroughAttributes | (options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes | null | undefined"
+                    "values": "MegaMenuPassThroughAttributes | (options: MegaMenuPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -27139,7 +27139,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "MenuPassThroughOptionType": {
-                    "values": "MenuPassThroughAttributes | (options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | null | undefined"
+                    "values": "MenuPassThroughAttributes | (options: MenuPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -27575,7 +27575,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "MenubarPassThroughOptionType": {
-                    "values": "MenubarPassThroughAttributes | (options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes | null | undefined"
+                    "values": "MenubarPassThroughAttributes | (options: MenubarPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -28015,7 +28015,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "MessagePassThroughOptionType": {
-                    "values": "MessagePassThroughAttributes | (options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes | null | undefined"
+                    "values": "MessagePassThroughAttributes | (options: MessagePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -29297,7 +29297,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "MultiSelectPassThroughOptionType": {
-                    "values": "MultiSelectPassThroughAttributes | (options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | null | undefined"
+                    "values": "MultiSelectPassThroughAttributes | (options: MultiSelectPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -29826,7 +29826,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "OrderListPassThroughOptionType": {
-                    "values": "OrderListPassThroughAttributes | (options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | null | undefined"
+                    "values": "OrderListPassThroughAttributes | (options: OrderListPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -30371,7 +30371,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "OrganizationChartPassThroughOptionType": {
-                    "values": "OrganizationChartPassThroughAttributes | (options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes | null | undefined"
+                    "values": "OrganizationChartPassThroughAttributes | (options: OrganizationChartPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -30674,7 +30674,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "OverlayPanelPassThroughOptionType": {
-                    "values": "OverlayPanelPassThroughAttributes | (options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes | null | undefined"
+                    "values": "OverlayPanelPassThroughAttributes | (options: OverlayPanelPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -31221,7 +31221,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "PaginatorPassThroughOptionType": {
-                    "values": "PaginatorPassThroughAttributes | (options: PaginatorPassThroughMethodOptions) => PaginatorPassThroughAttributes | null | undefined"
+                    "values": "PaginatorPassThroughAttributes | (options: PaginatorPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -31554,7 +31554,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "PanelPassThroughOptionType": {
-                    "values": "PanelPassThroughAttributes | (options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes | null | undefined"
+                    "values": "PanelPassThroughAttributes | (options: PanelPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -32055,7 +32055,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "PanelMenuPassThroughOptionType": {
-                    "values": "PanelMenuPassThroughAttributes | (options: PanelMenuPassThroughMethodOptions) => PanelMenuPassThroughAttributes | null | undefined"
+                    "values": "PanelMenuPassThroughAttributes | (options: PanelMenuPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -32575,7 +32575,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "PasswordPassThroughOptionType": {
-                    "values": "PasswordPassThroughAttributes | (options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | null | undefined"
+                    "values": "PasswordPassThroughAttributes | (options: PasswordPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -33514,7 +33514,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "PickListPassThroughOptionType": {
-                    "values": "PickListPassThroughAttributes | (options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | null | undefined"
+                    "values": "PickListPassThroughAttributes | (options: PickListPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -33734,7 +33734,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ProgressBarPassThroughOptionType": {
-                    "values": "ProgressBarPassThroughAttributes | (options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes | null | undefined"
+                    "values": "ProgressBarPassThroughAttributes | (options: ProgressBarPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -33894,7 +33894,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ProgressSpinnerPassThroughOptionType": {
-                    "values": "ProgressSpinnerPassThroughAttributes | (options: ProgressSpinnerPassThroughMethodOptions) => ProgressSpinnerPassThroughAttributes | null | undefined"
+                    "values": "ProgressSpinnerPassThroughAttributes | (options: ProgressSpinnerPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -34187,7 +34187,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "RadioButtonPassThroughOptionType": {
-                    "values": "RadioButtonPassThroughAttributes | (options: RadioButtonPassThroughMethodOptions) => RadioButtonPassThroughAttributes | null | undefined"
+                    "values": "RadioButtonPassThroughAttributes | (options: RadioButtonPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -34629,7 +34629,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "RatingPassThroughOptionType": {
-                    "values": "RatingPassThroughAttributes | (options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes | null | undefined"
+                    "values": "RatingPassThroughAttributes | (options: RatingPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -34864,7 +34864,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "RowPassThroughOptionType": {
-                    "values": "RowPassThroughAttributes | (options: RowPassThroughMethodOptions) => RowPassThroughAttributes | null | undefined"
+                    "values": "RowPassThroughAttributes | (options: RowPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -35077,7 +35077,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ScrollPanelPassThroughOptionType": {
-                    "values": "ScrollPanelPassThroughAttributes | (options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes | null | undefined"
+                    "values": "ScrollPanelPassThroughAttributes | (options: ScrollPanelPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -35267,7 +35267,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ScrollTopPassThroughOptionType": {
-                    "values": "ScrollTopPassThroughAttributes | (options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes | null | undefined"
+                    "values": "ScrollTopPassThroughAttributes | (options: ScrollTopPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -35624,7 +35624,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SelectButtonPassThroughOptionType": {
-                    "values": "SelectButtonPassThroughAttributes | (options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | null | undefined"
+                    "values": "SelectButtonPassThroughAttributes | (options: SelectButtonPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -35932,7 +35932,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SidebarPassThroughOptionType": {
-                    "values": "SidebarPassThroughAttributes | (options: SidebarPassThroughMethodOptions) => SidebarPassThroughAttributes | null | undefined"
+                    "values": "SidebarPassThroughAttributes | (options: SidebarPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -36100,7 +36100,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SkeletonPassThroughOptionType": {
-                    "values": "SkeletonPassThroughAttributes | (options: SkeletonPassThroughMethodOptions) => SkeletonPassThroughAttributes | null | undefined"
+                    "values": "SkeletonPassThroughAttributes | (options: SkeletonPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -36395,7 +36395,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SliderPassThroughOptionType": {
-                    "values": "SliderPassThroughAttributes | (options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes | null | undefined"
+                    "values": "SliderPassThroughAttributes | (options: SliderPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -36922,7 +36922,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SpeedDialPassThroughOptionType": {
-                    "values": "SpeedDialPassThroughAttributes | (options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | null | undefined"
+                    "values": "SpeedDialPassThroughAttributes | (options: SpeedDialPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -37287,7 +37287,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SplitButtonPassThroughOptionType": {
-                    "values": "SplitButtonPassThroughAttributes | (options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | null | undefined"
+                    "values": "SplitButtonPassThroughAttributes | (options: SplitButtonPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -37565,7 +37565,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SplitterPassThroughOptionType": {
-                    "values": "SplitterPassThroughAttributes | (options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes | null | undefined"
+                    "values": "SplitterPassThroughAttributes | (options: SplitterPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -37708,7 +37708,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "SplitterPanelPassThroughOptionType": {
-                    "values": "SplitterPanelPassThroughAttributes | (options: SplitterPanelPassThroughMethodOptions) => SplitterPanelPassThroughAttributes | null | undefined"
+                    "values": "SplitterPanelPassThroughAttributes | (options: SplitterPanelPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -37914,7 +37914,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "StepsPassThroughOptionType": {
-                    "values": "StepsPassThroughAttributes | (options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes | null | undefined"
+                    "values": "StepsPassThroughAttributes | (options: StepsPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -38359,7 +38359,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TabMenuPassThroughOptionType": {
-                    "values": "TabMenuPassThroughAttributes | (options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes | null | undefined"
+                    "values": "TabMenuPassThroughAttributes | (options: TabMenuPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -38618,7 +38618,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TabPanelPassThroughOptionType": {
-                    "values": "TabPanelPassThroughAttributes | (options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | null | undefined"
+                    "values": "TabPanelPassThroughAttributes | (options: TabPanelPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -39019,7 +39019,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TabViewPassThroughOptionType": {
-                    "values": "TabViewPassThroughAttributes | (options: undefined) => TabViewPassThroughAttributes | null | undefined"
+                    "values": "TabViewPassThroughAttributes | (options: undefined) => undefined | string | null | undefined"
                 }
             }
         }
@@ -39201,7 +39201,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TagPassThroughOptionType": {
-                    "values": "TagPassThroughAttributes | (options: TagPassThroughMethodOptions) => TagPassThroughAttributes | null | undefined"
+                    "values": "TagPassThroughAttributes | (options: TagPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -39431,7 +39431,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TerminalPassThroughOptionType": {
-                    "values": "TerminalPassThroughAttributes | (options: TerminalPassThroughMethodOptions) => TerminalPassThroughAttributes | null | undefined"
+                    "values": "TerminalPassThroughAttributes | (options: TerminalPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -39644,7 +39644,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TextareaPassThroughOptionType": {
-                    "values": "TextareaPassThroughAttributes | (options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | null | undefined"
+                    "values": "TextareaPassThroughAttributes | (options: TextareaPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -40128,7 +40128,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TieredMenuPassThroughOptionType": {
-                    "values": "TieredMenuPassThroughAttributes | (options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes | null | undefined"
+                    "values": "TieredMenuPassThroughAttributes | (options: TieredMenuPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -40812,7 +40812,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ToastPassThroughOptionType": {
-                    "values": "ToastPassThroughAttributes | (options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes | null | undefined"
+                    "values": "ToastPassThroughAttributes | (options: ToastPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -41215,7 +41215,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ToggleButtonPassThroughOptionType": {
-                    "values": "ToggleButtonPassThroughAttributes | (options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes | null | undefined"
+                    "values": "ToggleButtonPassThroughAttributes | (options: ToggleButtonPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -41386,7 +41386,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "ToolbarPassThroughOptionType": {
-                    "values": "ToolbarPassThroughAttributes | (options: ToolbarPassThroughMethodOptions) => ToolbarPassThroughAttributes | null | undefined"
+                    "values": "ToolbarPassThroughAttributes | (options: ToolbarPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -42329,7 +42329,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TreePassThroughOptionType": {
-                    "values": "TreePassThroughAttributes | (options: TreePassThroughMethodOptions) => TreePassThroughAttributes | null | undefined"
+                    "values": "TreePassThroughAttributes | (options: TreePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -42921,7 +42921,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TreeSelectPassThroughOptionType": {
-                    "values": "TreeSelectPassThroughAttributes | (options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | null | undefined"
+                    "values": "TreeSelectPassThroughAttributes | (options: TreeSelectPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -44252,7 +44252,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TreeTablePassThroughOptionType": {
-                    "values": "TreeTablePassThroughAttributes | (options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | null | undefined"
+                    "values": "TreeTablePassThroughAttributes | (options: TreeTablePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -44596,7 +44596,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TriStateCheckboxPassThroughOptionType": {
-                    "values": "TriStateCheckboxPassThroughAttributes | (options: TriStateCheckboxPassThroughMethodOptions) => TriStateCheckboxPassThroughAttributes | null | undefined"
+                    "values": "TriStateCheckboxPassThroughAttributes | (options: TriStateCheckboxPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -45584,7 +45584,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "VirtualScrollerPassThroughOptionType": {
-                    "values": "VirtualScrollerPassThroughAttributes | (options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes | null | undefined"
+                    "values": "VirtualScrollerPassThroughAttributes | (options: VirtualScrollerPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
