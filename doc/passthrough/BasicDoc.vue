@@ -48,13 +48,13 @@ export default {
                 'border-primary',
                 {
                     'bg-primary': options.state.d_collapsed,
-                    'bg-primary-reverse': !options.state.d_collapsed,
-                },
-            ],
+                    'bg-primary-reverse': !options.state.d_collapsed
+                }
+            ]
         }),
         content: { class: 'border-primary text-lg text-primary-700' },
         title: { class: 'text-xl' },
-        toggler: { class: 'bg-primary hover:bg-primary-reverse' },
+        toggler: { class: 'bg-primary hover:bg-primary-reverse' }
     }">
     <p class="m-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -71,13 +71,13 @@ export default {
                         'border-primary',
                         {
                             'bg-primary': options.state.d_collapsed,
-                            'bg-primary-reverse': !options.state.d_collapsed,
-                        },
-                    ],
+                            'bg-primary-reverse': !options.state.d_collapsed
+                        }
+                    ]
                 }),
                 content: { class: 'border-primary text-lg text-primary-700' },
                 title: { class: 'text-xl' },
-                toggler: { class: 'bg-primary hover:bg-primary-reverse' },
+                toggler: { class: 'bg-primary hover:bg-primary-reverse' }
             }">
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -99,13 +99,13 @@ export default {
                         'border-primary',
                         {
                             'bg-primary': options.state.d_collapsed,
-                            'bg-primary-reverse': !options.state.d_collapsed,
-                        },
-                    ],
+                            'bg-primary-reverse': !options.state.d_collapsed
+                        }
+                    ]
                 }),
                 content: { class: 'border-primary text-lg text-primary-700' },
                 title: { class: 'text-xl' },
-                toggler: { class: 'bg-primary hover:bg-primary-reverse' },
+                toggler: { class: 'bg-primary hover:bg-primary-reverse' }
             }">
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
