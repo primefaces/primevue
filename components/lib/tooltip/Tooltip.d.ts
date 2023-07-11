@@ -67,7 +67,12 @@ export interface TooltipOptions {
      */
     hideDelay?: number | undefined;
     /**
-     * Used to pass attributes to DOM elements inside the component.
+     * Whether to hide tooltip when hovering over tooltip content.
+     * @defaultValue true
+     */
+     autoHide?: boolean | undefined;
+    /**
+     * Uses to pass attributes to DOM elements inside the component.
      * @type {TooltipDirectivePassThroughOptions}
      */
     pt?: PassThrough<TooltipDirectivePassThroughOptions>;
