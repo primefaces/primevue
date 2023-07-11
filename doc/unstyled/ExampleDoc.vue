@@ -12,7 +12,7 @@
                 :pt="{
                     root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-3 border-round border-none flex gap-2' },
                     label: { class: 'text-white font-bold text-xl' },
-                    icon: { class: 'text-white text-2xl' }
+                    icon: 'text-white text-2xl'
                 }"
             />
         </div>
@@ -30,7 +30,7 @@ export default {
     :pt="{
         root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-3 border-round border-none flex gap-2' },
         label: { class: 'text-white font-bold text-xl' },
-        icon: { class: 'text-white text-2xl' }
+        icon: 'text-white text-2xl' // OR { class: 'text-white text-2xl' }
     }"
 />`,
                 options: `
@@ -40,7 +40,7 @@ export default {
             :pt="{
                 root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-3 border-round border-none flex gap-2' },
                 label: { class: 'text-white font-bold text-xl' },
-                icon: { class: 'text-white text-2xl' }
+                icon: 'text-white text-2xl' // OR { class: 'text-white text-2xl' }
             }"
         />
     </div>
@@ -54,7 +54,7 @@ export default {
         :pt="{
             root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-3 border-round border-none flex gap-2' },
             label: { class: 'text-white font-bold text-xl' },
-            icon: { class: 'text-white text-2xl' }
+            icon: 'text-white text-2xl' // OR { class: 'text-white text-2xl' }
         }"
     />
 </template>

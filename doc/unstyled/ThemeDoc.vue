@@ -22,14 +22,14 @@ app.use(PrimeVue, {
     pt: {
         button: {
             root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-3 border-round border-none flex gap-2' },
-            label: { class: 'text-white font-bold text-xl' },
-            icon: { class: 'text-white text-2xl' }
+            label: 'text-white font-bold text-xl', // OR { class: 'text-white font-bold text-xl' }
+            icon: 'text-white text-2xl' 
         },
         panel: {
-            header: { class: 'bg-primary border-primary' },
-            content: { class: 'border-primary text-lg text-primary-700' },
-            title: { class: 'bg-primary text-xl' },
-            toggler: { class: 'bg-primary hover:bg-primary-reverse' }
+            header: 'bg-primary border-primary',
+            content: 'border-primary text-lg text-primary-700',
+            title: 'bg-primary text-xl',
+            toggler: 'bg-primary hover:bg-primary-reverse'
         }
     } 
 });`
