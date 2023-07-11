@@ -9,7 +9,7 @@ import { ComponentHooks } from '../basecomponent';
 import { DataTablePassThroughOptions } from '../datatable';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type ColumnGroupPassThroughOptionType = ColumnGroupPassThroughAttributes | ((options: ColumnGroupPassThroughMethodOptions) => ColumnGroupPassThroughAttributes) | null | undefined;
+export declare type ColumnGroupPassThroughOptionType = ColumnGroupPassThroughAttributes | ((options: ColumnGroupPassThroughMethodOptions) => ColumnGroupPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

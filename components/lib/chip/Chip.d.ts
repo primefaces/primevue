@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type ChipPassThroughOptionType = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes) | null | undefined;
+export declare type ChipPassThroughOptionType = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

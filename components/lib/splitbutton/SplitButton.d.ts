@@ -14,7 +14,7 @@ import { MenuItem } from '../menuitem';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes) | null | undefined;
+export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

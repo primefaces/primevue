@@ -234,6 +234,10 @@ export default {
         return value !== null && Array.isArray(value);
     },
 
+    isString(value) {
+        return value !== null && typeof value === 'string';
+    },
+
     isPrintableCharacter(char = '') {
         return this.isNotEmpty(char) && char.length === 1 && char.match(/\S| /);
     },

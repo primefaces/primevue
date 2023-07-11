@@ -11,7 +11,7 @@ import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions) => ButtonPassThroughAttributes) | null | undefined;
+export declare type ButtonPassThroughOptionType = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions) => ButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

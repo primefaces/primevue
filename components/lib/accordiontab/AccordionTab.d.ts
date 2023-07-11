@@ -11,7 +11,7 @@ import { AnchorHTMLAttributes, HTMLAttributes, VNode } from 'vue';
 import { AccordionPassThroughOptions } from '../accordion';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type AccordionTabPassThroughOptionType = AccordionTabPassThroughAttributes | ((options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes) | null | undefined;
+export declare type AccordionTabPassThroughOptionType = AccordionTabPassThroughAttributes | ((options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

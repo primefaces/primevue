@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
-export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes) | null | undefined;
+export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

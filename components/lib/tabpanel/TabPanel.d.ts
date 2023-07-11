@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { TabViewPassThroughOptions } from '../tabview';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes) | null | undefined;
+export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

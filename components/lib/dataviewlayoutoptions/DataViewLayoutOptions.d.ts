@@ -11,7 +11,12 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type DataViewLayoutOptionsPassThroughOptionType = DataViewLayoutOptionsPassThroughAttributes | ((options: DataViewLayoutOptionsPassThroughMethodOptions) => DataViewLayoutOptionsPassThroughAttributes) | null | undefined;
+export declare type DataViewLayoutOptionsPassThroughOptionType =
+    | DataViewLayoutOptionsPassThroughAttributes
+    | ((options: DataViewLayoutOptionsPassThroughMethodOptions) => DataViewLayoutOptionsPassThroughAttributes | string)
+    | string
+    | null
+    | undefined;
 
 /**
  * Custom passthrough(pt) option method.

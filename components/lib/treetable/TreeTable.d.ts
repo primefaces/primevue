@@ -14,7 +14,7 @@ import { PaginatorPassThroughOptionType } from '../paginator';
 import { TreeNode } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes) | null | undefined;
+export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

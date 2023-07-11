@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type DataViewPassThroughOptionType = DataViewPassThroughAttributes | ((options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes) | null | undefined;
+export declare type DataViewPassThroughOptionType = DataViewPassThroughAttributes | ((options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

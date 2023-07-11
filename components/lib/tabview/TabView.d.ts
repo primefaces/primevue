@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { TabPanelPassThroughOptionType } from '../tabpanel';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type TabViewPassThroughOptionType = TabViewPassThroughAttributes | ((options: { props: TabViewProps; state: TabViewState }) => TabViewPassThroughAttributes) | null | undefined;
+export declare type TabViewPassThroughOptionType = TabViewPassThroughAttributes | ((options: { props: TabViewProps; state: TabViewState }) => TabViewPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom tab change event.

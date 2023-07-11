@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes) | null | undefined;
+export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

@@ -9,7 +9,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ColumnGroupPassThroughOptions } from '../columngroup';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions) => RowPassThroughAttributes) | null | undefined;
+export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions) => RowPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

@@ -13,7 +13,7 @@ import { ButtonPassThroughOptionType } from '../button';
 import { InputTextPassThroughOptionType } from '../inputtext';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
-export declare type InputNumberPassThroughOptionType = InputNumberPassThroughAttributes | ((options: InputNumberPassThroughMethodOptions) => InputNumberPassThroughAttributes) | null | undefined;
+export declare type InputNumberPassThroughOptionType = InputNumberPassThroughAttributes | ((options: InputNumberPassThroughMethodOptions) => InputNumberPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

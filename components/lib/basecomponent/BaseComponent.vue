@@ -447,9 +447,15 @@ export default {
                 : ObjectUtils.getItemValue(options, params);
         },
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
+            const getValue = (...args) => {
+                const value = this._getOptionValue(...args);
+
+                return ObjectUtils.isString(value) ? { class: value } : value;
+            };
+
             const datasetPrefix = 'data-pc-';
-            const self = this._getOptionValue(obj, key, params);
-            const globalPT = searchInDefaultPT ? this._getOptionValue(this.defaultPT, key, params) : undefined;
+            const self = getValue(obj, key, params);
+            const globalPT = searchInDefaultPT ? getValue(this.defaultPT, key, params) : undefined;
             const merged = mergeProps(self, globalPT, {
                 ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
                 [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)

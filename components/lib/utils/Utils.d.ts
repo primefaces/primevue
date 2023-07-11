@@ -82,6 +82,7 @@ export declare class ObjectUtils {
     static isObject(value: any): boolean;
     static isDate(value: any): boolean;
     static isArray(value: any): boolean;
+    static isString(value: any): boolean;
     static isPrintableCharacter(char: string): boolean;
     static findLast(value: any[], callback: () => any): any;
     static findLastIndex(value: any[], callback: () => any): number;

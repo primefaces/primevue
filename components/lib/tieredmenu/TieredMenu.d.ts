@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes) | null | undefined;
+export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

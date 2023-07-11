@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
-export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes) | null | undefined;
+export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

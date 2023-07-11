@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes) | null | undefined;
+export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

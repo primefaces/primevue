@@ -13,7 +13,7 @@ import { ButtonPassThroughOptions } from '../button';
 import { MessagePassThroughOptions } from '../message';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes) | null | undefined;
+export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.

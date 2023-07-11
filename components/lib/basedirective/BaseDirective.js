@@ -15,9 +15,15 @@ const BaseDirective = {
             : ObjectUtils.getItemValue(options, params);
     },
     _getPTValue: (instance = {}, obj = {}, key = '', params = {}, searchInDefaultPT = true) => {
+        const getValue = (...args) => {
+            const value = BaseDirective._getOptionValue(...args);
+
+            return ObjectUtils.isString(value) ? { class: value } : value;
+        };
+
         const datasetPrefix = 'data-pc-';
-        const self = BaseDirective._getOptionValue(obj, key, params);
-        const globalPT = searchInDefaultPT ? BaseDirective._getOptionValue(instance.defaultPT, key, params) : undefined;
+        const self = getValue(obj, key, params);
+        const globalPT = searchInDefaultPT ? getValue(instance.defaultPT, key, params) : undefined;
         const merged = mergeProps(self, globalPT, {
             ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
             [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
