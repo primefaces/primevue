@@ -14,6 +14,13 @@ const styles = `
     left: 0;
 }
 
+.p-fileupload-content.p-fileupload-highlight {
+    border-color: var(--primary-color);
+    border-width: 2px;
+    border-style: dashed;
+    background-color: var(--primary-100);
+}
+
 .p-button.p-fileupload-choose {
     position: relative;
     overflow: hidden;

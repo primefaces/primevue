@@ -265,6 +265,7 @@ export default {
         },
         onDragOver(event) {
             if (!this.disabled) {
+                this.$refs.content.classList.add('p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', true);
                 event.stopPropagation();
                 event.preventDefault();
@@ -272,6 +273,7 @@ export default {
         },
         onDragLeave() {
             if (!this.disabled) {
+                this.$refs.content.classList.remove('p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', false);
             }
         },
