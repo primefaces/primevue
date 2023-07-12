@@ -67,7 +67,6 @@ export declare class ObjectUtils {
     static equals(obj1: any, obj2: any, field: string): boolean;
     static deepEquals(a: any, b: any): boolean;
     static resolveFieldData(data: any, field: string): any;
-    static isFunction(obj: any): boolean;
     static filter(value: any, fields: any, filterValue: any): any;
     static reorderArray(value: any, from: number, to: number): void;
     static findIndexInList(value: any, list: any[], dataKey?: string): number;
