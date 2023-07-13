@@ -21,7 +21,8 @@ export default {
         ptmParams() {
             return {
                 context: {
-                    filled: this.filled
+                    filled: this.filled,
+                    disabled: this.$attrs.disabled || this.$attrs.disabled === ''
                 }
             };
         }
