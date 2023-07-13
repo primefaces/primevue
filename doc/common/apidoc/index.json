@@ -32860,6 +32860,14 @@
                             "description": "Uses to pass attributes to the source list's DOM element."
                         },
                         {
+                            "name": "sourceItem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PickListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the source item's DOM element."
+                        },
+                        {
                             "name": "buttons",
                             "optional": true,
                             "readonly": false,
@@ -32922,6 +32930,14 @@
                             "type": "PickListPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the target list's DOM element."
+                        },
+                        {
+                            "name": "targetItem",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PickListPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the target item's DOM element."
                         },
                         {
                             "name": "targetControls",
