@@ -24,12 +24,12 @@
                         :style="getTabProp(tab, 'headerStyle')"
                         :class="cx('tab.header', { tab, index })"
                         role="presentation"
+                        v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'header', index) }"
                         data-pc-name="tabpanel"
                         :data-p-highlight="d_activeIndex === index"
                         :data-p-disabled="getTabProp(tab, 'disabled')"
                         :data-pc-index="index"
                         :data-p-active="d_activeIndex === index"
-                        v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'header', index) }"
                     >
                         <a
                             :id="getTabHeaderActionId(index)"
@@ -76,10 +76,10 @@
                     :class="cx('tab.content', { tab })"
                     role="tabpanel"
                     :aria-labelledby="getTabHeaderActionId(index)"
+                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'content', index) }"
                     data-pc-name="tabpanel"
                     :data-pc-index="index"
                     :data-p-active="d_activeIndex === index"
-                    v-bind="{ ...getTabProp(tab, 'contentProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'content', index) }"
                 >
                     <component :is="tab"></component>
                 </div>
@@ -93,6 +93,7 @@ import ChevronLeftIcon from 'primevue/icons/chevronleft';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import BaseTabView from './BaseTabView.vue';
 
 export default {
@@ -146,6 +147,7 @@ export default {
             return `${this.id}_${index}_content`;
         },
         getTabPT(tab, key, index) {
+            const count = this.tabs.length;
             const tabMetaData = {
                 props: tab.props,
                 parent: {
@@ -153,11 +155,15 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index
+                    index,
+                    count,
+                    first: index === 0,
+                    last: index === count - 1,
+                    active: this.isTabActive(index)
                 }
             };
 
-            return { ...this.ptm(`tab.${key}`, { tab: tabMetaData }), ...this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData) };
+            return mergeProps(this.ptm(`tab.${key}`, { tab: tabMetaData }), this.ptm(`tabpanel.${key}`, tabMetaData), this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData));
         },
         onScroll(event) {
             this.scrollable && this.updateButtonState();

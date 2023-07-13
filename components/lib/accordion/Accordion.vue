@@ -52,6 +52,7 @@ import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import BaseAccordion from './BaseAccordion.vue';
 
 export default {
@@ -111,7 +112,7 @@ export default {
                 }
             };
 
-            return { ...this.ptm(`tab.${key}`, { tab: tabMetaData }), ...this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData) };
+            return mergeProps(this.ptm(`tab.${key}`, { tab: tabMetaData }), this.ptm(`accordiontab.${key}`, tabMetaData), this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData));
         },
         onTabClick(event, tab, index) {
             this.changeActiveIndex(event, tab, index);

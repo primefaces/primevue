@@ -455,7 +455,7 @@ export default {
 
             const datasetPrefix = 'data-pc-';
             const self = getValue(obj, key, params);
-            const globalPT = searchInDefaultPT ? getValue(this.defaultPT, key, params) : undefined;
+            const globalPT = searchInDefaultPT ? getValue(this.defaultPT, key, params) || (/./g.test(key) && !!params[key.split('.')[0]] ? getValue(this.globalPT, key, params) : undefined) : undefined;
             const merged = mergeProps(self, globalPT, {
                 ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
                 [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
@@ -489,8 +489,11 @@ export default {
         }
     },
     computed: {
+        globalPT() {
+            return ObjectUtils.getItemValue(this.$primevue.config.pt, { instance: this });
+        },
         defaultPT() {
-            return this._getOptionValue(this.$primevue.config.pt, this.$options.hostName || this.$.type.name, { instance: this });
+            return this._getOptionValue(this.$primevue.config.pt, this.$options.hostName || this.$.type.name, { instance: this }) || this.globalPT;
         },
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;

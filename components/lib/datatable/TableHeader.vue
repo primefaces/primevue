@@ -131,6 +131,7 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import ColumnFilter from './ColumnFilter.vue';
 import HeaderCell from './HeaderCell.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';
@@ -247,7 +248,7 @@ export default {
                 }
             };
 
-            return { ...this.ptm(`columnGroup.${key}`, { columnGroup: columnGroupMetaData }), ...this.ptmo(this.getColumnGroupProps(), key, columnGroupMetaData) };
+            return mergeProps(this.ptm(`columnGroup.${key}`, { columnGroup: columnGroupMetaData }), this.ptm(`columnGroup.${key}`, columnGroupMetaData), this.ptmo(this.getColumnGroupProps(), key, columnGroupMetaData));
         },
         getColumnGroupProps() {
             return this.columnGroup && this.columnGroup.props && this.columnGroup.props.pt ? this.columnGroup.props.pt : undefined; //@todo
@@ -264,7 +265,7 @@ export default {
                 }
             };
 
-            return { ...this.ptm(`row.${key}`, { row: rowMetaData }), ...this.ptmo(this.getRowProp(row), key, rowMetaData) };
+            return mergeProps(this.ptm(`row.${key}`, { row: rowMetaData }), this.ptm(`row.${key}`, rowMetaData), this.ptmo(this.getRowProp(row), key, rowMetaData));
         },
         getRowProp(row) {
             return row.props && row.props.pt ? row.props.pt : undefined; //@todo
@@ -281,7 +282,7 @@ export default {
                 }
             };
 
-            return { ...this.ptm(`column.${key}`, { column: columnMetaData }), ...this.ptmo(this.getColumnProp(column), key, columnMetaData) };
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(column), key, columnMetaData));
         },
         getColumnProp(column) {
             return column.props && column.props.pt ? column.props.pt : undefined; //@todo
