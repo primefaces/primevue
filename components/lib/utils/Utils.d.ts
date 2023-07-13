@@ -75,13 +75,14 @@ export declare class ObjectUtils {
     static removeAccents(str: any): string;
     static toFlatCase(str: string): string;
     static toCapitalCase(str: string): string;
+    static toKebabCase(str: string): string;
     static isEmpty(value: any): boolean;
     static isNotEmpty(value: any): boolean;
     static isFunction(value: any): boolean;
-    static isObject(value: any): boolean;
+    static isObject(value: any, empty?: boolean): boolean;
     static isDate(value: any): boolean;
-    static isArray(value: any): boolean;
-    static isString(value: any): boolean;
+    static isArray(value: any, empty?: boolean): boolean;
+    static isString(value: any, empty?: boolean): boolean;
     static isPrintableCharacter(char: string): boolean;
     static findLast(value: any[], callback: () => any): any;
     static findLastIndex(value: any[], callback: () => any): number;
