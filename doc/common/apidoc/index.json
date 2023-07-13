@@ -33080,7 +33080,7 @@
                     "methods": []
                 },
                 "PickListContext": {
-                    "description": "",
+                    "description": "Defines current options in PickList component.",
                     "relatedProp": "",
                     "props": [
                         {
