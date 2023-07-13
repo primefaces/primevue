@@ -8,7 +8,6 @@ const inlineStyles = {};
 
 const buttonStyles = `
 .p-button {
-    margin: 0;
     display: inline-flex;
     cursor: pointer;
     user-select: none;
@@ -96,10 +95,6 @@ const checkboxStyles = `
 }
 `;
 const inputTextStyles = `
-.p-inputtext {
-    margin: 0;
-}
-
 .p-fluid .p-inputtext {
     width: 100%;
 }
@@ -283,14 +278,6 @@ const styles = `
     position: absolute;
     width: 1px;
     word-wrap: normal !important;
-}
-
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="file"]::-webkit-file-upload-button,
-button { /* @todo */
-    border-radius: 0;
 }
 
 .p-link {
