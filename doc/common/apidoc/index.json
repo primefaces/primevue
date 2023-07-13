@@ -32621,6 +32621,13 @@
                             "readonly": false,
                             "type": "PickListState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "PickListContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -33068,6 +33075,29 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current view change state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "PickListContext": {
+                    "description": "",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of the item as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state of the item as a boolean."
                         }
                     ],
                     "methods": []
