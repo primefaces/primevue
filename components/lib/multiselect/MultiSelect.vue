@@ -43,7 +43,7 @@
                 </slot>
             </div>
         </div>
-        <div :class="cx('trigger')" v-bind="ptm('triggger')">
+        <div :class="cx('trigger')" v-bind="ptm('trigger')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
