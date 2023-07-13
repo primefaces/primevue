@@ -56,14 +56,14 @@
                     <li
                         :id="idSource + '_' + i"
                         v-ripple
-                        :class="cx('sourceItem', { item, id: `${idSource}_${i}`, listIndex: 0 })"
+                        :class="cx('item', { item, id: `${idSource}_${i}`, listIndex: 0 })"
                         @click="onItemClick($event, item, i, 0)"
                         @dblclick="onItemDblClick($event, item, 0)"
                         @touchend="onItemTouchEnd"
                         @mousedown="onOptionMouseDown(i, 'sourceList')"
                         role="option"
                         :aria-selected="isSelected(item, 0)"
-                        v-bind="getPTOptions(item, 'sourceItem', `${idSource}_${i}`, 0)"
+                        v-bind="getPTOptions(item, 'item', `${idSource}_${i}`, 0)"
                         :data-p-highlight="isSelected(item, 0)"
                         :data-p-focused="`${idSource}_${i}` === focusedOptionId"
                     >
@@ -128,7 +128,7 @@
                     <li
                         :id="idTarget + '_' + i"
                         v-ripple
-                        :class="cx('targetItem', { item, id: `${idTarget}_${i}`, listIndex: 1 })"
+                        :class="cx('item', { item, id: `${idTarget}_${i}`, listIndex: 1 })"
                         @click="onItemClick($event, item, i, 1)"
                         @dblclick="onItemDblClick($event, item, 1)"
                         @keydown="onItemKeyDown($event, 'targetList')"
@@ -136,7 +136,7 @@
                         @touchend="onItemTouchEnd"
                         role="option"
                         :aria-selected="isSelected(item, 1)"
-                        v-bind="getPTOptions(item, 'targetItem', `${idTarget}_${i}`, 1)"
+                        v-bind="getPTOptions(item, 'item', `${idTarget}_${i}`, 1)"
                         :data-p-highlight="isSelected(item, 1)"
                         :data-p-focused="`${idTarget}_${i}` === focusedOptionId"
                     >
