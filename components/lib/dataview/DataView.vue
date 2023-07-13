@@ -12,7 +12,7 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            :class="cx('paginatorTop')"
+            :class="cx('paginator')"
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
             :unstyled="unstyled"
@@ -47,11 +47,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            :class="cx('paginatorBottom')"
+            :class="cx('paginator')"
             :alwaysShow="alwaysShowPaginator"
             @page="onPage($event)"
             :unstyled="unstyled"
-            :pt="ptm('root')"
+            :pt="ptm('paginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>

@@ -10,12 +10,11 @@ const classes = {
         }
     ],
     header: 'p-dataview-header',
-    paginatorTop: ({ instance }) => [{ 'p-paginator-top': instance.paginatorTop }],
+    paginator: ({ instance }) => (instance.paginatorTop ? 'p-paginator-top' : instance.paginatorBottom ? 'p-paginator-bottom' : ''),
     content: 'p-dataview-content',
     grid: 'p-grid p-nogutter grid grid-nogutter',
     column: 'p-col col',
     emptyMessage: 'p-dataview-emptymessage',
-    paginatorBottom: ({ instance }) => [{ 'p-paginator-bottom': instance.paginatorBottom }],
     footer: 'p-dataview-footer'
 };
 
