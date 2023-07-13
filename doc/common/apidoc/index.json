@@ -40226,6 +40226,34 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TimelinePassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TimelineProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TimelineContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "TimelinePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "TimelineProps.pt",
@@ -40306,6 +40334,21 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TimelineContext": {
+                    "description": "Defines current options in Timeline component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the item as a number."
                         }
                     ],
                     "methods": []
@@ -40435,7 +40478,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TimelinePassThroughOptionType": {
-                    "values": "TimelinePassThroughAttributes | null | undefined"
+                    "values": "TimelinePassThroughAttributes | (options: TimelinePassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
