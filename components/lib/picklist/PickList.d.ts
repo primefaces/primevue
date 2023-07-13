@@ -139,6 +139,10 @@ export interface PickListPassThroughOptions {
      */
     sourceList?: PickListPassThroughOptionType;
     /**
+     * Uses to pass attributes to the source item's DOM element.
+     */
+    sourceItem?: PickListPassThroughOptionType;
+    /**
      * Uses to pass attributes to the buttons' DOM element.
      */
     buttons?: PickListPassThroughOptionType;
@@ -170,6 +174,10 @@ export interface PickListPassThroughOptions {
      * Uses to pass attributes to the target list's DOM element.
      */
     targetList?: PickListPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the target item's DOM element.
+     */
+    targetItem?: PickListPassThroughOptionType;
     /**
      * Uses to pass attributes to the target controls' DOM element.
      */
