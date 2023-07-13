@@ -19,6 +19,7 @@ export declare type TextareaPassThroughOptionType = TextareaPassThroughAttribute
 export interface TextareaPassThroughMethodOptions {
     instance: any;
     props: TextareaProps;
+    context: TextareaContext;
 }
 
 /**
@@ -42,6 +43,22 @@ export interface TextareaPassThroughOptions {
  */
 export interface TextareaPassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Textarea component.
+ */
+export interface TextareaContext {
+    /**
+     * Current filled state of the component as a boolean.
+     * @defaultValue false
+     */
+    filled: boolean;
+    /**
+     * Current disabled state of the component as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
