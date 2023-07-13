@@ -256,7 +256,7 @@ export interface PickListState {
 }
 
 /**
- *
+ * Defines current options in PickList component.
  */
 export interface PickListContext {
     /**
