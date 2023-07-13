@@ -24984,6 +24984,34 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "InputTextPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputTextProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputTextContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "InputTextPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "InputTextProps.pt",
@@ -25016,6 +25044,29 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputTextContext": {
+                    "description": "Defines current options in InputText component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "filled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current filled state of the component as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the component as a boolean."
                         }
                     ],
                     "methods": []
@@ -25092,7 +25143,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "InputTextPassThroughOptionType": {
-                    "values": "InputTextPassThroughAttributes | null | undefined"
+                    "values": "InputTextPassThroughAttributes | (options: InputTextPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
@@ -39638,6 +39689,13 @@
                             "readonly": false,
                             "type": "TextareaProps",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TextareaContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -39674,6 +39732,29 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TextareaContext": {
+                    "description": "Defines current options in Textarea component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "filled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current filled state of the component as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the component as a boolean."
                         }
                     ],
                     "methods": []
