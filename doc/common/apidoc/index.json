@@ -29343,6 +29343,13 @@
                             "readonly": false,
                             "type": "OrderListState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "OrderListContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -29544,6 +29551,29 @@
                             "type": "number",
                             "default": "",
                             "description": "Current focused item index as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "OrderListContext": {
+                    "description": "Defines current options in OrderList component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of the item as a boolean."
+                        },
+                        {
+                            "name": "focused",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current focus state of the item as a boolean."
                         }
                     ],
                     "methods": []
