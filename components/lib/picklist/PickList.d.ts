@@ -21,6 +21,7 @@ export interface PickListPassThroughMethodOptions {
     instance: any;
     props: PickListProps;
     state: PickListState;
+    context: PickListContext;
 }
 
 /**
@@ -252,6 +253,22 @@ export interface PickListState {
      * @defaultValue false
      */
     viewChanged: boolean;
+}
+
+/**
+ *
+ */
+export interface PickListContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
 }
 
 /**
