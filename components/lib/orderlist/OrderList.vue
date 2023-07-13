@@ -2,28 +2,28 @@
     <div :class="cx('root')" v-bind="ptm('root')">
         <div :class="cx('controls')" v-bind="ptm('controls')">
             <slot name="controlsstart"></slot>
-            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveUpButtonProps, ...ptm('moveUpButton') }" :unstyled="unstyled">
+            <OLButton type="button" @click="moveUp" :aria-label="moveUpAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveUpButton')" v-bind="moveUpButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="moveupicon">
                         <AngleUpIcon v-bind="ptm('moveUpButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveTopButtonProps, ...ptm('moveTopButton') }" :unstyled="unstyled">
+            <OLButton type="button" @click="moveTop" :aria-label="moveTopAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveTopButton')" v-bind="ptm('moveTopButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetopicon">
                         <AngleDoubleUpIcon v-bind="ptm('moveTopButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveDownButtonProps, ...ptm('moveDownButton') }" :unstyled="unstyled">
+            <OLButton type="button" @click="moveDown" :aria-label="moveDownAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveDownButton')" v-bind="moveDownButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movedownicon">
                         <AngleDownIcon v-bind="ptm('moveDownButton')['icon']" />
                     </slot>
                 </template>
             </OLButton>
-            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" v-bind="{ ...moveBottomButtonProps, ...ptm('moveBottomButton') }" :unstyled="unstyled">
+            <OLButton type="button" @click="moveBottom" :aria-label="moveBottomAriaLabel" :disabled="moveDisabled()" :pt="ptm('moveBottomButton')" v-bind="moveBottomButtonProps" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movebottomicon">
                         <AngleDoubleDownIcon v-bind="ptm('moveBottomButton')['icon']" />
@@ -64,7 +64,7 @@
                         @touchend="onItemTouchEnd"
                         :aria-selected="isSelected(item)"
                         @mousedown="onOptionMouseDown(i)"
-                        v-bind="getPTOptions(item, 'item')"
+                        v-bind="getPTOptions(item, 'item', i)"
                         :data-p-highlight="isSelected(item)"
                         :data-p-focused="`${id}_${i}` === focusedOptionId"
                     >
@@ -127,11 +127,11 @@ export default {
         getItemKey(item, index) {
             return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
         },
-        getPTOptions(item, key) {
+        getPTOptions(item, key, index) {
             return this.ptm(key, {
                 context: {
                     active: this.isSelected(item),
-                    focused: this.id === this.focusedOptionId
+                    focused: `${this.id}_${index}` === this.focusedOptionId
                 }
             });
         },
