@@ -203,11 +203,21 @@ export default {
 
     toFlatCase(str) {
         // convert snake, kebab, camel and pascal cases to flat case
-        return this.isNotEmpty(str) && this.isString(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+        return this.isString(str) ? str.replace(/(-|_)/g, '').toLowerCase() : str;
+    },
+
+    toKebabCase(str) {
+        // convert snake, camel and pascal cases to kebab case
+        return this.isString(str)
+            ? str
+                  .replace(/(_)/g, '-')
+                  .replace(/[A-Z]/g, (c, i) => (i === 0 ? c : '-' + c.toLowerCase()))
+                  .toLowerCase()
+            : str;
     },
 
     toCapitalCase(str) {
-        return this.isNotEmpty(str) && this.isString(str) ? str[0].toUpperCase() + str.slice(1) : str;
+        return this.isString(str, { empty: false }) ? str[0].toUpperCase() + str.slice(1) : str;
     },
 
     isEmpty(value) {
@@ -222,20 +232,20 @@ export default {
         return !!(value && value.constructor && value.call && value.apply);
     },
 
-    isObject(value) {
-        return value !== null && value instanceof Object && value.constructor === Object;
+    isObject(value, empty = true) {
+        return value instanceof Object && value.constructor === Object && (empty || Object.keys(value).length !== 0);
     },
 
     isDate(value) {
-        return value !== null && value instanceof Date && value.constructor === Date;
+        return value instanceof Date && value.constructor === Date;
     },
 
-    isArray(value) {
-        return value !== null && Array.isArray(value);
+    isArray(value, empty = true) {
+        return Array.isArray(value) && (empty || value.length !== 0);
     },
 
-    isString(value) {
-        return value !== null && typeof value === 'string';
+    isString(value, empty = true) {
+        return typeof value === 'string' && (empty || value !== '');
     },
 
     isPrintableCharacter(char = '') {
