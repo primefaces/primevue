@@ -30857,30 +30857,12 @@
                             "description": "Uses to pass attributes to the first page icon's DOM element."
                         },
                         {
-                            "name": "prevPageButton",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the prev page button's DOM element.",
-                            "deprecated": "since v3.30.0. Use 'previousPageButton' property instead."
-                        },
-                        {
                             "name": "previousPageButton",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the prev page button's DOM element."
-                        },
-                        {
-                            "name": "prevPageIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "PaginatorPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the prev page icon's DOM element.",
-                            "deprecated": "since v3.30.0. Use 'previousPageIcon' property instead."
                         },
                         {
                             "name": "previousPageIcon",
@@ -30947,15 +30929,6 @@
                             "description": "Uses to pass attributes to the current's DOM element."
                         },
                         {
-                            "name": "RPPDropdown",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Dropdown component.",
-                            "deprecated": "since v3.30.0. Use 'rowPerPageDropdown' property instead."
-                        },
-                        {
                             "name": "rowPerPageDropdown",
                             "optional": true,
                             "readonly": false,
@@ -30964,30 +30937,12 @@
                             "description": "Uses to pass attributes to the Dropdown component."
                         },
                         {
-                            "name": "JTPDropdown",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DropdownPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Dropdown component.",
-                            "deprecated": "since v3.30.0. Use 'jumpToPageDropdown' property instead."
-                        },
-                        {
                             "name": "jumpToPageDropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "DropdownPassThroughOptionType",
                             "default": "",
                             "description": "Uses to pass attributes to the Dropdown component."
-                        },
-                        {
-                            "name": "JTPInput",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "InputNumberPassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the Dropdown component.",
-                            "deprecated": "since v3.30.0. Use 'jumpToPageInput' property instead."
                         },
                         {
                             "name": "jumpToPageInput",
