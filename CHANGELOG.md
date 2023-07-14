@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.30.1](https://github.com/primefaces/primevue/tree/3.30.1) (2023-07-14)
+
+**Implemented New Features and Enhancements:**
+
+- Button: remove margin from default style [\#4139](https://github.com/primefaces/primevue/issues/4139)
+- Improve `pt` options on components that use helper component [\#4136](https://github.com/primefaces/primevue/issues/4136)
+- Pass Through Props: Syntactic improvement suggestion [\#4125](https://github.com/primefaces/primevue/issues/4125)
+- PT context improvements [\#4124](https://github.com/primefaces/primevue/issues/4124)
+
+**Fixed bugs:**
+
+- TreeTable: Sorting does not work when clicking at the header title [\#4138](https://github.com/primefaces/primevue/issues/4138)
+- Selection\(multiple and single\) not working in TreeTable [\#4133](https://github.com/primefaces/primevue/issues/4133)
+- The types in PrimeVue config are not accessible [\#4122](https://github.com/primefaces/primevue/issues/4122)
+- Browser CDN mode is not working as expected [\#4121](https://github.com/primefaces/primevue/issues/4121)
+- TypeScript: changeTheme is not declared [\#4118](https://github.com/primefaces/primevue/issues/4118)
+- Panel: Wrong prop type in `header` slot [\#4086](https://github.com/primefaces/primevue/issues/4086)
+
 ## [3.30.0](https://github.com/primefaces/primevue/tree/3.30.0) (2023-07-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.29.2...HEAD)
