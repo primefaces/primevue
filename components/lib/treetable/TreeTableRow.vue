@@ -394,7 +394,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [this.node.styleClass, this.cx('root')];
+            return [this.node.styleClass, this.cx('row')];
         },
         expanded() {
             return this.expandedKeys && this.expandedKeys[this.node.key] === true;

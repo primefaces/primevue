@@ -174,10 +174,10 @@ const styles = `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance, props }) => [
         'p-treetable p-component',
         {
-            'p-treetable-hoverable-rows': props.rowHover || props.rowSelectionMode,
+            'p-treetable-hoverable-rows': props.rowHover || instance.rowSelectionMode,
             'p-treetable-auto-layout': props.autoLayout,
             'p-treetable-resizable': props.resizableColumns,
             'p-treetable-resizable-fit': props.resizableColumns && props.columnResizeMode === 'fit',
