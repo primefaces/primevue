@@ -442,7 +442,7 @@ export default {
 
             const datasetPrefix = 'data-pc-';
             const self = getValue(obj, key, params);
-            const globalPT = searchInDefaultPT ? getValue(this.defaultPT, key, params) || (/./g.test(key) && !!params[key.split('.')[0]] ? getValue(this.globalPT, key, params) : undefined) : undefined;
+            const globalPT = searchInDefaultPT ? (/./g.test(key) && !!params[key.split('.')[0]] ? getValue(this.globalPT, key, params) : getValue(this.defaultPT, key, params)) : undefined;
             const merged = mergeProps(self, globalPT, {
                 ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
                 [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
