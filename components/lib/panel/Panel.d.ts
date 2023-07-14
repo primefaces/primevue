@@ -153,7 +153,7 @@ export interface PanelSlots {
         /**
          * Current id state as a string
          */
-        id: boolean;
+        id: string;
         /**
          * Style class of the icon
          */
