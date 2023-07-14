@@ -63,8 +63,13 @@ export interface AccordionPassThroughOptions {
     root?: AccordionPassThroughOptionType;
     /**
      * Uses to pass attributes to AccordionTab helper components.
+     * @deprecated since v3.30.1. Use 'accordiontab' property instead.
      */
     tab?: AccordionTabPassThroughOptionType;
+    /**
+     * Uses to pass attributes to AccordionTab helper components.
+     */
+    accordiontab?: AccordionTabPassThroughOptionType;
     /**
      * Uses to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}

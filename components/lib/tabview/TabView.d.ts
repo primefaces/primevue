@@ -83,8 +83,13 @@ export interface TabViewPassThroughOptions {
     panelContainer?: TabViewPassThroughOptionType;
     /**
      * Uses to pass attributes to TabPanel helper components.
+     * @deprecated since v3.30.1. Use 'tabpanel' property instead.
      */
     tab?: TabPanelPassThroughOptionType;
+    /**
+     * Uses to pass attributes to TabPanel helper components.
+     */
+    tabpanel?: TabPanelPassThroughOptionType;
     /**
      * Uses to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}

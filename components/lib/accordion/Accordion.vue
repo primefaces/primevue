@@ -112,7 +112,7 @@ export default {
                 }
             };
 
-            return mergeProps(this.ptm(`tab.${key}`, { tab: tabMetaData }), this.ptm(`accordiontab.${key}`, tabMetaData), this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData));
+            return mergeProps(this.ptm(`tab.${key}`, { tab: tabMetaData }), this.ptm(`accordiontab.${key}`, { accordiontab: tabMetaData }), this.ptm(`accordiontab.${key}`, tabMetaData), this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData));
         },
         onTabClick(event, tab, index) {
             this.changeActiveIndex(event, tab, index);

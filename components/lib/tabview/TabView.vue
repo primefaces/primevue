@@ -163,7 +163,7 @@ export default {
                 }
             };
 
-            return mergeProps(this.ptm(`tab.${key}`, { tab: tabMetaData }), this.ptm(`tabpanel.${key}`, tabMetaData), this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData));
+            return mergeProps(this.ptm(`tab.${key}`, { tab: tabMetaData }), this.ptm(`tabpanel.${key}`, { tabpanel: tabMetaData }), this.ptm(`tabpanel.${key}`, tabMetaData), this.ptmo(this.getTabProp(tab, 'pt'), key, tabMetaData));
         },
         onScroll(event) {
             this.scrollable && this.updateButtonState();
