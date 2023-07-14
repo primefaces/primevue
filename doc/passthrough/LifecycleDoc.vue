@@ -15,12 +15,12 @@ export default {
         return {
             code: {
                 basic: `
-<Panel header="Header" :pt="panelPT"
+<Panel header="Header" :pt="panelPT">
     Content
 </Panel>`,
                 options: `
 <template>
-    <Panel header="Header" :pt="panelPT"
+    <Panel header="Header" :pt="panelPT">
         Content
     </Panel>
 </template>
@@ -45,7 +45,7 @@ export default {
 <\/script>`,
                 composition: `
 <template>
-    <Panel header="Header" :pt="panelPT"
+    <Panel header="Header" :pt="panelPT">
         Content
     </Panel>
 </template>
