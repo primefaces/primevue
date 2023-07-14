@@ -354,9 +354,10 @@ export default {
 
                 if (
                     DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headerTitle' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sortIcon' ||
-                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sortIcon'
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headertitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
+                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon'
                 ) {
                     DomHandler.clearSelection();
 
