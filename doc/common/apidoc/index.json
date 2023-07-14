@@ -134,6 +134,15 @@
                             "readonly": false,
                             "type": "AccordionTabPassThroughOptionType",
                             "default": "",
+                            "description": "Uses to pass attributes to AccordionTab helper components.",
+                            "deprecated": "since v3.30.1. Use 'accordiontab' property instead."
+                        },
+                        {
+                            "name": "accordiontab",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionTabPassThroughOptionType",
+                            "default": "",
                             "description": "Uses to pass attributes to AccordionTab helper components."
                         },
                         {
@@ -38880,6 +38889,15 @@
                         },
                         {
                             "name": "tab",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TabPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to TabPanel helper components.",
+                            "deprecated": "since v3.30.1. Use 'tabpanel' property instead."
+                        },
+                        {
+                            "name": "tabpanel",
                             "optional": true,
                             "readonly": false,
                             "type": "TabPanelPassThroughOptionType",
