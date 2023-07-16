@@ -54,6 +54,10 @@ const styles = `
     overflow: hidden;
 }
 
+.p-panel-inherit-width .p-autocomplete-item {
+    white-space: pre-wrap;
+}
+
 .p-autocomplete-multiple-container {
     margin: 0;
     padding: 0;
@@ -126,11 +130,12 @@ const classes = {
     inputToken: 'p-autocomplete-input-token',
     loadingIcon: 'p-autocomplete-loader',
     dropdownButton: 'p-autocomplete-dropdown',
-    panel: ({ instance }) => [
+    panel: ({ instance, props }) => [
         'p-autocomplete-panel p-component',
         {
             'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
+            'p-ripple-disabled': instance.$primevue.config.ripple === false,
+            'p-panel-inherit-width': props.inheritWidth === true
         }
     ],
     list: 'p-autocomplete-items',
@@ -188,6 +193,10 @@ export default {
             default: false
         },
         disabled: {
+            type: Boolean,
+            default: false
+        },
+        inheritWidth: {
             type: Boolean,
             default: false
         },

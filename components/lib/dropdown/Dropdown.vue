@@ -640,10 +640,19 @@ export default {
         alignOverlay() {
             if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, this.$el);
-            } else {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$el);
+
+                return;
             }
+
+            const containerWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+
+            this.overlay.style.minWidth = containerWidth;
+
+            if (this.inheritWidth) {
+                this.overlay.style.maxWidth = containerWidth;
+            }
+
+            DomHandler.absolutePosition(this.overlay, this.$el);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {

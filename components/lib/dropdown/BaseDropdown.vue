@@ -64,6 +64,10 @@ input.p-dropdown-label {
     overflow: hidden;
 }
 
+.p-panel-inherit-width .p-dropdown-item {
+    white-space: pre-wrap;
+}
+
 .p-dropdown-item-group {
     cursor: auto;
 }
@@ -120,11 +124,12 @@ const classes = {
     trigger: 'p-dropdown-trigger',
     loadingicon: 'p-dropdown-trigger-icon',
     dropdownIcon: 'p-dropdown-trigger-icon',
-    panel: ({ instance }) => [
+    panel: ({ instance, props }) => [
         'p-dropdown-panel p-component',
         {
             'p-input-filled': instance.$primevue.config.inputStyle === 'filled',
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
+            'p-ripple-disabled': instance.$primevue.config.ripple === false,
+            'p-panel-inherit-width': props.inheritWidth === true
         }
     ],
     header: 'p-dropdown-header',
@@ -258,6 +263,10 @@ export default {
         autoOptionFocus: {
             type: Boolean,
             default: true
+        },
+        inheritWidth: {
+            type: Boolean,
+            default: false
         },
         autoFilterFocus: {
             type: Boolean,

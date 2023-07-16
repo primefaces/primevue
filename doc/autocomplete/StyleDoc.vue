@@ -47,6 +47,10 @@
                     <td>p-overlay-open</td>
                     <td>Container element when overlay is visible.</td>
                 </tr>
+                <tr>
+                    <td>p-panel-inherit-width</td>
+                    <td>Wrap item text when inheritWidth is enabled.</td>
+                </tr>
             </tbody>
         </table>
     </div>

@@ -363,6 +363,11 @@ export interface DropdownProps {
      */
     resetFilterOnHide?: boolean;
     /**
+     * Inherit width of p-dropdown-panel from p-dropdown.
+     * @defaultValue false
+     */
+    inheritWidth?: boolean;
+    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      */
     virtualScrollerOptions?: VirtualScrollerProps;

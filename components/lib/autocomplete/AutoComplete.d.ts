@@ -382,6 +382,11 @@ export interface AutoCompleteProps {
      */
     removeTokenIcon?: string | undefined;
     /**
+     * Inherit width of p-autocomplete-panel from p-autocomplete.
+     * @defaultValue false
+     */
+        inheritWidth?: boolean;
+    /**
      * Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.
      * @type {VirtualScrollerProps}
      */

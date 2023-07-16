@@ -696,10 +696,19 @@ export default {
 
             if (this.appendTo === 'self') {
                 DomHandler.relativePosition(this.overlay, target);
-            } else {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(target) + 'px';
-                DomHandler.absolutePosition(this.overlay, target);
+
+                return
             }
+
+            const containerWidth = DomHandler.getOuterWidth(target) + 'px';
+
+            this.overlay.style.minWidth = containerWidth;
+
+            if (this.inheritWidth) {
+                this.overlay.style.maxWidth = containerWidth;
+            }
+
+            DomHandler.absolutePosition(this.overlay, target);
         },
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
