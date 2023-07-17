@@ -11129,6 +11129,30 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current disabled state of row as a boolean."
+                        },
+                        {
+                            "name": "sorted",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current sort state of the column as a boolean."
+                        },
+                        {
+                            "name": "frozen",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current frozen state of the column as a boolean."
+                        },
+                        {
+                            "name": "resizable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current resizable state of the column as a boolean."
                         }
                     ],
                     "methods": []
@@ -43164,6 +43188,13 @@
                             "readonly": false,
                             "type": "TreeTableState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeTableContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -43601,22 +43632,6 @@
                             "description": "Uses to pass attributes to the header row's DOM element."
                         },
                         {
-                            "name": "headerFilterRow",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header filter row's DOM element."
-                        },
-                        {
-                            "name": "headerFilterCell",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "TreeTablePassThroughOptionType",
-                            "default": "",
-                            "description": "Uses to pass attributes to the header filter cell's DOM element."
-                        },
-                        {
                             "name": "tbody",
                             "optional": true,
                             "readonly": false,
@@ -43819,6 +43834,45 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current editing as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeTableContext": {
+                    "description": "Defines current options in TreeTable component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index state of the item."
+                        },
+                        {
+                            "name": "frozen",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current frozen state of the row as a boolean."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selectable state of the row as a boolean."
+                        },
+                        {
+                            "name": "selected",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selected state of the row as a boolean."
                         }
                     ],
                     "methods": []
