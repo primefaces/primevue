@@ -437,7 +437,7 @@ export default {
             const getValue = (...args) => {
                 const value = this._getOptionValue(...args);
 
-                return ObjectUtils.isString(value) ? { class: value } : value;
+                return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
             };
 
             const datasetPrefix = 'data-pc-';
