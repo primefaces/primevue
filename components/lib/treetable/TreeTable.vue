@@ -65,9 +65,9 @@
                             ></TTHeaderCell>
                         </template>
                     </tr>
-                    <tr v-if="hasColumnFilter()" v-bind="ptm('headerFilterRow')">
+                    <tr v-if="hasColumnFilter()" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
-                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerFilterCell')">
+                            <th v-if="!columnProp(col, 'hidden')" :class="getFilterColumnHeaderClass(col)" :style="[columnProp(col, 'style'), columnProp(col, 'filterHeaderStyle')]" v-bind="ptm('headerCell', ptHeaderCellOptions(col))">
                                 <component v-if="col.children && col.children.filter" :is="col.children.filter" :column="col" :index="i" />
                             </th>
                         </template>
@@ -230,6 +230,13 @@ export default {
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
+        },
+        ptHeaderCellOptions(column) {
+            return {
+                context: {
+                    frozen: this.columnProp(column, 'frozen')
+                }
+            };
         },
         onNodeToggle(node) {
             const key = node.key;

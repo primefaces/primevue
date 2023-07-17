@@ -14,7 +14,7 @@
         @click="onClick"
         @keydown="onKeyDown"
         @touchend="onTouchEnd"
-        v-bind="ptm('row')"
+        v-bind="ptm('row', ptmOptions)"
         :data-p-highlight="selected"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
@@ -413,6 +413,14 @@ export default {
         },
         getAriaSelected() {
             return this.selectionMode === 'single' || this.selectionMode === 'multiple' ? this.selected : null;
+        },
+        ptmOptions() {
+            return {
+                context: {
+                    selectable: this.$parentInstance.rowHover || this.$parentInstance.rowSelectionMode,
+                    selected: this.selected
+                }
+            };
         }
     },
     components: {

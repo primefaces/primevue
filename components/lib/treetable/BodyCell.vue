@@ -113,7 +113,10 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    selectable: this.$parentInstance.rowHover || this.$parentInstance.rowSelectionMode,
+                    selected: this.$parent.selected,
+                    frozen: this.columnProp('frozen')
                 }
             };
 
