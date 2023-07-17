@@ -18,6 +18,7 @@
             @focus="onFocus"
             @blur="onBlur"
             v-bind="ptm('barx')"
+            data-pc-group-section="bar"
         ></div>
         <div
             ref="yBar"
@@ -31,6 +32,7 @@
             @keyup="onKeyUp"
             @focus="onFocus"
             v-bind="ptm('bary')"
+            data-pc-group-section="bar"
         ></div>
     </div>
 </template>
