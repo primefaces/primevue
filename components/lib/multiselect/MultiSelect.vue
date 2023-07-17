@@ -74,7 +74,7 @@
                             </div>
                             <div :class="cx('headerCheckbox')" v-bind="getHeaderCheckboxPTOptions('headerCheckbox')">
                                 <slot name="headercheckboxicon" :allSelected="allSelected" :class="cx('headerCheckboxIcon')">
-                                    <component :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
+                                    <component v-show="allSelected" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[cx('headerCheckboxIcon'), { [checkboxIcon]: allSelected }]" v-bind="getHeaderCheckboxPTOptions('headerCheckboxIcon')" />
                                 </slot>
                             </div>
                         </div>
@@ -139,6 +139,7 @@
                                                 <div :class="cx('checkbox', { option })" v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkbox')">
                                                     <slot name="itemcheckboxicon" :selected="isSelected(option)" :class="cx('checkboxIcon')">
                                                         <component
+                                                            v-show="isSelected(option)"
                                                             :is="checkboxIcon ? 'span' : 'CheckIcon'"
                                                             :class="[cx('checkboxIcon'), { [checkboxIcon]: isSelected(option) }]"
                                                             v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'checkboxIcon')"
