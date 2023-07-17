@@ -11,6 +11,7 @@
                 :aria-label="prevButtonAriaLabel"
                 @click="onPrevButtonClick"
                 v-bind="{ ...previousButtonProps, ...ptm('previousButton') }"
+                data-pc-group-section="navbutton"
             >
                 <slot name="previcon">
                     <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previousIcon')" />
@@ -61,6 +62,7 @@
                 :aria-label="nextButtonAriaLabel"
                 @click="onNextButtonClick"
                 v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
+                data-pc-group-section="navbutton"
             >
                 <slot name="nexticon">
                     <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" aria-hidden="true" :class="nextIcon" v-bind="ptm('nextIcon')" />
