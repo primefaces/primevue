@@ -51,7 +51,8 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    frozen: this.columnProp('frozen')
                 }
             };
 

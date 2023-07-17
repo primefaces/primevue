@@ -594,6 +594,21 @@ export interface ColumnContext {
      * @defaultValue false
      */
     disabled: boolean;
+    /**
+     * Current sort state of the column as a boolean.
+     * @defaultValue false
+     */
+    sorted: boolean;
+    /**
+     * Current frozen state of the column as a boolean.
+     * @defaultValue false
+     */
+    frozen: boolean;
+    /**
+     * Current resizable state of the column as a boolean.
+     * @defaultValue false
+     */
+    resizable: boolean;
 }
 
 /**

@@ -23,6 +23,7 @@ export interface TreeTablePassThroughMethodOptions {
     instance: any;
     props: TreeTableProps;
     state: TreeTableState;
+    context: TreeTableContext;
 }
 
 /**
@@ -214,14 +215,6 @@ export interface TreeTablePassThroughOptions {
      */
     headerRow?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header filter row's DOM element.
-     */
-    headerFilterRow?: TreeTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the header filter cell's DOM element.
-     */
-    headerFilterCell?: TreeTablePassThroughOptionType;
-    /**
      * Uses to pass attributes to the tbody's DOM element.
      */
     tbody?: TreeTablePassThroughOptionType;
@@ -328,6 +321,31 @@ export interface TreeTableState {
      * @defaultValue false
      */
     d_editing: boolean;
+}
+
+/**
+ * Defines current options in TreeTable component.
+ */
+export interface TreeTableContext {
+    /**
+     * Current index state of the item.
+     */
+    index: number;
+    /**
+     * Current frozen state of the row as a boolean.
+     * @defaultValue false
+     */
+    frozen: boolean;
+    /**
+     * Current selectable state of the row as a boolean.
+     * @defaultValue false
+     */
+    selectable: boolean;
+    /**
+     * Current selected state of the row as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
 }
 
 /**
