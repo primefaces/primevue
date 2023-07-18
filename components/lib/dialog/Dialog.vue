@@ -8,7 +8,18 @@
                             <span v-if="header" :id="ariaLabelledById" :class="cx('headerTitle')" v-bind="ptm('headerTitle')">{{ header }}</span>
                         </slot>
                         <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')">
-                            <button v-if="maximizable" :ref="maximizableRef" v-ripple :autofocus="focusableMax" :class="cx('maximizableButton')" @click="maximize" type="button" :tabindex="maximizable ? '0' : '-1'" v-bind="ptm('maximizableButton')">
+                            <button
+                                v-if="maximizable"
+                                :ref="maximizableRef"
+                                v-ripple
+                                :autofocus="focusableMax"
+                                :class="cx('maximizableButton')"
+                                @click="maximize"
+                                type="button"
+                                :tabindex="maximizable ? '0' : '-1'"
+                                v-bind="ptm('maximizableButton')"
+                                data-pc-group-section="headericon"
+                            >
                                 <slot name="maximizeicon" :maximized="maximized">
                                     <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
                                 </slot>
@@ -23,6 +34,7 @@
                                 :aria-label="closeAriaLabel"
                                 type="button"
                                 v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
+                                data-pc-group-section="headericon"
                             >
                                 <slot name="closeicon">
                                     <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon]" v-bind="ptm('closeButtonIcon')"></component>
