@@ -29,6 +29,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'ToastMessage',
+    hostName: 'Toast',
     extends: BaseComponent,
     emits: ['close'],
     closeTimeout: null,
