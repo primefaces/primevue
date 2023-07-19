@@ -10297,6 +10297,14 @@
                             "description": "Uses to pass attributes to the filter menu button's DOM element."
                         },
                         {
+                            "name": "filterMenuIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the filter menu icon's DOM element."
+                        },
+                        {
                             "name": "headerFilterClearButton",
                             "optional": true,
                             "readonly": false,
@@ -11153,6 +11161,54 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current resizable state of the column as a boolean."
+                        },
+                        {
+                            "name": "size",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Current size state of the table."
+                        },
+                        {
+                            "name": "showGridlines",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current gridlines state of the table as a boolean."
+                        },
+                        {
+                            "name": "highlighted",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current highlighted state of the filter row item as a boolean."
+                        },
+                        {
+                            "name": "hidden",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current hidden state of the filter clear button of a column as a boolean."
+                        },
+                        {
+                            "name": "overlayVisible",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current visible state of the filter menu of a column as a boolean."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of the filter menu of a column as a boolean."
                         }
                     ],
                     "methods": []
@@ -11540,6 +11596,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Current type of the column group."
+                        },
+                        {
+                            "name": "scrollable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current scrollable state of column group as a boolean."
                         }
                     ],
                     "methods": []
@@ -14392,6 +14456,13 @@
                             "readonly": false,
                             "type": "DataTableState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "DataTableContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -15913,6 +15984,45 @@
                     ],
                     "methods": []
                 },
+                "DataTableContext": {
+                    "description": "Defines current options in DataTable component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the row."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selectable state of row as a boolean."
+                        },
+                        {
+                            "name": "selected",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selected state of row as a boolean."
+                        },
+                        {
+                            "name": "stripedRows",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current stripedRows state of row as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "DataTableProps": {
                     "description": "Defines valid properties in DataTable component.",
                     "relatedProp": "",
@@ -16381,6 +16491,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Whether to displays rows with alternating colors."
+                        },
+                        {
+                            "name": "size",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"small\" | \"large\"",
+                            "default": "",
+                            "description": "Defines the size of the table."
                         },
                         {
                             "name": "tableStyle",
