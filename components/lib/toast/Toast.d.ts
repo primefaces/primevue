@@ -65,12 +65,22 @@ export interface ToastPassThroughOptions {
     buttonContainer?: ToastPassThroughOptionType;
     /**
      * Uses to pass attributes to the button's DOM element.
+     * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: ToastPassThroughOptionType;
     /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    closeButton?: ToastPassThroughOptionType;
+    /**
      * Uses to pass attributes to the button icon's DOM element.
+     * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
     buttonIcon?: ToastPassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button icon's DOM element.
+     */
+    closeIcon?: ToastPassThroughOptionType;
     /**
      * Uses to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}

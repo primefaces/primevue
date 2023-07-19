@@ -112,8 +112,8 @@ const classes = {
     text: 'p-toast-message-text',
     summary: 'p-toast-summary',
     detail: 'p-toast-detail',
-    button: 'p-toast-icon-close p-link',
-    buttonIcon: 'p-toast-icon-close-icon'
+    closeButton: 'p-toast-icon-close p-link',
+    closeIcon: 'p-toast-icon-close-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { name: 'toast', manual: true });
