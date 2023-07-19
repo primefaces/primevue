@@ -44215,6 +44215,14 @@
                             "description": "Defines the responsive mode, currently only option is scroll."
                         },
                         {
+                            "name": "size",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"small\" | \"large\"",
+                            "default": "",
+                            "description": "Defines the size of the table."
+                        },
+                        {
                             "name": "tableProps",
                             "optional": true,
                             "readonly": false,
