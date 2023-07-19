@@ -259,7 +259,9 @@ const classes = {
             'p-datatable-striped': props.stripedRows,
             'p-datatable-gridlines': props.showGridlines,
             'p-datatable-grouped-header': instance.headerColumnGroup != null,
-            'p-datatable-grouped-footer': instance.footerColumnGroup != null
+            'p-datatable-grouped-footer': instance.footerColumnGroup != null,
+            'p-datatable-sm': props.size === 'small',
+            'p-datatable-lg': props.size === 'large'
         }
     ],
     loadingOverlay: 'p-datatable-loading-overlay p-component-overlay',
@@ -708,6 +710,10 @@ export default {
         stripedRows: {
             type: Boolean,
             default: false
+        },
+        size: {
+            type: String,
+            default: null
         },
         tableStyle: {
             type: null,

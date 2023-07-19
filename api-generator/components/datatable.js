@@ -367,6 +367,12 @@ const DataTableProps = [
         description: 'Whether to displays rows with alternating colors.'
     },
     {
+        name: 'size',
+        type: 'string',
+        default: 'null',
+        description: 'Defines the size of the table.'
+    },
+    {
         name: 'tableStyle',
         type: 'object',
         default: 'null',

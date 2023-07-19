@@ -548,6 +548,10 @@ export interface TreeTableProps {
      */
     responsiveLayout?: 'stack' | 'scroll' | undefined;
     /**
+     * Defines the size of the table.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * Props to pass to the table element.
      */
     tableProps?: any | undefined;

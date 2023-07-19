@@ -187,7 +187,9 @@ const classes = {
             'p-treetable-scrollable-horizontal': props.scrollable && props.scrollDirection === 'horizontal',
             'p-treetable-scrollable-both': props.scrollable && props.scrollDirection === 'both',
             'p-treetable-flex-scrollable': props.scrollable && props.scrollHeight === 'flex',
-            'p-treetable-responsive-scroll': props.responsiveLayout === 'scroll'
+            'p-treetable-responsive-scroll': props.responsiveLayout === 'scroll',
+            'p-treetable-sm': props.size === 'small',
+            'p-treetable-lg': props.size === 'large'
         }
     ],
     loadingWrapper: 'p-treetable-loading',
@@ -413,6 +415,10 @@ export default {
             default: null
         },
         responsiveLayout: {
+            type: String,
+            default: null
+        },
+        size: {
             type: String,
             default: null
         },
