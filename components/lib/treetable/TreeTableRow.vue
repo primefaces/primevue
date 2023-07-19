@@ -418,7 +418,8 @@ export default {
             return {
                 context: {
                     selectable: this.$parentInstance.rowHover || this.$parentInstance.rowSelectionMode,
-                    selected: this.selected
+                    selected: this.selected,
+                    scrollable: this.$parentInstance.scrollable
                 }
             };
         }

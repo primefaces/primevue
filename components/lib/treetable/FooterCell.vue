@@ -52,7 +52,8 @@ export default {
                 },
                 context: {
                     index: this.index,
-                    frozen: this.columnProp('frozen')
+                    frozen: this.columnProp('frozen'),
+                    size: this.$parentInstance?.size
                 }
             };
 

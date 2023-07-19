@@ -5,7 +5,7 @@
             <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
             <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowTogglerIcon')" v-bind="getColumnPT('rowTogglerIcon')" />
         </button>
-        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnPT('checkboxWrapper')">
+        <div v-if="checkboxSelectionMode && columnProp('expander')" :class="cx('checkboxWrapper')" @click="toggleCheckbox" v-bind="getColumnCheckboxPT('checkboxWrapper')">
             <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenInputWrapper')" :data-p-hidden-accessible="true">
                 <input type="checkbox" @focus="onCheckboxFocus" @blur="onCheckboxBlur" tabindex="-1" v-bind="getColumnPT('hiddenInput')" />
             </div>
@@ -114,9 +114,14 @@ export default {
                 },
                 context: {
                     index: this.index,
+                    focused: this.checkboxFocused,
                     selectable: this.$parentInstance.rowHover || this.$parentInstance.rowSelectionMode,
                     selected: this.$parent.selected,
-                    frozen: this.columnProp('frozen')
+                    frozen: this.columnProp('frozen'),
+                    scrollable: this.$parentInstance.scrollable,
+                    scrollDirection: this.$parentInstance.scrollDirection,
+                    showGridlines: this.$parentInstance.showGridlines,
+                    size: this.$parentInstance?.size
                 }
             };
 
@@ -126,7 +131,7 @@ export default {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo
         },
         getColumnCheckboxPT(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
@@ -137,7 +142,9 @@ export default {
                     focused: this.checkboxFocused,
                     partialChecked: this.partialChecked
                 }
-            });
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
