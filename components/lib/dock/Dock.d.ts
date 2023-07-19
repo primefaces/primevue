@@ -101,6 +101,10 @@ export interface DockState {
  */
 export interface DockContext {
     /**
+     * Current index of the menuitem.
+     */
+    index: number;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
