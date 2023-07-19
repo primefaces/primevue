@@ -25,6 +25,7 @@
 import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import { DomHandler } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'RowCheckbox',
@@ -51,7 +52,7 @@ export default {
     },
     methods: {
         getColumnPT(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
@@ -63,7 +64,9 @@ export default {
                     focused: this.focused,
                     disabled: this.$attrs.disabled
                 }
-            });
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:

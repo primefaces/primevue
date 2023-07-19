@@ -142,6 +142,10 @@ export interface ColumnPassThroughOptions {
      */
     filterMenuButton?: ColumnPassThroughOptionType;
     /**
+     * Uses to pass attributes to the filter menu icon's DOM element.
+     */
+    filterMenuIcon?: ColumnPassThroughOptionType;
+    /**
      * Uses to pass attributes to the header filter clear button's DOM element.
      */
     headerFilterClearButton?: ColumnPassThroughOptionType;
@@ -609,6 +613,35 @@ export interface ColumnContext {
      * @defaultValue false
      */
     resizable: boolean;
+    /**
+     * Current size state of the table.
+     */
+    size: string;
+    /**
+     * Current gridlines state of the table as a boolean.
+     * @defaultValue false
+     */
+    showGridlines: boolean;
+    /**
+     * Current highlighted state of the filter row item as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
+    /**
+     * Current hidden state of the filter clear button of a column as a boolean.
+     * @defaultValue false
+     */
+    hidden: boolean;
+    /**
+     * Current visible state of the filter menu of a column as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current active state of the filter menu of a column as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
 }
 
 /**

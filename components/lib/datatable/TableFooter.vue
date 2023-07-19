@@ -1,5 +1,5 @@
 <template>
-    <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot'), ...getColumnGroupPT('root') } : ptm('tfoot')" data-pc-section="tfoot">
+    <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot', ptmTFootOptions), ...getColumnGroupPT('root') } : ptm('tfoot', ptmTFootOptions)" data-pc-section="tfoot">
         <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                 <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />
@@ -47,7 +47,8 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    type: 'header'
+                    type: 'footer',
+                    scrollable: this.ptmTFootOptions.context.scrollable
                 }
             };
 
@@ -119,6 +120,13 @@ export default {
             }
 
             return hasFooter;
+        },
+        ptmTFootOptions() {
+            return {
+                context: {
+                    scrollable: this.$parentInstance?.$parentInstance?.scrollable
+                }
+            };
         }
     },
     components: {

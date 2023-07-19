@@ -46,8 +46,8 @@
         </template>
         <template v-else-if="columnProp('rowReorder')">
             <component v-if="column.children && column.children.rowreordericon" :is="column.children.rowreordericon" :class="cx('rowReorderIcon')" />
-            <i v-else-if="columnProp('rowReorderIcon')" :class="[cx('rowReorderIcon'), columnProp('rowReorderIcon')]" />
-            <BarsIcon v-else :class="cx('rowReorderIcon')" data-pc-section="rowreordericon" />
+            <i v-else-if="columnProp('rowReorderIcon')" :class="[cx('rowReorderIcon'), columnProp('rowReorderIcon')]" v-bind="getColumnPT('rowReorderIcon')" />
+            <BarsIcon v-else :class="cx('rowReorderIcon')" v-bind="getColumnPT('rowReorderIcon')" />
         </template>
         <template v-else-if="columnProp('expander')">
             <button v-ripple :class="cx('rowToggler')" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow" v-bind="getColumnPT('rowToggler')">
@@ -214,7 +214,9 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    size: this.$parentInstance?.$parentInstance?.size,
+                    showGridlines: this.$parentInstance?.$parentInstance?.showGridlines
                 }
             };
 

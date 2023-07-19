@@ -72,6 +72,11 @@ export interface ColumnGroupContext {
      * Current type of the column group.
      */
     type: string;
+    /**
+     * Current scrollable state of column group as a boolean.
+     * @defaultValue false
+     */
+    scrollable: boolean;
 }
 
 /**

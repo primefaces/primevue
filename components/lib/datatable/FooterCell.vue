@@ -51,7 +51,9 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    index: this.index
+                    index: this.index,
+                    size: this.$parentInstance?.$parentInstance?.size,
+                    showGridlines: this.$parentInstance?.$parentInstance?.showGridlines || false
                 }
             };
 

@@ -1,5 +1,5 @@
 <template>
-    <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead'), ...getColumnGroupPT('root') } : ptm('thead')" data-pc-section="thead">
+    <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead', ptmTHeadOptions), ...getColumnGroupPT('root') } : ptm('thead', ptmTHeadOptions)" data-pc-section="thead">
         <template v-if="!columnGroup">
             <tr role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
@@ -244,7 +244,8 @@ export default {
                     state: this.$data
                 },
                 context: {
-                    type: 'header'
+                    type: 'header',
+                    scrollable: this.$parentInstance?.$parentInstance?.scrollable
                 }
             };
 
@@ -321,6 +322,15 @@ export default {
 
                 return cols;
             }
+        }
+    },
+    computed: {
+        ptmTHeadOptions() {
+            return {
+                context: {
+                    scrollable: this.$parentInstance?.$parentInstance?.scrollable
+                }
+            };
         }
     },
     components: {

@@ -25,6 +25,7 @@ export interface DataTablePassThroughMethodOptions {
     instance: any;
     props: DataTableProps;
     state: DataTableState;
+    context: DataTableContext;
 }
 
 /**
@@ -722,6 +723,31 @@ export interface DataTableState {
 }
 
 /**
+ * Defines current options in DataTable component.
+ */
+export interface DataTableContext {
+    /**
+     * Current index of the row.
+     */
+    index: number;
+    /**
+     * Current selectable state of row as a boolean.
+     * @defaultValue false
+     */
+    selectable: boolean;
+    /**
+     * Current selected state of row as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current stripedRows state of row as a boolean.
+     * @defaultValue false
+     */
+    stripedRows: boolean;
+}
+
+/**
  * Defines valid properties in DataTable component.
  */
 export interface DataTableProps {
@@ -1013,6 +1039,10 @@ export interface DataTableProps {
      * @defaultValue false
      */
     stripedRows?: boolean | undefined;
+    /**
+     * Defines the size of the table.
+     */
+    size?: 'small' | 'large' | undefined;
     /**
      * Inline style of the table element.
      */

@@ -14,11 +14,11 @@
             :class="cx('filterMenuButton')"
             @click="toggleMenu($event)"
             @keydown="onToggleButtonKeyDown($event)"
-            v-bind="getColumnPT('filterMenuButton')"
+            v-bind="getColumnPT('filterMenuButton', ptmFilterMenuParams)"
         >
-            <component :is="filterIconTemplate || 'FilterIcon'" />
+            <component :is="filterIconTemplate || 'FilterIcon'" v-bind="getColumnPT('filterMenuIcon')" />
         </button>
-        <button v-if="showClearButton && display === 'row'" :class="cx('headerFilterClearButton')" type="button" @click="clearFilter()" v-bind="getColumnPT('headerFilterClearButton')">
+        <button v-if="showClearButton && display === 'row'" :class="cx('headerFilterClearButton')" type="button" @click="clearFilter()" v-bind="getColumnPT('headerFilterClearButton', ptmHeaderFilterClearParams)">
             <component :is="filterClearIconTemplate || 'FilterSlashIcon'" v-bind="getColumnPT('filterClearIcon')" />
         </button>
         <Portal>
@@ -47,7 +47,7 @@
                                 @keydown="onRowMatchModeKeyDown($event)"
                                 @keydown.enter.prevent="onRowMatchModeChange(matchMode.value)"
                                 :tabindex="i === 0 ? '0' : null"
-                                v-bind="getColumnPT('filterRowItem')"
+                                v-bind="getColumnPT('filterRowItem', ptmFilterRowItemOptions(matchMode))"
                             >
                                 {{ matchMode.label }}
                             </li>
@@ -96,6 +96,9 @@
                                         @click="removeConstraint(i)"
                                         :label="removeRuleButtonLabel"
                                         :unstyled="unstyled"
+                                        text
+                                        severity="danger"
+                                        size="small"
                                         :pt="getColumnPT('filterRemoveButton')"
                                         data-pc-section="filterremovebutton"
                                     >
@@ -114,6 +117,9 @@
                                 :class="cx('filterAddRuleButton')"
                                 @click="addConstraint()"
                                 :unstyled="unstyled"
+                                text
+                                severity="info"
+                                size="small"
                                 :pt="getColumnPT('filterAddRuleButton')"
                                 data-pc-section="filteraddrulebutton"
                             >
@@ -130,6 +136,8 @@
                                 :label="clearButtonLabel"
                                 @click="clearFilter"
                                 :unstyled="unstyled"
+                                size="small"
+                                outlined
                                 :pt="getColumnPT('filterClearButton')"
                                 data-pc-section="filterclearbutton"
                             ></CFButton>
@@ -142,6 +150,7 @@
                                     :label="applyButtonLabel"
                                     @click="applyFilter()"
                                     :unstyled="unstyled"
+                                    size="small"
                                     :pt="getColumnPT('filterApplyButton')"
                                     data-pc-section="filterapplybutton"
                                 ></CFButton>
@@ -169,6 +178,7 @@ import TrashIcon from 'primevue/icons/trash';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'ColumnFilter',
@@ -316,17 +326,27 @@ export default {
         }
     },
     methods: {
-        getColumnPT(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+        getColumnPT(key, params) {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
-                }
-            });
+                },
+                ...params
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
+        },
+        ptmFilterRowItemOptions(matchMode) {
+            return {
+                context: {
+                    highlighted: matchMode && this.isRowMatchModeSelected(matchMode.value)
+                }
+            };
         },
         clearFilter() {
             let _filters = { ...this.filters };
@@ -667,6 +687,21 @@ export default {
         },
         filterConstraintAriaLabel() {
             return this.$primevue.config.locale ? this.$primevue.config.locale.filterConstraint : undefined;
+        },
+        ptmHeaderFilterClearParams() {
+            return {
+                context: {
+                    hidden: this.hasRowFilter()
+                }
+            };
+        },
+        ptmFilterMenuParams() {
+            return {
+                context: {
+                    overlayVisible: this.overlayVisible,
+                    active: this.hasFilter()
+                }
+            };
         }
     },
     components: {
