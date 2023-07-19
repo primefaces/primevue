@@ -462,6 +462,10 @@
                         {
                             "name": "Bootstrap",
                             "to": "/bootstrap"
+                        },
+                        {
+                            "name": "Bulma",
+                            "to": "/bulma"
                         }
                     ]
                 }
