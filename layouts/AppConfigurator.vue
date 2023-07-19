@@ -116,16 +116,6 @@
                     </div>
                 </div>
 
-                <h4>Tailwind</h4>
-                <div class="grid free-themes">
-                    <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-3rem" @click="changeTheme('tailwind-light')">
-                            <img src="https://primefaces.org/cdn/primevue/images/themes/tailwind-light.png" alt="Tailwind Light" class="w-3rem border-round" />
-                        </button>
-                        <span class="white-space-nowrap">Tailwind Light</span>
-                    </div>
-                </div>
-
                 <h4>Fluent UI</h4>
                 <div class="grid free-themes">
                     <div class="col-3 flex flex-column align-items-center gap-2">
