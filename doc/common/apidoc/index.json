@@ -18873,6 +18873,14 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the menuitem."
+                        },
+                        {
                             "name": "active",
                             "optional": false,
                             "readonly": false,
