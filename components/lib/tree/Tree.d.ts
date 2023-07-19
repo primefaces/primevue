@@ -213,6 +213,10 @@ export interface TreeState {
  */
 export interface TreeContext {
     /**
+     * Index of the node.
+     */
+    index: number;
+    /**
      * Current expanded state of the node as a boolean.
      * @defaultValue false
      */
@@ -227,6 +231,11 @@ export interface TreeContext {
      * @defaultValue false
      */
     checked: boolean;
+    /**
+     * Current leaf state of the node as a boolean.
+     * @defaultValue false
+     */
+    leaf: boolean;
 }
 
 /**

@@ -114,9 +114,11 @@ export default {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
+                    index: this.index,
                     expanded: this.expanded,
                     selected: this.selected,
-                    checked: this.checked
+                    checked: this.checked,
+                    leaf: this.leaf
                 }
             });
         },
