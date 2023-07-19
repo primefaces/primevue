@@ -53,8 +53,8 @@ const classes = {
     wrapper: 'p-message-wrapper',
     icon: 'p-message-icon',
     text: 'p-message-text',
-    button: 'p-message-close p-link',
-    buttonIcon: 'p-message-close-icon'
+    closeButton: 'p-message-close p-link',
+    closeIcon: 'p-message-close-icon'
 };
 
 const { load: loadStyle } = useStyle(styles, { name: 'message', manual: true });

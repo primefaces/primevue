@@ -8,10 +8,10 @@
                 <div class="p-message-text" :class="cx('text')" v-bind="ptm('text')">
                     <slot></slot>
                 </div>
-                <button v-if="closable" v-ripple :class="cx('button')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('button') }">
+                <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('button'), ...ptm('closeButton') }">
                     <slot name="closeicon">
-                        <i v-if="closeIcon" :class="[cx('buttonIcon'), closeIcon]" v-bind="ptm('buttonIcon')" />
-                        <TimesIcon v-else :class="[cx('buttonIcon'), closeIcon]" v-bind="ptm('buttonIcon')" />
+                        <i v-if="closeIcon" :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
+                        <TimesIcon v-else :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
                     </slot>
                 </button>
             </div>

@@ -45,12 +45,22 @@ export interface MessagePassThroughOptions {
     text?: MessagePassThroughOptionType;
     /**
      * Uses to pass attributes to the button's DOM element.
+     * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: MessagePassThroughOptionType;
     /**
+     * Uses to pass attributes to the button's DOM element.
+     */
+    closeButton?: MessagePassThroughOptionType;
+    /**
      * Uses to pass attributes to the button icon's DOM element.
+     * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
     buttonIcon?: MessagePassThroughOptionType;
+    /**
+     * Uses to pass attributes to the button icon's DOM element.
+     */
+    closeIcon?: MessagePassThroughOptionType;
     /**
      * Uses to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
