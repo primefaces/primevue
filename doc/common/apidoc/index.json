@@ -42390,6 +42390,14 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the node."
+                        },
+                        {
                             "name": "expanded",
                             "optional": false,
                             "readonly": false,
@@ -42412,6 +42420,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current checked state of the node as a boolean."
+                        },
+                        {
+                            "name": "leaf",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current leaf state of the node as a boolean."
                         }
                     ],
                     "methods": []
