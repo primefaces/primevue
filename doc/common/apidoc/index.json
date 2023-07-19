@@ -27907,10 +27907,28 @@
                             "readonly": false,
                             "type": "MessagePassThroughOptionType",
                             "default": "",
+                            "description": "Uses to pass attributes to the button's DOM element.",
+                            "deprecated": "since v3.30.2. Use 'closeButton' option."
+                        },
+                        {
+                            "name": "closeButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MessagePassThroughOptionType",
+                            "default": "",
                             "description": "Uses to pass attributes to the button's DOM element."
                         },
                         {
                             "name": "buttonIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MessagePassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the button icon's DOM element.",
+                            "deprecated": "since v3.30.2. Use 'closeIcon' option."
+                        },
+                        {
+                            "name": "closeIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "MessagePassThroughOptionType",
