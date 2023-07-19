@@ -70,6 +70,7 @@ import { DomHandler } from 'primevue/utils';
 
 export default {
     name: 'GalleriaThumbnails',
+    hostName: 'Galleria',
     extends: BaseComponent,
     emits: ['stop-slideshow', 'update:activeIndex'],
     props: {

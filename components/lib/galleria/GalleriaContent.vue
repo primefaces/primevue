@@ -60,6 +60,7 @@ import GalleriaThumbnails from './GalleriaThumbnails.vue';
 
 export default {
     name: 'GalleriaContent',
+    hostName: 'Galleria',
     extends: BaseComponent,
     inheritAttrs: false,
     interval: null,

@@ -44,6 +44,7 @@ import Ripple from 'primevue/ripple';
 
 export default {
     name: 'GalleriaItem',
+    hostName: 'Galleria',
     extends: BaseComponent,
     emits: ['start-slideshow', 'stop-slideshow', 'update:activeIndex'],
     props: {
