@@ -1,6 +1,26 @@
 # Changelog
 
+## [3.30.2](https://github.com/primefaces/primevue/tree/3.30.2) (2023-07-20)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.30.1...3.30.2)
+
+**Implemented New Features and Enhancements:**
+
+- Rename `button` and `buttonIcon` pt options with `closeButton` and `closeIcon` options in Message and Toast [\#4159](https://github.com/primefaces/primevue/issues/4159)
+- DataTable & TreeTable: new `size` property [\#4156](https://github.com/primefaces/primevue/issues/4156)
+- Improve `pt` syntax for 'class' definitions [\#4150](https://github.com/primefaces/primevue/issues/4150)
+- PT context improvements [\#4149](https://github.com/primefaces/primevue/issues/4149)
+
+**Fixed bugs:**
+
+- TabMenu: disabled item defect & accessibility improvements [\#4169](https://github.com/primefaces/primevue/issues/4169)
+- OverlayPanel: Toggle on list of focusable elements forces screen jump [\#4167](https://github.com/primefaces/primevue/issues/4167)
+- Global pt implementation defects [\#4163](https://github.com/primefaces/primevue/issues/4163)
+- Multiselect: Custom checkbox render issue  [\#4152](https://github.com/primefaces/primevue/issues/4152)
+
 ## [3.30.1](https://github.com/primefaces/primevue/tree/3.30.1) (2023-07-14)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.30.0...3.30.1)
 
 **Implemented New Features and Enhancements:**
 
@@ -20,7 +40,7 @@
 
 ## [3.30.0](https://github.com/primefaces/primevue/tree/3.30.0) (2023-07-10)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/3.29.2...HEAD)
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.29.2...3.30.0)
 
 **Implemented New Features and Enhancements:**
 
