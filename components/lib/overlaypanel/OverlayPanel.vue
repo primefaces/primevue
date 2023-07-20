@@ -97,7 +97,6 @@ export default {
         },
         hide() {
             this.visible = false;
-            DomHandler.focus(this.target);
         },
         onContentClick() {
             this.selfClick = true;
@@ -160,7 +159,10 @@ export default {
             }
         },
         onContentKeydown(event) {
-            event.code === 'Escape' && this.hide();
+            if (event.code === 'Escape') {
+                this.hide();
+                DomHandler.focus(this.target);
+            }
         },
         onButtonKeydown(event) {
             switch (event.code) {
