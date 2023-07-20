@@ -102,6 +102,10 @@ export interface GalleriaPassThroughOptions {
      */
     indicator?: GalleriaPassThroughOptionType;
     /**
+     * Uses to pass attributes to the indicator button's DOM element.
+     */
+    indicatorButton?: GalleriaPassThroughOptionType;
+    /**
      * Uses to pass attributes to the thumbnail wrapper's DOM element.
      */
     thumbnailWrapper?: GalleriaPassThroughOptionType;

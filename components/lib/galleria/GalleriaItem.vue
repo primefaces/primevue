@@ -29,7 +29,7 @@
                 v-bind="ptm('indicator')"
                 :data-p-highlight="isIndicatorItemActive(index)"
             >
-                <button v-if="!templates['indicator']" type="button" tabindex="-1" :class="cx('indicatorButton')"></button>
+                <button v-if="!templates['indicator']" type="button" tabindex="-1" :class="cx('indicatorButton')" v-bind="ptm('indicatorButton')"></button>
                 <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
             </li>
         </ul>
