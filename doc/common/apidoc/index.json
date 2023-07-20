@@ -22484,6 +22484,14 @@
                             "description": "Uses to pass attributes to the indicator's DOM element."
                         },
                         {
+                            "name": "indicatorButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "GalleriaPassThroughOptionType",
+                            "default": "",
+                            "description": "Uses to pass attributes to the indicator button's DOM element."
+                        },
+                        {
                             "name": "thumbnailWrapper",
                             "optional": true,
                             "readonly": false,
