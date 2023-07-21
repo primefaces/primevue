@@ -120,7 +120,7 @@ export default {
         onMaskKeydown(event) {
             switch (event.code) {
                 case 'Escape':
-                    this.onMaskClick();
+                    this.hidePreview();
                     setTimeout(() => {
                         DomHandler.focus(this.$refs.previewButton);
                     }, 25);
