@@ -123,7 +123,7 @@ export default {
                     this.hidePreview();
                     setTimeout(() => {
                         DomHandler.focus(this.$refs.previewButton);
-                    }, 25);
+                    }, 200);
                     event.preventDefault();
 
                     break;
