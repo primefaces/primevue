@@ -153,11 +153,11 @@ export default {
     props: {
         modelValue: null,
         options: Array,
-        optionLabel: null,
-        optionValue: null,
-        optionDisabled: null,
-        optionGroupLabel: null,
-        optionGroupChildren: null,
+        optionLabel: String || Function,
+        optionValue: String || Function,
+        optionDisabled: String || Function,
+        optionGroupLabel: String || Function,
+        optionGroupChildren: String || Function,
         scrollHeight: {
             type: String,
             default: '200px'
