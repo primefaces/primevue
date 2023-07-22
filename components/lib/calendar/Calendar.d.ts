@@ -38,6 +38,20 @@ export interface CalendarResponsiveOptions {
 }
 
 /**
+ * Custom Calendar responsive options metadata.
+ */
+export interface ShortCut {
+    /**
+     * Display label of a shortcut
+     */
+    label: string;
+    /**
+     * The string value of the date
+     */
+    value: string;
+}
+
+/**
  * Custom Calendar month change event.
  * @see {@link CalendarEmits['month-change']]}
  */
@@ -362,6 +376,10 @@ export interface CalendarProps {
      * Format of the date. Defaults to PrimeVue Locale configuration.
      */
     dateFormat?: string | undefined;
+    /**
+     * Format of the date. Defaults to PrimeVue Locale configuration.
+     */
+    shortCuts?: Array<ShortCut> | undefined;
     /**
      * When enabled, displays the calendar as inline instead of an overlay.
      * @defaultValue false

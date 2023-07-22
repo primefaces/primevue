@@ -20,6 +20,7 @@ import MonthPickerDoc from '@/doc/calendar/MonthPickerDoc';
 import MultipleDoc from '@/doc/calendar/MultipleDoc';
 import MultipleMonthsDoc from '@/doc/calendar/MultipleMonthsDoc';
 import RangeDoc from '@/doc/calendar/RangeDoc';
+import ShortcutDoc from '@/doc/calendar/ShortcutDoc';
 import StyleDoc from '@/doc/calendar/StyleDoc';
 import TimeDoc from '@/doc/calendar/TimeDoc';
 import TouchUIDoc from '@/doc/calendar/TouchUIDoc';
@@ -110,6 +111,11 @@ export default {
                     id: 'inline',
                     label: 'Inline',
                     component: InlineDoc
+                },
+                {
+                    id: 'shortcut',
+                    label: 'Shortcut',
+                    component: ShortcutDoc
                 },
                 {
                     id: 'floatlabel',

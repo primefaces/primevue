@@ -233,6 +233,10 @@ export default {
             type: String,
             default: null
         },
+        shortCuts: {
+            type: Array,
+            default: null
+        },
         inline: {
             type: Boolean,
             default: false

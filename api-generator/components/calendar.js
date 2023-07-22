@@ -174,6 +174,12 @@ const CalendarProps = [
         description: 'The cutoff year for determining the century for a date.'
     },
     {
+        name: 'shortCuts',
+        type: 'any',
+        default: '',
+        description: 'An array of dates with label to quick select frequently used dates.'
+    },
+    {
         name: 'showTime',
         type: 'boolean',
         default: 'false',

@@ -6091,3 +6091,51 @@
 .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
   box-shadow: inset 0 -2px 0 0 #0078d4;
 }
+
+/*Calendar-Shortcut*/
+.p-calendar-shortcut {
+  padding-right: var(--inline-spacing, 0.5rem);
+  display: flex;
+  flex-flow: row;
+}
+.p-calendar-shortcut ul {
+  margin: 0;
+  padding: 0;
+  padding-right: var(--inline-spacing, 0.5rem) !important;
+  list-style: none;
+  flex: 1 1 auto;
+  border-right: 1px solid var(--surface-d, #dee2e6);
+}
+.p-calendar-shortcut .p-menuitem {
+  position: relative;
+}
+.p-calendar-shortcut .p-menuitem > .p-menuitem-content {
+  color: var(--text-color, #495057);
+  transition: box-shadow 0.2s;
+  border-radius: 0;
+}
+.p-calendar-shortcut .p-menuitem > .p-menuitem-content {
+  color: var(--text-color, #495057);
+  padding: var(--inline-spacing, 0.5rem) var(--content-padding, 1.25rem);
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+}
+.p-calendar-shortcut .p-menuitem.p-highlight .p-menuitem-content {
+    background: var(--highlight-bg, #eff6ff);
+    color: var(--highlight-text-color, #1d4ed8);
+    border-radius: var(--border-radius, 6px);
+}
+.p-calendar-shortcut .p-menuitem .p-menuitem-content:hover {
+    color: var(--text-color, #495057) !important;
+    background: var(--surface-c, #e9ecef) !important;
+    border-radius: var(--border-radius, 6px) !important;
+}
+.p-datepicker:has(.p-calendar-shortcut) {
+  display: inline-flex;
+  width: auto;
+}

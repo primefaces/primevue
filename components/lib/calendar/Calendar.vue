@@ -63,6 +63,15 @@
                     @mouseup="onOverlayMouseUp"
                     v-bind="{ ...panelProps, ...ptm('panel') }"
                 >
+                    <div v-if="localShortCuts?.length && currentView !== 'month' && currentView !== 'year'" class="p-calendar-shortcut p-component">
+                        <ul tabindex="0" class="p-calendar-shortcut-root-list" aria-orientation="vertical">
+                            <li v-for="(shortCut, index) in localShortCuts" :key="index" class="p-menuitem" :class="{ 'p-highlight': shortCut.isSelected }" @click="setShortCutDate($event, shortCut)">
+                                <div v-ripple class="p-menuitem-content">
+                                    <span class="p-menuitem-text" data-pc-section="label">{{ shortCut.label }}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                     <template v-if="!timeOnly">
                         <div :class="cx('groupContainer')" v-bind="ptm('groupContainer')">
                             <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="cx('group')" v-bind="ptm('group')">
@@ -433,7 +442,8 @@ export default {
             pm: null,
             focused: false,
             overlayVisible: false,
-            currentView: this.view
+            currentView: this.view,
+            selectedShortCutIndex: null
         };
     },
     watch: {
@@ -532,6 +542,12 @@ export default {
         this.overlay = null;
     },
     methods: {
+        setShortCutDate(event, shortCut) {
+            this.updateModel(new Date(shortCut.value));
+        },
+        selectShortCut(date) {
+            this.selectedShortCutIndex = this.localShortCuts.findIndex((sc) => sc.date.getTime() === date.getTime());
+        },
         isComparable() {
             return this.modelValue != null && typeof this.modelValue !== 'string';
         },
@@ -705,7 +721,16 @@ export default {
         },
         onOverlayEnter(el) {
             el.setAttribute(this.attributeSelector, '');
-            const styles = this.touchUI ? { position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' } : !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
+            const styles = this.touchUI
+                ? {
+                      position: 'fixed',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)'
+                  }
+                : !this.inline
+                ? { position: 'absolute', top: '0', left: '0' }
+                : undefined;
 
             DomHandler.addStyles(el, styles);
 
@@ -1057,6 +1082,7 @@ export default {
             this.$emit('date-select', date);
         },
         updateModel(value) {
+            this.selectShortCut(value);
             this.$emit('update:modelValue', value);
         },
         shouldSelectDate() {
@@ -2642,13 +2668,26 @@ export default {
                         for (let j = prevMonthDaysLength - firstDay + 1; j <= prevMonthDaysLength; j++) {
                             let prev = this.getPreviousMonthAndYear(month, year);
 
-                            week.push({ day: j, month: prev.month, year: prev.year, otherMonth: true, today: this.isToday(today, j, prev.month, prev.year), selectable: this.isSelectable(j, prev.month, prev.year, true) });
+                            week.push({
+                                day: j,
+                                month: prev.month,
+                                year: prev.year,
+                                otherMonth: true,
+                                today: this.isToday(today, j, prev.month, prev.year),
+                                selectable: this.isSelectable(j, prev.month, prev.year, true)
+                            });
                         }
 
                         let remainingDaysLength = 7 - week.length;
 
                         for (let j = 0; j < remainingDaysLength; j++) {
-                            week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year), selectable: this.isSelectable(dayNo, month, year, false) });
+                            week.push({
+                                day: dayNo,
+                                month: month,
+                                year: year,
+                                today: this.isToday(today, dayNo, month, year),
+                                selectable: this.isSelectable(dayNo, month, year, false)
+                            });
                             dayNo++;
                         }
                     } else {
@@ -2665,7 +2704,13 @@ export default {
                                     selectable: this.isSelectable(dayNo - daysLength, next.month, next.year, true)
                                 });
                             } else {
-                                week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year), selectable: this.isSelectable(dayNo, month, year, false) });
+                                week.push({
+                                    day: dayNo,
+                                    month: month,
+                                    year: year,
+                                    today: this.isToday(today, dayNo, month, year),
+                                    selectable: this.isSelectable(dayNo, month, year, false)
+                                });
                             }
 
                             dayNo++;
@@ -2814,6 +2859,14 @@ export default {
         },
         panelId() {
             return UniqueComponentId() + '_panel';
+        },
+        localShortCuts() {
+            return this.$props.shortCuts?.map((shortCut, index) => ({
+                label: shortCut.label,
+                value: shortCut.value,
+                date: shortCut.value ? new Date(shortCut.value) : new Date(),
+                isSelected: index === this.selectedShortCutIndex
+            }));
         }
     },
     components: {
