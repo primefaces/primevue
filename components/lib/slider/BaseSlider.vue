@@ -83,6 +83,14 @@ export default {
             type: Number,
             default: null
         },
+        fineTuneFactor: {
+            type: Number,
+            default: .1
+        },
+        fineTunable: {
+            type: Boolean,
+            default: false
+        },
         range: {
             type: Boolean,
             default: false
