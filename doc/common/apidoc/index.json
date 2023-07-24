@@ -11769,6 +11769,13 @@
                             "default": ""
                         },
                         {
+                            "name": "avatargroup",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPTOptions<AvatarGroupPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
                             "name": "badge",
                             "optional": true,
                             "readonly": false,
@@ -11857,6 +11864,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPTOptions<ColorPickerPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "column",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPTOptions<ColumnPassThroughOptions>",
                             "default": ""
                         },
                         {
@@ -12154,6 +12168,13 @@
                             "default": ""
                         },
                         {
+                            "name": "rating",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPTOptions<RatingPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
                             "name": "row",
                             "optional": true,
                             "readonly": false,
@@ -12189,6 +12210,13 @@
                             "default": ""
                         },
                         {
+                            "name": "slider",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPTOptions<SliderPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
                             "name": "speeddial",
                             "optional": true,
                             "readonly": false,
@@ -12214,6 +12242,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPTOptions<SplitterPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "splitterpanel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPTOptions<SplitterPanelPassThroughOptions>",
                             "default": ""
                         },
                         {
@@ -12287,6 +12322,13 @@
                             "default": ""
                         },
                         {
+                            "name": "togglebutton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPTOptions<ToggleButtonPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
                             "name": "toolbar",
                             "optional": true,
                             "readonly": false,
@@ -12305,6 +12347,13 @@
                             "optional": true,
                             "readonly": false,
                             "type": "DefaultPTOptions<TreeSelectPassThroughOptions>",
+                            "default": ""
+                        },
+                        {
+                            "name": "tristatecheckbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DefaultPTOptions<TriStateCheckboxPassThroughOptions>",
                             "default": ""
                         },
                         {
