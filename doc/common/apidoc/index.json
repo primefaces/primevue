@@ -38509,12 +38509,12 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "order",
+                            "name": "index",
                             "optional": false,
                             "readonly": false,
                             "type": "number",
                             "default": "",
-                            "description": "Order of the menuitem"
+                            "description": "Index of the menuitem"
                         }
                     ],
                     "methods": []
