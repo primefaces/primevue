@@ -74,6 +74,7 @@
                 <div
                     v-if="lazy ? isTabActive(index) : true"
                     v-show="lazy ? true : isTabActive(index)"
+                    :id="getTabContentId(index)"
                     :style="getTabProp(tab, 'contentStyle')"
                     :class="cx('tab.content', { tab })"
                     role="tabpanel"
