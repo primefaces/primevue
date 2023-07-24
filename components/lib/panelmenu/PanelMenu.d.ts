@@ -135,6 +135,10 @@ export interface PanelMenuState {
  */
 export interface PanelMenuContext {
     /**
+     * Index of the menuitem.
+     */
+    index: number;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
