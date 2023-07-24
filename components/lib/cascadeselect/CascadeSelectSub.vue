@@ -44,6 +44,7 @@
                     :optionGroupChildren="optionGroupChildren"
                     @option-change="onOptionChange"
                     :pt="pt"
+                    :unstyled="unstyled"
                 />
             </li>
         </template>

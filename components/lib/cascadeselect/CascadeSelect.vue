@@ -63,6 +63,7 @@
                             :optionGroupChildren="optionGroupChildren"
                             @option-change="onOptionChange"
                             :pt="pt"
+                            :unstyled="unstyled"
                         />
                     </div>
                     <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
