@@ -14250,6 +14250,22 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the menuitem"
+                        },
+                        {
                             "name": "active",
                             "optional": false,
                             "readonly": false,
