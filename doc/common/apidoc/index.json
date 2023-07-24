@@ -4862,6 +4862,13 @@
                             "readonly": false,
                             "type": "BreadcrumbProps",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "BreadcrumbContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -4954,6 +4961,29 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "BreadcrumbContext": {
+                    "description": "Defines current options in Breadcrumb component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the menuitem"
                         }
                     ],
                     "methods": []
