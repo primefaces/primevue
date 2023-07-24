@@ -87,9 +87,9 @@ export interface TabMenuState {
  */
 export interface TabMenuContext {
     /**
-     * Order of the menuitem
+     * Index of the menuitem
      */
-    order: number;
+    index: number;
 }
 
 /**

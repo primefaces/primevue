@@ -101,7 +101,7 @@ export default {
         getPTOptions(key, index) {
             return this.ptm(key, {
                 context: {
-                    order: index
+                    index
                 }
             });
         },
