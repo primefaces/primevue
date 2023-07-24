@@ -32032,6 +32032,14 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the menuitem."
+                        },
+                        {
                             "name": "active",
                             "optional": false,
                             "readonly": false,
