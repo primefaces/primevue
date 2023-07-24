@@ -20,6 +20,7 @@ export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((
 export interface StepsPassThroughMethodOptions {
     instance: any;
     props: StepsProps;
+    context: StepsContext;
 }
 
 /**
@@ -63,6 +64,26 @@ export interface StepsPassThroughOptions {
  */
 export interface StepsPassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Steps component.
+ */
+export interface StepsContext {
+    /**
+     * Index of the menuitem.
+     */
+    index: number;
+    /**
+     * Current active state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current disabled state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
