@@ -142,6 +142,14 @@ export interface ContextMenuState {
  */
 export interface ContextMenuContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Index of the menuitem
+     */
+    index: number;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
