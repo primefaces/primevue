@@ -38014,6 +38014,13 @@
                             "readonly": false,
                             "type": "StepsProps",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "StepsContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -38090,6 +38097,37 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "StepsContext": {
+                    "description": "Defines current options in Steps component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the menuitem."
+                        },
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
