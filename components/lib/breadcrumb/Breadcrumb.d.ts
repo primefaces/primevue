@@ -20,6 +20,7 @@ export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttri
 export interface BreadcrumbPassThroughMethodOptions {
     instance: any;
     props: BreadcrumbProps;
+    context: BreadcrumbContext;
 }
 
 /**
@@ -71,6 +72,20 @@ export interface BreadcrumbPassThroughOptions {
  */
 export interface BreadcrumbPassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Breadcrumb component.
+ */
+export interface BreadcrumbContext {
+    /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Index of the menuitem
+     */
+    index: number;
 }
 
 /**
