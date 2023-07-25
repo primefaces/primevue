@@ -1,5 +1,5 @@
 <template>
-    <DocSectionText id="style" label="Style" v-bind="$attrs">
+    <DocSectionText v-bind="$attrs">
         <p>Following is the list of structural style classes, for theming classes visit <PrimeVueNuxtLink to="/theming">theming</PrimeVueNuxtLink> page.</p>
     </DocSectionText>
 
