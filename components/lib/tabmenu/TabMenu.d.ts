@@ -87,6 +87,10 @@ export interface TabMenuState {
  */
 export interface TabMenuContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
      * Index of the menuitem
      */
     index: number;
