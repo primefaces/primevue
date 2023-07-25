@@ -12408,7 +12408,8 @@
                             "default": ""
                         }
                     ],
-                    "methods": []
+                    "methods": [],
+                    "extendedBy": "default"
                 },
                 "PrimeVueLocaleAriaOptions": {
                     "relatedProp": "",
@@ -39756,7 +39757,7 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "Tailwind": {
+                "default": {
                     "relatedProp": "",
                     "props": [
                         {
@@ -40397,7 +40398,8 @@
                             "default": ""
                         }
                     ],
-                    "methods": []
+                    "methods": [],
+                    "extendedTypes": "PrimeVuePTOptions"
                 }
             }
         }
