@@ -15,6 +15,13 @@ export default {
             return this.$slots.default().some((child) => {
                 return child.type.name === 'Splitter';
             });
+        },
+        getPTOptions() {
+            return {
+                context: {
+                    nested: this.isNested
+                }
+            };
         }
     }
 };

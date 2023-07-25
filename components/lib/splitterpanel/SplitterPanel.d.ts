@@ -19,6 +19,7 @@ export declare type SplitterPanelPassThroughOptionType = SplitterPanelPassThroug
 export interface SplitterPanelPassThroughMethodOptions {
     instance: any;
     props: SplitterPanelProps;
+    context: SplitterPanelContext;
 }
 
 /**
@@ -42,6 +43,16 @@ export interface SplitterPanelPassThroughOptions {
  */
 export interface SplitterPanelPassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines options in SplitterPanel component.
+ */
+export interface SplitterPanelContext {
+    /**
+     * Current nested state of the panel.
+     */
+    nested?: boolean;
 }
 
 /**
