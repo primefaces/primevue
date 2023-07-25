@@ -38030,6 +38030,13 @@
                             "readonly": false,
                             "type": "SplitterPanelProps",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitterPanelContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -38066,6 +38073,21 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitterPanelContext": {
+                    "description": "Defines options in SplitterPanel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "nested",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current nested state of the panel."
                         }
                     ],
                     "methods": []
