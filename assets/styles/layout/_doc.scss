@@ -1,10 +1,11 @@
 .doc-tabmenu {
     list-style: none;
     margin: 0 17rem 0 0;
-    padding: 0;
+    padding: 0 0 1px 0;
     display: flex;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--surface-border);
+    overflow: auto;
 
     li {
         margin-bottom: -1px;
@@ -25,6 +26,7 @@
             border-bottom: 1px solid transparent;
             border-top-right-radius: var(--border-round);
             border-top-left-radius: var(--border-round);
+            white-space: nowrap;
 
             &:hover {
                 border-bottom-color: var(--text-color);
