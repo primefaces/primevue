@@ -152,6 +152,14 @@ export interface MenubarState {
  */
 export interface MenubarContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Current index of the menuitem.
+     */
+    index: number;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
