@@ -92,7 +92,8 @@ const CORE_DEPENDENCIES = {
     'primevue/tree': 'primevue.tree',
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
-    'primevue/badge': 'primevue.badge'
+    'primevue/badge': 'primevue.badge',
+    'primevue/tailwind': 'primevue.tailwind'
 };
 
 // dependencies
@@ -282,6 +283,10 @@ function addConfig() {
     addEntry('config', 'PrimeVue.js', 'config');
 }
 
+function addTailwind() {
+    addEntry('tailwind', 'Tailwind', 'tailwind');
+}
+
 function addUtils() {
     addEntry('utils', 'Utils.js', 'utils');
 }
@@ -318,5 +323,6 @@ addServices();
 addSFC();
 addIcon();
 addCore();
+addTailwind();
 
 export default entries;
