@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.31.0](https://github.com/primefaces/primevue/tree/3.31.0) (2023-07-25)
+
+**Implemented New Features and Enhancements:**
+
+- Tailwind Theme for Unstyled Mode [\#4205](https://github.com/primefaces/primevue/issues/4205)
+- PT context improvements  [\#4196](https://github.com/primefaces/primevue/issues/4196)
+- Add item parameter to menuitem options for pt property [\#4190](https://github.com/primefaces/primevue/issues/4190)
+
+**Fixed bugs:**
+
+- Bootstrap: Breadcrumb icon fix [\#4195](https://github.com/primefaces/primevue/issues/4195)
+- CascadeSelect unstyled mode defect [\#4192](https://github.com/primefaces/primevue/issues/4192)
+- InputSwitch: pt prop has incorrect type [\#4187](https://github.com/primefaces/primevue/issues/4187)
+- TabView: ID used in aria-controls does not exist on panel content div [\#4181](https://github.com/primefaces/primevue/issues/4181)
+- Dropdown: default optionLabel and default optionValue are null \(but doc say, default to label and value\) [\#4174](https://github.com/primefaces/primevue/issues/4174)
+- Image: Preview not closing on escape click [\#4089](https://github.com/primefaces/primevue/issues/4089)
+
 ## [3.30.2](https://github.com/primefaces/primevue/tree/3.30.2) (2023-07-20)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.30.1...3.30.2)
