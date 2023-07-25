@@ -322,7 +322,7 @@ addDirectives();
 addServices();
 addSFC();
 addIcon();
-addCore();
 addTailwind();
+addCore();
 
 export default entries;
