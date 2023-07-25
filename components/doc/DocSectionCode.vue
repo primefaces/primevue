@@ -1,5 +1,5 @@
 <template>
-    <div class="relative doc-section-code">
+    <div v-if="!embedded" class="relative doc-section-code">
         <div class="flex surface-card align-items-center justify-content-end absolute z-1" :style="{ right: '.75rem', top: '.75rem', gap: '.75rem' }">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
@@ -111,6 +111,7 @@
 </code></pre>
         </template>
     </div>
+    <div v-else id="embed"></div>
 </template>
 
 <script>
@@ -154,6 +155,10 @@ export default {
         importCode: {
             type: Boolean,
             default: false
+        },
+        embedded: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -161,6 +166,9 @@ export default {
             codeMode: 'basic',
             codeLang: this.code['options'] ? 'composition' : 'basic'
         };
+    },
+    mounted() {
+        this.embedded && useStackBlitz(this.codeLang, this.code['composition'], this.service, this.code.pages, this.dependencies, this.component, this.extFiles, this.embedded);
     },
     methods: {
         toggleCodeMode(content) {

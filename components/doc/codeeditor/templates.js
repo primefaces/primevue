@@ -15,22 +15,23 @@ const core_dependencies = {
     '@vitejs/plugin-vue': '^4.0.0',
     vite: '^4.0.0',
     primevue: PrimeVue.version || 'latest',
-    primeflex: app_dependencies['primeflex'] || 'latest',
     primeicons: app_dependencies['primeicons'] || 'latest'
 };
 
 // create-vue -> https://github.com/vuejs/create-vue
 const getVueApp = (props = {}, sourceType) => {
     const path = 'src/';
-    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component, extFiles } = props;
+    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component, extFiles, embedded } = props;
     const dependencies = { ...core_dependencies, ...deps };
 
     const fileExtension = '.vue';
     const mainFileName = 'App';
     const sourceFileName = `${path}${mainFileName}${fileExtension}`;
-    let element = '';
-    let imports = '';
-    let routeFiles = {};
+    let element = '',
+        imports = '',
+        unstyled = '',
+        pvTheme = '',
+        routeFiles = {};
 
     sources.routeFiles &&
         Object.entries(sources.routeFiles).forEach(([key, value]) => {
@@ -50,6 +51,20 @@ const getVueApp = (props = {}, sourceType) => {
     if (deps !== null && component !== null) {
         imports += `import ${component} from 'primevue/${component.toLowerCase()}';`;
         element += `app.component('${component}', ${component});`;
+    }
+
+    if (embedded) {
+        unstyled += `, unstyled: true, pt: Tailwind`;
+        imports += `import Tailwind from 'primevue/tailwind';`;
+
+        dependencies['tailwindcss'] = '^3.3.2';
+        dependencies['postcss'] = '^8.4.27';
+        dependencies['autoprefixer'] = '^10.4.14';
+    } else {
+        pvTheme += `import "primeflex/primeflex.css";
+import "primevue/resources/themes/lara-light-blue/theme.css";`;
+
+        dependencies['primeflex'] = app_dependencies['primeflex'] || 'latest';
     }
 
     const files = {
@@ -102,11 +117,10 @@ export default defineConfig({
 </html>`
         },
         [`${path}main.js`]: {
-            content: `import "primeflex/primeflex.css";
-import "primevue/resources/themes/lara-light-blue/theme.css";
+            content: `${pvTheme}
 import "primevue/resources/primevue.min.css"; /* Deprecated */
 import "primeicons/primeicons.css";
-import "./index.css";
+import "./style.css";
 import "./flags.css";
 
 import { createApp } from "vue";
@@ -213,7 +227,7 @@ ${imports}
 
 const app = createApp(App);
 
-app.use(PrimeVue, { ripple: true });
+app.use(PrimeVue, { ripple: true ${unstyled} });
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(DialogService);
@@ -318,8 +332,8 @@ ${element}
 app.mount("#app");
 `
         },
-        [`${path}index.css`]: {
-            content: staticStyles.global
+        [`${path}style.css`]: {
+            content: embedded ? tailwindConfig : staticStyles.global
         },
         [`${path}flags.css`]: {
             content: staticStyles.flags
@@ -329,8 +343,8 @@ app.mount("#app");
 import ${mainFileName} from "./${mainFileName}${fileExtension}";
 
 export const router = createRouter({
-history: createWebHistory(),
-routes: [{ path: "/", component: ${mainFileName} }]
+    history: createWebHistory(),
+    routes: [{ path: "/", component: ${mainFileName} }]
 });`
         },
         [`${sourceFileName}`]: {
@@ -386,8 +400,8 @@ routes: [{ path: "/", component: ${mainFileName} }]
             content: `import { createRouter, createWebHistory } from "vue-router";
 ${viewImports}
 export const router = createRouter({
-history: createWebHistory(),
-routes: [ ${routePaths}]
+    history: createWebHistory(),
+    routes: [ ${routePaths}]
 });`
         };
     }
@@ -398,6 +412,31 @@ routes: [ ${routePaths}]
                 content: services[name]
             };
         });
+    }
+
+    if (embedded) {
+        files['tailwind.config.js'] = {
+            content: `/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        "./index.html",
+        "./src/**/*.{vue,js,ts,jsx,tsx}"
+    ],
+    theme: {
+        extend: {}
+    },
+    plugins: []
+}`
+        };
+
+        files['postcss.config.js'] = {
+            content: `module.exports = {
+    plugins: {
+        tailwindcss: {},
+        autoprefixer: {}
+    }
+}`
+        };
     }
 
     return { files, dependencies, sourceFileName };
@@ -426,5 +465,10 @@ body {
 }
     `
 };
+
+const tailwindConfig = `@tailwind base;
+@tailwind components;
+@tailwind utilities;
+`;
 
 export { getVueApp };
