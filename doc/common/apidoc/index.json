@@ -19094,6 +19094,14 @@
                             "description": "Current index of the menuitem."
                         },
                         {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
                             "name": "active",
                             "optional": false,
                             "readonly": false,
@@ -26809,6 +26817,22 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the menuitem."
+                        },
+                        {
                             "name": "active",
                             "optional": false,
                             "readonly": false,
@@ -27262,6 +27286,22 @@
                     "description": "Defines current options in Menu component.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the menuitem."
+                        },
                         {
                             "name": "focused",
                             "optional": false,
@@ -27731,6 +27771,22 @@
                     "description": "Defines current options in Menubar component.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current index of the menuitem."
+                        },
                         {
                             "name": "active",
                             "optional": false,
@@ -32126,6 +32182,14 @@
                     "description": "Defines current options in PanelMenu component.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
                         {
                             "name": "index",
                             "optional": false,
@@ -38201,6 +38265,14 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
                             "name": "index",
                             "optional": false,
                             "readonly": false,
@@ -38603,6 +38675,14 @@
                     "description": "Defines current options in TabMenu component.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
                         {
                             "name": "index",
                             "optional": false,
@@ -40369,6 +40449,22 @@
                     "description": "Defines current options in TieredMenu component.",
                     "relatedProp": "",
                     "props": [
+                        {
+                            "name": "item",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Current menuitem"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the menuitem."
+                        },
                         {
                             "name": "active",
                             "optional": false,
