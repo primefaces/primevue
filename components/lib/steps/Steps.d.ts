@@ -71,6 +71,10 @@ export interface StepsPassThroughAttributes {
  */
 export interface StepsContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
      * Index of the menuitem.
      */
     index: number;
