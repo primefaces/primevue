@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue InputNumber Component" header="InputNumber" description="InputNumber is an input component to provide numerical input." :componentDocs="docs" :apiDocs="['InputNumber']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue InputNumber Component"
+        header="InputNumber"
+        description="InputNumber is an input component to provide numerical input."
+        :componentDocs="docs"
+        :apiDocs="['InputNumber']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -13,10 +21,10 @@ import InvalidDoc from '@/doc/inputnumber/InvalidDoc';
 import LocaleDoc from '@/doc/inputnumber/LocaleDoc';
 import NumeralsDoc from '@/doc/inputnumber/NumeralsDoc';
 import PrefixSuffixDoc from '@/doc/inputnumber/PrefixSuffixDoc';
-import StyleDoc from '@/doc/inputnumber/StyleDoc';
 import VerticalDoc from '@/doc/inputnumber/VerticalDoc';
 import VeeValidateDoc from '@/doc/inputnumber/form/VeeValidateDoc';
 import PTComponent from '@/doc/inputnumber/pt/index.vue';
+import ThemingDoc from '@/doc/inputnumber/theming/index.vue';
 
 export default {
     data() {
@@ -85,17 +93,13 @@ export default {
                     component: DisabledDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
