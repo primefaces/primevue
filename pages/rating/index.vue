@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Rating Component" header="Rating" description="Rating component is a star based selection input." :componentDocs="docs" :apiDocs="['Rating']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Rating Component" header="Rating" description="Rating component is a star based selection input." :componentDocs="docs" :apiDocs="['Rating']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -9,10 +9,10 @@ import DisabledDoc from '@/doc/rating/DisabledDoc.vue';
 import ImportDoc from '@/doc/rating/ImportDoc.vue';
 import NumberOfStarsDoc from '@/doc/rating/NumberOfStarsDoc.vue';
 import ReadOnlyDoc from '@/doc/rating/ReadOnlyDoc.vue';
-import StyleDoc from '@/doc/rating/StyleDoc.vue';
 import TemplateDoc from '@/doc/rating/TemplateDoc.vue';
 import WithoutCancelDoc from '@/doc/rating/WithoutCancelDoc.vue';
 import PTComponent from '@/doc/rating/pt/index.vue';
+import ThemingDoc from '@/doc/rating/theming/index.vue';
 
 export default {
     data() {
@@ -54,17 +54,13 @@ export default {
                     component: DisabledDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
