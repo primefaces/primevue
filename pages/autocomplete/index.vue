@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['AutoComplete']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -21,11 +22,11 @@ import ImportDoc from '@/doc/autocomplete/ImportDoc';
 import InvalidDoc from '@/doc/autocomplete/InvalidDoc';
 import MultipleDoc from '@/doc/autocomplete/MultipleDoc';
 import ObjectsDoc from '@/doc/autocomplete/ObjectsDoc';
-import StyleDoc from '@/doc/autocomplete/StyleDoc';
 import TemplateDoc from '@/doc/autocomplete/TemplateDoc';
 import VirtualScrollDoc from '@/doc/autocomplete/VirtualScrollDoc';
 import VeeValidateDoc from '@/doc/autocomplete/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/autocomplete/pt/index.vue';
+import ThemingDoc from '@/doc/autocomplete/theming/index.vue';
 
 export default {
     data() {
@@ -104,17 +105,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
