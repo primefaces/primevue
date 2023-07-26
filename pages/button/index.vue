@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Button Component" header="Button" description="Button is an extension to standard input element with icons and theming." :componentDocs="docs" :apiDocs="['Button']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Button Component"
+        header="Button"
+        description="Button is an extension to standard input element with icons and theming."
+        :componentDocs="docs"
+        :apiDocs="['Button']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -19,10 +27,10 @@ import RaisedTextDoc from '@/doc/button/RaisedTextDoc.vue';
 import RoundedDoc from '@/doc/button/RoundedDoc.vue';
 import SeverityDoc from '@/doc/button/SeverityDoc.vue';
 import SizesDoc from '@/doc/button/SizesDoc.vue';
-import StyleDoc from '@/doc/button/StyleDoc.vue';
 import TemplateDoc from '@/doc/button/TemplateDoc.vue';
 import TextDoc from '@/doc/button/TextDoc.vue';
 import PTComponent from '@/doc/button/pt/index.vue';
+import ThemingDoc from '@/doc/button/theming/index.vue';
 
 export default {
     data() {
@@ -114,17 +122,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

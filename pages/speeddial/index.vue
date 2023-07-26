@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['SpeedDial']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -20,6 +21,7 @@ import QuarterCircleDoc from '@/doc/speeddial/QuarterCircleDoc.vue';
 import SemiCircleDoc from '@/doc/speeddial/SemiCircleDoc.vue';
 import TooltipDoc from '@/doc/speeddial/TooltipDoc.vue';
 import PTComponent from '@/doc/speeddial/pt/index.vue';
+import ThemingDoc from '@/doc/speeddial/theming/index.vue';
 
 export default {
     data() {
@@ -35,7 +37,8 @@ export default {
                 { id: 'custom', label: 'Custom', component: CustomDoc },
                 { id: 'accessibility', label: 'Accessibility', component: AccessibilityDoc }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
