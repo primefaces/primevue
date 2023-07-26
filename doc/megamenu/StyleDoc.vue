@@ -1,5 +1,5 @@
 <template>
-    <DocSectionText id="style" label="Style" v-bind="$attrs">
+    <DocSectionText v-bind="$attrs">
         <p>List of class names used in the styled mode.</p>
     </DocSectionText>
 
