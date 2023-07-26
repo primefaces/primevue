@@ -24179,6 +24179,34 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "InputMaskPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputMaskProps",
+                            "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputMaskContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "InputMaskPassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "InputMaskProps.pt",
@@ -24211,6 +24239,29 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputMaskContext": {
+                    "description": "Defines current options in InputMask component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "filled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current filled state of the component as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the component as a boolean."
                         }
                     ],
                     "methods": []
@@ -24287,6 +24338,7 @@
                     "methods": []
                 },
                 "InputMaskSlots": {
+                    "description": "Defines valid slots in InputMask component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": []
@@ -24375,7 +24427,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "InputMaskPassThroughOptionType": {
-                    "values": "InputMaskPassThroughAttributes | null | undefined"
+                    "values": "InputMaskPassThroughAttributes | (options: InputMaskPassThroughMethodOptions) => undefined | string | null | undefined"
                 }
             }
         }
