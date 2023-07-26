@@ -13,7 +13,7 @@ export default {
             code: {
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Checkbox v-model="checked" :binary="true" />
     </div>
 </template>

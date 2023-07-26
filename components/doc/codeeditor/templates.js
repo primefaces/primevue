@@ -31,6 +31,7 @@ const getVueApp = (props = {}, sourceType) => {
         imports = '',
         unstyled = '',
         pvTheme = '',
+        themeSwitchCode = '',
         routeFiles = {};
 
     sources.routeFiles &&
@@ -54,16 +55,29 @@ const getVueApp = (props = {}, sourceType) => {
     }
 
     if (embedded) {
+        // main.js
         unstyled += `, unstyled: true, pt: Tailwind`;
-        imports += `import Tailwind from 'primevue/tailwind';`;
+        imports += `import Tailwind from 'primevue/tailwind';
+import ThemeSwitcher from './components/ThemeSwitcher.vue';`;
+        element += `app.component('ThemeSwitcher', ThemeSwitcher);`;
 
+        // package.json
         dependencies['tailwindcss'] = '^3.3.2';
         dependencies['postcss'] = '^8.4.27';
         dependencies['autoprefixer'] = '^10.4.14';
+
+        // App.vue
+        themeSwitchCode = ''.concat(
+            `<template>
+    <ThemeSwitcher />`,
+            sources.split('<template>')[1]
+        );
     } else {
+        // main.js
         pvTheme += `import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";`;
 
+        // package.json
         dependencies['primeflex'] = app_dependencies['primeflex'] || 'latest';
     }
 
@@ -348,7 +362,7 @@ export const router = createRouter({
 });`
         },
         [`${sourceFileName}`]: {
-            content: sources
+            content: embedded ? themeSwitchCode : sources
         },
         'public/logo.svg': {
             content: `
@@ -418,9 +432,11 @@ export const router = createRouter({
         files['tailwind.config.js'] = {
             content: `/** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'class',
     content: [
         "./index.html",
-        "./src/**/*.{vue,js,ts,jsx,tsx}"
+        "./src/**/*.{vue,js,ts,jsx,tsx}",
+        "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
     ],
     theme: {
         extend: {}
@@ -436,6 +452,28 @@ export default {
         autoprefixer: {}
     }
 }`
+        };
+
+        files[`${path}components/ThemeSwitcher.vue`] = {
+            content: `<template>
+    <div class="flex justify-end">
+        <button type="button" class="flex border-1 w-2rem h-2rem p-0 align-center justify-center" @click="onThemeToggler">
+            <i :class="\`dark:text-white pi \${iconClass}\`" />
+        </button>
+    </div>
+</template>
+
+<script setup>
+import {ref} from 'vue';
+const iconClass = ref('pi-moon');
+
+const onThemeToggler = () => {
+    const root = document.getElementsByTagName('html')[0];
+
+    root.classList.toggle('dark');
+    iconClass.value = iconClass.value==='pi-moon' ? 'pi-sun': 'pi-moon';
+};
+</script>`
         };
     }
 
@@ -469,6 +507,30 @@ body {
 const tailwindConfig = `@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background: #f3f4f6;
+    padding: 1rem;
+}
+
+html.dark body {
+    background: #071426;
+}
+
+.card {
+    background: #f3f4f6;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+html.dark .card {
+    background: #071426;
+}
 `;
 
 export { getVueApp };
