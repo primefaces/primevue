@@ -456,7 +456,7 @@ export default {
 
         files[`${path}components/ThemeSwitcher.vue`] = {
             content: `<template>
-    <div class="flex justify-end">
+    <div class="card flex justify-end p-2 mb-4">
         <button type="button" class="flex border-1 w-2rem h-2rem p-0 align-center justify-center" @click="onThemeToggler">
             <i :class="\`dark:text-white pi \${iconClass}\`" />
         </button>
@@ -513,19 +513,19 @@ html {
 }
 
 body {
-    background: #f3f4f6;
+    background: #eff3f8;
     padding: 1rem;
 }
 
-html.dark body {
-    background: #071426;
-}
-
 .card {
-    background: #f3f4f6;
+    background: #ffffff;
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 1rem;
+}
+
+html.dark body {
+    background: #040d19;
 }
 
 html.dark .card {
