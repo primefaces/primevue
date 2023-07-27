@@ -112,6 +112,11 @@ export interface SpeedDialContext {
      * @defaultValue false
      */
     active: boolean;
+    /**
+     * Current hidden state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    hidden: boolean;
 }
 
 /**
