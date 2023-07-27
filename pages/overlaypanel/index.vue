@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['OverlayPanel']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -14,8 +15,8 @@ import AccessibilityDoc from '@/doc/overlaypanel/AccessibilityDoc';
 import BasicDoc from '@/doc/overlaypanel/BasicDoc';
 import DataTableDoc from '@/doc/overlaypanel/DataTableDoc';
 import ImportDoc from '@/doc/overlaypanel/ImportDoc';
-import StyleDoc from '@/doc/overlaypanel/StyleDoc';
 import PTComponent from '@/doc/overlaypanel/pt/index.vue';
+import ThemingDoc from '@/doc/overlaypanel/theming/index.vue';
 
 export default {
     data() {
@@ -37,17 +38,13 @@ export default {
                     component: DataTableDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
