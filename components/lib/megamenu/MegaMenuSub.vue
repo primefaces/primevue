@@ -58,6 +58,7 @@
                                 :exact="exact"
                                 :level="level + 1"
                                 :pt="pt"
+                                :unstyled="unstyled"
                                 @item-click="$emit('item-click', $event)"
                                 @item-mouseenter="$emit('item-mouseenter', $event)"
                             />
