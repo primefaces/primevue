@@ -1,14 +1,22 @@
 <template>
-    <DocComponent title="Vue Breadcrumb Component" header="Breadcrumb" description="Breadcrumb provides contextual information about page hierarchy." :componentDocs="docs" :apiDocs="['Breadcrumb', 'MenuItem']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Breadcrumb Component"
+        header="Breadcrumb"
+        description="Breadcrumb provides contextual information about page hierarchy."
+        :componentDocs="docs"
+        :apiDocs="['Breadcrumb', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/breadcrumb/AccessibilityDoc';
 import BasicDoc from '@/doc/breadcrumb/BasicDoc';
 import ImportDoc from '@/doc/breadcrumb/ImportDoc';
-import StyleDoc from '@/doc/breadcrumb/StyleDoc';
 import TemplateDoc from '@/doc/breadcrumb/TemplateDoc';
 import PTComponent from '@/doc/breadcrumb/pt/index.vue';
+import ThemingDoc from '@/doc/breadcrumb/theming/index.vue';
 
 export default {
     data() {
@@ -30,17 +38,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
