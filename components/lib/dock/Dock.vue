@@ -1,6 +1,18 @@
 <template>
     <div :class="cx('root')" :style="style" v-bind="ptm('root')" data-pc-name="dock">
-        <DockSub :model="model" :templates="$slots" :exact="exact" :tooltipOptions="tooltipOptions" :position="position" :menuId="menuId" :aria-label="ariaLabel" :aria-labelledby="ariaLabelledby" :tabindex="tabindex" :pt="pt"></DockSub>
+        <DockSub
+            :model="model"
+            :templates="$slots"
+            :exact="exact"
+            :tooltipOptions="tooltipOptions"
+            :position="position"
+            :menuId="menuId"
+            :aria-label="ariaLabel"
+            :aria-labelledby="ariaLabelledby"
+            :tabindex="tabindex"
+            :pt="pt"
+            :unstyled="unstyled"
+        ></DockSub>
     </div>
 </template>
 
