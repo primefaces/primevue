@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Tree Component" header="Tree" description="Tree is used to display hierarchical data." :componentDocs="docs" :apiDocs="['Tree']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Tree Component" header="Tree" description="Tree is used to display hierarchical data." :componentDocs="docs" :apiDocs="['Tree']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 <script>
 import AccessibilityDoc from '@/doc/tree/AccessibilityDoc.vue';
@@ -9,12 +9,12 @@ import EventsDoc from '@/doc/tree/EventsDoc.vue';
 import FilterDoc from '@/doc/tree/FilterDoc.vue';
 import ImportDoc from '@/doc/tree/ImportDoc.vue';
 import LazyDoc from '@/doc/tree/LazyDoc.vue';
-import StyleDoc from '@/doc/tree/StyleDoc.vue';
 import TemplateDoc from '@/doc/tree/TemplateDoc.vue';
 import PTComponent from '@/doc/tree/pt/index.vue';
 import CheckboxDoc from '@/doc/tree/selection/CheckboxDoc.vue';
 import MultipleDoc from '@/doc/tree/selection/MultipleDoc.vue';
 import SingleDoc from '@/doc/tree/selection/SingleDoc.vue';
+import ThemingDoc from '@/doc/tree/theming/index.vue';
 
 export default {
     data() {
@@ -77,24 +77,14 @@ export default {
                     component: FilterDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
 </script>
-
-<style scoped>
-button {
-    margin-right: 0.5rem;
-}
-</style>
