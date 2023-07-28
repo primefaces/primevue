@@ -1,14 +1,14 @@
 <template>
-    <DocComponent title="Vue Divider Component" header="Divider" description="Divider is used to separate contents." :componentDocs="docs" :apiDocs="['Divider']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Divider Component" header="Divider" description="Divider is used to separate contents." :componentDocs="docs" :apiDocs="['Divider']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
+import ThemingDoc from '@/doc/Divider/theming/index.vue';
 import AccessibilityDoc from '@/doc/divider/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/divider/BasicDoc.vue';
 import ContentDoc from '@/doc/divider/ContentDoc.vue';
 import ImportDoc from '@/doc/divider/ImportDoc.vue';
 import LoginDoc from '@/doc/divider/LoginDoc.vue';
-import StyleDoc from '@/doc/divider/StyleDoc.vue';
 import TypeDoc from '@/doc/divider/TypeDoc.vue';
 import VerticalDoc from '@/doc/divider/VerticalDoc.vue';
 import PTComponent from '@/doc/divider/pt/index.vue';
@@ -48,17 +48,13 @@ export default {
                     component: LoginDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -1,14 +1,14 @@
 <template>
-    <DocComponent title="Vue ProgressBar Component" header="ProgressBar" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressBar']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue ProgressBar Component" header="ProgressBar" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressBar']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
+import ThemingDoc from '@/doc/Progressbar/theming/index.vue';
 import AccessibilityDoc from '@/doc/progressbar/AccessibilityDoc';
 import BasicDoc from '@/doc/progressbar/BasicDoc';
 import DynamicDoc from '@/doc/progressbar/DynamicDoc';
 import ImportDoc from '@/doc/progressbar/ImportDoc';
 import IndeterminateDoc from '@/doc/progressbar/IndeterminateDoc';
-import StyleDoc from '@/doc/progressbar/StyleDoc';
 import TemplateDoc from '@/doc/progressbar/TemplateDoc';
 import PTComponent from '@/doc/progressbar/pt/index.vue';
 
@@ -42,17 +42,13 @@ export default {
                     component: IndeterminateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
