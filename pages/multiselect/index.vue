@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue MultiSelect Component" header="MultiSelect" description="MultiSelect is used to select multiple items from a collection." :componentDocs="docs" :apiDocs="['MultiSelect']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue MultiSelect Component"
+        header="MultiSelect"
+        description="MultiSelect is used to select multiple items from a collection."
+        :componentDocs="docs"
+        :apiDocs="['MultiSelect']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -13,11 +21,11 @@ import GroupDoc from '@/doc/multiselect/GroupDoc';
 import ImportDoc from '@/doc/multiselect/ImportDoc';
 import InvalidDoc from '@/doc/multiselect/InvalidDoc';
 import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc';
-import StyleDoc from '@/doc/multiselect/StyleDoc';
 import TemplateDoc from '@/doc/multiselect/TemplateDoc';
 import VirtualScrollDoc from '@/doc/multiselect/VirtualScrollDoc';
 import VeeValidateDoc from '@/doc/multiselect/form/VeeValidateDoc';
 import PTComponent from '@/doc/multiselect/pt/index.vue';
+import ThemingDoc from '@/doc/multiselect/theming/index.vue';
 
 export default {
     data() {
@@ -91,17 +99,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

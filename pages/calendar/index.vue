@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Calendar Component" header="Calendar" description="Calendar, also known as DatePicker, is a form component to work with dates." :componentDocs="docs" :apiDocs="['Calendar']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Calendar Component"
+        header="Calendar"
+        description="Calendar, also known as DatePicker, is a form component to work with dates."
+        :componentDocs="docs"
+        :apiDocs="['Calendar']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -20,12 +28,12 @@ import MonthPickerDoc from '@/doc/calendar/MonthPickerDoc';
 import MultipleDoc from '@/doc/calendar/MultipleDoc';
 import MultipleMonthsDoc from '@/doc/calendar/MultipleMonthsDoc';
 import RangeDoc from '@/doc/calendar/RangeDoc';
-import StyleDoc from '@/doc/calendar/StyleDoc';
 import TimeDoc from '@/doc/calendar/TimeDoc';
 import TouchUIDoc from '@/doc/calendar/TouchUIDoc';
 import YearPickerDoc from '@/doc/calendar/YearPickerDoc';
 import VeeValidateDoc from '@/doc/calendar/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/calendar/pt/index.vue';
+import ThemingDoc from '@/doc/calendar/theming/index.vue';
 
 export default {
     data() {
@@ -139,17 +147,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

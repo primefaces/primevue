@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Organization Chart Component" header="OrganizationChart" description="OrganizationChart visualizes hierarchical organization data." :componentDocs="docs" :apiDocs="['OrganizationChart']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Organization Chart Component"
+        header="OrganizationChart"
+        description="OrganizationChart visualizes hierarchical organization data."
+        :componentDocs="docs"
+        :apiDocs="['OrganizationChart']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -8,9 +16,9 @@ import BasicDoc from '@/doc/organizationchart/BasicDoc';
 import ColoredDoc from '@/doc/organizationchart/ColoredDoc';
 import ImportDoc from '@/doc/organizationchart/ImportDoc';
 import SelectionDoc from '@/doc/organizationchart/SelectionDoc';
-import StyleDoc from '@/doc/organizationchart/StyleDoc';
 import TemplateDoc from '@/doc/organizationchart/TemplateDoc';
 import PTComponent from '@/doc/organizationchart/pt/index.vue';
+import ThemingDoc from '@/doc/organizationchart/theming/index.vue';
 
 export default {
     data() {
@@ -42,17 +50,13 @@ export default {
                     component: ColoredDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

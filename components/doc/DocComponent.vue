@@ -12,8 +12,11 @@
             <li :class="{ 'doc-tabmenu-active': tab === 1 }">
                 <button type="button" @click="tab = 1">API</button>
             </li>
-            <li v-if="ptTabComponent" :class="{ 'doc-tabmenu-active': tab === 2 }">
-                <button type="button" @click="tab = 2">PASS THROUGH</button>
+            <li :class="{ 'doc-tabmenu-active': tab === 2 }">
+                <button type="button" @click="tab = 2">THEMING</button>
+            </li>
+            <li v-if="ptTabComponent" :class="{ 'doc-tabmenu-active': tab === 3 }">
+                <button type="button" @click="tab = 3">PASS THROUGH</button>
             </li>
         </ul>
 
@@ -34,6 +37,10 @@
             </div>
 
             <div v-if="tab === 2" class="doc-tabpanel">
+                <component :is="{ ...themingDocs }" />
+            </div>
+
+            <div v-if="tab === 3" class="doc-tabpanel">
                 <component :is="{ ...ptTabComponent }" />
             </div>
         </div>
@@ -42,14 +49,14 @@
 
 <script>
 export default {
-    props: ['title', 'header', 'description', 'componentDocs', 'apiDocs', 'className', 'ptTabComponent'],
+    props: ['title', 'header', 'description', 'componentDocs', 'apiDocs', 'className', 'ptTabComponent', 'themingDocs'],
     data() {
         return {
             tab: 0
         };
     },
     mounted() {
-        this.tab = this.$route.hash.includes('api') ? 1 : this.$route.hash.includes('pt') ? 2 : 0;
+        this.tab = this.$route.hash.includes('api') ? 1 : this.$route.hash.includes('pt') ? 3 : 0;
     }
 };
 </script>

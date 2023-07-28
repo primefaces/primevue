@@ -1,15 +1,23 @@
 <template>
-    <DocComponent title="Vue Carousel Component" header="Carousel" description="Carousel is a content slider featuring various customization options." :componentDocs="docs" :apiDocs="['Carousel']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Carousel Component"
+        header="Carousel"
+        description="Carousel is a content slider featuring various customization options."
+        :componentDocs="docs"
+        :apiDocs="['Carousel']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
+import ThemingDoc from '@/doc/Carousel/theming/index.vue';
 import AccessibilityDoc from '@/doc/carousel/AccessibilityDoc';
 import BasicDoc from '@/doc/carousel/BasicDoc';
 import CircularDoc from '@/doc/carousel/CircularDoc';
 import ImportDoc from '@/doc/carousel/ImportDoc';
 import NumScrollDoc from '@/doc/carousel/NumScrollDoc';
 import ResponsiveDoc from '@/doc/carousel/ResponsiveDoc';
-import StyleDoc from '@/doc/carousel/StyleDoc';
 import VerticalDoc from '@/doc/carousel/VerticalDoc';
 import PTComponent from '@/doc/carousel/pt/index.vue';
 
@@ -48,17 +56,13 @@ export default {
                     component: VerticalDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['FileUpload']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -16,9 +17,9 @@ import AutoDoc from '@/doc/fileupload/AutoDoc.vue';
 import BasicDoc from '@/doc/fileupload/BasicDoc.vue';
 import CustomUploadDoc from '@/doc/fileupload/CustomUploadDoc.vue';
 import ImportDoc from '@/doc/fileupload/ImportDoc.vue';
-import StyleDoc from '@/doc/fileupload/StyleDoc.vue';
 import TemplateDoc from '@/doc/fileupload/TemplateDoc.vue';
 import PTComponent from '@/doc/fileupload/pt/index.vue';
+import ThemingDoc from '@/doc/fileupload/theming/index.vue';
 
 export default {
     data() {
@@ -55,17 +56,13 @@ export default {
                     component: CustomUploadDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

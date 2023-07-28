@@ -46,6 +46,7 @@ export default {
         getPTOptions(key, item, index) {
             return this.ptm(key, {
                 context: {
+                    item,
                     index,
                     active: this.isActive(item),
                     disabled: this.isItemDisabled(item)

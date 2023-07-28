@@ -1,13 +1,13 @@
 <template>
-    <DocComponent title="Vue Image Component" header="Image" description="Displays a single image with preview and tranformation options." :componentDocs="docs" :apiDocs="['Image']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Image Component" header="Image" description="Displays a single image with preview and tranformation options." :componentDocs="docs" :apiDocs="['Image']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
+import ThemingDoc from '@/doc/Image/theming/index.vue';
 import AccessibilityDoc from '@/doc/image/AccessibilityDoc';
 import BasicDoc from '@/doc/image/BasicDoc';
 import ImportDoc from '@/doc/image/ImportDoc';
 import PreviewDoc from '@/doc/image/PreviewDoc';
-import StyleDoc from '@/doc/image/StyleDoc';
 import TemplateDoc from '@/doc/image/TemplateDoc';
 import PTComponent from '@/doc/image/pt/index.vue';
 
@@ -36,17 +36,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

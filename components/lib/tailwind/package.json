@@ -1,0 +1,6 @@
+{
+    "main": "./tailwind.cjs.js",
+    "module": "./tailwind.esm.js",
+    "unpkg": "./tailwind.min.js",
+    "types": "./Tailwind.d.ts"
+}

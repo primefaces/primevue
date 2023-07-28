@@ -1,15 +1,23 @@
 <template>
-    <DocComponent title="Vue MegaMenu Component" header="MegaMenu" description="MegaMenu is navigation component that displays submenus together." :componentDocs="docs" :apiDocs="['MegaMenu', 'MenuItem']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue MegaMenu Component"
+        header="MegaMenu"
+        description="MegaMenu is navigation component that displays submenus together."
+        :componentDocs="docs"
+        :apiDocs="['MegaMenu', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/megamenu/AccessibilityDoc';
 import BasicDoc from '@/doc/megamenu/BasicDoc';
 import ImportDoc from '@/doc/megamenu/ImportDoc';
-import StyleDoc from '@/doc/megamenu/StyleDoc';
 import TemplateDoc from '@/doc/megamenu/TemplateDoc';
 import VerticalDoc from '@/doc/megamenu/VerticalDoc';
 import PTComponent from '@/doc/megamenu/pt/index.vue';
+import ThemingDoc from '@/doc/megamenu/theming/index.vue';
 
 export default {
     data() {
@@ -36,17 +44,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -1,8 +1,9 @@
 <template>
-    <DocComponent title="Vue Message Component" header="Message" description="Message component is used to display inline messages." :componentDocs="docs" :apiDocs="['Message']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Message Component" header="Message" description="Message component is used to display inline messages." :componentDocs="docs" :apiDocs="['Message']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
+import ThemingDoc from '@/doc/Message/theming/index.vue';
 import AccessibilityDoc from '@/doc/message/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/message/BasicDoc.vue';
 import ClosabledDoc from '@/doc/message/ClosableDoc.vue';
@@ -11,7 +12,6 @@ import DynamicDoc from '@/doc/message/DynamicDoc.vue';
 import ImportDoc from '@/doc/message/ImportDoc.vue';
 import SeverityDoc from '@/doc/message/SeverityDoc.vue';
 import StickyDoc from '@/doc/message/StickyDoc.vue';
-import StyleDoc from '@/doc/message/StyleDoc.vue';
 import TemplateDoc from '@/doc/message/TemplateDoc.vue';
 import PTComponent from '@/doc/message/pt/index.vue';
 
@@ -60,17 +60,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

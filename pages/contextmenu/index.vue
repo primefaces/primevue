@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue ContextMenu Component" header="ContextMenu" description="ContextMenu displays an overlay menu on right click of its target." :componentDocs="docs" :apiDocs="['ContextMenu', 'MenuItem']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue ContextMenu Component"
+        header="ContextMenu"
+        description="ContextMenu displays an overlay menu on right click of its target."
+        :componentDocs="docs"
+        :apiDocs="['ContextMenu', 'MenuItem']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -7,8 +15,8 @@ import AccessibilityDoc from '@/doc/contextmenu/AccessibilityDoc';
 import BasicDoc from '@/doc/contextmenu/BasicDoc';
 import DocumentDoc from '@/doc/contextmenu/DocumentDoc';
 import ImportDoc from '@/doc/contextmenu/ImportDoc';
-import StyleDoc from '@/doc/contextmenu/StyleDoc';
 import PTComponent from '@/doc/contextmenu/pt/index.vue';
+import ThemingDoc from '@/doc/contextmenu/theming/index.vue';
 
 export default {
     data() {
@@ -30,17 +38,13 @@ export default {
                     component: DocumentDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

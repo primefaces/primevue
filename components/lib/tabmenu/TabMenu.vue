@@ -9,7 +9,7 @@
                         :class="[cx('menuitem', { item, isActive, isExactActive }), item.class]"
                         :style="item.style"
                         role="presentation"
-                        v-bind="getPTOptions('menuitem', i)"
+                        v-bind="getPTOptions('menuitem', item, i)"
                         :data-p-highlight="exact ? isExactActive : isActive"
                         :data-p-disabled="disabled(item)"
                     >
@@ -25,11 +25,11 @@
                                 :tabindex="-1"
                                 @click="onItemClick($event, item, i, navigate)"
                                 @keydown="onKeydownItem($event, item, i, navigate)"
-                                v-bind="getPTOptions('action', i)"
+                                v-bind="getPTOptions('action', item, i)"
                             >
                                 <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
-                                <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon', i)" />
-                                <span :class="cx('label')" v-bind="getPTOptions('label', i)">{{ label(item) }}</span>
+                                <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon', item, i)" />
+                                <span :class="cx('label')" v-bind="getPTOptions('label', item, i)">{{ label(item) }}</span>
                             </a>
                         </template>
                         <component v-else :is="$slots.item" :item="item" :index="i"></component>
@@ -42,15 +42,15 @@
                     role="presentation"
                     @click="onItemClick($event, item, i)"
                     @keydown="onKeydownItem($event, item, i)"
-                    v-bind="getPTOptions('menuitem', i)"
+                    v-bind="getPTOptions('menuitem', item, i)"
                     :data-p-highlight="d_activeIndex === i"
                     :data-p-disabled="disabled(item)"
                 >
                     <template v-if="!$slots.item">
-                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" :class="cx('action')" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="-1" v-bind="getPTOptions('action', i)">
+                        <a ref="tabLink" v-ripple role="menuitem" :href="item.url" :class="cx('action')" :target="item.target" :aria-label="label(item)" :aria-disabled="disabled(item)" :tabindex="-1" v-bind="getPTOptions('action', item, i)">
                             <component v-if="$slots.itemicon" :is="$slots.itemicon" :item="item" :class="[cx('icon'), item.icon]" />
-                            <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon', i)" />
-                            <span :class="cx('label')" v-bind="getPTOptions('label', i)">{{ label(item) }}</span>
+                            <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="getPTOptions('icon', item, i)" />
+                            <span :class="cx('label')" v-bind="getPTOptions('label', item, i)">{{ label(item) }}</span>
                         </a>
                     </template>
                     <component v-else :is="$slots.item" :item="item" :index="i"></component>
@@ -98,9 +98,10 @@ export default {
         clearTimeout(this.timeout);
     },
     methods: {
-        getPTOptions(key, index) {
+        getPTOptions(key, item, index) {
             return this.ptm(key, {
                 context: {
+                    item,
                     index
                 }
             });

@@ -1,14 +1,14 @@
 <template>
-    <DocComponent title="Vue Chip Component" header="Chip" description="Chip represents entities using icons, labels and images." :componentDocs="docs" :apiDocs="['Chip']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Chip Component" header="Chip" description="Chip represents entities using icons, labels and images." :componentDocs="docs" :apiDocs="['Chip']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
+import ThemingDoc from '@/doc/Chip/theming/index.vue';
 import AccessibilityDoc from '@/doc/chip/AccessibilityDoc';
 import BasicDoc from '@/doc/chip/BasicDoc';
 import IconDoc from '@/doc/chip/IconDoc';
 import ImageDoc from '@/doc/chip/ImageDoc';
 import ImportDoc from '@/doc/chip/ImportDoc';
-import StyleDoc from '@/doc/chip/StyleDoc';
 import TemplateDoc from '@/doc/chip/TemplateDoc';
 import PTComponent from '@/doc/chip/pt/index.vue';
 
@@ -42,17 +42,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

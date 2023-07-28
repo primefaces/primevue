@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['Textarea']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -17,9 +18,9 @@ import DisabledDoc from '@/doc/textarea/DisabledDoc';
 import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc';
 import ImportDoc from '@/doc/textarea/ImportDoc';
 import InvalidDoc from '@/doc/textarea/InvalidDoc';
-import StyleDoc from '@/doc/textarea/StyleDoc';
 import VeeValidateDoc from '@/doc/textarea/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/textarea/pt/index.vue';
+import ThemingDoc from '@/doc/textarea/theming/index.vue';
 
 export default {
     data() {
@@ -68,17 +69,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

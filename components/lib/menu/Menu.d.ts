@@ -120,6 +120,14 @@ export interface MenuState {
  */
 export interface MenuContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Current index of the menuitem.
+     */
+    index: number;
+    /**
      * Current focused state of menuitem as a boolean.
      * @defaultValue false
      */

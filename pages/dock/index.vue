@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Dock Component" header="Dock" description="Dock is a navigation component consisting of menuitems." :componentDocs="docs" :apiDocs="['Dock']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Dock Component" header="Dock" description="Dock is a navigation component consisting of menuitems." :componentDocs="docs" :apiDocs="['Dock']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -7,8 +7,8 @@ import AccessibilityDoc from '@/doc/dock/AccessibilityDoc';
 import AdvancedDoc from '@/doc/dock/AdvancedDoc';
 import BasicDoc from '@/doc/dock/BasicDoc';
 import ImportDoc from '@/doc/dock/ImportDoc';
-import StyleDoc from '@/doc/dock/StyleDoc';
 import PTComponent from '@/doc/dock/pt/index.vue';
+import ThemingDoc from '@/doc/dock/theming/index.vue';
 
 export default {
     data() {
@@ -30,17 +30,13 @@ export default {
                     component: AdvancedDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -111,7 +111,8 @@ export default {
         getPTOptions(id, key) {
             return this.ptm(key, {
                 context: {
-                    active: this.isItemActive(id)
+                    active: this.isItemActive(id),
+                    hidden: !this.d_visible
                 }
             });
         },
