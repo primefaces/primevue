@@ -20,6 +20,7 @@ export interface ButtonPassThroughMethodOptions {
     instance: any;
     props: ButtonProps;
     context: ButtonContext;
+    parent: any;
 }
 
 /**
