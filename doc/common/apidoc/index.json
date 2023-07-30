@@ -5148,6 +5148,13 @@
                             "readonly": false,
                             "type": "ButtonContext",
                             "default": ""
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": ""
                         }
                     ],
                     "methods": []
