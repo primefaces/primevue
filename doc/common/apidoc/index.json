@@ -5507,6 +5507,13 @@
                             "readonly": false,
                             "type": "CalendarState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CalendarContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -6090,6 +6097,123 @@
                             "type": "string",
                             "default": "'date'",
                             "description": "Current view state as a string."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CalendarContext": {
+                    "description": "Defines current options in Calendar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "date",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | null | string | string[] | Date | Date[]",
+                            "default": "",
+                            "description": "Current date."
+                        },
+                        {
+                            "name": "today",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current today state of the calendar's day."
+                        },
+                        {
+                            "name": "otherMonth",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current other month state of the calendar's day."
+                        },
+                        {
+                            "name": "selected",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current selected state of the calendar's day or month or year."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the calendar's day or month or year."
+                        },
+                        {
+                            "name": "month",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CalendarMonthOptions",
+                            "default": "",
+                            "description": "Current month state."
+                        },
+                        {
+                            "name": "monthIndex",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current month index state."
+                        },
+                        {
+                            "name": "year",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CalendarYearOptions",
+                            "default": "",
+                            "description": "Current year state."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CalendarMonthOptions": {
+                    "description": "Defines cuurent month options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Month value."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Selectable state of the month."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CalendarYearOptions": {
+                    "description": "Defines current year options.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Year value."
+                        },
+                        {
+                            "name": "selectable",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Selectable state of the month."
                         }
                     ],
                     "methods": []
