@@ -68,16 +68,27 @@ export interface BadgeContext {
     info: boolean;
     /**
      * Current success state as a boolean.
+     * @defaultValue false
      */
     success: boolean;
     /**
      * Current warning state as a boolean.
+     * @defaultValue false
      */
     warning: boolean;
     /**
      * Current danger state as a boolean.
+     * @defaultValue false
      */
     danger: boolean;
+    /**
+     * Current gutter state as a boolean.
+     */
+    nogutter: boolean;
+    /**
+     * Current dot state as a boolean.
+     */
+    dot: boolean;
 }
 
 /**

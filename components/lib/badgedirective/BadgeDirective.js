@@ -11,7 +11,11 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
             id,
             class: !el.unstyled && this.cx('root'),
             'p-bind': this.ptm('root', {
-                context: binding.modifiers
+                context: {
+                    ...binding.modifiers,
+                    nogutter: String(binding.value).length === 1,
+                    dot: binding.value == null
+                }
             })
         });
 
