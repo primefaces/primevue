@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Image/theming/index.vue';
 import AccessibilityDoc from '@/doc/image/AccessibilityDoc';
 import BasicDoc from '@/doc/image/BasicDoc';
 import ImportDoc from '@/doc/image/ImportDoc';
 import PreviewDoc from '@/doc/image/PreviewDoc';
 import TemplateDoc from '@/doc/image/TemplateDoc';
 import PTComponent from '@/doc/image/pt/index.vue';
+import ThemingDoc from '@/doc/image/theming/index.vue';
 
 export default {
     data() {
