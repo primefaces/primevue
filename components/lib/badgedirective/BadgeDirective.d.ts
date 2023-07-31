@@ -9,7 +9,14 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 
-export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | null | undefined;
+export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgeDirectivePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface BadgePassThroughMethodOptions {
+    context: BadgeContext;
+}
 
 /**
  * Defines options of Badge.
@@ -48,6 +55,29 @@ export interface BadgeDirectivePassThroughOptions {
  */
 export interface BadgeDirectivePassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Badge directive.
+ */
+export interface BadgeContext {
+    /**
+     * Current info state as a boolean.
+     * @defaultValue true
+     */
+    info: boolean;
+    /**
+     * Current success state as a boolean.
+     */
+    success: boolean;
+    /**
+     * Current warning state as a boolean.
+     */
+    warning: boolean;
+    /**
+     * Current danger state as a boolean.
+     */
+    danger: boolean;
 }
 
 /**

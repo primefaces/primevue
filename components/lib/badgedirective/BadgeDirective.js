@@ -10,7 +10,9 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
         const badge = DomHandler.createElement('span', {
             id,
             class: !el.unstyled && this.cx('root'),
-            'p-bind': this.ptm('root')
+            'p-bind': this.ptm('root', {
+                context: binding.modifiers
+            })
         });
 
         el.$_pbadgeId = badge.getAttribute('id');
