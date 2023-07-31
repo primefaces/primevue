@@ -4231,6 +4231,20 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "BadgePassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "BadgeContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "BadgeDirectiveOptions": {
                     "description": "Defines options of Badge.",
                     "relatedProp": "",
@@ -4286,6 +4300,45 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "BadgeContext": {
+                    "description": "Defines current options in Badge directive.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "info",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Current info state as a boolean."
+                        },
+                        {
+                            "name": "success",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current success state as a boolean."
+                        },
+                        {
+                            "name": "warning",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current warning state as a boolean."
+                        },
+                        {
+                            "name": "danger",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current danger state as a boolean."
                         }
                     ],
                     "methods": []
@@ -4359,7 +4412,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "BadgeDirectivePassThroughOptionType": {
-                    "values": "BadgeDirectivePassThroughAttributes | null | undefined"
+                    "values": "BadgeDirectivePassThroughAttributes | (options: BadgePassThroughMethodOptions) => BadgeDirectivePassThroughAttributes | null | undefined"
                 }
             }
         }
