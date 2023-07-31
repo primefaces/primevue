@@ -42895,6 +42895,20 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "TooltipPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TooltipContext",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
                 "TooltipOptions": {
                     "description": "Defines options of Tooltip.",
                     "relatedProp": "",
@@ -43034,6 +43048,45 @@
                     ],
                     "methods": []
                 },
+                "TooltipContext": {
+                    "description": "Defines current options in Tooltip directive.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "top",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current top position state as a boolean."
+                        },
+                        {
+                            "name": "right",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current right position state as a boolean."
+                        },
+                        {
+                            "name": "bottom",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current bottom position state as a boolean."
+                        },
+                        {
+                            "name": "left",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current left position state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "TooltipDirectiveModifiers": {
                     "description": "Defines modifiers of Tooltip.",
                     "relatedProp": "",
@@ -43111,7 +43164,7 @@
             "description": "Defines the custom types used by the module.",
             "values": {
                 "TooltipDirectivePassThroughOptionType": {
-                    "values": "TooltipDirectivePassThroughAttributes | null | undefined"
+                    "values": "TooltipDirectivePassThroughAttributes | (options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes | null | undefined"
                 }
             }
         }
