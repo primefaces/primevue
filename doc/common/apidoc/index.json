@@ -4321,7 +4321,7 @@
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Current success state as a boolean."
                         },
                         {
@@ -4329,7 +4329,7 @@
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Current warning state as a boolean."
                         },
                         {
@@ -4337,8 +4337,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "",
+                            "default": "false",
                             "description": "Current danger state as a boolean."
+                        },
+                        {
+                            "name": "nogutter",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current gutter state as a boolean."
+                        },
+                        {
+                            "name": "dot",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current dot state as a boolean."
                         }
                     ],
                     "methods": []
