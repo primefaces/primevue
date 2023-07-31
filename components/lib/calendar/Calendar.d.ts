@@ -21,6 +21,7 @@ export interface CalendarPassThroughMethodOptions {
     instance: any;
     props: CalendarProps;
     state: CalendarState;
+    context: CalendarContext;
 }
 
 /**
@@ -342,6 +343,75 @@ export interface CalendarState {
      * @defaultValue 'date'
      */
     currentView: string;
+}
+
+/**
+ * Defines current options in Calendar component.
+ */
+export interface CalendarContext {
+    /**
+     * Current date.
+     */
+    date: string | Date | string[] | Date[] | undefined | null;
+    /**
+     * Current today state of the calendar's day.
+     * @defaultValue false
+     */
+    today: boolean;
+    /**
+     * Current other month state of the calendar's day.
+     */
+    otherMonth: boolean;
+    /**
+     * Current selected state of the calendar's day or month or year.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current disabled state of the calendar's day or month or year.
+     * @defaultValue false
+     */
+    disabled: boolean;
+    /**
+     * Current month state.
+     */
+    month: CalendarMonthOptions;
+    /**
+     * Current month index state.
+     */
+    monthIndex: number;
+    /**
+     * Current year state.
+     */
+    year: CalendarYearOptions;
+}
+
+/**
+ * Defines cuurent month options.
+ */
+export interface CalendarMonthOptions {
+    /**
+     * Month value.
+     */
+    value: string;
+    /**
+     * Selectable state of the month.
+     */
+    selectable: boolean;
+}
+
+/**
+ * Defines current year options.
+ */
+export interface CalendarYearOptions {
+    /**
+     * Year value.
+     */
+    value: number;
+    /**
+     * Selectable state of the month.
+     */
+    selectable: boolean;
 }
 
 /**

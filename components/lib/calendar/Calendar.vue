@@ -134,7 +134,7 @@
                                     <table :class="cx('table')" role="grid" v-bind="ptm('table')">
                                         <thead v-bind="ptm('tableHeader')">
                                             <tr v-bind="ptm('tableHeaderRow')">
-                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader')" :data-p-disabled="true">
+                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek">
                                                     <span v-bind="ptm('weekLabel')">{{ weekHeaderLabel }}</span>
                                                 </th>
                                                 <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')">
@@ -145,12 +145,28 @@
                                         <tbody v-bind="ptm('tableBody')">
                                             <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
                                                 <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')">
-                                                    <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer')" :data-p-disabled="true">
+                                                    <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer', { context: { disabled: showWeek } })" :data-p-disabled="showWeek">
                                                         <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
                                                         {{ month.weekNumbers[i] }}
                                                     </span>
                                                 </td>
-                                                <td v-for="date of week" :key="date.day + '' + date.month" :aria-label="date.day" :class="cx('day', { date })" v-bind="ptm('day')" :data-p-today="date.today" :data-p-other-month="date.otherMonth">
+                                                <td
+                                                    v-for="date of week"
+                                                    :key="date.day + '' + date.month"
+                                                    :aria-label="date.day"
+                                                    :class="cx('day', { date })"
+                                                    v-bind="
+                                                        ptm('day', {
+                                                            context: {
+                                                                date,
+                                                                today: date.today,
+                                                                otherMonth: date.otherMonth
+                                                            }
+                                                        })
+                                                    "
+                                                    :data-p-today="date.today"
+                                                    :data-p-other-month="date.otherMonth"
+                                                >
                                                     <span
                                                         v-ripple
                                                         :class="cx('dayLabel', { date })"
@@ -159,7 +175,15 @@
                                                         @keydown="onDateCellKeydown($event, date, groupIndex)"
                                                         :aria-selected="isSelected(date)"
                                                         :aria-disabled="!date.selectable"
-                                                        v-bind="ptm('dayLabel')"
+                                                        v-bind="
+                                                            ptm('dayLabel', {
+                                                                context: {
+                                                                    date,
+                                                                    selected: isSelected(date),
+                                                                    disabled: !date.selectable
+                                                                }
+                                                            })
+                                                        "
                                                         :data-p-disabled="!date.selectable"
                                                         :data-p-highlight="isSelected(date)"
                                                     >
@@ -183,7 +207,16 @@
                                 @click="onMonthSelect($event, { month: m, index: i })"
                                 @keydown="onMonthCellKeydown($event, { month: m, index: i })"
                                 :class="cx('month', { month: m, index: i })"
-                                v-bind="ptm('month')"
+                                v-bind="
+                                    ptm('month', {
+                                        context: {
+                                            month: m,
+                                            monthIndex: i,
+                                            selected: isMonthSelected(i),
+                                            disabled: !m.selectable
+                                        }
+                                    })
+                                "
                                 :data-p-disabled="!m.selectable"
                                 :data-p-highlight="isMonthSelected(i)"
                             >
@@ -201,7 +234,15 @@
                                 @click="onYearSelect($event, y)"
                                 @keydown="onYearCellKeydown($event, y)"
                                 :class="cx('year', { year: y })"
-                                v-bind="ptm('year')"
+                                v-bind="
+                                    ptm('year', {
+                                        context: {
+                                            year: y,
+                                            selected: isYearSelected(y.value),
+                                            disabled: !y.selectable
+                                        }
+                                    })
+                                "
                                 :data-p-disabled="!y.selectable"
                                 :data-p-highlight="isYearSelected(y.value)"
                             >
