@@ -10,7 +10,14 @@
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
 
-export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | null | undefined;
+export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | ((options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes) | null | undefined;
+
+/**
+ * Custom passthrough(pt) option method.
+ */
+export interface TooltipPassThroughMethodOptions {
+    context: TooltipContext;
+}
 
 /**
  * Defines options of Tooltip.
@@ -94,6 +101,28 @@ export interface TooltipDirectivePassThroughOptions {
  */
 export interface TooltipDirectivePassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines current options in Tooltip directive.
+ */
+export interface TooltipContext {
+    /**
+     * Current top position state as a boolean.
+     */
+    top: boolean;
+    /**
+     * Current right position state as a boolean.
+     */
+    right: boolean;
+    /**
+     * Current bottom position state as a boolean.
+     */
+    bottom: boolean;
+    /**
+     * Current left position state as a boolean.
+     */
+    left: boolean;
 }
 
 /**
