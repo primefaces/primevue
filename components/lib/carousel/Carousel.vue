@@ -64,7 +64,7 @@
                         :aria-label="ariaPageLabel(i + 1)"
                         :aria-current="d_page === i ? 'page' : undefined"
                         @click="onIndicatorClick($event, i)"
-                        v-bind="ptm('indicatorButton')"
+                        v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
                     />
                 </li>
             </ul>
