@@ -3,16 +3,18 @@
         <p>Theming is implemented with the pass through properties in unstyled mode. Example below demonstrates the built-in Tailwind theme.</p>
     </DocSectionText>
     <DocSectionCode :code="code" embedded />
+    <DocSectionCode :code="code" :service="['PhotoService']" embedded />
 </template>
 
 <script>
+import { PhotoService } from '@/service/PhotoService';
 export default {
     data() {
         return {
             code: {
                 composition: `
 <template>
-    <div class="card md:flex md:justify-content-center">
+    <div class="card md:flex md:justify-center">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
             <template #item="slotProps">
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
@@ -60,6 +62,9 @@ const responsiveOptions = ref([
         `
             }
         };
+    },
+    mounted() {
+        PhotoService.getImages().then((data) => (images.value = data));
     }
 };
 </script>

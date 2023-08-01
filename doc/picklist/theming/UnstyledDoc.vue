@@ -21,15 +21,15 @@ export default {
             <template #targetheader> Selected </template>
             <template #item="slotProps">
                 <div class="flex flex-wrap p-2 items-center gap-3">
-                    <img class="w-16 shadow-md shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
+                    <img class="w-16 shadow-md shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.item.image" :alt="slotProps.item.name" />
                     <div class="flex-1 flex flex-col gap-2">
-                        <span class="font-bold">{{ slotProps.item.name }}</span>
+                        <span class="font-bold text-gray-700 dark:text-white/80">{{ slotProps.item.name }}</span>
                         <div class="flex items-center gap-2">
-                            <i class="pi pi-tag text-sm"></i>
-                            <span>{{ slotProps.item.category }}</span>
+                            <i class="pi pi-tag text-sm text-gray-700 dark:text-white/80"></i>
+                            <span class="text-gray-700 dark:text-white/80">{{ slotProps.item.category }}</span>
                         </div>
                     </div>
-                    <span class="font-bold text-900">$ {{ slotProps.item.price }}</span>
+                    <span class="font-bold text-gray-700 dark:text-white/80">$ {{ slotProps.item.price }}</span>
                 </div>
             </template>
         </PickList>

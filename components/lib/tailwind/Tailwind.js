@@ -2044,15 +2044,15 @@ export default {
     dataview: {
         content: {
             class: [
-                'bg-white blue-gray-700 border-0 p-0',
+                'bg-white blue-gray-700 border-0 p-0 text-gray-700',
                 'bg-gray-900 dark:text-white/80' // Dark Mode
             ]
         },
         grid: {
-            class: 'flex flex-wrap ml-0 mr-0 mt-0'
+            class: 'flex flex-wrap ml-0 mr-0 mt-0 bg-white dark:bg-gray-900'
         },
         header: {
-            class: 'bg-gray-100 text-blue-gray-800 border-gray-200 border-t border-b p-4 font-bold'
+            class: 'bg-gray-100 dark:bg-gray-800 text-blue-gray-800 text-gray-700 dark:text-white/80 border-gray-200 dark:border-blue-900/40 border-t border-b p-4 font-bold'
         }
     },
     dataviewlayoutoptions: {
