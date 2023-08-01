@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Progressbar/theming/index.vue';
 import AccessibilityDoc from '@/doc/progressbar/AccessibilityDoc';
 import BasicDoc from '@/doc/progressbar/BasicDoc';
 import DynamicDoc from '@/doc/progressbar/DynamicDoc';
@@ -11,6 +10,7 @@ import ImportDoc from '@/doc/progressbar/ImportDoc';
 import IndeterminateDoc from '@/doc/progressbar/IndeterminateDoc';
 import TemplateDoc from '@/doc/progressbar/TemplateDoc';
 import PTComponent from '@/doc/progressbar/pt/index.vue';
+import ThemingDoc from '@/doc/progressbar/theming/index.vue';
 
 export default {
     data() {

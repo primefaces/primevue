@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Badge/theming/index.vue';
 import AccessibilityDoc from '@/doc/badge/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/badge/BasicDoc.vue';
 import ButtonDoc from '@/doc/badge/ButtonDoc.vue';
@@ -12,6 +11,7 @@ import PositionDoc from '@/doc/badge/PositionDoc.vue';
 import SeverityDoc from '@/doc/badge/SeverityDoc.vue';
 import SizeDoc from '@/doc/badge/SizeDoc.vue';
 import PTComponent from '@/doc/badge/pt/index.vue';
+import ThemingDoc from '@/doc/badge/theming/index.vue';
 
 export default {
     data() {

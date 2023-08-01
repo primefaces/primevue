@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Terminal/theming/index.vue';
 import AccessibilityDoc from '@/doc/terminal/AccessibilityDoc';
 import BasicDoc from '@/doc/terminal/BasicDoc';
 import ImportDoc from '@/doc/terminal/ImportDoc';
 import PTComponent from '@/doc/terminal/pt/index.vue';
+import ThemingDoc from '@/doc/terminal/theming/index.vue';
 
 export default {
     data() {

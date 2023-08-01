@@ -271,7 +271,7 @@ export default {
         },
 
         gutter: ({ props }) => ({
-            class: ['flex items-center justify-center  flex-shrink-0', 'transition-all duration-200 bg-gray-100 dark:bg-gray-800', { 'cursor-col-resize': props.layout == 'horizontal', 'cursor-row-resize': props.layout !== 'horizontal' }]
+            class: ['flex items-center justify-center  shrink-0', 'transition-all duration-200 bg-gray-100 dark:bg-gray-800', { 'cursor-col-resize': props.layout == 'horizontal', 'cursor-row-resize': props.layout !== 'horizontal' }]
         }),
         gutterhandler: ({ props }) => ({
             class: ['bg-gray-300 dark:bg-gray-600 transition-all duration-200', { 'h-7': props.layout == 'horizontal', 'w-7 h-2': props.layout !== 'horizontal' }]
@@ -279,7 +279,7 @@ export default {
     },
     splitterpanel: {
         root: ({ props }) => ({
-            class: ['flex-grow', 'flex justify-center items-center']
+            class: ['grow', 'flex justify-center items-center']
         })
     },
     dialog: {
@@ -287,7 +287,7 @@ export default {
             class: ['rounded-lg shadow-lg border-0', 'flex flex-col max-h-90 transform scale-100', 'm-0  w-[50vw] z-40 relative', '', 'dark:border dark:border-blue-900/40']
         }),
         header: {
-            class: ['flex items-center justify-between flex-shrink-0', 'bg-white text-gray-800 border-t-0  rounded-tl-lg rounded-tr-lg p-6', 'dark:bg-gray-900  dark:text-white/80']
+            class: ['flex items-center justify-between shrink-0', 'bg-white text-gray-800 border-t-0  rounded-tl-lg rounded-tr-lg p-6', 'dark:bg-gray-900  dark:text-white/80']
         },
         headerTitle: {
             class: ['font-bold text-lg']
@@ -311,7 +311,7 @@ export default {
             class: ['overflow-y-auto', 'bg-white text-gray-700 px-6 pb-8 pt-0', 'rounded-bl-lg rounded-br-lg', 'dark:bg-gray-900  dark:text-white/80 ']
         },
         footer: {
-            class: ['flex-shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
+            class: ['shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
         },
         mask: {
             class: ['fixed top-0 left-0 w-full h-full flex items-center justify-center pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20']
@@ -385,7 +385,7 @@ export default {
             class: ['w-4 h-4 inline-block']
         },
         content: {
-            class: ['p-5 pt-0 h-full w-full', 'flex-grow overflow-y-auto']
+            class: ['p-5 pt-0 h-full w-full', 'grow overflow-y-auto']
         },
         mask: ({ props, state }) => ({
             class: [
@@ -435,7 +435,7 @@ export default {
             class: ['flex items-center flex-wrap', 'p-4 border border-gray-300 dark:border-blue-900/40 rounded gap-2 mb-2', 'last:mb-0']
         },
         thumbnail: {
-            class: ['flex-shrink-0']
+            class: ['shrink-0']
         },
         fileName: {
             class: ['mb-2']
@@ -511,7 +511,7 @@ export default {
             class: ['w-6 h-6', 'text-lg mr-2']
         },
         text: {
-            class: ['text-base font-normal flex flex-col flex-1 flex-grow-1 flex-shrink-1 ml-4']
+            class: ['text-base font-normal flex flex-col flex-1 grow shrink ml-4']
         },
         summary: {
             class: ['font-bold block']
@@ -802,7 +802,7 @@ export default {
             class: ['block whitespace-nowrap overflow-hidden flex flex-1 w-1 text-overflow-ellipsis cursor-pointer', 'bg-transparent border-0 p-3 text-gray-700 dark:text-white/80', 'appearance-none rounded-md']
         },
         dropdownbutton: {
-            class: ['flex items-center justify-center flex-shrink-0', 'bg-transparent text-gray-600 dark:text-white/80 w-[3rem] rounded-tr-6 rounded-br-6']
+            class: ['flex items-center justify-center shrink-0', 'bg-transparent text-gray-600 dark:text-white/80 w-[3rem] rounded-tr-6 rounded-br-6']
         },
         panel: {
             class: ['absolute py-3 bg-white dark:bg-gray-900 border-0 shadow-md']
@@ -1047,7 +1047,7 @@ export default {
             ]
         }),
         trigger: {
-            class: ['flex items-center justify-center flex-shrink-0', 'bg-transparent text-gray-500 w-12 rounded-tr-lg rounded-br-lg']
+            class: ['flex items-center justify-center shrink-0', 'bg-transparent text-gray-500 w-12 rounded-tr-lg rounded-br-lg']
         },
         wrapper: {
             class: ['max-h-[200px] overflow-auto', 'bg-white text-gray-700 border-0 rounded-md shadow-lg', 'dark:bg-gray-900 dark:text-white/80']
@@ -1289,7 +1289,7 @@ export default {
             class: ['ml-2']
         },
         trigger: {
-            class: ['flex items-center justify-center flex-shrink-0', 'bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg']
+            class: ['flex items-center justify-center shrink-0', 'bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg']
         },
         panel: {
             class: ['bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg']
@@ -1404,7 +1404,7 @@ export default {
             class: ['block overflow-hidden whitespace-nowrap cursor-pointer overflow-ellipsis', 'text-gray-800 dark:text-white/80', 'p-3 transition duration-200']
         }),
         trigger: {
-            class: ['flex items-center justify-center flex-shrink-0', 'bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg']
+            class: ['flex items-center justify-center shrink-0', 'bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg']
         },
         panel: {
             class: ['bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg']
@@ -1681,7 +1681,7 @@ export default {
             class: ['text-yellow-400']
         },
         commandtext: {
-            class: ['flex-1 flex-shrink-1 flex-grow-0 border-0 bg-transparent text-inherit p-0 outline-none']
+            class: ['flex-1 shrink grow-0 border-0 bg-transparent text-inherit p-0 outline-none']
         }
     },
 
@@ -2144,14 +2144,14 @@ export default {
             class: ['flex justify-center items-center h-full w-full']
         },
         thumbnailwrapper: {
-            class: ['flex flex-col overflow-auto flex-shrink-0']
+            class: ['flex flex-col overflow-auto shrink-0']
         },
         thumbnailcontainer: {
             class: ['flex flex-row', 'bg-black/90 p-4']
         },
         previousthumbnailbutton: {
             class: [
-                'self-center flex flex-shrink-0 justify-center items-center overflow-hidden relative',
+                'self-center flex shrink-0 justify-center items-center overflow-hidden relative',
                 'm-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full',
                 'hover:bg-white/10 hover:text-white',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
@@ -2164,11 +2164,11 @@ export default {
             class: ['flex']
         },
         thumbnailitem: {
-            class: ['overflow-auto flex items-center justify-center cursor-pointer opacity-50', 'flex-1 flex-grow-0 flex-shrink-0 w-20', 'hover:opacity-100 hover:transition-opacity hover:duration-300']
+            class: ['overflow-auto flex items-center justify-center cursor-pointer opacity-50', 'flex-1 grow-0 shrink-0 w-20', 'hover:opacity-100 hover:transition-opacity hover:duration-300']
         },
         nextthumbnailbutton: {
             class: [
-                'self-center flex flex-shrink-0 justify-center items-center overflow-hidden relative',
+                'self-center flex shrink-0 justify-center items-center overflow-hidden relative',
                 'm-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full',
                 'hover:bg-white/10 hover:text-white',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
@@ -2235,7 +2235,7 @@ export default {
             class: ['flex', { 'flex-row': props.orientation !== 'vertical', 'flex-col': props.orientation == 'vertical' }]
         }),
         previousbutton: ({ props, context }) => ({
-            class: ['flex justify-center items-center self-center overflow-hidden relative flex-shrink-0 flex-grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2']
+            class: ['flex justify-center items-center self-center overflow-hidden relative shrink-0 grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2']
         }),
         itemscontent: {
             class: ['overflow-hidden w-full']
@@ -2244,7 +2244,7 @@ export default {
             class: ['flex ', { 'flex-row': props.orientation !== 'vertical', 'flex-col h-full': props.orientation == 'vertical' }]
         }),
         item: ({ props, context }) => ({
-            class: ['flex flex-shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
+            class: ['flex shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
         }),
         indicators: {
             class: ['flex flex-row justify-center flex-wrap']
@@ -2283,7 +2283,7 @@ export default {
         }),
         toggler: ({ context }) => ({
             class: [
-                'cursor-pointer select-none inline-flex items-center justify-center overflow-hidden relative flex-shrink-0',
+                'cursor-pointer select-none inline-flex items-center justify-center overflow-hidden relative shrink-0',
                 'mr-2 w-8 h-8 border-0 bg-transparent rounded-full transition duration-200',
                 'hover:border-transparent focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
                 { 'text-gray-500 dark:text-white/80 hover:bg-gray-200 dark:hover:bg-gray-800/80  hover:text-gray-800 dark:hover:text-white/80': !context.selected, 'text-blue-600 hover:bg-white/30': context.selected }
@@ -2329,7 +2329,7 @@ export default {
     timeline: {
         root: ({ props }) => ({
             class: [
-                'flex flex-grow',
+                'flex grow',
                 {
                     'flex-col': props.layout === 'vertical',
                     'flex-row flex-1': props.layout === 'horizontal'
@@ -2373,7 +2373,7 @@ export default {
         },
         connector: ({ props }) => ({
             class: [
-                'flex-grow bg-gray-300 dark:bg-blue-900/40',
+                'grow bg-gray-300 dark:bg-blue-900/40',
                 {
                     'w-[2px]': props.layout === 'vertical',
                     'w-full h-[2px]': props.layout === 'horizontal'
@@ -2393,7 +2393,7 @@ export default {
                 },
                 {
                     'min-h-0': props.layout === 'vertical' && context.index === context.count,
-                    'flex-grow-0': props.layout === 'horizontal' && context.index === context.count
+                    'grow-0': props.layout === 'horizontal' && context.index === context.count
                 }
             ]
         })

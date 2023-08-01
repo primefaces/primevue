@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Inplace/theming/index.vue';
 import AccessibilityDoc from '@/doc/inplace/AccessibilityDoc';
 import BasicDoc from '@/doc/inplace/BasicDoc';
 import ImageDoc from '@/doc/inplace/ImageDoc';
@@ -19,6 +18,7 @@ import ImportDoc from '@/doc/inplace/ImportDoc';
 import InputDoc from '@/doc/inplace/InputDoc';
 import LazyDoc from '@/doc/inplace/LazyDoc';
 import PTComponent from '@/doc/inplace/pt/index.vue';
+import ThemingDoc from '@/doc/inplace/theming/index.vue';
 
 export default {
     data() {

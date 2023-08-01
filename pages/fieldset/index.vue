@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Fieldset/theming/index.vue';
 import AccessibilityDoc from '@/doc/fieldset/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/fieldset/BasicDoc.vue';
 import ImportDoc from '@/doc/fieldset/ImportDoc.vue';
 import TemplateDoc from '@/doc/fieldset/TemplateDoc.vue';
 import ToggleableDoc from '@/doc/fieldset/ToggleableDoc.vue';
 import PTComponent from '@/doc/fieldset/pt/index.vue';
+import ThemingDoc from '@/doc/fieldset/theming/index.vue';
 
 export default {
     data() {

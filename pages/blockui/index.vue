@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Blockui/theming/index.vue';
 import AccessibilityDoc from '@/doc/blockui/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/blockui/BasicDoc.vue';
 import DocumentDoc from '@/doc/blockui/DocumentDoc.vue';
 import ImportDoc from '@/doc/blockui/ImportDoc.vue';
 import PTComponent from '@/doc/blockui/pt/index.vue';
+import ThemingDoc from '@/doc/blockui/theming/index.vue';
 
 export default {
     data() {
