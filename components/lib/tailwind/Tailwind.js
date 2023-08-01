@@ -529,6 +529,7 @@ export default {
             class: [
                 'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom',
                 'transition duration-200 ease-in-out',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_4px_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_4px_rgba(147,197,253,0.5)]',
                 {
                     'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': !props.link && props.severity == null && !props.text && !props.outlined && !props.plain,
                     'text-blue-600 bg-transparent border-transparent': props.link
@@ -681,9 +682,49 @@ export default {
             })
         },
         menubutton: {
-            root: {
-                class: 'min-[0px]:rounded-l-none'
-            }
+            root: ({ parent }) => ({
+                class: [
+                    'min-[0px]:rounded-l-none',
+                    { 'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity == null && !parent.props.text && !parent.props.outlined && !parent.props.plain },
+                    {
+                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity == 'secondary' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity == 'success' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity == 'info' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity == 'warning' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity == 'help' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity == 'danger' && !parent.props.text && !parent.props.outlined && !parent.props.plain
+                    },
+                    { 'shadow-lg': parent.props.raised },
+                    { 'rounded-md': !parent.props.rounded, 'rounded-full': parent.props.rounded },
+                    {
+                        'bg-transparent border-transparent': parent.props.text && !parent.props.plain,
+                        'text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity == null && !parent.props.plain,
+                        'text-gray-500 hover:bg-gray-300/20': parent.props.text && parent.props.severity == 'secondary' && !parent.props.plain,
+                        'text-green-500 hover:bg-green-300/20': parent.props.text && parent.props.severity == 'success' && !parent.props.plain,
+                        'text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity == 'info' && !parent.props.plain,
+                        'text-orange-500 hover:bg-orange-300/20': parent.props.text && parent.props.severity == 'warning' && !parent.props.plain,
+                        'text-purple-500 hover:bg-purple-300/20': parent.props.text && parent.props.severity == 'help' && !parent.props.plain,
+                        'text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity == 'danger' && !parent.props.plain
+                    },
+                    { 'shadow-lg': parent.props.raised && parent.props.text },
+                    {
+                        'text-gray-500 hover:bg-gray-300/20': parent.props.plain & parent.props.text,
+                        'text-gray-500 border border-gray-500 hover:bg-gray-300/20': parent.props.plain & parent.props.outlined,
+                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.plain & !parent.props.outlined & !parent.props.text
+                    },
+                    {
+                        'bg-transparent border': parent.props.outlined && !parent.props.plain,
+                        'text-blue-500 border border-blue-500 hover:bg-blue-300/20': parent.props.outlined && parent.props.severity == null && !parent.props.plain,
+                        'text-gray-500 border border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity == 'secondary' && !parent.props.plain,
+                        'text-green-500 border border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity == 'success' && !parent.props.plain,
+                        'text-blue-500 border border-blue-500 hover:bg-blue-300/20': parent.props.outlined && parent.props.severity == 'info' && !parent.props.plain,
+                        'text-orange-500 border border-orange-500 hover:bg-orange-300/20': parent.props.outlined && parent.props.severity == 'warning' && !parent.props.plain,
+                        'text-purple-500 border border-purple-500 hover:bg-purple-300/20': parent.props.outlined && parent.props.severity == 'help' && !parent.props.plain,
+                        'text-red-500 border border-red-500 hover:bg-red-300/20': parent.props.outlined && parent.props.severity == 'danger' && !parent.props.plain
+                    },
+                    { 'px-4 py-3 text-base': parent.props.size == null, 'text-xs py-2 px-3': parent.props.size == 'small', 'text-xl py-3 px-4': parent.props.size == 'large' }
+                ]
+            })
         }
     },
     //FORMS
@@ -969,7 +1010,7 @@ export default {
             class: [
                 'flex justify-center items-center',
                 'border-2 w-6 h-6 text-gray-700 rounded-full transition duration-200 ease-in-out',
-                { 'border-gray-300 bg-white dark:border-blue-900/40 dark:bg-gray-900': props.value !== props.modelValue, 'border-blue-500 bg-blue-500 dark:border-blue-400 dark:bg-blue-400': props.value == props.modelValue },
+                { 'border-gray-300 bg-white dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80': props.value !== props.modelValue, 'border-blue-500 bg-blue-500 dark:border-blue-400 dark:bg-blue-400': props.value == props.modelValue },
                 {
                     'hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]': !props.disabled,
                     'cursor-default opacity-60': props.disabled
@@ -1101,33 +1142,37 @@ export default {
         day: {
             class: ['p-2']
         },
-        daylabel: ({ props }) => ({
+        daylabel: ({ context }) => ({
             class: [
-                'w-10 h-10 rounded-full transition-shadow duration-200 border-transparent border dark:text-white/80',
-                'flex items-center cursor-pointer justify-center mx-auto overflow-hidden relative',
-                'hover:bg-gray-200 dark:hover:bg-gray-800/80  focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+                'w-10 h-10 rounded-full transition-shadow duration-200 border-transparent border',
+                'flex items-center justify-center mx-auto overflow-hidden relative',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
+                { 'opacity-60 cursor-default': context.disabled, 'cursor-pointer': !context.disabled },
+                { 'text-gray-600 dark:text-white/70 bg-transprent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled, 'text-blue-700 bg-blue-100 hover:bg-blue-200': context.selected && !context.disabled }
             ]
         }),
         monthpicker: {
             class: ['my-2']
         },
-        month: {
+        month: ({ context }) => ({
             class: [
-                'w-1/3 inline-flex items-center justify-center cursor-pointer overflow-hidden relative dark:text-white/80',
+                'w-1/3 inline-flex items-center justify-center cursor-pointer overflow-hidden relative',
                 'p-2 transition-shadow duration-200 rounded-lg',
-                'hover:bg-gray-200 dark:hover:bg-gray-800/80  focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
+                { 'text-gray-600 dark:text-white/70 bg-transprent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled, 'text-blue-700 bg-blue-100 hover:bg-blue-200': context.selected && !context.disabled }
             ]
-        },
+        }),
         yearpicker: {
             class: ['my-2']
         },
-        year: {
+        year: ({ context }) => ({
             class: [
-                'w-1/2 inline-flex items-center justify-center cursor-pointer overflow-hidden relative dark:text-white/80',
+                'w-1/2 inline-flex items-center justify-center cursor-pointer overflow-hidden relative',
                 'p-2 transition-shadow duration-200 rounded-lg',
-                'hover:bg-gray-200 dark:hover:bg-gray-800/80  focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
+                { 'text-gray-600 dark:text-white/70 bg-transprent hover:bg-gray-200 dark:hover:bg-gray-800/80': !context.selected && !context.disabled, 'text-blue-700 bg-blue-100 hover:bg-blue-200': context.selected && !context.disabled }
             ]
-        },
+        }),
         timepicker: {
             class: ['flex justify-center items-center', 'border-t-1 border-solid border-gray-300 p-2']
         },
@@ -1617,7 +1662,7 @@ export default {
     },
     inplace: {
         display: ({ props }) => ({
-            class: ['p-3 rounded-md transition duration-200 ', 'inline cursor-pointer', 'hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-gray-800/80 dark:hover:text-white/80']
+            class: ['p-3 rounded-md transition duration-200 text-gray-700 dark:text-white/80', 'inline cursor-pointer', 'hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-gray-800/80 dark:hover:text-white/80']
         })
     },
     scrolltop: {
@@ -2135,6 +2180,12 @@ export default {
         indicator: {
             class: ['mr-2']
         },
+        indicatorbutton: ({ props, context }) => ({
+            class: [
+                'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 w-4 h-4 transition duration-200 rounded-full',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+            ]
+        }),
         mask: {
             class: ['fixed top-0 left-0 w-full h-full', 'flex items-center justify-center', 'bg-black bg-opacity-90']
         },
@@ -2180,21 +2231,33 @@ export default {
         content: {
             class: ['flex flex-col overflow-auto']
         },
-        container: {
-            class: ['flex flex-row']
-        },
+        container: ({ props, context }) => ({
+            class: ['flex', { 'flex-row': props.orientation !== 'vertical', 'flex-col': props.orientation == 'vertical' }]
+        }),
         previousbutton: ({ props, context }) => ({
             class: ['flex justify-center items-center self-center overflow-hidden relative flex-shrink-0 flex-grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2']
         }),
         itemscontent: {
             class: ['overflow-hidden w-full']
         },
-        itemscontainer: {
-            class: ['flex flex-row']
+        itemscontainer: ({ props, context }) => ({
+            class: ['flex ', { 'flex-row': props.orientation !== 'vertical', 'flex-col h-full': props.orientation == 'vertical' }]
+        }),
+        item: ({ props, context }) => ({
+            class: ['flex flex-shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
+        }),
+        indicators: {
+            class: ['flex flex-row justify-center flex-wrap']
         },
-        item: {
-            class: ['flex-1']
-        }
+        indicator: {
+            class: ['mr-2 mb-2']
+        },
+        indicatorbutton: ({ props, instance }) => ({
+            class: [
+                'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 w-8 h-2 transition duration-200 rounded-0',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+            ]
+        })
     },
     tree: {
         root: {
@@ -2339,14 +2402,14 @@ export default {
         content: {
             class: [
                 'bg-white blue-gray-700 border-0 p-0',
-                'bg-gray-900 dark:text-white/80' // Dark Mode
+                'dark:bg-gray-900 dark:text-white/80' // Dark Mode
             ]
         },
         grid: {
-            class: 'flex flex-wrap ml-0 mr-0 mt-0'
+            class: 'flex flex-wrap ml-0 mr-0 mt-0 bg-white dark:bg-gray-900'
         },
         header: {
-            class: 'bg-gray-100 text-blue-gray-800 border-gray-200 border-t border-b p-4 font-bold'
+            class: 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white/80 border-gray-200 dark:border-blue-900/40 border-t border-b p-4 font-bold'
         }
     },
     dataviewlayoutoptions: {
