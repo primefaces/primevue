@@ -22629,6 +22629,13 @@
                             "readonly": false,
                             "type": "GalleriaState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "GalleriaContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -22998,6 +23005,21 @@
                             "type": "number",
                             "default": "0",
                             "description": "Total shifted items' count as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "GalleriaContext": {
+                    "description": "Defines current inline options in Galleria component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "highlighted",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current highlighted state of the indicator as a boolean."
                         }
                     ],
                     "methods": []
