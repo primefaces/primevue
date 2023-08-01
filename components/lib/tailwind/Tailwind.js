@@ -531,28 +531,28 @@ export default {
                 'transition duration-200 ease-in-out',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_4px_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_4px_rgba(147,197,253,0.5)]',
                 {
-                    'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': !props.link && props.severity == null && !props.text && !props.outlined && !props.plain,
+                    'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
                     'text-blue-600 bg-transparent border-transparent': props.link
                 },
                 {
-                    'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': props.severity == 'secondary' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': props.severity == 'success' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': props.severity == 'info' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': props.severity == 'warning' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': props.severity == 'help' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': props.severity == 'danger' && !props.text && !props.outlined && !props.plain
+                    'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': props.severity === 'secondary' && !props.text && !props.outlined && !props.plain,
+                    'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': props.severity === 'success' && !props.text && !props.outlined && !props.plain,
+                    'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': props.severity === 'info' && !props.text && !props.outlined && !props.plain,
+                    'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': props.severity === 'warning' && !props.text && !props.outlined && !props.plain,
+                    'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': props.severity === 'help' && !props.text && !props.outlined && !props.plain,
+                    'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': props.severity === 'danger' && !props.text && !props.outlined && !props.plain
                 },
                 { 'shadow-lg': props.raised },
                 { 'rounded-md': !props.rounded, 'rounded-full': props.rounded },
                 {
                     'bg-transparent border-transparent': props.text && !props.plain,
-                    'text-blue-500 hover:bg-blue-300/20': props.text && props.severity == null && !props.plain,
-                    'text-gray-500 hover:bg-gray-300/20': props.text && props.severity == 'secondary' && !props.plain,
-                    'text-green-500 hover:bg-green-300/20': props.text && props.severity == 'success' && !props.plain,
-                    'text-blue-500 hover:bg-blue-300/20': props.text && props.severity == 'info' && !props.plain,
-                    'text-orange-500 hover:bg-orange-300/20': props.text && props.severity == 'warning' && !props.plain,
-                    'text-purple-500 hover:bg-purple-300/20': props.text && props.severity == 'help' && !props.plain,
-                    'text-red-500 hover:bg-red-300/20': props.text && props.severity == 'danger' && !props.plain
+                    'text-blue-500 hover:bg-blue-300/20': props.text && props.severity === null && !props.plain,
+                    'text-gray-500 hover:bg-gray-300/20': props.text && props.severity === 'secondary' && !props.plain,
+                    'text-green-500 hover:bg-green-300/20': props.text && props.severity === 'success' && !props.plain,
+                    'text-blue-500 hover:bg-blue-300/20': props.text && props.severity === 'info' && !props.plain,
+                    'text-orange-500 hover:bg-orange-300/20': props.text && props.severity === 'warning' && !props.plain,
+                    'text-purple-500 hover:bg-purple-300/20': props.text && props.severity === 'help' && !props.plain,
+                    'text-red-500 hover:bg-red-300/20': props.text && props.severity === 'danger' && !props.plain
                 },
                 { 'shadow-lg': props.raised && props.text },
                 {
@@ -562,15 +562,16 @@ export default {
                 },
                 {
                     'bg-transparent border': props.outlined && !props.plain,
-                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && props.severity == null && !props.plain,
-                    'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.outlined && props.severity == 'secondary' && !props.plain,
-                    'text-green-500 border border-green-500 hover:bg-green-300/20': props.outlined && props.severity == 'success' && !props.plain,
-                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && props.severity == 'info' && !props.plain,
-                    'text-orange-500 border border-orange-500 hover:bg-orange-300/20': props.outlined && props.severity == 'warning' && !props.plain,
-                    'text-purple-500 border border-purple-500 hover:bg-purple-300/20': props.outlined && props.severity == 'help' && !props.plain,
-                    'text-red-500 border border-red-500 hover:bg-red-300/20': props.outlined && props.severity == 'danger' && !props.plain
+                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && props.severity === null && !props.plain,
+                    'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.outlined && props.severity === 'secondary' && !props.plain,
+                    'text-green-500 border border-green-500 hover:bg-green-300/20': props.outlined && props.severity === 'success' && !props.plain,
+                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && props.severity === 'info' && !props.plain,
+                    'text-orange-500 border border-orange-500 hover:bg-orange-300/20': props.outlined && props.severity === 'warning' && !props.plain,
+                    'text-purple-500 border border-purple-500 hover:bg-purple-300/20': props.outlined && props.severity === 'help' && !props.plain,
+                    'text-red-500 border border-red-500 hover:bg-red-300/20': props.outlined && props.severity === 'danger' && !props.plain
                 },
-                { 'px-4 py-3 text-base': props.size == null, 'text-xs py-2 px-3': props.size == 'small', 'text-xl py-3 px-4': props.size == 'large' }
+                { 'px-4 py-3 text-base': props.size === null, 'text-xs py-2 px-3': props.size === 'small', 'text-xl py-3 px-4': props.size === 'large' },
+                { 'opacity-60 pointer-events-none cursor-default': context.disabled }
             ]
         }),
         label: ({ props }) => ({
@@ -642,42 +643,40 @@ export default {
                 class: [
                     'min-[0px]:rounded-r-none',
                     {
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity == 'secondary' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity == 'success' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity == 'info' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity == 'warning' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity == 'help' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity == 'danger' && !parent.props.text && !parent.props.outlined
+                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === null && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === 'info' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined
                     },
                     { 'shadow-lg': parent.props.raised },
-                    { 'rounded-md': !parent.props.rounded, 'rounded-full': parent.props.rounded },
+                    { 'rounded-l-full': parent.props.rounded },
                     {
-                        'bg-transparent border-transparent': parent.props.text,
-                        'text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity == null,
-                        'text-gray-500 hover:bg-gray-300/20': parent.props.text && parent.props.severity == 'secondary',
-                        'text-green-500 hover:bg-green-300/20': parent.props.text && parent.props.severity == 'success',
-                        'text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity == 'info',
-                        'text-orange-500 hover:bg-orange-300/20': parent.props.text && parent.props.severity == 'warning',
-                        'text-purple-500 hover:bg-purple-300/20': parent.props.text && parent.props.severity == 'help',
-                        'text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity == 'danger'
-                    },
-                    { 'shadow-lg': parent.props.raised && parent.props.text },
-                    {
-                        'text-gray-500 hover:bg-gray-300/20': parent.props.text,
-                        'text-gray-500 border border-gray-500 hover:bg-gray-300/20': parent.props.outlined,
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': !parent.props.outlined & !parent.props.text
+                        'bg-transparent border-transparent hover:border-transparent': parent.props.text,
+                        '!text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity === null,
+                        '!text-gray-500 hover:bg-gray-300/20': parent.props.text && parent.props.severity === 'secondary',
+                        '!text-green-500 hover:bg-green-300/20': parent.props.text && parent.props.severity === 'success',
+                        '!text-blue-500 !hover:bg-blue-300/20': parent.props.text && parent.props.severity === 'info',
+                        '!text-orange-500 hover:bg-orange-300/20': parent.props.text && parent.props.severity === 'warning',
+                        '!text-purple-500 hover:bg-purple-300/20': parent.props.text && parent.props.severity === 'help',
+                        '!text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity === 'danger'
                     },
                     {
-                        'bg-transparent border': parent.props.outlined,
-                        'text-blue-500 border border-blue-500 hover:bg-blue-300/20': parent.props.outlined && parent.props.severity == null,
-                        'text-gray-500 border border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity == 'secondary',
-                        'text-green-500 border border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity == 'success',
-                        'text-blue-500 border border-blue-500 hover:bg-blue-300/20': parent.props.outlined && parent.props.severity == 'info',
-                        'text-orange-500 border border-orange-500 hover:bg-orange-300/20': parent.props.outlined && parent.props.severity == 'warning',
-                        'text-purple-500 border border-purple-500 hover:bg-purple-300/20': parent.props.outlined && parent.props.severity == 'help',
-                        'text-red-500 border border-red-500 hover:bg-red-300/20': parent.props.outlined && parent.props.severity == 'danger'
+                        'bg-transparent border border-r-0': parent.props.outlined,
+                        '!text-blue-500 !border-blue-500 hover:bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null),
+                        '!text-gray-500 !border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary',
+                        '!text-green-500 !border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity === 'success',
+                        '!text-orange-500 !border-orange-500 hover:bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning',
+                        '!text-purple-500 !border-purple-500 hover:bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help',
+                        '!text-red-500 !border-red-500 hover:bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger'
                     },
-                    { 'px-4 py-3 text-base': parent.props.size == null, 'text-xs py-2 px-3': parent.props.size == 'small', 'text-xl py-3 px-4': parent.props.size == 'large' }
+                    {
+                        'px-4 py-3 text-base': parent.props.size === null,
+                        'text-xs py-2 px-3': parent.props.size === 'small',
+                        'text-xl py-3 px-4': parent.props.size === 'large'
+                    }
                 ]
             })
         },
@@ -685,44 +684,41 @@ export default {
             root: ({ parent }) => ({
                 class: [
                     'min-[0px]:rounded-l-none',
-                    { 'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity == null && !parent.props.text && !parent.props.outlined && !parent.props.plain },
                     {
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity == 'secondary' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity == 'success' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity == 'info' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity == 'warning' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity == 'help' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity == 'danger' && !parent.props.text && !parent.props.outlined && !parent.props.plain
+                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === null && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === 'info' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined,
+                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined
                     },
                     { 'shadow-lg': parent.props.raised },
-                    { 'rounded-md': !parent.props.rounded, 'rounded-full': parent.props.rounded },
+                    { 'rounded-r-full': parent.props.rounded },
                     {
-                        'bg-transparent border-transparent': parent.props.text && !parent.props.plain,
-                        'text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity == null && !parent.props.plain,
-                        'text-gray-500 hover:bg-gray-300/20': parent.props.text && parent.props.severity == 'secondary' && !parent.props.plain,
-                        'text-green-500 hover:bg-green-300/20': parent.props.text && parent.props.severity == 'success' && !parent.props.plain,
-                        'text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity == 'info' && !parent.props.plain,
-                        'text-orange-500 hover:bg-orange-300/20': parent.props.text && parent.props.severity == 'warning' && !parent.props.plain,
-                        'text-purple-500 hover:bg-purple-300/20': parent.props.text && parent.props.severity == 'help' && !parent.props.plain,
-                        'text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity == 'danger' && !parent.props.plain
-                    },
-                    { 'shadow-lg': parent.props.raised && parent.props.text },
-                    {
-                        'text-gray-500 hover:bg-gray-300/20': parent.props.plain & parent.props.text,
-                        'text-gray-500 border border-gray-500 hover:bg-gray-300/20': parent.props.plain & parent.props.outlined,
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.plain & !parent.props.outlined & !parent.props.text
+                        'bg-transparent border-transparent hover:border-transparent': parent.props.text,
+                        '!text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity === null,
+                        '!text-gray-500 hover:bg-gray-300/20': parent.props.text && parent.props.severity === 'secondary',
+                        '!text-green-500 hover:bg-green-300/20': parent.props.text && parent.props.severity === 'success',
+                        '!text-blue-500 !hover:bg-blue-300/20': parent.props.text && parent.props.severity === 'info',
+                        '!text-orange-500 hover:bg-orange-300/20': parent.props.text && parent.props.severity === 'warning',
+                        '!text-purple-500 hover:bg-purple-300/20': parent.props.text && parent.props.severity === 'help',
+                        '!text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity === 'danger'
                     },
                     {
-                        'bg-transparent border': parent.props.outlined && !parent.props.plain,
-                        'text-blue-500 border border-blue-500 hover:bg-blue-300/20': parent.props.outlined && parent.props.severity == null && !parent.props.plain,
-                        'text-gray-500 border border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity == 'secondary' && !parent.props.plain,
-                        'text-green-500 border border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity == 'success' && !parent.props.plain,
-                        'text-blue-500 border border-blue-500 hover:bg-blue-300/20': parent.props.outlined && parent.props.severity == 'info' && !parent.props.plain,
-                        'text-orange-500 border border-orange-500 hover:bg-orange-300/20': parent.props.outlined && parent.props.severity == 'warning' && !parent.props.plain,
-                        'text-purple-500 border border-purple-500 hover:bg-purple-300/20': parent.props.outlined && parent.props.severity == 'help' && !parent.props.plain,
-                        'text-red-500 border border-red-500 hover:bg-red-300/20': parent.props.outlined && parent.props.severity == 'danger' && !parent.props.plain
+                        'bg-transparent border border-r-0': parent.props.outlined,
+                        '!text-blue-500 !border-blue-500 hover:bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null),
+                        '!text-gray-500 !border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary',
+                        '!text-green-500 !border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity === 'success',
+                        '!text-orange-500 !border-orange-500 hover:bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning',
+                        '!text-purple-500 !border-purple-500 hover:bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help',
+                        '!text-red-500 !border-red-500 hover:bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger'
                     },
-                    { 'px-4 py-3 text-base': parent.props.size == null, 'text-xs py-2 px-3': parent.props.size == 'small', 'text-xl py-3 px-4': parent.props.size == 'large' }
+                    {
+                        'px-4 py-3 text-base': parent.props.size === null,
+                        'text-xs py-2 px-3': parent.props.size === 'small',
+                        'text-xl py-3 px-4': parent.props.size === 'large'
+                    }
                 ]
             })
         }
