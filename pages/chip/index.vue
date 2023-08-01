@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Chip/theming/index.vue';
 import AccessibilityDoc from '@/doc/chip/AccessibilityDoc';
 import BasicDoc from '@/doc/chip/BasicDoc';
 import IconDoc from '@/doc/chip/IconDoc';
@@ -11,6 +10,7 @@ import ImageDoc from '@/doc/chip/ImageDoc';
 import ImportDoc from '@/doc/chip/ImportDoc';
 import TemplateDoc from '@/doc/chip/TemplateDoc';
 import PTComponent from '@/doc/chip/pt/index.vue';
+import ThemingDoc from '@/doc/chip/theming/index.vue';
 
 export default {
     data() {

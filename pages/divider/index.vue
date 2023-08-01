@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Divider/theming/index.vue';
 import AccessibilityDoc from '@/doc/divider/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/divider/BasicDoc.vue';
 import ContentDoc from '@/doc/divider/ContentDoc.vue';
@@ -12,6 +11,7 @@ import LoginDoc from '@/doc/divider/LoginDoc.vue';
 import TypeDoc from '@/doc/divider/TypeDoc.vue';
 import VerticalDoc from '@/doc/divider/VerticalDoc.vue';
 import PTComponent from '@/doc/divider/pt/index.vue';
+import ThemingDoc from '@/doc/divider/theming/index.vue';
 
 export default {
     data() {

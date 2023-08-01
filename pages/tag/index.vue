@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Tag/theming/index.vue';
 import AccessibilityDoc from '@/doc/tag/AccessibilityDoc';
 import BasicDoc from '@/doc/tag/BasicDoc';
 import IconDoc from '@/doc/tag/IconDoc';
@@ -12,6 +11,7 @@ import PillDoc from '@/doc/tag/PillDoc';
 import SeverityDoc from '@/doc/tag/SeverityDoc';
 import TemplateDoc from '@/doc/tag/TemplateDoc';
 import PTComponent from '@/doc/tag/pt/index.vue';
+import ThemingDoc from '@/doc/tag/theming/index.vue';
 
 export default {
     data() {
