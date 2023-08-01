@@ -169,7 +169,7 @@ export interface CarouselState {
 /**
  * Defines current inline options in Carousel component.
  */
-export interface GalleriaContext {
+export interface CarouselContext {
     /**
      * Current highlighted state of the indicator as a boolean.
      * @defaultValue false
