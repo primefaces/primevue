@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The built-in theme provides a strong base that can be extended further for your requirements. For customization, the pass through values need to be overriden. For instance, the panel component has the following default configuration.</p>
+        <p>
+            The built-in theme provides a strong base that can be extended further for your requirements. For customization, the pass through values need to be overriden. The unstyled section of the theming documentation for each component
+            demonstrates the theme with an editable example. For instance, the panel component has the following default configuration.
+        </p>
     </DocSectionText>
     <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
     <p>

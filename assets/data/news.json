@@ -1,8 +1,8 @@
 {
-    "id": 40,
-    "content": "Introducing the new Unstyled Mode",
+    "id": 50,
+    "content": "90+ UI Components for Tailwind CSS",
     "linkText": "Learn More",
-    "linkHref": "https://primevue.org/unstyled",
+    "linkHref": "https://primevue.org/tailwind",
     "backgroundStyle": "background-color:#4f8ff7",
     "textStyle": "color:#ffffff;font-weight:500",
     "linkStyle": "color:#ffffff;font-weight:700;text-decoration: underline;"
