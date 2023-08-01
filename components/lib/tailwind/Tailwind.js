@@ -587,7 +587,6 @@ export default {
         button: {
             root: ({ parent }) => ({
                 class: [
-                    console.log(parent.props.plain),
                     'min-[0px]:rounded-r-none',
                     { 'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity == null && !parent.props.text && !parent.props.outlined && !parent.props.plain },
                     {
@@ -1022,7 +1021,6 @@ export default {
         },
         daylabel: ({ context }) => ({
             class: [
-                console.log(context.disabled),
                 'w-10 h-10 rounded-full transition-shadow duration-200 border-transparent border',
                 'flex items-center cursor-pointer justify-center mx-auto overflow-hidden relative',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
@@ -1998,6 +1996,12 @@ export default {
         indicator: {
             class: ['mr-2']
         },
+        indicatorbutton: ({ props, context }) => ({
+            class: [
+                'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 w-4 h-4 transition duration-200 rounded-full',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+            ]
+        }),
         mask: {
             class: ['fixed top-0 left-0 w-full h-full', 'flex items-center justify-center', 'bg-black bg-opacity-90']
         },
@@ -2053,10 +2057,22 @@ export default {
             class: ['overflow-hidden w-full']
         },
         itemscontainer: ({ props, context }) => ({
-            class: [console.log(props), 'flex ', { 'flex-row': props.orientation !== 'vertical', 'flex-col h-full': props.orientation == 'vertical' }]
+            class: ['flex ', { 'flex-row': props.orientation !== 'vertical', 'flex-col h-full': props.orientation == 'vertical' }]
         }),
         item: ({ props, context }) => ({
             class: ['flex flex-shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
+        }),
+        indicators: {
+            class: ['flex flex-row justify-center flex-wrap']
+        },
+        indicator: {
+            class: ['mr-2 mb-2']
+        },
+        indicatorbutton: ({ props, context }) => ({
+            class: [
+                'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 w-8 h-2 transition duration-200 rounded-0',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+            ]
         })
     },
     tree: {
