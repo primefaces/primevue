@@ -20,6 +20,7 @@ export interface CarouselPassThroughMethodOptions {
     instance: any;
     props: CarouselProps;
     state: CarouselState;
+    context: CarouselContext;
 }
 
 /**
@@ -163,6 +164,17 @@ export interface CarouselState {
      * @defaultValue 20
      */
     swipeThreshold: number;
+}
+
+/**
+ * Defines current inline options in Carousel component.
+ */
+export interface GalleriaContext {
+    /**
+     * Current highlighted state of the indicator as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
 }
 
 export interface CarouselResponsiveOptions {

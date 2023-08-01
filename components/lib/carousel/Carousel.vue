@@ -239,6 +239,13 @@ export default {
         }
     },
     methods: {
+        getIndicatorPTOptions(index) {
+            return {
+                context: {
+                    highlighted: index === this.d_page
+                }
+            };
+        },
         step(dir, page) {
             let totalShiftedItems = this.totalShiftedItems;
             const isCircular = this.isCircular();
