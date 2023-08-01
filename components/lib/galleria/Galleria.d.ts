@@ -227,7 +227,7 @@ export interface GalleriaState {
 /**
  * Defines current inline options in Galleria component.
  */
-export interface GalleriaState {
+export interface GalleriaContext {
     /**
      * Current highlighted state of the indicator as a boolean.
      * @defaultValue false
