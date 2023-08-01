@@ -19,6 +19,7 @@ export interface GalleriaPassThroughMethodOptions {
     instance: any;
     props: GalleriaProps;
     state: GalleriaState;
+    context: GalleriaContext;
 }
 
 export interface GalleriaResponsiveOptions {
@@ -221,6 +222,17 @@ export interface GalleriaState {
      * @defaultValue 0
      */
     totalShiftedItems: number;
+}
+
+/**
+ * Defines current inline options in Galleria component.
+ */
+export interface GalleriaState {
+    /**
+     * Current highlighted state of the indicator as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
 }
 
 /**

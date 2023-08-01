@@ -26,7 +26,7 @@
                 @click="onIndicatorClick(index)"
                 @mouseenter="onIndicatorMouseEnter(index)"
                 @keydown="onIndicatorKeyDown($event, index)"
-                v-bind="ptm('indicator')"
+                v-bind="ptm('indicator', getIndicatorPTOptions(index))"
                 :data-p-highlight="isIndicatorItemActive(index)"
             >
                 <button v-if="!templates['indicator']" type="button" tabindex="-1" :class="cx('indicatorButton')" v-bind="ptm('indicatorButton')"></button>
@@ -95,6 +95,13 @@ export default {
         }
     },
     methods: {
+        getIndicatorPTOptions(index) {
+            return {
+                context: {
+                    highlighted: this.activeIndex === index
+                }
+            };
+        },
         next() {
             let nextItemIndex = this.activeIndex + 1;
             let activeIndex = this.circular && this.value.length - 1 === this.activeIndex ? 0 : nextItemIndex;
