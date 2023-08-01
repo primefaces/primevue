@@ -38064,6 +38064,13 @@
                             "readonly": false,
                             "type": "SplitterState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SplitterContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -38177,6 +38184,21 @@
                             "type": "number",
                             "default": "",
                             "description": "Previous size state as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "SplitterContext": {
+                    "description": "Defines options in Splitter component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "nested",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "",
+                            "description": "Current nested state of the component."
                         }
                     ],
                     "methods": []
