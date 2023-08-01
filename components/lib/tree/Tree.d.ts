@@ -109,79 +109,79 @@ export interface TreeSelectionKeys {
  */
 export interface TreePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the filter container's DOM element.
      */
     filterContainer?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the search icon's DOM element.
+     * Used to pass attributes to the search icon's DOM element.
      */
     searchIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the node's DOM element.
+     * Used to pass attributes to the node's DOM element.
      */
     node?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the toggler's DOM element.
      */
     toggler?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler icon's DOM element.
+     * Used to pass attributes to the toggler icon's DOM element.
      */
     togglerIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox container's DOM element.
+     * Used to pass attributes to the checkbox container's DOM element.
      */
     checkboxContainer?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox's DOM element.
+     * Used to pass attributes to the checkbox's DOM element.
      */
     checkbox?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox icon's DOM element.
+     * Used to pass attributes to the checkbox icon's DOM element.
      */
     checkboxIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the node icon's DOM element.
+     * Used to pass attributes to the node icon's DOM element.
      */
     nodeIcon?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the subgroup's DOM element.
+     * Used to pass attributes to the subgroup's DOM element.
      */
     subgroup?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading overlay's DOM element.
+     * Used to pass attributes to the loading overlay's DOM element.
      */
     loadingOverlay?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: TreePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -310,7 +310,7 @@ export interface TreeProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TreePassThroughOptions}
      */
     pt?: TreePassThroughOptions;

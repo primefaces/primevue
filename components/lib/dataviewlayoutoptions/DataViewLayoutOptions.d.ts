@@ -33,27 +33,27 @@ export interface DataViewLayoutOptionsPassThroughMethodOptions {
  */
 export interface DataViewLayoutOptionsPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DataViewLayoutOptionsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list button's DOM element.
+     * Used to pass attributes to the list button's DOM element.
      */
     listButton?: DataViewLayoutOptionsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list icon's DOM element.
+     * Used to pass attributes to the list icon's DOM element.
      */
     listIcon?: DataViewLayoutOptionsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the grid button's DOM element.
+     * Used to pass attributes to the grid button's DOM element.
      */
     gridButton?: DataViewLayoutOptionsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the grid icon's DOM element.
+     * Used to pass attributes to the grid icon's DOM element.
      */
     gridIcon?: DataViewLayoutOptionsPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -91,7 +91,7 @@ export interface DataViewLayoutOptionsProps {
      */
     modelValue?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DataViewLayoutOptionsPassThroughOptions}
      */
     pt?: DataViewLayoutOptionsPassThroughOptions;

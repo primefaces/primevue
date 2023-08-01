@@ -29,47 +29,47 @@ export interface RatingPassThroughMethodOptions {
  */
 export interface RatingPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the cancel item's DOM element.
+     * Used to pass attributes to the cancel item's DOM element.
      */
     cancelItem?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the cancel icon's DOM element.
+     * Used to pass attributes to the cancel icon's DOM element.
      */
     cancelIcon?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the on icon's DOM element.
+     * Used to pass attributes to the on icon's DOM element.
      */
     onIcon?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the off icon's DOM element.
+     * Used to pass attributes to the off icon's DOM element.
      */
     offIcon?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden cancel inputW wapper's DOM element.
+     * Used to pass attributes to the hidden cancel inputW wapper's DOM element.
      */
     hiddenCancelInputWrapper?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden cancel input's DOM element.
+     * Used to pass attributes to the hidden cancel input's DOM element.
      */
     hiddenCancelInput?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden item input wrapper's DOM element.
+     * Used to pass attributes to the hidden item input wrapper's DOM element.
      */
     hiddenItemInputWrapper?: RatingPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden item input's DOM element.
+     * Used to pass attributes to the hidden item input's DOM element.
      */
     hiddenItemInput?: RatingPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -175,7 +175,7 @@ export interface RatingProps {
      */
     cancelIcon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {RatingPassThroughOptions}
      */
     pt?: RatingPassThroughOptions;

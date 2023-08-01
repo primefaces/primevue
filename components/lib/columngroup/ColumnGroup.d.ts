@@ -27,11 +27,11 @@ export interface ColumnGroupPassThroughMethodOptions {
  */
 export interface ColumnGroupPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ColumnGroupPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -53,7 +53,7 @@ export interface ColumnGroupProps {
      */
     type?: 'header' | 'footer' | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ColumnGroupPassThroughOptions}
      */
     pt?: ColumnGroupPassThroughOptions;

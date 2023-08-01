@@ -28,11 +28,11 @@ export interface DeferredContentPassThroughMethodOptions {
  */
 export interface DeferredContentPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DeferredContentPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -61,7 +61,7 @@ export interface DeferredContentState {
  */
 export interface DeferredContentProps {
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DeferredContentPassThroughOptions}
      */
     pt?: DeferredContentPassThroughOptions;

@@ -29,60 +29,60 @@ export interface TreeSelectPassThroughMethodOptions {
  */
 export interface TreeSelectPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label container's DOM element.
+     * Used to pass attributes to the label container's DOM element.
      */
     labelContainer?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the token's DOM element.
+     * Used to pass attributes to the token's DOM element.
      */
     token?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the token label's DOM element.
+     * Used to pass attributes to the token label's DOM element.
      */
     tokenLabel?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the trigger's DOM element.
+     * Used to pass attributes to the trigger's DOM element.
      */
     trigger?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the trigger icon's DOM element.
+     * Used to pass attributes to the trigger icon's DOM element.
      */
     triggerIcon?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to Tree component.
+     * Used to pass attributes to Tree component.
      * @see {@link TreePassThroughOptionType}
      */
     tree?: TreePassThroughOptionType;
     /**
-     * Uses to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: TreeSelectPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -187,7 +187,7 @@ export interface TreeSelectProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -199,7 +199,7 @@ export interface TreeSelectProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TreeSelectPassThroughOptions}
      */
     pt?: TreeSelectPassThroughOptions;

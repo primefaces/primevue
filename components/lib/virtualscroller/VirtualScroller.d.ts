@@ -110,27 +110,27 @@ export interface VirtualScrollerItemOptions {
  */
 export interface VirtualScrollerPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loader's DOM element.
+     * Used to pass attributes to the loader's DOM element.
      */
     loader?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the spacer's DOM element.
+     * Used to pass attributes to the spacer's DOM element.
      */
     spacer?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -311,7 +311,7 @@ export interface VirtualScrollerProps {
      */
     autoSize?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {VirtualScrollerPassThroughOptions}
      */
     pt?: VirtualScrollerPassThroughOptions;

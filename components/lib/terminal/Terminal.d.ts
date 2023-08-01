@@ -27,43 +27,43 @@ export interface TerminalPassThroughMethodOptions {
  */
 export interface TerminalPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the welcome message's DOM element.
+     * Used to pass attributes to the welcome message's DOM element.
      */
     welcomeMessage?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the commands' DOM element.
+     * Used to pass attributes to the commands' DOM element.
      */
     commands?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the prompt's DOM element.
+     * Used to pass attributes to the prompt's DOM element.
      */
     prompt?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the command's DOM element.
+     * Used to pass attributes to the command's DOM element.
      */
     command?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the response's DOM element.
+     * Used to pass attributes to the response's DOM element.
      */
     response?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: TerminalPassThroughOptionType;
     /**
-     * Uses to pass attributes to the command text's DOM element.
+     * Used to pass attributes to the command text's DOM element.
      */
     commandText?: TerminalPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -103,7 +103,7 @@ export interface TerminalProps {
      */
     prompt?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TerminalPassThroughOptions}
      */
     pt?: TerminalPassThroughOptions;

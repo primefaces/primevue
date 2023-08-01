@@ -29,27 +29,27 @@ export interface ButtonPassThroughMethodOptions {
  */
 export interface ButtonPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the badge's DOM element.
+     * Used to pass attributes to the badge's DOM element.
      */
     badge?: ButtonPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -147,7 +147,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     plain?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ButtonPassThroughOptions}
      */
     pt?: ButtonPassThroughOptions;

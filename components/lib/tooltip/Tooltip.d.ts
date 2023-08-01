@@ -61,7 +61,7 @@ export interface TooltipOptions {
      */
     hideDelay?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TooltipDirectivePassThroughOptions}
      */
     pt?: TooltipDirectivePassThroughOptions;
@@ -78,19 +78,19 @@ export interface TooltipOptions {
  */
 export interface TooltipDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TooltipDirectivePassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: TooltipDirectivePassThroughOptionType;
     /**
-     * Uses to pass attributes to the arrow's DOM element.
+     * Used to pass attributes to the arrow's DOM element.
      */
     arrow?: TooltipDirectivePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

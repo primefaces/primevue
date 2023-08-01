@@ -31,36 +31,36 @@ export interface SpeedDialPassThroughMethodOptions {
  */
 export interface SpeedDialPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      *  @see {@link ButtonPassThroughOptions}
      */
     button?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the menu's DOM element.
+     * Used to pass attributes to the menu's DOM element.
      */
     menu?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the menu item's DOM element.
+     * Used to pass attributes to the menu item's DOM element.
      */
     menuitem?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action icon's DOM element.
+     * Used to pass attributes to the action icon's DOM element.
      */
     actionIcon?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mask's DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -236,7 +236,7 @@ export interface SpeedDialProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SpeedDialPassThroughOptions}
      */
     pt?: SpeedDialPassThroughOptions;

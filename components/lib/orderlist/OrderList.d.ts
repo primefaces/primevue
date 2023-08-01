@@ -64,47 +64,47 @@ export interface OrderListSelectionChangeEvent {
  */
 export interface OrderListPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: OrderListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the controls' DOM element.
+     * Used to pass attributes to the controls' DOM element.
      */
     controls?: OrderListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveUpButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveTopButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveDownButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveBottomButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: OrderListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: OrderListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: OrderListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: OrderListPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -203,23 +203,23 @@ export interface OrderListProps {
      */
     tabindex?: number | string | undefined;
     /**
-     *  Uses to pass all properties of the HTMLAttributes to the list element.
+     *  Used to pass all properties of the HTMLAttributes to the list element.
      */
     listProps?: HTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move up button inside the component.
      */
     moveUpButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move top button inside the component.
      */
     moveTopButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move down button inside the component.
      */
     moveDownButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
      */
     moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
     /**
@@ -231,7 +231,7 @@ export interface OrderListProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {OrderListPassThroughOptions}
      */
     pt?: OrderListPassThroughOptions;

@@ -28,35 +28,35 @@ export interface SidebarPassThroughMethodOptions {
  */
 export interface SidebarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SidebarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: SidebarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header content's DOM element.
+     * Used to pass attributes to the header content's DOM element.
      */
     headerContent?: SidebarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button's DOM element.
+     * Used to pass attributes to the close button's DOM element.
      */
     closeButton?: SidebarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close icon's DOM element.
+     * Used to pass attributes to the close icon's DOM element.
      */
     closeIcon?: SidebarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: SidebarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mask's DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: SidebarPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -130,7 +130,7 @@ export interface SidebarProps {
      */
     blockScroll?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SidebarPassThroughOptions}
      */
     pt?: SidebarPassThroughOptions;

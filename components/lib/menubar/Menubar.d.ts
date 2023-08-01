@@ -30,63 +30,63 @@ export interface MenubarPassThroughMethodOptions {
  */
 export interface MenubarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu icon's DOM element.
+     * Used to pass attributes to the submenu icon's DOM element.
      */
     submenuIcon?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mobile popup menu button's DOM element.
+     * Used to pass attributes to the mobile popup menu button's DOM element.
      */
     button?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mobile popup menu button icon's DOM element.
+     * Used to pass attributes to the mobile popup menu button icon's DOM element.
      */
     popupIcon?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu's DOM element.
+     * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start of the component.
+     * Used to pass attributes to the start of the component.
      */
     start?: MenubarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end of the component.
+     * Used to pass attributes to the end of the component.
      */
     end?: MenubarPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -185,7 +185,7 @@ export interface MenubarProps {
      */
     exact?: boolean | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the menu button.
+     * Used to pass all properties of the HTMLButtonElement to the menu button.
      */
     buttonProps?: ButtonHTMLAttributes | undefined;
     /**
@@ -197,7 +197,7 @@ export interface MenubarProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MenubarPassThroughOptions}
      */
     pt?: MenubarPassThroughOptions;

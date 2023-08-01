@@ -29,31 +29,31 @@ export interface AccordionTabPassThroughMethodOptions {
  */
 export interface AccordionTabPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to pass attributes to the headeraction's DOM element.
+     * Used to pass attributes to the headeraction's DOM element.
      */
     headerAction?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to pass attributes to the headericon's DOM element.
+     * Used to pass attributes to the headericon's DOM element.
      */
     headerIcon?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to pass attributes to the headertitle's DOM element.
+     * Used to pass attributes to the headertitle's DOM element.
      */
     headerTitle?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggleablecontent's DOM element.
+     * Used to pass attributes to the toggleablecontent's DOM element.
      */
     toggleableContent?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: AccordionTabPassThroughOptionType;
 }
@@ -82,12 +82,12 @@ export interface AccordionTabProps {
      */
     headerClass?: any;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the tab header.
+     * Used to pass all properties of the HTMLDivElement to the tab header.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerProps?: HTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
+     * Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerActionProps?: AnchorHTMLAttributes | undefined;
@@ -100,7 +100,7 @@ export interface AccordionTabProps {
      */
     contentClass?: any;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the tab content.
+     * Used to pass all properties of the HTMLDivElement to the tab content.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentProps?: HTMLAttributes | undefined;
@@ -110,7 +110,7 @@ export interface AccordionTabProps {
      */
     disabled?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionTabPassThroughOptions}
      */
     pt?: AccordionTabPassThroughOptions;

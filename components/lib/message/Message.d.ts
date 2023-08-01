@@ -28,41 +28,41 @@ export interface MessagePassThroughMethodOptions {
  */
 export interface MessagePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
      * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
      */
     closeButton?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button icon's DOM element.
+     * Used to pass attributes to the button icon's DOM element.
      * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
     buttonIcon?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button icon's DOM element.
+     * Used to pass attributes to the button icon's DOM element.
      */
     closeIcon?: MessagePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -120,11 +120,11 @@ export interface MessageProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     * Used to pass all properties of the HTMLButtonElement to the close button.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MessagePassThroughOptions}
      */
     pt?: MessagePassThroughOptions;

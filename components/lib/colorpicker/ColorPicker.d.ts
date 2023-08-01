@@ -42,43 +42,43 @@ export interface ColorPickerChangeEvent {
  */
 export interface ColorPickerPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the selector's DOM element.
+     * Used to pass attributes to the selector's DOM element.
      */
     selector?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the color's DOM element.
+     * Used to pass attributes to the color's DOM element.
      */
     color?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the color handler's DOM element.
+     * Used to pass attributes to the color handler's DOM element.
      */
     colorHandle?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hue's DOM element.
+     * Used to pass attributes to the hue's DOM element.
      */
     hue?: ColorPickerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hue handler's DOM element.
+     * Used to pass attributes to the hue handler's DOM element.
      */
     hueHandle: ColorPickerPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -154,7 +154,7 @@ export interface ColorPickerProps {
      */
     appendTo?: 'body' | 'self' | string | undefined | HTMLElement;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ColorPickerPassThroughOptions}
      */
     pt?: ColorPickerPassThroughOptions;

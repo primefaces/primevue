@@ -28,11 +28,11 @@ export interface InputTextPassThroughMethodOptions {
  */
 export interface InputTextPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: InputTextPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -74,7 +74,7 @@ export interface InputTextProps extends InputHTMLAttributes {
      */
     size?: 'small' | 'large' | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {InputTextPassThroughOptions}
      */
     pt?: InputTextPassThroughOptions;

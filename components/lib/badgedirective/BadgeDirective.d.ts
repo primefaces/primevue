@@ -23,7 +23,7 @@ export interface BadgePassThroughMethodOptions {
  */
 export interface BadgeDirectiveOptions {
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {BadgeDirectivePassThroughOptions}
      */
     pt?: BadgeDirectivePassThroughOptions;
@@ -40,11 +40,11 @@ export interface BadgeDirectiveOptions {
  */
 export interface BadgeDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BadgeDirectivePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

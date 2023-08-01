@@ -28,11 +28,11 @@ export interface SplitterPanelPassThroughMethodOptions {
  */
 export interface SplitterPanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SplitterPanelPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -68,7 +68,7 @@ export interface SplitterPanelProps {
      */
     minSize?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SplitterPanelPassThroughOptions}
      */
     pt?: SplitterPanelPassThroughOptions;

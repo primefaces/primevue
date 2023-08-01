@@ -27,19 +27,19 @@ export interface TagPassThroughMethodOptions {
  */
 export interface TagPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TagPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: TagPassThroughOptionType;
     /**
-     * Uses to pass attributes to the value's DOM element.
+     * Used to pass attributes to the value's DOM element.
      */
     value?: TagPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -75,7 +75,7 @@ export interface TagProps {
      */
     icon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TagPassThroughOptions}
      */
     pt?: TagPassThroughOptions;

@@ -28,27 +28,27 @@ export interface ScrollPanelPassThroughMethodOptions {
  */
 export interface ScrollPanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the horizontal panel's DOM element.
+     * Used to pass attributes to the horizontal panel's DOM element.
      */
     barX?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the vertical panel's DOM element.
+     * Used to pass attributes to the vertical panel's DOM element.
      */
     barY?: ScrollPanelPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -96,7 +96,7 @@ export interface ScrollPanelProps {
      */
     step?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ScrollPanelPassThroughOptions}
      */
     pt?: ScrollPanelPassThroughOptions;

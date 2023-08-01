@@ -43,35 +43,35 @@ export interface FieldsetToggleEvent {
  */
 export interface FieldsetPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the legend's DOM element.
+     * Used to pass attributes to the legend's DOM element.
      */
     legend?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the toggler's DOM element.
      */
     toggler?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler icon's DOM element.
+     * Used to pass attributes to the toggler icon's DOM element.
      */
     togglerIcon?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the legend title's DOM element.
+     * Used to pass attributes to the legend title's DOM element.
      */
     legendTitle?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggleable content's DOM element.
+     * Used to pass attributes to the toggleable content's DOM element.
      */
     toggleableContent?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: FieldsetPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -114,12 +114,12 @@ export interface FieldsetProps {
      */
     collapsed?: boolean | undefined;
     /**
-     * Uses to pass the custom value to read for the AnchorHTMLAttributes inside the component.
+     * Used to pass the custom value to read for the AnchorHTMLAttributes inside the component.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     toggleButtonProps?: AnchorHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {FieldsetPassThroughOptions}
      */
     pt?: FieldsetPassThroughOptions;

@@ -51,7 +51,7 @@ export interface StyleClassOptions {
      */
     toggleClass?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {StyleClassDirectivePassThroughOptions}
      */
     pt?: StyleClassDirectivePassThroughOptions;
@@ -62,7 +62,7 @@ export interface StyleClassOptions {
  */
 export interface StyleClassDirectivePassThroughOptions {
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

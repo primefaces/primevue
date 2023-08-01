@@ -16,7 +16,7 @@ export declare type RippleDirectivePassThroughOptionType = RippleDirectivePassTh
  */
 export interface RippleOptions {
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {RippleDirectivePassThroughOptions}
      */
     pt?: RippleDirectivePassThroughOptions;
@@ -33,11 +33,11 @@ export interface RippleOptions {
  */
 export interface RippleDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: RippleDirectivePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;
