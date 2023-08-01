@@ -20,6 +20,7 @@ export interface SplitterPassThroughMethodOptions {
     instance: any;
     props: SplitterProps;
     state: SplitterState;
+    context: SplitterContext;
 }
 
 /**
@@ -91,6 +92,16 @@ export interface SplitterState {
      * Previous size state as a number.
      */
     prevSize: number;
+}
+
+/**
+ * Defines options in Splitter component.
+ */
+export interface SplitterContext {
+    /**
+     * Current nested state of the component.
+     */
+    nested?: boolean;
 }
 
 /**
