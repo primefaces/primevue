@@ -7209,6 +7209,13 @@
                             "readonly": false,
                             "type": "CarouselState",
                             "default": ""
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "CarouselContext",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -7460,6 +7467,21 @@
                             "type": "number",
                             "default": "20",
                             "description": "Swipe threshold count as a number."
+                        }
+                    ],
+                    "methods": []
+                },
+                "CarouselContext": {
+                    "description": "Defines current inline options in Carousel component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "highlighted",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current highlighted state of the indicator as a boolean."
                         }
                     ],
                     "methods": []
