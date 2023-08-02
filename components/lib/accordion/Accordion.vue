@@ -27,7 +27,7 @@
                     <component v-if="tab.children && tab.children.header" :is="tab.children.header"></component>
                 </a>
             </div>
-            <transition name="p-toggleable-content">
+            <transition name="p-toggleable-content" v-bind="getTabPT(tab, 'transition', i)">
                 <div
                     v-if="lazy ? isTabActive(i) : true"
                     v-show="lazy ? true : isTabActive(i)"

@@ -56,6 +56,10 @@ export interface AccordionTabPassThroughOptions {
      * Used to pass attributes to the content's DOM element.
      */
     content?: AccordionTabPassThroughOptionType;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: any;
 }
 
 /**
