@@ -118,7 +118,7 @@ export interface RadioButtonProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {RadioButtonPassThroughOptions}
      */
     pt?: RadioButtonPassThroughOptions;
