@@ -30,6 +30,7 @@
                     :selectionKeys="selectionKeys"
                     @checkbox-change="onCheckboxChange"
                     :pt="pt"
+                    :unstyled="unstyled"
                 ></TreeNode>
             </ul>
         </div>
