@@ -2,7 +2,7 @@
     <div ref="container" :class="cx('root')" v-bind="ptm('root')">
         <input v-if="!inline" ref="input" type="text" :class="cx('input')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('input')" />
         <Portal :appendTo="appendTo" :disabled="inline">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @click="onOverlayClick" v-bind="ptm('panel')">
                     <div :class="cx('panel')" v-bind="ptm('content')">
                         <div :ref="colorSelectorRef" :class="cx('selector')" @mousedown="onColorMousedown($event)" @touchstart="onColorDragStart($event)" @touchmove="onDrag($event)" @touchend="onDragEnd()" v-bind="ptm('selector')">
