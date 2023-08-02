@@ -37,7 +37,7 @@
                     </template>
                     <component v-else :is="templates.item" :item="processedItem.item"></component>
                 </div>
-                <transition name="p-toggleable-content">
+                <transition name="p-toggleable-content" v-bind="ptm('transition')">
                     <div v-show="isItemActive(processedItem)" :class="cx('toggleableContent')" v-bind="ptm('toggleableContent')">
                         <PanelMenuSub
                             v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"

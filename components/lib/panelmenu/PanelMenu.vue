@@ -38,7 +38,7 @@
                         <component v-else :is="$slots.item" :item="item"></component>
                     </div>
                 </div>
-                <transition name="p-toggleable-content">
+                <transition name="p-toggleable-content" v-bind="ptm('transition')">
                     <div v-show="isItemActive(item)" :id="getContentId(index)" :class="cx('toggleableContent')" role="region" :aria-labelledby="getHeaderId(index)" v-bind="ptm('toggleableContent')">
                         <div v-if="getItemProp(item, 'items')" :class="cx('menuContent')" v-bind="ptm('menuContent')">
                             <PanelMenuList
