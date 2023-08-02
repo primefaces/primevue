@@ -32059,6 +32059,14 @@
                             "type": "ComponentHooks",
                             "default": "",
                             "description": "Used to manage all lifecycle hooks"
+                        },
+                        {
+                            "name": "transition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Used to control Vue Transition API."
                         }
                     ],
                     "methods": []
