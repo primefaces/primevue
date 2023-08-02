@@ -12,7 +12,7 @@ export default {
             code: {
                 composition: `
 <template>
-    <div class="card flex align-items-center justify-content-center">
+    <div class="card flex items-center justify-center">
         <Card style="width: 25em">
             <template #header>
                 <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
