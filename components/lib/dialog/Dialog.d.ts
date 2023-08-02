@@ -7,11 +7,13 @@
  * @module dialog
  *
  */
-import { HTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type DialogPassThroughOptionType = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions) => DialogPassThroughAttributes | string) | string | null | undefined;
+
+export declare type DialogPassThroughTransitionType = TransitionProps | ((options: DialogPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -79,7 +81,7 @@ export interface DialogPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: DialogPassThroughTransitionType;
 }
 
 /**

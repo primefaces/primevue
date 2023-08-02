@@ -7,12 +7,14 @@
  * @module orderlist
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;
+
+export declare type OrderListPassThroughTransitionType = TransitionProps | ((options: OrderListPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -111,7 +113,7 @@ export interface OrderListPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: OrderListPassThroughTransitionType;
 }
 
 /**

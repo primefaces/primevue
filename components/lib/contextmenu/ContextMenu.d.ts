@@ -8,12 +8,14 @@
  * @module contextmenu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ContextMenuPassThroughOptionType = ContextMenuPassThroughAttributes | ((options: ContextMenuPassThroughMethodOptions) => ContextMenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ContextMenuPassThroughTransitionType = TransitionProps | ((options: ContextMenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -78,7 +80,7 @@ export interface ContextMenuPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: ContextMenuPassThroughTransitionType;
 }
 
 /**

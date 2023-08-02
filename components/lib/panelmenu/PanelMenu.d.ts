@@ -7,12 +7,14 @@
  * @module panelmenu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttributes | ((options: PanelMenuPassThroughMethodOptions) => PanelMenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PanelMenuPassThroughTransitionType = TransitionProps | ((options: PanelMenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -109,7 +111,7 @@ export interface PanelMenuPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: PanelMenuPassThroughTransitionType;
 }
 
 /**

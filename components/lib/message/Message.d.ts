@@ -7,11 +7,13 @@
  * @module message
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes | string) | string | null | undefined;
+
+export declare type MessagePassThroughTransitionType = TransitionProps | ((options: MessagePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -69,7 +71,7 @@ export interface MessagePassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: MessagePassThroughTransitionType;
 }
 
 /**

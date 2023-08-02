@@ -7,10 +7,13 @@
  * @module image
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
 export declare type ImagePassThroughOptionType = ImagePassThroughAttributes | ((options: ImagePassThroughMethodOptions) => ImagePassThroughAttributes | string) | string | null | undefined;
+
+export declare type ImagePassThroughTransitionType = TransitionProps | ((options: ImagePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -106,7 +109,7 @@ export interface ImagePassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: ImagePassThroughTransitionType;
 }
 
 /**

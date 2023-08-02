@@ -7,11 +7,13 @@
  * @module scrolltop
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttributes | ((options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ScrollTopPassThroughTransitionType = TransitionProps | ((options: ScrollTopPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -43,7 +45,7 @@ export interface ScrollTopPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: ScrollTopPassThroughTransitionType;
 }
 
 /**

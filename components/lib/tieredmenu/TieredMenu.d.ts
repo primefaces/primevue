@@ -7,12 +7,14 @@
  * @module tieredmenu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type TieredMenuPassThroughTransitionType = TransitionProps | ((options: TieredMenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -77,7 +79,7 @@ export interface TieredMenuPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: TieredMenuPassThroughTransitionType;
 }
 
 /**

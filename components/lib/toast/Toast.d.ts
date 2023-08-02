@@ -7,11 +7,13 @@
  * @module toast
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ToastPassThroughTransitionType = TransitionProps | ((options: ToastPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -89,7 +91,7 @@ export interface ToastPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: ToastPassThroughTransitionType;
 }
 
 /**

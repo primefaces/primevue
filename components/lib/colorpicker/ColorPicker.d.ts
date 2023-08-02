@@ -7,10 +7,13 @@
  * @module colorpicker
  *
  */
+import { TransitionProps } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ColorPickerPassThroughTransitionType = TransitionProps | ((options: ColorPickerPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -85,7 +88,7 @@ export interface ColorPickerPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: ColorPickerPassThroughTransitionType;
 }
 
 /**

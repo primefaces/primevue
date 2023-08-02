@@ -7,11 +7,13 @@
  * @module accordiontab
  *
  */
-import { AnchorHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { AnchorHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { AccordionPassThroughOptions } from '../accordion';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type AccordionTabPassThroughOptionType = AccordionTabPassThroughAttributes | ((options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes | string) | string | null | undefined;
+
+export declare type AccordionTabPassThroughTransitionType = TransitionProps | ((options: AccordionTabPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -59,7 +61,7 @@ export interface AccordionTabPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: AccordionTabPassThroughTransitionType;
 }
 
 /**

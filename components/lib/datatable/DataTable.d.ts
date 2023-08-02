@@ -7,7 +7,7 @@
  * @module datatable
  *
  */
-import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
+import { InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ColumnPassThroughOptionType } from '../column';
 import { ColumnGroupPassThroughOptionType } from '../columngroup';
@@ -17,6 +17,8 @@ import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-help
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
+
+export declare type DataTablePassThroughTransitionType = TransitionProps | ((options: DataTablePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -657,7 +659,7 @@ export interface DataTablePassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: DataTablePassThroughTransitionType;
 }
 
 /**

@@ -7,10 +7,13 @@
  * @module galleria
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+
 export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttributes | ((options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes | string) | string | null | undefined;
+
+export declare type GalleriaPassThroughTransitionType = TransitionProps | ((options: GalleriaPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -158,7 +161,7 @@ export interface GalleriaPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: GalleriaPassThroughTransitionType;
 }
 
 /**

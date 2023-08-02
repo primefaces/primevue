@@ -174,7 +174,7 @@ export interface AutoCompletePassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: PanelPassThroughTransitionType;
 }
 
 /**
