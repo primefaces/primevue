@@ -380,7 +380,10 @@ export default {
         isUnstyled: {
             immediate: true,
             handler(newValue) {
-                !newValue && this._loadStyle();
+                if (!newValue) {
+                    loadStyle();
+                    this.$options.css && this.$css.loadStyle();
+                }
             }
         }
     },
@@ -414,14 +417,10 @@ export default {
     methods: {
         _hook(hookName) {
             const selfHook = this._getOptionValue(this.pt, `hooks.${hookName}`);
-            const globalHook = this._getOptionValue(this.globalPT, `hooks.${hookName}`);
+            const defaultHook = this._getOptionValue(this.defaultPT, `hooks.${hookName}`);
 
             selfHook?.();
-            globalHook?.();
-        },
-        _loadStyle() {
-            loadStyle();
-            this.$options.css && this.$css.loadStyle();
+            defaultHook?.();
         },
         _loadGlobalStyles() {
             /*
