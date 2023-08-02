@@ -136,9 +136,9 @@ export interface AutoCompletePassThroughOptions {
      */
     dropdownButton?: ButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the AutoComplete's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
-    AutoComplete?: AutoCompletePassThroughOptionType;
+    panel?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -276,7 +276,7 @@ export interface AutoCompleteProps {
      */
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
-     * Maximum height of the suggestions AutoComplete.
+     * Maximum height of the suggestions panel.
      * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
@@ -357,17 +357,17 @@ export interface AutoCompleteProps {
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
-     * Inline style of the overlay AutoComplete.
+     * Inline style of the overlay panel.
      */
-    AutoCompleteStyle?: object | undefined;
+    panelStyle?: object | undefined;
     /**
-     * Style class of the overlay AutoComplete.
+     * Style class of the overlay panel.
      */
-    AutoCompleteClass?: string | object | undefined;
+    panelClass?: string | object | undefined;
     /**
-     * Used to pass all properties of the HTMLDivElement to the overlay AutoComplete inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
-    AutoCompleteProps?: HTMLAttributes | undefined;
+    panelProps?: HTMLAttributes | undefined;
     /**
      * Icon to display in the dropdown.
      * @deprecated since v3.27.0. Use 'dropdownicon' slot.
@@ -393,7 +393,7 @@ export interface AutoCompleteProps {
      */
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
-     * Whether to focus on the first visible or selected element when the overlay AutoComplete is shown.
+     * Whether to focus on the first visible or selected element when the overlay panel is shown.
      * @defaultValue true
      */
     autoOptionFocus?: boolean | undefined;
@@ -466,7 +466,7 @@ export interface AutoCompleteSlots {
         value: any;
     }): VNode[];
     /**
-     * Custom header template of AutoComplete.
+     * Custom header template of panel.
      * @param {Object} scope - header slot's params.
      */
     header(scope: {
@@ -480,7 +480,7 @@ export interface AutoCompleteSlots {
         suggestions: any[];
     }): VNode[];
     /**
-     * Custom footer template of AutoComplete.
+     * Custom footer template of panel.
      * @param {Object} scope - footer slot's params.
      */
     footer(scope: {
@@ -542,7 +542,7 @@ export interface AutoCompleteSlots {
         index: number;
     }): VNode[];
     /**
-     * Custom AutoComplete template.
+     * Custom content template.
      * @param {Object} scope - content slot's params.
      */
     content(scope: {
