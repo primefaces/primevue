@@ -1047,7 +1047,6 @@ export default {
                 'cursor-pointer inline-flex relative select-none',
                 'bg-white border border-gray-400 transition-colors duration-200 ease-in-out rounded-md',
                 'dark:bg-gray-900 dark:border-blue-900/40 dark:hover:border-blue-300',
-                'w-full md:w-56',
                 'hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
                 { 'opacity-60 select-none pointer-events-none cursor-default': props.disabled }
             ]
