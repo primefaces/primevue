@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="rating">
-        <div v-if="cancel" :class="cx('cancelItem')" @click="onOptionClick($event, 0)" v-bind="ptm('cancelItem')" :data-p-focused="focusedOptionIndex === 0">
+        <div v-if="cancel" :class="cx('cancelItem')" @click="onOptionClick($event, 0)" v-bind="getPTOptions('cancelItem', 0)" :data-p-focused="focusedOptionIndex === 0">
             <span class="p-hidden-accessible" v-bind="ptm('hiddenCancelInputWrapper')" :data-p-hidden-accessible="true">
                 <input
                     type="radio"
@@ -21,7 +21,7 @@
             </slot>
         </div>
         <template v-for="value in stars" :key="value">
-            <div :class="cx('item', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions(value, 'item')" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
+            <div :class="cx('item', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('item', value)" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
                 <span class="p-hidden-accessible" v-bind="ptm('hiddenItemInputWrapper')" :data-p-hidden-accessible="true">
                     <input
                         type="radio"
@@ -74,7 +74,7 @@ export default {
         this.name = this.name || UniqueComponentId();
     },
     methods: {
-        getPTOptions(value, key) {
+        getPTOptions(key, value) {
             return this.ptm(key, {
                 context: {
                     active: value <= this.modelValue,
