@@ -2919,12 +2919,12 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "AutoComplete",
+                            "name": "panel",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the AutoComplete's DOM element."
+                            "description": "Used to pass attributes to the panel's DOM element."
                         },
                         {
                             "name": "virtualScroller",
@@ -3167,7 +3167,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "200px",
-                            "description": "Maximum height of the suggestions AutoComplete."
+                            "description": "Maximum height of the suggestions panel."
                         },
                         {
                             "name": "dropdown",
@@ -3299,28 +3299,28 @@
                             "description": "Used to pass all properties of the HTMLInputElement to the focusable input element inside the component."
                         },
                         {
-                            "name": "AutoCompleteStyle",
+                            "name": "panelStyle",
                             "optional": true,
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Inline style of the overlay AutoComplete."
+                            "description": "Inline style of the overlay panel."
                         },
                         {
-                            "name": "AutoCompleteClass",
+                            "name": "panelClass",
                             "optional": true,
                             "readonly": false,
                             "type": "string | object",
                             "default": "",
-                            "description": "Style class of the overlay AutoComplete."
+                            "description": "Style class of the overlay panel."
                         },
                         {
-                            "name": "AutoCompleteProps",
+                            "name": "panelProps",
                             "optional": true,
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Used to pass all properties of the HTMLDivElement to the overlay AutoComplete inside the component."
+                            "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
                             "name": "dropdownIcon",
@@ -3371,7 +3371,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "true",
-                            "description": "Whether to focus on the first visible or selected element when the overlay AutoComplete is shown."
+                            "description": "Whether to focus on the first visible or selected element when the overlay panel is shown."
                         },
                         {
                             "name": "selectOnFocus",
@@ -3493,7 +3493,7 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom header template of AutoComplete."
+                            "description": "Custom header template of panel."
                         },
                         {
                             "name": "footer",
@@ -3506,7 +3506,7 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom footer template of AutoComplete."
+                            "description": "Custom footer template of panel."
                         },
                         {
                             "name": "item",
@@ -3559,7 +3559,7 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom AutoComplete template."
+                            "description": "Custom content template."
                         },
                         {
                             "name": "loader",
