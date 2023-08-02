@@ -53,7 +53,14 @@ const AvatarSlots = [
 const AvatarEvents = [
     {
         name: 'error',
-        description: 'Triggered when an error occurs while loading an image file.'
+        description: 'Triggered when an error occurs while loading an image file.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
     }
 ];
 

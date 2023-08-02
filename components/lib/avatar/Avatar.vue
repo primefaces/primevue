@@ -17,8 +17,8 @@ export default {
     extends: BaseAvatar,
     emits: ['error'],
     methods: {
-        onError() {
-            this.$emit('error');
+        onError(event) {
+            this.$emit('error', event);
         },
         getPTOptions(key) {
             return this.ptm(key, {

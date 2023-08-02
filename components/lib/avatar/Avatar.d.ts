@@ -125,7 +125,7 @@ export interface AvatarEmits {
     /**
      * Triggered when an error occurs while loading an image file.
      */
-    error(): void;
+    error(event: Event): void;
 }
 
 /**
