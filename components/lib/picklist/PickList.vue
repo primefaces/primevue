@@ -50,7 +50,7 @@
                 @focus="onListFocus($event, 'sourceList')"
                 @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
-                v-bind="{ ...sourceListProps, ...ptm('sourceList') }"
+                v-bind="{ ...sourceListProps, ...ptm('sourceList'), ...ptm('transition') }"
             >
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li
@@ -122,7 +122,7 @@
                 @focus="onListFocus($event, 'targetList')"
                 @blur="onListBlur($event, 'targetList')"
                 @keydown="onItemKeyDown($event, 'targetList')"
-                v-bind="{ ...targetListProps, ...ptm('targetList') }"
+                v-bind="{ ...targetListProps, ...ptm('targetList'), ...ptm('transition') }"
             >
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li
