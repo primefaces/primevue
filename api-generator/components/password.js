@@ -174,11 +174,26 @@ const PasswordSlots = [
     }
 ];
 
+const PasswordEmits = [
+    {
+        name: 'change',
+        description: 'Callback to invoke on value change.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Browser event'
+            }
+        ]
+    }
+];
+
 module.exports = {
     password: {
         name: 'Password',
         description: 'Password displays strength indicator for password fields.',
         props: PasswordProps,
-        slots: PasswordSlots
+        slots: PasswordSlots,
+        events: PasswordEmits
     }
 };

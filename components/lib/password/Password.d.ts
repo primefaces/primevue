@@ -290,6 +290,11 @@ export interface PasswordEmits {
      * @param {string} value - New value.
      */
     'update:modelValue'(value: string): void;
+    /**
+     * Callback to invoke on value change.
+     * @param {Event} event - Browser event.
+     */
+    change(event: Event): void;
 }
 
 /**

@@ -129,6 +129,7 @@ export default {
         },
         onInput(event) {
             this.$emit('update:modelValue', event.target.value);
+            this.$emit('change', event);
         },
         onFocus(event) {
             this.focused = true;
