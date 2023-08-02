@@ -43,7 +43,7 @@
             </slot>
         </div>
         <Portal :appendTo="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="overlayVisible" :ref="overlayRef" @click="onOverlayClick" :class="[cx('panel'), panelClass]" @keydown="onOverlayKeydown" v-bind="{ ...panelProps, ...ptm('panel') }">
                     <slot name="header" :value="modelValue" :options="options"></slot>
                     <div :class="cx('panel')" :style="{ 'max-height': scrollHeight }" v-bind="ptm('wrapper')">
