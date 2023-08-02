@@ -33257,6 +33257,19 @@
                             ],
                             "returnType": "void",
                             "description": "Emitted when the value changes."
+                        },
+                        {
+                            "name": "change",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event",
+                                    "description": "Browser event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on value change."
                         }
                     ]
                 }
