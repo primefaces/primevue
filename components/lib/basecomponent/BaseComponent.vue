@@ -357,6 +357,7 @@ ${radioButtonStyles}
 `;
 
 const { load: loadStyle } = useStyle(styles, { name: 'common', manual: true });
+const { load: loadGlobalStyle } = useStyle('', { name: 'global', manual: true });
 
 export default {
     name: 'BaseComponent',
@@ -379,10 +380,7 @@ export default {
         isUnstyled: {
             immediate: true,
             handler(newValue) {
-                if (!newValue) {
-                    loadStyle();
-                    this.$options.css && this.$css.loadStyle();
-                }
+                !newValue && this._loadStyle();
             }
         }
     },
@@ -395,6 +393,7 @@ export default {
     },
     beforeMount() {
         loadBaseStyle();
+        this._loadGlobalStyles();
         this._hook('onBeforeMount');
     },
     mounted() {
@@ -420,6 +419,25 @@ export default {
             selfHook?.();
             globalHook?.();
         },
+        _loadStyle() {
+            loadStyle();
+            this.$options.css && this.$css.loadStyle();
+        },
+        _loadGlobalStyles() {
+            /*
+             * @todo Add self custom css support;
+             * <Panel :pt="{ css: `...` }" .../>
+             *
+             * const selfCSS = this._getPTClassValue(this.pt, 'css', this.$params);
+             * const defaultCSS = this._getPTClassValue(this.defaultPT, 'css', this.$params);
+             * const mergedCSS = mergeProps(selfCSS, defaultCSS);
+             * ObjectUtils.isNotEmpty(mergedCSS?.class) && this.$css.loadCustomStyle(mergedCSS?.class);
+             */
+
+            const globalCSS = this._getOptionValue(this.globalPT, 'global.css', this.$params);
+
+            ObjectUtils.isNotEmpty(globalCSS) && loadGlobalStyle(globalCSS);
+        },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
         },
@@ -434,15 +452,9 @@ export default {
                 : ObjectUtils.getItemValue(options, params);
         },
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
-            const getValue = (...args) => {
-                const value = this._getOptionValue(...args);
-
-                return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
-            };
-
             const datasetPrefix = 'data-pc-';
-            const self = getValue(obj, key, params);
-            const globalPT = searchInDefaultPT ? (/./g.test(key) && !!params[key.split('.')[0]] ? getValue(this.globalPT, key, params) : getValue(this.defaultPT, key, params)) : undefined;
+            const self = this._getPTClassValue(obj, key, params);
+            const globalPT = searchInDefaultPT ? (/./g.test(key) && !!params[key.split('.')[0]] ? this._getPTClassValue(this.globalPT, key, params) : this._getPTClassValue(this.defaultPT, key, params)) : undefined;
             const merged = mergeProps(self, globalPT, {
                 ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
                 [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
@@ -455,19 +467,24 @@ export default {
              * return self && self['class'] ? { ...merged, ...{ class: self['class'] } } : merged;
              */
         },
+        _getPTClassValue(...args) {
+            const value = this._getOptionValue(...args);
+
+            return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
+        },
         ptm(key = '', params = {}) {
-            return this._getPTValue(this.pt, key, { instance: this, props: this.$props, state: this.$data, ...params });
+            return this._getPTValue(this.pt, key, { ...this.$params, ...params });
         },
         ptmo(obj = {}, key = '', params = {}) {
             return this._getPTValue(obj, key, { instance: this, ...params }, false);
         },
         cx(key = '', params = {}) {
-            return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params }) : undefined;
+            return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { ...this.$params, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
             if (when) {
-                const self = this._getOptionValue(this.$css.inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
-                const base = this._getOptionValue(inlineStyles, key, { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance, ...params });
+                const self = this._getOptionValue(this.$css.inlineStyles, key, { ...this.$params, ...params });
+                const base = this._getOptionValue(inlineStyles, key, { ...this.$params, ...params });
 
                 return [base, self];
             }
@@ -485,8 +502,11 @@ export default {
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;
         },
+        $params() {
+            return { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance };
+        },
         $css() {
-            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$css, ...this.$options.css };
+            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$css, ...this.$options.css };
         }
     }
 };

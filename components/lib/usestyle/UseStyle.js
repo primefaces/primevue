@@ -23,17 +23,23 @@ export function useStyle(css, options = {}) {
 
     let stop = () => {};
 
-    const load = () => {
+    /* @todo: Improve _options params */
+    const load = (_css, _options = {}) => {
         if (!document) return;
 
-        styleRef.value = document.querySelector(`style[data-primevue-style-id="${name}"]`) || document.getElementById(id) || document.createElement('style');
+        const [_name, _id] = [_options.name || name, _options.id || id];
+
+        styleRef.value = document.querySelector(`style[data-primevue-style-id="${_name}"]`) || document.getElementById(_id) || document.createElement('style');
 
         if (!styleRef.value.isConnected) {
+            cssRef.value = _css || css;
+
             styleRef.value.type = 'text/css';
-            id && (styleRef.value.id = id);
+            _id && (styleRef.value.id = _id);
             media && (styleRef.value.media = media);
             document.head.appendChild(styleRef.value);
             name && styleRef.value.setAttribute('data-primevue-style-id', name);
+            DomHandler.setAttributes(styleRef.value, _options);
         }
 
         if (isLoaded.value) return;

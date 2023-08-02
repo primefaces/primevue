@@ -210,6 +210,9 @@ export interface PrimeVuePTOptions {
         focustrap?: FocusTrapDirectivePassThroughOptions;
         ripple?: RippleDirectivePassThroughOptions;
     };
+    global?: {
+        css?: (options: any) => string | string | undefined;
+    };
 }
 
 export interface PrimeVueLocaleAriaOptions {
