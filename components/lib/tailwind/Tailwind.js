@@ -527,9 +527,9 @@ export default {
     button: {
         root: ({ props, context }) => ({
             class: [
-                'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom',
+                'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom h-full',
                 'transition duration-200 ease-in-out',
-                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_4px_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_4px_rgba(147,197,253,0.5)]',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]', // Primary button focus
                 {
                     'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
                     'text-blue-600 bg-transparent border-transparent': props.link
@@ -546,10 +546,9 @@ export default {
                 { 'rounded-md': !props.rounded, 'rounded-full': props.rounded },
                 {
                     'bg-transparent border-transparent': props.text && !props.plain,
-                    'text-blue-500 hover:bg-blue-300/20': props.text && props.severity === null && !props.plain,
+                    'text-blue-500 hover:bg-blue-300/20': props.text && (props.severity === null || props.severity === 'info') && !props.plain,
                     'text-gray-500 hover:bg-gray-300/20': props.text && props.severity === 'secondary' && !props.plain,
                     'text-green-500 hover:bg-green-300/20': props.text && props.severity === 'success' && !props.plain,
-                    'text-blue-500 hover:bg-blue-300/20': props.text && props.severity === 'info' && !props.plain,
                     'text-orange-500 hover:bg-orange-300/20': props.text && props.severity === 'warning' && !props.plain,
                     'text-purple-500 hover:bg-purple-300/20': props.text && props.severity === 'help' && !props.plain,
                     'text-red-500 hover:bg-red-300/20': props.text && props.severity === 'danger' && !props.plain
@@ -562,10 +561,9 @@ export default {
                 },
                 {
                     'bg-transparent border': props.outlined && !props.plain,
-                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && props.severity === null && !props.plain,
+                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && (props.severity === null || props.severity === 'info') && !props.plain,
                     'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.outlined && props.severity === 'secondary' && !props.plain,
                     'text-green-500 border border-green-500 hover:bg-green-300/20': props.outlined && props.severity === 'success' && !props.plain,
-                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && props.severity === 'info' && !props.plain,
                     'text-orange-500 border border-orange-500 hover:bg-orange-300/20': props.outlined && props.severity === 'warning' && !props.plain,
                     'text-purple-500 border border-purple-500 hover:bg-purple-300/20': props.outlined && props.severity === 'help' && !props.plain,
                     'text-red-500 border border-red-500 hover:bg-red-300/20': props.outlined && props.severity === 'danger' && !props.plain
@@ -584,7 +582,7 @@ export default {
             ]
         }),
         badge: ({ props }) => ({
-            class: [{ 'ml-2 w-4 h-4 leading-none': props.badge }]
+            class: [{ 'ml-2 w-4 h-4 leading-none flex items-center justify-center': props.badge }]
         })
     },
     speeddial: {
@@ -678,7 +676,10 @@ export default {
                         'text-xl py-3 px-4': parent.props.size === 'large'
                     }
                 ]
-            })
+            }),
+            icon: {
+                class: 'mr-2'
+            }
         },
         menubutton: {
             root: ({ parent }) => ({
@@ -706,7 +707,7 @@ export default {
                         '!text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity === 'danger'
                     },
                     {
-                        'bg-transparent border border-r-0': parent.props.outlined,
+                        'bg-transparent border': parent.props.outlined,
                         '!text-blue-500 !border-blue-500 hover:bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null),
                         '!text-gray-500 !border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary',
                         '!text-green-500 !border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity === 'success',
@@ -720,7 +721,10 @@ export default {
                         'text-xl py-3 px-4': parent.props.size === 'large'
                     }
                 ]
-            })
+            }),
+            label: {
+                class: 'hidden'
+            }
         }
     },
     //FORMS
