@@ -15,19 +15,25 @@ export default {
     <div class="card flex flex-wrap gap-6">
         <Timeline :value="events" class="w-full md:w-80">
             <template #content="slotProps">
-                {{ slotProps.item.status }}
+                <span class="text-gray-700 dark:text-white/80">
+                    {{ slotProps.item.status }}
+                </span>
             </template>
         </Timeline>
 
         <Timeline :value="events" align="right" class="w-full md:w-80">
             <template #content="slotProps">
-                {{ slotProps.item.status }}
+                <span class="text-gray-700 dark:text-white/80">
+                    {{ slotProps.item.status }}
+                </span>
             </template>
         </Timeline>
 
         <Timeline :value="events" align="alternate" class="w-full md:w-80">
             <template #content="slotProps">
-                {{ slotProps.item.status }}
+                <span class="text-gray-700 dark:text-white/80">
+                    {{ slotProps.item.status }}
+                </span>
             </template>
         </Timeline>
     </div>

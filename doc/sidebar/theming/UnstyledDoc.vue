@@ -13,7 +13,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex gap-2 justify-content-center">
+        <div class="flex gap-2 justify-center">
             <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
             <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
             <Button icon="pi pi-arrow-down" @click="visibleTop = true" />

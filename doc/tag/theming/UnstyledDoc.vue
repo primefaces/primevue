@@ -12,7 +12,7 @@ export default {
             code: {
                 composition: `
 <template>
-    <div class="flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <Tag value="Primary"></Tag>
         <Tag severity="success" value="Success"></Tag>
         <Tag severity="info" value="Info"></Tag>

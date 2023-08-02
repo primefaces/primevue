@@ -32,7 +32,7 @@ export default {
 export default {
     data() {
         return {
-            value: 'off',
+            value: 'Off',
             options: ['Off', 'On']
         }
     }
@@ -48,7 +48,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('off');
+const value = ref('Off');
 const options = ref(['Off', 'On']);
 <\/script>`
             }

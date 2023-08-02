@@ -20,7 +20,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('off');
+const value = ref('Off');
 const options = ref(['Off', 'On']);
 <\/script>`
             }

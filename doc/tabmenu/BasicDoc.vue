@@ -112,7 +112,7 @@ const items = ref([
                         tabName: 'HomeDemo',
                         content: `
 <template>
-    <div class="tabmenudemo-content">
+    <div class="p-4">
         <h5>Home Component Content</h5>
     </div>
 </template>
@@ -128,7 +128,7 @@ export default {
                         tabName: 'CalendarDemo',
                         content: `
 <template>
-    <div class="tabmenudemo-content">
+    <div class="p-4">
         <h5>Calendar Component Content</h5>
     </div>
 </template>
@@ -144,7 +144,7 @@ export default {
                         tabName: 'EditDemo',
                         content: `
 <template>
-    <div class="tabmenudemo-content">
+    <div class="p-4">
         <h5>Edit Component Content</h5>
     </div>
 </template>
@@ -160,7 +160,7 @@ export default {
                         tabName: 'DocumentationDemo',
                         content: `
 <template>
-    <div class="tabmenudemo-content">
+    <div class="p-4">
         <h5>Documentation Component Content</h5>
     </div>
 </template>
@@ -176,7 +176,7 @@ export default {
                         tabName: 'SettingsDemo',
                         content: `
 <template>
-    <div class="tabmenudemo-content">
+    <div class="p-4">
         <h5>Settings Component Content</h5>
     </div>
 </template>

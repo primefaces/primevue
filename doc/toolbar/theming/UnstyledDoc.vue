@@ -17,7 +17,7 @@ export default {
             <template #start>
                 <Button label="New" icon="pi pi-plus" class="mr-2" />
                 <Button label="Upload" icon="pi pi-upload" severity="success" class="mr-2" />
-                <i class="pi pi-bars p-toolbar-separator mr-2" />
+                <i class="pi pi-bars text-gray-700 dark:text-white/80 mr-2" />
                 <SplitButton label="Save" icon="pi pi-check" :model="items" severity="warning"></SplitButton>
             </template>
 

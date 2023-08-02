@@ -12,9 +12,9 @@ export default {
             code: {
                 composition: `
 <template>
-    <div class="card flex flex-column align-center">
+    <div class="card flex flex-col items-center">
         <TriStateCheckbox v-model="value" />
-        <label for="checkbox">{{ value == null ? 'null' : value }}</label>
+        <label for="checkbox" class="text-gray-700 dark:text-white/80 mt-1">{{ value == null ? 'null' : value }}</label>
     </div>  
 </template>
 
