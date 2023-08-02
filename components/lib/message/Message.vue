@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-message" appear>
+    <transition name="p-message" appear v-bind="ptm('transition')">
         <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')" data-pc-name="message">
             <div :class="cx('wrapper')" v-bind="ptm('wrapper')">
                 <slot name="messageicon" class="p-message-icon">
