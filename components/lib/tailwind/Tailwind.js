@@ -2525,7 +2525,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         movetopbutton: {
             root: ({ context }) => ({
@@ -2540,7 +2541,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         movedownbutton: {
             root: ({ context }) => ({
@@ -2555,7 +2557,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         movebottombutton: {
             root: ({ context }) => ({
@@ -2570,7 +2573,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         container: {
             class: 'flex-auto'
@@ -2621,7 +2625,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         sourcemovetopbutton: {
             root: ({ context }) => ({
@@ -2636,7 +2641,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         sourcemovedownbutton: {
             root: ({ context }) => ({
@@ -2651,7 +2657,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         sourcemovebottombutton: {
             root: ({ context }) => ({
@@ -2666,7 +2673,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         sourcewrapper: {
             class: 'grow shrink basis-2/4'
@@ -2712,7 +2720,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         movealltotargetbutton: {
             root: ({ context }) => ({
@@ -2727,7 +2736,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         movetosourcebutton: {
             root: ({ context }) => ({
@@ -2742,7 +2752,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         movealltosourcebutton: {
             root: ({ context }) => ({
@@ -2757,7 +2768,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         targetcontrols: {
             class: 'flex flex-col justify-center p-5'
@@ -2775,7 +2787,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         targetmovetopbutton: {
             root: ({ context }) => ({
@@ -2790,7 +2803,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         targetmovedownbutton: {
             root: ({ context }) => ({
@@ -2805,7 +2819,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         targetmovebottombutton: {
             root: ({ context }) => ({
@@ -2820,7 +2835,8 @@ export default {
                         'cursor-default pointer-events-none opacity-60': context.disabled
                     }
                 ]
-            })
+            }),
+            label: 'flex-initial w-0'
         },
         targetwrapper: {
             class: 'grow shrink basis-2/4'
