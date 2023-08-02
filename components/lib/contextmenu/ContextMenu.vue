@@ -1,6 +1,6 @@
 <template>
     <Portal :appendTo="appendTo">
-        <transition name="p-contextmenu" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave">
+        <transition name="p-contextmenu" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" :class="cx('root')" v-bind="{ ...$attrs, ...ptm('root') }" data-pc-name="contextmenu">
                 <ContextMenuSub
                     :ref="listRef"
