@@ -20,6 +20,7 @@ export interface ToggleButtonPassThroughMethodOptions {
     instance: any;
     props: ToggleButtonProps;
     state: ToggleButtonState;
+    context: ToggleButtonContext;
 }
 
 /**
@@ -66,9 +67,30 @@ export interface ToggleButtonPassThroughAttributes {
  */
 export interface ToggleButtonState {
     /**
-     * Focused state as a number.
+     * Focused state as a boolean.
      */
     focused: boolean;
+}
+
+/**
+ * Defines current options in ToggleButton component.
+ */
+export interface ToggleButtonContext {
+    /**
+     * Current focused state as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+    /**
+     * Current highlighted state as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
 }
 
 /**
