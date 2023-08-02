@@ -52,7 +52,7 @@
                 @focus="onListFocus"
                 @blur="onListBlur"
                 @keydown="onListKeyDown"
-                v-bind="{ ...listProps, ...ptm('list') }"
+                v-bind="{ ...listProps, ...ptm('list'), ...ptm('transition') }"
             >
                 <template v-for="(item, i) of modelValue" :key="getItemKey(item, i)">
                     <li
