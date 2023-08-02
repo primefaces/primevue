@@ -64,6 +64,10 @@ export interface ConfirmPopupPassThroughOptions {
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: any;
 }
 
 /**
