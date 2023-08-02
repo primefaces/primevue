@@ -28,19 +28,19 @@ export interface InlineMessagePassThroughMethodOptions {
  */
 export interface InlineMessagePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: InlineMessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: InlineMessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: InlineMessagePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -79,7 +79,7 @@ export interface InlineMessageProps {
      */
     icon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {InlineMessagePassThroughOptions}
      */
     pt?: InlineMessagePassThroughOptions;

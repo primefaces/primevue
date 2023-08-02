@@ -29,39 +29,39 @@ export interface TriStateCheckboxPassThroughMethodOptions {
  */
 export interface TriStateCheckboxPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox box's DOM element.
+     * Used to pass attributes to the checkbox box's DOM element.
      */
     checkbox?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the check icon's DOM element.
+     * Used to pass attributes to the check icon's DOM element.
      */
     checkIcon?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the uncheck icon's DOM element.
+     * Used to pass attributes to the uncheck icon's DOM element.
      */
     uncheckIcon?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nullable icon's DOM element.
+     * Used to pass attributes to the nullable icon's DOM element.
      */
     nullableIcon?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden value label's DOM element.
+     * Used to pass attributes to the hidden value label's DOM element.
      */
     hiddenValueLabel?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -128,7 +128,7 @@ export interface TriStateCheckboxProps {
      */
     inputId?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      * @deprecated since v3.26.0. Use 'pt' property.
      */
     inputProps?: InputHTMLAttributes | undefined;
@@ -141,7 +141,7 @@ export interface TriStateCheckboxProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TriStateCheckboxPassThroughOptions}
      */
     pt?: TriStateCheckboxPassThroughOptions;

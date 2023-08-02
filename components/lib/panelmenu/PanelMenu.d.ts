@@ -30,79 +30,79 @@ export interface PanelMenuPassThroughMethodOptions {
  */
 export interface PanelMenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header content's DOM element.
+     * Used to pass attributes to the header content's DOM element.
      */
     headerContent?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header action's DOM element.
+     * Used to pass attributes to the header action's DOM element.
      */
     headerAction?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenuIcon's DOM element.
+     * Used to pass attributes to the submenuIcon's DOM element.
      */
     submenuIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header icon's DOM element.
+     * Used to pass attributes to the header icon's DOM element.
      */
     headerIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header label's DOM element.
+     * Used to pass attributes to the header label's DOM element.
      */
     headerLabel?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggleable content's DOM element.
+     * Used to pass attributes to the toggleable content's DOM element.
      */
     toggleableContent?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the menu content's DOM element.
+     * Used to pass attributes to the menu content's DOM element.
      */
     menuContent?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu's DOM element.
+     * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: PanelMenuPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -208,7 +208,7 @@ export interface PanelMenuProps {
      */
     tabindex?: number | string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PanelMenuPassThroughOptions}
      */
     pt?: PanelMenuPassThroughOptions;

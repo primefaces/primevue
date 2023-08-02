@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Message/theming/index.vue';
 import AccessibilityDoc from '@/doc/message/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/message/BasicDoc.vue';
 import ClosabledDoc from '@/doc/message/ClosableDoc.vue';
@@ -14,6 +13,7 @@ import SeverityDoc from '@/doc/message/SeverityDoc.vue';
 import StickyDoc from '@/doc/message/StickyDoc.vue';
 import TemplateDoc from '@/doc/message/TemplateDoc.vue';
 import PTComponent from '@/doc/message/pt/index.vue';
+import ThemingDoc from '@/doc/message/theming/index.vue';
 
 export default {
     data() {

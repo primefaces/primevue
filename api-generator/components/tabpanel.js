@@ -21,13 +21,13 @@ const TabPanelProps = [
         name: 'headerProps',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLLiElement to the tab header.'
+        description: 'Used to pass all properties of the HTMLLiElement to the tab header.'
     },
     {
         name: 'headerActionProps',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.'
+        description: 'Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.'
     },
     {
         name: 'contentStyle',
@@ -45,7 +45,7 @@ const TabPanelProps = [
         name: 'contentProps',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLDivElement to the tab content.'
+        description: 'Used to pass all properties of the HTMLDivElement to the tab content.'
     },
     {
         name: 'disabled',
@@ -57,7 +57,7 @@ const TabPanelProps = [
         name: 'pt',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass attributes to DOM elements inside the component.'
+        description: 'Used to pass attributes to DOM elements inside the component.'
     }
 ];
 

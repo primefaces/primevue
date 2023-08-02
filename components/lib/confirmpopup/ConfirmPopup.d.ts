@@ -30,37 +30,37 @@ export interface ConfirmPopupPassThroughMethodOptions {
  */
 export interface ConfirmPopupPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the message's DOM element.
+     * Used to pass attributes to the message's DOM element.
      */
     message?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: ConfirmPopupPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     rejectButton?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     acceptButton?: ButtonPassThroughOptions;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -97,7 +97,7 @@ export interface ConfirmPopupProps {
      */
     group?: string;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ConfirmPopupPassThroughOptions}
      */
     pt?: ConfirmPopupPassThroughOptions;

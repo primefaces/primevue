@@ -28,27 +28,27 @@ export interface ToggleButtonPassThroughMethodOptions {
  */
 export interface ToggleButtonPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: ToggleButtonPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -127,7 +127,7 @@ export interface ToggleButtonProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -139,7 +139,7 @@ export interface ToggleButtonProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ToggleButtonPassThroughOptions}
      */
     pt?: ToggleButtonPassThroughOptions;

@@ -20,6 +20,7 @@ export interface CarouselPassThroughMethodOptions {
     instance: any;
     props: CarouselProps;
     state: CarouselState;
+    context: CarouselContext;
 }
 
 /**
@@ -28,71 +29,71 @@ export interface CarouselPassThroughMethodOptions {
  */
 export interface CarouselPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the previous button's DOM element.
+     * Used to pass attributes to the previous button's DOM element.
      */
     previousButton?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the previous button icon's DOM element.
+     * Used to pass attributes to the previous button icon's DOM element.
      */
     previousButtonIcon?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the items content's DOM element.
+     * Used to pass attributes to the items content's DOM element.
      */
     itemsContent?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the items container's DOM element.
+     * Used to pass attributes to the items container's DOM element.
      */
     itemsContainer?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item cloned's DOM element.
+     * Used to pass attributes to the item cloned's DOM element.
      */
     itemCloned?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the next button's DOM element.
+     * Used to pass attributes to the next button's DOM element.
      */
     nextButton?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the next button icon's DOM element.
+     * Used to pass attributes to the next button icon's DOM element.
      */
     nextButtonIcon?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the indicators's DOM element.
+     * Used to pass attributes to the indicators's DOM element.
      */
     indicators?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the indicator's DOM element.
+     * Used to pass attributes to the indicator's DOM element.
      */
     indicator?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the indicator button's DOM element.
+     * Used to pass attributes to the indicator button's DOM element.
      */
     indicatorButton?: CarouselPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: CarouselPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -163,6 +164,17 @@ export interface CarouselState {
      * @defaultValue 20
      */
     swipeThreshold: number;
+}
+
+/**
+ * Defines current inline options in Carousel component.
+ */
+export interface CarouselContext {
+    /**
+     * Current highlighted state of the indicator as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
 }
 
 export interface CarouselResponsiveOptions {
@@ -251,15 +263,15 @@ export interface CarouselProps {
      */
     showIndicators?: boolean | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the previous navigation button.
+     * Used to pass all properties of the HTMLButtonElement to the previous navigation button.
      */
     prevButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the next navigation button.
+     * Used to pass all properties of the HTMLButtonElement to the next navigation button.
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {CarouselPassThroughOptions}
      */
     pt?: CarouselPassThroughOptions;

@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Carousel/theming/index.vue';
 import AccessibilityDoc from '@/doc/carousel/AccessibilityDoc';
 import BasicDoc from '@/doc/carousel/BasicDoc';
 import CircularDoc from '@/doc/carousel/CircularDoc';
@@ -20,6 +19,7 @@ import NumScrollDoc from '@/doc/carousel/NumScrollDoc';
 import ResponsiveDoc from '@/doc/carousel/ResponsiveDoc';
 import VerticalDoc from '@/doc/carousel/VerticalDoc';
 import PTComponent from '@/doc/carousel/pt/index.vue';
+import ThemingDoc from '@/doc/carousel/theming/index.vue';
 
 export default {
     data() {

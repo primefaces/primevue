@@ -20,6 +20,7 @@ export interface SplitterPassThroughMethodOptions {
     instance: any;
     props: SplitterProps;
     state: SplitterState;
+    context: SplitterContext;
 }
 
 /**
@@ -58,19 +59,19 @@ export interface SplitterResizeEndEvent {
  */
 export interface SplitterPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SplitterPassThroughOptionType;
     /**
-     * Uses to pass attributes to the gutter's DOM element.
+     * Used to pass attributes to the gutter's DOM element.
      */
     gutter?: SplitterPassThroughOptionType;
     /**
-     * Uses to pass attributes to the gutter handler's DOM element.
+     * Used to pass attributes to the gutter handler's DOM element.
      */
     gutterHandler?: SplitterPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -91,6 +92,16 @@ export interface SplitterState {
      * Previous size state as a number.
      */
     prevSize: number;
+}
+
+/**
+ * Defines options in Splitter component.
+ */
+export interface SplitterContext {
+    /**
+     * Current nested state of the component.
+     */
+    nested?: boolean;
 }
 
 /**
@@ -122,7 +133,7 @@ export interface SplitterProps {
      */
     step?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SplitterPassThroughOptions}
      */
     pt?: SplitterPassThroughOptions;

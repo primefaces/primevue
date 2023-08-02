@@ -26,19 +26,19 @@ export interface ProgressSpinnerPassThroughMethodOptions {
  */
 export interface ProgressSpinnerPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ProgressSpinnerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the spinner's DOM element.
+     * Used to pass attributes to the spinner's DOM element.
      */
     spinner?: ProgressSpinnerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the circle's DOM element.
+     * Used to pass attributes to the circle's DOM element.
      */
     circle?: ProgressSpinnerPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -70,7 +70,7 @@ export interface ProgressSpinnerProps {
      */
     animationDuration?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ProgressSpinnerPassThroughOptions}
      */
     pt?: ProgressSpinnerPassThroughOptions;

@@ -26,7 +26,7 @@ export interface FocusTrapOptions {
      */
     autoFocus?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {FocusTrapDirectivePassThroughOptions}
      */
     pt?: FocusTrapDirectivePassThroughOptions;
@@ -38,19 +38,19 @@ export interface FocusTrapOptions {
  */
 export interface FocusTrapDirectivePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: FocusTrapDirectivePassThroughOptionType;
     /**
-     * Uses to pass attributes to the first focusable element's DOM element.
+     * Used to pass attributes to the first focusable element's DOM element.
      */
     firstFocusableElement?: FocusTrapDirectivePassThroughOptionType;
     /**
-     * Uses to pass attributes to the last focusable element's DOM element.
+     * Used to pass attributes to the last focusable element's DOM element.
      */
     lastFocusableElement?: FocusTrapDirectivePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseDirective.DirectiveHooks}
      */
     hooks?: DirectiveHooks;

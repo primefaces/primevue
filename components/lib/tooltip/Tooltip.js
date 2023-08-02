@@ -225,14 +225,26 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             return document.getElementById(el.$_ptooltipId);
         },
         create(el, options) {
+            const modifiers = el.$_ptooltipModifiers;
+
             const tooltipArrow = DomHandler.createElement('div', {
                 class: !el.unstyled && this.cx('arrow'),
-                'p-bind': this.ptm('arrow')
+                style: {
+                    top: modifiers?.bottom ? '0' : modifiers?.right || modifiers?.left || (!modifiers?.right && !modifiers?.left && !modifiers?.top && !modifiers?.bottom) ? '50%' : null,
+                    bottom: modifiers?.top ? '0' : null,
+                    left: modifiers?.right || (!modifiers?.right && !modifiers?.left && !modifiers?.top && !modifiers?.bottom) ? '0' : modifiers?.top || modifiers?.bottom ? '50%' : null,
+                    right: modifiers?.left ? '0' : null
+                },
+                'p-bind': this.ptm('arrow', {
+                    context: modifiers
+                })
             });
 
             const tooltipText = DomHandler.createElement('div', {
                 class: !el.unstyled && this.cx('text'),
-                'p-bind': this.ptm('text')
+                'p-bind': this.ptm('text', {
+                    context: modifiers
+                })
             });
 
             if (el.$_ptooltipEscape) {
@@ -252,7 +264,9 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                         width: el.$_ptooltipFitContent ? 'fit-content' : undefined
                     },
                     class: [!el.unstyled && this.cx('root'), el.$_ptooltipClass],
-                    'p-bind': this.ptm('root')
+                    'p-bind': this.ptm('root', {
+                        context: modifiers
+                    })
                 },
                 tooltipArrow,
                 tooltipText

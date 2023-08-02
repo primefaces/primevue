@@ -174,84 +174,84 @@ export interface TreeTableSelectionKeys {
  */
 export interface TreeTablePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading wrapper's DOM element.
+     * Used to pass attributes to the loading wrapper's DOM element.
      */
     loadingWrapper?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading overlay's DOM element.
+     * Used to pass attributes to the loading overlay's DOM element.
      */
     loadingOverlay?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the Paginator component.
+     * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
     paginator?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the table's DOM element.
+     * Used to pass attributes to the table's DOM element.
      */
     table?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the thead's DOM element.
+     * Used to pass attributes to the thead's DOM element.
      */
     thead?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header row's DOM element.
+     * Used to pass attributes to the header row's DOM element.
      */
     headerRow?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the tbody's DOM element.
+     * Used to pass attributes to the tbody's DOM element.
      */
     tbody?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the row's DOM element.
+     * Used to pass attributes to the row's DOM element.
      */
     row?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the empty message cell's DOM element.
+     * Used to pass attributes to the empty message cell's DOM element.
      */
     emptyMessageCell?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the tfoot's DOM element.
+     * Used to pass attributes to the tfoot's DOM element.
      */
     tfoot?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer row's DOM element.
+     * Used to pass attributes to the footer row's DOM element.
      */
     footerRow?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the resize helper's DOM element.
+     * Used to pass attributes to the resize helper's DOM element.
      */
     resizeHelper?: TreeTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the Column helper components.
+     * Used to pass attributes to the Column helper components.
      */
     column?: ColumnPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -556,7 +556,7 @@ export interface TreeTableProps {
      */
     tableProps?: any | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TreeTablePassThroughOptions}
      */
     pt?: TreeTablePassThroughOptions;

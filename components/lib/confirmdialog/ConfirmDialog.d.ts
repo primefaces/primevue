@@ -30,57 +30,57 @@ export interface ConfirmDialogPassThroughMethodOptions {
  */
 export interface ConfirmDialogPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header title's DOM element.
+     * Used to pass attributes to the header title's DOM element.
      */
     headerTitle?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header icons' DOM element.
+     * Used to pass attributes to the header icons' DOM element.
      */
     headerIcons?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button's component.
+     * Used to pass attributes to the close button's component.
      */
     closeButton?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button icon's component.
+     * Used to pass attributes to the close button icon's component.
      */
     closeButtonIcon?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the message's DOM element.
+     * Used to pass attributes to the message's DOM element.
      */
     message?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: ConfirmDialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     rejectButton?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     acceptButton?: ButtonPassThroughOptions;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -149,7 +149,7 @@ export interface ConfirmDialogProps {
      */
     draggable?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ConfirmDialogPassThroughOptions}
      */
     pt?: ConfirmDialogPassThroughOptions;

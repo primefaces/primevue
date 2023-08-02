@@ -28,27 +28,27 @@ export interface ChipPassThroughMethodOptions {
  */
 export interface ChipPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the image's DOM element.
+     * Used to pass attributes to the image's DOM element.
      */
     image?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label' DOM element.
+     * Used to pass attributes to the label' DOM element.
      */
     label?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the removeIcon's DOM element.
+     * Used to pass attributes to the removeIcon's DOM element.
      */
     removeIcon?: ChipPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -100,7 +100,7 @@ export interface ChipProps {
      */
     removeIcon?: string;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ChipPassThroughOptions}
      */
     pt?: ChipPassThroughOptions;

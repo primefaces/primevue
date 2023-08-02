@@ -28,11 +28,11 @@ export interface TextareaPassThroughMethodOptions {
  */
 export interface TextareaPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TextareaPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -76,7 +76,7 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      */
     autoResize?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TextareaPassThroughOptions}
      */
     pt?: TextareaPassThroughOptions;

@@ -27,23 +27,23 @@ export interface ToolbarPassThroughMethodOptions {
  */
 export interface ToolbarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToolbarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start's DOM element.
+     * Used to pass attributes to the start's DOM element.
      */
     start?: ToolbarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the center's DOM element.
+     * Used to pass attributes to the center's DOM element.
      */
     center?: ToolbarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the right's DOM element.
+     * Used to pass attributes to the right's DOM element.
      */
     end?: ToolbarPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -65,7 +65,7 @@ export interface ToolbarProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ToolbarPassThroughOptions}
      */
     pt?: ToolbarPassThroughOptions;

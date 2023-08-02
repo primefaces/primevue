@@ -28,23 +28,23 @@ export interface InputSwitchPassThroughMethodOptions {
  */
 export interface InputSwitchPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: InputSwitchPassThroughOptionType;
     /**
-     * Uses to pass attributes to the slider's DOM element.
+     * Used to pass attributes to the slider's DOM element.
      */
     slider?: InputSwitchPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: InputSwitchPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: InputSwitchPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -100,7 +100,7 @@ export interface InputSwitchProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -112,7 +112,7 @@ export interface InputSwitchProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {InputSwitchPassThroughOptions}
      */
     pt?: InputSwitchPassThroughOptions;

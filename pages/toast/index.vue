@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Toast Component" header="Toast" description="Toast is used to display messages in an overlay." :componentDocs="docs" :apiDocs="['Toast', 'ToastService-UseToast']" :ptTabComponent="ptComponent" />
+    <DocComponent title="Vue Toast Component" header="Toast" description="Toast is used to display messages in an overlay." :componentDocs="docs" :apiDocs="['Toast', 'ToastService-UseToast']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -10,10 +10,10 @@ import MultipleDoc from '@/doc/toast/MultipleDoc.vue';
 import PositionDoc from '@/doc/toast/PositionDoc.vue';
 import SeverityDoc from '@/doc/toast/SeverityDoc.vue';
 import StickyDoc from '@/doc/toast/StickyDoc.vue';
-import StyleDoc from '@/doc/toast/StyleDoc.vue';
 import TemplateDoc from '@/doc/toast/TemplateDoc.vue';
 import ToastServiceDoc from '@/doc/toast/ToastServiceDoc.vue';
 import PTComponent from '@/doc/toast/pt/index.vue';
+import ThemingDoc from '@/doc/toast/theming/index.vue';
 
 export default {
     data() {
@@ -60,17 +60,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Skeleton/theming/index.vue';
 import Accessibility from '@/doc/skeleton/AccessibilityDoc.vue';
 import CardDoc from '@/doc/skeleton/CardDoc.vue';
 import DataTableDoc from '@/doc/skeleton/DataTableDoc.vue';
@@ -19,6 +18,7 @@ import ImportDoc from '@/doc/skeleton/ImportDoc.vue';
 import ListDoc from '@/doc/skeleton/ListDoc.vue';
 import ShapesDoc from '@/doc/skeleton/ShapesDoc.vue';
 import PTComponent from '@/doc/skeleton/pt/index.vue';
+import ThemingDoc from '@/doc/skeleton/theming/index.vue';
 
 export default {
     data() {

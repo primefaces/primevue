@@ -29,19 +29,19 @@ export interface SelectButtonPassThroughMethodOptions {
  */
 export interface SelectButtonPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SelectButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
      */
     button?: SelectButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: SelectButtonPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -143,7 +143,7 @@ export interface SelectButtonProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SelectButtonPassThroughOptions}
      */
     pt?: SelectButtonPassThroughOptions;

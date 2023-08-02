@@ -75,144 +75,144 @@ export interface MultiSelectFilterEvent {
  */
 export interface MultiSelectPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label container's DOM element.
+     * Used to pass attributes to the label container's DOM element.
      */
     labelContainer?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the token's DOM element.
+     * Used to pass attributes to the token's DOM element.
      */
     token?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the token label's DOM element.
+     * Used to pass attributes to the token label's DOM element.
      */
     tokenLabel?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the remove token icon's DOM element.
+     * Used to pass attributes to the remove token icon's DOM element.
      */
     removeTokenIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the trigger's DOM element.
+     * Used to pass attributes to the trigger's DOM element.
      */
     trigger?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the trigger icon's DOM element.
+     * Used to pass attributes to the trigger icon's DOM element.
      */
     triggerIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the dropdown icon's DOM element.
+     * Used to pass attributes to the dropdown icon's DOM element.
      */
     dropdownIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header checkbox container's DOM element.
+     * Used to pass attributes to the header checkbox container's DOM element.
      */
     headerCheckboxContainer?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header checkbox's DOM element.
+     * Used to pass attributes to the header checkbox's DOM element.
      */
     headerCheckbox?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the filter container's DOM element.
      */
     filterContainer?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the filter input's DOM element.
      */
     filterInput?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter icon's DOM element.
+     * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button's DOM element.
+     * Used to pass attributes to the close button's DOM element.
      */
     closeButton?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close icon's DOM element.
+     * Used to pass attributes to the close icon's DOM element.
      */
     closeIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the VirtualScroller component.
+     * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the item group's DOM element.
      */
     itemGroup?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox container's DOM element.
+     * Used to pass attributes to the checkbox container's DOM element.
      */
     checkboxContainer?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox's DOM element.
+     * Used to pass attributes to the checkbox's DOM element.
      */
     checkbox?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox icon's DOM element.
+     * Used to pass attributes to the checkbox icon's DOM element.
      */
     checkboxIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the option's DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
     option?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the emptyMessage's DOM element.
+     * Used to pass attributes to the emptyMessage's DOM element.
      */
     emptyMessage?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden first focusable element's DOM element.
+     * Used to pass attributes to the hidden first focusable element's DOM element.
      */
     hiddenFirstFocusableEl?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden filter result's DOM element.
+     * Used to pass attributes to the hidden filter result's DOM element.
      */
     hiddenFilterResult?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden selected message's DOM element.
      */
     hiddenSelectedMessage?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden last focusable element's DOM element.
+     * Used to pass attributes to the hidden last focusable element's DOM element.
      */
     hiddenLastFocusableEl?: MultiSelectPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -326,7 +326,7 @@ export interface MultiSelectProps {
      */
     inputId?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -338,15 +338,15 @@ export interface MultiSelectProps {
      */
     panelClass?: any;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.
+     * Used to pass all properties of the HTMLInputElement to the filter input inside the overlay panel.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the clear button inside the overlay panel.
+     * Used to pass all properties of the HTMLButtonElement to the clear button inside the overlay panel.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
@@ -501,7 +501,7 @@ export interface MultiSelectProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MultiSelectPassThroughOptions}
      */
     pt?: MultiSelectPassThroughOptions;

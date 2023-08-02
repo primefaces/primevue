@@ -27,15 +27,15 @@ export interface DividerPassThroughMethodOptions {
  */
 export interface DividerPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DividerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: DividerPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -67,7 +67,7 @@ export interface DividerProps {
      */
     type?: 'solid' | 'dashed' | 'dotted' | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DividerPassThroughOptions}
      */
     pt?: DividerPassThroughOptions;

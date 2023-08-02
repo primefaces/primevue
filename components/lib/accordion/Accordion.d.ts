@@ -58,20 +58,20 @@ export interface AccordionClickEvent extends AccordionTabOpenEvent {}
  */
 export interface AccordionPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AccordionPassThroughOptionType;
     /**
-     * Uses to pass attributes to AccordionTab helper components.
+     * Used to pass attributes to AccordionTab helper components.
      * @deprecated since v3.30.1. Use 'accordiontab' property instead.
      */
     tab?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to pass attributes to AccordionTab helper components.
+     * Used to pass attributes to AccordionTab helper components.
      */
     accordiontab?: AccordionTabPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -136,7 +136,7 @@ export interface AccordionProps {
      */
     selectOnFocus?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionPassThroughOptions}
      */
     pt?: AccordionPassThroughOptions;

@@ -26,27 +26,27 @@ export interface SliderPassThroughMethodOptions {
  */
 export interface SliderPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the range's DOM element.
+     * Used to pass attributes to the range's DOM element.
      */
     range?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the handle's DOM element.
+     * Used to pass attributes to the handle's DOM element.
      */
     handle?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start handler's DOM element.
+     * Used to pass attributes to the start handler's DOM element.
      */
     startHandler?: SliderPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end handler's DOM element.
+     * Used to pass attributes to the end handler's DOM element.
      */
     endHandler?: SliderPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -125,7 +125,7 @@ export interface SliderProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SliderPassThroughOptions}
      */
     pt?: SliderPassThroughOptions;

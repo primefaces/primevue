@@ -42,56 +42,56 @@ export interface TabViewClickEvent extends TabViewChangeEvent {}
  */
 export interface TabViewPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nav container's DOM element.
+     * Used to pass attributes to the nav container's DOM element.
      */
     navContainer?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nav content's DOM element.
+     * Used to pass attributes to the nav content's DOM element.
      */
     navContent?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     nav?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the inkbar's DOM element.
+     * Used to pass attributes to the inkbar's DOM element.
      */
     inkbar?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the previous button's DOM element.
+     * Used to pass attributes to the previous button's DOM element.
      */
     previousButton?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the previous button icon's DOM element.
+     * Used to pass attributes to the previous button icon's DOM element.
      */
     previousIcon?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the next button's DOM element.
+     * Used to pass attributes to the next button's DOM element.
      */
     nextButton?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the next button icon's DOM element.
+     * Used to pass attributes to the next button icon's DOM element.
      */
     nextIcon?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panelContainer?: TabViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to TabPanel helper components.
+     * Used to pass attributes to TabPanel helper components.
      * @deprecated since v3.30.1. Use 'tabpanel' property instead.
      */
     tab?: TabPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to TabPanel helper components.
+     * Used to pass attributes to TabPanel helper components.
      */
     tabpanel?: TabPanelPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -158,12 +158,12 @@ export interface TabViewProps {
      */
     selectOnFocus?: boolean | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the previous button.
+     * Used to pass all properties of the HTMLButtonElement to the previous button.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     previousButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the next button.
+     * Used to pass all properties of the HTMLButtonElement to the next button.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
@@ -178,7 +178,7 @@ export interface TabViewProps {
      */
     nextIcon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TabViewPassThroughOptions}
      */
     pt?: TabViewPassThroughOptions;

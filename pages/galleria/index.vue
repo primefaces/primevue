@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Galleria/theming/index.vue';
 import AccessibilityDoc from '@/doc/galleria/AccessibilityDoc';
 import AdvancedDoc from '@/doc/galleria/AdvancedDoc';
 import AutoPlayDoc from '@/doc/galleria/AutoPlayDoc';
@@ -25,6 +24,7 @@ import IndicatorsDoc from '@/doc/galleria/navigator/IndicatorsDoc';
 import ItemThumbnailsDoc from '@/doc/galleria/navigator/ItemThumbnailsDoc';
 import ItemWithoutThumbnailsDoc from '@/doc/galleria/navigator/ItemWithoutThumbnailsDoc';
 import PTComponent from '@/doc/galleria/pt/index.vue';
+import ThemingDoc from '@/doc/galleria/theming/index.vue';
 
 export default {
     data() {

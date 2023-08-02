@@ -5,7 +5,10 @@
             arbitrary properties to apply to the element such as styling, aria, data-* or custom attributes. If the value is a string or a function that returns a string, it is considered as a class definition and added to the class attribute of the
             element. Every component documentation has a dedicated section to document the available section names exposed via PT.
         </p>
-        <p>Most common usage of <i>pt</i> is styling and customization, example below styles a Panel component with PrimeFlex CSS library.</p>
+        <p>
+            Most common usage of <i>pt</i> is styling and customization. The <i>class</i> and <i>style</i> properties support the exact syntax of the corresponding
+            <a href="https://vuejs.org/guide/essentials/class-and-style.html">Vue bindings</a> like arrays, objects and conditionals. example below styles a Panel component with PrimeFlex CSS library.
+        </p>
     </DocSectionText>
 
     <div class="card">

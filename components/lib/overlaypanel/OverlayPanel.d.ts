@@ -28,23 +28,23 @@ export interface OverlayPanelPassThroughMethodOptions {
  */
 export interface OverlayPanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: OverlayPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: OverlayPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button's DOM element.
+     * Used to pass attributes to the close button's DOM element.
      */
     closeButton?: OverlayPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close icon's DOM element.
+     * Used to pass attributes to the close icon's DOM element.
      */
     closeIcon?: OverlayPanelPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -129,7 +129,7 @@ export interface OverlayPanelProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {OverlayPanelPassThroughOptions}
      */
     pt?: OverlayPanelPassThroughOptions;

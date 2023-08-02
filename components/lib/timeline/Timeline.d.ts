@@ -27,35 +27,35 @@ export interface TimelinePassThroughMethodOptions {
  */
 export interface TimelinePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the event's DOM element.
+     * Used to pass attributes to the event's DOM element.
      */
     event?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the opposite's DOM element.
+     * Used to pass attributes to the opposite's DOM element.
      */
     opposite?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the marker's DOM element.
+     * Used to pass attributes to the marker's DOM element.
      */
     marker?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the connector's DOM element.
+     * Used to pass attributes to the connector's DOM element.
      */
     connector?: TimelinePassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TimelinePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -101,7 +101,7 @@ export interface TimelineProps {
      */
     dataKey?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TimelinePassThroughOptions}
      */
     pt?: TimelinePassThroughOptions;

@@ -27,15 +27,15 @@ export interface ChartPassThroughMethodOptions {
  */
 export interface ChartPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ChartPassThroughOptionType;
     /**
-     * Uses to pass attributes to the canvas's DOM element.
+     * Used to pass attributes to the canvas's DOM element.
      */
     canvas?: ChartPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -98,11 +98,11 @@ export interface ChartProps {
      */
     height?: number | undefined;
     /**
-     * Uses to pass all properties of the CanvasHTMLAttributes to canvas element inside the component.
+     * Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component.
      */
     canvasProps?: CanvasHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ChartPassThroughOptions}
      */
     pt?: ChartPassThroughOptions;

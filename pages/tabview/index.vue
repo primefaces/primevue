@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Tabview/theming/index.vue';
 import AccessibilityDoc from '@/doc/tabview/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/tabview/BasicDoc.vue';
 import ControlledDoc from '@/doc/tabview/ControlledDoc.vue';
@@ -21,6 +20,7 @@ import ImportDoc from '@/doc/tabview/ImportDoc.vue';
 import ScrollableDoc from '@/doc/tabview/ScrollableDoc.vue';
 import TemplateDoc from '@/doc/tabview/TemplateDoc.vue';
 import PTComponent from '@/doc/tabview/pt/index.vue';
+import ThemingDoc from '@/doc/tabview/theming/index.vue';
 
 export default {
     data() {

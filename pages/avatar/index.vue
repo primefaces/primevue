@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Avatar/theming/index.vue';
 import AccessibilityDoc from '@/doc/avatar/AccessibilityDoc';
 import AvatarGroupDoc from '@/doc/avatar/AvatarGroupDoc';
 import IconDoc from '@/doc/avatar/IconDoc';
@@ -19,6 +18,7 @@ import ImageDoc from '@/doc/avatar/ImageDoc';
 import ImportDoc from '@/doc/avatar/ImportDoc';
 import LabelDoc from '@/doc/avatar/LabelDoc';
 import PTComponent from '@/doc/avatar/pt/index.vue';
+import ThemingDoc from '@/doc/avatar/theming/index.vue';
 
 export default {
     data() {

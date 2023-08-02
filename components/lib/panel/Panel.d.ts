@@ -43,43 +43,43 @@ export interface PanelToggleEvent {
  */
 export interface PanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Used to pass attributes to the title's DOM element.
      */
     title?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icons' DOM element.
+     * Used to pass attributes to the icons' DOM element.
      */
     icons?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the toggler's DOM element.
      */
     toggler?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the togglericon's DOM element.
+     * Used to pass attributes to the togglericon's DOM element.
      */
     togglerIcon?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggleablecontent's DOM element.
+     * Used to pass attributes to the toggleablecontent's DOM element.
      */
     toggleableContent?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: PanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: PanelPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -122,12 +122,12 @@ export interface PanelProps {
      */
     collapsed?: boolean;
     /**
-     * Uses to pass the custom value to read for the button inside the component.
+     * Used to pass the custom value to read for the button inside the component.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     toggleButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PanelPassThroughOptions}
      */
     pt?: PanelPassThroughOptions;

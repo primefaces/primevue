@@ -27,19 +27,19 @@ export interface ProgressBarPassThroughMethodOptions {
  */
 export interface ProgressBarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ProgressBarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the value's DOM element.
+     * Used to pass attributes to the value's DOM element.
      */
     value?: ProgressBarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ProgressBarPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -71,7 +71,7 @@ export interface ProgressBarProps {
      */
     showValue?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ProgressBarPassThroughOptions}
      */
     pt?: ProgressBarPassThroughOptions;

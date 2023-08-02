@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import ThemingDoc from '@/doc/Accordion/theming/index.vue';
 import AccessibilityDoc from '@/doc/accordion/AccessibilityDoc';
 import BasicDoc from '@/doc/accordion/BasicDoc';
 import ControlledDoc from '@/doc/accordion/ControlledDoc.vue';
@@ -21,6 +20,7 @@ import ImportDoc from '@/doc/accordion/ImportDoc';
 import MultipleDoc from '@/doc/accordion/MultipleDoc.vue';
 import TemplateDoc from '@/doc/accordion/TemplateDoc.vue';
 import PTComponent from '@/doc/accordion/pt/index.vue';
+import ThemingDoc from '@/doc/accordion/theming/index.vue';
 
 export default {
     data() {

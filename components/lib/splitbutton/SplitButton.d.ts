@@ -31,25 +31,25 @@ export interface SplitButtonPassThroughMethodOptions {
  */
 export interface SplitButtonPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SplitButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
      */
     button?: SplitButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     menuButton?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the TieredMenu component.
+     * Used to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
      */
     menu?: TieredMenuPassThroughOptions;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -120,11 +120,11 @@ export interface SplitButtonProps {
      */
     style?: any | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the default button.
+     * Used to pass all properties of the HTMLButtonElement to the default button.
      */
     buttonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the menu button.
+     * Used to pass all properties of the HTMLButtonElement to the menu button.
      */
     menuButtonProps?: ButtonHTMLAttributes | undefined;
     /**
@@ -166,7 +166,7 @@ export interface SplitButtonProps {
      */
     plain?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SplitButtonPassThroughOptions}
      */
     pt?: SplitButtonPassThroughOptions;

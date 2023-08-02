@@ -19,35 +19,35 @@ export declare type CardPassThroughOptionType = CardPassThroughAttributes | null
  */
 export interface CardPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the body's DOM element.
+     * Used to pass attributes to the body's DOM element.
      */
     body?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Used to pass attributes to the title's DOM element.
      */
     title?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the subtitle's DOM element.
+     * Used to pass attributes to the subtitle's DOM element.
      */
     subtitle?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: CardPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: CardPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -65,7 +65,7 @@ export interface CardPassThroughAttributes {
  */
 export interface CardProps {
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {CardPassThroughOptions}
      */
     pt?: CardPassThroughOptions;

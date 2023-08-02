@@ -34,11 +34,11 @@ export interface BadgePassThroughAttributes {
  */
 export interface BadgePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BadgePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -61,7 +61,7 @@ export interface BadgeProps {
      */
     size?: 'large' | 'xlarge' | null | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {BadgePassThroughOptions}
      */
     pt?: BadgePassThroughOptions;

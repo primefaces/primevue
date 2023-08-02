@@ -28,51 +28,51 @@ export interface DialogPassThroughMethodOptions {
  */
 export interface DialogPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header title's DOM element.
+     * Used to pass attributes to the header title's DOM element.
      */
     headerTitle?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header icons' DOM element.
+     * Used to pass attributes to the header icons' DOM element.
      */
     headerIcons?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the maximizable button's DOM element.
+     * Used to pass attributes to the maximizable button's DOM element.
      */
     maximizableButton?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the maximizable icon's DOM element.
+     * Used to pass attributes to the maximizable icon's DOM element.
      */
     maximizableIcon?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button's component.
+     * Used to pass attributes to the close button's component.
      */
     closeButton?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button icon's component.
+     * Used to pass attributes to the close button icon's component.
      */
     closeButtonIcon?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: DialogPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mask's DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: DialogPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -154,7 +154,7 @@ export interface DialogProps {
      */
     contentClass?: any;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
@@ -251,7 +251,7 @@ export interface DialogProps {
      */
     minimizeIcon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DialogPassThroughOptions}
      */
     pt?: DialogPassThroughOptions;

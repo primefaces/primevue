@@ -56,7 +56,7 @@
                 </button>
             </div>
             <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicators'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicators')">
-                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator')" :data-p-highlight="d_page === i">
+                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
                     <button
                         :class="cx('indicatorButton')"
                         type="button"
@@ -64,7 +64,7 @@
                         :aria-label="ariaPageLabel(i + 1)"
                         :aria-current="d_page === i ? 'page' : undefined"
                         @click="onIndicatorClick($event, i)"
-                        v-bind="ptm('indicatorButton')"
+                        v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
                     />
                 </li>
             </ul>
@@ -239,6 +239,13 @@ export default {
         }
     },
     methods: {
+        getIndicatorPTOptions(index) {
+            return {
+                context: {
+                    highlighted: index === this.d_page
+                }
+            };
+        },
         step(dir, page) {
             let totalShiftedItems = this.totalShiftedItems;
             const isCircular = this.isCircular();

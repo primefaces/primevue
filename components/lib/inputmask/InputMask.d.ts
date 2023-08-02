@@ -27,11 +27,11 @@ export interface InputMaskPassThroughMethodOptions {
  */
 export interface InputMaskPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: InputMaskPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -93,7 +93,7 @@ export interface InputMaskProps {
      */
     readonly?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {InputMaskPassThroughOptions}
      */
     pt?: InputMaskPassThroughOptions;

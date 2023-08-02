@@ -4,7 +4,7 @@
             <PVSButton type="button" :class="cx('button')" :label="label" :disabled="disabled" :aria-label="label" @click="onDefaultButtonClick" :pt="ptm('button')" v-bind="buttonProps" :unstyled="unstyled" data-pc-section="button">
                 <template v-if="icon" #icon="slotProps">
                     <slot name="icon" :class="slotProps.class">
-                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" />
+                        <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
                     </slot>
                 </template>
             </PVSButton>
@@ -26,7 +26,7 @@
         >
             <template #icon="slotProps">
                 <slot name="menubuttonicon" :class="slotProps.class">
-                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButton')['icon']" />
+                    <component :is="menuButtonIcon ? 'span' : 'ChevronDownIcon'" :class="[menuButtonIcon, slotProps.class]" v-bind="ptm('menuButton')['icon']" data-pc-section="menubuttonicon" />
                 </slot>
             </template>
         </PVSButton>

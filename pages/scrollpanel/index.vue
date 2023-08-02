@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['ScrollPanel']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 <script>
@@ -13,8 +14,8 @@ import AccessibilityDoc from '@/doc/scrollpanel/AccessibilityDoc';
 import BasicDoc from '@/doc/scrollpanel/BasicDoc';
 import CustomDoc from '@/doc/scrollpanel/CustomDoc';
 import ImportDoc from '@/doc/scrollpanel/ImportDoc';
-import StyleDoc from '@/doc/scrollpanel/StyleDoc';
 import PTComponent from '@/doc/scrollpanel/pt/index.vue';
+import ThemingDoc from '@/doc/scrollpanel/theming/index.vue';
 
 export default {
     data() {
@@ -36,17 +37,13 @@ export default {
                     component: CustomDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

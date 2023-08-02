@@ -98,76 +98,76 @@ export interface AutoCompleteCompleteEvent {
  */
 export interface AutoCompletePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the token's DOM element.
+     * Used to pass attributes to the token's DOM element.
      */
     token?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the token label's DOM element.
+     * Used to pass attributes to the token label's DOM element.
      */
     tokenLabel?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the remove token icon's DOM element.
+     * Used to pass attributes to the remove token icon's DOM element.
      */
     removeTokenIcon?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the input token's DOM element.
+     * Used to pass attributes to the input token's DOM element.
      */
     inputToken?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     dropdownButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the VirtualScroller component.
+     * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the item group's DOM element.
      */
     itemGroup?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the search result message's DOM element.
+     * Used to pass attributes to the search result message's DOM element.
      */
     searchResultMessage?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to pass attributes to the selected message's DOM element.
+     * Used to pass attributes to the selected message's DOM element.
      */
     selectedMessage?: AutoCompletePassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -347,7 +347,7 @@ export interface AutoCompleteProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -359,7 +359,7 @@ export interface AutoCompleteProps {
      */
     panelClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
@@ -433,7 +433,7 @@ export interface AutoCompleteProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {AutoCompletePassThroughOptions}
      */
     pt?: AutoCompletePassThroughOptions;

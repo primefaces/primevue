@@ -28,11 +28,11 @@ export interface BlockUIPassThroughMethodOptions {
  */
 export interface BlockUIPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BlockUIPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -81,7 +81,7 @@ export interface BlockUIProps {
      */
     autoZIndex?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {BlockUIPassThroughOptions}
      */
     pt?: BlockUIPassThroughOptions;

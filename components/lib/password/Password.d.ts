@@ -29,44 +29,44 @@ export interface PasswordPassThroughMethodOptions {
  */
 export interface PasswordPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the InputText component.
+     * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptionType}
      */
     input?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hide icon's DOM element.
+     * Used to pass attributes to the hide icon's DOM element.
      */
     hideIcon?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the show icon's DOM element.
+     * Used to pass attributes to the show icon's DOM element.
      */
     showIcon?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the meter's DOM element.
+     * Used to pass attributes to the meter's DOM element.
      */
     meter?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the meter label's DOM element.
+     * Used to pass attributes to the meter label's DOM element.
      */
     meterLabel?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the info's DOM element.
+     * Used to pass attributes to the info's DOM element.
      */
     info?: PasswordPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden accessible DOM element.
+     * Used to pass attributes to the hidden accessible DOM element.
      */
     hiddenAccesible?: PasswordPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -206,7 +206,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -222,7 +222,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     panelStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
@@ -234,7 +234,7 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PasswordPassThroughOptions}
      */
     pt?: PasswordPassThroughOptions;

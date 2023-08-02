@@ -28,15 +28,15 @@ export interface ScrollTopPassThroughMethodOptions {
  */
 export interface ScrollTopPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ScrollTopPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ScrollTopPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -85,7 +85,7 @@ export interface ScrollTopProps {
      */
     behavior?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ScrollTopPassThroughOptions}
      */
     pt?: ScrollTopPassThroughOptions;

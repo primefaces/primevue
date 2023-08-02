@@ -51,40 +51,40 @@ export interface DataViewPageEvent {
  */
 export interface DataViewPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DataViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: DataViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Paginator component.
+     * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
     paginator?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: DataViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the grid's DOM element.
+     * Used to pass attributes to the grid's DOM element.
      */
     grid?: DataViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the column's DOM element.
+     * Used to pass attributes to the column's DOM element.
      */
     column?: DataViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DataViewPassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: DataViewPassThroughOptionType;
     /**
-     * Uses to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -209,7 +209,7 @@ export interface DataViewProps {
      */
     dataKey: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DataViewPassThroughOptions}
      */
     pt?: DataViewPassThroughOptions;
