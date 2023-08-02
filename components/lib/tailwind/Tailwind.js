@@ -428,6 +428,16 @@ export default {
         chooseButtonLabel: {
             class: ['flex-1 font-bold']
         },
+        uploadbutton: {
+            icon: {
+                class: 'mr-2'
+            }
+        },
+        cancelbutton: {
+            icon: {
+                class: 'mr-2'
+            }
+        },
         content: ({ props }) => ({
             class: ['relative', 'bg-white dark:bg-gray-900 p-8 border border-gray-300 dark:border-blue-900/40 text-gray-700 dark:text-white/80 rounded-b-lg']
         }),
@@ -442,7 +452,8 @@ export default {
         },
         fileSize: {
             class: ['mr-2']
-        }
+        },
+        uploadicon: 'mr-2'
     },
 
     //Messages
