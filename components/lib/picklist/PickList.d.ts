@@ -7,12 +7,14 @@
  * @module picklist
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PickListPassThroughTransitionType = TransitionProps | ((options: PickListPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -203,7 +205,7 @@ export interface PickListPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: PickListPassThroughTransitionType;
 }
 
 /**

@@ -7,12 +7,14 @@
  * @module dropdown
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes | string) | string | null | undefined;
+
+export declare type DropdownPassThroughTransitionType = TransitionProps | ((options: DropdownPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -152,7 +154,7 @@ export interface DropdownPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: DropdownPassThroughTransitionType;
 }
 
 /**

@@ -7,12 +7,14 @@
  * @module treeselect
  *
  */
-import { InputHTMLAttributes, VNode } from 'vue';
+import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
+
+export declare type TreeSelectPassThroughTransitionType = TransitionProps | ((options: TreeSelectPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -89,7 +91,7 @@ export interface TreeSelectPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: TreeSelectPassThroughTransitionType;
 }
 
 /**

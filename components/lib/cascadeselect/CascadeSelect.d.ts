@@ -7,11 +7,13 @@
  * @module cascadeselect
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes | string) | string | null | undefined;
+
+export declare type CascadeSelectPassThroughTransitionType = TransitionProps | ((options: CascadeSelectPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -112,7 +114,7 @@ export interface CascadeSelectPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: CascadeSelectPassThroughTransitionType;
 }
 
 /**

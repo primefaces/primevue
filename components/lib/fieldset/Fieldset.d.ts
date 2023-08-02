@@ -7,11 +7,13 @@
  * @module fieldset
  *
  */
-import { AnchorHTMLAttributes, VNode } from 'vue';
+import { AnchorHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type FieldsetPassThroughOptionType = FieldsetPassThroughAttributes | ((options: FieldsetPassThroughMethodOptions) => FieldsetPassThroughAttributes | string) | string | null | undefined;
+
+export declare type FieldsetPassThroughTransitionType = TransitionProps | ((options: FieldsetPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -78,7 +80,7 @@ export interface FieldsetPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: FieldsetPassThroughTransitionType;
 }
 
 /**

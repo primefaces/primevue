@@ -7,12 +7,14 @@
  * @module calendar
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | string) | string | null | undefined;
+
+export declare type CalendarPassThroughTransitionType = TransitionProps | ((options: CalendarPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -293,7 +295,7 @@ export interface CalendarPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: CalendarPassThroughTransitionType;
 }
 
 /**

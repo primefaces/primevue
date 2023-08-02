@@ -7,11 +7,13 @@
  * @module panel
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PanelPassThroughTransitionType = TransitionProps | ((options: PanelPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -79,14 +81,14 @@ export interface PanelPassThroughOptions {
      */
     footer?: PanelPassThroughOptionType;
     /**
+     * Used to control Vue Transition API.
+     */
+    transition?: PanelPassThroughTransitionType;
+    /**
      * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
-    /**
-     * Used to control Vue Transition API.
-     */
-    transition?: any;
 }
 
 /**

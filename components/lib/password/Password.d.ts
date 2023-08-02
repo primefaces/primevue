@@ -7,12 +7,14 @@
  * @module password
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptionType } from '../inputtext';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
 export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PasswordPassThroughTransitionType = TransitionProps | ((options: PasswordPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -73,7 +75,7 @@ export interface PasswordPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: PasswordPassThroughTransitionType;
 }
 
 /**

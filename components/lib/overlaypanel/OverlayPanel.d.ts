@@ -7,11 +7,13 @@
  * @module overlaypanel
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughAttributes | ((options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes | string) | string | null | undefined;
+
+export declare type OverlayPanelPassThroughTransitionType = TransitionProps | ((options: OverlayPanelPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -51,7 +53,7 @@ export interface OverlayPanelPassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: any;
+    transition?: OverlayPanelPassThroughTransitionType;
 }
 
 /**
