@@ -12634,6 +12634,13 @@
                             "readonly": false,
                             "type": "Object",
                             "default": ""
+                        },
+                        {
+                            "name": "global",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Object",
+                            "default": ""
                         }
                     ],
                     "methods": [],
@@ -40737,6 +40744,13 @@
                         },
                         {
                             "name": "directives",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Object",
+                            "default": ""
+                        },
+                        {
+                            "name": "global",
                             "optional": true,
                             "readonly": false,
                             "type": "Object",
