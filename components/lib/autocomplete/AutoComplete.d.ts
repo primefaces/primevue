@@ -7,13 +7,15 @@
  * @module autocomplete
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughAttributes | ((options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes | string) | string | null | undefined;
+
+export declare type AutoCompletePassThroughTransitionType = TransitionProps | ((options: AutoCompletePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -134,9 +136,9 @@ export interface AutoCompletePassThroughOptions {
      */
     dropdownButton?: ButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the AutoComplete's DOM element.
      */
-    panel?: AutoCompletePassThroughOptionType;
+    AutoComplete?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -174,7 +176,7 @@ export interface AutoCompletePassThroughOptions {
     /**
      * Used to control Vue Transition API.
      */
-    transition?: PanelPassThroughTransitionType;
+    transition?: AutoCompletePassThroughTransitionType;
 }
 
 /**
@@ -274,7 +276,7 @@ export interface AutoCompleteProps {
      */
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
-     * Maximum height of the suggestions panel.
+     * Maximum height of the suggestions AutoComplete.
      * @defaultValue 200px
      */
     scrollHeight?: string | undefined;
@@ -355,17 +357,17 @@ export interface AutoCompleteProps {
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
-     * Inline style of the overlay panel.
+     * Inline style of the overlay AutoComplete.
      */
-    panelStyle?: object | undefined;
+    AutoCompleteStyle?: object | undefined;
     /**
-     * Style class of the overlay panel.
+     * Style class of the overlay AutoComplete.
      */
-    panelClass?: string | object | undefined;
+    AutoCompleteClass?: string | object | undefined;
     /**
-     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay AutoComplete inside the component.
      */
-    panelProps?: HTMLAttributes | undefined;
+    AutoCompleteProps?: HTMLAttributes | undefined;
     /**
      * Icon to display in the dropdown.
      * @deprecated since v3.27.0. Use 'dropdownicon' slot.
@@ -391,7 +393,7 @@ export interface AutoCompleteProps {
      */
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
-     * Whether to focus on the first visible or selected element when the overlay panel is shown.
+     * Whether to focus on the first visible or selected element when the overlay AutoComplete is shown.
      * @defaultValue true
      */
     autoOptionFocus?: boolean | undefined;
@@ -464,7 +466,7 @@ export interface AutoCompleteSlots {
         value: any;
     }): VNode[];
     /**
-     * Custom header template of panel.
+     * Custom header template of AutoComplete.
      * @param {Object} scope - header slot's params.
      */
     header(scope: {
@@ -478,7 +480,7 @@ export interface AutoCompleteSlots {
         suggestions: any[];
     }): VNode[];
     /**
-     * Custom footer template of panel.
+     * Custom footer template of AutoComplete.
      * @param {Object} scope - footer slot's params.
      */
     footer(scope: {
@@ -540,7 +542,7 @@ export interface AutoCompleteSlots {
         index: number;
     }): VNode[];
     /**
-     * Custom panel template.
+     * Custom AutoComplete template.
      * @param {Object} scope - content slot's params.
      */
     content(scope: {
