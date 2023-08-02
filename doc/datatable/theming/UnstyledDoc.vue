@@ -6,28 +6,9 @@
 </template>
 
 <script>
-import { CustomerService } from '@/service/CustomerService';
-import { FilterMatchMode, FilterOperator } from 'primevue/api';
-
 export default {
     data() {
         return {
-            customers: null,
-            filters: null,
-            representatives: [
-                { name: 'Amy Elsner', image: 'amyelsner.png' },
-                { name: 'Anna Fali', image: 'annafali.png' },
-                { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
-                { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
-                { name: 'Elwin Sharvill', image: 'elwinsharvill.png' },
-                { name: 'Ioni Bowcher', image: 'ionibowcher.png' },
-                { name: 'Ivan Magalhaes', image: 'ivanmagalhaes.png' },
-                { name: 'Onyama Limba', image: 'onyamalimba.png' },
-                { name: 'Stephen Shaw', image: 'stephenshaw.png' },
-                { name: 'XuXue Feng', image: 'xuxuefeng.png' }
-            ],
-            statuses: ['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'],
-            loading: true,
             code: {
                 composition: `
 <template>
@@ -231,68 +212,6 @@ const getSeverity = (status) => {
 <\/script>`
             }
         };
-    },
-    created() {
-        this.initFilters();
-    },
-    mounted() {
-        CustomerService.getCustomersMedium().then((data) => {
-            this.customers = this.getCustomers(data);
-            this.loading = false;
-        });
-    },
-    methods: {
-        formatDate(value) {
-            return value.toLocaleDateString('en-US', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
-        },
-        formatCurrency(value) {
-            return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-        },
-        clearFilter() {
-            this.initFilters();
-        },
-        initFilters() {
-            this.filters = {
-                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-                name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-                'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-                representative: { value: null, matchMode: FilterMatchMode.IN },
-                date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-                balance: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-                status: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-                activity: { value: [0, 100], matchMode: FilterMatchMode.BETWEEN },
-                verified: { value: null, matchMode: FilterMatchMode.EQUALS }
-            };
-        },
-        getCustomers(data) {
-            return [...(data || [])].map((d) => {
-                d.date = new Date(d.date);
-
-                return d;
-            });
-        },
-        getSeverity(status) {
-            switch (status) {
-                case 'unqualified':
-                    return 'danger';
-
-                case 'qualified':
-                    return 'success';
-
-                case 'new':
-                    return 'info';
-
-                case 'negotiation':
-                    return 'warning';
-
-                case 'renewal':
-                    return null;
-            }
-        }
     }
 };
 </script>

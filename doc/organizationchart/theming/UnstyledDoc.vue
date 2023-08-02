@@ -9,54 +9,6 @@
 export default {
     data() {
         return {
-            data: {
-                key: '0',
-                type: 'country',
-                label: 'Argentina',
-                data: 'ar',
-                children: [
-                    {
-                        key: '0_0',
-                        type: 'country',
-                        label: 'Argentina',
-                        data: 'ar',
-                        children: [
-                            {
-                                key: '0_0_0',
-                                type: 'country',
-                                label: 'Argentina',
-                                data: 'ar'
-                            },
-                            {
-                                key: '0_0_1',
-                                type: 'country',
-                                label: 'Croatia',
-                                data: 'hr'
-                            }
-                        ]
-                    },
-                    {
-                        key: '0_1',
-                        type: 'country',
-                        label: 'France',
-                        data: 'fr',
-                        children: [
-                            {
-                                key: '0_1_0',
-                                type: 'country',
-                                label: 'France',
-                                data: 'fr'
-                            },
-                            {
-                                key: '0_1_1',
-                                type: 'country',
-                                label: 'Morocco',
-                                data: 'ma'
-                            }
-                        ]
-                    }
-                ]
-            },
             code: {
                 composition: `
 <template>

@@ -2,12 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>Theming is implemented with the pass through properties in unstyled mode. Example below demonstrates the built-in Tailwind theme.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" embedded />
     <DocSectionCode :code="code" :service="['ProductService']" embedded />
 </template>
 
 <script>
-import { ProductService } from '@/service/ProductService';
 export default {
     data() {
         return {
@@ -82,9 +80,6 @@ const getSeverity = (status) => {
 <\/script>`
             }
         };
-    },
-    mounted() {
-        ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 9)));
     }
 };
 </script>

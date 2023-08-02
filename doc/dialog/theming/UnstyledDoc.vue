@@ -9,7 +9,6 @@
 export default {
     data() {
         return {
-            visible: false,
             code: {
                 composition: `
 <template>

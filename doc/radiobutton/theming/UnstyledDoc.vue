@@ -9,7 +9,6 @@
 export default {
     data() {
         return {
-            ingredient: '',
             code: {
                 composition: `
 <template>

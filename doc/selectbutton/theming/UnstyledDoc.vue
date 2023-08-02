@@ -9,8 +9,6 @@
 export default {
     data() {
         return {
-            value: 'Off',
-            options: ['Off', 'On'],
             code: {
                 composition: `
 <template>

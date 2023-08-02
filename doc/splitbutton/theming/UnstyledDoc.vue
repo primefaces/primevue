@@ -9,30 +9,6 @@
 export default {
     data() {
         return {
-            items: [
-                {
-                    label: 'Update',
-                    icon: 'pi pi-refresh',
-                    command: () => {
-                        this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
-                    }
-                },
-                {
-                    label: 'Delete',
-                    icon: 'pi pi-times',
-                    command: () => {
-                        this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
-                    }
-                },
-                {
-                    label: 'Vue Website',
-                    icon: 'pi pi-external-link',
-                    command: () => {
-                        window.location.href = 'https://vuejs.org/';
-                    }
-                },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
-            ],
             code: {
                 composition: `
 <template>
@@ -83,11 +59,6 @@ const save = () => {
 <\/script>`
             }
         };
-    },
-    methods: {
-        save() {
-            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
-        }
     }
 };
 </script>

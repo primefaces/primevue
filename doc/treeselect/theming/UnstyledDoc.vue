@@ -6,13 +6,9 @@
 </template>
 
 <script>
-import { NodeService } from '/service/NodeService';
-
 export default {
     data() {
         return {
-            nodes: null,
-            selectedValue: null,
             code: {
                 composition: `
 <template>
@@ -61,9 +57,6 @@ onMounted(() => {
 ...`
             }
         };
-    },
-    mounted() {
-        NodeService.getTreeNodes().then((data) => (this.nodes = data));
     }
 };
 </script>

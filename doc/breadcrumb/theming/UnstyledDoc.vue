@@ -1,8 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Breadcrumb requires a collection of menuitems as its <i>model</i>.</p>
+        <p>Theming is implemented with the pass through properties in unstyled mode. Example below demonstrates the built-in Tailwind theme.</p>
     </DocSectionText>
-
     <DocSectionCode :code="code" embedded />
 </template>
 
@@ -10,11 +9,6 @@
 export default {
     data() {
         return {
-            home: {
-                icon: 'pi pi-home',
-                to: '/'
-            },
-            items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }],
             code: {
                 composition: `
 <template>

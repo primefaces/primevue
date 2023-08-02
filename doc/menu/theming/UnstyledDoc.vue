@@ -9,10 +9,6 @@
 export default {
     data() {
         return {
-            items: [
-                { label: 'New', icon: 'pi pi-fw pi-plus' },
-                { label: 'Delete', icon: 'pi pi-fw pi-trash' }
-            ],
             code: {
                 composition: `
 <template>

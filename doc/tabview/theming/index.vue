@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>Tabview Theming</h1>
+            <h1>TabView Theming</h1>
         </div>
         <DocSections :docs="docs" />
     </div>

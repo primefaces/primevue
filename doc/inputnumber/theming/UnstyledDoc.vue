@@ -9,10 +9,6 @@
 export default {
     data() {
         return {
-            value1: 42723,
-            value2: 58151,
-            value3: 2351.35,
-            value4: 50,
             code: {
                 composition: `
 <template>

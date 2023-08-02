@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Menu requires a collection of menuitems as its <i>model</i>. Default location is <i>bottom</i> and other sides are also available when defined with the <i>position</i> property.</p>
+        <p>Theming is implemented with the pass through properties in unstyled mode. Example below demonstrates the built-in Tailwind theme.</p>
     </DocSectionText>
     <DocSectionCode :code="code" embedded />
 </template>
@@ -9,43 +9,6 @@
 export default {
     data() {
         return {
-            items: [
-                {
-                    label: 'Finder',
-                    icon: 'https://primefaces.org/cdn/primevue/images/dock/finder.svg'
-                },
-                {
-                    label: 'App Store',
-                    icon: 'https://primefaces.org/cdn/primevue/images/dock/appstore.svg'
-                },
-                {
-                    label: 'Photos',
-                    icon: 'https://primefaces.org/cdn/primevue/images/dock/photos.svg'
-                },
-                {
-                    label: 'Trash',
-                    icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png'
-                }
-            ],
-            position: 'bottom',
-            positions: [
-                {
-                    label: 'Bottom',
-                    value: 'bottom'
-                },
-                {
-                    label: 'Top',
-                    value: 'top'
-                },
-                {
-                    label: 'Left',
-                    value: 'left'
-                },
-                {
-                    label: 'Right',
-                    value: 'right'
-                }
-            ],
             code: {
                 composition: `
 <template>
@@ -108,22 +71,7 @@ const positions = ref([
 ]);
 
 <\/script>
-
-<style scoped>
-.dock-demo > .dock-window {
-    width: 100%;
-    height: 450px;
-    position: relative;
-    background-image: url("https://primefaces.org/cdn/primevue/images/dock/window.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 1;
-}
-
-.dock-demo > .p-dock {
-    z-index: 1000;
-}
-</style>`
+`
             }
         };
     }

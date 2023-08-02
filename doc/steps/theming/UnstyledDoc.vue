@@ -9,24 +9,6 @@
 export default {
     data() {
         return {
-            items: [
-                {
-                    label: 'Personal',
-                    to: '/steps'
-                },
-                {
-                    label: 'Seat',
-                    to: '/steps/seat'
-                },
-                {
-                    label: 'Payment',
-                    to: '/steps/payment'
-                },
-                {
-                    label: 'Confirmation',
-                    to: '/steps/confirmation'
-                }
-            ],
             code: {
                 composition: `
 <template>

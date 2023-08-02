@@ -2,12 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>Theming is implemented with the pass through properties in unstyled mode. Example below demonstrates the built-in Tailwind theme.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" embedded />
     <DocSectionCode :code="code" :service="['PhotoService']" embedded />
 </template>
 
 <script>
-import { PhotoService } from '@/service/PhotoService';
 export default {
     data() {
         return {
@@ -49,22 +47,9 @@ const responsiveOptions = ref([
         numVisible: 1
     }
 ]);
-<\/script>`,
-                data: `
-/* PhotoService */
-{
-    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
-    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
-    alt: 'Description for Image 1',
-    title: 'Title 1'
-},
-...
-        `
+<\/script>`
             }
         };
-    },
-    mounted() {
-        PhotoService.getImages().then((data) => (images.value = data));
     }
 };
 </script>

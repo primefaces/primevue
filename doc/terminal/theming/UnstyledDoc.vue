@@ -54,29 +54,7 @@ const commandHandler = (text) => {
     
     TerminalService.emit('response', response);
 }
-<\/script>
-
-<style scoped>
-p {
-    margin-top: 0;
-}
-::v-deep(.dark-demo-terminal) {
-    background-color: #212121;
-    color: #ffffff;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-command) {
-    color: #80cbc4;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-prompt) {
-    color: #ffd54f;
-}
-
-::v-deep(.dark-demo-terminal .p-terminal-response) {
-    color: #9fa8da;
-}
-</style>`
+<\/script>`
             }
         };
     }

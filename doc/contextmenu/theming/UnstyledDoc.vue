@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ContextMenu requires a collection of menuitems as its <i>model</i> and the <i>show</i> method needs to be called explicity using the <i>contextmenu</i> event of the target to display the menu.</p>
+        <p>Theming is implemented with the pass through properties in unstyled mode. Example below demonstrates the built-in Tailwind theme.</p>
     </DocSectionText>
     <DocSectionCode :code="code" embedded />
 </template>
@@ -9,10 +9,6 @@
 export default {
     data() {
         return {
-            items: [
-                { label: 'View', icon: 'pi pi-fw pi-search' },
-                { label: 'Delete', icon: 'pi pi-fw pi-trash' }
-            ],
             code: {
                 composition: `
 <template>
@@ -38,11 +34,6 @@ const onImageRightClick = (event) => {
 <\/script>`
             }
         };
-    },
-    methods: {
-        onImageRightClick(event) {
-            this.$refs.menu.show(event);
-        }
     }
 };
 </script>

@@ -9,7 +9,6 @@
 export default {
     data() {
         return {
-            value: '',
             code: {
                 composition: `
 <template>

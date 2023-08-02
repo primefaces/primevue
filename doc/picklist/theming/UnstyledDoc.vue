@@ -6,12 +6,9 @@
 </template>
 
 <script>
-import { ProductService } from '@/service/ProductService';
-
 export default {
     data() {
         return {
-            products: null,
             code: {
                 composition: `
 <template>
@@ -64,9 +61,6 @@ onMounted(() => {
         `
             }
         };
-    },
-    mounted() {
-        ProductService.getProductsSmall().then((data) => (this.products = [data, []]));
     }
 };
 </script>

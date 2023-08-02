@@ -6,12 +6,9 @@
 </template>
 
 <script>
-import { NodeService } from '@/service/NodeService';
-
 export default {
     data() {
         return {
-            nodes: null,
             code: {
                 composition: `
 <template>
@@ -64,9 +61,6 @@ const nodes = ref();
 `
             }
         };
-    },
-    mounted() {
-        NodeService.getTreeTableNodes().then((data) => (this.nodes = data));
     }
 };
 </script>

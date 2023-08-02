@@ -12,7 +12,7 @@ export default {
             code: {
                 composition: `
 <template>
-    <div class="card flex flex-wrap align-center justify-center gap-3">
+    <div class="card flex flex-wrap items-center justify-center gap-3">
         <InlineMessage severity="success">Success Content</InlineMessage>
         <InlineMessage severity="info">Info Content</InlineMessage>
         <InlineMessage severity="warn">Warning Content</InlineMessage>

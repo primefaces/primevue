@@ -6,13 +6,9 @@
 </template>
 
 <script>
-import { ProductService } from '@/service/ProductService';
-
 export default {
     data() {
         return {
-            products: null,
-            layout: 'grid',
             code: {
                 composition: `
 <template>
@@ -123,26 +119,6 @@ const getSeverity = (product) => {
         `
             }
         };
-    },
-    mounted() {
-        ProductService.getProducts().then((data) => (this.products = data.slice(0, 12)));
-    },
-    methods: {
-        getSeverity(product) {
-            switch (product.inventoryStatus) {
-                case 'INSTOCK':
-                    return 'success';
-
-                case 'LOWSTOCK':
-                    return 'warning';
-
-                case 'OUTOFSTOCK':
-                    return 'danger';
-
-                default:
-                    return null;
-            }
-        }
     }
 };
 </script>
