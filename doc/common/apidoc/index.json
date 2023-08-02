@@ -3956,7 +3956,13 @@
                     "methods": [
                         {
                             "name": "error",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "Event"
+                                }
+                            ],
                             "returnType": "void",
                             "description": "Triggered when an error occurs while loading an image file."
                         }
