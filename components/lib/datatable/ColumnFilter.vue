@@ -22,7 +22,7 @@
             <component :is="filterClearIconTemplate || 'FilterSlashIcon'" v-bind="getColumnPT('filterClearIcon')" />
         </button>
         <Portal>
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave">
+            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="getColumnPT('transition')">
                 <div
                     v-if="overlayVisible"
                     :ref="overlayRef"

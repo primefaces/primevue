@@ -622,7 +622,7 @@ export interface DataTablePassThroughOptions {
      */
     tfoot?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the footerr ow's DOM element.
+     * Used to pass attributes to the footer row's DOM element.
      */
     footerRow?: DataTablePassThroughOptionType;
     /**
@@ -654,6 +654,10 @@ export interface DataTablePassThroughOptions {
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: any;
 }
 
 /**
