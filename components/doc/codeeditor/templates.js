@@ -50,8 +50,10 @@ const getVueApp = (props = {}, sourceType) => {
         : {};
 
     if (deps !== null && component !== null) {
-        imports += `import ${component} from 'primevue/${component.toLowerCase()}';`;
-        element += `app.component('${component}', ${component});`;
+        imports += `import ${component} from 'primevue/${component.toLowerCase()}';
+`;
+        element += `app.component('${component}', ${component});
+`;
     }
 
     if (embedded) {
