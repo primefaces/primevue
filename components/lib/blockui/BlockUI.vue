@@ -33,23 +33,24 @@ export default {
         block() {
             let styleClass = 'p-blockui p-component-overlay p-component-overlay-enter';
 
+            this.mask = document.createElement('div');
+            this.mask.setAttribute('data-pc-section', 'mask');
+            DomHandler.addStyles(this.mask, {
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%'
+            });
+
             if (this.fullScreen) {
                 styleClass += ' p-blockui-document';
-                this.mask = document.createElement('div');
                 !this.isUnstyled && this.mask.setAttribute('class', styleClass);
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 document.activeElement.blur();
             } else {
-                this.mask = document.createElement('div');
                 !this.isUnstyled && this.mask.setAttribute('class', styleClass);
-                DomHandler.addStyles(this.mask, {
-                    position: 'absolute',
-                    top: '0',
-                    left: '0',
-                    width: '100%',
-                    height: '100%'
-                });
                 this.$refs.container.appendChild(this.mask);
             }
 
