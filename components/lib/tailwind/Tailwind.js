@@ -1,9 +1,103 @@
+export const TRANSITIONS = {
+    toggleable: {
+        enterFromClass: 'max-h-0',
+        enterActiveClass: 'overflow-hidden transition-all duration-500 ease-in-out',
+        enterToClass: 'max-h-40	',
+        leaveFromClass: 'max-h-40',
+        leaveActiveClass: 'overflow-hidden transition-all duration-500 ease-in',
+        leaveToClass: 'max-h-0'
+    },
+    overlay: {
+        enterFromClass: 'opacity-0 scale-75',
+        enterActiveClass: 'transition-transform transition-opacity duration-150 ease-in',
+        leaveActiveClass: 'transition-opacity duration-150 ease-linear',
+        leaveToClass: 'opacity-0'
+    }
+};
 export default {
+    global: {
+        css: `
+        *[data-pd-ripple="true"]{
+            overflow: hidden;
+            position: relative;
+        }
+        span[data-p-ink-active="true"]{
+            animation: ripple 0.4s linear;
+        }
+        @keyframes ripple {
+            100% {
+                opacity: 0;
+                transform: scale(2.5);
+            }
+        }
+
+        .progress-spinner-circle {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: 0;
+            animation: p-progress-spinner-dash 1.5s ease-in-out infinite, p-progress-spinner-color 6s ease-in-out infinite;
+            stroke-linecap: round;
+        }
+
+        @keyframes p-progress-spinner-dash{
+            0% {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+            }
+            
+            50% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -35px;
+            }
+            100% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -124px;
+            }
+        }
+        @keyframes p-progress-spinner-color {
+            100%, 0% {
+                stroke: #ff5757;
+            }
+            40% {
+                stroke: #696cff;
+            }
+            66% {
+                stroke: #1ea97c;
+            }
+            80%, 90% {
+                stroke: #cc8925;
+            }
+        }
+
+        .progressbar-value-animate::after {
+            will-change: left, right;
+            animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        }
+        .progressbar-value-animate::before {
+            will-change: left, right;
+            animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+        }
+        @keyframes p-progressbar-indeterminate-anim {
+            0% {
+                left: -35%;
+                right: 100%;
+            }
+            60% {
+                left: 100%;
+                right: -90%;
+            }
+            100% {
+                left: 100%;
+                right: -90%;
+            }
+        }
+`
+    },
     directives: {
         ripple: {
-            root: {
-                class: ['block absolute bg-white bg-opacity-50 rounded-full transform scale-0 pointer-events-none']
-            }
+            root: ({ context }) => ({
+                class: ['block absolute bg-white/50 rounded-full pointer-events-none'],
+                style: 'transform: scale(0)'
+            })
         },
         badge: {
             root: ({ context }) => ({
@@ -80,8 +174,9 @@ export default {
             class: [
                 'p-5 border border-gray-300 bg-white text-gray-700 border-t-0 last:rounded-br-lg last:rounded-bl-lg',
                 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80' // Dark mode
-            ] // padding, borders, and colors
-        }
+            ]
+        },
+        transition: TRANSITIONS.toggleable
     },
     accordion: {
         root: {
@@ -118,7 +213,8 @@ export default {
                     'p-5 border border-gray-300 bg-white text-gray-700 border-t-0 rounded-tl-none rounded-tr-none rounded-br-lg rounded-bl-lg',
                     'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80' // Dark mode
                 ]
-            }
+            },
+            transition: TRANSITIONS.toggleable
         }
     },
     card: {
@@ -197,7 +293,8 @@ export default {
         },
         content: {
             class: 'p-5' // Padding.
-        }
+        },
+        transition: TRANSITIONS.toggleable
     },
     scrollpanel: {
         wrapper: {
@@ -259,26 +356,26 @@ export default {
         }
     },
     splitter: {
-        root: {
-            class: ['border border-solid border-gray-300 dark:border-blue-900/40 bg-white dark:bg-gray-900 rounded-lg text-gray-700 dark:text-white/80']
-        },
+        root: ({ context }) => ({
+            class: ['bg-white dark:bg-gray-900 rounded-lg text-gray-700 dark:text-white/80', { 'border border-solid border-gray-300 dark:border-blue-900/40': !context.nested, '': context.nested }]
+        }),
 
         gutter: ({ props }) => ({
-            class: ['flex items-center justify-center  shrink-0', 'transition-all duration-200 bg-gray-100 dark:bg-gray-800', { 'cursor-col-resize': props.layout == 'horizontal', 'cursor-row-resize': props.layout !== 'horizontal' }]
+            class: ['flex items-center justify-center  flex-shrink-0', 'transition-all duration-200 bg-gray-100 dark:bg-gray-800', { 'cursor-col-resize': props.layout == 'horizontal', 'cursor-row-resize': props.layout !== 'horizontal' }]
         }),
         gutterhandler: ({ props }) => ({
             class: ['bg-gray-300 dark:bg-gray-600 transition-all duration-200', { 'h-7': props.layout == 'horizontal', 'w-7 h-2': props.layout !== 'horizontal' }]
         })
     },
     splitterpanel: {
-        root: ({ props }) => ({
-            class: ['grow', 'flex justify-center items-center']
+        root: ({ context }) => ({
+            class: ['grow', 'flex', { 'justify-center items-center': !context.nested, '': context.nested }]
         })
     },
     dialog: {
-        root: {
-            class: ['rounded-lg shadow-lg border-0', 'max-h-90 transform scale-100', 'm-0 w-[50vw]', 'dark:border dark:border-blue-900/40']
-        },
+        root: ({ state }) => ({
+            class: ['rounded-lg shadow-lg border-0', 'max-h-90 transform scale-100', 'm-0 w-[50vw]', 'dark:border dark:border-blue-900/40', { 'transition-none transform-none !w-screen !h-screen !max-h-full !top-0 !left-0': state.maximized }]
+        }),
         header: {
             class: ['flex items-center justify-between shrink-0', 'bg-white text-gray-800 border-t-0  rounded-tl-lg rounded-tr-lg p-6', 'dark:bg-gray-900  dark:text-white/80']
         },
@@ -300,14 +397,50 @@ export default {
         closeButtonIcon: {
             class: ['w-4 h-4 inline-block']
         },
-        content: {
-            class: ['overflow-y-auto', 'bg-white text-gray-700 px-6 pb-8 pt-0', 'rounded-bl-lg rounded-br-lg', 'dark:bg-gray-900  dark:text-white/80 ']
-        },
+        content: ({ state }) => ({
+            class: ['overflow-y-auto', 'bg-white text-gray-700 px-6 pb-8 pt-0', 'rounded-bl-lg rounded-br-lg', 'dark:bg-gray-900  dark:text-white/80 ', { grow: state.maximized }]
+        }),
         footer: {
             class: ['shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
         },
-        mask: {
-            class: ['bg-opacity-40 transition duration-200']
+        mask: ({ props }) => ({
+            class: ['transition duration-200', { 'bg-black/40': props.modal }]
+        }),
+        transition: ({ props }) => {
+            return props.position === 'top'
+                ? {
+                      enterFromClass: 'opacity-0 scale-75 translate-x-0 -translate-y-full translate-z-0',
+                      enterActiveClass: 'transition-all duration-200 ease-out',
+                      leaveActiveClass: 'transition-all duration-200 ease-out',
+                      leaveToClass: 'opacity-0 scale-75 translate-x-0 -translate-y-full translate-z-0'
+                  }
+                : props.position === 'bottom'
+                ? {
+                      enterFromClass: 'opacity-0 scale-75 translate-y-full',
+                      enterActiveClass: 'transition-all duration-200 ease-out',
+                      leaveActiveClass: 'transition-all duration-200 ease-out',
+                      leaveToClass: 'opacity-0 scale-75 translate-x-0 translate-y-full translate-z-0'
+                  }
+                : props.position === 'left' || props.position === 'topleft' || props.position === 'bottomleft'
+                ? {
+                      enterFromClass: 'opacity-0 scale-75 -translate-x-full translate-y-0 translate-z-0',
+                      enterActiveClass: 'transition-all duration-200 ease-out',
+                      leaveActiveClass: 'transition-all duration-200 ease-out',
+                      leaveToClass: 'opacity-0 scale-75  -translate-x-full translate-y-0 translate-z-0'
+                  }
+                : props.position === 'right' || props.position === 'topright' || props.position === 'bottomright'
+                ? {
+                      enterFromClass: 'opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0',
+                      enterActiveClass: 'transition-all duration-200 ease-out',
+                      leaveActiveClass: 'transition-all duration-200 ease-out',
+                      leaveToClass: 'opacity-0 scale-75 opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0'
+                  }
+                : {
+                      enterFromClass: 'opacity-0 scale-75',
+                      enterActiveClass: 'transition-all duration-200 ease-out',
+                      leaveActiveClass: 'transition-all duration-200 ease-out',
+                      leaveToClass: 'opacity-0 scale-75'
+                  };
         }
     },
     confirmpopup: {
@@ -315,8 +448,8 @@ export default {
             class: [
                 'bg-white text-gray-700 border-0 rounded-md shadow-lg',
                 'z-40 transform origin-center',
-                'mt-10 absolute left-0 top-0 ',
-                // 'before:absolute before:bottom-0 before:left-1/2 before:transform before:-translate-x-1/2 before:w-0 before:h-0 before:border-t-[10px] before:border-l-[5px] before:border-r-[5px] before:border-transparent before:border-b-[10px] before:border-t-[0] before:border-l-[5px] before:border-r-[5px] before:border-b-[0] before:border-red-500',
+                'mt-3 absolute left-0 top-0',
+                'before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-white dark:before:border-b-gray-900',
                 'dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80'
             ]
         }),
@@ -331,34 +464,34 @@ export default {
         },
         footer: {
             class: ['text-right px-5 py-5 pt-0 ']
-        }
-        // rejectButton: {
-        //     class: ['bg-transparent text-blue-500 border-transparent', 'text-sm px-2 py-1.5 ml-0 mr-2 w-auto', 'flex items-center cursor-pointer inline-flex overflow-hidden relative text-center select-none user-select-none align-bottom']
-        // },
-        // acceptButton: {
-        //     class: ['text-white bg-blue-500 border-2 border-blue-500', 'text-sm px-2 py-1.5 ml-0 mr-2 w-auto', 'flex items-center cursor-pointer inline-flex overflow-hidden relative text-center select-none user-select-none align-bottom']
-        // }
+        },
+        transition: TRANSITIONS.overlay
     },
     overlaypanel: {
         root: ({ props, state }) => ({
             class: [
                 'bg-white text-gray-700 border-0 rounded-md shadow-lg',
                 'z-40 transform origin-center',
-                'mt-10 absolute left-0 top-0 ',
-                // 'before:absolute before:bottom-0 before:left-1/2 before:transform before:-translate-x-1/2 before:w-0 before:h-0 before:border-t-[10px] before:border-l-[5px] before:border-r-[5px] before:border-transparent before:border-b-[10px] before:border-t-[0] before:border-l-[5px] before:border-r-[5px] before:border-b-[0] before:border-red-500',
+                'absolute left-0 top-0',
+                'before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-white dark:before:border-b-gray-900',
                 'dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80'
             ]
         }),
         content: {
             class: ['p-5 items-center flex']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     sidebar: {
         root: ({ props, state }) => ({
             class: [
                 'flex flex-col pointer-events-auto relative transform translate-x-0 translate-y-0 translate-z-0 relative transition-transform duration-300',
                 'bg-white text-gray-700 border-0 shadow-lg',
-                { 'h-full w-80': props.position == 'left' || props.position == 'right', 'h-40 w-full': props.position == 'top' || props.position == 'bottom' },
+                {
+                    '!transition-none !transform-none !w-screen !h-screen !max-h-full !top-0 !left-0': props.position == 'full',
+                    'h-full w-80': props.position == 'left' || props.position == 'right',
+                    'h-40 w-full': props.position == 'top' || props.position == 'bottom'
+                },
                 'dark:border dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80'
             ]
         }),
@@ -380,8 +513,40 @@ export default {
         content: {
             class: ['p-5 pt-0 h-full w-full', 'grow overflow-y-auto']
         },
-        mask: {
-            class: ['pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors']
+        mask: ({ props, state }) => ({
+            class: [
+                'fixed top-0 left-0 w-full h-full flex  pointer-events-auto',
+                'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors',
+                { 'justify-end': props.position == 'right', 'items-start': props.position == 'top', 'items-end': props.position == 'bottom' }
+            ]
+        }),
+        transition: ({ props }) => {
+            return props.position === 'top'
+                ? {
+                      enterFromClass: 'translate-x-0 -translate-y-full translate-z-0',
+                      leaveToClass: 'translate-x-0 -translate-y-full translate-z-0'
+                  }
+                : props.position === 'bottom'
+                ? {
+                      enterFromClass: 'translate-x-0 translate-y-full translate-z-0',
+                      leaveToClass: 'translate-x-0 translate-y-full translate-z-0'
+                  }
+                : props.position === 'left'
+                ? {
+                      enterFromClass: '-translate-x-full translate-y-0 translate-z-0',
+                      leaveToClass: '-translate-x-full translate-y-0 translate-z-0'
+                  }
+                : props.position === 'right'
+                ? {
+                      enterFromClass: 'translate-x-full translate-y-0 translate-z-0',
+                      leaveToClass: 'opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0'
+                  }
+                : {
+                      enterFromClass: 'opacity-0',
+                      enterActiveClass: 'transition-opacity duration-400 ease-in',
+                      leaveActiveClass: 'transition-opacity duration-400 ease-in',
+                      leaveToClass: 'opacity-0'
+                  };
         }
     },
     toolbar: {
@@ -521,6 +686,13 @@ export default {
         },
         closebutton: {
             class: ['w-8 h-8 rounded-full bg-transparent transition duration-200 ease-in-out', 'ml-auto overflow-hidden relative', 'flex items-center justify-center', 'hover:bg-white/30']
+        },
+        transition: {
+            enterFromClass: 'opacity-0 translate-x-0 translate-y-2/4 translate-z-0',
+            enterActiveClass: 'transition-transform transition-opacity duration-300',
+            leaveFromClass: 'max-h-40',
+            leaveActiveClass: 'transition-all duration-500 ease-in',
+            leaveToClass: 'max-h-0 opacity-0 mb-0 overflow-hidden'
         }
     },
     //BUTTONS
@@ -588,31 +760,31 @@ export default {
     speeddial: {
         root: ({ props }) => ({
             class: [
-                'absolute flex',
+                'absolute flex ',
                 {
-                    'items-center flex-col-reverse': props.direction == 'up',
-                    'items-center flex-col': props.direction == 'down',
-                    'justify-center flex-row-reverse': props.direction == 'left',
-                    'justify-center flex-row': props.direction == 'right'
+                    'items-center flex-col-reverse': props.direction == 'up' && props.type == 'linear' && props.type !== 'circle',
+                    'items-center flex-col': props.direction == 'down' && props.type == 'linear' && props.type !== 'circle',
+                    'justify-center flex-row-reverse': props.direction == 'left' && props.type == 'linear' && props.type !== 'circle',
+                    'justify-center flex-row': props.direction == 'right' && props.type == 'linear' && props.type !== 'circle'
                 }
             ]
         }),
         button: {
-            root: {
-                class: ['w-16 h-16 min-[0px]:rounded-[50%]']
-            },
+            root: ({ parent }) => ({
+                class: ['w-16 h-16 min-[0px]:rounded-[50%] justify-center z-10', { 'rotate-45': parent.state.d_visible }]
+            }),
             label: {
-                class: 'min-[0px]:hidden'
+                class: 'hidden'
             }
         },
         menu: ({ props }) => ({
             class: [
-                'm-0 p-0 list-none flex items-center justify-center transition delay-200 pointer-events-none z-2',
+                'm-0 p-0 list-none flex items-center justify-center transition delay-200 z-20',
                 {
-                    'flex-col-reverse': props.direction == 'up',
-                    'flex-col': props.direction == 'down',
-                    'flex-row-reverse': props.direction == 'left',
-                    'flex-row': props.direction == 'right'
+                    'flex-col-reverse': props.direction == 'up' && props.type == 'linear',
+                    'flex-col': props.direction == 'down' && props.type == 'linear',
+                    'flex-row-reverse': props.direction == 'left' && props.type == 'linear',
+                    'flex-row': props.direction == 'right' && props.type == 'linear'
                 }
             ]
         }),
@@ -621,54 +793,57 @@ export default {
                 'transform transition-transform duration-200 ease-out transition-opacity duration-800',
                 context.hidden ? 'opacity-0 scale-0' : 'opacity-1 scale-100',
                 {
-                    'my-1 first:mb-2': props.direction == 'up',
-                    'my-1 first:mt-2': props.direction == 'down',
-                    'mx-1 first:mr-2': props.direction == 'left',
-                    'mx-1 first:ml-2': props.direction == 'right'
-                }
+                    'my-1 first:mb-2': props.direction == 'up' && props.type == 'linear',
+                    'my-1 first:mt-2': props.direction == 'down' && props.type == 'linear',
+                    'mx-1 first:mr-2': props.direction == 'left' && props.type == 'linear',
+                    'mx-1 first:ml-2': props.direction == 'right' && props.type == 'linear'
+                },
+                { absolute: props.type !== 'linear' }
             ]
         }),
         action: {
-            class: ['flex items-center justify-center rounded-full relative overflow-hidden', 'w-12 h-12 bg-gray-700 text-white']
-        }
+            class: ['flex items-center justify-center rounded-full relative overflow-hidden', 'w-12 h-12 bg-gray-700 hover:bg-gray-800 text-white']
+        },
+        mask: ({ state }) => ({
+            class: ['absolute left-0 top-0 w-full h-full transition-opacity duration-250 ease-in-out bg-black/40 z-0', { 'opacity-0': !state.d_visible, 'pointer-events-none opacity-100 transition-opacity duration-400 ease-in-out': state.d_visible }]
+        })
     },
     splitbutton: {
-        root: {
-            class: ['inline-flex relative', 'rounded-md']
-        },
+        root: ({ props }) => ({
+            class: ['inline-flex relative', 'rounded-md', { 'shadow-lg': props.raised }]
+        }),
         button: {
             root: ({ parent }) => ({
                 class: [
                     'min-[0px]:rounded-r-none',
                     {
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === null && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === 'info' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined
+                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600':
+                            (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined && !parent.props.plain
                     },
-                    { 'shadow-lg': parent.props.raised },
+
                     { 'rounded-l-full': parent.props.rounded },
                     {
-                        'bg-transparent border-transparent hover:border-transparent': parent.props.text,
-                        '!text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity === null,
-                        '!text-gray-500 hover:bg-gray-300/20': parent.props.text && parent.props.severity === 'secondary',
-                        '!text-green-500 hover:bg-green-300/20': parent.props.text && parent.props.severity === 'success',
-                        '!text-blue-500 !hover:bg-blue-300/20': parent.props.text && parent.props.severity === 'info',
-                        '!text-orange-500 hover:bg-orange-300/20': parent.props.text && parent.props.severity === 'warning',
-                        '!text-purple-500 hover:bg-purple-300/20': parent.props.text && parent.props.severity === 'help',
-                        '!text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity === 'danger'
+                        '!bg-transparent !border-transparent !hover:border-transparent': parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        '!text-blue-500 hover:!bg-blue-300/20': parent.props.text && (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.outlined && !parent.props.plain,
+                        '!text-gray-500 hover:!bg-gray-300/20': parent.props.text && parent.props.severity == 'secondary' && !parent.props.outlined && !parent.props.plain,
+                        '!text-green-500 hover:!bg-green-300/20': parent.props.text && parent.props.severity == 'success' && !parent.props.outlined && !parent.props.plain,
+                        '!text-orange-500 hover:!bg-orange-300/20': parent.props.text && parent.props.severity == 'warning' && !parent.props.outlined && !parent.props.plain,
+                        '!text-purple-500 hover:!bg-purple-300/20': parent.props.text && parent.props.severity == 'help' && !parent.props.outlined && !parent.props.plain,
+                        '!text-red-500 hover:!bg-red-300/20': parent.props.text && parent.props.severity == 'danger' && !parent.props.outlined && !parent.props.plain
                     },
                     {
-                        'bg-transparent border border-r-0': parent.props.outlined,
-                        '!text-blue-500 !border-blue-500 hover:bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null),
-                        '!text-gray-500 !border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary',
-                        '!text-green-500 !border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity === 'success',
-                        '!text-orange-500 !border-orange-500 hover:bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning',
-                        '!text-purple-500 !border-purple-500 hover:bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help',
-                        '!text-red-500 !border-red-500 hover:bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger'
+                        '!bg-transparent !border !border-r-0': parent.props.outlined && !parent.props.text && !parent.props.plain,
+                        '!text-blue-500 !border-blue-500 hover:!bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null) && !parent.props.text && !parent.props.plain,
+                        '!text-gray-500 !border-gray-500 hover:!bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary' && !parent.props.text && !parent.props.plain,
+                        '!text-green-500 !border-green-500 hover:!bg-green-300/20': parent.props.outlined && parent.props.severity === 'success' && !parent.props.text && !parent.props.plain,
+                        '!text-orange-500 !border-orange-500 hover:!bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning' && !parent.props.text && !parent.props.plain,
+                        '!text-purple-500 !border-purple-500 hover:!bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help' && !parent.props.text && !parent.props.plain,
+                        '!text-red-500 !border-red-500 hover:!bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger' && !parent.props.text && !parent.props.plain
                     },
                     {
                         'px-4 py-3 text-base': parent.props.size === null,
@@ -676,44 +851,40 @@ export default {
                         'text-xl py-3 px-4': parent.props.size === 'large'
                     }
                 ]
-            }),
-            icon: {
-                class: 'mr-2'
-            }
+            })
         },
         menubutton: {
             root: ({ parent }) => ({
                 class: [
                     'min-[0px]:rounded-l-none',
                     {
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === null && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': parent.props.severity === 'info' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined,
-                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined
+                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600':
+                            (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined && !parent.props.plain
                     },
-                    { 'shadow-lg': parent.props.raised },
+
                     { 'rounded-r-full': parent.props.rounded },
                     {
-                        'bg-transparent border-transparent hover:border-transparent': parent.props.text,
-                        '!text-blue-500 hover:bg-blue-300/20': parent.props.text && parent.props.severity === null,
-                        '!text-gray-500 hover:bg-gray-300/20': parent.props.text && parent.props.severity === 'secondary',
-                        '!text-green-500 hover:bg-green-300/20': parent.props.text && parent.props.severity === 'success',
-                        '!text-blue-500 !hover:bg-blue-300/20': parent.props.text && parent.props.severity === 'info',
-                        '!text-orange-500 hover:bg-orange-300/20': parent.props.text && parent.props.severity === 'warning',
-                        '!text-purple-500 hover:bg-purple-300/20': parent.props.text && parent.props.severity === 'help',
-                        '!text-red-500 hover:bg-red-300/20': parent.props.text && parent.props.severity === 'danger'
+                        '!bg-transparent !border-transparent !hover:border-transparent': parent.props.text && !parent.props.outlined && !parent.props.plain,
+                        '!text-blue-500 hover:!bg-blue-300/20': parent.props.text && (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.outlined && !parent.props.plain,
+                        '!text-gray-500 hover:!bg-gray-300/20': parent.props.text && parent.props.severity == 'secondary' && !parent.props.outlined && !parent.props.plain,
+                        '!text-green-500 hover:!bg-green-300/20': parent.props.text && parent.props.severity == 'success' && !parent.props.outlined && !parent.props.plain,
+                        '!text-orange-500 hover:!bg-orange-300/20': parent.props.text && parent.props.severity == 'warning' && !parent.props.outlined && !parent.props.plain,
+                        '!text-purple-500 hover:!bg-purple-300/20': parent.props.text && parent.props.severity == 'help' && !parent.props.outlined && !parent.props.plain,
+                        '!text-red-500 hover:!bg-red-300/20': parent.props.text && parent.props.severity == 'danger' && !parent.props.outlined && !parent.props.plain
                     },
                     {
-                        'bg-transparent border': parent.props.outlined,
-                        '!text-blue-500 !border-blue-500 hover:bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null),
-                        '!text-gray-500 !border-gray-500 hover:bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary',
-                        '!text-green-500 !border-green-500 hover:bg-green-300/20': parent.props.outlined && parent.props.severity === 'success',
-                        '!text-orange-500 !border-orange-500 hover:bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning',
-                        '!text-purple-500 !border-purple-500 hover:bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help',
-                        '!text-red-500 !border-red-500 hover:bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger'
+                        '!bg-transparent !border': parent.props.outlined && !parent.props.text && !parent.props.plain,
+                        '!text-blue-500 !border-blue-500 hover:!bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null) && !parent.props.text && !parent.props.plain,
+                        '!text-gray-500 !border-gray-500 hover:!bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary' && !parent.props.text && !parent.props.plain,
+                        '!text-green-500 !border-green-500 hover:!bg-green-300/20': parent.props.outlined && parent.props.severity === 'success' && !parent.props.text && !parent.props.plain,
+                        '!text-orange-500 !border-orange-500 hover:!bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning' && !parent.props.text && !parent.props.plain,
+                        '!text-purple-500 !border-purple-500 hover:!bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help' && !parent.props.text && !parent.props.plain,
+                        '!text-red-500 !border-red-500 hover:!bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger' && !parent.props.text && !parent.props.plain
                     },
                     {
                         'px-4 py-3 text-base': parent.props.size === null,
@@ -721,10 +892,7 @@ export default {
                         'text-xl py-3 px-4': parent.props.size === 'large'
                     }
                 ]
-            }),
-            label: {
-                class: 'hidden'
-            }
+            })
         }
     },
     //FORMS
@@ -825,7 +993,8 @@ export default {
         },
         sublist: {
             class: ['block absolute left-full top-0', 'min-w-full z-10', 'py-3 bg-white dark:bg-gray-900 border-0 shadow-md']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     inputgroup: {
         root: {
@@ -957,7 +1126,8 @@ export default {
         },
         hideicon: {
             class: ['absolute top-1/2 -mt-2', 'right-3 text-gray-600 dark:text-white/70']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     togglebutton: {
         root: ({ props, context }) => ({
@@ -1047,6 +1217,7 @@ export default {
                 'cursor-pointer inline-flex relative select-none',
                 'bg-white border border-gray-400 transition-colors duration-200 ease-in-out rounded-md',
                 'dark:bg-gray-900 dark:border-blue-900/40 dark:hover:border-blue-300',
+                'w-full md:w-56',
                 'hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
                 { 'opacity-60 select-none pointer-events-none cursor-default': props.disabled }
             ]
@@ -1107,7 +1278,8 @@ export default {
         },
         clearicon: {
             class: ['text-gray-500 right-12 -mt-2 absolute top-1/2']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     calendar: {
         root: ({ props }) => ({
@@ -1225,7 +1397,8 @@ export default {
         },
         group: {
             class: ['flex-1', 'border-l border-gray-300 pr-0.5 pl-0.5 pt-0 pb-0', 'first:pl-0 first:border-l-0']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     listbox: {
         root: ({ props }) => ({
@@ -1391,7 +1564,8 @@ export default {
         },
         clearicon: {
             class: ['text-gray-500 right-12 -mt-2 absolute top-1/2']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     textarea: {
         root: ({ context }) => ({
@@ -1426,7 +1600,8 @@ export default {
         },
         wrapper: {
             class: ['max-h-[200px] overflow-auto', 'bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     autocomplete: {
         root: ({ props }) => ({
@@ -1546,7 +1721,8 @@ export default {
         },
         huehandle: {
             class: ['border-solid border-2 cursor-pointer h-2 w-8 left-0 -ml-1 -mt-1 opacity-85 absolute']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     editor: {
         toolbar: {
@@ -1620,10 +1796,11 @@ export default {
         }),
         value: ({ props }) => ({
             class: [
-                'transition-width duration-1000 ease-in-out',
-                'items-center border-0 flex h-full justify-center overflow-hidden absolute w-0',
                 'border-0 m-0 bg-blue-500',
-                { 'before:absolute before:top-0 before:left-0 before:bottom-0 before:bg-inherit after:absolute after:top-0 after:left-0 after:bottom-0 after:bg-inherit': props.mode == 'indeterminate' }
+                {
+                    'transition-width duration-1000 ease-in-out absolute items-center border-0 flex h-full justify-center overflow-hidden w-0': props.mode !== 'indeterminate',
+                    'progressbar-value-animate before:absolute before:top-0 before:left-0 before:bottom-0 before:bg-inherit after:absolute after:top-0 after:left-0 after:bottom-0 after:bg-inherit after:delay-1000': props.mode == 'indeterminate'
+                }
             ]
         }),
         label: {
@@ -1638,7 +1815,7 @@ export default {
             class: ['absolute top-0 bottom-0 left-0 right-0 m-auto w-full h-full transform origin-center animate-spin']
         },
         circle: {
-            class: ['text-red-500 stroke-current']
+            class: ['text-red-500 progress-spinner-circle']
         }
     },
     skeleton: {
@@ -1682,7 +1859,15 @@ export default {
     },
     scrolltop: {
         root: ({ props }) => ({
-            class: ['fixed bottom-20 right-20 flex items-center justify-center', 'bg-blue-500 text-white rounded-md h-8 w-8', 'ml-auto']
+            class: [
+                'fixed bottom-20 right-20 flex items-center justify-center',
+                '',
+                'ml-auto',
+                {
+                    '!bg-blue-500 hover:bg-blue-600 text-white rounded-md h-8 w-8': props.target == 'parent',
+                    '!bg-gray-700 hover:bg-gray-800 h-12 w-12 rounded-full text-white': props.target !== 'parent'
+                }
+            ]
         })
     },
     terminal: {
@@ -1822,7 +2007,8 @@ export default {
         },
         submenuheader: {
             class: ['m-0 p-3 text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 font-bold rounded-tl-none rounded-tr-none']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     menubar: {
         root: {
@@ -1992,7 +2178,8 @@ export default {
         },
         submenu: {
             class: ['p-0 pl-4 m-0 list-none']
-        }
+        },
+        transition: TRANSITIONS.toggleable
     },
     steps: {
         root: {
@@ -2175,14 +2362,14 @@ export default {
             class: ['flex justify-center items-center h-full w-full']
         },
         thumbnailwrapper: {
-            class: ['flex flex-col overflow-auto shrink-0']
+            class: ['flex flex-col overflow-auto flex-shrink-0']
         },
         thumbnailcontainer: {
             class: ['flex flex-row', 'bg-black/90 p-4']
         },
         previousthumbnailbutton: {
             class: [
-                'self-center flex shrink-0 justify-center items-center overflow-hidden relative',
+                'self-center flex flex-shrink-0 justify-center items-center overflow-hidden relative',
                 'm-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full',
                 'hover:bg-white/10 hover:text-white',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
@@ -2195,11 +2382,11 @@ export default {
             class: ['flex']
         },
         thumbnailitem: {
-            class: ['overflow-auto flex items-center justify-center cursor-pointer opacity-50', 'flex-1 grow-0 shrink-0 w-20', 'hover:opacity-100 hover:transition-opacity hover:duration-300']
+            class: ['overflow-auto flex items-center justify-center cursor-pointer opacity-50', 'flex-1 flex-grow-0 flex-shrink-0 w-20', 'hover:opacity-100 hover:transition-opacity hover:duration-300']
         },
         nextthumbnailbutton: {
             class: [
-                'self-center flex shrink-0 justify-center items-center overflow-hidden relative',
+                'self-center flex flex-shrink-0 justify-center items-center overflow-hidden relative',
                 'm-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full',
                 'hover:bg-white/10 hover:text-white',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
@@ -2213,8 +2400,9 @@ export default {
         },
         indicatorbutton: ({ props, context }) => ({
             class: [
-                'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 w-4 h-4 transition duration-200 rounded-full',
-                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+                'w-4 h-4 transition duration-200 rounded-full',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
+                { 'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600': !context.highlighted, 'bg-blue-500 hover:bg-blue-600': context.highlighted }
             ]
         }),
         mask: {
@@ -2266,7 +2454,7 @@ export default {
             class: ['flex', { 'flex-row': props.orientation !== 'vertical', 'flex-col': props.orientation == 'vertical' }]
         }),
         previousbutton: ({ props, context }) => ({
-            class: ['flex justify-center items-center self-center overflow-hidden relative shrink-0 grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2']
+            class: ['flex justify-center items-center self-center overflow-hidden relative flex-shrink-0 flex-grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2']
         }),
         itemscontent: {
             class: ['overflow-hidden w-full']
@@ -2275,18 +2463,19 @@ export default {
             class: ['flex ', { 'flex-row': props.orientation !== 'vertical', 'flex-col h-full': props.orientation == 'vertical' }]
         }),
         item: ({ props, context }) => ({
-            class: ['flex shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
+            class: ['flex flex-shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
         }),
         indicators: {
             class: ['flex flex-row justify-center flex-wrap']
         },
-        indicator: {
+        indicator: ({ props, context }) => ({
             class: ['mr-2 mb-2']
-        },
-        indicatorbutton: ({ props, instance }) => ({
+        }),
+        indicatorbutton: ({ props, context }) => ({
             class: [
-                'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 w-8 h-2 transition duration-200 rounded-0',
-                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]'
+                'w-8 h-2 transition duration-200 rounded-0',
+                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
+                { 'bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600': !context.highlighted, 'bg-blue-500 hover:bg-blue-600': context.highlighted }
             ]
         })
     },
