@@ -4789,6 +4789,14 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "mask",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "BlockUIPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the mask's DOM element."
+                        },
+                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
