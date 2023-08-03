@@ -284,7 +284,7 @@ export default {
     },
     dialog: {
         root: ({ props, state }) => ({
-            class: ['rounded-lg shadow-lg border-0', 'flex flex-col max-h-90 transform scale-100', 'm-0  w-[50vw] z-40 relative', '', 'dark:border dark:border-blue-900/40']
+            class: ['rounded-lg shadow-lg border-0', 'max-h-90 transform scale-100', 'm-0  w-[50vw] z-40 relative', '', 'dark:border dark:border-blue-900/40']
         }),
         header: {
             class: ['flex items-center justify-between shrink-0', 'bg-white text-gray-800 border-t-0  rounded-tl-lg rounded-tr-lg p-6', 'dark:bg-gray-900  dark:text-white/80']
@@ -314,7 +314,7 @@ export default {
             class: ['shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
         },
         mask: {
-            class: ['fixed top-0 left-0 w-full h-full flex items-center justify-center pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20']
+            class: ['flex pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20']
         }
     },
     confirmpopup: {
@@ -387,13 +387,9 @@ export default {
         content: {
             class: ['p-5 pt-0 h-full w-full', 'grow overflow-y-auto']
         },
-        mask: ({ props, state }) => ({
-            class: [
-                'fixed top-0 left-0 w-full h-full flex  pointer-events-auto',
-                'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors',
-                { 'justify-end': props.position == 'right', 'items-start': props.position == 'top', 'items-end': props.position == 'bottom' }
-            ]
-        })
+        mask: {
+            class: ['pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors']
+        }
     },
     toolbar: {
         root: {
