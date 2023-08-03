@@ -28266,6 +28266,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "level",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Current level of the menuitem."
                         }
                     ],
                     "methods": []
