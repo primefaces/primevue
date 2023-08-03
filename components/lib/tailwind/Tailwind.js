@@ -3551,5 +3551,10 @@ export default {
         resizehelper: {
             class: ['absolute hidden w-px z-10 bg-blue-500 dark:bg-blue-300']
         }
+    },
+
+    // CHART
+    chart: {
+        root: 'relative'
     }
 };
