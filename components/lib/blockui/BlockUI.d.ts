@@ -32,6 +32,10 @@ export interface BlockUIPassThroughOptions {
      */
     root?: BlockUIPassThroughOptionType;
     /**
+     * Used to pass attributes to the mask's DOM element.
+     */
+    mask?: BlockUIPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks
      * @see {@link BaseComponent.ComponentHooks}
      */
