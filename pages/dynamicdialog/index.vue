@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['DynamicDialog', 'Dialog', 'DialogService-UseDialog', 'DynamicDialogOptions']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -20,6 +21,7 @@ import OpenDialogDoc from '@/doc/dynamicdialog/OpenDialogDoc';
 import PassingDataDoc from '@/doc/dynamicdialog/PassingDataDoc';
 import UsageDoc from '@/doc/dynamicdialog/UsageDoc';
 import PTComponent from '@/doc/dynamicdialog/pt/index.vue';
+import ThemingDoc from '@/doc/dynamicdialog/theming/index.vue';
 
 export default {
     data() {
@@ -71,7 +73,8 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
