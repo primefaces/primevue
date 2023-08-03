@@ -454,10 +454,14 @@ export default {
             const datasetPrefix = 'data-pc-';
             const self = this._getPTClassValue(obj, key, params);
             const globalPT = searchInDefaultPT ? (/./g.test(key) && !!params[key.split('.')[0]] ? this._getPTClassValue(this.globalPT, key, params) : this._getPTClassValue(this.defaultPT, key, params)) : undefined;
-            const merged = mergeProps(self, globalPT, {
-                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
-                [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
-            });
+            const merged = mergeProps(
+                self,
+                globalPT,
+                key !== 'transition' && {
+                    ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
+                    [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
+                }
+            );
 
             return merged;
             /*
