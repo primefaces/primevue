@@ -1710,6 +1710,9 @@ export default {
             class: ['flex-1 shrink grow-0 border-0 bg-transparent text-inherit p-0 outline-none']
         }
     },
+    blockui: {
+        root: 'relative'
+    },
 
     //MENU
     breadcrumb: {
