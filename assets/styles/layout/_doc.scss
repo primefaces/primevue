@@ -44,6 +44,10 @@
             }
         }
     }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .doc-tabpanel,
