@@ -169,6 +169,10 @@ export interface MenubarContext {
      * @defaultValue false
      */
     focused: boolean;
+    /**
+     * Current level of the menuitem.
+     */
+    level: number;
 }
 
 /**
