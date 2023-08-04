@@ -705,6 +705,28 @@ export default {
         return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
     },
 
+    hasCSSAnimation(element) {
+        if (element) {
+            const style = getComputedStyle(element);
+            const animationDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
+
+            return animationDuration > 0;
+        }
+
+        return false;
+    },
+
+    hasCSSTransition(element) {
+        if (element) {
+            const style = getComputedStyle(element);
+            const transitionDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+
+            return transitionDuration > 0;
+        }
+
+        return false;
+    },
+
     exportCSV(csv, filename) {
         let blob = new Blob([csv], {
             type: 'application/csv;charset=utf-8;'

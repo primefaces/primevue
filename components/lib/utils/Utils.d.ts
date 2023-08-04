@@ -60,6 +60,8 @@ export declare class DomHandler {
     static isIOS(): boolean;
     static isAndroid(): boolean;
     static isTouchDevice(): boolean;
+    static hasCSSAnimation(el: HTMLElement): boolean;
+    static hasCSSTransition(el: HTMLElement): boolean;
     static exportCSV(csv: any, filename: string): void;
 }
 
