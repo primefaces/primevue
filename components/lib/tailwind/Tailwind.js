@@ -771,7 +771,7 @@ export default {
         }),
         button: {
             root: ({ parent }) => ({
-                class: ['w-16 h-16 min-[0px]:rounded-[50%] justify-center z-10', { 'rotate-45': parent.state.d_visible }]
+                class: ['w-16 !h-16 !rounded-full justify-center z-10', { 'rotate-45': parent.state.d_visible }]
             }),
             label: {
                 class: 'hidden'
