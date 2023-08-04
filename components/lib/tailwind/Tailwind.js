@@ -1886,7 +1886,8 @@ export default {
         }
     },
     blockui: {
-        root: 'relative'
+        root: 'relative',
+        mask: 'bg-black/40'
     },
 
     //MENU
