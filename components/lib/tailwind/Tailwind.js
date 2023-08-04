@@ -1002,11 +1002,6 @@ export default {
         },
         transition: TRANSITIONS.overlay
     },
-    inputgroup: {
-        root: {
-            class: ['flex items-stretch w-full flex-1']
-        }
-    },
     inputmask: {
         root: ({ props, context }) => ({
             class: [
