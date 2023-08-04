@@ -33,24 +33,38 @@ export default {
         block() {
             let styleClass = 'p-blockui p-component-overlay p-component-overlay-enter';
 
-            this.mask = document.createElement('div');
-            this.mask.setAttribute('data-pc-section', 'mask');
-            DomHandler.addStyles(this.mask, {
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                width: '100%',
-                height: '100%'
-            });
-
             if (this.fullScreen) {
                 styleClass += ' p-blockui-document';
-                !this.isUnstyled && this.mask.setAttribute('class', styleClass);
+
+                this.mask = DomHandler.createElement('div', {
+                    'data-pc-section': 'mask',
+                    style: {
+                        position: 'fixed',
+                        top: '0',
+                        left: '0',
+                        width: '100%',
+                        height: '100%'
+                    },
+                    class: !this.isUnstyled && styleClass,
+                    'p-bind': this.ptm('mask')
+                });
+
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 document.activeElement.blur();
             } else {
-                !this.isUnstyled && this.mask.setAttribute('class', styleClass);
+                this.mask = DomHandler.createElement('div', {
+                    'data-pc-section': 'mask',
+                    style: {
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        width: '100%',
+                        height: '100%'
+                    },
+                    class: !this.isUnstyled && styleClass,
+                    'p-bind': this.ptm('mask')
+                });
                 this.$refs.container.appendChild(this.mask);
             }
 
@@ -63,18 +77,21 @@ export default {
         },
         unblock() {
             !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
-            this.mask.addEventListener('animationend', () => {
+
+            if (DomHandler.hasCSSAnimation(this.mask) > 0) {
+                this.mask.addEventListener('animationend', () => {
+                    this.removeMask();
+                });
+            } else {
                 this.removeMask();
-            });
+            }
         },
         removeMask() {
             ZIndexUtils.clear(this.mask);
 
             if (this.fullScreen) {
-                if (!this.isUnstyled) {
-                    document.body.removeChild(this.mask);
-                    DomHandler.removeClass(document.body, 'p-overflow-hidden');
-                }
+                document.body.removeChild(this.mask);
+                DomHandler.removeClass(document.body, 'p-overflow-hidden');
             } else {
                 this.$refs.container.removeChild(this.mask);
             }
