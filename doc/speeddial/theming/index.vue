@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>SpeedDial Theming</h1>
+            <h1>Speed Dial Theming</h1>
         </div>
         <DocSections :docs="docs" />
     </div>

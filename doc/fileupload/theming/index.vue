@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>FileUpload Theming</h1>
+            <h1>File Upload Theming</h1>
         </div>
         <DocSections :docs="docs" />
     </div>
