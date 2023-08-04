@@ -361,7 +361,7 @@ export default {
         }),
 
         gutter: ({ props }) => ({
-            class: ['flex items-center justify-center  flex-shrink-0', 'transition-all duration-200 bg-gray-100 dark:bg-gray-800', { 'cursor-col-resize': props.layout == 'horizontal', 'cursor-row-resize': props.layout !== 'horizontal' }]
+            class: ['flex items-center justify-center  shrink-0', 'transition-all duration-200 bg-gray-100 dark:bg-gray-800', { 'cursor-col-resize': props.layout == 'horizontal', 'cursor-row-resize': props.layout !== 'horizontal' }]
         }),
         gutterhandler: ({ props }) => ({
             class: ['bg-gray-300 dark:bg-gray-600 transition-all duration-200', { 'h-7': props.layout == 'horizontal', 'w-7 h-2': props.layout !== 'horizontal' }]
@@ -851,7 +851,10 @@ export default {
                         'text-xl py-3 px-4': parent.props.size === 'large'
                     }
                 ]
-            })
+            }),
+            icon: {
+                class: 'mr-2'
+            }
         },
         menubutton: {
             root: ({ parent }) => ({
@@ -892,7 +895,10 @@ export default {
                         'text-xl py-3 px-4': parent.props.size === 'large'
                     }
                 ]
-            })
+            }),
+            label: {
+                class: 'hidden'
+            }
         }
     },
     //FORMS
@@ -2362,14 +2368,14 @@ export default {
             class: ['flex justify-center items-center h-full w-full']
         },
         thumbnailwrapper: {
-            class: ['flex flex-col overflow-auto flex-shrink-0']
+            class: ['flex flex-col overflow-auto shrink-0']
         },
         thumbnailcontainer: {
             class: ['flex flex-row', 'bg-black/90 p-4']
         },
         previousthumbnailbutton: {
             class: [
-                'self-center flex flex-shrink-0 justify-center items-center overflow-hidden relative',
+                'self-center flex shrink-0 justify-center items-center overflow-hidden relative',
                 'm-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full',
                 'hover:bg-white/10 hover:text-white',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
@@ -2382,11 +2388,11 @@ export default {
             class: ['flex']
         },
         thumbnailitem: {
-            class: ['overflow-auto flex items-center justify-center cursor-pointer opacity-50', 'flex-1 flex-grow-0 flex-shrink-0 w-20', 'hover:opacity-100 hover:transition-opacity hover:duration-300']
+            class: ['overflow-auto flex items-center justify-center cursor-pointer opacity-50', 'flex-1 grow-0 shrink-0 w-20', 'hover:opacity-100 hover:transition-opacity hover:duration-300']
         },
         nextthumbnailbutton: {
             class: [
-                'self-center flex flex-shrink-0 justify-center items-center overflow-hidden relative',
+                'self-center flex shrink-0 justify-center items-center overflow-hidden relative',
                 'm-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full',
                 'hover:bg-white/10 hover:text-white',
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
@@ -2454,7 +2460,7 @@ export default {
             class: ['flex', { 'flex-row': props.orientation !== 'vertical', 'flex-col': props.orientation == 'vertical' }]
         }),
         previousbutton: ({ props, context }) => ({
-            class: ['flex justify-center items-center self-center overflow-hidden relative flex-shrink-0 flex-grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2']
+            class: ['flex justify-center items-center self-center overflow-hidden relative shrink-0 grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2']
         }),
         itemscontent: {
             class: ['overflow-hidden w-full']
@@ -2463,7 +2469,7 @@ export default {
             class: ['flex ', { 'flex-row': props.orientation !== 'vertical', 'flex-col h-full': props.orientation == 'vertical' }]
         }),
         item: ({ props, context }) => ({
-            class: ['flex flex-shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
+            class: ['flex shrink-0 grow', { 'w-1/3': props.orientation !== 'vertical', 'w-full': props.orientation == 'vertical' }]
         }),
         indicators: {
             class: ['flex flex-row justify-center flex-wrap']
