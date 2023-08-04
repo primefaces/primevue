@@ -7,6 +7,10 @@ const styles = `
     width: 25rem;
 }
 
+.p-toast-message-icon {
+    flex-shrink: 0;
+}
+
 .p-toast-message-content {
     display: flex;
     align-items: flex-start;
