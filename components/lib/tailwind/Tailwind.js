@@ -814,43 +814,7 @@ export default {
         }),
         button: {
             root: ({ parent }) => ({
-                class: [
-                    'min-[0px]:rounded-r-none',
-                    {
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600':
-                            (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined && !parent.props.plain
-                    },
-
-                    { 'rounded-l-full': parent.props.rounded },
-                    {
-                        '!bg-transparent !border-transparent !hover:border-transparent': parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        '!text-blue-500 hover:!bg-blue-300/20': parent.props.text && (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.outlined && !parent.props.plain,
-                        '!text-gray-500 hover:!bg-gray-300/20': parent.props.text && parent.props.severity == 'secondary' && !parent.props.outlined && !parent.props.plain,
-                        '!text-green-500 hover:!bg-green-300/20': parent.props.text && parent.props.severity == 'success' && !parent.props.outlined && !parent.props.plain,
-                        '!text-orange-500 hover:!bg-orange-300/20': parent.props.text && parent.props.severity == 'warning' && !parent.props.outlined && !parent.props.plain,
-                        '!text-purple-500 hover:!bg-purple-300/20': parent.props.text && parent.props.severity == 'help' && !parent.props.outlined && !parent.props.plain,
-                        '!text-red-500 hover:!bg-red-300/20': parent.props.text && parent.props.severity == 'danger' && !parent.props.outlined && !parent.props.plain
-                    },
-                    {
-                        '!bg-transparent !border !border-r-0': parent.props.outlined && !parent.props.text && !parent.props.plain,
-                        '!text-blue-500 !border-blue-500 hover:!bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null) && !parent.props.text && !parent.props.plain,
-                        '!text-gray-500 !border-gray-500 hover:!bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary' && !parent.props.text && !parent.props.plain,
-                        '!text-green-500 !border-green-500 hover:!bg-green-300/20': parent.props.outlined && parent.props.severity === 'success' && !parent.props.text && !parent.props.plain,
-                        '!text-orange-500 !border-orange-500 hover:!bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning' && !parent.props.text && !parent.props.plain,
-                        '!text-purple-500 !border-purple-500 hover:!bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help' && !parent.props.text && !parent.props.plain,
-                        '!text-red-500 !border-red-500 hover:!bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger' && !parent.props.text && !parent.props.plain
-                    },
-                    {
-                        'px-4 py-3 text-base': parent.props.size === null,
-                        'text-xs py-2 px-3': parent.props.size === 'small',
-                        'text-xl py-3 px-4': parent.props.size === 'large'
-                    }
-                ]
+                class: ['rounded-r-none border-r-0', { 'rounded-l-full': parent.props.rounded }]
             }),
             icon: {
                 class: 'mr-2'
@@ -858,43 +822,7 @@ export default {
         },
         menubutton: {
             root: ({ parent }) => ({
-                class: [
-                    'min-[0px]:rounded-l-none',
-                    {
-                        'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600':
-                            (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': parent.props.severity === 'secondary' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': parent.props.severity === 'success' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': parent.props.severity === 'warning' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': parent.props.severity === 'help' && !parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': parent.props.severity === 'danger' && !parent.props.text && !parent.props.outlined && !parent.props.plain
-                    },
-
-                    { 'rounded-r-full': parent.props.rounded },
-                    {
-                        '!bg-transparent !border-transparent !hover:border-transparent': parent.props.text && !parent.props.outlined && !parent.props.plain,
-                        '!text-blue-500 hover:!bg-blue-300/20': parent.props.text && (parent.props.severity == null || parent.props.severity == 'info') && !parent.props.outlined && !parent.props.plain,
-                        '!text-gray-500 hover:!bg-gray-300/20': parent.props.text && parent.props.severity == 'secondary' && !parent.props.outlined && !parent.props.plain,
-                        '!text-green-500 hover:!bg-green-300/20': parent.props.text && parent.props.severity == 'success' && !parent.props.outlined && !parent.props.plain,
-                        '!text-orange-500 hover:!bg-orange-300/20': parent.props.text && parent.props.severity == 'warning' && !parent.props.outlined && !parent.props.plain,
-                        '!text-purple-500 hover:!bg-purple-300/20': parent.props.text && parent.props.severity == 'help' && !parent.props.outlined && !parent.props.plain,
-                        '!text-red-500 hover:!bg-red-300/20': parent.props.text && parent.props.severity == 'danger' && !parent.props.outlined && !parent.props.plain
-                    },
-                    {
-                        '!bg-transparent !border': parent.props.outlined && !parent.props.text && !parent.props.plain,
-                        '!text-blue-500 !border-blue-500 hover:!bg-blue-300/20': parent.props.outlined && (parent.props.severity === 'info' || parent.props.severity === null) && !parent.props.text && !parent.props.plain,
-                        '!text-gray-500 !border-gray-500 hover:!bg-gray-300/20': parent.props.outlined && parent.props.severity === 'secondary' && !parent.props.text && !parent.props.plain,
-                        '!text-green-500 !border-green-500 hover:!bg-green-300/20': parent.props.outlined && parent.props.severity === 'success' && !parent.props.text && !parent.props.plain,
-                        '!text-orange-500 !border-orange-500 hover:!bg-orange-300/20': parent.props.outlined && parent.props.severity === 'warning' && !parent.props.text && !parent.props.plain,
-                        '!text-purple-500 !border-purple-500 hover:!bg-purple-300/20': parent.props.outlined && parent.props.severity === 'help' && !parent.props.text && !parent.props.plain,
-                        '!text-red-500 !border-red-500 hover:!bg-red-300/20': parent.props.outlined && parent.props.severity === 'danger' && !parent.props.text && !parent.props.plain
-                    },
-                    {
-                        'px-4 py-3 text-base': parent.props.size === null,
-                        'text-xs py-2 px-3': parent.props.size === 'small',
-                        'text-xl py-3 px-4': parent.props.size === 'large'
-                    }
-                ]
+                class: ['rounded-l-none', { 'rounded-r-full': parent.props.rounded }]
             }),
             label: {
                 class: 'hidden'
