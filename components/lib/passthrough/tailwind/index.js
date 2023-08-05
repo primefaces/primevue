@@ -284,7 +284,7 @@ export default {
         }
     },
     tabview: {
-        navContainer: ({ props, context, parent }) => ({
+        navContainer: ({ props }) => ({
             class: [
                 'relative', // Relative positioning.
                 { 'overflow-hidden': props.scrollable } // Overflow condition.
@@ -1128,9 +1128,9 @@ export default {
         icon: 'w-4 h-4 transition-all duration-200 text-white text-base dark:text-gray-900'
     },
     radiobutton: {
-        root: ({ props }) => ({
+        root: {
             class: ['relative inline-flex cursor-pointer select-none align-bottom', 'w-6 h-6']
-        }),
+        },
         input: ({ props }) => ({
             class: [
                 'flex justify-center items-center',
