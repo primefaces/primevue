@@ -505,17 +505,9 @@ export default {
         content: {
             class: ['p-5 pt-0 h-full w-full', 'grow overflow-y-auto']
         },
-        mask: ({ props }) => ({
-            class: [
-                'fixed top-0 left-0 w-full h-full flex  pointer-events-auto',
-                'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors',
-                {
-                    'justify-end': props.position == 'right',
-                    'items-start': props.position == 'top',
-                    'items-end': props.position == 'bottom'
-                }
-            ]
-        }),
+        mask: {
+            class: ['flex pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors']
+        },
         transition: ({ props }) => {
             return props.position === 'top'
                 ? {
@@ -726,36 +718,21 @@ export default {
         })
     },
     speeddial: {
-        root: ({ props }) => ({
-            class: [
-                'absolute flex ',
-                {
-                    'items-center flex-col-reverse': props.direction == 'up' && props.type == 'linear' && props.type !== 'circle',
-                    'items-center flex-col': props.direction == 'down' && props.type == 'linear' && props.type !== 'circle',
-                    'justify-center flex-row-reverse': props.direction == 'left' && props.type == 'linear' && props.type !== 'circle',
-                    'justify-center flex-row': props.direction == 'right' && props.type == 'linear' && props.type !== 'circle'
-                }
-            ]
-        }),
+        root: 'absolute flex',
         button: {
             root: ({ parent }) => ({
-                class: ['w-16 !h-16 !rounded-full justify-center z-10', { 'rotate-45': parent.state.d_visible }]
+                class: [
+                    'w-16 !h-16 !rounded-full justify-center z-10',
+                    {
+                        'rotate-45': parent.state.d_visible
+                    }
+                ]
             }),
             label: {
                 class: 'hidden'
             }
         },
-        menu: ({ props }) => ({
-            class: [
-                'm-0 p-0 list-none flex items-center justify-center transition delay-200 z-20',
-                {
-                    'flex-col-reverse': props.direction == 'up' && props.type == 'linear',
-                    'flex-col': props.direction == 'down' && props.type == 'linear',
-                    'flex-row-reverse': props.direction == 'left' && props.type == 'linear',
-                    'flex-row': props.direction == 'right' && props.type == 'linear'
-                }
-            ]
-        }),
+        menu: 'm-0 p-0 list-none flex items-center justify-center transition delay-200 z-20',
         menuitem: ({ props, context }) => ({
             class: [
                 'transform transition-transform duration-200 ease-out transition-opacity duration-800',
