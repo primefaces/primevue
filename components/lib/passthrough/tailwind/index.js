@@ -14,6 +14,7 @@ export const TRANSITIONS = {
         leaveToClass: 'opacity-0'
     }
 };
+
 export default {
     global: {
         css: `

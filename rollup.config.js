@@ -59,6 +59,11 @@ const CORE_ICON_DEPENDENCIES = {
     'primevue/icons/windowminimize': 'primevue.icons.windowminimize'
 };
 
+const CORE_PASSTHROUGH_DEPENDENCIES = {
+    'primevue/passthrough': 'primevue.passthrough',
+    'primevue/passthrough/tailwind': 'primevue.passthrough.tailwind'
+};
+
 const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
@@ -93,7 +98,7 @@ const CORE_DEPENDENCIES = {
     'primevue/menu': 'primevue.menu',
     'primevue/tieredmenu': 'primevue.tieredmenu',
     'primevue/badge': 'primevue.badge',
-    'primevue/tailwind': 'primevue.tailwind'
+    ...CORE_PASSTHROUGH_DEPENDENCIES
 };
 
 // dependencies
@@ -283,8 +288,9 @@ function addConfig() {
     addEntry('config', 'PrimeVue.js', 'config');
 }
 
-function addTailwind() {
-    addEntry('tailwind', 'Tailwind', 'tailwind');
+function addPassThrough() {
+    addEntry('passthrough', 'index.js', 'index');
+    addEntry('passthrough/tailwind', 'index.js', 'index');
 }
 
 function addUtils() {
@@ -322,7 +328,7 @@ addDirectives();
 addServices();
 addSFC();
 addIcon();
-addTailwind();
+addPassThrough();
 addCore();
 
 export default entries;
