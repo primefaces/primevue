@@ -111,7 +111,7 @@ const styles = `
 `;
 
 const classes = {
-    root: ({ props }) => ['p-dock p-component', `p-dock-${props.position}`, props.class],
+    root: ({ props }) => ['p-dock p-component', `p-dock-${props.position}`],
     container: 'p-dock-list-container',
     menu: 'p-dock-list',
     menuitem: ({ instance, processedItem, index, id }) => [

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="style" v-bind="ptm('root')" data-pc-name="dock">
+    <div :class="containerClass" :style="style" v-bind="ptm('root')" data-pc-name="dock">
         <DockSub
             :model="model"
             :templates="$slots"
@@ -23,6 +23,11 @@ import DockSub from './DockSub.vue';
 export default {
     name: 'Dock',
     extends: BaseDock,
+    computed: {
+        containerClass() {
+            return [this.class, cx('root')];
+        }
+    },
     components: {
         DockSub
     }
