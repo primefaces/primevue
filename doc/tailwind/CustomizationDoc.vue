@@ -52,7 +52,7 @@ export default {
             code2: {
                 basic: `import {createApp} from "vue";
 import PrimeVue from "primevue/config";
-import Tailwind from "primevue/tailwind";
+import Tailwind from "primevue/passthrough/tailwind";
 
 const app = createApp(App);
 

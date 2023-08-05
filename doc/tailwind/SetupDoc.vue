@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>
             This section assumes that Tailwind is already available in your application, if not visit the Tailwind CSS <a href="https://tailwindcss.com/docs/installation/framework-guides">framework guides</a> like Vite or Nuxt for the installation.
-            The built-in default theme is basically a <PrimeVueNuxtLink to="/passthrough">global pass through</PrimeVueNuxtLink> configuration that needs to be imported from <i>primevue/tailwind</i> path and then defined during setup. Since the theme
-            is exclusive to unstyled mode, the <i>unstyled</i> setting is required in addition.
+            The built-in default theme is basically a <PrimeVueNuxtLink to="/passthrough">global pass through</PrimeVueNuxtLink> configuration that needs to be imported from <i>primevue/passthrough/tailwind</i> path and then defined during setup.
+            Since the theme is exclusive to unstyled mode, the <i>unstyled</i> setting is required in addition.
         </p>
         <DocSectionCode :code="code1" hideToggleCode hideCodeSandbox hideStackBlitz />
         <p>
@@ -22,7 +22,7 @@ export default {
             code1: {
                 basic: `import {createApp} from "vue";
 import PrimeVue from "primevue/config";
-import Tailwind from "primevue/tailwind";
+import Tailwind from "primevue/passthrough/tailwind";
 
 const app = createApp(App);
 

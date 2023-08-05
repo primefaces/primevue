@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The complete API of the Tailwind theme at <i>primevue/tailwind</i> with the default values as a reference.</p>
+        <p>The complete API of the Tailwind theme at <i>primevue/passthrough/tailwind</i> with the default values as a reference.</p>
     </DocSectionText>
     <div class="overflow-auto" style="height: 40rem">
         <DocSectionCode :code="code" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
