@@ -17,6 +17,7 @@
 
 <script>
 import BasicDoc from '@/doc/passthrough/BasicDoc';
+import CustomCSSDoc from '@/doc/passthrough/CustomCSSDoc';
 import GlobalDoc from '@/doc/passthrough/GlobalDoc';
 import LifecycleDoc from '@/doc/passthrough/LifecycleDoc';
 
@@ -38,6 +39,11 @@ export default {
                     id: 'global',
                     label: 'Global',
                     component: GlobalDoc
+                },
+                {
+                    id: 'customcss',
+                    label: 'Custom CSS',
+                    component: CustomCSSDoc
                 }
             ]
         };
