@@ -9,7 +9,7 @@
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Tailwind CSS</h1>
-                    <p>Tailwind is a popular utility-first CSS library that fits perfectly to the unstyled mode of PrimeVue. A built-in Tailwind theme is even available to get started in no time.</p>
+                    <p>Tailwind is a popular utility-first CSS library that fits perfectly to the unstyled mode of PrimeVue. A <b>built-in Tailwind theme</b> is even available to get started in no time.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import ApiDoc from '@/doc/tailwind/ApiDoc';
 import CustomizationDoc from '@/doc/tailwind/CustomizationDoc.vue';
 import ExampleDoc from '@/doc/tailwind/ExampleDoc';
 import SetupDoc from '@/doc/tailwind/SetupDoc';
@@ -42,11 +41,6 @@ export default {
                     id: 'example',
                     label: 'Example',
                     component: ExampleDoc
-                },
-                {
-                    id: 'api',
-                    label: 'Theme API',
-                    component: ApiDoc
                 }
             ]
         };
