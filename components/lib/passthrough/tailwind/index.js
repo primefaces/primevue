@@ -593,6 +593,13 @@ export default {
         text: 'text-base font-normal',
         button: {
             class: ['w-8 h-8 rounded-full bg-transparent transition duration-200 ease-in-out', 'ml-auto overflow-hidden relative', 'flex items-center justify-center', 'hover:bg-white/30']
+        },
+        transition: {
+            enterFromClass: 'opacity-0',
+            enterActiveClass: 'transition-opacity duration-300',
+            leaveFromClass: 'max-h-40',
+            leaveActiveClass: 'overflow-hidden transition-all duration-300 ease-in',
+            leaveToClass: 'max-h-0 opacity-0 !m-0'
         }
     },
     inlinemessage: {
@@ -1558,7 +1565,8 @@ export default {
         }),
         itemgroup: {
             class: ['m-0 p-3 text-gray-800 bg-white font-bold', 'dark:bg-gray-900 dark:text-white/80', 'cursor-auto']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     chips: {
         root: ({ props }) => ({
@@ -1776,7 +1784,13 @@ export default {
                     '!bg-gray-700 hover:bg-gray-800 h-12 w-12 rounded-full text-white': props.target !== 'parent'
                 }
             ]
-        })
+        }),
+        transition: {
+            enterFromClass: 'opacity-0',
+            enterActiveClass: 'transition-opacity duration-150',
+            leaveActiveClass: 'transition-opacity duration-150',
+            leaveToClass: 'opacity-0'
+        }
     },
     terminal: {
         root: {
@@ -1830,7 +1844,11 @@ export default {
             class: ['cursor-pointer flex items-center no-underline overflow-hidden relative', 'text-gray-700 dark:text-white/80 py-3 px-5 select-none']
         },
         icon: 'text-gray-600 dark:text-white/70 mr-2',
-        label: 'text-gray-600 dark:text-white/70'
+        label: 'text-gray-600 dark:text-white/70',
+        transition: {
+            enterFromClass: 'opacity-0',
+            enterActiveClass: 'transition-opacity duration-250'
+        }
     },
     dock: {
         root: ({ props }) => ({
@@ -2156,7 +2174,8 @@ export default {
         separator: 'border-t border-gray-300 my-1 dark:border-blue-900/40',
         submenu: {
             class: ['py-1 bg-white dark:bg-gray-900 border-0 shadow-md min-w-full', 'absolute z-10', 'left-full top-0']
-        }
+        },
+        transition: TRANSITIONS.overlay
     },
     //MEDIA
     image: {
@@ -2218,7 +2237,13 @@ export default {
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
             ]
         },
-        closeicon: 'w-6 h-6'
+        closeicon: 'w-6 h-6',
+        transition: {
+            enterFromClass: 'opacity-0 scale-75',
+            enterActiveClass: 'transition-all duration-150 ease-in-out',
+            leaveActiveClass: 'transition-all duration-150 ease-in',
+            leaveToClass: 'opacity-0 scale-75'
+        }
     },
     galleria: {
         root: 'flex flex-col',
@@ -2299,6 +2324,12 @@ export default {
         },
         caption: {
             class: ['absolute bottom-0 left-0 w-full', 'bg-black/50 text-white p-4']
+        },
+        transition: {
+            enterFromClass: 'opacity-0 scale-75',
+            enterActiveClass: 'transition-all duration-150 ease-in-out',
+            leaveActiveClass: 'transition-all duration-150 ease-in',
+            leaveToClass: 'opacity-0 scale-75'
         }
     },
     carousel: {
@@ -2885,6 +2916,12 @@ export default {
                 'border border-gray-300 bg-white text-gray-600 py-3 px-0 rounded-b-md outline-none',
                 'dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80' //Dark Mode
             ]
+        },
+        transition: {
+            enterFromClass: '!transition-none',
+            enterActiveClass: '!transition-none',
+            leaveActiveClass: '!transition-none',
+            leaveToClass: '!transition-none'
         }
     },
     paginator: {
@@ -3474,7 +3511,8 @@ export default {
                     }
                 ]
             }),
-            checkboxicon: 'w-4 h-4 transition-all duration-200 text-white text-base dark:text-gray-900'
+            checkboxicon: 'w-4 h-4 transition-all duration-200 text-white text-base dark:text-gray-900',
+            transition: TRANSITIONS.overlay
         },
         bodyrow: ({ context }) => ({
             class: [
