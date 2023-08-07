@@ -96,6 +96,12 @@ export default {
         },
         caption: {
             class: ['absolute bottom-0 left-0 w-full', 'bg-black/50 text-white p-4']
+        },
+        transition: {
+            enterFromClass: 'opacity-0 scale-75',
+            enterActiveClass: 'transition-all duration-150 ease-in-out',
+            leaveActiveClass: 'transition-all duration-150 ease-in',
+            leaveToClass: 'opacity-0 scale-75'
         }
     }
 }

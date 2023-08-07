@@ -27,7 +27,13 @@ export default {
                     '!bg-gray-700 hover:bg-gray-800 h-12 w-12 rounded-full text-white': props.target !== 'parent'
                 }
             ]
-        })
+        }),
+        transition: {
+            enterFromClass: 'opacity-0',
+            enterActiveClass: 'transition-opacity duration-150',
+            leaveActiveClass: 'transition-opacity duration-150',
+            leaveToClass: 'opacity-0'
+        }
     }
 }
 `

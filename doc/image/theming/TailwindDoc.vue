@@ -76,7 +76,13 @@ export default {
                 'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]'
             ]
         },
-        closeicon: 'w-6 h-6'
+        closeicon: 'w-6 h-6',
+        transition: {
+            enterFromClass: 'opacity-0 scale-75',
+            enterActiveClass: 'transition-all duration-150 ease-in-out',
+            leaveActiveClass: 'transition-all duration-150 ease-in',
+            leaveToClass: 'opacity-0 scale-75'
+        }
     }
 }
 `
