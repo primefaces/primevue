@@ -25,7 +25,7 @@ export default {
     extends: BaseDock,
     computed: {
         containerClass() {
-            return [this.class, cx('root')];
+            return [this.class, this.cx('root')];
         }
     },
     components: {
