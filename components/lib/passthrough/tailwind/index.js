@@ -335,7 +335,9 @@ export default {
                 }
             ]
         }),
-
+        splitterpanel: {
+            root: 'flex grow'
+        },
         gutter: ({ props }) => ({
             class: [
                 'flex items-center justify-center shrink-0',
@@ -352,16 +354,6 @@ export default {
                 {
                     'h-7': props.layout == 'horizontal',
                     'w-7 h-2': props.layout !== 'horizontal'
-                }
-            ]
-        })
-    },
-    splitterpanel: {
-        root: ({ context }) => ({
-            class: [
-                'grow flex',
-                {
-                    'justify-center items-center': !context.nested
                 }
             ]
         })
