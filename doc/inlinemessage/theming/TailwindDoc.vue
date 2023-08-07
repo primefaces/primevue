@@ -17,30 +17,20 @@ export default {
             code1: {
                 basic: `
 export default {
-    global: {
-        css: \`
-        *[data-pd-ripple="true"]{
-            overflow: hidden;
-            position: relative;
-        }
-        span[data-p-ink-active="true"]{
-            animation: ripple 0.4s linear;
-        }
-        @keyframes ripple {
-            100% {
-                opacity: 0;
-                transform: scale(2.5);
-            }
-        }
-    \`
-    },
-    directives: {
-        ripple: {
-            root: {
-                class: ['block absolute bg-white/50 rounded-full pointer-events-none'],
-                style: 'transform: scale(0)'
-            }
-        }
+    inlinemessage: {
+        root: ({ props }) => ({
+            class: [
+                'inline-flex items-center justify-center align-top',
+                'p-3 m-0 rounded-md',
+                {
+                    'bg-blue-100 border-0 text-blue-700': props.severity == 'info',
+                    'bg-green-100 border-0 text-green-700': props.severity == 'success',
+                    'bg-orange-100 border-0 text-orange-700': props.severity == 'warn',
+                    'bg-red-100 border-0 text-red-700': props.severity == 'error'
+                }
+            ]
+        }),
+        icon: 'text-base mr-2'
     }
 }
 `
@@ -48,8 +38,11 @@ export default {
             code2: {
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <Button label="Submit" />
+    <div class="card flex flex-wrap items-center justify-center gap-3">
+        <InlineMessage severity="success">Success Content</InlineMessage>
+        <InlineMessage severity="info">Info Content</InlineMessage>
+        <InlineMessage severity="warn">Warning Content</InlineMessage>
+        <InlineMessage severity="error">Error Content</InlineMessage>
     </div>
 </template>
 

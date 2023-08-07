@@ -16,23 +16,6 @@ export default {
         return {
             code1: {
                 basic: `
-export const TRANSITIONS = {
-    toggleable: {
-        enterFromClass: 'max-h-0',
-        enterActiveClass: 'overflow-hidden transition-all duration-500 ease-in-out',
-        enterToClass: 'max-h-40	',
-        leaveFromClass: 'max-h-40',
-        leaveActiveClass: 'overflow-hidden transition-all duration-500 ease-in',
-        leaveToClass: 'max-h-0'
-    },
-    overlay: {
-        enterFromClass: 'opacity-0 scale-75',
-        enterActiveClass: 'transition-transform transition-opacity duration-150 ease-in',
-        leaveActiveClass: 'transition-opacity duration-150 ease-linear',
-        leaveToClass: 'opacity-0'
-    }
-};
-
 export default {
     orderlist: {
         root: 'flex',

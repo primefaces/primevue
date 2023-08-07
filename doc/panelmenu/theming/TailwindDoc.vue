@@ -24,12 +24,6 @@ export const TRANSITIONS = {
         leaveFromClass: 'max-h-40',
         leaveActiveClass: 'overflow-hidden transition-all duration-500 ease-in',
         leaveToClass: 'max-h-0'
-    },
-    overlay: {
-        enterFromClass: 'opacity-0 scale-75',
-        enterActiveClass: 'transition-transform transition-opacity duration-150 ease-in',
-        leaveActiveClass: 'transition-opacity duration-150 ease-linear',
-        leaveToClass: 'opacity-0'
     }
 };
 

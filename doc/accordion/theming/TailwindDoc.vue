@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             PrimeVue offers a built-in Tailwind theme to get you started quickly. The default values related to the component are displayed below. The component can easily be styled with your own design based on Tailwind utilities, see the
-            <NuxtLink to="/tailwind">Tailwind Customization</NuxtLink> section for an example.
+            <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
         <p>A playground sample with the pre-built Tailwind theme.</p>
@@ -24,12 +24,6 @@ export const TRANSITIONS = {
         leaveFromClass: 'max-h-40',
         leaveActiveClass: 'overflow-hidden transition-all duration-500 ease-in',
         leaveToClass: 'max-h-0'
-    },
-    overlay: {
-        enterFromClass: 'opacity-0 scale-75',
-        enterActiveClass: 'transition-transform transition-opacity duration-150 ease-in',
-        leaveActiveClass: 'transition-opacity duration-150 ease-linear',
-        leaveToClass: 'opacity-0'
     }
 };
 

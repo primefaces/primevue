@@ -11,7 +11,6 @@
 <script>
 import StyledDoc from './StyledDoc.vue';
 import TailwindDoc from './TailwindDoc.vue';
-import UnstyledDoc from './UnstyledDoc.vue';
 
 export default {
     data() {
@@ -25,7 +24,6 @@ export default {
                 {
                     id: 'unstyled',
                     label: 'Unstyled',
-                    component: UnstyledDoc,
                     description: 'Theming is implemented with the pass through properties in unstyled mode.',
                     children: [
                         {

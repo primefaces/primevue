@@ -62,6 +62,7 @@ export default {
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
             <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
+            <Toast />
         </div>
     </div>
 </template>
@@ -117,6 +118,7 @@ export default {
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" class="right-0 bottom-0" buttonClass="p-button-help" :tooltipOptions="{ position: 'right' }" />
             <SpeedDial :model="items" direction="up" class="left-0 bottom-0" buttonClass="p-button-danger" :tooltipOptions="{ position: 'left' }" />
+            <Toast />
         </div>
     </div>
 </template>

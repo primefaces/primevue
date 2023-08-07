@@ -59,6 +59,7 @@ export default {
     <div class="card">
         <div :style="{ height: '500px' }" class="flex align-items-center justify-content-center">
             <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+            <Toast />
         </div>
     </div>
 </template>
@@ -113,6 +114,7 @@ export default {
     <div class="card">
         <div :style="{ height: '500px' }" class="flex align-items-center justify-content-center">
             <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warning" />
+            <Toast />
         </div>
     </div>
 </template>

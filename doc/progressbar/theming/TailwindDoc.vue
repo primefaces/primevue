@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             PrimeVue offers a built-in Tailwind theme to get you started quickly. The default values related to the component are displayed below. The component can easily be styled with your own design based on Tailwind utilities, see the
-            <NuxtLink to="/tailwind">Tailwind Customization</NuxtLink> section for an example.
+            <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
         <p>A playground sample with the pre-built Tailwind theme.</p>
@@ -17,6 +17,32 @@ export default {
             code1: {
                 basic: `
 export default {
+    global: {
+        css: \`
+        .progressbar-value-animate::after {
+            will-change: left, right;
+            animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        }
+        .progressbar-value-animate::before {
+            will-change: left, right;
+            animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+        }
+        @keyframes p-progressbar-indeterminate-anim {
+            0% {
+                left: -35%;
+                right: 100%;
+            }
+            60% {
+                left: 100%;
+                right: -90%;
+            }
+            100% {
+                left: 100%;
+                right: -90%;
+            }
+        }
+    \`
+    },
     progressbar: {
         root: {
             class: ['overflow-hidden relative', 'border-0 h-6 bg-gray-200 rounded-md dark:bg-gray-800']
