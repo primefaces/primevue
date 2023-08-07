@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Ripple Component" header="Ripple" description="Ripple directive adds ripple effect to the host element." :componentDocs="docs" :apiDocs="['Ripple']" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Ripple Component" header="Ripple" description="Ripple directive adds ripple effect to the host element." :componentDocs="docs" :apiDocs="['Ripple']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import ConfigurationDoc from '@/doc/ripple/ConfigurationDoc.vue';
 import CustomDoc from '@/doc/ripple/CustomDoc';
 import DefaultDoc from '@/doc/ripple/DefaultDoc';
 import ImportDoc from '@/doc/ripple/ImportDoc';
+import PTComponent from '@/doc/ripple/pt/index.vue';
 import ThemingDoc from '@/doc/ripple/theming/index.vue';
 
 export default {
@@ -40,6 +41,7 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
+            ptComponent: PTComponent,
             themingDoc: ThemingDoc
         };
     }
