@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Tooltip Directive" header="Tooltip" description="Tooltip directive provides advisory information for a component." :componentDocs="docs" :apiDocs="['Tooltip']" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Tooltip Directive" header="Tooltip" description="Tooltip directive provides advisory information for a component." :componentDocs="docs" :apiDocs="['Tooltip']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import EventDoc from '@/doc/tooltip/EventDoc';
 import ImportDoc from '@/doc/tooltip/ImportDoc';
 import PositionDoc from '@/doc/tooltip/PositionDoc';
 import TemplateDoc from '@/doc/tooltip/TemplateDoc';
+import PTComponent from '@/doc/tooltip/pt/index.vue';
 import ThemingDoc from '@/doc/tooltip/theming/index.vue';
 
 export default {
@@ -46,6 +47,7 @@ export default {
                     component: AccessibilityDoc
                 }
             ],
+            ptComponent: PTComponent,
             themingDoc: ThemingDoc
         };
     }
