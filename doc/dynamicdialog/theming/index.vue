@@ -9,12 +9,18 @@
 </template>
 
 <script>
+import StyledDoc from './StyledDoc.vue';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
     data() {
         return {
             docs: [
+                {
+                    id: 'styled',
+                    label: 'Styled',
+                    component: StyledDoc
+                },
                 {
                     id: 'unstyled',
                     label: 'Unstyled',
