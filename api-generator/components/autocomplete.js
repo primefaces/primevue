@@ -78,6 +78,12 @@ const AutoCompleteProps = [
         description: 'Default text to display when no option is selected.'
     },
     {
+        name: 'loading',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the multiselect is in loading state.'
+    },
+    {
         name: 'disabled',
         type: 'boolean',
         default: 'false',

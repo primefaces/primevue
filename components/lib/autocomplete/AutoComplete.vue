@@ -87,7 +87,7 @@
                 />
             </li>
         </ul>
-        <slot v-if="searching" :class="cx('loadingIcon')" name="loadingicon">
+        <slot v-if="searching || loading" :class="cx('loadingIcon')" name="loadingicon">
             <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
             <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
@@ -477,7 +477,7 @@ export default {
             }
         },
         onContainerClick(event) {
-            if (this.disabled || this.searching || this.isInputClicked(event) || this.isDropdownClicked(event)) {
+            if (this.disabled || this.searching || this.loading || this.isInputClicked(event) || this.isDropdownClicked(event)) {
                 return;
             }
 
