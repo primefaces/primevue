@@ -286,5 +286,15 @@ export default {
         }
 
         return index;
+    },
+
+    nestedKeys(obj = {}, parentKey = '') {
+        return Object.entries(obj).reduce((o, [key, value]) => {
+            const currentKey = parentKey ? `${parentKey}.${key}` : key;
+
+            this.isObject(value) ? (o = o.concat(this.nestedKeys(value, currentKey))) : o.push(currentKey);
+
+            return o;
+        }, []);
     }
 };
