@@ -88,6 +88,7 @@ export declare class ObjectUtils {
     static isPrintableCharacter(char: string): boolean;
     static findLast(value: any[], callback: () => any): any;
     static findLastIndex(value: any[], callback: () => any): number;
+    static nestedKeys(obj: object, parentKey?: string): string[];
 }
 
 export declare namespace ZIndexUtils {
