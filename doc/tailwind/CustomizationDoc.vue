@@ -6,10 +6,7 @@
         </p>
     </DocSectionText>
     <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-    <p>
-        Let's assume the <i>title</i> section should be lighter and bigger. To begin with, clone the Tailwind theme to create your own, override the default values with your own utility classes and finally configure your own theme object as the
-        <i>pt</i> of PrimeVue.
-    </p>
+    <p>Let's assume the <i>title</i> section should be lighter and bigger.</p>
     <DocSectionCode :code="code2" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
 </template>
 
@@ -52,17 +49,30 @@ export default {
             code2: {
                 basic: `import {createApp} from "vue";
 import PrimeVue from "primevue/config";
+import { usePassThrough } from "primevue/passthrough";
 import Tailwind from "primevue/passthrough/tailwind";
 
 const app = createApp(App);
 
 //Tailwind customization
-const CustomTailwindTheme = {...Tailwind};
-CustomTailwindTheme.panel.title = {
-    class: ['leading-none font-light text-2xl']
-}
+const CustomTailwind = usePassThrough(
+    Tailwind,
+    {
+        panel: {
+            title: {
+                class: ['leading-none font-light text-2xl']
+            }
+        }
+    },
+    {
+        merge: true,             // Used to merge PT options. Default is true.
+        useMergeProps: false,    // Whether to use Vue's 'mergeProps' method to merge PT options.
+        ignoredKeysOnMerge: [],  // Defines keys to ignore during merge operation. For example; ['panel.title']
+        customizer: undefined    // Defines the custom method to merge PT options.
+    }
+);
 
-app.use(PrimeVue, { unstyled: true, pt: CustomTailwindTheme });`
+app.use(PrimeVue, { unstyled: true, pt: CustomTailwind });`
             }
         };
     }
