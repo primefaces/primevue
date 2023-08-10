@@ -314,6 +314,7 @@ export default {
             if (this.editMode === 'cell') {
                 switch (event.code) {
                     case 'Enter':
+                    case 'NumpadEnter':
                         this.completeEdit(event, 'enter');
                         break;
 
