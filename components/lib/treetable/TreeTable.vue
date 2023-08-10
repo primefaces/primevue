@@ -364,7 +364,8 @@ export default {
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headertitle' ||
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
-                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon'
+                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
+                    targetNode.closest('[data-p-sortable-column="true"]')
                 ) {
                     DomHandler.clearSelection();
 
