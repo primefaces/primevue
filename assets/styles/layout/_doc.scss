@@ -275,6 +275,14 @@
                         text-decoration: underline;
                     }
                 }
+
+                .doc-option-type-options-container {
+                    display: flex;
+                    align-items: center;
+                }
+                span.doc-option-type-options {
+                    color: var(--primary-700);
+                }
             }
 
             &.doc-option-default {
@@ -289,7 +297,7 @@
             }
 
             .doc-option-name,
-            > i {
+            > i:not(.pi) {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 position: relative;
                 scroll-margin-top: 6.5rem;
