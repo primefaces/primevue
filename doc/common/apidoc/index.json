@@ -12028,6 +12028,13 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": ""
+                        },
+                        {
+                            "name": "csp",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PrimeVueCSPOptions",
+                            "default": ""
                         }
                     ],
                     "methods": []
@@ -12061,6 +12068,19 @@
                             "optional": true,
                             "readonly": false,
                             "type": "number",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "PrimeVueCSPOptions": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "nonce",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
                             "default": ""
                         }
                     ],
@@ -46954,6 +46974,13 @@
                         },
                         {
                             "name": "media",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "nonce",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
