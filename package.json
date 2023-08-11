@@ -39,8 +39,7 @@
         "bootstrap",
         "fluent",
         "tailwind",
-        "unstyled",
-        "passthrough"
+        "unstyled"
     ],
     "devDependencies": {
         "@babel/eslint-parser": "^7.18.9",
