@@ -680,6 +680,7 @@ export default {
             const index = e.index;
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
             const focusedItem = DomHandler.findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
+            const newFocusItem = DomHandler.find(body, 'tr[data-p-selectable-row="true"]')[index];
 
             if (DomHandler.isClickable(event.target)) {
                 return;
@@ -759,7 +760,10 @@ export default {
 
             if (focusedItem) {
                 focusedItem.tabIndex = '-1';
-                DomHandler.find(body, 'tr[data-p-selectable-row="true"]')[index].tabIndex = '0';
+            }
+
+            if (newFocusItem) {
+                newFocusItem.tabIndex = '0';
             }
         },
         onRowDblClick(e) {
