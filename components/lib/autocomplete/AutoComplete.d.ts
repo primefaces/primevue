@@ -306,7 +306,7 @@ export interface AutoCompleteProps {
      */
     placeholder?: string | undefined;
     /**
-     * Whether the multiselect is in loading state.
+     * Whether the autocomplete is in loading state.
      * @defaultValue false
      */
     loading?: boolean | undefined;
