@@ -3216,7 +3216,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Whether the multiselect is in loading state."
+                            "description": "Whether the autocomplete is in loading state."
                         },
                         {
                             "name": "disabled",
