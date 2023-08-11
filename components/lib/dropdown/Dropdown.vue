@@ -405,7 +405,7 @@ export default {
                 return;
             }
 
-            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.tagName === 'path') {
+            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.parentElement?.getAttribute('data-pc-section') === 'clearicon') {
                 return;
             } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
