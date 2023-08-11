@@ -8,7 +8,7 @@ import AdvancedDoc from '@/doc/card/AdvancedDoc';
 import BasicDoc from '@/doc/card/BasicDoc';
 import ImportDoc from '@/doc/card/ImportDoc';
 import PTComponent from '@/doc/card/pt/index.vue';
-import ThemingDoc from '@/doc/Card/theming/index.vue';
+import ThemingDoc from '@/doc/card/theming/index.vue';
 export default {
     data() {
         return {
