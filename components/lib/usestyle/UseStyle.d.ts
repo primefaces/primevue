@@ -5,6 +5,7 @@ export interface StyleOptions {
     name?: string;
     id?: string;
     media?: string;
+    nonce?: string;
 }
 
 export declare function useStyle(
@@ -15,6 +16,6 @@ export declare function useStyle(
     name: string;
     css: any;
     unload: () => void;
-    load: () => void;
+    load: (css?: string, options?: any) => void;
     isLoaded: boolean;
 };

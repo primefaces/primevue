@@ -956,7 +956,7 @@ const classes = {
     content: 'p-editor-content'
 };
 
-const { load: loadStyle } = useStyle(styles, { name: 'editor' });
+const { load: loadStyle } = useStyle(styles, { name: 'editor', manual: true });
 
 export default {
     name: 'BaseEditor',

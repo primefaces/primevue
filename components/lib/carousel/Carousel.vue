@@ -516,6 +516,7 @@ export default {
             if (!this.carouselStyle) {
                 this.carouselStyle = document.createElement('style');
                 this.carouselStyle.type = 'text/css';
+                DomHandler.setAttribute(this.carouselStyle, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.body.appendChild(this.carouselStyle);
             }
 

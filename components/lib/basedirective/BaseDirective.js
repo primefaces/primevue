@@ -57,6 +57,7 @@ const BaseDirective = {
                 $binding: binding,
                 $el: $prevInstance['$el'] || undefined,
                 $css: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.css },
+                $config: config,
                 /* computed instance variables */
                 defaultPT: config?.pt?.directives?.[name],
                 isUnstyled: el.unstyled !== undefined ? el.unstyled : config?.unstyled,
@@ -78,8 +79,10 @@ const BaseDirective = {
                 handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
-                loadBaseStyle();
-                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle();
+                const config = binding?.instance?.$primevue?.config;
+
+                loadBaseStyle(undefined, { nonce: config?.csp?.nonce });
+                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle(undefined, { nonce: config?.csp?.nonce });
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {

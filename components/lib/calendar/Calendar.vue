@@ -2582,6 +2582,7 @@ export default {
                 if (!this.responsiveStyleElement) {
                     this.responsiveStyleElement = document.createElement('style');
                     this.responsiveStyleElement.type = 'text/css';
+                    DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                     document.body.appendChild(this.responsiveStyleElement);
                 }
 

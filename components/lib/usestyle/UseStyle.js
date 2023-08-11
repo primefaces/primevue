@@ -19,7 +19,7 @@ export function useStyle(css, options = {}) {
     const styleRef = ref(null);
 
     const defaultDocument = DomHandler.isClient() ? window.document : undefined;
-    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined } = options;
+    const { document = defaultDocument, immediate = true, manual = false, name = `style_${++_id}`, id = undefined, media = undefined, nonce = undefined } = options;
 
     let stop = () => {};
 
@@ -27,18 +27,21 @@ export function useStyle(css, options = {}) {
     const load = (_css, _options = {}) => {
         if (!document) return;
 
-        const [_name, _id] = [_options.name || name, _options.id || id];
+        const [_name, _id, _nonce] = [_options.name || name, _options.id || id, _options.nonce || nonce];
 
         styleRef.value = document.querySelector(`style[data-primevue-style-id="${_name}"]`) || document.getElementById(_id) || document.createElement('style');
 
         if (!styleRef.value.isConnected) {
             cssRef.value = _css || css;
 
-            styleRef.value.type = 'text/css';
-            _id && (styleRef.value.id = _id);
-            media && (styleRef.value.media = media);
+            DomHandler.setAttributes(styleRef.value, {
+                type: 'text/css',
+                id: _id,
+                media,
+                nonce: _nonce
+            });
             document.head.appendChild(styleRef.value);
-            name && styleRef.value.setAttribute('data-primevue-style-id', name);
+            DomHandler.setAttribute(styleRef.value, 'data-primevue-style-id', name);
             DomHandler.setAttributes(styleRef.value, _options);
         }
 

@@ -182,6 +182,12 @@ export default {
         return undefined;
     },
 
+    setAttribute(element, attribute = '', value) {
+        if (element && value !== null && value !== undefined) {
+            element.setAttribute(attribute, value);
+        }
+    },
+
     setAttributes(element, attributes = {}) {
         if (element) {
             const computedStyles = (rule, value) => {

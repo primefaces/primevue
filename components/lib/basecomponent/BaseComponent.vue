@@ -381,8 +381,8 @@ export default {
             immediate: true,
             handler(newValue) {
                 if (!newValue) {
-                    loadStyle();
-                    this.$options.css && this.$css.loadStyle();
+                    loadStyle(undefined, { nonce: this.$config?.csp?.nonce });
+                    this.$options.css && this.$css.loadStyle(undefined, { nonce: this.$config?.csp?.nonce });
                 }
             }
         }
@@ -395,7 +395,7 @@ export default {
         this._hook('onCreated');
     },
     beforeMount() {
-        loadBaseStyle();
+        loadBaseStyle(undefined, { nonce: this.$config?.csp?.nonce });
         this._loadGlobalStyles();
         this._hook('onBeforeMount');
     },
@@ -435,7 +435,7 @@ export default {
 
             const globalCSS = this._getOptionValue(this.globalPT, 'global.css', this.$params);
 
-            ObjectUtils.isNotEmpty(globalCSS) && loadGlobalStyle(globalCSS);
+            ObjectUtils.isNotEmpty(globalCSS) && loadGlobalStyle(globalCSS, { nonce: this.$config?.csp?.nonce });
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
@@ -497,19 +497,22 @@ export default {
     },
     computed: {
         globalPT() {
-            return ObjectUtils.getItemValue(this.$primevue.config.pt, { instance: this });
+            return ObjectUtils.getItemValue(this.$config.pt, { instance: this });
         },
         defaultPT() {
-            return this._getOptionValue(this.$primevue.config.pt, this.$options.hostName || this.$.type.name, { instance: this }) || this.globalPT;
+            return this._getOptionValue(this.$config.pt, this.$options.hostName || this.$.type.name, { instance: this }) || this.globalPT;
         },
         isUnstyled() {
-            return this.unstyled !== undefined ? this.unstyled : this.$primevue.config.unstyled;
+            return this.unstyled !== undefined ? this.unstyled : this.$config.unstyled;
         },
         $params() {
             return { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance };
         },
         $css() {
             return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$css, ...this.$options.css };
+        },
+        $config() {
+            return this.$primevue?.config;
         }
     }
 };

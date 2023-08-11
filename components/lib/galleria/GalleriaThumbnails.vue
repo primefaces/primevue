@@ -424,6 +424,7 @@ export default {
             if (!this.thumbnailsStyle) {
                 this.thumbnailsStyle = document.createElement('style');
                 this.thumbnailsStyle.type = 'text/css';
+                DomHandler.setAttribute(this.thumbnailsStyle, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.body.appendChild(this.thumbnailsStyle);
             }
 

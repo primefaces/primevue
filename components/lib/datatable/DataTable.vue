@@ -1852,12 +1852,14 @@ export default {
         createStyleElement() {
             this.styleElement = document.createElement('style');
             this.styleElement.type = 'text/css';
+            DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
             document.head.appendChild(this.styleElement);
         },
         createResponsiveStyle() {
             if (!this.responsiveStyleElement) {
                 this.responsiveStyleElement = document.createElement('style');
                 this.responsiveStyleElement.type = 'text/css';
+                DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.responsiveStyleElement);
 
                 let tableSelector = `.p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;

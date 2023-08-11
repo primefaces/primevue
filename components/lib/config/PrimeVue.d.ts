@@ -103,6 +103,7 @@ export interface PrimeVueConfiguration {
     zIndex?: PrimeVueZIndexOptions;
     pt?: PrimeVuePTOptions;
     unstyled?: boolean;
+    csp?: PrimeVueCSPOptions;
 }
 
 export interface PrimeVueZIndexOptions {
@@ -110,6 +111,10 @@ export interface PrimeVueZIndexOptions {
     overlay?: number;
     menu?: number;
     tooltip?: number;
+}
+
+export interface PrimeVueCSPOptions {
+    nonce?: string;
 }
 
 export interface PrimeVuePTOptions {
