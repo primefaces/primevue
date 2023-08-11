@@ -5,6 +5,7 @@ const styles = `
 .p-tooltip {
     position:absolute;
     display:none;
+    pointer-events:none;
     padding: .25em .5rem;
     max-width: 12.5rem;
 }
