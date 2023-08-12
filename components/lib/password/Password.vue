@@ -14,6 +14,7 @@
             :aria-haspopup="true"
             :placeholder="placeholder"
             :required="required"
+            :disabled="disabled"
             @input="onInput"
             @focus="onFocus"
             @blur="onBlur"
