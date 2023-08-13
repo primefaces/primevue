@@ -557,8 +557,8 @@ export default {
         transition: ({ props }) => {
             return props.position === 'top'
                 ? {
-                      enterFromClass: 'translate-x-0 -translate-y-full translate-z-0',
-                      leaveToClass: 'translate-x-0 -translate-y-full translate-z-0'
+                      enterFromClass: 'translate-x-0 translate-y-full translate-z-0',
+                      leaveToClass: 'translate-x-0 translate-y-full translate-z-0'
                   }
                 : props.position === 'bottom'
                 ? {
@@ -567,13 +567,13 @@ export default {
                   }
                 : props.position === 'left'
                 ? {
-                      enterFromClass: '-translate-x-full translate-y-0 translate-z-0',
-                      leaveToClass: '-translate-x-full translate-y-0 translate-z-0'
+                      enterFromClass: 'translate-x-full translate-y-0 translate-z-0',
+                      leaveToClass: 'translate-x-full translate-y-0 translate-z-0'
                   }
                 : props.position === 'right'
                 ? {
                       enterFromClass: 'translate-x-full translate-y-0 translate-z-0',
-                      leaveToClass: 'opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0'
+                      leaveToClass: 'translate-x-full translate-y-0 translate-z-0'
                   }
                 : {
                       enterFromClass: 'opacity-0',
