@@ -313,7 +313,7 @@ const Tooltip = {
         else {
             el.$_ptooltipValue = options.value.value;
             el.$_ptooltipDisabled = options.value.disabled;
-            el.$_ptooltipEscape = false;
+            el.$_ptooltipEscape = options.value.escape || false;
         }
     }
 };
