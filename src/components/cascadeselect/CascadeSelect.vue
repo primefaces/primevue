@@ -180,7 +180,7 @@ export default {
         alignOverlay() {
             if (this.appendTo) {
                 DomHandler.absolutePosition(this.$refs.overlay, this.$el);
-                this.$refs.le.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                this.$refs.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
             } else {
                 DomHandler.relativePosition(this.$refs.overlay, this.$el);
             }
