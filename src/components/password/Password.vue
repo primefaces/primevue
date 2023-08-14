@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :style="styles">
-        <PInputText ref="input" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="d_value" v-bind="$attrs" v-on="listeners" />
+        <PInputText ref="input" :id="inputId" :class="inputFieldClass" :style="inputStyle" :type="inputType" :value="d_value" v-bind="$attrs" v-on="listeners" />
         <i v-if="toggleMask" :class="toggleIconClass" @click="onMaskToggle" />
         <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave">
             <div ref="overlayRef" class="p-password-panel p-component" v-if="overlayVisible">
@@ -71,6 +71,7 @@ export default {
         },
         inputClass: null,
         inputStyle: null,
+        inputId: null,
         styles: null,
         className: null
     },

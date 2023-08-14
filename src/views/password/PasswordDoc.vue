@@ -132,6 +132,12 @@ import Password from 'primevue/password';
                                 <td>Id of the element or "body" for document where the overlay should be appended to.</td>
                             </tr>
                             <tr>
+                                <td>inputId</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>Identifier of the underlying input element.</td>
+                            </tr>
+                            <tr>
                                 <td>inputStyle</td>
                                 <td>any</td>
                                 <td>null</td>
