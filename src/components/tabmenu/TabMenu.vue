@@ -72,12 +72,9 @@ export default {
                 index: index
             });
         },
-        isActive(item) {
-            return this.activeRoute.startsWith(item.to);
-        },
         getItemClass(item, index) {
             return ['p-tabmenuitem', item.class, {
-                'p-highlight': this.isActive(item) || this.d_activeIndex === index,
+                'p-highlight':  this.d_activeIndex === index,
                 'p-disabled': this.disabled(item)
             }];
         },
@@ -116,11 +113,6 @@ export default {
                 this.$refs.inkbar.style.left =  '0px';
             }
 
-        }
-    },
-    computed: {
-        activeRoute() {
-            return this.$route.path;
         }
     },
     directives: {
