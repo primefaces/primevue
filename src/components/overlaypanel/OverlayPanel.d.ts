@@ -1,7 +1,7 @@
 import Vue, { VNode } from 'vue';
 
 declare class OverlayPanel extends Vue {
-    ismissable?: boolean;
+    dismissable?: boolean;
     showCloseIcon?: boolean;
     appendTo?: string;
     baseZIndex?: number;
@@ -10,6 +10,8 @@ declare class OverlayPanel extends Vue {
     toggle(event: Event): void;
     show(event: Event, target?: any): void;
     hide(): void;
+    $emit(eventName: 'show'): this;
+    $emit(eventName: 'hide'): this;
     $slots: {
         '': VNode[];
     }

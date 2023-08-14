@@ -95,11 +95,13 @@ export default {
             if (this.autoZIndex) {
                 this.$refs.container.style.zIndex = String(this.baseZIndex + DomHandler.generateZIndex());
             }
+            this.$emit('show');
         },
         onLeave() {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+            this.$emit('hide');
         },
         alignOverlay() {
             DomHandler.absolutePosition(this.$refs.container, this.target);
