@@ -511,6 +511,7 @@ export default {
             let hiddenColLength = 0;
             this.columns.forEach(column => {
                 if(this.columnProp(column, 'hidden')) hiddenColLength++;
+                if (this.columnProp(column, 'selectionMode') === 'single'|| this.columnProp(column, 'selectionMode') === 'multiple') hiddenColLength--;
             });
             return this.columns ? this.columns.length - hiddenColLength : 0;
         },
