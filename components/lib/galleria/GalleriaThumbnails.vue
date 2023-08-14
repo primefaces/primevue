@@ -10,6 +10,7 @@
                 :aria-label="ariaPrevButtonLabel"
                 @click="navBackward($event)"
                 v-bind="{ ...prevButtonProps, ...ptm('previousThumbnailButton') }"
+                data-pc-group-section="thumbnailnavigator"
             >
                 <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('previousThumbnailIcon')" v-bind="ptm('previousThumbnailIcon')" />
             </button>
@@ -52,6 +53,7 @@
                 :aria-label="ariaNextButtonLabel"
                 @click="navForward($event)"
                 v-bind="{ ...nextButtonProps, ...ptm('nextThumbnailButton') }"
+                data-pc-group-section="thumbnailnavigator"
             >
                 <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" :class="cx('nextThumbnailIcon')" v-bind="ptm('nextThumbnailIcon')" />
             </button>
