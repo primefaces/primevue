@@ -323,24 +323,27 @@ export default {
                     let leftPos = offset.left + deltaX;
                     let topPos = offset.top + deltaY;
                     let viewport = DomHandler.getViewport();
+                    let getComputedStyle = getComputedStyle(this.container)
+                    let marginLeft = parseFloat(getComputedStyle.marginLeft);
+                    let marginTop = parseFloat(getComputedStyle.marginTop);
 
                     this.container.style.position = 'fixed';
 
                     if (this.keepInViewport) {
                         if (leftPos >= this.minX && leftPos + width < viewport.width) {
                             this.lastPageX = event.pageX;
-                            this.container.style.left = leftPos + 'px';
+                            this.container.style.left = (leftPos - marginLeft) + 'px';
                         }
 
                         if (topPos >= this.minY && topPos + height < viewport.height) {
                             this.lastPageY = event.pageY;
-                            this.container.style.top = topPos + 'px';
+                            this.container.style.top = (topPos - marginTop) + 'px';
                         }
                     } else {
                         this.lastPageX = event.pageX;
-                        this.container.style.left = leftPos + 'px';
+                        this.container.style.left = (leftPos - marginLeft) + 'px';
                         this.lastPageY = event.pageY;
-                        this.container.style.top = topPos + 'px';
+                        this.container.style.top = (topPos - marginTop) + 'px';
                     }
                 }
             };
@@ -370,7 +373,7 @@ export default {
                 window.document.removeEventListener('mouseup', this.documentDragEndListener);
                 this.documentDragEndListener = null;
             }
-        }
+        },
     },
     computed: {
         maximizeIconComponent() {
