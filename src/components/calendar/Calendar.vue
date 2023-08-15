@@ -2044,13 +2044,15 @@ export default {
                 cell = selectedCell || cells[0];
             }
             else {
-                cell = DomHandler.findSingle(this.$refs.overlay, 'span.p-highlight');
-                if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today span:not(.p-disabled):not(.p-ink)');
-                    if (todayCell)
-                        cell = todayCell;
-                    else
-                        cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink');
+                if (this.$refs.overlay) {
+                    cell = DomHandler.findSingle(this.$refs.overlay, 'span.p-highlight');
+                    if (!cell) {
+                        let todayCell = DomHandler.findSingle(this.$refs.overlay, 'td.p-datepicker-today span:not(.p-disabled):not(.p-ink)');
+                        if (todayCell)
+                            cell = todayCell;
+                        else
+                            cell = DomHandler.findSingle(this.$refs.overlay, '.p-datepicker-calendar td span:not(.p-disabled):not(.p-ink');
+                    }
                 }
             }
 
