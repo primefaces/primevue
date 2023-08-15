@@ -564,9 +564,13 @@ export interface DropdownSlots {
      */
     clearicon(scope: {
         /**
+         * Style class of the clear icon
+         */
+        class: any;
+        /**
          * Clear icon click function.
          */
-        onClick: void;
+        onClick: (event: Event) => void;
     }): VNode[];
     /**
      * Custom dropdown icon template.
@@ -574,7 +578,7 @@ export interface DropdownSlots {
      */
     dropdownicon(scope: {
         /**
-         * Style class of the component
+         * Style class of the dropdown icon
          */
         class: any;
     }): VNode[];
@@ -584,14 +588,20 @@ export interface DropdownSlots {
      */
     loadingicon(scope: {
         /**
-         * Style class of the component
+         * Style class of the loading icon
          */
         class: any;
     }): VNode[];
     /**
      * Custom filter icon template.
+     * @param {Object} scope - filter icon slot's params.
      */
-    filtericon(): VNode[];
+    filtericon(scope: {
+        /**
+         * Style class of the filter icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**
