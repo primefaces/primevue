@@ -382,7 +382,11 @@ if (project) {
                                                 } else {
                                                     const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
 
-                                                    type += ` \t <b>${child.name}</b>: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                                    if (child.type?.declaration?.signatures) {
+                                                        type += `\t <b>${child.name}</b>: (${child.type?.declaration?.signatures[0]?.parameters[0].name}: ${child.type?.declaration?.signatures[0]?.parameters[0].type?.name}) => ${child.type?.declaration?.signatures[0].type?.name}, // ${child.type?.declaration?.signatures[0].comment.summary[0]?.text}\n`;
+                                                    } else {
+                                                        type += ` \t <b>${child.name}</b>: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                                    }
                                                 }
                                             });
                                         }
