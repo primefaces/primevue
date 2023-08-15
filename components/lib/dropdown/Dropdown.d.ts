@@ -569,8 +569,9 @@ export interface DropdownSlots {
         class: any;
         /**
          * Clear icon click function.
+         * @param {Event} event - Browser event
          */
-        onClick: (event: Event) => void;
+        onClick(event: Event): void;
     }): VNode[];
     /**
      * Custom dropdown icon template.
