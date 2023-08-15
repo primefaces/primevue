@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.10.2](https://github.com/primefaces/primevue/tree/2.10.2) (2023-08-15)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/2.10.1...2.10.2)
+
+**Implemented New Features and Enhancements:**
+
+- Password: id props is passed to container [\#4143](https://github.com/primefaces/primevue/issues/4143)
+- OverlayPanel: Backport events to v2.x [\#3733](https://github.com/primefaces/primevue/issues/3733)
+
+**Fixed bugs:**
+
+- Calendar: updateFocus called on unmounted instance [\#3962](https://github.com/primefaces/primevue/issues/3962)
+- DataTable: row group header colspan doesn't span full row when table has selection column [\#3685](https://github.com/primefaces/primevue/issues/3685)
+- \[2.\] Tooltip: "escape" option is always false when tooltip is updated [\#3529](https://github.com/primefaces/primevue/issues/3529)
+- CascadeSelect: "TypeError: Cannot set properties of undefined \(setting 'minWidth'\)" when using appendTo=body [\#3479](https://github.com/primefaces/primevue/issues/3479)
+- TabMenu: First tab is always highlighted even when selected other tabs [\#3368](https://github.com/primefaces/primevue/issues/3368)
+
 ## [2.10.1](https://github.com/primefaces/primevue/tree/2.10.1) (2022-11-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.10.0...2.10.1)
