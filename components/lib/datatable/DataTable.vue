@@ -467,7 +467,7 @@ export default {
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
-                    targetNode.closest('[data-p-sortable-column="true"]')
+                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="filtermenubutton"]'))
                 ) {
                     DomHandler.clearSelection();
 
