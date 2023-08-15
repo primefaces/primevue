@@ -20589,7 +20589,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>onClick</b>: void, // Clear icon click function.\n  }",
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the clear icon\n \t <b>onClick</b>: (event: Event) => void, // Clear icon click function.\n }",
                                     "description": "clear icon slot's params."
                                 }
                             ],
@@ -20602,7 +20602,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the component\n  }",
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the dropdown icon\n  }",
                                     "description": "dropdown icon slot's params."
                                 }
                             ],
@@ -20615,7 +20615,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the component\n  }",
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the loading icon\n  }",
                                     "description": "loading icon slot's params."
                                 }
                             ],
@@ -20624,7 +20624,14 @@
                         },
                         {
                             "name": "filtericon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the filter icon\n  }",
+                                    "description": "filter icon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom filter icon template."
                         }
