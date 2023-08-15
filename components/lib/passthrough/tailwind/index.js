@@ -523,7 +523,7 @@ export default {
     sidebar: {
         root: ({ props }) => ({
             class: [
-                'flex flex-col pointer-events-auto relative transform translate-x-0 translate-y-0 translate-z-0 relative transition-transform duration-300',
+                'flex flex-col pointer-events-auto relative transition-transform duration-300',
                 'bg-white text-gray-700 border-0 shadow-lg',
                 {
                     '!transition-none !transform-none !w-screen !h-screen !max-h-full !top-0 !left-0': props.position == 'full',
@@ -573,7 +573,7 @@ export default {
                 : props.position === 'right'
                 ? {
                       enterFromClass: 'translate-x-full translate-y-0 translate-z-0',
-                      leaveToClass: 'opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0'
+                      leaveToClass: 'translate-x-full translate-y-0 translate-z-0'
                   }
                 : {
                       enterFromClass: 'opacity-0',
