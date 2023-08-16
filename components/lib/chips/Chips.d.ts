@@ -209,9 +209,18 @@ export interface ChipsSlots {
      */
     removetokenicon(scope: {
         /**
-         * Remove icon click event
+         * Style class of the icon.
          */
-        onClick(): void;
+        class: string;
+        /**
+         * Index of the token.
+         */
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        onClick(event: Event, index: number): void;
     }): VNode[];
 }
 /**
