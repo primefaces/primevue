@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.10.2](https://github.com/primefaces/primevue/tree/2.10.2) (2023-08-15)
+## [2.10.2](https://github.com/primefaces/primevue/tree/2.10.2) (2023-08-16)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/2.10.1...2.10.2)
 
