@@ -1,6 +1,6 @@
 <template>
-    <div v-if="!embedded" class="relative doc-section-code">
-        <div class="flex surface-card align-items-center justify-content-end absolute z-1" :style="{ right: '.75rem', top: '.75rem', gap: '.75rem' }">
+    <div v-if="!embedded" class="relative doc-section-code overflow-auto" style="max-height: 40rem">
+        <div class="flex surface-card align-items-center justify-content-end sticky z-1" :style="{ top: '0', gap: '.75rem', padding: '.75rem .75rem 0 0', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
                     :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'typescript' }]"
@@ -77,36 +77,31 @@
         </div>
 
         <template v-if="codeMode === 'basic' && importCode">
-            <pre v-code.script><code>
-{{ code.basic }}
+            <pre v-code.script><code>{{ code.basic }}
 
 </code></pre>
         </template>
 
         <template v-if="codeMode === 'basic' && !importCode">
-            <pre v-code><code>
-{{ code.basic }}
+            <pre v-code><code>{{ code.basic }}
 
 </code></pre>
         </template>
 
         <template v-if="codeMode !== 'basic' && codeLang === 'options'">
-            <pre v-code><code>
-{{ code.options }}
+            <pre v-code><code>{{ code.options }}
 
 </code></pre>
         </template>
 
         <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
-            <pre v-code><code>
-{{ code.composition }}
+            <pre v-code><code>{{ code.composition }}
 
 </code></pre>
         </template>
 
         <template v-if="codeMode !== 'basic' && codeLang === 'data'">
-            <pre v-code.json><code>
-{{ code.data }}
+            <pre v-code.json><code>{{ code.data }}
 
 </code></pre>
         </template>
