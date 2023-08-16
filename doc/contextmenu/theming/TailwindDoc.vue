@@ -5,7 +5,7 @@
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-        <p>A playground sample with the pre-built Tailwind theme.</p>
+        <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded />
     </DocSectionText>
 </template>
@@ -49,8 +49,7 @@ xport default {
 `
             },
             code2: {
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" @contextmenu="onImageRightClick" class="w-full md:w-auto" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />

@@ -26,16 +26,14 @@ export default {
         return {
             cars: null,
             code: {
-                basic: `
-<DataTable :value="cars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ itemSize: 46 }" tableStyle="min-width: 50rem">
+                basic: `<DataTable :value="cars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ itemSize: 46 }" tableStyle="min-width: 50rem">
     <Column field="id" header="Id" style="width: 20%"></Column>
     <Column field="vin" header="Vin" style="width: 20%"></Column>
     <Column field="year" header="Year" style="width: 20%"></Column>
     <Column field="brand" header="Brand" style="width: 20%"></Column>
     <Column field="color" header="Color" style="width: 20%"></Column>
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <DataTable :value="cars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ itemSize: 46 }" tableStyle="min-width: 50rem">
             <Column field="id" header="Id" style="width: 20%"></Column>
@@ -61,8 +59,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataTable :value="cars" scrollable scrollHeight="400px" :virtualScrollerOptions="{ itemSize: 46 }" tableStyle="min-width: 50rem">
             <Column field="id" header="Id" style="width: 20%"></Column>

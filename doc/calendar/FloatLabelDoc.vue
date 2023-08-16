@@ -17,13 +17,11 @@ export default {
         return {
             date: null,
             code: {
-                basic: `
-<span class="p-float-label">
+                basic: `<span class="p-float-label">
     <Calendar v-model="date" inputId="birth_date" />
     <label for="birth_date">Birth Date</label>
 </span>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <Calendar v-model="date" inputId="birth_date" />
@@ -41,8 +39,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <Calendar v-model="date" inputId="birth_date" />

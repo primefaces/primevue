@@ -14,8 +14,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ProgressSpinner aria-label="Loading" />`
+                basic: `<ProgressSpinner aria-label="Loading" />`
             }
         };
     }

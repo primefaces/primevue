@@ -66,8 +66,7 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="4" :thumbnailsPosition="position" containerStyle="max-width: 640px">
+                basic: `<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="4" :thumbnailsPosition="position" containerStyle="max-width: 640px">
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
     </template>
@@ -77,8 +76,7 @@ export default {
         </div>
     </template>
 </Galleria>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card card flex flex-column md:align-items-center">
         <div class="flex flex-wrap gap-3 mb-5 align-self-center">
             <div class="flex flex-wrap gap-3 mb-5">
@@ -148,8 +146,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column md:align-items-center">
         <div class="flex flex-wrap gap-3 mb-5 align-self-center">
             <div class="flex flex-wrap gap-3 mb-5">

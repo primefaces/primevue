@@ -138,8 +138,7 @@ export default {
 `
             },
             code2: {
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }">
             <SpeedDial :model="items" direction="up" :style="{ left: 'calc(50% - 2rem)', bottom: 0 }" />

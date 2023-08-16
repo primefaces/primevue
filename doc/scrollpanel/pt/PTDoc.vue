@@ -24,8 +24,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ScrollPanel
+                basic: `<ScrollPanel
     :pt="{
         root: { 
             style: { width: '100%', height: '200px' }
@@ -45,8 +44,7 @@ export default {
         officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
     </p>
 </ScrollPanel>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <ScrollPanel
             :pt="{
@@ -70,8 +68,7 @@ export default {
         </ScrollPanel>
     </div>
 </template>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <ScrollPanel
             :pt="{

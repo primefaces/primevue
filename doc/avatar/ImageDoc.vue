@@ -30,16 +30,14 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Avatar image="/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
+                basic: `<Avatar image="/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
 <Avatar image="/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
 <Avatar image="/images/avatar/onyamalimba.png" shape="circle" />
 
 <Avatar v-badge.danger="4" class="p-overlay-badge" image="/images/organization/walter.jpg" size="xlarge" />
 
 <Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex align-items-center justify-content-center mr-2" size="xlarge" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex flex-wrap gap-5">
             <div class="flex-auto">
@@ -65,8 +63,7 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex flex-wrap gap-5">
             <div class="flex-auto">

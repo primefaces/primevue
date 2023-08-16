@@ -13,10 +13,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Message>Message Content</Message>`,
-                options: `
-<template>
+                basic: `<Message>Message Content</Message>`,
+                options: `<template>
     <div class="card">
         <Message>Message Content</Message>
     </div>
@@ -24,8 +22,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Message>Message Content</Message>
     </div>

@@ -5,7 +5,7 @@
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-        <p>A playground sample with the pre-built Tailwind theme.</p>
+        <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded :service="['PhotoService']" />
     </DocSectionText>
 </template>
@@ -108,8 +108,7 @@ export default {
 `
             },
             code2: {
-                composition: `
-<template>
+                composition: `<template>
     <div class="card md:flex md:justify-center">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
             <template #item="slotProps">

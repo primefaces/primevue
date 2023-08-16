@@ -28,8 +28,7 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<Password v-model="value">
+                basic: `<Password v-model="value">
     <template #header>
         <h6>Pick a password</h6>
     </template>
@@ -44,8 +43,7 @@ export default {
         </ul>
     </template>
 </Password>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Password v-model="value">
             <template #header>
@@ -74,8 +72,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Password v-model="value">
             <template #header>

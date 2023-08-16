@@ -16,8 +16,7 @@ export default {
         return {
             visible: false,
             code: {
-                basic: `
-<Sidebar v-model:visible="visible"
+                basic: `<Sidebar v-model:visible="visible"
     :pt="{
         root: { class: 'w-25rem' }
     }
@@ -26,8 +25,7 @@ export default {
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>
 <Button icon="pi pi-arrow-right" @click="visible = true" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Sidebar v-model:visible="visible"
             :pt="{
@@ -50,8 +48,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Sidebar v-model:visible="visible"
             :pt="{

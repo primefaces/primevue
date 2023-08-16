@@ -14,10 +14,8 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<Rating v-model="value" :stars="10" />`,
-                options: `
-<template>
+                basic: `<Rating v-model="value" :stars="10" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Rating v-model="value" :stars="10" />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Rating v-model="value" :stars="10" />
     </div>

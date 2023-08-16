@@ -49,11 +49,9 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Menu :model="items" />
+                basic: `<Menu :model="items" />
 <Toast />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
         <Toast />
@@ -104,8 +102,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Menu :model="items" />
         <Toast />

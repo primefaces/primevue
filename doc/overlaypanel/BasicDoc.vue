@@ -17,14 +17,12 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
+                basic: `<Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
 
 <OverlayPanel ref="op">
     <img src="https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg" alt="Bamboo Watch" />
 </OverlayPanel>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
 
@@ -43,8 +41,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
 

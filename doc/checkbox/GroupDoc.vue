@@ -29,8 +29,7 @@ export default {
         return {
             pizza: null,
             code: {
-                basic: `
-<div class="card flex flex-wrap justify-content-center gap-3">
+                basic: `<div class="card flex flex-wrap justify-content-center gap-3">
     <div class="flex align-items-center">
         <Checkbox v-model="pizza" inputId="ingredient1" name="pizza" value="Cheese" />
         <label for="ingredient1" class="ml-2"> Cheese </label>
@@ -48,8 +47,7 @@ export default {
         <label for="ingredient4" class="ml-2"> Onion </label>
     </div>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap justify-content-center gap-3">
         <div class="flex align-items-center">
             <Checkbox v-model="pizza" inputId="ingredient1" name="pizza" value="Cheese" />
@@ -79,8 +77,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap justify-content-center gap-3">
         <div class="flex align-items-center">
             <Checkbox v-model="pizza" inputId="ingredient1" name="pizza" value="Cheese" />

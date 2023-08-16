@@ -24,13 +24,11 @@ export default {
             columns: null,
             products: null,
             code: {
-                basic: `
-<DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" tableStyle="min-width: 50rem">
+                basic: `<DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" tableStyle="min-width: 50rem">
     <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />
     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
 	<div>
         <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" tableStyle="min-width: 50rem">
             <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />
@@ -73,8 +71,7 @@ export default {
 }
 <\/script>                  
 `,
-                composition: `
-<template>
+                composition: `<template>
 	<div>
         <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" tableStyle="min-width: 50rem">
             <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />

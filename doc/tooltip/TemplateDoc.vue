@@ -13,10 +13,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<InputText v-tooltip.right="{ value: \`<h4 class='text-white'>PrimeVue Rocks!</h4>\`, escape: true, class: 'custom-error' }" type="text" placeholder="Template Tooltip" />`,
-                options: `
-<template>
+                basic: `<InputText v-tooltip.right="{ value: \`<h4 class='text-white'>PrimeVue Rocks!</h4>\`, escape: true, class: 'custom-error' }" type="text" placeholder="Template Tooltip" />`,
+                options: `<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip.right="{ value: \`<h4 class='text-white'>PrimeVue Rocks!</h4>\`, escape: true, class: 'custom-error' }" type="text" placeholder="Template Tooltip" />
     </div>
@@ -31,8 +29,7 @@ export default {
     border-right-color: var(--pink-800);
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap justify-content-center gap-2">
         <InputText v-tooltip.right="{ value: \`<h4 class='text-white'>PrimeVue Rocks!</h4>\`, escape: true, class: 'custom-error' }" type="text" placeholder="Template Tooltip" />
     </div>

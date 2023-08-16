@@ -22,8 +22,7 @@ const app = createApp(App);
 app.use(PrimeVue, { unstyled: true });`
             },
             code2: {
-                basic: `
-<Button label="Check" icon="pi pi-check" unstyled></Button>
+                basic: `<Button label="Check" icon="pi pi-check" unstyled></Button>
 `
             }
         };

@@ -16,13 +16,11 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<InlineMessage severity="success">Success Content</InlineMessage>
+                basic: `<InlineMessage severity="success">Success Content</InlineMessage>
 <InlineMessage severity="info">Info Content</InlineMessage>
 <InlineMessage severity="warn">Warning Content</InlineMessage>
 <InlineMessage severity="error">Error Content</InlineMessage>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
         <InlineMessage severity="success">Success Content</InlineMessage>
         <InlineMessage severity="info">Info Content</InlineMessage>
@@ -33,8 +31,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
         <InlineMessage severity="success">Success Content</InlineMessage>
         <InlineMessage severity="info">Info Content</InlineMessage>

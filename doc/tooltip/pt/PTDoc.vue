@@ -20,8 +20,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<InputText
+                basic: `<InputText
     v-tooltip.right="{
         value: \`PrimeVue Rocks!\`,
         pt: {
@@ -31,8 +30,7 @@ export default {
     type="text"
     placeholder="PassThrough Tooltip"
 />`,
-                options: `
-<div class="card flex flex-wrap justify-content-center gap-2">
+                options: `<div class="card flex flex-wrap justify-content-center gap-2">
     <InputText
         v-tooltip.right="{
             value: \`PrimeVue Rocks!\`,

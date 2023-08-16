@@ -24,8 +24,7 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<Rating v-model="value">
+                basic: `<Rating v-model="value">
     <template #cancelicon>
         <img src="/images/rating/cancel.png" height="24" width="24" />
     </template>
@@ -36,8 +35,7 @@ export default {
         <img src="/images/rating/custom-officon.png" height="24" width="24" />
     </template>
 </Rating>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Rating v-model="value">
             <template #cancelicon>
@@ -62,8 +60,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Rating v-model="value">
             <template #cancelicon>

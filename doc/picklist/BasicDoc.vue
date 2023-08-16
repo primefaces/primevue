@@ -32,8 +32,7 @@ export default {
         return {
             products: null,
             code: {
-                basic: `
-<PickList v-model="products" listStyle="height:342px" dataKey="id">
+                basic: `<PickList v-model="products" listStyle="height:342px" dataKey="id">
     <template #sourceheader> Available </template>
     <template #targetheader> Selected </template>
     <template #item="slotProps">
@@ -50,8 +49,7 @@ export default {
         </div>
     </template>
 </PickList>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
             <template #sourceheader> Available </template>
@@ -86,8 +84,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <PickList v-model="products" listStyle="height:342px" dataKey="id">
             <template #sourceheader> Available </template>

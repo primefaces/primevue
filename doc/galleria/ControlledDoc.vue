@@ -43,8 +43,7 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<div>
+                basic: `<div>
     <Button icon="pi pi-minus" @click="prev" />
     <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
 </div>
@@ -57,8 +56,7 @@ export default {
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
     </template>
 </Galleria>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-column md:align-items-center">
         <div class="mb-3 align-self-center">
             <Button icon="pi pi-minus" @click="prev" />
@@ -113,8 +111,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-column md:align-items-center">
         <div class="mb-3 align-self-center">
             <Button icon="pi pi-minus" @click="prev" />

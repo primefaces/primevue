@@ -91,14 +91,12 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<span class="p-float-label">
+                basic: `<span class="p-float-label">
     <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
         :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
     <label for="cs-city">City</label>
 </span>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
@@ -191,8 +189,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"

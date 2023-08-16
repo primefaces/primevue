@@ -31,8 +31,7 @@ export default {
                 { name: 'Paris', code: 'PRS' }
             ],
             code: {
-                basic: `
-<MultiSelect
+                basic: `<MultiSelect
     v-model="selectedCities"
     :options="cities"
     optionLabel="name"
@@ -45,8 +44,7 @@ export default {
         })
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <MultiSelect
             v-model="selectedCities"
@@ -80,8 +78,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <MultiSelect
             v-model="selectedCities"

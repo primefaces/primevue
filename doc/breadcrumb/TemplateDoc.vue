@@ -21,16 +21,14 @@ export default {
             home: { icon: 'pi pi-home', url: 'https://primevue.org/' },
             items: [{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }],
             code: {
-                basic: `
-<Breadcrumb :home="home" :model="items">
+                basic: `<Breadcrumb :home="home" :model="items">
     <template #item="item">
         <a :class="item.class">
             <span :class="item.icon"></span>
         </a>
     </template>
 </Breadcrumb>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{item}">
@@ -52,8 +50,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{item}">

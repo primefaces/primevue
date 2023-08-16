@@ -23,8 +23,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<div class="p-inputgroup w-full md:w-30rem">
+                basic: `<div class="p-inputgroup w-full md:w-30rem">
     <span class="p-inputgroup-addon">
         <i class="pi pi-clock"></i>
     </span>
@@ -35,8 +34,7 @@ export default {
     <span class="p-inputgroup-addon">$</span>
     <span class="p-inputgroup-addon">.00</span>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <div class="p-inputgroup w-full md:w-30rem">
             <span class="p-inputgroup-addon">
@@ -51,8 +49,7 @@ export default {
         </div>
     </div>
 </template>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <div class="p-inputgroup w-full md:w-30rem">
             <span class="p-inputgroup-addon">

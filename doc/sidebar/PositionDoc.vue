@@ -42,8 +42,7 @@ export default {
             visibleTop: false,
             visibleBottom: false,
             code: {
-                basic: `
-<div class="flex gap-2 justify-content-center">
+                basic: `<div class="flex gap-2 justify-content-center">
     <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
     <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
     <Button icon="pi pi-arrow-down" @click="visibleTop = true" />
@@ -69,8 +68,7 @@ export default {
     <h2>Bottom Sidebar</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </Sidebar>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex gap-2 justify-content-center">
             <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
@@ -113,8 +111,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex gap-2 justify-content-center">
             <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
