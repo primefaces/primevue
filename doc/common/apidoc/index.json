@@ -3606,7 +3606,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>onClick</b>: void, // Remove token icon function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n  \t <b>onClick(event: Event, index: number)</b>: void, // Remove token icon function.\n  }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -3614,7 +3614,13 @@
                         },
                         {
                             "name": "loadingicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom loading icon template."
                         }
