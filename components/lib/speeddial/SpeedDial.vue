@@ -1,6 +1,6 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptm('root')" data-pc-name="speeddial">
-        <slot name="button" :toggle="onClick">
+        <slot name="button" :onClick="onClick">
             <SDButton
                 type="button"
                 :class="[cx('button'), buttonClass]"

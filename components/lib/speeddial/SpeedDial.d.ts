@@ -262,9 +262,10 @@ export interface SpeedDialSlots {
          */
         item: MenuItem;
         /**
-         * ıtem click function
+         * Item click function
+         * @param {Event} event - Browser event.
          */
-        onClick: void;
+        onClick(): void;
     }): VNode[];
     /**
      * Custom button template.
@@ -272,9 +273,10 @@ export interface SpeedDialSlots {
      */
     button(scope: {
         /**
-         * Toggle metadata
+         * Button click function
+         * @param {Event} event - Browser event.
          */
-        toggle(): void;
+        onClick(): void;
     }): VNode[];
     /**
      * Custom icon template.
@@ -282,7 +284,7 @@ export interface SpeedDialSlots {
      */
     icon(scope: {
         /**
-         *
+         * Visible state of the item
          */
         visible: boolean;
     }): VNode[];
