@@ -603,14 +603,24 @@ export interface AutoCompleteSlots {
          */
         class: string;
         /**
-         * Remove token icon function.
+         * Index of the token.
          */
-        onClick: void;
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        onClick(event: Event, index: number): void;
     }): VNode[];
     /**
      * Custom loading icon template.
      */
-    loadingicon(): VNode[];
+    loadingicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

@@ -55,7 +55,7 @@
                 <slot name="chip" :value="option">
                     <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getOptionLabel(option) }}</span>
                 </slot>
-                <slot name="removetokenicon" :class="cx(removeTokenIcon)" :onClick="(event) => removeOption(event, i)">
+                <slot name="removetokenicon" :class="cx(removeTokenIcon)" :index="i" :onClick="(event) => removeOption(event, i)">
                     <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="[cx(removeTokenIcon), removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
                 </slot>
             </li>
