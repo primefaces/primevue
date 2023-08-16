@@ -18,11 +18,9 @@ export default {
                 { label: 'Delete', icon: 'pi pi-fw pi-trash' }
             ],
             code: {
-                basic: `
-<img alt="Logo" src="/images/nature/nature3.jpg" class="w-full md:w-auto" @contextmenu="onImageRightClick" aria-haspopup="true" />
+                basic: `<img alt="Logo" src="/images/nature/nature3.jpg" class="w-full md:w-auto" @contextmenu="onImageRightClick" aria-haspopup="true" />
 <ContextMenu ref="menu" :model="items" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex md:justify-content-center">
         <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" @contextmenu="onImageRightClick" class="w-full md:w-auto" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />
@@ -46,8 +44,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature3.jpg" @contextmenu="onImageRightClick" class="w-full md:w-auto" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />

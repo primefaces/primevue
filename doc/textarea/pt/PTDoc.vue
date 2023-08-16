@@ -20,8 +20,7 @@ export default {
         return {
             value: '',
             code: {
-                basic: `
-<Textarea
+                basic: `<Textarea
     v-model="value"
     :pt="{
         root: {
@@ -30,8 +29,7 @@ export default {
         }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Textarea
             v-model="value"
@@ -54,8 +52,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Textarea
             v-model="value"

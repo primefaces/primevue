@@ -50,12 +50,10 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+                basic: `<Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
 <Toast />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
@@ -115,8 +113,7 @@ export default {
     },
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
         <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />

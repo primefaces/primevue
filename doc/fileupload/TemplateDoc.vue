@@ -66,8 +66,7 @@ export default {
             totalSize: 0,
             totalSizePercent: 0,
             code: {
-                basic: `
-<FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
+                basic: `<FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
     <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
         <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">
             <div class="flex gap-2">
@@ -118,8 +117,7 @@ export default {
         </div>
     </template>
 </FileUpload>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Toast />
         <FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
@@ -224,8 +222,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Toast />
         <FileUpload name="demo[]" url="./upload.php" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">

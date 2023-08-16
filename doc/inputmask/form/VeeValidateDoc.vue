@@ -42,8 +42,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<template>
+                basic: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <InputMask v-model="value" mask="(999) 999-9999" placeholder="(999) 999-9999"
@@ -54,8 +53,7 @@ export default {
         <Toast />
     </div>
 </template>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <InputMask v-model="value" mask="(999) 999-9999" placeholder="(999) 999-9999"
@@ -96,8 +94,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <InputMask v-model="value" mask="(999) 999-9999" placeholder="(999) 999-9999"

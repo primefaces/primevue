@@ -14,10 +14,8 @@ export default {
         return {
             dates: null,
             code: {
-                basic: `
-<Calendar v-model="dates" selectionMode="range" :manualInput="false" />`,
-                options: `
-<template>
+                basic: `<Calendar v-model="dates" selectionMode="range" :manualInput="false" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="dates" selectionMode="range" :manualInput="false" />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="dates" selectionMode="range" :manualInput="false" />
     </div>

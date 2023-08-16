@@ -26,8 +26,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Message
+                basic: `<Message
     :style="{
         border: 'solid #696cff',
         borderWidth: '0 0 0 6px',
@@ -41,8 +40,7 @@ export default {
         <div class="ml-2">Always bet on Prime.</div>
     </div>
 </Message>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Message
             :style="{
@@ -63,8 +61,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Message
             :style="{

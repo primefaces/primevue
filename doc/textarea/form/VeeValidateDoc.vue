@@ -44,8 +44,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<div class="card flex justify-content-center">
+                basic: `<div class="card flex justify-content-center">
     <form @submit="onSubmit" class="flex flex-column gap-2">
         <span class="p-float-label">
             <Textarea id="value" v-model="value" :class="{ 'p-invalid': errorMessage }" rows="4" cols="30" aria-describedby="text-error" />
@@ -56,8 +55,7 @@ export default {
     </form>
     <Toast />
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <span class="p-float-label">
@@ -99,8 +97,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <span class="p-float-label">

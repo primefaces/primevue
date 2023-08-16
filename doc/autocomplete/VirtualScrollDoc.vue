@@ -19,11 +19,9 @@ export default {
             selectedItem: null,
             filteredItems: null,
             code: {
-                basic: `
-<AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
+                basic: `<AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
     :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
     </div>
@@ -57,8 +55,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
     </div>

@@ -55,8 +55,7 @@ export default {
             fullScreen: false,
             isAutoPlay: true,
             code: {
-                basic: `
-<Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
+                basic: `<Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
     :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">
     <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
@@ -79,8 +78,7 @@ export default {
         </div>
     </template>
 </Galleria>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center galleria demo">
         <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
             :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">
@@ -258,8 +256,7 @@ export default {
     }
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center galleria demo">
         <Galleria ref="galleria" v-model:activeIndex="activeIndex" :value="images" :numVisible="5" containerStyle="max-width: 640px" :containerClass="galleriaClass"
             :showThumbnails="showThumbnails" :showItemNavigators="true" :showItemNavigatorsOnHover="true" :circular="true" :autoPlay="isAutoPlay" :transitionInterval="3000">

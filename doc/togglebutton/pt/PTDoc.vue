@@ -19,8 +19,7 @@ export default {
         return {
             checked: false,
             code: {
-                basic: `
-<ToggleButton
+                basic: `<ToggleButton
     v-model="checked"
     :pt="{
         root: {
@@ -28,8 +27,7 @@ export default {
         }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <ToggleButton
             v-model="checked"
@@ -51,8 +49,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <ToggleButton
             v-model="checked"

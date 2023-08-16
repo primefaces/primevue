@@ -17,13 +17,11 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<span class="p-float-label">
+                basic: `<span class="p-float-label">
     <Password v-model="value" inputId="password" />
     <label for="password">Password</label>
 </span>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <Password v-model="value" inputId="password" />
@@ -41,8 +39,7 @@ export default {
   }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
             <Password v-model="value" inputId="password" />

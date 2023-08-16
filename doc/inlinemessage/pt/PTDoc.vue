@@ -18,8 +18,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<InlineMessage
+                basic: `<InlineMessage
     :pt="{
         root: { class: 'bg-yellow-100' },
         icon: { class: 'hidden' }
@@ -27,8 +26,7 @@ export default {
 >
     Username is required
 </InlineMessage>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <InlineMessage
             :pt="{
@@ -43,8 +41,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <InlineMessage
             :pt="{

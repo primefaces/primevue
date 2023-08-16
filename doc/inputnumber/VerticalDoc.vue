@@ -23,11 +23,9 @@ export default {
         return {
             value: 50,
             code: {
-                basic: `
-<InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem"
+                basic: `<InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem"
     decrementButtonClassName="p-button-secondary" incrementButtonClassName="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem"
             decrementButtonClassName="p-button-secondary" incrementButtonClassName="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
@@ -43,8 +41,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 4rem"
             decrementButtonClassName="p-button-secondary" incrementButtonClassName="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />

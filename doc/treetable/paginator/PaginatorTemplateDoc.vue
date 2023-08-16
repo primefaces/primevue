@@ -34,8 +34,7 @@ export default {
         return {
             nodes: null,
             code: {
-                basic: `
-<TreeTable :value="nodes" :paginator="true" :rows="5" :rowsPerPageOptions="[5, 10, 25, 50]"
+                basic: `<TreeTable :value="nodes" :paginator="true" :rows="5" :rowsPerPageOptions="[5, 10, 25, 50]"
     paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
     currentPageReportTemplate="{first} to {last} of {totalRecords}">
     <template #paginatorstart>
@@ -48,8 +47,7 @@ export default {
         <Button type="button" icon="pi pi-download" text />
     </template>
 </TreeTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <TreeTable :value="nodes" :paginator="true" :rows="5" :rowsPerPageOptions="[5, 10, 25, 50]"
             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
@@ -104,8 +102,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <TreeTable :value="nodes" :paginator="true" :rows="5" :rowsPerPageOptions="[5, 10, 25, 50]"
             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"

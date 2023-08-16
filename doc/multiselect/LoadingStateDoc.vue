@@ -14,8 +14,7 @@ export default {
         return {
             code: {
                 basic: `<MultiSelect placeholder="Loading..." loading class="w-full md:w-20rem"></MultiSelect>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <MultiSelect placeholder="Loading..." loading class="w-full md:w-20rem"></MultiSelect>
     </div>
@@ -23,8 +22,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <MultiSelect placeholder="Loading..." loading class="w-full md:w-20rem"></MultiSelect>
     </div>

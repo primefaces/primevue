@@ -14,10 +14,8 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<Password v-model="value" :feedback="false" />`,
-                options: `
-<template>
+                basic: `<Password v-model="value" :feedback="false" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Password v-model="value" :feedback="false" />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Password v-model="value" :feedback="false" />
     </div>

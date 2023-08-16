@@ -23,8 +23,7 @@ export default {
             value1: null,
             value2: null,
             code: {
-                basic: `
-<span class="p-input-icon-left">
+                basic: `<span class="p-input-icon-left">
     <i class="pi pi-search" />
     <InputText v-model="value1" placeholder="Search" />
 </span>
@@ -33,8 +32,7 @@ export default {
     <i class="pi pi-spin pi-spinner" />
     <InputText v-model="value2" />
 </span>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex flex-wrap justify-content-center gap-3">
         <span class="p-input-icon-left">
             <i class="pi pi-search" />
@@ -58,8 +56,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex flex-wrap justify-content-center gap-3">
         <span class="p-input-icon-left">
             <i class="pi pi-search" />

@@ -22,12 +22,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
+                basic: `<Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
 
 <DynamicDialog />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
         <Toast />
@@ -74,8 +72,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
         <Toast />

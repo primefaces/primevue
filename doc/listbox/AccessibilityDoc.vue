@@ -144,8 +144,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<span id="lb"></span>Options</span>
+                basic: `<span id="lb"></span>Options</span>
 <Listbox aria-labelledby="lb" />
 
 <Listbox aria-label="City" />`

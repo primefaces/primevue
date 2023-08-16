@@ -21,8 +21,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Inplace>
+                basic: `<Inplace>
     <template #display> View Content </template>
     <template #content>
         <p class="m-0">
@@ -31,8 +30,7 @@ export default {
         </p>
     </template>
 </Inplace>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Inplace>
             <template #display> View Content </template>
@@ -49,8 +47,7 @@ export default {
 <script>
 
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Inplace>
             <template #display> View Content </template>

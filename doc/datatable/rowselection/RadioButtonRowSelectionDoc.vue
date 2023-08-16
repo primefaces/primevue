@@ -27,16 +27,14 @@ export default {
             selectedProduct: null,
             metaKey: true,
             code: {
-                basic: `
-<DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
+                basic: `<DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
     <Column selectionMode="single" headerStyle="width: 3rem"></Column>
     <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
             <Column selectionMode="single" headerStyle="width: 3rem"></Column>
@@ -64,8 +62,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
             <Column selectionMode="single" headerStyle="width: 3rem"></Column>

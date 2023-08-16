@@ -42,15 +42,13 @@ export default {
                 { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
             ],
             code: {
-                basic: `
-<SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round">
+                basic: `<SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round">
     <Button @click="save">
         <img alt="logo" src="/images/logo.svg" style="width: 1rem" />
         <span class="ml-2 flex align-items-center font-bold">PrimeVue</span>
     </Button>
 </SplitButton>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Toast />
         <SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round">
@@ -99,8 +97,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Toast />
         <SplitButton :model="items" icon="pi pi-plus" class="bg-primary border-round">

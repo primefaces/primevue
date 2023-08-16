@@ -21,11 +21,9 @@ export default {
                 { label: 'Settings', icon: 'pi pi-fw pi-cog', to: '/tabmenu/settings' }
             ],
             code: {
-                basic: `
-<TabMenu :model="items" />
+                basic: `<TabMenu :model="items" />
 <router-view />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <TabMenu :model="items" />
         <router-view />
@@ -67,8 +65,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <TabMenu :model="items" />
         <router-view />

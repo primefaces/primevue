@@ -31,10 +31,8 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Steps :model="items" aria-label="Form Steps" />`,
-                options: `
-<template>
+                basic: `<Steps :model="items" aria-label="Form Steps" />`,
+                options: `<template>
     <div>        
         <div class="card">
             <Steps :model="items" :readonly="false" aria-label="Form Steps" />
@@ -68,8 +66,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div>
         <div class="card">
             <Steps :model="items" :readonly="false" aria-label="Form Steps" />

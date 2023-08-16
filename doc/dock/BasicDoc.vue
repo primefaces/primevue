@@ -62,14 +62,12 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Dock :model="items" :position="position">
+                basic: `<Dock :model="items" :position="position">
     <template #icon="{ item }">
         <img :alt="item.label" :src="item.icon" style="width: 100%" />
     </template>
 </Dock>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card dock-demo">
         <div class="flex flex-wrap gap-3 mb-5">
             <div v-for="pos of positions" :key="pos.label" class="flex align-items-center">
@@ -148,8 +146,7 @@ export default {
     z-index: 1000;
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card dock-demo">
         <div class="flex flex-wrap gap-3 mb-5">
             <div v-for="pos of positions" :key="pos.label" class="flex align-items-center">

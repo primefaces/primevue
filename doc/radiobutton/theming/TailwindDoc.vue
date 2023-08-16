@@ -5,7 +5,7 @@
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-        <p>A playground sample with the pre-built Tailwind theme.</p>
+        <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded />
     </DocSectionText>
 </template>
@@ -50,8 +50,7 @@ export default {
 `
             },
             code2: {
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-center">
         <div class="flex flex-wrap gap-3">
             <div class="flex align-items-center">

@@ -30,16 +30,14 @@ export default {
             selectedKey: null,
             metaKey: true,
             code: {
-                basic: `
-<InputSwitch v-model="metaKey" inputId="input-metakey" />
+                basic: `<InputSwitch v-model="metaKey" inputId="input-metakey" />
 
 <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="metaKey">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
 </TreeTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex justify-content-center align-items-center mb-4 gap-2">
             <InputSwitch v-model="metaKey" inputId="input-metakey" />
@@ -69,8 +67,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex justify-content-center align-items-center mb-4 gap-2">
             <InputSwitch v-model="metaKey" inputId="input-metakey" />

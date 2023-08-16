@@ -46,8 +46,7 @@ export default {
         return {
             customers: null,
             code: {
-                basic: `
-<DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name" sortMode="single"
+                basic: `<DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name" sortMode="single"
         sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px" tableStyle="min-width: 50rem">
     <Column field="representative.name" header="Representative"></Column>
     <Column field="name" header="Name" style="min-width: 200px"></Column>
@@ -76,8 +75,7 @@ export default {
         <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
     </template>
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name" sortMode="single"
                 sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px" tableStyle="min-width: 50rem">
@@ -158,8 +156,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataTable :value="customers" rowGroupMode="subheader" groupRowsBy="representative.name" sortMode="single"
                 sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px" tableStyle="min-width: 50rem">

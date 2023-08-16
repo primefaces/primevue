@@ -55,8 +55,7 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Menu
+                basic: `<Menu
     :model="items"
     :pt="{
         submenuHeader: { class: 'text-surface-900' },
@@ -65,8 +64,7 @@ export default {
         })
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Menu
             :model="items"
@@ -125,8 +123,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Menu
             :model="items"

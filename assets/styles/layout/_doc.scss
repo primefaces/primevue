@@ -205,6 +205,13 @@
     }
 }
 
+.doc-section-buttons {
+    gap: .75rem;
+    padding: .75rem 0 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 .doc-section-code-tooltip .p-tooltip-text {
     padding: 0.5rem;
     font-size: 11px;
@@ -229,7 +236,7 @@
     }
 
     pre {
-        margin: 0 0 1.5rem 0;
+        margin: 0;
     }
 }
 

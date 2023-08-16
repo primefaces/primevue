@@ -50,8 +50,7 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Toolbar>
+                basic: `<Toolbar>
     <template #start>
         <Button label="New" icon="pi pi-plus" class="mr-2" />
         <Button label="Upload" icon="pi pi-upload" severity="success" />
@@ -65,8 +64,7 @@ export default {
         <Button icon="pi pi-times" severity="danger" />
     </template>
 </Toolbar>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Toolbar>
             <template #start>
@@ -117,8 +115,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Toolbar>
             <template #start>

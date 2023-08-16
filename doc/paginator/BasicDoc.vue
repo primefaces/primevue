@@ -16,10 +16,8 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[10, 20, 30]"></Paginator>`,
-                options: `
-<template>
+                basic: `<Paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[10, 20, 30]"></Paginator>`,
+                options: `<template>
     <div class="card">
         <Paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
     </div>
@@ -27,8 +25,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
     </div>

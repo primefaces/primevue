@@ -22,8 +22,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<div class="flex flex-wrap align-items-center mb-3 gap-2">
+                basic: `<div class="flex flex-wrap align-items-center mb-3 gap-2">
     <label for="username" class="p-sr-only">Username</label>
     <InputText id="username" placeholder="Username" class="p-invalid" />
     <InlineMessage>Username is required</InlineMessage>
@@ -33,8 +32,7 @@ export default {
     <InputText id="email" placeholder="Email" class="p-invalid" />
     <InlineMessage />
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex flex-wrap align-items-center mb-3 gap-2">
             <label for="username" class="p-sr-only">Username</label>
@@ -51,8 +49,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex flex-wrap align-items-center mb-3 gap-2">
             <label for="username" class="p-sr-only">Username</label>

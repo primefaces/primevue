@@ -52,11 +52,9 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Toast />
+                basic: `<Toast />
 <SpeedDial :model="items" direction="up" :transitionDelay="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClass="p-button-outlined" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '350px' }">
             <Toast />
@@ -110,8 +108,7 @@ export default {
   }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '350px' }">
             <Toast />

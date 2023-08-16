@@ -18,15 +18,13 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<div class="flex flex-column gap-2">
+                basic: `<div class="flex flex-column gap-2">
     <label for="username">Username</label>
     <InputText id="username" v-model="value" aria-describedby="username-help" />
     <small id="username-help">Enter your username to reset your password.</small>
 </div>
                 `,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-2">
             <label for="username">Username</label>
@@ -46,8 +44,7 @@ export default {
 }
 <\/script>
                 `,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-2">
             <label for="username">Username</label>
