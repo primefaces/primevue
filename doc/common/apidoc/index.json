@@ -9482,7 +9482,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>onClick()</b>: void, // Remove icon click event\n  \t <b>onKeydown()</b>: void, // Remove icon keydown event\n  }",
+                                    "type": "{\n  \t <b>onClick(event: Event)</b>: void, // Remove icon click event\n  \t <b>onKeydown(event: Event)</b>: void, // Remove icon keydown event\n  }",
                                     "description": "remove icon slot's params."
                                 }
                             ],
@@ -9899,7 +9899,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>onClick()</b>: void, // Remove icon click event\n  }",
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n  \t <b>onClick(event: Event, index: number)</b>: void, // Remove token icon function.\n  }",
                                     "description": "remove token icon slot's params."
                                 }
                             ],
@@ -24111,7 +24111,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the image element.\n  \t <b>style</b>: any, // Style of the image element.\n  \t <b>onError</b>: void, // Image error function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the image element.\n  \t <b>style</b>: any, // Style of the image element.\n  \t <b>onError()</b>: void, // Image error function.\n  }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -24123,7 +24123,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the preview image element.\n  \t <b>style</b>: any, // Style of the preview image element.\n  \t <b>onClick</b>: void, // Preview click function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the preview image element.\n  \t <b>style</b>: any, // Style of the preview image element.\n  \t <b>onClick()</b>: void, // Preview click function.\n  }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -30026,7 +30026,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>onClick</b>: void, // Remove token icon function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>item</b>: any, // Item of the token.\n  \t <b>onClick(event: Event, item: any)</b>: void, // Remove token icon function.\n  }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -38663,7 +38663,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>onClick</b>: void, // ıtem click function\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>onClick()</b>: void, // Item click function\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -38676,7 +38676,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>toggle()</b>: void, // Toggle metadata\n  }",
+                                    "type": "{\n  \t <b>onClick()</b>: void, // Button click function\n  }",
                                     "description": "button slot's params."
                                 }
                             ],
@@ -38689,7 +38689,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>visible</b>: boolean, // undefined\n  }",
+                                    "type": "{\n  \t <b>visible</b>: boolean, // Visible state of the item\n  }",
                                     "description": "icon slot's params."
                                 }
                             ],
