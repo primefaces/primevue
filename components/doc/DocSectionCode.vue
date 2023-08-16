@@ -1,6 +1,6 @@
 <template>
-    <div v-if="!embedded" class="relative doc-section-code overflow-auto" style="max-height: 40rem">
-        <div class="flex surface-card align-items-center justify-content-end sticky z-1" :style="{ top: '0', gap: '.75rem', padding: '.75rem .75rem 0 0', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }">
+    <div v-if="!embedded" class="surface-card" style="border-radius: 10px">
+        <div class="flex doc-section-buttons surface-card align-items-center justify-content-end sticky z-1 top-0">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
                     :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'typescript' }]"
@@ -76,35 +76,33 @@
             ></Button>
         </div>
 
-        <template v-if="codeMode === 'basic' && importCode">
-            <pre v-code.script><code>{{ code.basic }}
-
+        <div class="relative doc-section-code overflow-auto" style="max-height: 40rem">
+            <template v-if="codeMode === 'basic' && importCode">
+                <pre v-code.script><code>{{ code.basic }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode === 'basic' && !importCode">
-            <pre v-code><code>{{ code.basic }}
-
+            <template v-if="codeMode === 'basic' && !importCode">
+                <pre v-code><code>{{ code.basic }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'options'">
-            <pre v-code><code>{{ code.options }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'options'">
+                <pre v-code><code>{{ code.options }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
-            <pre v-code><code>{{ code.composition }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'composition'">
+                <pre v-code><code>{{ code.composition }}
 </code></pre>
-        </template>
+            </template>
 
-        <template v-if="codeMode !== 'basic' && codeLang === 'data'">
-            <pre v-code.json><code>{{ code.data }}
-
+            <template v-if="codeMode !== 'basic' && codeLang === 'data'">
+                <pre v-code.json><code>{{ code.data }}
 </code></pre>
-        </template>
+            </template>
+        </div>
+        <div class="h-1rem"></div>
     </div>
     <div v-else id="embed"></div>
 </template>
