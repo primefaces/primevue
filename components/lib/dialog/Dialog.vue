@@ -163,7 +163,7 @@ export default {
         },
         focus() {
             const findFocusableElement = (container) => {
-                return container.querySelector('[autofocus]');
+                return container && container.querySelector('[autofocus]');
             };
 
             let focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
