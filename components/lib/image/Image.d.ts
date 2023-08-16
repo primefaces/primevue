@@ -232,7 +232,7 @@ export interface ImageSlots {
         /**
          * Image error function.
          */
-        onError: void;
+        onError(): void;
     }): VNode[];
     /**
      * Custom preview template.
@@ -249,7 +249,7 @@ export interface ImageSlots {
         /**
          * Preview click function.
          */
-        onClick: void;
+        onClick(): void;
     }): VNode[];
 }
 
