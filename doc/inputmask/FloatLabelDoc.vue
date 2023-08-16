@@ -4,8 +4,8 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <label for="ssn">SSN</label>
             <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
+            <label for="ssn">SSN</label>
         </span>
     </div>
     <DocSectionCode :code="code" />
@@ -19,15 +19,15 @@ export default {
             code: {
                 basic: `
 <span class="p-float-label">
-    <label for="ssn">SSN</label>
     <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
+    <label for="ssn">SSN</label>
 </span>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <label for="ssn">SSN</label>
             <InputMask id="ssn" v-model="value" mask="999-99-9999" placeholder="999-99-9999" />
+            <label for="ssn">SSN</label>
         </span>
     </div>
 </template>
@@ -46,8 +46,8 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <span class="p-float-label">
-            <label for="ssn">SSN</label>
             <InputMask id="ssn" v-model="val2" mask="999-99-9999" placeholder="999-99-9999" />
+            <label for="ssn">SSN</label>
         </span>
     </div>
 </template>

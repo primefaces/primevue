@@ -8,16 +8,19 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type CheckboxPassThroughOptionType = CheckboxPassThroughAttributes | ((options: CheckboxPassThroughMethodOptions) => CheckboxPassThroughAttributes) | null | undefined;
+export declare type CheckboxPassThroughOptionType = CheckboxPassThroughAttributes | ((options: CheckboxPassThroughMethodOptions) => CheckboxPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface CheckboxPassThroughMethodOptions {
+    instance: any;
     props: CheckboxProps;
     state: CheckboxState;
+    context: CheckboxContext;
 }
 
 /**
@@ -26,25 +29,30 @@ export interface CheckboxPassThroughMethodOptions {
  */
 export interface CheckboxPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: CheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: CheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden accessible DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
-    hiddenAccessible?: CheckboxPassThroughOptionType;
+    hiddenInputWrapper?: CheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input aria's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
-    inputAria?: CheckboxPassThroughOptionType;
+    hiddenInput?: CheckboxPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -128,7 +136,7 @@ export interface CheckboxProps {
      */
     inputStyle?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -140,12 +148,41 @@ export interface CheckboxProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {CheckboxPassThroughOptions}
      */
     pt?: CheckboxPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
+/**
+ * Defines current options in Checkbox component.
+ */
+export interface CheckboxContext {
+    /**
+     * Current checked state of the item as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of the item as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
+/**
+ * Defines valid slots in Checkbox component.
+ */
 export interface CheckboxSlots {
     /**
      * Custom icon template.
@@ -156,6 +193,10 @@ export interface CheckboxSlots {
          * State of the checkbox.
          */
         checked: boolean;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
 }
 

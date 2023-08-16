@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['ConfirmDialog', 'ConfirmationService-UseConfirm', 'ConfirmationOptions']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -15,9 +16,9 @@ import BasicDoc from '@/doc/confirmdialog/BasicDoc.vue';
 import ConfirmationServiceDoc from '@/doc/confirmdialog/ConfirmationServiceDoc.vue';
 import ImportDoc from '@/doc/confirmdialog/ImportDoc.vue';
 import PositionDoc from '@/doc/confirmdialog/PositionDoc.vue';
-import StyleDoc from '@/doc/confirmdialog/StyleDoc.vue';
 import TemplateDoc from '@/doc/confirmdialog/TemplateDoc.vue';
 import PTComponent from '@/doc/confirmdialog/pt/index.vue';
+import ThemingDoc from '@/doc/confirmdialog/theming/index.vue';
 
 export default {
     data() {
@@ -49,17 +50,13 @@ export default {
                     component: TemplateDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

@@ -7,18 +7,23 @@
  * @module calendar
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes) | null | undefined;
+export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | string) | string | null | undefined;
+
+export declare type CalendarPassThroughTransitionType = TransitionProps | ((options: CalendarPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface CalendarPassThroughMethodOptions {
+    instance: any;
     props: CalendarProps;
     state: CalendarState;
+    context: CalendarContext;
 }
 
 /**
@@ -86,198 +91,211 @@ export interface CalendarBlurEvent {
  */
 export interface CalendarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     dropdownButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the group container's DOM element.
+     * Used to pass attributes to the group container's DOM element.
      */
     groupContainer?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the group's DOM element.
+     * Used to pass attributes to the group's DOM element.
      */
     group?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     previousButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the title's DOM element.
+     * Used to pass attributes to the title's DOM element.
      */
     title?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the month title's DOM element.
+     * Used to pass attributes to the month title's DOM element.
      */
     monthTitle?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the year title's DOM element.
+     * Used to pass attributes to the year title's DOM element.
      */
     yearTitle?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the decade title's DOM element.
+     * Used to pass attributes to the decade title's DOM element.
      */
     decadeTitle?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     nextButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table's DOM element.
+     * Used to pass attributes to the table's DOM element.
      */
     table?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table header's DOM element.
+     * Used to pass attributes to the table header's DOM element.
      */
     tableHeader?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table header row's DOM element.
+     * Used to pass attributes to the table header row's DOM element.
      */
     tableHeaderRow?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table header cell's DOM element.
+     * Used to pass attributes to the week header's DOM element.
+     */
+    weekHeader?: CalendarPassThroughOptionType;
+    /**
+     * Used to pass attributes to the table header cell's DOM element.
      */
     tableHeaderCell?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the week label's DOM element.
+     * Used to pass attributes to the week label's DOM element.
      */
     weekLabel?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the week day's DOM element.
+     * Used to pass attributes to the week day's DOM element.
      */
     weekDay?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table body's DOM element.
+     * Used to pass attributes to the table body's DOM element.
      */
     tableBody?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table body row's DOM element.
+     * Used to pass attributes to the table body row's DOM element.
      */
     tableBodyRow?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the week number's DOM element.
+     * Used to pass attributes to the week number's DOM element.
      */
     weekNumber?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the week label container's DOM element.
+     * Used to pass attributes to the week label container's DOM element.
      */
     weekLabelContainer?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the day's DOM element.
+     * Used to pass attributes to the day's DOM element.
      */
     day?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the day label's DOM element.
+     * Used to pass attributes to the day label's DOM element.
      */
     dayLabel?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the aria selected day's DOM element.
-     */
-    ariaSelectedDay?: CalendarPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the month picker's DOM element.
+     * Used to pass attributes to the month picker's DOM element.
      */
     monthPicker?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the month's DOM element.
+     * Used to pass attributes to the month's DOM element.
      */
     month?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the aria month's DOM element.
-     */
-    ariaMonth?: CalendarPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the year picker's DOM element.
+     * Used to pass attributes to the year picker's DOM element.
      */
     yearPicker?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the year's DOM element.
+     * Used to pass attributes to the year's DOM element.
      */
     year?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the aria year's DOM element.
-     */
-    ariaYear?: CalendarPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the time picker's DOM element.
+     * Used to pass attributes to the time picker's DOM element.
      */
     timePicker?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hour picker's DOM element.
+     * Used to pass attributes to the hour picker's DOM element.
      */
     hourPicker?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hour's DOM element.
+     * Used to pass attributes to the hour's DOM element.
      */
     hour?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separatorc ontainer's DOM element.
+     * Used to pass attributes to the separatorc ontainer's DOM element.
      */
     separatorContainer?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the minute picker's DOM element.
+     * Used to pass attributes to the minute picker's DOM element.
      */
     minutePicker?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the minute's DOM element.
+     * Used to pass attributes to the minute's DOM element.
      */
     minute?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the second picker's DOM element.
+     * Used to pass attributes to the second picker's DOM element.
      */
     secondPicker?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the second's DOM element.
+     * Used to pass attributes to the second's DOM element.
      */
     second?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the ampm picker's DOM element.
+     * Used to pass attributes to the ampm picker's DOM element.
      */
     ampmPicker?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the ampm's DOM element.
+     * Used to pass attributes to the ampm's DOM element.
      */
     ampm?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the buttonbar's DOM element.
+     * Used to pass attributes to the buttonbar's DOM element.
      */
     buttonbar?: CalendarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     todayButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     clearButton?: ButtonPassThroughOptionType;
+    /**
+     * Used to pass attributes to the aria selected day's DOM element.
+     */
+    hiddenSelectedDay?: CalendarPassThroughOptionType;
+    /**
+     * Used to pass attributes to the aria month's DOM element.
+     */
+    hiddenMonth?: CalendarPassThroughOptionType;
+    /**
+     * Used to pass attributes to the aria year's DOM element.
+     */
+    hiddenYear?: CalendarPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: CalendarPassThroughTransitionType;
 }
 
 /**
@@ -331,6 +349,75 @@ export interface CalendarState {
      * @defaultValue 'date'
      */
     currentView: string;
+}
+
+/**
+ * Defines current options in Calendar component.
+ */
+export interface CalendarContext {
+    /**
+     * Current date.
+     */
+    date: string | Date | string[] | Date[] | undefined | null;
+    /**
+     * Current today state of the calendar's day.
+     * @defaultValue false
+     */
+    today: boolean;
+    /**
+     * Current other month state of the calendar's day.
+     */
+    otherMonth: boolean;
+    /**
+     * Current selected state of the calendar's day or month or year.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current disabled state of the calendar's day or month or year.
+     * @defaultValue false
+     */
+    disabled: boolean;
+    /**
+     * Current month state.
+     */
+    month: CalendarMonthOptions;
+    /**
+     * Current month index state.
+     */
+    monthIndex: number;
+    /**
+     * Current year state.
+     */
+    year: CalendarYearOptions;
+}
+
+/**
+ * Defines cuurent month options.
+ */
+export interface CalendarMonthOptions {
+    /**
+     * Month value.
+     */
+    value: string;
+    /**
+     * Selectable state of the month.
+     */
+    selectable: boolean;
+}
+
+/**
+ * Defines current year options.
+ */
+export interface CalendarYearOptions {
+    /**
+     * Year value.
+     */
+    value: number;
+    /**
+     * Selectable state of the month.
+     */
+    selectable: boolean;
 }
 
 /**
@@ -577,7 +664,7 @@ export interface CalendarProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
@@ -589,7 +676,7 @@ export interface CalendarProps {
      */
     panelClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
@@ -601,10 +688,15 @@ export interface CalendarProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {CalendarPassThroughOptions}
      */
     pt?: CalendarPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

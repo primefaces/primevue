@@ -7,16 +7,20 @@
  * @module tieredmenu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes) | null | undefined;
+export declare type TieredMenuPassThroughOptionType = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions) => TieredMenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type TieredMenuPassThroughTransitionType = TransitionProps | ((options: TieredMenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface TieredMenuPassThroughMethodOptions {
+    instance: any;
     props: TieredMenuProps;
     state: TieredMenuState;
     context: TieredMenuContext;
@@ -28,41 +32,54 @@ export interface TieredMenuPassThroughMethodOptions {
  */
 export interface TieredMenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu icon's DOM element.
+     * Used to pass attributes to the submenu icon's DOM element.
      */
     submenuIcon?: TieredMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: TieredMenuPassThroughOptionType;
+    /**
+     * Used to pass attributes to the submenu's DOM element.
+     */
+    submenu?: TieredMenuPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: TieredMenuPassThroughTransitionType;
 }
 
 /**
@@ -124,6 +141,14 @@ export interface TieredMenuState {
  * Defines current options in TieredMenu component.
  */
 export interface TieredMenuContext {
+    /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Index of the menuitem.
+     */
+    index: number;
     /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
@@ -187,10 +212,15 @@ export interface TieredMenuProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TieredMenuPassThroughOptions}
      */
     pt?: TieredMenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

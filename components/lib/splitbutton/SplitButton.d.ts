@@ -8,17 +8,19 @@
  *
  */
 import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes) | null | undefined;
+export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface SplitButtonPassThroughMethodOptions {
+    instance: any;
     props: SplitButtonProps;
     state: SplitButtonState;
 }
@@ -29,27 +31,28 @@ export interface SplitButtonPassThroughMethodOptions {
  */
 export interface SplitButtonPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SplitButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
      */
     button?: SplitButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
-     */
-    icon?: SplitButtonPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
     menuButton?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the TieredMenu component.
+     * Used to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
      */
     menu?: TieredMenuPassThroughOptions;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -117,11 +120,11 @@ export interface SplitButtonProps {
      */
     style?: any | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the default button.
+     * Used to pass all properties of the HTMLButtonElement to the default button.
      */
     buttonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the menu button.
+     * Used to pass all properties of the HTMLButtonElement to the menu button.
      */
     menuButtonProps?: ButtonHTMLAttributes | undefined;
     /**
@@ -163,10 +166,15 @@ export interface SplitButtonProps {
      */
     plain?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SplitButtonPassThroughOptions}
      */
     pt?: SplitButtonPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -180,11 +188,21 @@ export interface SplitButtonSlots {
     /**
      * Custom menu button icon template.
      */
-    icon(): VNode[];
+    icon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom menu button icon template.
      */
-    menubuttonicon(): VNode[];
+    menubuttonicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

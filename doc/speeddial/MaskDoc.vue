@@ -59,6 +59,7 @@ export default {
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" mask :style="{ right: 0, bottom: 0 }" />
+            <Toast />
         </div>
     </div>
 </template>
@@ -113,6 +114,7 @@ data() {
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" mask :style="{ right: 0, bottom: 0 }" />
+            <Toast />
         </div>
     </div>
 </template>

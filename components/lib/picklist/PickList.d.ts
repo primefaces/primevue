@@ -7,18 +7,23 @@
  * @module picklist
  *
  */
-import { ButtonHTMLAttributes, HTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes) | null | undefined;
+export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
+
+export declare type PickListPassThroughTransitionType = TransitionProps | ((options: PickListPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface PickListPassThroughMethodOptions {
+    instance: any;
     props: PickListProps;
     state: PickListState;
+    context: PickListContext;
 }
 
 /**
@@ -101,93 +106,106 @@ export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent 
  */
 export interface PickListPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the source controls' DOM element.
+     * Used to pass attributes to the source controls' DOM element.
      */
     sourceControls?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     sourceMoveUpButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     sourceMoveTopButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     sourceMoveDownButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     sourceMoveBottomButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the source wrapper's DOM element.
+     * Used to pass attributes to the source wrapper's DOM element.
      */
     sourceWrapper?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the source header's DOM element.
+     * Used to pass attributes to the source header's DOM element.
      */
     sourceHeader?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the source list's DOM element.
+     * Used to pass attributes to the source list's DOM element.
      */
     sourceList?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the buttons' DOM element.
+     * Used to pass attributes to the buttons' DOM element.
      */
     buttons?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveToTargetButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveAllToTargetButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveToSourceButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     moveAllToSourceButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the target wrapper's DOM element.
+     * Used to pass attributes to the target wrapper's DOM element.
      */
     targetWrapper?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the target header's DOM element.
+     * Used to pass attributes to the target header's DOM element.
      */
     targetHeader?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the target list's DOM element.
+     * Used to pass attributes to the target list's DOM element.
      */
     targetList?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the target controls' DOM element.
+     * Used to pass attributes to the target item's DOM element.
+     */
+    item?: PickListPassThroughOptionType;
+    /**
+     * Used to pass attributes to the target controls' DOM element.
      */
     targetControls?: PickListPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     targetMoveUpButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     targetMoveTopButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     targetMoveDownButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      */
     targetMoveBottomButton?: ButtonPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: PickListPassThroughTransitionType;
 }
 
 /**
@@ -240,6 +258,22 @@ export interface PickListState {
 }
 
 /**
+ * Defines current options in PickList component.
+ */
+export interface PickListContext {
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current focus state of the item as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+}
+
+/**
  * Defines valid properties in PickList component.
  */
 export interface PickListProps {
@@ -283,12 +317,12 @@ export interface PickListProps {
     stripedRows?: boolean | undefined;
     /**
      * Whether to show buttons of source list.
-     * @defaultValue false
+     * @defaultValue true
      */
     showSourceControls?: boolean | undefined;
     /**
      * Whether to show buttons of target list.
-     * @defaultValue false
+     * @defaultValue true
      */
     showTargetControls?: boolean | undefined;
     /**
@@ -296,50 +330,55 @@ export interface PickListProps {
      */
     tabindex?: number | string | undefined;
     /**
-     *  Uses to pass all properties of the HTMLAttributes to the target list element.
+     *  Used to pass all properties of the HTMLAttributes to the target list element.
      */
     targetListProps?: HTMLAttributes | undefined;
     /**
-     *  Uses to pass all properties of the HTMLAttributes to the source list element.
+     *  Used to pass all properties of the HTMLAttributes to the source list element.
      */
     sourceListProps?: HTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move up button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move up button inside the component.
      */
     moveUpButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move top button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move top button inside the component.
      */
     moveTopButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move down button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move down button inside the component.
      */
     moveDownButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move bottom button inside the component.
      */
     moveBottomButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move to target button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move to target button inside the component.
      */
     moveToTargetProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move all to target button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move all to target button inside the component.
      */
     moveAllToTargetProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move to source button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move to source button inside the component.
      */
     moveToSourceProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the move all to source button inside the component.
+     * Used to pass all properties of the HTMLButtonElement to the move all to source button inside the component.
      */
     moveAllToSourceProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {PickListPassThroughOptions}
      */
     pt?: PickListPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

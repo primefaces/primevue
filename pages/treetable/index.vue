@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue TreeTable Component" header="TreeTable" description="TreeTable is used to display hierarchical data in tabular format." :componentDocs="docs" :apiDocs="['TreeTable', 'Column']" />
+    <DocComponent
+        title="Vue TreeTable Component"
+        header="TreeTable"
+        description="TreeTable is used to display hierarchical data in tabular format."
+        :componentDocs="docs"
+        :apiDocs="['TreeTable', 'Column']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -11,11 +19,14 @@ import DynamicColumnsDoc from '@/doc/treetable/DynamicColumnsDoc';
 import FilterDoc from '@/doc/treetable/FilterDoc';
 import ImportDoc from '@/doc/treetable/ImportDoc';
 import LazyLoadDoc from '@/doc/treetable/LazyLoadDoc';
+import ResponsiveDoc from '@/doc/treetable/ResponsiveDoc';
+import SizeDoc from '@/doc/treetable/SizeDoc';
+import TemplateDoc from '@/doc/treetable/TemplateDoc';
 import PaginatorBasicDoc from '@/doc/treetable/paginator/PaginatorBasicDoc';
 import PaginatorTemplateDoc from '@/doc/treetable/paginator/PaginatorTemplateDoc';
+import PTComponent from '@/doc/treetable/pt/index.vue';
 import ExpandModeDoc from '@/doc/treetable/resize/ExpandModeDoc';
 import FitModeDoc from '@/doc/treetable/resize/FitModeDoc';
-import ResponsiveDoc from '@/doc/treetable/ResponsiveDoc';
 import FlexibleScrollDoc from '@/doc/treetable/scroll/FlexibleScrollDoc';
 import FrozenColumnsDoc from '@/doc/treetable/scroll/FrozenColumnsDoc';
 import HorizontalScrollDoc from '@/doc/treetable/scroll/HorizontalScrollDoc';
@@ -24,12 +35,10 @@ import CheckboxRowSelectionDoc from '@/doc/treetable/selection/CheckboxRowSelect
 import MultipleRowsSelectionDoc from '@/doc/treetable/selection/MultipleRowsSelectionDoc';
 import RowSelectionEventsDoc from '@/doc/treetable/selection/RowSelectionEventsDoc';
 import SingleRowSelectionDoc from '@/doc/treetable/selection/SingleRowSelectionDoc';
-import SizeDoc from '@/doc/treetable/SizeDoc';
 import MultipleColumnsDoc from '@/doc/treetable/sort/MultipleColumnsDoc';
 import RemovableSortDoc from '@/doc/treetable/sort/RemovableSortDoc';
 import SingleColumnDoc from '@/doc/treetable/sort/SingleColumnDoc';
-import StyleDoc from '@/doc/treetable/StyleDoc';
-import TemplateDoc from '@/doc/treetable/TemplateDoc';
+import ThemingDoc from '@/doc/treetable/theming/index.vue';
 
 export default {
     data() {
@@ -191,16 +200,13 @@ export default {
                     component: ResponsiveDoc
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
-            ]
+            ],
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

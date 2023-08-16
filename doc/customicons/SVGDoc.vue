@@ -10,8 +10,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Dropdown>
+                basic: `<Dropdown>
     <template #dropdownicon>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g id="chevron-down">

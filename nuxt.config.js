@@ -49,17 +49,6 @@ export default defineNuxtConfig({
                     src: 'https://www.googletagmanager.com/gtag/js?id=UA-93461466-1'
                 },
                 {
-                    id: 'ga-analytics',
-                    strategy: 'lazyOnload',
-                    children: `
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'UA-93461466-1');
-                    `
-                },
-                {
                     src: baseUrl + 'scripts/prism.js',
                     'data-manual': true
                 }
@@ -71,5 +60,5 @@ export default defineNuxtConfig({
             contextPath: baseUrl
         }
     },
-    css: ['@/assets/styles/primevue.css', '/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css', '@/components/lib/colorpicker/ColorPicker.css']
+    css: ['/node_modules/primeflex/primeflex.css', '/node_modules/primeicons/primeicons.css', '@/assets/styles/flags.css']
 });

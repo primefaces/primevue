@@ -8,14 +8,16 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 
-export declare type TriStateCheckboxPassThroughOptionType = TriStateCheckboxPassThroughAttributes | ((options: TriStateCheckboxPassThroughMethodOptions) => TriStateCheckboxPassThroughAttributes) | null | undefined;
+export declare type TriStateCheckboxPassThroughOptionType = TriStateCheckboxPassThroughAttributes | ((options: TriStateCheckboxPassThroughMethodOptions) => TriStateCheckboxPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface TriStateCheckboxPassThroughMethodOptions {
+    instance: any;
     props: TriStateCheckboxProps;
     state: TriStateCheckboxState;
     context: TriStateCheckboxContext;
@@ -27,37 +29,42 @@ export interface TriStateCheckboxPassThroughMethodOptions {
  */
 export interface TriStateCheckboxPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox box's DOM element.
+     * Used to pass attributes to the checkbox box's DOM element.
      */
-    checbox?: TriStateCheckboxPassThroughOptionType;
+    checkbox?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the check icon's DOM element.
+     * Used to pass attributes to the check icon's DOM element.
      */
     checkIcon?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the uncheck icon's DOM element.
+     * Used to pass attributes to the uncheck icon's DOM element.
      */
     uncheckIcon?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the nullable icon's DOM element.
+     * Used to pass attributes to the nullable icon's DOM element.
      */
     nullableIcon?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: TriStateCheckboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the sr only aria's DOM element.
+     * Used to pass attributes to the hidden value label's DOM element.
      */
-    srOnlyAria?: TriStateCheckboxPassThroughOptionType;
+    hiddenValueLabel?: TriStateCheckboxPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -121,7 +128,7 @@ export interface TriStateCheckboxProps {
      */
     inputId?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      * @deprecated since v3.26.0. Use 'pt' property.
      */
     inputProps?: InputHTMLAttributes | undefined;
@@ -134,10 +141,15 @@ export interface TriStateCheckboxProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {TriStateCheckboxPassThroughOptions}
      */
     pt?: TriStateCheckboxPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -147,15 +159,30 @@ export interface TriStateCheckboxSlots {
     /**
      * Custom check icon template.
      */
-    checkicon(): VNode[];
+    checkicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom uncheck icon template.
      */
-    uncheckicon(): VNode[];
+    uncheckicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
     /**
      * Custom nullable icon template.
      */
-    nullableicon(): VNode[];
+    nullableicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

@@ -7,15 +7,19 @@
  * @module avatar
  */
 import { VNode } from 'vue';
+import { AvatarGroupPassThroughOptions } from '../avatargroup';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes) | null | undefined;
+export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface AvatarPassThroughMethodOptions {
+    instance: any;
     props: AvatarProps;
+    parent: AvatarGroupPassThroughOptions;
 }
 
 /**
@@ -31,21 +35,26 @@ export interface AvatarPassThroughAttributes {
  */
 export interface AvatarPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AvatarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: AvatarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: AvatarPassThroughOptionType;
     /**
-     * Uses to pass attributes to the image's DOM element.
+     * Used to pass attributes to the image's DOM element.
      */
     image?: AvatarPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -84,10 +93,15 @@ export interface AvatarProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {AvatarPassThroughOptions}
      */
     pt?: AvatarPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -111,7 +125,7 @@ export interface AvatarEmits {
     /**
      * Triggered when an error occurs while loading an image file.
      */
-    error(): void;
+    error(event: Event): void;
 }
 
 /**

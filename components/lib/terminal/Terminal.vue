@@ -1,37 +1,27 @@
 <template>
-    <div class="p-terminal p-component" @click="onClick" v-bind="ptm('root')">
+    <div :class="cx('root')" @click="onClick" v-bind="ptm('root')" data-pc-name="terminal">
         <div v-if="welcomeMessage" v-bind="ptm('welcomeMessage')">{{ welcomeMessage }}</div>
-        <div class="p-terminal-content" v-bind="ptm('content')">
+        <div :class="cx('content')" v-bind="ptm('content')">
             <div v-for="(command, i) of commands" :key="command.text + i.toString()" v-bind="ptm('commands')">
-                <span class="p-terminal-prompt" v-bind="ptm('prompt')">{{ prompt }}</span>
-                <span class="p-terminal-command" v-bind="ptm('command')">{{ command.text }}</span>
-                <div class="p-terminal-response" aria-live="polite" v-bind="ptm('response')">{{ command.response }}</div>
+                <span :class="cx('prompt')" v-bind="ptm('prompt')">{{ prompt }}</span>
+                <span :class="cx('command')" v-bind="ptm('command')">{{ command.text }}</span>
+                <div :class="cx('response')" aria-live="polite" v-bind="ptm('response')">{{ command.response }}</div>
             </div>
         </div>
-        <div class="p-terminal-prompt-container" v-bind="ptm('container')">
-            <span class="p-terminal-prompt" v-bind="ptm('prompt')">{{ prompt }}</span>
-            <input ref="input" v-model="commandText" type="text" class="p-terminal-input" autocomplete="off" @keydown="onKeydown" v-bind="ptm('commandText')" />
+        <div :class="cx('container')" v-bind="ptm('container')">
+            <span :class="cx('prompt')" v-bind="ptm('prompt')">{{ prompt }}</span>
+            <input ref="input" v-model="commandText" type="text" :class="cx('commandText')" autocomplete="off" @keydown="onKeydown" v-bind="ptm('commandText')" />
         </div>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import TerminalService from 'primevue/terminalservice';
+import BaseTerminal from './BaseTerminal.vue';
 
 export default {
     name: 'Terminal',
-    extends: BaseComponent,
-    props: {
-        welcomeMessage: {
-            type: String,
-            default: null
-        },
-        prompt: {
-            type: String,
-            default: null
-        }
-    },
+    extends: BaseTerminal,
     data() {
         return {
             commandText: null,
@@ -65,28 +55,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-terminal {
-    height: 18rem;
-    overflow: auto;
-}
-
-.p-terminal-prompt-container {
-    display: flex;
-    align-items: center;
-}
-
-.p-terminal-input {
-    flex: 1 1 auto;
-    border: 0 none;
-    background-color: transparent;
-    color: inherit;
-    padding: 0;
-    outline: 0 none;
-}
-
-.p-terminal-input::-ms-clear {
-    display: none;
-}
-</style>

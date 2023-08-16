@@ -1,6 +1,6 @@
 <template>
-    <div :class="['p-checkbox p-component', { 'p-checkbox-focused': focused, 'p-disabled': disabled }]" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPTOptions('headerCheckboxWrapper')">
-        <div class="p-hidden-accessible" v-bind="getColumnPTOptions('hiddenHeaderInputWrapper')">
+    <div :class="cx('headerCheckboxWrapper')" @click="onClick" @keydown.space.prevent="onClick" v-bind="getColumnPT('headerCheckboxWrapper')">
+        <div class="p-hidden-accessible" v-bind="getColumnPT('hiddenHeaderInputWrapper')" :data-p-hidden-accessible="true">
             <input
                 ref="input"
                 type="checkbox"
@@ -10,12 +10,12 @@
                 :aria-label="headerCheckboxAriaLabel"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
-                v-bind="getColumnPTOptions('hiddenHeaderInput')"
+                v-bind="getColumnPT('hiddenHeaderInput')"
             />
         </div>
-        <div ref="box" :class="['p-checkbox-box p-component', { 'p-highlight': checked, 'p-disabled': disabled, 'p-focus': focused }]" v-bind="getColumnPTOptions('headerCheckbox')">
-            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" class="p-checkbox-icon" />
-            <CheckIcon v-else class="p-checkbox-icon" v-bind="getColumnPTOptions('headerCheckboxIcon')" />
+        <div ref="box" :class="cx('headerCheckbox')" v-bind="getColumnPT('headerCheckbox')">
+            <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="checked" :class="cx('headerCheckboxIcon')" />
+            <CheckIcon v-else-if="!headerCheckboxIconTemplate && !!checked" :class="cx('headerCheckboxIcon')" v-bind="getColumnPT('headerCheckboxIcon')" />
         </div>
     </div>
 </template>
@@ -24,9 +24,11 @@
 import BaseComponent from 'primevue/basecomponent';
 import CheckIcon from 'primevue/icons/check';
 import { DomHandler } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'HeaderCheckbox',
+    hostName: 'DataTable',
     extends: BaseComponent,
     emits: ['change'],
     props: {
@@ -44,8 +46,8 @@ export default {
         };
     },
     methods: {
-        getColumnPTOptions(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+        getColumnPT(key) {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
@@ -56,7 +58,9 @@ export default {
                     focused: this.focused,
                     disabled: this.disabled
                 }
-            });
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:

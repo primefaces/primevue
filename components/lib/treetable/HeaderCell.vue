@@ -1,23 +1,40 @@
 <template>
-    <th :style="[containerStyle]" :class="containerClass" @click="onClick" @keydown="onKeyDown" :tabindex="columnProp('sortable') ? '0' : null" :aria-sort="ariaSort" role="columnheader">
-        <span v-if="resizableColumns && !columnProp('frozen')" class="p-column-resizer" @mousedown="onResizeStart"></span>
+    <th
+        :class="containerClass"
+        :style="[containerStyle]"
+        @click="onClick"
+        @keydown="onKeyDown"
+        :tabindex="columnProp('sortable') ? '0' : null"
+        :aria-sort="ariaSort"
+        role="columnheader"
+        v-bind="{ ...getColumnPT('root'), ...getColumnPT('headerCell') }"
+        :data-p-sortable-column="columnProp('sortable')"
+        :data-p-resizable-column="resizableColumns"
+        :data-p-highlight="isColumnSorted()"
+        :data-p-frozen-column="columnProp('frozen')"
+    >
+        <span v-if="resizableColumns && !columnProp('frozen')" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
         <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
-        <span v-if="columnProp('header')" class="p-column-title">{{ columnProp('header') }}</span>
-        <span v-if="columnProp('sortable')">
-            <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" class="p-sortable-column-icon" />
+        <span v-if="columnProp('header')" :class="cx('headerTitle')" v-bind="getColumnPT('headerTitle')">{{ columnProp('header') }}</span>
+        <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
+            <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" data-pc-section="sorticon" :class="cx('sortIcon')" v-bind="getColumnPT('sortIcon')" />
         </span>
-        <span v-if="isMultiSorted()" class="p-sortable-column-badge">{{ getMultiSortMetaIndex() + 1 }}</span>
+        <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getMultiSortMetaIndex() + 1 }}</span>
     </th>
 </template>
 
 <script>
+import BaseComponent from 'primevue/basecomponent';
 import SortAltIcon from 'primevue/icons/sortalt';
 import SortAmountDownIcon from 'primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from 'primevue/icons/sortamountupalt';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'HeaderCell',
+    hostName: 'TreeTable',
+    extends: BaseComponent,
     emits: ['column-click', 'column-resizestart'],
     props: {
         column: {
@@ -43,6 +60,10 @@ export default {
         sortMode: {
             type: String,
             default: 'single'
+        },
+        index: {
+            type: Number,
+            default: null
         }
     },
     data() {
@@ -63,6 +84,30 @@ export default {
     methods: {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
+        },
+        getColumnPT(key) {
+            const columnMetaData = {
+                props: this.column.props,
+                parent: {
+                    props: this.$props,
+                    state: this.$data
+                },
+                context: {
+                    index: this.index,
+                    sorted: this.isColumnSorted(),
+                    frozen: this.$parentInstance.scrollable && this.columnProp('frozen'),
+                    resizable: this.resizableColumns,
+                    scrollable: this.$parentInstance.scrollable,
+                    scrollDirection: this.$parentInstance.scrollDirection,
+                    showGridlines: this.$parentInstance.showGridlines,
+                    size: this.$parentInstance?.size
+                }
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
+        },
+        getColumnProp() {
+            return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
@@ -102,7 +147,7 @@ export default {
             this.$emit('column-click', { originalEvent: event, column: this.column });
         },
         onKeyDown(event) {
-            if ((event.code === 'Enter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.hasClass(event.currentTarget, 'p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.$emit('column-click', { originalEvent: event, column: this.column });
 
                 event.preventDefault();
@@ -134,16 +179,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                this.columnProp('headerClass'),
-                this.columnProp('class'),
-                {
-                    'p-sortable-column': this.columnProp('sortable'),
-                    'p-resizable-column': this.resizableColumns,
-                    'p-highlight': this.isColumnSorted(),
-                    'p-frozen-column': this.columnProp('frozen')
-                }
-            ];
+            return [this.columnProp('headerClass'), this.columnProp('class'), this.cx('headerCell')];
         },
         containerStyle() {
             let headerStyle = this.columnProp('headerStyle');

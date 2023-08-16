@@ -5,4 +5,4 @@ import ObjectUtils from './ObjectUtils';
 import UniqueComponentId from './UniqueComponentId';
 import ZIndexUtils from './ZIndexUtils';
 
-export { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, ZIndexUtils, UniqueComponentId, EventBus };
+export { ConnectedOverlayScrollHandler, DomHandler, EventBus, ObjectUtils, UniqueComponentId, ZIndexUtils };

@@ -8,16 +8,20 @@
  * @module contextmenu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type ContextMenuPassThroughOptionType = ContextMenuPassThroughAttributes | ((options: ContextMenuPassThroughMethodOptions) => ContextMenuPassThroughAttributes) | null | undefined;
+export declare type ContextMenuPassThroughOptionType = ContextMenuPassThroughAttributes | ((options: ContextMenuPassThroughMethodOptions) => ContextMenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type ContextMenuPassThroughTransitionType = TransitionProps | ((options: ContextMenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ContextMenuPassThroughMethodOptions {
+    instance: any;
     props: ContextMenuProps;
     state: ContextMenuState;
     context: ContextMenuContext;
@@ -29,41 +33,54 @@ export interface ContextMenuPassThroughMethodOptions {
  */
 export interface ContextMenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu icon's DOM element.
+     * Used to pass attributes to the submenu icon's DOM element.
      */
     submenuIcon?: ContextMenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: ContextMenuPassThroughOptionType;
+    /**
+     * Used to pass attributes to the submenu's DOM element.
+     */
+    submenu?: ContextMenuPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: ContextMenuPassThroughTransitionType;
 }
 
 /**
@@ -131,6 +148,14 @@ export interface ContextMenuState {
  */
 export interface ContextMenuContext {
     /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Index of the menuitem
+     */
+    index: number;
+    /**
      * Current active state of menuitem as a boolean.
      * @defaultValue false
      */
@@ -188,10 +213,15 @@ export interface ContextMenuProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ContextMenuPassThroughOptions}
      */
     pt?: ContextMenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

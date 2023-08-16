@@ -33,17 +33,16 @@ const app = createApp(App);
 app.use(PrimeVue);
 ```
 
-## Styles
+## Theming
+PrimeVue has two theming has modes; styled or unstyled.
 
-Theme, core and icons are the necessary css files of the components, visit the [Themes](https://primevue.org/theming) section for the complete list of available themes to choose from.
+**Styled Mode**
 
+Styled mode is based on pre-skinned components with opinionated themes like Material, Bootstrap or PrimeOne themes. Theme is the required css file to be imported, visit the [Themes](https://primevue.org/theming) section for the complete list of available themes to choose from.
 
 ```javascript
 // theme
 import 'primevue/resources/themes/lara-light-blue/theme.css';
-
-// core
-import 'primevue/resources/primevue.min.css';
 ```
 
 Each PrimeVue theme has its own font family so it is suggested to apply it to your application for a unified look.
@@ -54,7 +53,17 @@ body {
 }
 ```
 
+**Unstyled Mode**
 
+Unstyled mode is disabled by default for all components. Using the PrimeVue plugin during installation, set `unstyled` as true to enable it globally. Visit the [Unstyled mode](https://primevue.org/unstyled) documentation for more information and examples.
+
+```javascript
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, { unstyled: true });
+```
 
 ## Usage
 
@@ -92,12 +101,11 @@ Open the nuxt configuration file and add the css dependencies.
 ```javascript
 export default defineNuxtConfig({
     css: [
-        "primevue/resources/themes/lara-light-blue/theme.css",
-        "primevue/resources/primevue.css"
+        "primevue/resources/themes/lara-light-blue/theme.css"
     ],
-	build: {
-		transpile: ["primevue"]
-	}
+    build: {
+      transpile: ["primevue"]
+    }
 })
 ```
 

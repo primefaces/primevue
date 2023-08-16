@@ -7,15 +7,19 @@
  * @module message
  *
  */
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes) | null | undefined;
+export declare type MessagePassThroughOptionType = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions) => MessagePassThroughAttributes | string) | string | null | undefined;
+
+export declare type MessagePassThroughTransitionType = TransitionProps | ((options: MessagePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface MessagePassThroughMethodOptions {
+    instance: any;
     props: MessageProps;
     state: MessageState;
 }
@@ -26,29 +30,48 @@ export interface MessagePassThroughMethodOptions {
  */
 export interface MessagePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the text's DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button's DOM element.
+     * Used to pass attributes to the button's DOM element.
+     * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: MessagePassThroughOptionType;
     /**
-     * Uses to pass attributes to the button icon's DOM element.
+     * Used to pass attributes to the button's DOM element.
+     */
+    closeButton?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the button icon's DOM element.
+     * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
     buttonIcon?: MessagePassThroughOptionType;
+    /**
+     * Used to pass attributes to the button icon's DOM element.
+     */
+    closeIcon?: MessagePassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: MessagePassThroughTransitionType;
 }
 
 /**
@@ -103,14 +126,19 @@ export interface MessageProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Uses to pass all properties of the HTMLButtonElement to the close button.
+     * Used to pass all properties of the HTMLButtonElement to the close button.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MessagePassThroughOptions}
      */
     pt?: MessagePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -11,10 +11,6 @@
                 {
                     "name": "Configuration",
                     "to": "/configuration"
-                },
-                {
-                    "name": "Accessibility",
-                    "to": "/accessibility"
                 }
             ]
         },
@@ -432,22 +428,53 @@
             "icon": "pi pi-palette",
             "children": [
                 {
-                    "name": "Overview",
-                    "to": "/theming"
+                    "name": "Styled Mode",
+                    "children": [
+                        {
+                            "name": "Overview",
+                            "to": "/theming"
+                        },
+                        {
+                            "name": "Visual Editor",
+                            "href": "https://designer.primevue.org"
+                        },
+                        {
+                            "name": "Colors",
+                            "to": "/colors"
+                        },
+                        {
+                            "name": "SASS API",
+                            "href": "https://www.primefaces.org/designer/api/primevue/3.9.0"
+                        }
+                    ]
                 },
                 {
-                    "name": "Visual Editor",
-                    "href": "https://designer.primevue.org"
-                },
-                {
-                    "name": "Colors",
-                    "to": "/colors"
-                },
-                {
-                    "name": "SASS API",
-                    "href": "https://www.primefaces.org/designer/api/primevue/3.9.0"
+                    "name": "Unstyled Mode",
+                    "children": [
+                        {
+                            "name": "Overview",
+                            "to": "/unstyled"
+                        },
+                        {
+                            "name": "Tailwind",
+                            "to": "/tailwind"
+                        },
+                        {
+                            "name": "Bootstrap",
+                            "to": "/bootstrap"
+                        },
+                        {
+                            "name": "Bulma",
+                            "to": "/bulma"
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "name": "Pass Through",
+            "icon": "pi pi-directions",
+            "to": "/passthrough"
         },
         {
             "name": "Figma UI Kit",
@@ -481,7 +508,12 @@
         {
             "name": "PrimeFlex CSS",
             "icon": "pi pi-table",
-            "href": "https://www.primefaces.org/primeflex"
+            "href": "https://primeflex.org"
+        },
+        {
+            "name": "Accessibility",
+            "icon": "pi pi-users",
+            "to": "/accessibility"
         },
         {
             "name": "Support",

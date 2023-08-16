@@ -1,10 +1,10 @@
 <template>
-    <div :class="containerClass" @click="onBarClick" v-bind="ptm('root')">
-        <span class="p-slider-range" :style="rangeStyle" v-bind="ptm('range')"></span>
+    <div :class="cx('root')" @click="onBarClick" v-bind="ptm('root')" :data-p-sliding="false" data-pc-name="slider">
+        <span :class="cx('range')" :style="[sx('range'), rangeStyle]" v-bind="ptm('range')"></span>
         <span
             v-if="!range"
-            class="p-slider-handle"
-            :style="handleStyle"
+            :class="cx('handle')"
+            :style="[sx('handle'), handleStyle]"
             @touchstart="onDragStart($event)"
             @touchmove="onDrag($event)"
             @touchend="onDragEnd($event)"
@@ -22,8 +22,8 @@
         ></span>
         <span
             v-if="range"
-            class="p-slider-handle"
-            :style="rangeStartHandleStyle"
+            :class="cx('handle')"
+            :style="[sx('handle'), rangeStartHandleStyle]"
             @touchstart="onDragStart($event, 0)"
             @touchmove="onDrag($event)"
             @touchend="onDragEnd($event)"
@@ -41,8 +41,8 @@
         ></span>
         <span
             v-if="range"
-            class="p-slider-handle"
-            :style="rangeEndHandleStyle"
+            :class="cx('handle')"
+            :style="[sx('handle'), rangeEndHandleStyle]"
             @touchstart="onDragStart($event, 1)"
             @touchmove="onDrag($event)"
             @touchend="onDragEnd($event)"
@@ -62,52 +62,13 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { DomHandler } from 'primevue/utils';
+import BaseSlider from './BaseSlider.vue';
 
 export default {
     name: 'Slider',
-    extends: BaseComponent,
+    extends: BaseSlider,
     emits: ['update:modelValue', 'change', 'slideend'],
-    props: {
-        modelValue: [Number, Array],
-        min: {
-            type: Number,
-            default: 0
-        },
-        max: {
-            type: Number,
-            default: 100
-        },
-        orientation: {
-            type: String,
-            default: 'horizontal'
-        },
-        step: {
-            type: Number,
-            default: null
-        },
-        range: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     dragging: false,
     handleIndex: null,
     initX: null,
@@ -182,7 +143,7 @@ export default {
                 return;
             }
 
-            DomHandler.addClass(this.$el, 'p-slider-sliding');
+            this.$el.setAttribute('data-p-sliding', true);
             this.dragging = true;
             this.updateDomData();
 
@@ -204,7 +165,7 @@ export default {
         onDragEnd(event) {
             if (this.dragging) {
                 this.dragging = false;
-                DomHandler.removeClass(this.$el, 'p-slider-sliding');
+                this.$el.setAttribute('data-p-sliding', false);
                 this.$emit('slideend', { originalEvent: event, value: this.modelValue });
             }
         },
@@ -213,7 +174,7 @@ export default {
                 return;
             }
 
-            if (!DomHandler.hasClass(event.target, 'p-slider-handle')) {
+            if (DomHandler.getAttribute(event.target, 'data-pc-section') !== 'handle') {
                 this.updateDomData();
                 this.setValue(event);
             }
@@ -316,16 +277,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-slider p-component',
-                {
-                    'p-disabled': this.disabled,
-                    'p-slider-horizontal': this.orientation === 'horizontal',
-                    'p-slider-vertical': this.orientation === 'vertical'
-                }
-            ];
-        },
         horizontal() {
             return this.orientation === 'horizontal';
         },
@@ -372,45 +323,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-slider {
-    position: relative;
-}
-
-.p-slider .p-slider-handle {
-    position: absolute;
-    cursor: grab;
-    touch-action: none;
-    display: block;
-}
-
-.p-slider-range {
-    position: absolute;
-    display: block;
-}
-
-.p-slider-horizontal .p-slider-range {
-    top: 0;
-    left: 0;
-    height: 100%;
-}
-
-.p-slider-horizontal .p-slider-handle {
-    top: 50%;
-}
-
-.p-slider-vertical {
-    height: 100px;
-}
-
-.p-slider-vertical .p-slider-handle {
-    left: 50%;
-}
-
-.p-slider-vertical .p-slider-range {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-</style>

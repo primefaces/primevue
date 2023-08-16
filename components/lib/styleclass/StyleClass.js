@@ -1,175 +1,173 @@
 import { DomHandler } from 'primevue/utils';
+import BaseStyleClass from './BaseStyleClass';
 
-function bind(el, binding) {
-    el.$_pstyleclass_clicklistener = () => {
-        const target = resolveTarget(el, binding);
+const StyleClass = BaseStyleClass.extend('styleclass', {
+    mounted(el, binding) {
+        el.setAttribute('data-pd-styleclass', true);
 
-        if (binding.value.toggleClass) {
-            if (DomHandler.hasClass(target, binding.value.toggleClass)) DomHandler.removeClass(target, binding.value.toggleClass);
-            else DomHandler.addClass(target, binding.value.toggleClass);
-        } else {
-            if (target.offsetParent === null) enter(target, el, binding);
-            else leave(target, binding);
-        }
-    };
+        this.bind(el, binding);
+    },
+    unmounted(el) {
+        this.unbind(el);
+    },
+    methods: {
+        bind(el, binding) {
+            const target = this.resolveTarget(el, binding);
 
-    el.addEventListener('click', el.$_pstyleclass_clicklistener);
-}
+            this.$el = target;
 
-function unbind(el) {
-    if (el.$_pstyleclass_clicklistener) {
-        el.removeEventListener('click', el.$_pstyleclass_clicklistener);
-        el.$_pstyleclass_clicklistener = null;
-    }
+            el.$_pstyleclass_clicklistener = () => {
+                if (binding.value.toggleClass) {
+                    if (DomHandler.hasClass(target, binding.value.toggleClass)) DomHandler.removeClass(target, binding.value.toggleClass);
+                    else DomHandler.addClass(target, binding.value.toggleClass);
+                } else {
+                    if (target.offsetParent === null) this.enter(target, el, binding);
+                    else this.leave(target, binding);
+                }
+            };
 
-    unbindDocumentListener(el);
-}
-
-function enter(target, el, binding) {
-    if (binding.value.enterActiveClass) {
-        if (!target.$_pstyleclass_animating) {
-            target.$_pstyleclass_animating = true;
-
-            if (binding.value.enterActiveClass === 'slidedown') {
-                target.style.height = '0px';
-                DomHandler.removeClass(target, 'hidden');
-                target.style.maxHeight = target.scrollHeight + 'px';
-                DomHandler.addClass(target, 'hidden');
-                target.style.height = '';
+            el.addEventListener('click', el.$_pstyleclass_clicklistener);
+        },
+        unbind(el) {
+            if (el.$_pstyleclass_clicklistener) {
+                el.removeEventListener('click', el.$_pstyleclass_clicklistener);
+                el.$_pstyleclass_clicklistener = null;
             }
 
-            DomHandler.addClass(target, binding.value.enterActiveClass);
+            this.unbindDocumentListener(el);
+        },
+        enter(target, el, binding) {
+            if (binding.value.enterActiveClass) {
+                if (!target.$_pstyleclass_animating) {
+                    target.$_pstyleclass_animating = true;
 
-            if (binding.value.enterClass) {
-                DomHandler.removeClass(target, binding.value.enterClass);
-            }
+                    if (binding.value.enterActiveClass === 'slidedown') {
+                        target.style.height = '0px';
+                        DomHandler.removeClass(target, 'hidden');
+                        target.style.maxHeight = target.scrollHeight + 'px';
+                        DomHandler.addClass(target, 'hidden');
+                        target.style.height = '';
+                    }
 
-            target.$p_styleclass_enterlistener = () => {
-                DomHandler.removeClass(target, binding.value.enterActiveClass);
+                    DomHandler.addClass(target, binding.value.enterActiveClass);
+
+                    if (binding.value.enterClass) {
+                        DomHandler.removeClass(target, binding.value.enterClass);
+                    }
+
+                    target.$p_styleclass_enterlistener = () => {
+                        DomHandler.removeClass(target, binding.value.enterActiveClass);
+
+                        if (binding.value.enterToClass) {
+                            DomHandler.addClass(target, binding.value.enterToClass);
+                        }
+
+                        target.removeEventListener('animationend', target.$p_styleclass_enterlistener);
+
+                        if (binding.value.enterActiveClass === 'slidedown') {
+                            target.style.maxHeight = '';
+                        }
+
+                        target.$_pstyleclass_animating = false;
+                    };
+
+                    target.addEventListener('animationend', target.$p_styleclass_enterlistener);
+                }
+            } else {
+                if (binding.value.enterClass) {
+                    DomHandler.removeClass(target, binding.value.enterClass);
+                }
 
                 if (binding.value.enterToClass) {
                     DomHandler.addClass(target, binding.value.enterToClass);
                 }
-
-                target.removeEventListener('animationend', target.$p_styleclass_enterlistener);
-
-                if (binding.value.enterActiveClass === 'slidedown') {
-                    target.style.maxHeight = '';
-                }
-
-                target.$_pstyleclass_animating = false;
-            };
-
-            target.addEventListener('animationend', target.$p_styleclass_enterlistener);
-        }
-    } else {
-        if (binding.value.enterClass) {
-            DomHandler.removeClass(target, binding.value.enterClass);
-        }
-
-        if (binding.value.enterToClass) {
-            DomHandler.addClass(target, binding.value.enterToClass);
-        }
-    }
-
-    if (binding.value.hideOnOutsideClick) {
-        bindDocumentListener(target, el, binding);
-    }
-}
-
-function leave(target, binding) {
-    if (binding.value.leaveActiveClass) {
-        if (!target.$_pstyleclass_animating) {
-            target.$_pstyleclass_animating = true;
-            DomHandler.addClass(target, binding.value.leaveActiveClass);
-
-            if (binding.value.leaveClass) {
-                DomHandler.removeClass(target, binding.value.leaveClass);
             }
 
-            target.$p_styleclass_leavelistener = () => {
-                DomHandler.removeClass(target, binding.value.leaveActiveClass);
+            if (binding.value.hideOnOutsideClick) {
+                this.bindDocumentListener(target, el, binding);
+            }
+        },
+        leave(target, binding) {
+            if (binding.value.leaveActiveClass) {
+                if (!target.$_pstyleclass_animating) {
+                    target.$_pstyleclass_animating = true;
+                    DomHandler.addClass(target, binding.value.leaveActiveClass);
+
+                    if (binding.value.leaveClass) {
+                        DomHandler.removeClass(target, binding.value.leaveClass);
+                    }
+
+                    target.$p_styleclass_leavelistener = () => {
+                        DomHandler.removeClass(target, binding.value.leaveActiveClass);
+
+                        if (binding.value.leaveToClass) {
+                            DomHandler.addClass(target, binding.value.leaveToClass);
+                        }
+
+                        target.removeEventListener('animationend', target.$p_styleclass_leavelistener);
+                        target.$_pstyleclass_animating = false;
+                    };
+
+                    target.addEventListener('animationend', target.$p_styleclass_leavelistener);
+                }
+            } else {
+                if (binding.value.leaveClass) {
+                    DomHandler.removeClass(target, binding.value.leaveClass);
+                }
 
                 if (binding.value.leaveToClass) {
                     DomHandler.addClass(target, binding.value.leaveToClass);
                 }
-
-                target.removeEventListener('animationend', target.$p_styleclass_leavelistener);
-                target.$_pstyleclass_animating = false;
-            };
-
-            target.addEventListener('animationend', target.$p_styleclass_leavelistener);
-        }
-    } else {
-        if (binding.value.leaveClass) {
-            DomHandler.removeClass(target, binding.value.leaveClass);
-        }
-
-        if (binding.value.leaveToClass) {
-            DomHandler.addClass(target, binding.value.leaveToClass);
-        }
-    }
-
-    if (binding.value.hideOnOutsideClick) {
-        unbindDocumentListener(target);
-    }
-}
-
-function resolveTarget(el, binding) {
-    switch (binding.value.selector) {
-        case '@next':
-            return el.nextElementSibling;
-
-        case '@prev':
-            return el.previousElementSibling;
-
-        case '@parent':
-            return el.parentElement;
-
-        case '@grandparent':
-            return el.parentElement.parentElement;
-
-        default:
-            return document.querySelector(binding.value.selector);
-    }
-}
-
-function bindDocumentListener(target, el, binding) {
-    if (!target.$p_styleclass_documentlistener) {
-        target.$p_styleclass_documentlistener = (event) => {
-            if (!isVisible(target) || getComputedStyle(target).getPropertyValue('position') === 'static') {
-                unbindDocumentListener(target);
-            } else if (isOutsideClick(event, target, el)) {
-                leave(target, binding);
             }
-        };
 
-        target.ownerDocument.addEventListener('click', target.$p_styleclass_documentlistener);
+            if (binding.value.hideOnOutsideClick) {
+                this.unbindDocumentListener(target);
+            }
+        },
+        resolveTarget(el, binding) {
+            switch (binding.value.selector) {
+                case '@next':
+                    return el.nextElementSibling;
+
+                case '@prev':
+                    return el.previousElementSibling;
+
+                case '@parent':
+                    return el.parentElement;
+
+                case '@grandparent':
+                    return el.parentElement.parentElement;
+
+                default:
+                    return document.querySelector(binding.value.selector);
+            }
+        },
+        bindDocumentListener(target, el, binding) {
+            if (!target.$p_styleclass_documentlistener) {
+                target.$p_styleclass_documentlistener = (event) => {
+                    if (!this.isVisible(target) || getComputedStyle(target).getPropertyValue('position') === 'static') {
+                        this.unbindDocumentListener(target);
+                    } else if (this.isOutsideClick(event, target, el)) {
+                        this.leave(target, binding);
+                    }
+                };
+
+                target.ownerDocument.addEventListener('click', target.$p_styleclass_documentlistener);
+            }
+        },
+        unbindDocumentListener(target) {
+            if (target.$p_styleclass_documentlistener) {
+                target.ownerDocument.removeEventListener('click', target.$p_styleclass_documentlistener);
+                target.$p_styleclass_documentlistener = null;
+            }
+        },
+        isVisible(target) {
+            return target.offsetParent !== null;
+        },
+        isOutsideClick(event, target, el) {
+            return !el.isSameNode(event.target) && !el.contains(event.target) && !target.contains(event.target);
+        }
     }
-}
-
-function unbindDocumentListener(target) {
-    if (target.$p_styleclass_documentlistener) {
-        target.ownerDocument.removeEventListener('click', target.$p_styleclass_documentlistener);
-        target.$p_styleclass_documentlistener = null;
-    }
-}
-
-function isVisible(target) {
-    return target.offsetParent !== null;
-}
-
-function isOutsideClick(event, target, el) {
-    return !el.isSameNode(event.target) && !el.contains(event.target) && !target.contains(event.target);
-}
-
-const StyleClass = {
-    mounted(el, binding) {
-        bind(el, binding);
-    },
-    unmounted(el) {
-        unbind(el);
-    }
-};
+});
 
 export default StyleClass;

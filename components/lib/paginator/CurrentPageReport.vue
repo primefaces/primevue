@@ -1,5 +1,5 @@
 <template>
-    <span class="p-paginator-current" v-bind="ptm('current')">{{ text }}</span>
+    <span :class="cx('current')" v-bind="ptm('current')">{{ text }}</span>
 </template>
 
 <script>
@@ -7,6 +7,7 @@ import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'CurrentPageReport',
+    hostName: 'Paginator',
     extends: BaseComponent,
     props: {
         pageCount: {

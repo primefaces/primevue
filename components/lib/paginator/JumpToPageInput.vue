@@ -1,5 +1,15 @@
 <template>
-    <JTPInput ref="jtpInput" :modelValue="d_page" class="p-paginator-page-input" :aria-label="inputArialabel" :disabled="disabled" @update:modelValue="onChange" :pt="ptm('JTPInput')"></JTPInput>
+    <JTPInput
+        ref="jtpInput"
+        :modelValue="d_page"
+        :class="cx('jumpToPageInput')"
+        :aria-label="inputArialabel"
+        :disabled="disabled"
+        @update:modelValue="onChange"
+        :unstyled="unstyled"
+        :pt="ptm('jumpToPageInput')"
+        data-pc-section="jumptopageinput"
+    ></JTPInput>
 </template>
 
 <script>
@@ -8,6 +18,7 @@ import InputNumber from 'primevue/inputnumber';
 
 export default {
     name: 'JumpToPageInput',
+    hostName: 'Paginator',
     extends: BaseComponent,
     inheritAttrs: false,
     emits: ['page-change'],

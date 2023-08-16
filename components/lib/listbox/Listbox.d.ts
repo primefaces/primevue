@@ -8,15 +8,17 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
-export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes) | null | undefined;
+export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ListboxPassThroughMethodOptions {
+    instance: any;
     props: ListboxProps;
     state: ListboxState;
     context: ListboxContext;
@@ -58,66 +60,71 @@ export interface ListboxFilterEvent {
  */
 export interface ListboxPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the filter container's DOM element.
      */
     filterContainer?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the filter input's DOM element.
      */
     filterInput?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter icon's DOM element.
+     * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the VirtualScroller component.
+     * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the item group's DOM element.
      */
     itemGroup?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the emptyMessage's DOM element.
+     * Used to pass attributes to the emptyMessage's DOM element.
      */
     emptyMessage?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden first focusable element's DOM element.
+     * Used to pass attributes to the hidden first focusable element's DOM element.
      */
     hiddenFirstFocusableEl?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden filter result's DOM element.
+     * Used to pass attributes to the hidden filter result's DOM element.
      */
     hiddenFilterResult?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden selected message's DOM element.
      */
     hiddenSelectedMessage?: ListboxPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden last focusable element's DOM element.
+     * Used to pass attributes to the hidden last focusable element's DOM element.
      */
     hiddenLastFocusableEl?: ListboxPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -251,7 +258,7 @@ export interface ListboxProps {
      */
     filterFields?: string[] | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the filter input inside the component.
+     * Used to pass all properties of the HTMLInputElement to the filter input inside the component.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
     /**
@@ -312,10 +319,15 @@ export interface ListboxProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ListboxPassThroughOptions}
      */
     pt?: ListboxPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

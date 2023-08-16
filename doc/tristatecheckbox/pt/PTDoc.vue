@@ -4,7 +4,7 @@
         <TriStateCheckbox
             v-model="value"
             :pt="{
-                checbox: {
+                checkbox: {
                     class: value ? 'bg-teal-500 border-white' : undefined
                 }
             }"
@@ -24,7 +24,7 @@ export default {
 <TriStateCheckbox
     v-model="value"
     :pt="{
-        checbox: {
+        checkbox: {
             class: value ? 'bg-teal-500 border-white' : undefined
         }
     }"
@@ -35,7 +35,7 @@ export default {
         <TriStateCheckbox
             v-model="value"
             :pt="{
-                checbox: {
+                checkbox: {
                     class: value ? 'bg-teal-500 border-white' : undefined
                 }
             }"
@@ -59,7 +59,7 @@ export default {
         <TriStateCheckbox
             v-model="value"
             :pt="{
-                checbox: {
+                checkbox: {
                     class: value ? 'bg-teal-500 border-white' : undefined
                 }
             }"

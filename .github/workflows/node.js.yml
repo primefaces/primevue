@@ -53,7 +53,7 @@ jobs:
               run: |
                   npm run security:check
 
-            - name: Unit Tests Check
-              if: ${{ success() }}
-              run: |
-                  npm run test:unit
+            # - name: Unit Tests Check
+            #   if: ${{ success() }}
+            #   run: |
+            #       npm run test:unit

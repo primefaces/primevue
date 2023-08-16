@@ -7,15 +7,19 @@
  * @module fieldset
  *
  */
-import { AnchorHTMLAttributes, VNode } from 'vue';
+import { AnchorHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type FieldsetPassThroughOptionType = FieldsetPassThroughAttributes | ((options: FieldsetPassThroughMethodOptions) => FieldsetPassThroughAttributes) | null | undefined;
+export declare type FieldsetPassThroughOptionType = FieldsetPassThroughAttributes | ((options: FieldsetPassThroughMethodOptions) => FieldsetPassThroughAttributes | string) | string | null | undefined;
+
+export declare type FieldsetPassThroughTransitionType = TransitionProps | ((options: FieldsetPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface FieldsetPassThroughMethodOptions {
+    instance: any;
     props: FieldsetProps;
     state: FieldsetState;
 }
@@ -41,33 +45,42 @@ export interface FieldsetToggleEvent {
  */
 export interface FieldsetPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the legend's DOM element.
+     * Used to pass attributes to the legend's DOM element.
      */
     legend?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the toggler's DOM element.
      */
     toggler?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggler icon's DOM element.
+     * Used to pass attributes to the toggler icon's DOM element.
      */
     togglerIcon?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the legend title's DOM element.
+     * Used to pass attributes to the legend title's DOM element.
      */
     legendTitle?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the toggleable content's DOM element.
+     * Used to pass attributes to the toggleable content's DOM element.
      */
     toggleableContent?: FieldsetPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: FieldsetPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: FieldsetPassThroughTransitionType;
 }
 
 /**
@@ -107,15 +120,20 @@ export interface FieldsetProps {
      */
     collapsed?: boolean | undefined;
     /**
-     * Uses to pass the custom value to read for the AnchorHTMLAttributes inside the component.
+     * Used to pass the custom value to read for the AnchorHTMLAttributes inside the component.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     toggleButtonProps?: AnchorHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {FieldsetPassThroughOptions}
      */
     pt?: FieldsetPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

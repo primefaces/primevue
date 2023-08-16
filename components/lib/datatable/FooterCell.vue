@@ -1,5 +1,5 @@
 <template>
-    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" v-bind="{ ...getColumnPTOptions('root'), ...getColumnPTOptions('footerCell') }">
+    <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" v-bind="{ ...getColumnPT('root'), ...getColumnPT('footerCell') }">
         <component v-if="column.children && column.children.footer" :is="column.children.footer" :column="column" />
         {{ columnProp('footer') }}
     </td>
@@ -8,13 +8,19 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'FooterCell',
+    hostName: 'DataTable',
     extends: BaseComponent,
     props: {
         column: {
             type: Object,
+            default: null
+        },
+        index: {
+            type: Number,
             default: null
         }
     },
@@ -37,14 +43,21 @@ export default {
         columnProp(prop) {
             return ObjectUtils.getVNodeProp(this.column, prop);
         },
-        getColumnPTOptions(key) {
-            return this.ptmo(this.getColumnProp(), key, {
+        getColumnPT(key) {
+            const columnMetaData = {
                 props: this.column.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
+                },
+                context: {
+                    index: this.index,
+                    size: this.$parentInstance?.$parentInstance?.size,
+                    showGridlines: this.$parentInstance?.$parentInstance?.showGridlines || false
                 }
-            });
+            };
+
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(), key, columnMetaData));
         },
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
@@ -77,13 +90,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return [
-                this.columnProp('footerClass'),
-                this.columnProp('class'),
-                {
-                    'p-frozen-column': this.columnProp('frozen')
-                }
-            ];
+            return [this.columnProp('footerClass'), this.columnProp('class'), this.cx('footerCell')];
         },
         containerStyle() {
             let bodyStyle = this.columnProp('footerStyle');

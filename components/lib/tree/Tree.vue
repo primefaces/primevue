@@ -1,21 +1,21 @@
 <template>
-    <div :class="containerClass" v-bind="ptm('root')">
+    <div :class="cx('root')" v-bind="ptm('root')" data-pc-name="tree">
         <template v-if="loading">
-            <div class="p-tree-loading-overlay p-component-overlay" v-bind="ptm('loadingOverlay')">
-                <slot name="loadingicon">
-                    <i v-if="loadingIcon" :class="['p-tree-loading-icon pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
-                    <SpinnerIcon v-else spin class="p-tree-loading-icon" v-bind="ptm('loadingIcon')" />
+            <div :class="cx('loadingOverlay')" v-bind="ptm('loadingOverlay')">
+                <slot name="loadingicon" :class="cx('loadingIcon')">
+                    <i v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
+                    <SpinnerIcon v-else spin :class="cx('loadingIcon')" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
         </template>
-        <div v-if="filter" class="p-tree-filter-container" v-bind="ptm('filterContainer')">
-            <input v-model="filterValue" type="text" autocomplete="off" class="p-tree-filter p-inputtext p-component" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('input')" />
-            <slot name="searchicon">
-                <SearchIcon class="p-tree-filter-icon" v-bind="ptm('searchIcon')" />
+        <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
+            <input v-model="filterValue" type="text" autocomplete="off" :class="cx('input')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('input')" />
+            <slot name="searchicon" :class="cx('searchIcon')">
+                <SearchIcon :class="cx('searchIcon')" v-bind="ptm('searchIcon')" />
             </slot>
         </div>
-        <div class="p-tree-wrapper" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
-            <ul class="p-tree-container" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('container')">
+        <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+            <ul :class="cx('container')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('container')">
                 <TreeNode
                     v-for="(node, index) of valueToRender"
                     :key="node.key"
@@ -30,6 +30,7 @@
                     :selectionKeys="selectionKeys"
                     @checkbox-change="onCheckboxChange"
                     :pt="pt"
+                    :unstyled="unstyled"
                 ></TreeNode>
             </ul>
         </div>
@@ -37,82 +38,16 @@
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
 import { ObjectUtils } from 'primevue/utils';
+import BaseTree from './BaseTree.vue';
 import TreeNode from './TreeNode.vue';
 
 export default {
     name: 'Tree',
-    extends: BaseComponent,
+    extends: BaseTree,
     emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect'],
-    props: {
-        value: {
-            type: null,
-            default: null
-        },
-        expandedKeys: {
-            type: null,
-            default: null
-        },
-        selectionKeys: {
-            type: null,
-            default: null
-        },
-        selectionMode: {
-            type: String,
-            default: null
-        },
-        metaKeySelection: {
-            type: Boolean,
-            default: true
-        },
-        loading: {
-            type: Boolean,
-            default: false
-        },
-        loadingIcon: {
-            type: String,
-            default: undefined
-        },
-        filter: {
-            type: Boolean,
-            default: false
-        },
-        filterBy: {
-            type: String,
-            default: 'label'
-        },
-        filterMode: {
-            type: String,
-            default: 'lenient'
-        },
-        filterPlaceholder: {
-            type: String,
-            default: null
-        },
-        filterLocale: {
-            type: String,
-            default: undefined
-        },
-        scrollHeight: {
-            type: String,
-            default: null
-        },
-        level: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
@@ -275,16 +210,6 @@ export default {
         }
     },
     computed: {
-        containerClass() {
-            return [
-                'p-tree p-component',
-                {
-                    'p-tree-selectable': this.selectionMode != null,
-                    'p-tree-loading': this.loading,
-                    'p-tree-flex-scrollable': this.scrollHeight === 'flex'
-                }
-            ];
-        },
         filteredValue() {
             let filteredNodes = [];
             const searchFields = this.filterBy.split(',');
@@ -317,87 +242,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-tree-container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    overflow: auto;
-}
-
-.p-treenode-children {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.p-tree-wrapper {
-    overflow: auto;
-}
-
-.p-treenode-selectable {
-    cursor: pointer;
-    user-select: none;
-}
-
-.p-tree-toggler {
-    cursor: pointer;
-    user-select: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.p-treenode-leaf > .p-treenode-content .p-tree-toggler {
-    visibility: hidden;
-}
-
-.p-treenode-content {
-    display: flex;
-    align-items: center;
-}
-
-.p-tree-filter {
-    width: 100%;
-}
-
-.p-tree-filter-container {
-    position: relative;
-    display: block;
-    width: 100%;
-}
-
-.p-tree-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-}
-
-.p-tree-loading {
-    position: relative;
-    min-height: 4rem;
-}
-
-.p-tree .p-tree-loading-overlay {
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.p-tree-flex-scrollable {
-    display: flex;
-    flex: 1;
-    height: 100%;
-    flex-direction: column;
-}
-
-.p-tree-flex-scrollable .p-tree-wrapper {
-    flex: 1;
-}
-</style>

@@ -7,16 +7,20 @@
  * @module menu
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes) | null | undefined;
+export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | string) | string | null | undefined;
+
+export declare type MenuPassThroughTransitionType = TransitionProps | ((options: MenuPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface MenuPassThroughMethodOptions {
+    instance: any;
     props: MenuProps;
     state: MenuState;
     context: MenuContext;
@@ -28,49 +32,58 @@ export interface MenuPassThroughMethodOptions {
  */
 export interface MenuPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     menu?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the submenu header's DOM element.
+     * Used to pass attributes to the submenu header's DOM element.
      */
     submenuHeader?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     menuitem?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the start of the component.
+     * Used to pass attributes to the start of the component.
      */
     start?: MenuPassThroughOptionType;
     /**
-     * Uses to pass attributes to the end of the component.
+     * Used to pass attributes to the end of the component.
      */
     end?: MenuPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: MenuPassThroughTransitionType;
 }
 
 /**
@@ -112,6 +125,14 @@ export interface MenuState {
  * Defines current options in Menu component.
  */
 export interface MenuContext {
+    /**
+     * Current menuitem
+     */
+    item: any;
+    /**
+     * Current index of the menuitem.
+     */
+    index: number;
     /**
      * Current focused state of menuitem as a boolean.
      * @defaultValue false
@@ -165,10 +186,15 @@ export interface MenuProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {MenuPassThroughOptions}
      */
     pt?: MenuPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -8,14 +8,16 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes) | null | undefined;
+export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface VirtualScrollerPassThroughMethodOptions {
+    instance: any;
     props: VirtualScrollerProps;
     state: VirtualScrollerState;
 }
@@ -108,25 +110,30 @@ export interface VirtualScrollerItemOptions {
  */
 export interface VirtualScrollerPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the spacer's DOM element.
-     */
-    spacer?: VirtualScrollerPassThroughOptionType;
-    /**
-     * Uses to pass attributes to the loader's DOM element.
+     * Used to pass attributes to the loader's DOM element.
      */
     loader?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the spacer's DOM element.
+     */
+    spacer?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -304,10 +311,15 @@ export interface VirtualScrollerProps {
      */
     autoSize?: boolean | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {VirtualScrollerPassThroughOptions}
      */
     pt?: VirtualScrollerPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -408,7 +420,12 @@ export interface VirtualScrollerSlots {
     /**
      * Custom loading icon template.
      */
-    loadingicon(): VNode[];
+    loadingicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

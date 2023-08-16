@@ -1,7 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs">
-        <p>InputMask is used as a controlled input with <i>v-model</i> properties.</p>
-    </DocSectionText>
+    <DocSectionText v-bind="$attrs"></DocSectionText>
     <div class="card flex justify-content-center">
         <InputMask
             id="basic"
@@ -23,11 +21,27 @@ export default {
             value: '',
             code: {
                 basic: `
-<InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />`,
+<InputMask
+    id="basic"
+    v-model="value"
+    mask="99-999999"
+    placeholder="99-999999"
+    :pt="{
+        root: { class: 'border-teal-400' }
+    }"
+/>`,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />
+        <InputMask
+            id="basic"
+            v-model="value"
+            mask="99-999999"
+            placeholder="99-999999"
+            :pt="{
+                root: { class: 'border-teal-400' }
+            }"
+        />
     </div>
 </template>
 
@@ -44,7 +58,15 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />
+        <InputMask
+            id="basic"
+            v-model="value"
+            mask="99-999999"
+            placeholder="99-999999"
+            :pt="{
+                root: { class: 'border-teal-400' }
+            }"
+        />
     </div>
 </template>
 

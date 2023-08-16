@@ -41,10 +41,6 @@ export default {
                     return;
                 }
 
-                window['gtag']('config', 'UA-93461466-1', {
-                    page_path: '/primevue' + to.path
-                });
-
                 this.sidebarActive = false;
                 DomHandler.removeClass(document.body, 'blocked-scroll');
                 this.$toast.removeAllGroups();
@@ -78,20 +74,6 @@ export default {
             this.$appState.newsActive = false;
             sessionStorage.setItem('primevue-news-hidden', 'true');
             event.stopPropagation();
-        },
-        addClass(element, className) {
-            if (!this.hasClass(element, className)) {
-                if (element.classList) element.classList.add(className);
-                else element.className += ' ' + className;
-            }
-        },
-        removeClass(element, className) {
-            if (element.classList) element.classList.remove(className);
-            else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        },
-        hasClass(element, className) {
-            if (element.classList) return element.classList.contains(className);
-            else return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
         },
         isOutdatedIE() {
             let ua = window.navigator.userAgent;

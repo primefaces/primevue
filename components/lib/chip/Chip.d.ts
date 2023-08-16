@@ -8,14 +8,16 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type ChipPassThroughOptionType = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes) | null | undefined;
+export declare type ChipPassThroughOptionType = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions) => ChipPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ChipPassThroughMethodOptions {
+    instance: any;
     props: ChipProps;
     state: ChipState;
 }
@@ -26,25 +28,30 @@ export interface ChipPassThroughMethodOptions {
  */
 export interface ChipPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the image's DOM element.
+     * Used to pass attributes to the image's DOM element.
      */
     image?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label' DOM element.
+     * Used to pass attributes to the label' DOM element.
      */
     label?: ChipPassThroughOptionType;
     /**
-     * Uses to pass attributes to the removeIcon's DOM element.
+     * Used to pass attributes to the removeIcon's DOM element.
      */
     removeIcon?: ChipPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -93,10 +100,15 @@ export interface ChipProps {
      */
     removeIcon?: string;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ChipPassThroughOptions}
      */
     pt?: ChipPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -118,12 +130,14 @@ export interface ChipSlots {
     removeicon(scope: {
         /**
          * Remove icon click event
+         * @param {Event} event - Browser event
          */
-        onClick(): void;
+        onClick(event: Event): void;
         /**
          * Remove icon keydown event
+         * @param {Event} event - Browser event
          */
-        onKeydown(): void;
+        onKeydown(event: Event): void;
     }): VNode[];
 }
 

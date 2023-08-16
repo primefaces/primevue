@@ -7,15 +7,19 @@
  * @module overlaypanel
  *
  */
-import { VNode } from 'vue';
+import { TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughAttributes | ((options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes) | null | undefined;
+export declare type OverlayPanelPassThroughOptionType = OverlayPanelPassThroughAttributes | ((options: OverlayPanelPassThroughMethodOptions) => OverlayPanelPassThroughAttributes | string) | string | null | undefined;
+
+export declare type OverlayPanelPassThroughTransitionType = TransitionProps | ((options: OverlayPanelPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface OverlayPanelPassThroughMethodOptions {
+    instance: any;
     props: OverlayPanelProps;
     state: OverlayPanelState;
 }
@@ -26,21 +30,30 @@ export interface OverlayPanelPassThroughMethodOptions {
  */
 export interface OverlayPanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: OverlayPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the content's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: OverlayPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close button's DOM element.
+     * Used to pass attributes to the close button's DOM element.
      */
     closeButton?: OverlayPanelPassThroughOptionType;
     /**
-     * Uses to pass attributes to the close icon's DOM element.
+     * Used to pass attributes to the close icon's DOM element.
      */
     closeIcon?: OverlayPanelPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: OverlayPanelPassThroughTransitionType;
 }
 
 /**
@@ -122,10 +135,15 @@ export interface OverlayPanelProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {OverlayPanelPassThroughOptions}
      */
     pt?: OverlayPanelPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

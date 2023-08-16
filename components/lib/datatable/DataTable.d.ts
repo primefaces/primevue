@@ -7,19 +7,27 @@
  * @module datatable
  *
  */
-import { InputHTMLAttributes, TableHTMLAttributes, VNode } from 'vue';
+import { InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
+import { ColumnPassThroughOptionType } from '../column';
+import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
+import { RowPassThroughOptionType } from '../row';
 import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
-export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes) | null | undefined;
+export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
+
+export declare type DataTablePassThroughTransitionType = TransitionProps | ((options: DataTablePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface DataTablePassThroughMethodOptions {
+    instance: any;
     props: DataTableProps;
     state: DataTableState;
+    context: DataTableContext;
 }
 
 /**
@@ -538,103 +546,120 @@ export interface DataTableStateEvent {
  */
 export interface DataTablePassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading overlay's DOM element.
+     * Used to pass attributes to the loading overlay's DOM element.
      */
     loadingOverlay?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the Paginator component.
+     * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
     paginator?: PaginatorPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the VirtualScroller component.
+     * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the table's DOM element.
+     * Used to pass attributes to the table's DOM element.
      */
     table?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the virtual scroller spacer's DOM element.
+     * Used to pass attributes to the virtual scroller spacer's DOM element.
      */
     virtualScrollerSpacer?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the thead's DOM element.
+     * Used to pass attributes to the thead's DOM element.
      */
     thead?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the header row's DOM element.
+     * Used to pass attributes to the header row's DOM element.
      */
     headerRow?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the tbody's DOM element.
+     * Used to pass attributes to the tbody's DOM element.
      */
     tbody?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowgroup header's DOM element.
+     * Used to pass attributes to the rowgroup header's DOM element.
      */
-    rowgroupHeader?: DataTablePassThroughOptionType;
+    rowGroupHeader?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the row's DOM element.
+     * Used to pass attributes to the body row's DOM element.
      */
-    row?: DataTablePassThroughOptionType;
+    bodyRow?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the row expansion's DOM element.
+     * Used to pass attributes to the row expansion's DOM element.
      */
     rowExpansion?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowgroup footer's DOM element.
+     * Used to pass attributes to the rowgroup footer's DOM element.
      */
-    rowgroupFooter?: DataTablePassThroughOptionType;
+    rowGroupFooter?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the tfoot's DOM element.
+     * Used to pass attributes to the tfoot's DOM element.
      */
     tfoot?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footerr ow's DOM element.
+     * Used to pass attributes to the footer row's DOM element.
      */
     footerRow?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the footer cell's DOM element.
-     */
-    footerCell?: DataTablePassThroughOptionType;
-    /**
-     * Uses to pass attributes to the resize helper's DOM element.
+     * Used to pass attributes to the resize helper's DOM element.
      */
     resizeHelper?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the reorder indicator up's DOM element.
+     * Used to pass attributes to the reorder indicator up's DOM element.
      */
     reorderIndicatorUp?: DataTablePassThroughOptionType;
     /**
-     * Uses to pass attributes to the reorder indicator down's DOM element.
+     * Used to pass attributes to the reorder indicator down's DOM element.
      */
     reorderIndicatorDown?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the ColumnGroup helper components.
+     */
+    columnGroup?: ColumnGroupPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Row helper components.
+     */
+    row?: RowPassThroughOptionType;
+    /**
+     * Used to pass attributes to the Column helper components.
+     */
+    column?: ColumnPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: DataTablePassThroughTransitionType;
 }
 
 /**
@@ -701,6 +726,31 @@ export interface DataTableState {
      * @defaultValue false
      */
     d_editing: boolean;
+}
+
+/**
+ * Defines current options in DataTable component.
+ */
+export interface DataTableContext {
+    /**
+     * Current index of the row.
+     */
+    index: number;
+    /**
+     * Current selectable state of row as a boolean.
+     * @defaultValue false
+     */
+    selectable: boolean;
+    /**
+     * Current selected state of row as a boolean.
+     * @defaultValue false
+     */
+    selected: boolean;
+    /**
+     * Current stripedRows state of row as a boolean.
+     * @defaultValue false
+     */
+    stripedRows: boolean;
 }
 
 /**
@@ -996,6 +1046,10 @@ export interface DataTableProps {
      */
     stripedRows?: boolean | undefined;
     /**
+     * Defines the size of the table.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * Inline style of the table element.
      */
     tableStyle?: any;
@@ -1004,18 +1058,23 @@ export interface DataTableProps {
      */
     tableClass?: any;
     /**
-     * Uses to pass all properties of the TableHTMLAttributes to table element inside the component.
+     * Used to pass all properties of the TableHTMLAttributes to table element inside the component.
      */
     tableProps?: TableHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DataTablePassThroughOptions}
      */
     pt?: DataTablePassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

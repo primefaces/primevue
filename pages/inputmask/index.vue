@@ -6,6 +6,7 @@
         :componentDocs="docs"
         :apiDocs="['InputMask']"
         :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
     />
 </template>
 
@@ -19,9 +20,9 @@ import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
 import MaskDoc from '@/doc/inputmask/MaskDoc.vue';
 import OptionalDoc from '@/doc/inputmask/OptionalDoc.vue';
 import SlotCharDoc from '@/doc/inputmask/SlotCharDoc.vue';
-import StyleDoc from '@/doc/inputmask/StyleDoc.vue';
 import VeeValidateDoc from '@/doc/inputmask/form/VeeValidateDoc.vue';
 import PTComponent from '@/doc/inputmask/pt/index.vue';
+import ThemingDoc from '@/doc/inputmask/theming/index.vue';
 
 export default {
     data() {
@@ -80,17 +81,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };

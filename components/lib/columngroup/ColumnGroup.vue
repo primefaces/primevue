@@ -1,12 +1,9 @@
 <script>
+import BaseColumnGroup from './BaseColumnGroup.vue';
+
 export default {
     name: 'ColumnGroup',
-    props: {
-        type: {
-            type: String,
-            default: null
-        }
-    },
+    extends: BaseColumnGroup,
     render() {
         return null;
     }

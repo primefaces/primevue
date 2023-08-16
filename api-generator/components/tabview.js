@@ -33,13 +33,13 @@ const TabViewProps = [
         name: 'previousButtonProps',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLButtonElement to the previous button.'
+        description: 'Used to pass all properties of the HTMLButtonElement to the previous button.'
     },
     {
         name: 'nextButtonProps',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass all properties of the HTMLButtonElement to the next button.'
+        description: 'Used to pass all properties of the HTMLButtonElement to the next button.'
     },
     {
         name: 'prevIcon',
@@ -57,7 +57,13 @@ const TabViewProps = [
         name: 'pt',
         type: 'any',
         default: 'null',
-        description: 'Uses to pass attributes to DOM elements inside the component.'
+        description: 'Used to pass attributes to DOM elements inside the component.'
+    },
+    {
+        name: 'unstyled',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, it removes component related styles in the core.'
     }
 ];
 

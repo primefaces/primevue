@@ -3,6 +3,8 @@ import path from 'path';
 export default {
     resolve: {
         alias: {
+            'primevue/base': path.resolve(__dirname, './components/lib/base/Base.js'),
+            'primevue/basedirective': path.resolve(__dirname, './components/lib/basedirective/BaseDirective.js'),
             'primevue/ripple': path.resolve(__dirname, './components/lib/ripple/Ripple.js'),
             'primevue/tooltip': path.resolve(__dirname, './components/lib/tooltip/Tooltip.js'),
             'primevue/focustrap': path.resolve(__dirname, './components/lib/focustrap/FocusTrap.js'),
@@ -10,6 +12,7 @@ export default {
             'primevue/usetoast': path.resolve(__dirname, './components/lib/usetoast/UseToast.js'),
             'primevue/usedialog': path.resolve(__dirname, './components/lib/usedialog/UseDialog.js'),
             'primevue/utils': path.resolve(__dirname, './components/lib/utils/Utils.js'),
+            'primevue/usestyle': path.resolve(__dirname, './components/lib/usestyle/UseStyle.js'),
             'primevue/api': path.resolve(__dirname, './components/lib/api/Api.js'),
             'primevue/portal': path.resolve(__dirname, './components/lib/portal/Portal.vue'),
             'primevue/basecomponent': path.resolve(__dirname, './components/lib/basecomponent/BaseComponent.vue'),
@@ -76,7 +79,9 @@ export default {
             'primevue/overlayeventbus': path.resolve(__dirname, './components/lib/overlayeventbus/OverlayEventBus.js'),
             'primevue/terminalservice': path.resolve(__dirname, './components/lib/terminalservice/TerminalService.js'),
             'primevue/dynamicdialogeventbus': path.resolve(__dirname, './components/lib/dynamicdialogeventbus/DynamicDialogEventBus.js'),
-            'primevue/virtualscroller': path.resolve(__dirname, './components/lib/virtualscroller/VirtualScroller.vue')
+            'primevue/virtualscroller': path.resolve(__dirname, './components/lib/virtualscroller/VirtualScroller.vue'),
+            'primevue/passthrough': path.resolve(__dirname, './components/lib/passthrough/index.js'),
+            'primevue/passthrough/tailwind': path.resolve(__dirname, './components/lib/passthrough/tailwind/index.js')
         }
     }
 };

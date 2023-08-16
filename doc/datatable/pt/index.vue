@@ -36,6 +36,18 @@ export default {
                     data: getPTOption('Column')
                 },
                 {
+                    id: 'pt.doc.columngroup',
+                    label: 'ColumnGroup PT Options',
+                    component: DocApiTable,
+                    data: getPTOption('ColumnGroup')
+                },
+                {
+                    id: 'pt.doc.row',
+                    label: 'Row PT Options',
+                    component: DocApiTable,
+                    data: getPTOption('Row')
+                },
+                {
                     id: 'pt.demo',
                     label: 'Demo',
                     component: PtDoc

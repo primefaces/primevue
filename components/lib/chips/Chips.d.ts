@@ -8,14 +8,16 @@
  *
  */
 import { InputHTMLAttributes, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type ChipsPassThroughOptionType = ChipsPassThroughAttributes | ((options: ChipsPassThroughMethodOptions) => ChipsPassThroughAttributes) | null | undefined;
+export declare type ChipsPassThroughOptionType = ChipsPassThroughAttributes | ((options: ChipsPassThroughMethodOptions) => ChipsPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ChipsPassThroughMethodOptions {
+    instance: any;
     props: ChipsProps;
     state: ChipsState;
 }
@@ -48,33 +50,38 @@ export interface ChipsRemoveEvent extends ChipsAddEvent {}
  */
 export interface ChipsPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ChipsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the container's DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: ChipsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the token's DOM element.
+     * Used to pass attributes to the token's DOM element.
      */
     token?: ChipsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ChipsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the remove token icon's DOM element.
+     * Used to pass attributes to the remove token icon's DOM element.
      */
     removeTokenIcon?: ChipsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input token's DOM element.
+     * Used to pass attributes to the input token's DOM element.
      */
     inputToken?: ChipsPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: ChipsPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -146,7 +153,7 @@ export interface ChipsProps {
      */
     inputStyle?: object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     inputProps?: InputHTMLAttributes | undefined;
@@ -172,10 +179,15 @@ export interface ChipsProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {ChipsPassThroughOptions}
      */
     pt?: ChipsPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 /**
  * Defines valid slots in Chips slots.
@@ -197,9 +209,18 @@ export interface ChipsSlots {
      */
     removetokenicon(scope: {
         /**
-         * Remove icon click event
+         * Style class of the icon.
          */
-        onClick(): void;
+        class: string;
+        /**
+         * Index of the token.
+         */
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        onClick(event: Event, index: number): void;
     }): VNode[];
 }
 /**

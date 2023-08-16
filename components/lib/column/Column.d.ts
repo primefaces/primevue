@@ -10,19 +10,22 @@
  */
 
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
+import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
-export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes) | null | undefined;
+export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface ColumnPassThroughMethodOptions {
+    instance: any;
     props: ColumnProps;
-    state: ColumnState;
+    parent: DataTablePassThroughOptions;
     context: ColumnContext;
 }
 
@@ -87,224 +90,240 @@ export interface ColumnLoadingOptions extends VirtualScrollerLoaderOptions {
  */
 export interface ColumnPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header cell's DOM element.
+     * Used to pass attributes to the header cell's DOM element.
      */
     headerCell?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the column resizer's DOM element.
+     * Used to pass attributes to the column resizer's DOM element.
      */
     columnResizer?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header content's DOM element.
+     * Used to pass attributes to the header content's DOM element.
      */
     headerContent?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header title's DOM element.
+     * Used to pass attributes to the header title's DOM element.
      */
     headerTitle?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the sort's DOM element.
+     * Used to pass attributes to the sort's DOM element.
      */
     sort?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the sort badge's DOM element.
+     * Used to pass attributes to the sort badge's DOM element.
      */
     sortBadge?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox wrapper's DOM element.
+     * Used to pass attributes to the checkbox wrapper's DOM element.
      */
     headerCheckboxWrapper?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header checkbox's DOM element.
+     * Used to pass attributes to the header checkbox's DOM element.
      */
     headerCheckbox?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header checkbox icon's DOM element.
+     * Used to pass attributes to the header checkbox icon's DOM element.
      */
     headerCheckboxIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the column filter's DOM element.
+     * Used to pass attributes to the column filter's DOM element.
      */
     columnFilter?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the filter input's DOM element.
      */
     filterInput?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter menu button's DOM element.
+     * Used to pass attributes to the filter menu button's DOM element.
      */
     filterMenuButton?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header filter clear button's DOM element.
+     * Used to pass attributes to the filter menu icon's DOM element.
+     */
+    filterMenuIcon?: ColumnPassThroughOptionType;
+    /**
+     * Used to pass attributes to the header filter clear button's DOM element.
      */
     headerFilterClearButton?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter clear icon's DOM element.
+     * Used to pass attributes to the filter clear icon's DOM element.
      */
     filterClearIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter overlay's DOM element.
+     * Used to pass attributes to the filter overlay's DOM element.
      */
     filterOverlay?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter row items' DOM element.
+     * Used to pass attributes to the filter row items' DOM element.
      */
     filterRowItems?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter row item's DOM element.
+     * Used to pass attributes to the filter row item's DOM element.
      */
     filterRowItem?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter separator's DOM element.
+     * Used to pass attributes to the filter separator's DOM element.
      */
     filterSeparator?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter operator's DOM element.
+     * Used to pass attributes to the filter operator's DOM element.
      */
     filterOperator?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Dropdown component.
+     * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptionType}
      */
     filterOperatorDropdown?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter constraints' DOM element.
+     * Used to pass attributes to the filter constraints' DOM element.
      */
     filterConstraints?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter constraint's DOM element.
+     * Used to pass attributes to the filter constraint's DOM element.
      */
     filterConstraint?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Dropdown component.
+     * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptionType}
      */
     filterMatchModeDropdown?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter remove button container's DOM element.
+     * Used to pass attributes to the filter remove button container's DOM element.
      */
     filterRemove?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     filterRemoveButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter add rule's DOM element.
+     * Used to pass attributes to the filter add rule's DOM element.
      */
     filterAddRule?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     filterAddRuleButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter buttonbar's DOM element.
+     * Used to pass attributes to the filter buttonbar's DOM element.
      */
     filterButtonbar?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     filterClearButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptionType}
      */
     filterApplyButton?: ButtonPassThroughOptionType;
     /**
-     * Uses to pass attributes to the body cell's DOM element.
+     * Used to pass attributes to the body cell's DOM element.
      */
     bodyCell?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowgroup toggler's DOM element.
+     * Used to pass attributes to the rowgroup toggler's DOM element.
      */
     rowGroupToggler?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowgroup toggler icon's DOM element.
+     * Used to pass attributes to the rowgroup toggler icon's DOM element.
      */
     rowGroupTogglerIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the column title's DOM element.
+     * Used to pass attributes to the column title's DOM element.
      */
     columnTitle?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the radiobutton wrapper's DOM element.
+     * Used to pass attributes to the radiobutton wrapper's DOM element.
      */
     radiobuttonWrapper?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the radiobutton's DOM element.
+     * Used to pass attributes to the radiobutton's DOM element.
      */
     radiobutton?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the radiobutton icon's DOM element.
+     * Used to pass attributes to the radiobutton icon's DOM element.
      */
     radiobuttonIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox wrapper's DOM element.
+     * Used to pass attributes to the checkbox wrapper's DOM element.
      */
     checkboxWrapper?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox's DOM element.
+     * Used to pass attributes to the checkbox's DOM element.
      */
     checkbox?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the checkbox icon's DOM element.
+     * Used to pass attributes to the checkbox icon's DOM element.
      */
     checkboxIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowtoggler's DOM element.
+     * Used to pass attributes to the rowtoggler's DOM element.
      */
     rowToggler?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the rowtoggler icon's DOM element.
+     * Used to pass attributes to the rowtoggler icon's DOM element.
      */
     rowTogglerIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor init button's DOM element.
+     * Used to pass attributes to the row editor init button's DOM element.
      */
     rowEditorInitButton?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor init icon's DOM element.
+     * Used to pass attributes to the row editor init icon's DOM element.
      */
     rowEditorInitIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor edit button's DOM element.
+     * Used to pass attributes to the row editor save button's DOM element.
      */
-    rowEditorEditButton?: ColumnPassThroughOptionType;
+    rowEditorSaveButton?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor edit icon's DOM element.
+     * Used to pass attributes to the row editor save icon's DOM element.
      */
-    rowEditorEditIcon?: ColumnPassThroughOptionType;
+    rowEditorSaveIcon?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor cancel button's DOM element.
+     * Used to pass attributes to the row editor cancel button's DOM element.
      */
     rowEditorCancelButton?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the row editor cancel icon's DOM element.
+     * Used to pass attributes to the row editor cancel icon's DOM element.
      */
     rowEditorCancelIcon?: ColumnPassThroughOptionType;
-
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the footer cell's DOM element.
+     */
+    footerCell?: ColumnPassThroughOptionType;
+    /**
+     * Used to pass attributes to the body cell content's DOM element.
+     */
+    bodyCellContent?: ColumnPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenHeaderInputWrapper?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenHeaderInput?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input wrapper's DOM element.
      */
     hiddenInputWrapper?: ColumnPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden input's DOM element.
      */
     hiddenInput?: ColumnPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -344,27 +363,6 @@ export interface ColumnState {
      * Current style of the rowgroup header.
      */
     rowGroupHeaderStyleObject: object;
-}
-
-/**
- * Defines current options in Column component.
- */
-export interface ColumnContext {
-    /**
-     * Current checked state of row as a boolean.
-     * @defaultValue false
-     */
-    checked: boolean;
-    /**
-     * Current focused state of row as a boolean.
-     * @defaultValue false
-     */
-    focused: boolean;
-    /**
-     * Current disabled state of row as a boolean.
-     * @defaultValue false
-     */
-    disabled: boolean;
 }
 
 /**
@@ -565,6 +563,85 @@ export interface ColumnProps {
      * @defaultValue false
      */
     hidden?: boolean | undefined;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {ColumnPassThroughOptions}
+     */
+    pt?: ColumnPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
+}
+
+/**
+ * Defines current options in Column component.
+ */
+export interface ColumnContext {
+    /**
+     * Current index of the column.
+     */
+    index: number;
+    /**
+     * Current checked state of row as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current focused state of row as a boolean.
+     * @defaultValue false
+     */
+    focused: boolean;
+    /**
+     * Current disabled state of row as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+    /**
+     * Current sort state of the column as a boolean.
+     * @defaultValue false
+     */
+    sorted: boolean;
+    /**
+     * Current frozen state of the column as a boolean.
+     * @defaultValue false
+     */
+    frozen: boolean;
+    /**
+     * Current resizable state of the column as a boolean.
+     * @defaultValue false
+     */
+    resizable: boolean;
+    /**
+     * Current size state of the table.
+     */
+    size: string;
+    /**
+     * Current gridlines state of the table as a boolean.
+     * @defaultValue false
+     */
+    showGridlines: boolean;
+    /**
+     * Current highlighted state of the filter row item as a boolean.
+     * @defaultValue false
+     */
+    highlighted: boolean;
+    /**
+     * Current hidden state of the filter clear button of a column as a boolean.
+     * @defaultValue false
+     */
+    hidden: boolean;
+    /**
+     * Current visible state of the filter menu of a column as a boolean.
+     * @defaultValue false
+     */
+    overlayVisible: boolean;
+    /**
+     * Current active state of the filter menu of a column as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
 }
 
 /**
@@ -845,7 +922,7 @@ export interface ColumnSlots {
         /**
          * Current sort order state.
          */
-        sortOrder: boolean;
+        sortOrder: number;
     }): VNode[];
     /**
      * Custom header checkbox icon template.

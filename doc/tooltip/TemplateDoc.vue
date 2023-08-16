@@ -3,7 +3,7 @@
         <p>Tooltip can be customized via <i>class</i> and <i>escape</i> properties.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-2">
-        <InputText v-tooltip.right="{ value: `<h4 class='text-white'>PrimeVue Rocks!</h4>`, escape: true, class: 'custom-error' }" type="text" placeholder="Template Tooltip" />
+        <InputText v-tooltip.right="{ value: `<h4 class='text-white m-0'>PrimeVue Rocks!</h4>`, escape: true, class: 'custom-error' }" type="text" placeholder="Template Tooltip" />
     </div>
     <DocSectionCode :code="code" />
 </template>

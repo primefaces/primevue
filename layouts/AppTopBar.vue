@@ -1,7 +1,7 @@
 <template>
     <div :ref="containerRef" class="layout-topbar">
         <div class="layout-topbar-inner">
-            <button type="button" class="p-link menu-button" @click="onMenuButtonClick" aria-haspopup aria-label="Menu">
+            <button type="button" class="px-link menu-button" @click="onMenuButtonClick" aria-haspopup aria-label="Menu">
                 <i class="pi pi-bars"></i>
             </button>
 
@@ -11,13 +11,13 @@
                 <li>
                     <a
                         href="https://github.com/primefaces/primevue"
-                        class="flex p-link border-1 w-2rem h-2rem surface-border border-round surface-card align-items-center justify-content-center transition-all transition-duration-300 hover:border-primary"
+                        class="flex px-link border-1 w-2rem h-2rem surface-border border-round surface-card align-items-center justify-content-center transition-all transition-duration-300 hover:border-primary"
                     >
                         <i class="pi pi-github text-700"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://discord.gg/gzKFYnpmCY" class="flex p-link border-1 w-2rem h-2rem surface-border border-round surface-card align-items-center justify-content-center transition-all transition-duration-300 hover:border-primary">
+                    <a href="https://discord.gg/gzKFYnpmCY" class="flex px-link border-1 w-2rem h-2rem surface-border border-round surface-card align-items-center justify-content-center transition-all transition-duration-300 hover:border-primary">
                         <i class="pi pi-discord text-700"></i>
                     </a>
                 </li>
@@ -31,7 +31,7 @@
                     <button
                         v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'scalein', leaveToClass: 'hidden', leaveActiveClass: 'fadeout', hideOnOutsideClick: true }"
                         type="button"
-                        class="p-link flex align-items-center surface-card h-2rem px-3 hover:surface-hover border-1 border-solid surface-border transition-all transition-duration-300 hover:border-primary"
+                        class="px-link flex align-items-center surface-card h-2rem px-3 hover:surface-hover border-1 border-solid surface-border transition-all transition-duration-300 hover:border-primary"
                     >
                         <span class="text-900"> {{ versions[0].version }}</span>
                         <span class="ml-2 pi pi-angle-down text-600"></span>

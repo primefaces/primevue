@@ -7,16 +7,20 @@
  * @module dropdown
  *
  */
-import { HTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
-export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes) | null | undefined;
+export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes | string) | string | null | undefined;
+
+export declare type DropdownPassThroughTransitionType = TransitionProps | ((options: DropdownPassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface DropdownPassThroughMethodOptions {
+    instance: any;
     props: DropdownProps;
     state: DropdownState;
     context: DropdownContext;
@@ -58,86 +62,99 @@ export interface DropdownFilterEvent {
  */
 export interface DropdownPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the input's DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the clear icon's DOM element.
+     * Used to pass attributes to the clear icon's DOM element.
      */
     clearIcon?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the trigger' DOM element.
+     * Used to pass attributes to the trigger' DOM element.
      */
     trigger?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panel's DOM element.
      */
     panel?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the header's DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the filter container's DOM element.
      */
     filterContainer?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter input's DOM element.
+     * Used to pass attributes to the filter input's DOM element.
      */
     filterInput?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the filter icon's DOM element.
+     * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the VirtualScroller component.
+     * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Uses to pass attributes to the list's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the item group's DOM element.
      */
     itemGroup?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the emptyMessage's DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden first focusable element's DOM element.
+     * Used to pass attributes to the hidden first focusable element's DOM element.
      */
     hiddenFirstFocusableEl?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden filter result's DOM element.
+     * Used to pass attributes to the hidden filter result's DOM element.
      */
     hiddenFilterResult?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden empty message's DOM element.
+     */
+    hiddenEmptyMessage?: DropdownPassThroughOptionType;
+    /**
+     * Used to pass attributes to the hidden selected message's DOM element.
      */
     hiddenSelectedMessage?: DropdownPassThroughOptionType;
     /**
-     * Uses to pass attributes to the hidden last focusable element's DOM element.
+     * Used to pass attributes to the hidden last focusable element's DOM element.
      */
     hiddenLastFocusableEl?: DropdownPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: DropdownPassThroughTransitionType;
 }
 
 /**
@@ -292,7 +309,7 @@ export interface DropdownProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.
+     * Used to pass all properties of the HTMLInputElement/HTMLSpanElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | HTMLAttributes | undefined;
     /**
@@ -304,15 +321,15 @@ export interface DropdownProps {
      */
     panelClass?: string | object | undefined;
     /**
-     * Uses to pass all properties of the HTMLDivElement to the overlay panel inside the component.
+     * Used to pass all properties of the HTMLDivElement to the overlay panel inside the component.
      */
     panelProps?: HTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLInputElement to the filter input inside the component.
+     * Used to pass all properties of the HTMLInputElement to the filter input inside the component.
      */
     filterInputProps?: InputHTMLAttributes | undefined;
     /**
-     * Uses to pass all properties of the HTMLElement to the clear icon inside the component.
+     * Used to pass all properties of the HTMLElement to the clear icon inside the component.
      * @deprecated since v3.26.0. Use 'pt' peroperty.
      */
     clearIconProps?: HTMLAttributes | undefined;
@@ -408,10 +425,15 @@ export interface DropdownProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {DropdownPassThroughOptions}
      */
     pt?: DropdownPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -542,9 +564,14 @@ export interface DropdownSlots {
      */
     clearicon(scope: {
         /**
-         * Clear icon click function.
+         * Style class of the clear icon
          */
-        onClick: void;
+        class: any;
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        onClick(event: Event): void;
     }): VNode[];
     /**
      * Custom dropdown icon template.
@@ -552,7 +579,7 @@ export interface DropdownSlots {
      */
     dropdownicon(scope: {
         /**
-         * Style class of the component
+         * Style class of the dropdown icon
          */
         class: any;
     }): VNode[];
@@ -562,14 +589,20 @@ export interface DropdownSlots {
      */
     loadingicon(scope: {
         /**
-         * Style class of the component
+         * Style class of the loading icon
          */
         class: any;
     }): VNode[];
     /**
      * Custom filter icon template.
+     * @param {Object} scope - filter icon slot's params.
      */
-    filtericon(): VNode[];
+    filtericon(scope: {
+        /**
+         * Style class of the filter icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

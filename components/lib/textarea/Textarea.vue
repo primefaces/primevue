@@ -1,18 +1,14 @@
 <template>
-    <textarea :class="['p-inputtextarea p-inputtext p-component', { 'p-filled': filled, 'p-inputtextarea-resizable ': autoResize }]" :value="modelValue" @input="onInput" v-bind="ptm('root')"></textarea>
+    <textarea :class="cx('root')" :value="modelValue" @input="onInput" v-bind="ptm('root', ptmParams)" data-pc-name="textarea"></textarea>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
+import BaseTextarea from './BaseTextarea.vue';
 
 export default {
     name: 'Textarea',
-    extends: BaseComponent,
+    extends: BaseTextarea,
     emits: ['update:modelValue'],
-    props: {
-        modelValue: null,
-        autoResize: Boolean
-    },
     mounted() {
         if (this.$el.offsetParent && this.autoResize) {
             this.resize();
@@ -48,18 +44,14 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
+        },
+        ptmParams() {
+            return {
+                context: {
+                    disabled: this.$attrs.disabled || this.$attrs.disabled === ''
+                }
+            };
         }
     }
 };
 </script>
-
-<style>
-.p-inputtextarea-resizable {
-    overflow: hidden;
-    resize: none;
-}
-
-.p-fluid .p-inputtextarea {
-    width: 100%;
-}
-</style>

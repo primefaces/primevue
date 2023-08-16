@@ -7,14 +7,16 @@
  * @module knob
  *
  */
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes) | null | undefined;
+export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface KnobPassThroughMethodOptions {
+    instance: any;
     props: KnobProps;
     state: KnobState;
 }
@@ -25,25 +27,30 @@ export interface KnobPassThroughMethodOptions {
  */
 export interface KnobPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: KnobPassThroughOptionType;
     /**
-     * Uses to pass attributes to the svg's DOM element.
+     * Used to pass attributes to the svg's DOM element.
      */
     svg?: KnobPassThroughOptionType;
     /**
-     * Uses to pass attributes to the range's DOM element.
+     * Used to pass attributes to the range's DOM element.
      */
     range?: KnobPassThroughOptionType;
     /**
-     * Uses to pass attributes to the value' DOM element.
+     * Used to pass attributes to the value' DOM element.
      */
     value?: KnobPassThroughOptionType;
     /**
-     * Uses to pass attributes to the label's DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: KnobPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -164,10 +171,15 @@ export interface KnobProps {
      */
     'aria-label'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {KnobPassThroughOptions}
      */
     pt?: KnobPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

@@ -1,17 +1,17 @@
 <template>
-    <li v-if="visible()" :class="containerClass()" v-bind="ptm('menuitem')">
+    <li v-if="visible()" :class="[cx('menuitem'), item.class]" v-bind="ptm('menuitem', ptmOptions)">
         <template v-if="!templates || !templates.item">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
-                <a :href="href" :class="linkClass({ isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)" v-bind="ptm('action')">
-                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" class="p-menuitem-icon" />
-                    <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" v-bind="ptm('icon')" />
-                    <span v-if="item.label" class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
+                <a :href="href" :class="cx('action', { isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)" v-bind="ptm('action', ptmOptions)">
+                    <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('icon')" />
+                    <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="ptm('icon', ptmOptions)" />
+                    <span v-if="item.label" :class="cx('label')" v-bind="ptm('label', ptmOptions)">{{ label() }}</span>
                 </a>
             </router-link>
-            <a v-else :href="item.url || '#'" :class="linkClass()" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick" v-bind="ptm('action')">
-                <component v-if="templates && templates.itemicon" :is="templates.itemicon" :item="item" class="p-menuitem-icon" />
-                <span v-else-if="item.icon" :class="['p-menuitem-icon', item.icon]" v-bind="ptm('icon')" />
-                <span v-if="item.label" class="p-menuitem-text" v-bind="ptm('label')">{{ label() }}</span>
+            <a v-else :href="item.url || '#'" :class="cx('action')" :target="item.target" :aria-current="isCurrentUrl()" @click="onClick" v-bind="ptm('action', ptmOptions)">
+                <component v-if="templates && templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('icon', ptmOptions)" />
+                <span v-else-if="item.icon" :class="[cx('icon'), item.icon]" v-bind="ptm('icon', ptmOptions)" />
+                <span v-if="item.label" :class="cx('label')" v-bind="ptm('label', ptmOptions)">{{ label() }}</span>
             </a>
         </template>
         <component v-else :is="templates.item" :item="item"></component>
@@ -23,6 +23,7 @@ import BaseComponent from 'primevue/basecomponent';
 
 export default {
     name: 'BreadcrumbItem',
+    hostName: 'Breadcrumb',
     extends: BaseComponent,
     props: {
         item: null,
@@ -43,18 +44,6 @@ export default {
                 navigate(event);
             }
         },
-        containerClass() {
-            return ['p-menuitem', { 'p-disabled': this.disabled() }, this.item.class];
-        },
-        linkClass(routerProps) {
-            return [
-                'p-menuitem-link',
-                {
-                    'router-link-active': routerProps && routerProps.isActive,
-                    'router-link-active-exact': this.exact && routerProps && routerProps.isExactActive
-                }
-            ];
-        },
         visible() {
             return typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false;
         },
@@ -69,6 +58,16 @@ export default {
             let lastPath = this.$router ? this.$router.currentRoute.path : '';
 
             return to === lastPath || url === lastPath ? 'page' : undefined;
+        }
+    },
+    computed: {
+        ptmOptions() {
+            return {
+                context: {
+                    item: this.item,
+                    index: this.index
+                }
+            };
         }
     }
 };

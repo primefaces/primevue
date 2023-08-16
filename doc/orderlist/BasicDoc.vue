@@ -111,7 +111,7 @@ import { ProductService } from '@/service/ProductService'
 const products = ref(null);
 
 onMounted(() => {
-    ProductService.getProductsSmall().then((data) => (this.products = data));
+    ProductService.getProductsSmall().then((data) => (products.value = data));
 });
 <\/script>`,
                 data: `

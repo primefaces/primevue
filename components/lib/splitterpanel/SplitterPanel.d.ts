@@ -8,15 +8,18 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type SplitterPanelPassThroughOptionType = SplitterPanelPassThroughAttributes | ((options: SplitterPanelPassThroughMethodOptions) => SplitterPanelPassThroughAttributes) | null | undefined;
+export declare type SplitterPanelPassThroughOptionType = SplitterPanelPassThroughAttributes | ((options: SplitterPanelPassThroughMethodOptions) => SplitterPanelPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface SplitterPanelPassThroughMethodOptions {
+    instance: any;
     props: SplitterPanelProps;
+    context: SplitterPanelContext;
 }
 
 /**
@@ -25,9 +28,14 @@ export interface SplitterPanelPassThroughMethodOptions {
  */
 export interface SplitterPanelPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SplitterPanelPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -35,6 +43,16 @@ export interface SplitterPanelPassThroughOptions {
  */
 export interface SplitterPanelPassThroughAttributes {
     [key: string]: any;
+}
+
+/**
+ * Defines options in SplitterPanel component.
+ */
+export interface SplitterPanelContext {
+    /**
+     * Current nested state of the panel.
+     */
+    nested?: boolean;
 }
 
 /**
@@ -50,10 +68,15 @@ export interface SplitterPanelProps {
      */
     minSize?: number | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SplitterPanelPassThroughOptions}
      */
     pt?: SplitterPanelPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**

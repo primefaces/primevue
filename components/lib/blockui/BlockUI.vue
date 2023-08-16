@@ -1,35 +1,17 @@
 <template>
-    <div ref="container" class="p-blockui-container" :aria-busy="isBlocked" v-bind="ptm('root')">
+    <div ref="container" :class="cx('root')" :aria-busy="isBlocked" v-bind="ptm('root')">
         <slot></slot>
     </div>
 </template>
 
 <script>
-import BaseComponent from 'primevue/basecomponent';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
+import BaseBlockUI from './BaseBlockUI.vue';
 
 export default {
     name: 'BlockUI',
-    extends: BaseComponent,
+    extends: BaseBlockUI,
     emits: ['block', 'unblock'],
-    props: {
-        blocked: {
-            type: Boolean,
-            default: false
-        },
-        fullScreen: {
-            type: Boolean,
-            default: false
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        }
-    },
     mask: null,
     data() {
         return {
@@ -53,14 +35,36 @@ export default {
 
             if (this.fullScreen) {
                 styleClass += ' p-blockui-document';
-                this.mask = document.createElement('div');
-                this.mask.setAttribute('class', styleClass);
+
+                this.mask = DomHandler.createElement('div', {
+                    'data-pc-section': 'mask',
+                    style: {
+                        position: 'fixed',
+                        top: '0',
+                        left: '0',
+                        width: '100%',
+                        height: '100%'
+                    },
+                    class: !this.isUnstyled && styleClass,
+                    'p-bind': this.ptm('mask')
+                });
+
                 document.body.appendChild(this.mask);
                 DomHandler.addClass(document.body, 'p-overflow-hidden');
                 document.activeElement.blur();
             } else {
-                this.mask = document.createElement('div');
-                this.mask.setAttribute('class', styleClass);
+                this.mask = DomHandler.createElement('div', {
+                    'data-pc-section': 'mask',
+                    style: {
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        width: '100%',
+                        height: '100%'
+                    },
+                    class: !this.isUnstyled && styleClass,
+                    'p-bind': this.ptm('mask')
+                });
                 this.$refs.container.appendChild(this.mask);
             }
 
@@ -72,10 +76,15 @@ export default {
             this.$emit('block');
         },
         unblock() {
-            DomHandler.addClass(this.mask, 'p-component-overlay-leave');
-            this.mask.addEventListener('animationend', () => {
+            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+
+            if (DomHandler.hasCSSAnimation(this.mask) > 0) {
+                this.mask.addEventListener('animationend', () => {
+                    this.removeMask();
+                });
+            } else {
                 this.removeMask();
-            });
+            }
         },
         removeMask() {
             ZIndexUtils.clear(this.mask);
@@ -93,25 +102,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.p-blockui-container {
-    position: relative;
-}
-
-.p-blockui {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.p-blockui.p-component-overlay {
-    position: absolute;
-}
-
-.p-blockui-document.p-component-overlay {
-    position: fixed;
-}
-</style>

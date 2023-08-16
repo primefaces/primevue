@@ -2375,8 +2375,15 @@
   font-size: 1.25rem;
   padding: 0.9375rem 1.25rem;
 }
+.p-splitbutton.p-button-lg > .p-button.p-button-icon-only {
+  width: auto;
+}
 .p-splitbutton.p-button-lg > .p-button .p-button-icon {
   font-size: 1.25rem;
+}
+.p-splitbutton.p-button-lg > .p-button .p-icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .p-splitbutton.p-button-secondary.p-button-outlined > .p-button {

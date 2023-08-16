@@ -21,7 +21,7 @@ export default {
                 },
                 {
                     id: 'basic',
-                    label: 'Label',
+                    label: 'Basic',
                     component: BasicDoc
                 }
             ]

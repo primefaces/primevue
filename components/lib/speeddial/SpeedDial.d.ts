@@ -8,16 +8,18 @@
  *
  */
 import { VNode } from 'vue';
+import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
 
-export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes) | null | undefined;
+export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
 export interface SpeedDialPassThroughMethodOptions {
+    instance: any;
     props: SpeedDialProps;
     state: SpeedDialState;
     context: SpeedDialContext;
@@ -29,34 +31,39 @@ export interface SpeedDialPassThroughMethodOptions {
  */
 export interface SpeedDialPassThroughOptions {
     /**
-     * Uses to pass attributes to the root's DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the Button component.
+     * Used to pass attributes to the Button component.
      *  @see {@link ButtonPassThroughOptions}
      */
     button?: ButtonPassThroughOptions;
     /**
-     * Uses to pass attributes to the menu's DOM element.
+     * Used to pass attributes to the menu's DOM element.
      */
     menu?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the menu item's DOM element.
+     * Used to pass attributes to the menu item's DOM element.
      */
     menuitem?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action's DOM element.
+     * Used to pass attributes to the action's DOM element.
      */
     action?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the action icon's DOM element.
+     * Used to pass attributes to the action icon's DOM element.
      */
     actionIcon?: SpeedDialPassThroughOptionType;
     /**
-     * Uses to pass attributes to the mask's DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: SpeedDialPassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -105,6 +112,11 @@ export interface SpeedDialContext {
      * @defaultValue false
      */
     active: boolean;
+    /**
+     * Current hidden state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    hidden: boolean;
 }
 
 /**
@@ -224,10 +236,15 @@ export interface SpeedDialProps {
      */
     'aria-labelledby'?: string | undefined;
     /**
-     * Uses to pass attributes to DOM elements inside the component.
+     * Used to pass attributes to DOM elements inside the component.
      * @type {SpeedDialPassThroughOptions}
      */
     pt?: SpeedDialPassThroughOptions;
+    /**
+     * When enabled, it removes component related styles in the core.
+     * @defaultValue false
+     */
+    unstyled?: boolean;
 }
 
 /**
@@ -244,6 +261,11 @@ export interface SpeedDialSlots {
          * @type {MenuItem}
          */
         item: MenuItem;
+        /**
+         * Item click function
+         * @param {Event} event - Browser event.
+         */
+        onClick(): void;
     }): VNode[];
     /**
      * Custom button template.
@@ -251,9 +273,10 @@ export interface SpeedDialSlots {
      */
     button(scope: {
         /**
-         * Toggle metadata
+         * Button click function
+         * @param {Event} event - Browser event.
          */
-        toggle(): void;
+        onClick(): void;
     }): VNode[];
     /**
      * Custom icon template.
@@ -261,7 +284,7 @@ export interface SpeedDialSlots {
      */
     icon(scope: {
         /**
-         *
+         * Visible state of the item
          */
         visible: boolean;
     }): VNode[];

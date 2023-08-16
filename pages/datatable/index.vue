@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Table Component" header="DataTable" description="DataTable displays data in tabular format." :componentDocs="docs" :apiDocs="['DataTable', 'Column', 'ColumnGroup', 'Row']" :ptTabComponent="ptComponent" />
+    <DocComponent
+        title="Vue Table Component"
+        header="DataTable"
+        description="DataTable displays data in tabular format."
+        :componentDocs="docs"
+        :apiDocs="['DataTable', 'Column', 'ColumnGroup', 'Row']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -19,7 +27,6 @@ import RowExpansionDoc from '@/doc/datatable/RowExpansionDoc';
 import SizeDoc from '@/doc/datatable/SizeDoc';
 import StatefulDoc from '@/doc/datatable/StatefulDoc';
 import StripedRowsDoc from '@/doc/datatable/StripedRowsDoc';
-import StyleDoc from '@/doc/datatable/StyleDoc';
 import TemplateDoc from '@/doc/datatable/TemplateDoc';
 import ExpandModeDoc from '@/doc/datatable/colresize/ExpandModeDoc';
 import FitModeDoc from '@/doc/datatable/colresize/FitModeDoc';
@@ -50,6 +57,7 @@ import MultipleColumnsDoc from '@/doc/datatable/sort/MultipleColumnsDoc';
 import PresortDoc from '@/doc/datatable/sort/PresortDoc';
 import RemovableSortDoc from '@/doc/datatable/sort/RemovableSortDoc';
 import SingleColumnDoc from '@/doc/datatable/sort/SingleColumnDoc';
+import ThemingDoc from '@/doc/datatable/theming/index.vue';
 import LazyVirtualScrollDoc from '@/doc/datatable/virtualscroll/LazyVirtualScrollDoc';
 import PreloadVirtualScrollDoc from '@/doc/datatable/virtualscroll/PreloadVirtualScrollDoc';
 
@@ -348,17 +356,13 @@ export default {
                     ]
                 },
                 {
-                    id: 'style',
-                    label: 'Style',
-                    component: StyleDoc
-                },
-                {
                     id: 'accessibility',
                     label: 'Accessibility',
                     component: AccessibilityDoc
                 }
             ],
-            ptComponent: PTComponent
+            ptComponent: PTComponent,
+            themingDoc: ThemingDoc
         };
     }
 };
