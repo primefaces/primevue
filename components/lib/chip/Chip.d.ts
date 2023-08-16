@@ -130,12 +130,14 @@ export interface ChipSlots {
     removeicon(scope: {
         /**
          * Remove icon click event
+         * @param {Event} event - Browser event
          */
-        onClick(): void;
+        onClick(event: Event): void;
         /**
          * Remove icon keydown event
+         * @param {Event} event - Browser event
          */
-        onKeydown(): void;
+        onKeydown(event: Event): void;
     }): VNode[];
 }
 
