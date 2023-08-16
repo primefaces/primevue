@@ -1229,6 +1229,8 @@ export default {
                         !!el && (el.style.width = el.style.minWidth = tableWidth);
                     };
 
+                    // Reasoning: resize table cells before updating the table width so that it can use existing computed cell widths and adjust only the one column.
+                    this.resizeTableCells(newColumnWidth);
                     updateTableWidth(this.$refs.table);
 
                     if (!this.virtualScrollerDisabled) {
@@ -1238,8 +1240,6 @@ export default {
                         updateTableWidth(body);
                         updateTableWidth(frozenBody);
                     }
-
-                    this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
