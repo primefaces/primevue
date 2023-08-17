@@ -1,6 +1,6 @@
 <template>
     <div v-if="!embedded" class="surface-card" style="border-radius: 10px">
-        <div class="flex doc-section-buttons surface-card align-items-center justify-content-end sticky z-1 top-0">
+        <div class="flex doc-section-buttons surface-card align-items-center justify-content-end sticky z-1 top-0 mr-3">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
                 <Button
                     :class="['p-button-rounded p-button-text p-button-plain p-0 inline-flex align-items-center justify-content-center', { 'doc-section-code-active text-primary': codeLang === 'typescript' }]"
