@@ -5,7 +5,7 @@
             The built-in default theme is basically a <PrimeVueNuxtLink to="/passthrough">global pass through</PrimeVueNuxtLink> configuration that needs to be imported from <i>primevue/passthrough/tailwind</i> path and then defined during setup.
             Since the theme is exclusive to unstyled mode, the <i>unstyled</i> setting is required in addition.
         </p>
-        <DocSectionCode :code="code1" hideToggleCode hideCodeSandbox hideStackBlitz />
+        <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
         <p>
             Tailwind uses PurgeCSS internally to remove unused classes, since PrimeVue components are loaded from node_modules the <i>content</i> property at <i>tailwind.config.js</i> needs to be aware of PrimeVue, otherwise the classes utilized in
             the theme will be removed as well.
