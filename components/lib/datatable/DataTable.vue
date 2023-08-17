@@ -775,8 +775,8 @@ export default {
             }
 
             data.sort((data1, data2) => {
-                let value1 = lookupMap(data1);
-                let value2 = lookupMap(data2);
+                let value1 = lookupMap.get(data1);
+                let value2 = lookupMap.get(data2);
 
                 let result = null;
 
