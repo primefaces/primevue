@@ -256,7 +256,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "AccordionPassThroughOptions",
+                            "type": "PTOptions<AccordionPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -573,7 +573,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "AccordionTabPassThroughOptions",
+                            "type": "PTOptions<AccordionTabPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         }
@@ -3457,7 +3457,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "AutoCompletePassThroughOptions",
+                            "type": "PTOptions<AutoCompletePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -3951,7 +3951,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "AvatarPassThroughOptions",
+                            "type": "PTOptions<AvatarPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -4076,7 +4076,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "AvatarGroupPassThroughOptions",
+                            "type": "PTOptions<AvatarGroupPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -4220,7 +4220,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgePassThroughOptions",
+                            "type": "PTOptions<BadgePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -4295,7 +4295,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "BadgeDirectivePassThroughOptions",
+                            "type": "PTOptions<BadgeDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -4889,7 +4889,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "BlockUIPassThroughOptions",
+                            "type": "PTOptions<BlockUIPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -5155,7 +5155,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "BreadcrumbPassThroughOptions",
+                            "type": "PTOptions<BreadcrumbPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -5498,7 +5498,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ButtonPassThroughOptions",
+                            "type": "PTOptions<ButtonPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -6801,7 +6801,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "CalendarPassThroughOptions",
+                            "type": "PTOptions<CalendarPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -7160,7 +7160,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "CardPassThroughOptions",
+                            "type": "PTOptions<CardPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -7713,7 +7713,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "CarouselPassThroughOptions",
+                            "type": "PTOptions<CarouselPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -8397,7 +8397,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "CascadeSelectPassThroughOptions",
+                            "type": "PTOptions<CascadeSelectPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -8795,7 +8795,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChartPassThroughOptions",
+                            "type": "PTOptions<ChartPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -9130,7 +9130,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "CheckboxPassThroughOptions",
+                            "type": "PTOptions<CheckboxPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -9444,7 +9444,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipPassThroughOptions",
+                            "type": "PTOptions<ChipPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -9860,7 +9860,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ChipsPassThroughOptions",
+                            "type": "PTOptions<ChipsPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -10244,7 +10244,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColorPickerPassThroughOptions",
+                            "type": "PTOptions<ColorPickerPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -11422,7 +11422,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnPassThroughOptions",
+                            "type": "PTOptions<ColumnPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -11905,7 +11905,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnGroupPassThroughOptions",
+                            "type": "PTOptions<ColumnGroupPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -12025,7 +12025,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PrimeVuePTOptions",
+                            "type": "PTOptions<PrimeVuePTOptions>",
                             "default": ""
                         },
                         {
@@ -13981,7 +13981,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ConfirmDialogPassThroughOptions",
+                            "type": "PTOptions<ConfirmDialogPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -14234,7 +14234,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ConfirmPopupPassThroughOptions",
+                            "type": "PTOptions<ConfirmPopupPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -14718,7 +14718,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ContextMenuPassThroughOptions",
+                            "type": "PTOptions<ContextMenuPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -16997,7 +16997,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTablePassThroughOptions",
+                            "type": "PTOptions<DataTablePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -18011,7 +18011,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataViewPassThroughOptions",
+                            "type": "PTOptions<DataViewPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -18298,7 +18298,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataViewLayoutOptionsPassThroughOptions",
+                            "type": "PTOptions<DataViewLayoutOptionsPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -18467,7 +18467,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DeferredContentPassThroughOptions",
+                            "type": "PTOptions<DeferredContentPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -18943,7 +18943,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DialogPassThroughOptions",
+                            "type": "PTOptions<DialogPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -19243,7 +19243,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DividerPassThroughOptions",
+                            "type": "PTOptions<DividerPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -19610,7 +19610,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DockPassThroughOptions",
+                            "type": "PTOptions<DockPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -20432,7 +20432,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "No results foun",
+                            "default": "No results found",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -20463,7 +20463,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "DropdownPassThroughOptions",
+                            "type": "PTOptions<DropdownPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -21346,7 +21346,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "EditorPassThroughOptions",
+                            "type": "PTOptions<EditorPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -21661,7 +21661,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "FieldsetPassThroughOptions",
+                            "type": "PTOptions<FieldsetPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -22457,7 +22457,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "FileUploadPassThroughOptions",
+                            "type": "PTOptions<FileUploadPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -22714,7 +22714,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "FocusTrapDirectivePassThroughOptions",
+                            "type": "PTOptions<FocusTrapDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         }
@@ -23468,7 +23468,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "GalleriaPassThroughOptions",
+                            "type": "PTOptions<GalleriaPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -24056,7 +24056,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ImagePassThroughOptions",
+                            "type": "PTOptions<ImagePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -24296,7 +24296,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "InlineMessagePassThroughOptions",
+                            "type": "PTOptions<InlineMessagePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -24523,7 +24523,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "InplacePassThroughOptions",
+                            "type": "PTOptions<InplacePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -24780,7 +24780,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputMaskPassThroughOptions",
+                            "type": "PTOptions<InputMaskPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -25354,7 +25354,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputNumberPassThroughOptions",
+                            "type": "PTOptions<InputNumberPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -25658,7 +25658,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputSwitchPassThroughOptions",
+                            "type": "PTOptions<InputSwitchPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -25876,7 +25876,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputTextPassThroughOptions",
+                            "type": "PTOptions<InputTextPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -26216,7 +26216,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "KnobPassThroughOptions",
+                            "type": "PTOptions<KnobPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -26844,7 +26844,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptions",
+                            "type": "PTOptions<ListboxPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -27426,7 +27426,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "MegaMenuPassThroughOptions",
+                            "type": "PTOptions<MegaMenuPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -27913,7 +27913,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "MenuPassThroughOptions",
+                            "type": "PTOptions<MenuPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -28385,7 +28385,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "MenubarPassThroughOptions",
+                            "type": "PTOptions<MenubarPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -28864,7 +28864,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "MessagePassThroughOptions",
+                            "type": "PTOptions<MessagePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -29890,7 +29890,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "MultiSelectPassThroughOptions",
+                            "type": "PTOptions<MultiSelectPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -30669,7 +30669,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "OrderListPassThroughOptions",
+                            "type": "PTOptions<OrderListPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -31214,7 +31214,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "OrganizationChartPassThroughOptions",
+                            "type": "PTOptions<OrganizationChartPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -31611,7 +31611,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "OverlayPanelPassThroughOptions",
+                            "type": "PTOptions<OverlayPanelPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -32059,7 +32059,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PaginatorPassThroughOptions",
+                            "type": "PTOptions<PaginatorPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         }
@@ -32412,7 +32412,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PanelPassThroughOptions",
+                            "type": "PTOptions<PanelPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -32920,7 +32920,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PanelMenuPassThroughOptions",
+                            "type": "PTOptions<PanelMenuPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -33084,40 +33084,6 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "CustomizerOptions": {
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "key",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": ""
-                        },
-                        {
-                            "name": "to",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "object",
-                            "default": ""
-                        },
-                        {
-                            "name": "from",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "object",
-                            "default": ""
-                        },
-                        {
-                            "name": "value",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "any",
-                            "default": ""
-                        }
-                    ],
-                    "methods": []
-                },
                 "usePassThroughOptions": {
                     "relatedProp": "",
                     "props": [
@@ -33133,20 +33099,6 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": ""
-                        },
-                        {
-                            "name": "ignoredKeysOnMerge",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string[]",
-                            "default": ""
-                        },
-                        {
-                            "name": "customizer",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
                             "default": ""
                         }
                     ],
@@ -34248,7 +34200,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PasswordPassThroughOptions",
+                            "type": "PTOptions<PasswordPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -35060,7 +35012,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PickListPassThroughOptions",
+                            "type": "PTOptions<PickListPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -35525,7 +35477,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ProgressBarPassThroughOptions",
+                            "type": "PTOptions<ProgressBarPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -35692,7 +35644,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ProgressSpinnerPassThroughOptions",
+                            "type": "PTOptions<ProgressSpinnerPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -35946,7 +35898,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "RadioButtonPassThroughOptions",
+                            "type": "PTOptions<RadioButtonPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -36335,7 +36287,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "RatingPassThroughOptions",
+                            "type": "PTOptions<RatingPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -36482,7 +36434,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "RippleDirectivePassThroughOptions",
+                            "type": "PTOptions<RippleDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -36869,7 +36821,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ScrollPanelPassThroughOptions",
+                            "type": "PTOptions<ScrollPanelPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -37067,7 +37019,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ScrollTopPassThroughOptions",
+                            "type": "PTOptions<ScrollTopPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -37368,7 +37320,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SelectButtonPassThroughOptions",
+                            "type": "PTOptions<SelectButtonPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -37705,7 +37657,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SidebarPassThroughOptions",
+                            "type": "PTOptions<SidebarPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -37921,7 +37873,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SkeletonPassThroughOptions",
+                            "type": "PTOptions<SkeletonPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -38176,7 +38128,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SliderPassThroughOptions",
+                            "type": "PTOptions<SliderPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -38659,7 +38611,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SpeedDialPassThroughOptions",
+                            "type": "PTOptions<SpeedDialPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -39071,7 +39023,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SplitButtonPassThroughOptions",
+                            "type": "PTOptions<SplitButtonPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -39384,7 +39336,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SplitterPassThroughOptions",
+                            "type": "PTOptions<SplitterPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -39576,7 +39528,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "SplitterPanelPassThroughOptions",
+                            "type": "PTOptions<SplitterPanelPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -39821,7 +39773,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "StepsPassThroughOptions",
+                            "type": "PTOptions<StepsPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -39961,7 +39913,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "StyleClassDirectivePassThroughOptions",
+                            "type": "PTOptions<StyleClassDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         }
@@ -40247,7 +40199,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TabMenuPassThroughOptions",
+                            "type": "PTOptions<TabMenuPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -40528,7 +40480,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TabPanelPassThroughOptions",
+                            "type": "PTOptions<TabPanelPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         }
@@ -40930,7 +40882,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TabViewPassThroughOptions",
+                            "type": "PTOptions<TabViewPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -41158,7 +41110,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TagPassThroughOptions",
+                            "type": "PTOptions<TagPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -41401,7 +41353,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TerminalPassThroughOptions",
+                            "type": "PTOptions<TerminalPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -41635,7 +41587,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TextareaPassThroughOptions",
+                            "type": "PTOptions<TextareaPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -42062,7 +42014,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TieredMenuPassThroughOptions",
+                            "type": "PTOptions<TieredMenuPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -42378,7 +42330,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TimelinePassThroughOptions",
+                            "type": "PTOptions<TimelinePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -42856,7 +42808,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ToastPassThroughOptions",
+                            "type": "PTOptions<ToastPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -43287,7 +43239,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ToggleButtonPassThroughOptions",
+                            "type": "PTOptions<ToggleButtonPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -43506,7 +43458,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "ToolbarPassThroughOptions",
+                            "type": "PTOptions<ToolbarPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -43657,7 +43609,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TooltipDirectivePassThroughOptions",
+                            "type": "PTOptions<TooltipDirectivePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -44403,7 +44355,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptions",
+                            "type": "PTOptions<TreePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -44947,7 +44899,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreeSelectPassThroughOptions",
+                            "type": "PTOptions<TreeSelectPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -46234,7 +46186,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreeTablePassThroughOptions",
+                            "type": "PTOptions<TreeTablePassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -46808,7 +46760,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "TriStateCheckboxPassThroughOptions",
+                            "type": "PTOptions<TriStateCheckboxPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -46925,6 +46877,9 @@
                 },
                 "Nullable": {
                     "values": "T | null | undefined"
+                },
+                "PTOptions": {
+                    "values": "T | object | undefined"
                 },
                 "DefaultPTOptions": {
                     "values": "T | (instance: VNode) => undefined | undefined"
@@ -47738,7 +47693,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "VirtualScrollerPassThroughOptions",
+                            "type": "PTOptions<VirtualScrollerPassThroughOptions>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
