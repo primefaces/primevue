@@ -192,6 +192,7 @@ export interface RatingProps {
 export interface RatingSlots {
     /**
      * Custom cancel icon template.
+     * @param {Object} scope - cancelicon slot's params.
      */
     cancelicon(scope: {
         /**

@@ -563,13 +563,13 @@ export interface AutoCompleteSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
          * @return {VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
     }): VNode[];
     /**
      * Custom loader template.
@@ -610,7 +610,7 @@ export interface AutoCompleteSlots {
          * Remove token icon function.
          * @param {Event} event - Browser event
          */
-        onClick(event: Event, index: number): void;
+        onClick: (event: Event, index: number) => void;
     }): VNode[];
     /**
      * Custom loading icon template.

@@ -132,12 +132,12 @@ export interface ChipSlots {
          * Remove icon click event
          * @param {Event} event - Browser event
          */
-        onClick(event: Event): void;
+        onClick: (event: Event) => void;
         /**
          * Remove icon keydown event
          * @param {Event} event - Browser event
          */
-        onKeydown(event: Event): void;
+        onKeydown: (event: Event) => void;
     }): VNode[];
 }
 

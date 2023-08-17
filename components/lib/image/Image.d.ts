@@ -219,6 +219,7 @@ export interface ImageSlots {
     close(): VNode[];
     /**
      * Custom image template.
+     * @param {Object} scope - image slot's params.
      */
     image(scope: {
         /**
@@ -232,10 +233,11 @@ export interface ImageSlots {
         /**
          * Image error function.
          */
-        onError(): void;
+        onError: () => void;
     }): VNode[];
     /**
      * Custom preview template.
+     * @param {Object} scope - preview slot's params.
      */
     preview(scope: {
         /**
@@ -249,7 +251,7 @@ export interface ImageSlots {
         /**
          * Preview click function.
          */
-        onClick(): void;
+        onClick: () => void;
     }): VNode[];
 }
 

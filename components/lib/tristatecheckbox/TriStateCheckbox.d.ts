@@ -158,6 +158,7 @@ export interface TriStateCheckboxProps {
 export interface TriStateCheckboxSlots {
     /**
      * Custom check icon template.
+     * @param {Object} scope - checkicon slot's params.
      */
     checkicon(scope: {
         /**
@@ -167,6 +168,7 @@ export interface TriStateCheckboxSlots {
     }): VNode[];
     /**
      * Custom uncheck icon template.
+     * @param {Object} scope - uncheckicon slot's params.
      */
     uncheckicon(scope: {
         /**
@@ -176,6 +178,7 @@ export interface TriStateCheckboxSlots {
     }): VNode[];
     /**
      * Custom nullable icon template.
+     * @param {Object} scope - nullableicon slot's params.
      */
     nullableicon(scope: {
         /**

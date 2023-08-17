@@ -130,6 +130,7 @@ export interface ConfirmPopupSlots {
     }): VNode[];
     /**
      * Custom icon template.
+     *  @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**

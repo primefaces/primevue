@@ -650,7 +650,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>index</b>: number, // Index of the tab\n  \t <b>isTabActive(i: number)</b>: void, // Whether the tab is active\n  }",
+                                    "type": "{\n  \t <b>index</b>: number, // Index of the tab\n \t <b>isTabActive</b>: (index: number) &rArr; void, // Whether the tab is active\n }",
                                     "description": "header slot's params."
                                 }
                             ],
@@ -3562,7 +3562,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n  \t <b>contentRef(el: any)</b>: void, // Referance of the content\n  \t <b>getItemOptions(index: number)</b>: VirtualScrollerItemOptions, // Options of the items\n  }",
+                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -3606,7 +3606,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n  \t <b>onClick(event: Event, index: number)</b>: void, // Remove token icon function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n \t <b>onClick</b>: (event: Event, index: number) &rArr; void, // Remove token icon function.\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -9482,7 +9482,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>onClick(event: Event)</b>: void, // Remove icon click event\n  \t <b>onKeydown(event: Event)</b>: void, // Remove icon keydown event\n  }",
+                                    "type": "{\n \t <b>onClick</b>: (event: Event) &rArr; void, // Remove icon click event\n\t <b>onKeydown</b>: (event: Event) &rArr; void, // Remove icon keydown event\n }",
                                     "description": "remove icon slot's params."
                                 }
                             ],
@@ -9899,7 +9899,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n  \t <b>onClick(event: Event, index: number)</b>: void, // Remove token icon function.\n  }",
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  \t <b>index</b>: number, // Index of the token.\n \t <b>onClick</b>: (event: Event, index: number) &rArr; void, // Remove token icon function.\n }",
                                     "description": "remove token icon slot's params."
                                 }
                             ],
@@ -11559,7 +11559,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data.\n  \t <b>node</b>: any, // Row node data.\n  \t <b>column</b>: Column, // Column node.\n  \t <b>field</b>: string, // Column field.\n  \t <b>index</b>: number, // Row index.\n  \t <b>frozenRow</b>: boolean, // Whether the row is frozen.\n  \t <b>editorInitCallback()</b>: void, // Callback function\n  }",
+                                    "type": "{\n  \t <b>data</b>: any, // Row data.\n  \t <b>node</b>: any, // Row node data.\n  \t <b>column</b>: Column, // Column node.\n  \t <b>field</b>: string, // Column field.\n  \t <b>index</b>: number, // Row index.\n  \t <b>frozenRow</b>: boolean, // Whether the row is frozen.\n \t <b>editorInitCallback</b>: (event: Event) &rArr; void, // Callback function\n }",
                                     "description": "body slot's params."
                                 }
                             ],
@@ -11598,7 +11598,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data.\n  \t <b>column</b>: Column, // Column node.\n  \t <b>field</b>: string, // Column field.\n  \t <b>index</b>: number, // Row index.\n  \t <b>frozenRow</b>: boolean, // Whether the row is frozen.\n  \t <b>editorSaveCallback()</b>: void, // Callback function\n  \t <b>editorCancelCallback()</b>: void, // Callback function\n  }",
+                                    "type": "{\n  \t <b>data</b>: any, // Row data.\n  \t <b>column</b>: Column, // Column node.\n  \t <b>field</b>: string, // Column field.\n  \t <b>index</b>: number, // Row index.\n  \t <b>frozenRow</b>: boolean, // Whether the row is frozen.\n \t <b>editorSaveCallback</b>: (event: Event) &rArr; void, // Callback function\n\t <b>editorCancelCallback</b>: (event: Event) &rArr; void, // Callback function\n }",
                                     "description": "editor slot's params."
                                 }
                             ],
@@ -11611,7 +11611,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n  \t <b>filterCallback()</b>: void, // Callback function\n  }",
+                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
                                     "description": "filter slot's params."
                                 }
                             ],
@@ -11624,7 +11624,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n  \t <b>filterCallback()</b>: void, // Callback function\n  }",
+                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
                                     "description": "filter header slot's params."
                                 }
                             ],
@@ -11637,7 +11637,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n  \t <b>filterCallback()</b>: void, // Callback function\n  }",
+                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
                                     "description": "filter footer slot's params."
                                 }
                             ],
@@ -11650,7 +11650,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n  \t <b>filterCallback()</b>: void, // Callback function\n  }",
+                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
                                     "description": "filter clear slot's params."
                                 }
                             ],
@@ -11663,7 +11663,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n  \t <b>filterCallback()</b>: void, // Callback function\n  }",
+                                    "type": "{\n  \t <b>field</b>: string, // Column field.\n  \t <b>filterModel</b>: ColumnFilterModelType, // Filter metadata\n \t <b>filterCallback</b>: () &rArr; void, // Callback function\n }",
                                     "description": "filter apply slot's params."
                                 }
                             ],
@@ -14020,7 +14020,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }",
+                                    "description": "icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -14272,7 +14273,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the icon template\n  }",
+                                    "description": "icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -14768,7 +14770,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "description": "submenuicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -17063,7 +17066,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>data</b>: any, // Row data\n  \t <b>index</b>: number, // Row index\n  }"
+                                    "type": "{\n  \t <b>data</b>: any, // Row data\n  \t <b>index</b>: number, // Row index\n  }",
+                                    "description": "group header slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -20569,7 +20573,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n  \t <b>contentRef(el: any)</b>: void, // Referance of the content\n  \t <b>getItemOptions(index: number)</b>: VirtualScrollerItemOptions, // Options of the items\n  }",
+                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -20595,7 +20599,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the clear icon\n  \t <b>onClick(event: Event)</b>: void, // Clear icon click function.\n  }",
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the clear icon\n \t <b>onClick</b>: (event: Event) &rArr; void, // Clear icon click function.\n }",
                                     "description": "clear icon slot's params."
                                 }
                             ],
@@ -22479,7 +22483,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>files</b>: File, // Files to upload.\n  \t <b>uploadedFiles</b>: File, // Uploaded files.\n  \t <b>chooseCallback()</b>: void, // Choose function\n  \t <b>uploadCallback()</b>: void, // Upload function\n  \t <b>clearCallback()</b>: void, // Clear function\n  }"
+                                    "type": "{\n  \t <b>files</b>: File, // Files to upload.\n  \t <b>uploadedFiles</b>: File, // Uploaded files.\n \t <b>chooseCallback</b>: () &rArr; void, // Choose function\n\t <b>uploadCallback</b>: () &rArr; void, // Upload function\n\t <b>clearCallback</b>: () &rArr; void, // Clear function\n }",
+                                    "description": "header slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -22491,7 +22496,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>files</b>: File, // Files to upload.\n  \t <b>uploadedFiles</b>: File, // Uploaded files.\n  \t <b>removeUploadedFileCallback(index: number)</b>: void, // Function to remove an uploaded file.\n  \t <b>removeFileCallback(index: number)</b>: void, // Function to remove a file.\n  \t <b>progress</b>: number, // Uploaded progress as number.\n  \t <b>messages</b>: undefined, // Status messages about upload process.\n  }"
+                                    "type": "{\n  \t <b>files</b>: File, // Files to upload.\n  \t <b>uploadedFiles</b>: File, // Uploaded files.\n \t <b>removeUploadedFileCallback</b>: (index: number) &rArr; void, // Function to remove an uploaded file.\n\t <b>removeFileCallback</b>: (index: number) &rArr; void, // Function to remove a file.\n \t <b>progress</b>: number, // Uploaded progress as number.\n  \t <b>messages</b>: undefined, // Status messages about upload process.\n  }",
+                                    "description": "content slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -22527,7 +22533,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>file</b>: File, // File to upload.\n  \t <b>index</b>: number, // The index of file\n  }"
+                                    "type": "{\n  \t <b>file</b>: File, // File to upload.\n  \t <b>index</b>: number, // The index of file\n  }",
+                                    "description": "fileremoveicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -24111,7 +24118,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the image element.\n  \t <b>style</b>: any, // Style of the image element.\n  \t <b>onError()</b>: void, // Image error function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the image element.\n  \t <b>style</b>: any, // Style of the image element.\n \t <b>onError</b>: () &rArr; void, // Image error function.\n }",
+                                    "description": "image slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -24123,7 +24131,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the preview image element.\n  \t <b>style</b>: any, // Style of the preview image element.\n  \t <b>onClick()</b>: void, // Preview click function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the preview image element.\n  \t <b>style</b>: any, // Style of the preview image element.\n \t <b>onClick</b>: () &rArr; void, // Preview click function.\n }",
+                                    "description": "preview slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -26925,7 +26934,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n  \t <b>contentRef(el: any)</b>: void, // Referance of the content\n  \t <b>getItemOptions(index: number)</b>: VirtualScrollerItemOptions, // Options of the items\n  }",
+                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -27468,7 +27477,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "description": "submenuicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -28432,7 +28442,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>root</b>: boolean, // Whether item is root\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                    "type": "{\n  \t <b>root</b>: boolean, // Whether item is root\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "description": "submenuicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -28885,7 +28896,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "description": "messageicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -28897,7 +28909,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }"
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "description": "closeicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -30000,7 +30013,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n  \t <b>contentRef(el: any)</b>: void, // Referance of the content\n  \t <b>getItemOptions(index: number)</b>: VirtualScrollerItemOptions, // Options of the items\n  }",
+                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the component\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -30026,7 +30039,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>item</b>: any, // Item of the token.\n  \t <b>onClick(event: Event, item: any)</b>: void, // Remove token icon function.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  \t <b>item</b>: any, // Item of the token.\n \t <b>onClick</b>: (event: Event, item: any) &rArr; void, // Remove token icon function.\n }",
+                                    "description": "removetokenicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -30051,7 +30065,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "description": "filtericon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -30063,7 +30078,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "description": "closeicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -30076,7 +30092,7 @@
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n  \t <b>selected</b>: boolean, // Options of the loader items for virtualscroller\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
-                                    "description": "header checkbox icon slot's params."
+                                    "description": "itemcheckboxicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -30101,7 +30117,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the loading icon.\n  }",
+                                    "description": "dropdownicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -32427,7 +32444,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>id</b>: string, // Current id state as a string\n  \t <b>class</b>: string, // Style class of the icon\n  }"
+                                    "type": "{\n  \t <b>id</b>: string, // Current id state as a string\n  \t <b>class</b>: string, // Style class of the icon\n  }",
+                                    "description": "header slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -32941,7 +32959,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "description": "submenuicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -34274,7 +34293,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>onClick()</b>: void, // Hide icon click event\n  }"
+                                    "type": "{\n \t <b>onClick</b>: () &rArr; void, // Hide icon click event\n }",
+                                    "description": "hideicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -34286,7 +34306,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>onClick()</b>: void, // Show icon click event\n  }"
+                                    "type": "{\n \t <b>onClick</b>: () &rArr; void, // Show icon click event\n }",
+                                    "description": "showicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -36340,7 +36361,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "cancelicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -38663,7 +38685,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>onClick()</b>: void, // Item click function\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n \t <b>onClick</b>: (event: Event) &rArr; void, // Item click function\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -38676,7 +38698,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>onClick()</b>: void, // Button click function\n  }",
+                                    "type": "{\n \t <b>onClick</b>: (event: Event) &rArr; void, // Button click function\n }",
                                     "description": "button slot's params."
                                 }
                             ],
@@ -39081,7 +39103,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -39093,7 +39116,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "menubuttonicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -42077,7 +42101,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }"
+                                    "type": "{\n  \t <b>active</b>: boolean, // Whether item is active\n  }",
+                                    "description": "submenuicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -43288,7 +43313,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>value</b>: any, // Current value\n  \t <b>class</b>: any, // Icon style class\n  }"
+                                    "type": "{\n  \t <b>value</b>: any, // Current value\n  \t <b>class</b>: any, // Icon style class\n  }",
+                                    "description": "icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -44410,7 +44436,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "loadingicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -44422,7 +44449,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "searchicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -44434,7 +44462,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>node</b>: TreeNode, // Tree node instance\n  \t <b>expanded</b>: boolean, // Expanded state of the node\n  }"
+                                    "type": "{\n  \t <b>node</b>: TreeNode, // Tree node instance\n  \t <b>expanded</b>: boolean, // Expanded state of the node\n  }",
+                                    "description": "togglericon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -44446,7 +44475,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>checked</b>: boolean, // Check state of the node\n  \t <b>partialChecked</b>: boolean, // Partial check state of the node\n  }"
+                                    "type": "{\n  \t <b>checked</b>: boolean, // Check state of the node\n  \t <b>partialChecked</b>: boolean, // Partial check state of the node\n  }",
+                                    "description": "checkboxicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -44995,7 +45025,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "triggericon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -46277,7 +46308,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>sorted</b>: TreeNode, // Whether or not column is sorted\n  \t <b>sortOrder</b>: boolean, // Current sort order\n  }"
+                                    "type": "{\n  \t <b>sorted</b>: TreeNode, // Whether or not column is sorted\n  \t <b>sortOrder</b>: boolean, // Current sort order\n  }",
+                                    "description": "sorticon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -46802,7 +46834,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "checkicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -46814,7 +46847,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "uncheckicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -46826,7 +46860,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "nullableicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -47743,7 +47778,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the content\n  \t <b>contentRef(el: any)</b>: void, // Referance of the content\n  \t <b>getItemOptions(index: number)</b>: VirtualScrollerItemOptions, // Options of the items\n  \t <b>loading</b>: boolean, // Whether the data is loaded.\n  \t <b>getLoaderOptions(index: number, ext: any)</b>: VirtualScrollerLoaderOptions, // Loader options of the items while the data is loading.\n  \t <b>itemSize</b>: undefined, // The height/width of item according to orientation.\n  \t <b>rows</b>: undefined, // The number of the rendered rows.\n  \t <b>columns</b>: undefined, // The number of the rendered columns.\n  \t <b>spacerStyle</b>: any, // The style of spacer element.\n  \t <b>contentStyle</b>: any, // The style of content element.\n  \t <b>vertical</b>: boolean, // Whether the orientation is vertical.\n  \t <b>horizontal</b>: boolean, // Whether the orientation is horizontal.\n  \t <b>both</b>: boolean, // Whether the orientation is both.\n  }",
+                                    "type": "{\n  \t <b>items</b>: any, // An array of objects to display for virtualscroller\n  \t <b>styleClass</b>: string, // Style class of the content\n \t <b>contentRef</b>: (el: any) &rArr; void, // Referance of the content\n\t <b>getItemOptions</b>: (index: number) &rArr; VirtualScrollerItemOptions, // Options of the items\n \t <b>loading</b>: boolean, // Whether the data is loaded.\n \t <b>getLoaderOptions</b>: (index: number, ext: any) &rArr; VirtualScrollerLoaderOptions, // Loader options of the items while the data is loading.\n \t <b>itemSize</b>: undefined, // The height/width of item according to orientation.\n  \t <b>rows</b>: undefined, // The number of the rendered rows.\n  \t <b>columns</b>: undefined, // The number of the rendered columns.\n  \t <b>spacerStyle</b>: any, // The style of spacer element.\n  \t <b>contentStyle</b>: any, // The style of content element.\n  \t <b>vertical</b>: boolean, // Whether the orientation is vertical.\n  \t <b>horizontal</b>: boolean, // Whether the orientation is horizontal.\n  \t <b>both</b>: boolean, // Whether the orientation is both.\n  }",
                                     "description": "content slot's params."
                                 }
                             ],
@@ -47782,7 +47817,8 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }"
+                                    "type": "{\n  \t <b>class</b>: string, // Style class of the icon.\n  }",
+                                    "description": "loadingicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",

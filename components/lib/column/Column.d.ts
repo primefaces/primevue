@@ -679,8 +679,9 @@ export interface ColumnSlots {
         frozenRow: boolean;
         /**
          * Callback function
+         * @param {Event} event - Browser event
          */
-        editorInitCallback(): void;
+        editorInitCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom header template.
@@ -729,12 +730,14 @@ export interface ColumnSlots {
         frozenRow: boolean;
         /**
          * Callback function
+         * @param {Event} event - Browser event
          */
-        editorSaveCallback(): void;
+        editorSaveCallback: (event: Event) => void;
         /**
          * Callback function
+         * @param {Event} event - Browser event
          */
-        editorCancelCallback(): void;
+        editorCancelCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom filter template.
@@ -753,7 +756,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter header template.
@@ -772,7 +775,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter footer template.
@@ -791,7 +794,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter clear template.
@@ -810,7 +813,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter apply template.
@@ -829,7 +832,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom loading template.

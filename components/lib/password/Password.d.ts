@@ -269,21 +269,23 @@ export interface PasswordSlots {
     content(): VNode[];
     /**
      * Custom hide icon template.
+     * @param {Object} scope - hideicon slot's params.
      */
     hideicon(scope: {
         /**
          * Hide icon click event
          */
-        onClick(): void;
+        onClick: () => void;
     }): VNode[];
     /**
      * Custom show icon template.
+     * @param {Object} scope - showicon slot's params.
      */
     showicon(scope: {
         /**
          * Show icon click event
          */
-        onClick(): void;
+        onClick: () => void;
     }): VNode[];
 }
 

@@ -426,7 +426,7 @@ export default {
                 if (value1 == null && value2 != null) result = -1;
                 else if (value1 != null && value2 == null) result = 1;
                 else if (value1 == null && value2 == null) result = 0;
-                else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                else if (typeof value1 === 'string' && typeof value2 === 'string') result = new Intl.Collator(undefined, { numeric: true }).compare(value1, value2);
                 else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                 return this.d_sortOrder * result;
@@ -458,7 +458,8 @@ export default {
                 if (value1 === value2) {
                     return this.d_multiSortMeta.length - 1 > index ? this.multisortField(node1, node2, index + 1) : 0;
                 } else {
-                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String)) return this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true });
+                    if ((typeof value1 === 'string' || value1 instanceof String) && (typeof value2 === 'string' || value2 instanceof String))
+                        return this.d_multiSortMeta[index].order * new Intl.Collator(undefined, { numeric: true }).compare(value1, value2);
                     else result = value1 < value2 ? -1 : 1;
                 }
             }

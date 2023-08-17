@@ -205,11 +205,16 @@
     }
 }
 
-.doc-section-buttons {
+.doc-section-code-buttons {
     gap: .75rem;
     padding: .75rem 0 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
+    .p-button-label {
+        font-weight: normal;
+        font-size: 0.875rem;
+    }
 }
 
 .doc-section-code-tooltip .p-tooltip-text {
@@ -221,17 +226,6 @@
     div {
         &::-webkit-scrollbar {
             width: 5px;
-        }
-    }
-
-    .p-button-label {
-        font-weight: normal;
-        font-size: 0.875rem;
-    }
-
-    .doc-section-code-active {
-        .p-button-label {
-            font-weight: bold;
         }
     }
 

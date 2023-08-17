@@ -632,13 +632,13 @@ export interface MultiSelectSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
          * @return {VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
     }): VNode[];
     /**
      * Custom loader template.
@@ -652,6 +652,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom remove token icon template.
+     * @param {Object} scope - removetokenicon slot's params.
      */
     removetokenicon(scope: {
         /**
@@ -667,7 +668,7 @@ export interface MultiSelectSlots {
          * @param {Event} event - Browser event
          * @param {any} item - Item
          */
-        onClick(event: Event, item: any): void;
+        onClick: (event: Event, item: any) => void;
     }): VNode[];
     /**
      * Custom header checkbox icon template.
@@ -685,6 +686,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom filter icon template.
+     * @param {Object} scope - filtericon slot's params.
      */
     filtericon(scope: {
         /**
@@ -694,6 +696,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - closeicon slot's params.
      */
     closeicon(scope: {
         /**
@@ -703,7 +706,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom item checkbox icon template.
-     * @param {Object} scope - header checkbox icon slot's params.
+     * @param {Object} scope - itemcheckboxicon slot's params.
      */
     itemcheckboxicon(scope: {
         /**
@@ -727,6 +730,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom dropdown icon template.
+     * @param {Object} scope - dropdownicon slot's params.
      */
     dropdownicon(scope: {
         /**

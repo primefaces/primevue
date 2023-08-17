@@ -178,6 +178,7 @@ export interface ToggleButtonProps {
 export interface ToggleButtonSlots {
     /**
      * Custom icon template.
+     * @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**
