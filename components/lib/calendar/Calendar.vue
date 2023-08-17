@@ -2589,7 +2589,7 @@ export default {
                 let innerHTML = '';
 
                 if (this.responsiveOptions) {
-                    let responsiveOptions = [...this.responsiveOptions].filter((o) => !!(o.breakpoint && o.numMonths)).sort((o1, o2) => -1 * o1.breakpoint.localeCompare(o2.breakpoint, undefined, { numeric: true }));
+                    let responsiveOptions = [...this.responsiveOptions].filter((o) => !!(o.breakpoint && o.numMonths)).sort((o1, o2) => -1 * new Intl.Collator(undefined, { numeric: true }).compare(o1.breakpoint, o2.breakpoint));
 
                     for (let i = 0; i < responsiveOptions.length; i++) {
                         let { breakpoint, numMonths } = responsiveOptions[i];
