@@ -650,7 +650,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>index</b>: number, // Index of the tab\n \t <b>isTabActive</b>: (inde: number) &rArr; void, // Whether the tab is active\n }",
+                                    "type": "{\n  \t <b>index</b>: number, // Index of the tab\n \t <b>isTabActive</b>: (index: number) &rArr; void, // Whether the tab is active\n }",
                                     "description": "header slot's params."
                                 }
                             ],
