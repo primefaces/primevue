@@ -8,6 +8,7 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PTOptions } from '../ts-helpers';
 
 /**
  * Defines options of StyleClass.
@@ -54,7 +55,7 @@ export interface StyleClassOptions {
      * Used to pass attributes to DOM elements inside the component.
      * @type {StyleClassDirectivePassThroughOptions}
      */
-    pt?: StyleClassDirectivePassThroughOptions;
+    pt?: PTOptions<StyleClassDirectivePassThroughOptions>;
 }
 
 /**

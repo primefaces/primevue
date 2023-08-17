@@ -8,7 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | null | undefined;
 
@@ -43,7 +43,7 @@ export interface AvatarGroupProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {AvatarGroupPassThroughOptions}
      */
-    pt?: AvatarGroupPassThroughOptions;
+    pt?: PTOptions<AvatarGroupPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -388,8 +388,17 @@ export default {
         }
     },
     beforeCreate() {
-        this.pt?.hooks?.['onBeforeCreate']?.();
-        this.$primevue?.config?.pt?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
+        const _usept = this.pt?.['_usept'];
+        const originalValue = _usept ? this.pt?.originalValue?.[this.$.type.name] : undefined;
+        const value = _usept ? this.pt?.value?.[this.$.type.name] : this.pt;
+
+        (value || originalValue)?.hooks?.['onBeforeCreate']?.();
+
+        const _useptInConfig = this.$config?.pt?.['_usept'];
+        const originalValueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.originalValue : undefined;
+        const valueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.value : this.$primevue?.config?.pt;
+
+        (valueInConfig || originalValueInConfig)?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
     },
     created() {
         this._hook('onCreated');
@@ -416,11 +425,13 @@ export default {
     },
     methods: {
         _hook(hookName) {
-            const selfHook = this._getOptionValue(this.pt, `hooks.${hookName}`);
-            const defaultHook = this._getOptionValue(this.defaultPT, `hooks.${hookName}`);
+            if (!this.$options.hostName) {
+                const selfHook = this._usePT(this._getPT(this.pt, this.$.type.name), this._getOptionValue, `hooks.${hookName}`);
+                const defaultHook = this._useDefaultPT(this._getOptionValue, `hooks.${hookName}`);
 
-            selfHook?.();
-            defaultHook?.();
+                selfHook?.();
+                defaultHook?.();
+            }
         },
         _loadGlobalStyles() {
             /*
@@ -433,7 +444,7 @@ export default {
              * ObjectUtils.isNotEmpty(mergedCSS?.class) && this.$css.loadCustomStyle(mergedCSS?.class);
              */
 
-            const globalCSS = this._getOptionValue(this.globalPT, 'global.css', this.$params);
+            const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
 
             ObjectUtils.isNotEmpty(globalCSS) && loadGlobalStyle(globalCSS, { nonce: this.$config?.csp?.nonce });
         },
@@ -452,8 +463,9 @@ export default {
         },
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
             const datasetPrefix = 'data-pc-';
-            const self = this._getPTClassValue(obj, key, params);
-            const globalPT = searchInDefaultPT ? (/./g.test(key) && !!params[key.split('.')[0]] ? this._getPTClassValue(this.globalPT, key, params) : this._getPTClassValue(this.defaultPT, key, params)) : undefined;
+            const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
+            const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, params);
+            const globalPT = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
             const merged = mergeProps(
                 self,
                 globalPT,
@@ -474,6 +486,46 @@ export default {
             const value = this._getOptionValue(...args);
 
             return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
+        },
+        _getPT(pt, key = '', callback) {
+            const _usept = pt?.['_usept'];
+
+            const getValue = (value) => {
+                const computedValue = callback ? callback(value) : value;
+
+                return computedValue?.[ObjectUtils.toFlatCase(key)] ?? computedValue;
+            };
+
+            return ObjectUtils.isNotEmpty(_usept)
+                ? {
+                      _usept,
+                      originalValue: getValue(pt.originalValue),
+                      value: getValue(pt.value)
+                  }
+                : getValue(pt);
+        },
+        _usePT(pt, callback, key, params) {
+            const fn = (value) => callback(value, key, params);
+
+            if (pt?.hasOwnProperty('_usept')) {
+                const { merge, useMergeProps } = pt['_usept'];
+                const originalValue = fn(pt.originalValue);
+                const value = fn(pt.value);
+
+                if (originalValue === undefined && value === undefined) return undefined;
+                else if (ObjectUtils.isString(value)) return value;
+                else if (ObjectUtils.isString(originalValue)) return originalValue;
+
+                return merge ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+            }
+
+            return fn(pt);
+        },
+        _useGlobalPT(callback, key, params) {
+            return this._usePT(this.globalPT, callback, key, params);
+        },
+        _useDefaultPT(callback, key, params) {
+            return this._usePT(this.defaultPT, callback, key, params);
         },
         ptm(key = '', params = {}) {
             return this._getPTValue(this.pt, key, { ...this.$params, ...params });
@@ -497,10 +549,10 @@ export default {
     },
     computed: {
         globalPT() {
-            return ObjectUtils.getItemValue(this.$config.pt, { instance: this });
+            return this._getPT(this.$config?.pt, undefined, (value) => ObjectUtils.getItemValue(value, { instance: this }));
         },
         defaultPT() {
-            return this._getOptionValue(this.$config.pt, this.$options.hostName || this.$.type.name, { instance: this }) || this.globalPT;
+            return this._getPT(this.$config?.pt, undefined, (value) => this._getOptionValue(value, this.$name, { instance: this }) || ObjectUtils.getItemValue(value, { instance: this }));
         },
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$config.unstyled;
@@ -513,6 +565,9 @@ export default {
         },
         $config() {
             return this.$primevue?.config;
+        },
+        $name() {
+            return this.$options.hostName || this.$.type.name;
         }
     }
 };

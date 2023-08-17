@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((options: DockPassThroughMethodOptions) => DockPassThroughAttributes | string) | string | null | undefined;
 
@@ -185,7 +185,7 @@ export interface DockProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DockPassThroughOptions}
      */
-    pt?: DockPassThroughOptions;
+    pt?: PTOptions<DockPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

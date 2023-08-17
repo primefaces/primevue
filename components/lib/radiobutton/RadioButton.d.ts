@@ -9,7 +9,7 @@
  */
 import { InputHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type RadioButtonPassThroughOptionType = RadioButtonPassThroughAttributes | ((options: RadioButtonPassThroughMethodOptions) => RadioButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -121,7 +121,7 @@ export interface RadioButtonProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {RadioButtonPassThroughOptions}
      */
-    pt?: RadioButtonPassThroughOptions;
+    pt?: PTOptions<RadioButtonPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

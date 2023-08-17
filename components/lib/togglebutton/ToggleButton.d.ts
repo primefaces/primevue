@@ -9,7 +9,7 @@
  */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ToggleButtonPassThroughOptionType = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -164,7 +164,7 @@ export interface ToggleButtonProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ToggleButtonPassThroughOptions}
      */
-    pt?: ToggleButtonPassThroughOptions;
+    pt?: PTOptions<ToggleButtonPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

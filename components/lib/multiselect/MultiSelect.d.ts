@@ -9,7 +9,7 @@
  */
 import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;
@@ -510,7 +510,7 @@ export interface MultiSelectProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {MultiSelectPassThroughOptions}
      */
-    pt?: MultiSelectPassThroughOptions;
+    pt?: PTOptions<MultiSelectPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

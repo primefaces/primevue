@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ProgressBarPassThroughOptionType = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions) => ProgressBarPassThroughAttributes | string) | string | null | undefined;
 
@@ -74,7 +74,7 @@ export interface ProgressBarProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ProgressBarPassThroughOptions}
      */
-    pt?: ProgressBarPassThroughOptions;
+    pt?: PTOptions<ProgressBarPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -8,7 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes | string) | string | null | undefined;
 
@@ -174,7 +174,7 @@ export interface KnobProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {KnobPassThroughOptions}
      */
-    pt?: KnobPassThroughOptions;
+    pt?: PTOptions<KnobPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

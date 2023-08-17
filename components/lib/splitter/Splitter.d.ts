@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type SplitterPassThroughOptionType = SplitterPassThroughAttributes | ((options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes | string) | string | null | undefined;
 
@@ -136,7 +136,7 @@ export interface SplitterProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {SplitterPassThroughOptions}
      */
-    pt?: SplitterPassThroughOptions;
+    pt?: PTOptions<SplitterPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

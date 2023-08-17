@@ -9,7 +9,7 @@
  */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type ListboxPassThroughOptionType = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions) => ListboxPassThroughAttributes | string) | string | null | undefined;
@@ -322,7 +322,7 @@ export interface ListboxProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ListboxPassThroughOptions}
      */
-    pt?: ListboxPassThroughOptions;
+    pt?: PTOptions<ListboxPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

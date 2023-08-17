@@ -9,7 +9,7 @@
  */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ChipsPassThroughOptionType = ChipsPassThroughAttributes | ((options: ChipsPassThroughMethodOptions) => ChipsPassThroughAttributes | string) | string | null | undefined;
 
@@ -182,7 +182,7 @@ export interface ChipsProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ChipsPassThroughOptions}
      */
-    pt?: ChipsPassThroughOptions;
+    pt?: PTOptions<ChipsPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

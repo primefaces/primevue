@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | string) | string | null | undefined;
 
@@ -239,7 +239,7 @@ export interface SpeedDialProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {SpeedDialPassThroughOptions}
      */
-    pt?: SpeedDialPassThroughOptions;
+    pt?: PTOptions<SpeedDialPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

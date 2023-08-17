@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { TreeNode } from '../tree';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | string) | string | null | undefined;
 
@@ -559,7 +559,7 @@ export interface TreeTableProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreeTablePassThroughOptions}
      */
-    pt?: TreeTablePassThroughOptions;
+    pt?: PTOptions<TreeTablePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

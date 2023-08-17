@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type BadgePassThroughOptionType = BadgePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgePassThroughAttributes | string) | string | null | undefined;
 
@@ -64,7 +64,7 @@ export interface BadgeProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {BadgePassThroughOptions}
      */
-    pt?: BadgePassThroughOptions;
+    pt?: PTOptions<BadgePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

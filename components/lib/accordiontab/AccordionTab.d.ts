@@ -9,7 +9,7 @@
  */
 import { AnchorHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { AccordionPassThroughOptions } from '../accordion';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type AccordionTabPassThroughOptionType = AccordionTabPassThroughAttributes | ((options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes | string) | string | null | undefined;
 
@@ -119,7 +119,7 @@ export interface AccordionTabProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {AccordionTabPassThroughOptions}
      */
-    pt?: AccordionTabPassThroughOptions;
+    pt?: PTOptions<AccordionTabPassThroughOptions>;
 }
 
 /**

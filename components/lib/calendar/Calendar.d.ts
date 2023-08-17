@@ -10,7 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | string) | string | null | undefined;
 
@@ -691,7 +691,7 @@ export interface CalendarProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {CalendarPassThroughOptions}
      */
-    pt?: CalendarPassThroughOptions;
+    pt?: PTOptions<CalendarPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

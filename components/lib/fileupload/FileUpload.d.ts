@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MessagePassThroughOptions } from '../message';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes | string) | string | null | undefined;
 
@@ -413,7 +413,7 @@ export interface FileUploadProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {FileUploadPassThroughOptions}
      */
-    pt?: FileUploadPassThroughOptions;
+    pt?: PTOptions<FileUploadPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

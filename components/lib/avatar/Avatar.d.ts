@@ -9,7 +9,7 @@
 import { VNode } from 'vue';
 import { AvatarGroupPassThroughOptions } from '../avatargroup';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes | string) | string | null | undefined;
 
@@ -96,7 +96,7 @@ export interface AvatarProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {AvatarPassThroughOptions}
      */
-    pt?: AvatarPassThroughOptions;
+    pt?: PTOptions<AvatarPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

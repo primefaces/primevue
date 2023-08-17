@@ -14,7 +14,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
 export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | string) | string | null | undefined;
@@ -567,7 +567,7 @@ export interface ColumnProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ColumnPassThroughOptions}
      */
-    pt?: ColumnPassThroughOptions;
+    pt?: PTOptions<ColumnPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

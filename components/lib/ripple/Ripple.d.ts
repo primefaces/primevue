@@ -8,6 +8,7 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PTOptions } from '../ts-helpers';
 
 export declare type RippleDirectivePassThroughOptionType = RippleDirectivePassThroughAttributes | null | undefined;
 
@@ -19,7 +20,7 @@ export interface RippleOptions {
      * Used to pass attributes to DOM elements inside the component.
      * @type {RippleDirectivePassThroughOptions}
      */
-    pt?: RippleDirectivePassThroughOptions;
+    pt?: PTOptions<RippleDirectivePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TagPassThroughOptionType = TagPassThroughAttributes | ((options: TagPassThroughMethodOptions) => TagPassThroughAttributes | string) | string | null | undefined;
 
@@ -78,7 +78,7 @@ export interface TagProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TagPassThroughOptions}
      */
-    pt?: TagPassThroughOptions;
+    pt?: PTOptions<TagPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

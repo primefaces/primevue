@@ -8,7 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type SkeletonPassThroughOptionType = SkeletonPassThroughAttributes | ((options: SkeletonPassThroughMethodOptions) => SkeletonPassThroughAttributes | string) | string | null | undefined;
 
@@ -79,7 +79,7 @@ export interface SkeletonProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {SkeletonPassThroughOptions}
      */
-    pt?: SkeletonPassThroughOptions;
+    pt?: PTOptions<SkeletonPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAttributes | ((options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -99,7 +99,7 @@ export interface ScrollPanelProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ScrollPanelPassThroughOptions}
      */
-    pt?: ScrollPanelPassThroughOptions;
+    pt?: PTOptions<ScrollPanelPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

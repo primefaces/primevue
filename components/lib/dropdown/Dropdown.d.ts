@@ -9,7 +9,7 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes | string) | string | null | undefined;
@@ -409,7 +409,7 @@ export interface DropdownProps {
     emptyFilterMessage?: string | undefined;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No results foun
+     * @defaultValue No results found
      */
     emptyMessage?: string | undefined;
     /**
@@ -428,7 +428,7 @@ export interface DropdownProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DropdownPassThroughOptions}
      */
-    pt?: DropdownPassThroughOptions;
+    pt?: PTOptions<DropdownPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

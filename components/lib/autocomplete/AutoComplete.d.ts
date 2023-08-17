@@ -10,7 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughAttributes | ((options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes | string) | string | null | undefined;
@@ -447,7 +447,7 @@ export interface AutoCompleteProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {AutoCompletePassThroughOptions}
      */
-    pt?: AutoCompletePassThroughOptions;
+    pt?: PTOptions<AutoCompletePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

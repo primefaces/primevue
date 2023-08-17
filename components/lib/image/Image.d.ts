@@ -9,7 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ImagePassThroughOptionType = ImagePassThroughAttributes | ((options: ImagePassThroughMethodOptions) => ImagePassThroughAttributes | string) | string | null | undefined;
 
@@ -181,7 +181,7 @@ export interface ImageProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ImagePassThroughOptions}
      */
-    pt?: ImagePassThroughOptions;
+    pt?: PTOptions<ImagePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
