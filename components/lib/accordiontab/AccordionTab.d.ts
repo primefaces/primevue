@@ -171,8 +171,9 @@ export interface AccordionTabSlots {
         index: number;
         /**
          * Whether the tab is active
+         * @param {number} index - Index of the tab
          */
-        isTabActive(i: number): void;
+        isTabActive: (inde: number) => void;
     }): VNode[];
 }
 

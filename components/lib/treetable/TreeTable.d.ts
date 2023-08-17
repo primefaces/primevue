@@ -605,6 +605,7 @@ export interface TreeTableSlots {
     checkboxicon(): VNode[];
     /**
      * Custom sort icon template.
+     * @param {Object} scope - sorticon slot's params.
      */
     sorticon(scope: {
         /**

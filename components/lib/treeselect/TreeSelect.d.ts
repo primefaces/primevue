@@ -273,6 +273,7 @@ export interface TreeSelectSlots {
     indicator(): VNode[];
     /**
      * Custom indicator template.
+     * @param {Object} scope - triggericon slot's params.
      */
     triggericon(scope: {
         /**

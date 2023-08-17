@@ -327,6 +327,7 @@ export interface TreeProps {
 export interface TreeSlots {
     /**
      * Custom loading icon template.
+     * @param {Object} scope - loadingicon slot's params.
      */
     loadingicon(scope: {
         /**
@@ -336,6 +337,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom search icon template.
+     * @param {Object} scope - searchicon slot's params.
      */
     searchicon(scope: {
         /**
@@ -345,6 +347,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom toggler icon template.
+     * @param {Object} scope - togglericon slot's params.
      */
     togglericon(scope: {
         /**
@@ -358,6 +361,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom checkbox icon
+     * @param {Object} scope - checkboxicon slot's params.
      */
     checkboxicon(scope: {
         /**

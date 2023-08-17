@@ -245,6 +245,7 @@ export interface MegaMenuSlots {
     }): VNode[];
     /**
      * Custom submenu icon template.
+     * @param {Object} scope - submenuicon slot's params.
      */
     submenuicon(scope: {
         /**

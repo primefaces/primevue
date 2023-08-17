@@ -1103,6 +1103,7 @@ export interface DataTableSlots {
     empty(): VNode[];
     /**
      * Custom group header template.
+     * @param {Object} scope - group header slot's params.
      */
     groupheader(scope: {
         /**
@@ -1130,6 +1131,7 @@ export interface DataTableSlots {
     }): VNode[];
     /**
      * Custom loading template.
+     * @param {Object} scope - loading slot's params.
      */
     loading(): VNode[];
     /**

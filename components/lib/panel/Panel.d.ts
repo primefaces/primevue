@@ -154,6 +154,7 @@ export interface PanelSlots {
     default(): VNode[];
     /**
      * Custom header template.
+     * @param {Object} scope - header slot's params.
      */
     header(scope: {
         /**

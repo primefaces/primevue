@@ -265,7 +265,7 @@ export interface SpeedDialSlots {
          * Item click function
          * @param {Event} event - Browser event.
          */
-        onClick(): void;
+        onClick: (event: Event) => void;
     }): VNode[];
     /**
      * Custom button template.
@@ -276,7 +276,7 @@ export interface SpeedDialSlots {
          * Button click function
          * @param {Event} event - Browser event.
          */
-        onClick(): void;
+        onClick: (event: Event) => void;
     }): VNode[];
     /**
      * Custom icon template.

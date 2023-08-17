@@ -151,6 +151,7 @@ export interface MessageSlots {
     default(): VNode[];
     /**
      * Custom message icon template.
+     * @param {Object} scope - messageicon slot's params.
      */
     messageicon(scope: {
         /**
@@ -160,6 +161,7 @@ export interface MessageSlots {
     }): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - closeicon slot's params.
      */
     closeicon(scope: {
         /**

@@ -343,13 +343,13 @@ export interface VirtualScrollerSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
-         * @return {@link VirtualScroller.VirtualScrollerItemOptions}
+         * @return {@link VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
         /**
          * Whether the data is loaded.
          */
@@ -358,8 +358,9 @@ export interface VirtualScrollerSlots {
          * Loader options of the items while the data is loading.
          * @param {number} index - Rendered index
          * @param {*} [ext] - Extra options
+         * @return {@link VirtualScrollerItemOptions}
          */
-        getLoaderOptions(index: number, ext?: any): VirtualScrollerLoaderOptions;
+        getLoaderOptions: (index: number, ext?: any) => VirtualScrollerLoaderOptions;
         /**
          * The height/width of item according to orientation.
          */
@@ -419,6 +420,7 @@ export interface VirtualScrollerSlots {
     }): VNode[];
     /**
      * Custom loading icon template.
+     * @param {Object} scope - loadingicon slot's params.
      */
     loadingicon(scope: {
         /**

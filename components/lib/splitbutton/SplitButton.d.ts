@@ -187,6 +187,7 @@ export interface SplitButtonSlots {
     default(): VNode[];
     /**
      * Custom menu button icon template.
+     * @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**
@@ -196,6 +197,7 @@ export interface SplitButtonSlots {
     }): VNode[];
     /**
      * Custom menu button icon template.
+     * @param {Object} scope - menubuttonicon slot's params.
      */
     menubuttonicon(scope: {
         /**

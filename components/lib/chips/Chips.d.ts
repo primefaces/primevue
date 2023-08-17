@@ -220,7 +220,7 @@ export interface ChipsSlots {
          * Remove token icon function.
          * @param {Event} event - Browser event
          */
-        onClick(event: Event, index: number): void;
+        onClick: (event: Event, index: number) => void;
     }): VNode[];
 }
 /**
