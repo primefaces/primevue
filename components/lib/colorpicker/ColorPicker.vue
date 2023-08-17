@@ -384,7 +384,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+                ZIndexUtils.set('overlay', el, this.baseZIndex, this.$primevue.config.zIndex.overlay);
             }
 
             this.$emit('show');
