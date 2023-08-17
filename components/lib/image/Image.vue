@@ -93,6 +93,7 @@ export default {
         },
         onImageClick() {
             if (this.preview) {
+                DomHandler.addClass(document.body, 'p-overflow-hidden');
                 this.maskVisible = true;
                 setTimeout(() => {
                     this.previewVisible = true;
@@ -179,6 +180,7 @@ export default {
             this.previewVisible = false;
             this.rotate = 0;
             this.scale = 1;
+            DomHandler.removeClass(document.body, 'p-overflow-hidden');
         }
     },
     computed: {
