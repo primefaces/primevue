@@ -30,45 +30,6 @@ export default {
     name: 'ColorPicker',
     extends: BaseColorPicker,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
-    props: {
-        modelValue: {
-            type: null,
-            default: null
-        },
-        defaultColor: {
-            type: null,
-            default: 'ff0000'
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        },
-        format: {
-            type: String,
-            default: 'hex'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: String,
-            default: null
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        panelClass: null
-    },
     data() {
         return {
             overlayVisible: false
