@@ -52,7 +52,7 @@ const buttonStyles = `
     margin: 0;
 }
 
-.p-buttonset .p-button:not(:last-child) {
+.p-buttonset .p-button:not(:last-child), .p-buttonset .p-button:not(:last-child):hover {
     border-right: 0 none;
 }
 
