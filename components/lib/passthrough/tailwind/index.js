@@ -551,9 +551,9 @@ export default {
         content: {
             class: ['p-5 pt-0 h-full w-full', 'grow overflow-y-auto']
         },
-        mask: {
-            class: ['flex pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors']
-        },
+        mask: ({ props }) => ({
+            class: ['flex pointer-events-auto', 'transition duration-200 z-20 transition-colors', { 'bg-black/40': props.modal }]
+        }),
         transition: ({ props }) => {
             return props.position === 'top'
                 ? {
