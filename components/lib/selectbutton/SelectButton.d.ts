@@ -93,6 +93,10 @@ export interface SelectButtonContext {
      * @defaultValue false
      */
     focused: boolean;
+    /**
+     * Available option.
+     */
+    option: any;
 }
 
 /**
