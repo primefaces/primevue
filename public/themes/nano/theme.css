@@ -4382,6 +4382,10 @@
   border-bottom-right-radius: 1px;
   border-bottom-left-radius: 1px;
 }
+.p-fileupload .p-fileupload-content.p-fileupload-highlight {
+  border: 1px dashed #1174c0;
+  background-color: #44A1D9;
+}
 .p-fileupload .p-fileupload-file {
   padding: 1rem;
   border: 1px solid #dee2e6;
