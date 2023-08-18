@@ -427,14 +427,17 @@ export default {
         closeButtonIcon: {
             class: 'w-4 h-4 inline-block'
         },
-        content: ({ state }) => ({
+        content: ({ state, instance }) => ({
             class: [
                 'overflow-y-auto',
                 'bg-white text-gray-700 px-6 pb-8 pt-0',
-                'rounded-bl-lg rounded-br-lg',
-                'dark:bg-gray-900  dark:text-white/80 ',
+                ,
+                'dark:bg-gray-900  dark:text-white/80',
                 {
                     grow: state.maximized
+                },
+                {
+                    'rounded-bl-lg rounded-br-lg': !instance.$slots.footer
                 }
             ]
         }),
