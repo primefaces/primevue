@@ -106,7 +106,7 @@ export default {
             this.activeIndex = this.activeIndex === this.images.length - 1 ? 0 : this.activeIndex + 1;
         },
         prev() {
-            this.activeIndex = this.activeIndex === 0 ? 0 : this.images.length - 1;
+            this.activeIndex = this.activeIndex === 0 ? this.images.length - 1 : this.activeIndex - 1;
         }
     }
 };
@@ -158,7 +158,7 @@ const next = () => {
     activeIndex.value = activeIndex.value === images.value.length - 1 ? 0 : activeIndex.value + 1;
 };
 const prev = () => {
-    activeIndex.value = activeIndex.value === 0 ? 0 : images.value.length - 1;
+    activeIndex.value = activeIndex.value === 0 ? images.value.length - 1 : activeIndex.value - 1;
 };
 <\/script>`,
                 data: `
@@ -182,7 +182,7 @@ const prev = () => {
             this.activeIndex = this.activeIndex === this.images.length - 1 ? 0 : this.activeIndex + 1;
         },
         prev() {
-            this.activeIndex = this.activeIndex === 0 ? 0 : this.images.length - 1;
+            this.activeIndex = this.activeIndex === 0 ? this.images.length - 1 : this.activeIndex - 1;
         }
     }
 };
