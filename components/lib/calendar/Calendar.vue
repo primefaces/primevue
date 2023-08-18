@@ -1416,7 +1416,7 @@ export default {
         },
         incrementHour(event) {
             let prevHour = this.currentHour;
-            let newHour = this.currentHour + this.stepHour;
+            let newHour = this.currentHour + Number(this.stepHour);
             let newPM = this.pm;
 
             if (this.hourFormat == '24') newHour = newHour >= 24 ? newHour - 24 : newHour;
@@ -1458,7 +1458,7 @@ export default {
             event.preventDefault();
         },
         incrementMinute(event) {
-            let newMinute = this.currentMinute + this.stepMinute;
+            let newMinute = this.currentMinute + Number(this.stepMinute);
 
             if (this.validateTime(this.currentHour, newMinute, this.currentSecond, this.pm)) {
                 this.currentMinute = newMinute > 59 ? newMinute - 60 : newMinute;
@@ -1478,7 +1478,7 @@ export default {
             event.preventDefault();
         },
         incrementSecond(event) {
-            let newSecond = this.currentSecond + this.stepSecond;
+            let newSecond = this.currentSecond + Number(this.stepSecond);
 
             if (this.validateTime(this.currentHour, this.currentMinute, newSecond, this.pm)) {
                 this.currentSecond = newSecond > 59 ? newSecond - 60 : newSecond;
