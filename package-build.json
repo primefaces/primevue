@@ -13,12 +13,17 @@
     "keywords": [
         "primevue",
         "vue",
-        "ui framework",
-        "component framework",
+        "vue.js",
+        "vue2",
+        "vue3",
         "ui library",
         "component library",
         "material",
-        "bootstrap"
+        "bootstrap",
+        "fluent",
+        "tailwind",
+        "unstyled",
+        "passthrough"
     ],
     "web-types": "./web-types.json",
     "vetur": {
