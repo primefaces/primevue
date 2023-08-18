@@ -110,6 +110,7 @@ export default {
         sort() {
             if (this.value) {
                 const value = [...this.value];
+                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
 
                 value.sort((data1, data2) => {
                     let value1 = ObjectUtils.resolveFieldData(data1, this.sortField);
@@ -119,7 +120,7 @@ export default {
                     if (value1 == null && value2 != null) result = -1;
                     else if (value1 != null && value2 == null) result = 1;
                     else if (value1 == null && value2 == null) result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = new Intl.Collator(undefined, { numeric: true }).compare(value1, value2);
+                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                     else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                     return this.sortOrder * result;
