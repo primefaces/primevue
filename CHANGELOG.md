@@ -1,5 +1,41 @@
 # Changelog
 
+## [3.32.1](https://github.com/primefaces/primevue/tree/3.32.1) (2023-08-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.32.0...3.32.1)
+
+**Implemented New Features and Enhancements:**
+
+-   Improve `usePassThrough` method [\#4289](https://github.com/primefaces/primevue/issues/4289)
+-   SelectButton: passthrough option [\#4286](https://github.com/primefaces/primevue/issues/4286)
+-   Locale performance updates with large datasets [\#4285](https://github.com/primefaces/primevue/issues/4285)
+-   Baseicon: Content Security Policy \(CSP\) violation [\#4271](https://github.com/primefaces/primevue/issues/4271)
+-   FileUpload: Class .p-fileupload-highlight is missing [\#4129](https://github.com/primefaces/primevue/issues/4129)
+-   DataTable: Slow filter and sort performance with large datasets [\#4007](https://github.com/primefaces/primevue/issues/4007)
+-   Dropdown: Show Clear Keyboard Binding [\#3834](https://github.com/primefaces/primevue/issues/3834)
+
+**Fixed bugs:**
+
+-   Sidebar: using unstyled mode and Tailwind theme, the :modal="false" doesn't work. Can't disable the modal layer. [\#4288](https://github.com/primefaces/primevue/issues/4288)
+-   Unstyled Mode: Tailwind - only refers to a type [\#4280](https://github.com/primefaces/primevue/issues/4280)
+-   Disabled prop on Password component not working [\#4279](https://github.com/primefaces/primevue/issues/4279)
+-   usePassThrough: Components with function as their value doesn't seem to work properly [\#4278](https://github.com/primefaces/primevue/issues/4278)
+-   DataTable in expand mode resizing problem [\#4277](https://github.com/primefaces/primevue/issues/4277)
+-   Slot function options .d.ts typing fixes [\#4274](https://github.com/primefaces/primevue/issues/4274)
+-   Sidebar: Tailwind transitions do not work for all positions [\#4272](https://github.com/primefaces/primevue/issues/4272)
+-   Datatable: Menu Filter Icon Click Causes Column to Sort [\#4268](https://github.com/primefaces/primevue/issues/4268)
+-   Button: iconClass is not assigned when component is unstyled [\#4265](https://github.com/primefaces/primevue/issues/4265)
+-   Dropdown: Invalid slot typings [\#4263](https://github.com/primefaces/primevue/issues/4263)
+-   Unexpected behavior of the ConfirmDialog component during dragging process [\#4251](https://github.com/primefaces/primevue/issues/4251)
+-   ColorPicker: baseZIndex is unused [\#4228](https://github.com/primefaces/primevue/issues/4228)
+-   Calendar: increment minute [\#4207](https://github.com/primefaces/primevue/issues/4207)
+-   Message: Icon shrinks when text in message wraps to new lines. [\#3966](https://github.com/primefaces/primevue/issues/3966)
+-   Dialog, Sidebar: Not working if v-model:visible is changed quickly [\#3940](https://github.com/primefaces/primevue/issues/3940)
+-   DataTable: Grouping with Pagination is Broken [\#3896](https://github.com/primefaces/primevue/issues/3896)
+-   rowGroup feature is not working with paginator in PrimeVue's DataTable [\#3858](https://github.com/primefaces/primevue/issues/3858)
+-   Image: want set preview to fullscreen [\#2947](https://github.com/primefaces/primevue/issues/2947)
+-   Buttongroup with outlined buttons [\#2238](https://github.com/primefaces/primevue/issues/2238)
+
 ## [3.32.0](https://github.com/primefaces/primevue/tree/3.32.0) (2023-08-11)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.31.0...3.32.0)
