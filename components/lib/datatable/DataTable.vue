@@ -516,16 +516,15 @@ export default {
             }
 
             let data = [...value];
-
-            let lookupMap = new Map();
+            let resolvedFieldDatas = new Map();
 
             for (let item of data) {
-                lookupMap.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
+                resolvedFieldDatas.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
             }
 
             data.sort((data1, data2) => {
-                let value1 = lookupMap.get(data1);
-                let value2 = lookupMap.get(data2);
+                let value1 = resolvedFieldDatas.get(data1);
+                let value2 = resolvedFieldDatas.get(data2);
 
                 let result = null;
 
@@ -608,7 +607,6 @@ export default {
             };
 
             const filterValidEntries = (entry) => entry !== undefined;
-
             const entries = Object.entries(filters).map(removeEmptyFilters).filter(filterValidEntries);
 
             return Object.fromEntries(entries);
@@ -618,10 +616,9 @@ export default {
                 return;
             }
 
-            let activeFilters = this.getActiveFilters(this.filters);
-
             this.clearEditingMetaData();
 
+            let activeFilters = this.getActiveFilters(this.filters);
             let globalFilterFieldsArray;
 
             if (activeFilters['global']) {
