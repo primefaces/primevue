@@ -339,6 +339,9 @@ export default {
                     this.onArrowLeftKey(event, this.editable);
                     break;
 
+                case 'Delete':
+                    this.onDeleteKey(event);
+
                 case 'Home':
                     this.onHomeKey(event, this.editable);
                     break;
@@ -505,6 +508,12 @@ export default {
 
                 default:
                     break;
+            }
+        },
+        onDeleteKey(event) {
+            if (this.showClear) {
+                this.updateModel(event, null);
+                event.preventDefault();
             }
         },
         onArrowDownKey(event) {
