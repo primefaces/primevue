@@ -920,7 +920,7 @@ export default {
             event.preventDefault();
         },
         onSpaceKey(event, rowData, rowIndex, slotProps) {
-            this.onEnterKey(event, rowData, rowIndex);
+            this.onRowClick({ originalEvent: event, data: rowData, index: rowIndex });
 
             if (event.shiftKey && this.selection !== null) {
                 const data = this.dataToRender(slotProps.rows);
