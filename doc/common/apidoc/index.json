@@ -26983,7 +26983,14 @@
                         },
                         {
                             "name": "filtericon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the filter icon\n  }",
+                                    "description": "filter icon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom filter icon template."
                         }
