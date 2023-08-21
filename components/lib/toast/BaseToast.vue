@@ -5,6 +5,7 @@ import { useStyle } from 'primevue/usestyle';
 const styles = `
 .p-toast {
     width: 25rem;
+    overflow-wrap:anywhere;
 }
 
 .p-toast-message-content {
