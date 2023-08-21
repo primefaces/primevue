@@ -266,7 +266,7 @@ export default {
         },
         onDragOver(event) {
             if (!this.disabled) {
-                DomHandler.addClass(this.$refs.content, 'p-fileupload-highlight');
+                !this.isUnstyled && (this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', true);
                 event.stopPropagation();
                 event.preventDefault();
@@ -274,13 +274,13 @@ export default {
         },
         onDragLeave() {
             if (!this.disabled) {
-                DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
+                !this.isUnstyled && DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', false);
             }
         },
         onDrop(event) {
             if (!this.disabled) {
-                DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
+                !this.isUnstyled && DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', false);
                 event.stopPropagation();
                 event.preventDefault();
