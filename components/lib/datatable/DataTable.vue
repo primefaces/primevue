@@ -522,8 +522,9 @@ export default {
                 resolvedFieldDatas.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
             }
 
+            const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+
             data.sort((data1, data2) => {
-                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
                 let value1 = resolvedFieldDatas.get(data1);
                 let value2 = resolvedFieldDatas.get(data2);
 
