@@ -435,8 +435,14 @@ export interface ListboxSlots {
     }): VNode[];
     /**
      * Custom filter icon template.
+     * @param {Object} scope - filter icon slot's params.
      */
-    filtericon(): VNode[];
+    filtericon(scope: {
+        /**
+         * Style class of the filter icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**
