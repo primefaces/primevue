@@ -336,7 +336,7 @@ export default {
                         }
 
                         if (topPos >= this.minY && topPos + height < viewport.height) {
-                            this.lastPageY = event.pageY;              
+                            this.lastPageY = event.pageY;
                             this.container.style.top = topPos - marginTop + 'px';
                         }
                     } else {
@@ -373,7 +373,7 @@ export default {
                 window.document.removeEventListener('mouseup', this.documentDragEndListener);
                 this.documentDragEndListener = null;
             }
-        },
+        }
     },
     computed: {
         maximizeIconComponent() {
