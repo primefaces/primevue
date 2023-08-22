@@ -6,6 +6,8 @@
         v-else
         :style="containerStyle"
         :class="containerClass"
+        :colspan="columnProp('colspan')"
+        :rowspan="columnProp('rowspan')"
         @click="onClick"
         @keydown="onKeyDown"
         role="cell"
