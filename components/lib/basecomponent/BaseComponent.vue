@@ -552,7 +552,7 @@ export default {
             return this._getPT(this.$config?.pt, undefined, (value) => ObjectUtils.getItemValue(value, { instance: this }));
         },
         defaultPT() {
-            return this._getPT(this.$config?.pt, undefined, (value) => this._getOptionValue(value, this.$name, { instance: this }) || ObjectUtils.getItemValue(value, { instance: this }));
+            return this._getPT(this.$config?.pt, undefined, (value) => this._getOptionValue(value, this.$name, { ...this.$params }) || ObjectUtils.getItemValue(value, { ...this.$params }));
         },
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$config.unstyled;
