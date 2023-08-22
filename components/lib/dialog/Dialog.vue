@@ -338,6 +338,7 @@ export default {
                         if (topPos >= this.minY && topPos + height < viewport.height) {
                             this.lastPageY = event.pageY;              
                             this.container.style.top = topPos - marginTop + 'px';
+                        }
                     } else {
                         this.lastPageX = event.pageX;
                         this.container.style.left = leftPos - marginLeft + 'px';
