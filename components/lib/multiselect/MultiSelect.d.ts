@@ -9,7 +9,7 @@
  */
 import { ButtonHTMLAttributes, HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;
@@ -510,7 +510,7 @@ export interface MultiSelectProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {MultiSelectPassThroughOptions}
      */
-    pt?: MultiSelectPassThroughOptions;
+    pt?: PTOptions<MultiSelectPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -632,13 +632,13 @@ export interface MultiSelectSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
          * @return {VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
     }): VNode[];
     /**
      * Custom loader template.
@@ -652,6 +652,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom remove token icon template.
+     * @param {Object} scope - removetokenicon slot's params.
      */
     removetokenicon(scope: {
         /**
@@ -659,9 +660,15 @@ export interface MultiSelectSlots {
          */
         class: string;
         /**
-         * Remove token icon function.
+         * Item of the token.
          */
-        onClick: void;
+        item: any;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         * @param {any} item - Item
+         */
+        onClick: (event: Event, item: any) => void;
     }): VNode[];
     /**
      * Custom header checkbox icon template.
@@ -679,6 +686,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom filter icon template.
+     * @param {Object} scope - filtericon slot's params.
      */
     filtericon(scope: {
         /**
@@ -688,6 +696,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - closeicon slot's params.
      */
     closeicon(scope: {
         /**
@@ -697,7 +706,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom item checkbox icon template.
-     * @param {Object} scope - header checkbox icon slot's params.
+     * @param {Object} scope - itemcheckboxicon slot's params.
      */
     itemcheckboxicon(scope: {
         /**
@@ -721,6 +730,7 @@ export interface MultiSelectSlots {
     }): VNode[];
     /**
      * Custom dropdown icon template.
+     * @param {Object} scope - dropdownicon slot's params.
      */
     dropdownicon(scope: {
         /**

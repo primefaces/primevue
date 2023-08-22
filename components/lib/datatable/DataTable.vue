@@ -466,7 +466,8 @@ export default {
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'headercontent' ||
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
-                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon'
+                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
+                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="filtermenubutton"]'))
                 ) {
                     DomHandler.clearSelection();
 
@@ -515,17 +516,24 @@ export default {
             }
 
             let data = [...value];
+            let resolvedFieldDatas = new Map();
+
+            for (let item of data) {
+                resolvedFieldDatas.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
+            }
+
+            const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
 
             data.sort((data1, data2) => {
-                let value1 = ObjectUtils.resolveFieldData(data1, this.d_sortField);
-                let value2 = ObjectUtils.resolveFieldData(data2, this.d_sortField);
+                let value1 = resolvedFieldDatas.get(data1);
+                let value2 = resolvedFieldDatas.get(data2);
 
                 let result = null;
 
                 if (value1 == null && value2 != null) result = -1;
                 else if (value1 != null && value2 == null) result = 1;
                 else if (value1 == null && value2 == null) result = 0;
-                else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                 else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                 return this.d_sortOrder * result;
@@ -561,7 +569,9 @@ export default {
 
             if (typeof value1 === 'string' || value1 instanceof String) {
                 if (value1.localeCompare && value1 !== value2) {
-                    return this.d_multiSortMeta[index].order * value1.localeCompare(value2, undefined, { numeric: true });
+                    const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+
+                    return this.d_multiSortMeta[index].order * comparer(value1, value2);
                 }
             } else {
                 result = value1 < value2 ? -1 : 1;
@@ -585,6 +595,26 @@ export default {
 
             this.d_multiSortMeta = [...this.d_multiSortMeta];
         },
+        getActiveFilters(filters) {
+            const removeEmptyFilters = ([key, value]) => {
+                if (value.constraints) {
+                    const filteredConstraints = value.constraints.filter((constraint) => constraint.value !== null);
+
+                    if (filteredConstraints.length > 0) {
+                        return [key, { ...value, constraints: filteredConstraints }];
+                    }
+                } else if (value.value !== null) {
+                    return [key, value];
+                }
+
+                return undefined;
+            };
+
+            const filterValidEntries = (entry) => entry !== undefined;
+            const entries = Object.entries(filters).map(removeEmptyFilters).filter(filterValidEntries);
+
+            return Object.fromEntries(entries);
+        },
         filter(data) {
             if (!data) {
                 return;
@@ -592,9 +622,10 @@ export default {
 
             this.clearEditingMetaData();
 
+            let activeFilters = this.getActiveFilters(this.filters);
             let globalFilterFieldsArray;
 
-            if (this.filters['global']) {
+            if (activeFilters['global']) {
                 globalFilterFieldsArray = this.globalFilterFields || this.columns.map((col) => this.columnProp(col, 'filterField') || this.columnProp(col, 'field'));
             }
 
@@ -605,11 +636,11 @@ export default {
                 let globalMatch = false;
                 let localFiltered = false;
 
-                for (let prop in this.filters) {
-                    if (Object.prototype.hasOwnProperty.call(this.filters, prop) && prop !== 'global') {
+                for (let prop in activeFilters) {
+                    if (Object.prototype.hasOwnProperty.call(activeFilters, prop) && prop !== 'global') {
                         localFiltered = true;
                         let filterField = prop;
-                        let filterMeta = this.filters[filterField];
+                        let filterMeta = activeFilters[filterField];
 
                         if (filterMeta.operator) {
                             for (let filterConstraint of filterMeta.constraints) {
@@ -629,11 +660,11 @@ export default {
                     }
                 }
 
-                if (this.filters['global'] && !globalMatch && globalFilterFieldsArray) {
+                if (localMatch && activeFilters['global'] && !globalMatch && globalFilterFieldsArray) {
                     for (let j = 0; j < globalFilterFieldsArray.length; j++) {
                         let globalFilterField = globalFilterFieldsArray[j];
 
-                        globalMatch = FilterService.filters[this.filters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), this.filters['global'].value, this.filterLocale);
+                        globalMatch = FilterService.filters[activeFilters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), activeFilters['global'].value, this.filterLocale);
 
                         if (globalMatch) {
                             break;
@@ -643,7 +674,7 @@ export default {
 
                 let matches;
 
-                if (this.filters['global']) {
+                if (activeFilters['global']) {
                     matches = localFiltered ? localFiltered && localMatch && globalMatch : globalMatch;
                 } else {
                     matches = localFiltered && localMatch;
@@ -654,7 +685,7 @@ export default {
                 }
             }
 
-            if (filteredValue.length === this.value.length) {
+            if (filteredValue.length === this.value.length || Object.keys(activeFilters).length == 0) {
                 filteredValue = data;
             }
 
@@ -1228,6 +1259,8 @@ export default {
                         !!el && (el.style.width = el.style.minWidth = tableWidth);
                     };
 
+                    // Reasoning: resize table cells before updating the table width so that it can use existing computed cell widths and adjust only the one column.
+                    this.resizeTableCells(newColumnWidth);
                     updateTableWidth(this.$refs.table);
 
                     if (!this.virtualScrollerDisabled) {
@@ -1237,8 +1270,6 @@ export default {
                         updateTableWidth(body);
                         updateTableWidth(frozenBody);
                     }
-
-                    this.resizeTableCells(newColumnWidth);
                 }
 
                 this.$emit('column-resize-end', {
@@ -1851,12 +1882,14 @@ export default {
         createStyleElement() {
             this.styleElement = document.createElement('style');
             this.styleElement.type = 'text/css';
+            DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
             document.head.appendChild(this.styleElement);
         },
         createResponsiveStyle() {
             if (!this.responsiveStyleElement) {
                 this.responsiveStyleElement = document.createElement('style');
                 this.responsiveStyleElement.type = 'text/css';
+                DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.responsiveStyleElement);
 
                 let tableSelector = `.p-datatable-wrapper ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;

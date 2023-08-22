@@ -8,7 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ProgressSpinnerPassThroughOptionType = ProgressSpinnerPassThroughAttributes | ((options: ProgressSpinnerPassThroughMethodOptions) => ProgressSpinnerPassThroughAttributes | string) | string | null | undefined;
 
@@ -73,7 +73,7 @@ export interface ProgressSpinnerProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ProgressSpinnerPassThroughOptions}
      */
-    pt?: ProgressSpinnerPassThroughOptions;
+    pt?: PTOptions<ProgressSpinnerPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

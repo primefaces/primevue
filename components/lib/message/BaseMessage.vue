@@ -8,10 +8,15 @@ const styles = `
     align-items: center;
 }
 
+.p-message-icon {
+    flex-shrink: 0;
+}
+
 .p-message-close {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0; 
 }
 
 .p-message-close.p-link {

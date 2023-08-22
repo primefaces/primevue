@@ -56,7 +56,7 @@ export default {
         };
     },
     mounted() {
-        this.tab = this.$route.hash.includes('api') ? 1 : this.$route.hash.includes('pt') ? 3 : 0;
+        this.tab = this.$route.hash.includes('api') ? 1 : this.$route.hash.includes('theming') ? 2 : this.$route.hash.includes('pt') ? 3 : 0;
     }
 };
 </script>

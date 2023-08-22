@@ -21,10 +21,8 @@ export default {
                 { name: 'Paris', code: 'PRS' }
             ],
             code: {
-                basic: `
-<Dropdown v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />`,
-                options: `
-<template>
+                basic: `<Dropdown v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Dropdown v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
     </div>
@@ -46,8 +44,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Dropdown v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
     </div>

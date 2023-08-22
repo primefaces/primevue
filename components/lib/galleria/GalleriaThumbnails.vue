@@ -10,6 +10,7 @@
                 :aria-label="ariaPrevButtonLabel"
                 @click="navBackward($event)"
                 v-bind="{ ...prevButtonProps, ...ptm('previousThumbnailButton') }"
+                data-pc-group-section="thumbnailnavigator"
             >
                 <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('previousThumbnailIcon')" v-bind="ptm('previousThumbnailIcon')" />
             </button>
@@ -52,6 +53,7 @@
                 :aria-label="ariaNextButtonLabel"
                 @click="navForward($event)"
                 v-bind="{ ...nextButtonProps, ...ptm('nextThumbnailButton') }"
+                data-pc-group-section="thumbnailnavigator"
             >
                 <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" :class="cx('nextThumbnailIcon')" v-bind="ptm('nextThumbnailIcon')" />
             </button>
@@ -424,6 +426,7 @@ export default {
             if (!this.thumbnailsStyle) {
                 this.thumbnailsStyle = document.createElement('style');
                 this.thumbnailsStyle.type = 'text/css';
+                DomHandler.setAttribute(this.thumbnailsStyle, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.body.appendChild(this.thumbnailsStyle);
             }
 
@@ -435,6 +438,8 @@ export default {
 
             if (this.responsiveOptions && !this.isUnstyled) {
                 this.sortedResponsiveOptions = [...this.responsiveOptions];
+                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+
                 this.sortedResponsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;
                     const value2 = data2.breakpoint;
@@ -443,7 +448,7 @@ export default {
                     if (value1 == null && value2 != null) result = -1;
                     else if (value1 != null && value2 == null) result = 1;
                     else if (value1 == null && value2 == null) result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                     else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                     return -1 * result;

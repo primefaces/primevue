@@ -19,15 +19,13 @@ export default {
         return {
             date: null,
             code: {
-                basic: `
-<Calendar v-model="date">
+                basic: `<Calendar v-model="date">
     <template #date="slotProps">
         <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>
         <template v-else>{{ slotProps.date.day }}</template>
     </template>
 </Calendar>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="date">
             <template #date="slotProps">
@@ -47,8 +45,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="date">
             <template #date="slotProps">

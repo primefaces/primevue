@@ -80,7 +80,7 @@
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                         v-bind="ptm('previousButton')"
                                     >
-                                        <slot name="previousicon">
+                                        <slot name="previousicon" :class="cx('previousIcon')">
                                             <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[cx('previousIcon'), previousIcon]" v-bind="ptm('previousIcon')" />
                                         </slot>
                                     </button>
@@ -125,7 +125,7 @@
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.nextDecade : currentView === 'month' ? $primevue.config.locale.nextYear : $primevue.config.locale.nextMonth"
                                         v-bind="ptm('nextButton')"
                                     >
-                                        <slot name="nexticon">
+                                        <slot name="nexticon" :class="cx('nextIcon')">
                                             <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="[cx('nextIcon'), nextIcon]" v-bind="ptm('nextIcon')" />
                                         </slot>
                                     </button>
@@ -392,13 +392,13 @@
                         </div>
                         <div v-if="hourFormat == '12'" :class="cx('ampmPicker')" v-bind="ptm('ampmPicker')">
                             <button v-ripple :class="cx('incrementButton')" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
-                                <slot name="incrementicon">
+                                <slot name="incrementicon" :class="cx('incrementIcon')">
                                     <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="cx('incrementIcon')" v-bind="ptm('incrementIcon')" />
                                 </slot>
                             </button>
                             <span v-bind="ptm('ampm')">{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
                             <button v-ripple :class="cx('decrementButton')" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
-                                <slot name="decrementicon">
+                                <slot name="decrementicon" :class="cx('decrementIcon')">
                                     <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="cx('decrementIcon')" v-bind="ptm('decrementIcon')" />
                                 </slot>
                             </button>
@@ -1416,7 +1416,7 @@ export default {
         },
         incrementHour(event) {
             let prevHour = this.currentHour;
-            let newHour = this.currentHour + this.stepHour;
+            let newHour = this.currentHour + Number(this.stepHour);
             let newPM = this.pm;
 
             if (this.hourFormat == '24') newHour = newHour >= 24 ? newHour - 24 : newHour;
@@ -1458,7 +1458,7 @@ export default {
             event.preventDefault();
         },
         incrementMinute(event) {
-            let newMinute = this.currentMinute + this.stepMinute;
+            let newMinute = this.currentMinute + Number(this.stepMinute);
 
             if (this.validateTime(this.currentHour, newMinute, this.currentSecond, this.pm)) {
                 this.currentMinute = newMinute > 59 ? newMinute - 60 : newMinute;
@@ -1478,7 +1478,7 @@ export default {
             event.preventDefault();
         },
         incrementSecond(event) {
-            let newSecond = this.currentSecond + this.stepSecond;
+            let newSecond = this.currentSecond + Number(this.stepSecond);
 
             if (this.validateTime(this.currentHour, this.currentMinute, newSecond, this.pm)) {
                 this.currentSecond = newSecond > 59 ? newSecond - 60 : newSecond;
@@ -2582,13 +2582,15 @@ export default {
                 if (!this.responsiveStyleElement) {
                     this.responsiveStyleElement = document.createElement('style');
                     this.responsiveStyleElement.type = 'text/css';
+                    DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                     document.body.appendChild(this.responsiveStyleElement);
                 }
 
                 let innerHTML = '';
 
                 if (this.responsiveOptions) {
-                    let responsiveOptions = [...this.responsiveOptions].filter((o) => !!(o.breakpoint && o.numMonths)).sort((o1, o2) => -1 * o1.breakpoint.localeCompare(o2.breakpoint, undefined, { numeric: true }));
+                    const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
+                    let responsiveOptions = [...this.responsiveOptions].filter((o) => !!(o.breakpoint && o.numMonths)).sort((o1, o2) => -1 * comparer(o1.breakpoint, o2.breakpoint));
 
                     for (let i = 0; i < responsiveOptions.length; i++) {
                         let { breakpoint, numMonths } = responsiveOptions[i];

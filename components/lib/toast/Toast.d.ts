@@ -9,7 +9,7 @@
  */
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes | string) | string | null | undefined;
 
@@ -228,7 +228,7 @@ export interface ToastProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ToastPassThroughOptions}
      */
-    pt?: ToastPassThroughOptions;
+    pt?: PTOptions<ToastPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

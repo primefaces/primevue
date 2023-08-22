@@ -78,8 +78,7 @@ export default {
                 ]
             },
             code: {
-                basic: `
-<OrganizationChart :value="data" collapsible>
+                basic: `<OrganizationChart :value="data" collapsible>
     <template #person="slotProps">
         <div class="flex flex-column">
             <div class="flex flex-column align-items-center">
@@ -93,8 +92,7 @@ export default {
         <span>{{ slotProps.node.label }}</span>
     </template>
 </OrganizationChart>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card overflow-x-auto">
         <OrganizationChart :value="data" collapsible>
             <template #person="slotProps">
@@ -173,8 +171,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card overflow-x-auto">
         <OrganizationChart :value="data" collapsible>
             <template #person="slotProps">

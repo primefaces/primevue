@@ -46,8 +46,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ScrollPanel style="width: 100%; height: 200px" class="custombar1">
+                basic: `<ScrollPanel style="width: 100%; height: 200px" class="custombar1">
     <p>
         Lorem ipsum dolor ..
     </p>
@@ -58,8 +57,7 @@ export default {
         Lorem ipsum dolor ..
     </p>
 </ScrollPanel>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div class="flex flex-column md:flex-row gap-5">
             <div class="flex-auto">
@@ -128,8 +126,7 @@ export default {
     transition: background-color 0.3s;
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div class="flex flex-column md:flex-row gap-5">
             <div class="flex-auto">

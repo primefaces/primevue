@@ -59,16 +59,14 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }"
+                basic: `<SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }"
     :pt="{
         action: ({ props, state, context }) => ({
             class: context.active ? 'bg-primary' : undefined
         })
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '300px' }">
             <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }"
@@ -128,8 +126,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <div :style="{ position: 'relative', height: '300px' }">
             <SpeedDial :model="items" direction="down" :style="{ left: 'calc(50% - 2rem)', top: 0 }"

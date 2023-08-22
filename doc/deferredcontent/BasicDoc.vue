@@ -17,12 +17,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<DeferredContent @load="onImageLoad">
+                basic: `<DeferredContent @load="onImageLoad">
     <img src="/images/nature/nature4.jpg" alt="Nature" />
 </DeferredContent>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Toast />
         <div style="height: 800px">Scroll down to lazy load an image.</div>
@@ -42,8 +40,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Toast />
         <div style="height: 800px">Scroll down to lazy load an image.</div>

@@ -14,12 +14,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Panel header="Header" :pt="panelPT">
+                basic: `<Panel header="Header" :pt="panelPT">
     Content
 </Panel>`,
-                options: `
-<template>
+                options: `<template>
     <Panel header="Header" :pt="panelPT">
         Content
     </Panel>
@@ -43,8 +41,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <Panel header="Header" :pt="panelPT">
         Content
     </Panel>

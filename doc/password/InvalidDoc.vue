@@ -14,10 +14,8 @@ export default {
         return {
             value: null,
             code: {
-                basic: `
-<Password class="p-invalid" />`,
-                options: `
-<template>
+                basic: `<Password class="p-invalid" />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Password class="p-invalid" />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Password class="p-invalid" />
     </div>

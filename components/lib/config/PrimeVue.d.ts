@@ -92,7 +92,7 @@ import { TreePassThroughOptions } from '../tree';
 import { TreeSelectPassThroughOptions } from '../treeselect';
 import { TreeTablePassThroughOptions } from '../treetable';
 import { TriStateCheckboxPassThroughOptions } from '../tristatecheckbox';
-import { DefaultPTOptions } from '../ts-helpers';
+import { DefaultPTOptions, PTOptions } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
 export interface PrimeVueConfiguration {
@@ -101,8 +101,9 @@ export interface PrimeVueConfiguration {
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
-    pt?: PrimeVuePTOptions;
+    pt?: PTOptions<PrimeVuePTOptions>;
     unstyled?: boolean;
+    csp?: PrimeVueCSPOptions;
 }
 
 export interface PrimeVueZIndexOptions {
@@ -110,6 +111,10 @@ export interface PrimeVueZIndexOptions {
     overlay?: number;
     menu?: number;
     tooltip?: number;
+}
+
+export interface PrimeVueCSPOptions {
+    nonce?: string;
 }
 
 export interface PrimeVuePTOptions {

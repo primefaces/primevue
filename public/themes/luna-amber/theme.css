@@ -2352,8 +2352,15 @@
   font-size: 1.25rem;
   padding: 0.53625rem 1.25rem;
 }
+.p-splitbutton.p-button-lg > .p-button.p-button-icon-only {
+  width: auto;
+}
 .p-splitbutton.p-button-lg > .p-button .p-button-icon {
   font-size: 1.25rem;
+}
+.p-splitbutton.p-button-lg > .p-button .p-icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .p-splitbutton.p-button-secondary.p-button-outlined > .p-button {
@@ -4361,6 +4368,10 @@
   color: #dedede;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+.p-fileupload .p-fileupload-content.p-fileupload-highlight {
+  border: 1px dashed #FFE082;
+  background-color: #FFE082;
 }
 .p-fileupload .p-fileupload-file {
   padding: 1rem;

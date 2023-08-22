@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MessagePassThroughOptions } from '../message';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes | string) | string | null | undefined;
 
@@ -413,7 +413,7 @@ export interface FileUploadProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {FileUploadPassThroughOptions}
      */
-    pt?: FileUploadPassThroughOptions;
+    pt?: PTOptions<FileUploadPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -427,6 +427,7 @@ export interface FileUploadProps {
 export interface FileUploadSlots {
     /**
      * Custom header content template.
+     * @param {Object} scope - header slot's params.
      */
     header(scope: {
         /**
@@ -440,18 +441,19 @@ export interface FileUploadSlots {
         /**
          * Choose function
          */
-        chooseCallback(): void;
+        chooseCallback: () => void;
         /**
          * Upload function
          */
-        uploadCallback(): void;
+        uploadCallback: () => void;
         /**
          *  Clear function
          */
-        clearCallback(): void;
+        clearCallback: () => void;
     }): VNode[];
     /**
      * Custom uploaded content template.
+     * @param {Object} scope - content slot's params.
      */
     content(scope: {
         /**
@@ -464,12 +466,14 @@ export interface FileUploadSlots {
         uploadedFiles: File[];
         /**
          * Function to remove an uploaded file.
+         * @param {number} index - Index of the uploaded file
          */
-        removeUploadedFileCallback(index: number): void;
+        removeUploadedFileCallback: (index: number) => void;
         /**
          * Function to remove a file.
+         * @param {number} index - Index of the removed file
          */
-        removeFileCallback(index: number): void;
+        removeFileCallback: (index: number) => void;
         /**
          *  Uploaded progress as number.
          */
@@ -497,6 +501,7 @@ export interface FileUploadSlots {
     cancelicon(): VNode[];
     /**
      * Custom remove icon template for each file.
+     * @param {Object} scope - fileremoveicon slot's params.
      */
     fileremoveicon(scope: {
         /**

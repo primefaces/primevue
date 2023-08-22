@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes | string) | string | null | undefined;
 
@@ -178,7 +178,7 @@ export interface RatingProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {RatingPassThroughOptions}
      */
-    pt?: RatingPassThroughOptions;
+    pt?: PTOptions<RatingPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -192,6 +192,7 @@ export interface RatingProps {
 export interface RatingSlots {
     /**
      * Custom cancel icon template.
+     * @param {Object} scope - cancelicon slot's params.
      */
     cancelicon(scope: {
         /**

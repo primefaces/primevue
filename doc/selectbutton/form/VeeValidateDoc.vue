@@ -43,8 +43,7 @@ export default {
         return {
             options: ['Off', 'On'],
             code: {
-                basic: `
-<div class="card flex justify-content-center">
+                basic: `<div class="card flex justify-content-center">
     <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
         <label for="item" :class="['flex justify-content-center', { 'p-error': errorMessage }]"> Engine State </label>
         <SelectButton id="item" v-model="value" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" :options="options" />
@@ -53,8 +52,7 @@ export default {
     </form>
     <Toast />
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="item" :class="['flex justify-content-center', { 'p-error': errorMessage }]"> Engine State </label>
@@ -99,8 +97,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="item" :class="['flex justify-content-center', { 'p-error': errorMessage }]"> Engine State </label>

@@ -57,8 +57,7 @@ export default {
         return {
             products: null,
             code: {
-                basic: `
-<DataTable
+                basic: `<DataTable
     :value="products"
     sortMode="multiple"
     :pt="{
@@ -102,8 +101,7 @@ export default {
         }"
     />
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <DataTable
             :value="products"
@@ -166,8 +164,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataTable
             :value="products"

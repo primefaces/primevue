@@ -32,14 +32,12 @@ export default {
 }`
             },
             code: {
-                basic: `
-<TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
+                basic: `<TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
 </TreeTable>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
             <Column field="name" header="Name" expander></Column>
@@ -64,8 +62,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <TreeTable v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox">
             <Column field="name" header="Name" expander></Column>

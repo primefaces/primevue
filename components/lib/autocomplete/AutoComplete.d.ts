@@ -10,7 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughAttributes | ((options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes | string) | string | null | undefined;
@@ -306,6 +306,11 @@ export interface AutoCompleteProps {
      */
     placeholder?: string | undefined;
     /**
+     * Whether the autocomplete is in loading state.
+     * @defaultValue false
+     */
+    loading?: boolean | undefined;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */
@@ -442,7 +447,7 @@ export interface AutoCompleteProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {AutoCompletePassThroughOptions}
      */
-    pt?: AutoCompletePassThroughOptions;
+    pt?: PTOptions<AutoCompletePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -558,13 +563,13 @@ export interface AutoCompleteSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
          * @return {VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
     }): VNode[];
     /**
      * Custom loader template.
@@ -598,14 +603,24 @@ export interface AutoCompleteSlots {
          */
         class: string;
         /**
-         * Remove token icon function.
+         * Index of the token.
          */
-        onClick: void;
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        onClick: (event: Event, index: number) => void;
     }): VNode[];
     /**
      * Custom loading icon template.
      */
-    loadingicon(): VNode[];
+    loadingicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**

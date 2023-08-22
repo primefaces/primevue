@@ -10,7 +10,7 @@
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { TabViewPassThroughOptions } from '../tabview';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -108,7 +108,7 @@ export interface TabPanelProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TabPanelPassThroughOptions}
      */
-    pt?: TabPanelPassThroughOptions;
+    pt?: PTOptions<TabPanelPassThroughOptions>;
 }
 
 /**

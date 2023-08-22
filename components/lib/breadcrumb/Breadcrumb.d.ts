@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttributes | ((options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes | string) | string | null | undefined;
 
@@ -117,7 +117,7 @@ export interface BreadcrumbProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {BreadcrumbPassThroughOptions}
      */
-    pt?: BreadcrumbPassThroughOptions;
+    pt?: PTOptions<BreadcrumbPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

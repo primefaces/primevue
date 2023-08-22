@@ -15,10 +15,8 @@ export default {
             chartData: null,
             chartOptions: null,
             code: {
-                basic: `
-<Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem"  />`,
-                options: `
-<template>
+                basic: `<Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem"  />`,
+                options: `<template>
     <div class="card">
         <Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem"  />
     </div>
@@ -102,8 +100,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Chart type="bar" :data="chartData" :options="chartOptions" class="h-30rem"  />
     </div>

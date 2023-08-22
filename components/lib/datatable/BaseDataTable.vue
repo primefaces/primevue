@@ -281,7 +281,7 @@ const classes = {
     thead: 'p-datatable-thead',
     // headercell
     headerCell: ({ instance, props, column }) =>
-        column && !instance.columnProp(column, 'hidden') && (props.rowGroupMode !== 'subheader' || props.groupRowsBy !== columnProp(column, 'field'))
+        column && !instance.columnProp(column, 'hidden') && (props.rowGroupMode !== 'subheader' || props.groupRowsBy !== instance.columnProp(column, 'field'))
             ? [
                   'p-filter-column',
                   {

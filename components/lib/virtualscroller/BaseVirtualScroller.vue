@@ -65,7 +65,7 @@ const styles = `
 }
 `;
 
-const { load: loadStyle } = useStyle(styles, { name: 'virtualscroller' });
+const { load: loadStyle } = useStyle(styles, { name: 'virtualscroller', manual: true });
 
 export default {
     name: 'BaseVirtualScroller',

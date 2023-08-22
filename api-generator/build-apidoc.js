@@ -380,9 +380,20 @@ if (project) {
 
                                                     type += ` \t <b>${childSinature.name}(${parameters})</b>: ${childSinature.type?.name}, // ${childSinature.comment?.summary[0]?.text}\n `;
                                                 } else {
-                                                    const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
+                                                    if (child.type?.declaration?.signatures) {
+                                                        let functionParameters = '';
 
-                                                    type += ` \t <b>${child.name}</b>: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                                        child.type?.declaration?.signatures[0]?.parameters.map((param, index) => {
+                                                            if (index !== 0) functionParameters += `, `;
+                                                            functionParameters += `${param.name}: ${param.type?.name}`;
+                                                        });
+
+                                                        type += `\t <b>${child.name}</b>: (${functionParameters}) &rArr; ${child.type?.declaration?.signatures[0]?.type?.name}, // ${child.type?.declaration?.signatures[0]?.comment.summary[0]?.text}\n`;
+                                                    } else {
+                                                        const childType = child.type.elementType ? child.type.elementType.name : child.type.name;
+
+                                                        type += ` \t <b>${child.name}</b>: ${childType}, // ${child.comment?.summary[0]?.text}\n `;
+                                                    }
                                                 }
                                             });
                                         }

@@ -163,7 +163,7 @@ export default {
         },
         focus() {
             const findFocusableElement = (container) => {
-                return container.querySelector('[autofocus]');
+                return container && container.querySelector('[autofocus]');
             };
 
             let focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
@@ -259,6 +259,7 @@ export default {
             if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
@@ -322,7 +323,7 @@ export default {
                     let leftPos = offset.left + deltaX;
                     let topPos = offset.top + deltaY;
                     let viewport = DomHandler.getViewport();
-                    let containerComputedStyle = getComputedStyle(this.container)
+                    let containerComputedStyle = getComputedStyle(this.container);
                     let marginLeft = parseFloat(containerComputedStyle.marginLeft);
                     let marginTop = parseFloat(containerComputedStyle.marginTop);
 
@@ -331,18 +332,17 @@ export default {
                     if (this.keepInViewport) {
                         if (leftPos >= this.minX && leftPos + width < viewport.width) {
                             this.lastPageX = event.pageX;
-                            this.container.style.left = (leftPos - marginLeft) + 'px';
+                            this.container.style.left = leftPos - marginLeft + 'px';
                         }
 
                         if (topPos >= this.minY && topPos + height < viewport.height) {
-                            this.lastPageY = event.pageY;
-                            this.container.style.top = (topPos - marginTop) + 'px';
-                        }
+                            this.lastPageY = event.pageY;              
+                            this.container.style.top = topPos - marginTop + 'px';
                     } else {
                         this.lastPageX = event.pageX;
-                        this.container.style.left = (leftPos - marginLeft) + 'px';
+                        this.container.style.left = leftPos - marginLeft + 'px';
                         this.lastPageY = event.pageY;
-                        this.container.style.top = (topPos - marginTop) + 'px';
+                        this.container.style.top = topPos - marginTop + 'px';
                     }
                 }
             };

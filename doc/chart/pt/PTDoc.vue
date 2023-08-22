@@ -30,8 +30,7 @@ export default {
                 }
             },
             code: {
-                basic: `
-<Chart
+                basic: `<Chart
     type="pie"
     :data="chartData"
     :options="chartOptions"
@@ -39,8 +38,7 @@ export default {
         root: { class: 'w-full md:w-30rem' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Chart
             type="pie"
@@ -90,8 +88,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Chart
             type="pie"

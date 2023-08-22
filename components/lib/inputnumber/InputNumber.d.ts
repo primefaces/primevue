@@ -11,7 +11,7 @@ import { ButtonHTMLAttributes, InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { InputTextPassThroughOptionType } from '../inputtext';
-import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
 
 export declare type InputNumberPassThroughOptionType = InputNumberPassThroughAttributes | ((options: InputNumberPassThroughMethodOptions) => InputNumberPassThroughAttributes | string) | string | null | undefined;
 
@@ -273,7 +273,7 @@ export interface InputNumberProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {InputNumberPassThroughOptions}
      */
-    pt?: InputNumberPassThroughOptions;
+    pt?: PTOptions<InputNumberPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

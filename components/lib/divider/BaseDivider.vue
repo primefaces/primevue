@@ -68,8 +68,8 @@ const styles = `
 /* Position */
 const inlineStyles = {
     root: ({ props }) => ({
-        justifyContent: props.layout === 'horizontal' ? (props.align == 'center' || props.align == null ? 'center' : props.align === 'left' ? 'flex-start' : props.align === 'right' ? 'flex-end' : null) : null,
-        alignItems: props.vertical === 'vertical' ? (props.align == 'center' || props.align == null ? 'center' : props.align === 'top' ? 'flex-start' : props.align === 'bottom' ? 'flex-end' : null) : null
+        justifyContent: props.layout === 'horizontal' ? (props.align === 'center' || props.align === null ? 'center' : props.align === 'left' ? 'flex-start' : props.align === 'right' ? 'flex-end' : null) : null,
+        alignItems: props.layout === 'vertical' ? (props.align === 'center' || props.align === null ? 'center' : props.align === 'top' ? 'flex-start' : props.align === 'bottom' ? 'flex-end' : null) : null
     })
 };
 

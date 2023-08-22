@@ -8,7 +8,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TimelinePassThroughOptionType = TimelinePassThroughAttributes | ((options: TimelinePassThroughMethodOptions) => TimelinePassThroughAttributes | string) | string | null | undefined;
 
@@ -104,7 +104,7 @@ export interface TimelineProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TimelinePassThroughOptions}
      */
-    pt?: TimelinePassThroughOptions;
+    pt?: PTOptions<TimelinePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

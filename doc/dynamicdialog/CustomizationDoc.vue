@@ -10,8 +10,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-import { markRaw } from 'vue';
+                basic: `import { markRaw } from 'vue';
 import ProductListDemo from './ProductListDemo';
 import FooterDemo from './FooterDemo';
 

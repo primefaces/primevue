@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { TieredMenuPassThroughOptions } from '../tieredmenu';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -169,7 +169,7 @@ export interface SplitButtonProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {SplitButtonPassThroughOptions}
      */
-    pt?: SplitButtonPassThroughOptions;
+    pt?: PTOptions<SplitButtonPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -187,6 +187,7 @@ export interface SplitButtonSlots {
     default(): VNode[];
     /**
      * Custom menu button icon template.
+     * @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**
@@ -196,6 +197,7 @@ export interface SplitButtonSlots {
     }): VNode[];
     /**
      * Custom menu button icon template.
+     * @param {Object} scope - menubuttonicon slot's params.
      */
     menubuttonicon(scope: {
         /**

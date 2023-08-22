@@ -9,7 +9,7 @@
  */
 import { TransitionProps } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | string) | string | null | undefined;
 
@@ -164,7 +164,7 @@ export interface ColorPickerProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ColorPickerPassThroughOptions}
      */
-    pt?: ColorPickerPassThroughOptions;
+    pt?: PTOptions<ColorPickerPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

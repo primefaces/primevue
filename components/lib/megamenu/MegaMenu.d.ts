@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttributes | ((options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -213,7 +213,7 @@ export interface MegaMenuProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {MegaMenuPassThroughOptions}
      */
-    pt?: MegaMenuPassThroughOptions;
+    pt?: PTOptions<MegaMenuPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -245,6 +245,7 @@ export interface MegaMenuSlots {
     }): VNode[];
     /**
      * Custom submenu icon template.
+     * @param {Object} scope - submenuicon slot's params.
      */
     submenuicon(scope: {
         /**

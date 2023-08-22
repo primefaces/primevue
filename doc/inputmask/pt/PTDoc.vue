@@ -20,8 +20,7 @@ export default {
         return {
             value: '',
             code: {
-                basic: `
-<InputMask
+                basic: `<InputMask
     id="basic"
     v-model="value"
     mask="99-999999"
@@ -30,8 +29,7 @@ export default {
         root: { class: 'border-teal-400' }
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <InputMask
             id="basic"
@@ -55,8 +53,7 @@ export default {
 }
 <\/script>
         `,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <InputMask
             id="basic"

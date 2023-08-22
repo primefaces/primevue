@@ -9,7 +9,7 @@
  */
 import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
 
 export declare type TriStateCheckboxPassThroughOptionType = TriStateCheckboxPassThroughAttributes | ((options: TriStateCheckboxPassThroughMethodOptions) => TriStateCheckboxPassThroughAttributes | string) | string | null | undefined;
 
@@ -144,7 +144,7 @@ export interface TriStateCheckboxProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TriStateCheckboxPassThroughOptions}
      */
-    pt?: TriStateCheckboxPassThroughOptions;
+    pt?: PTOptions<TriStateCheckboxPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -158,6 +158,7 @@ export interface TriStateCheckboxProps {
 export interface TriStateCheckboxSlots {
     /**
      * Custom check icon template.
+     * @param {Object} scope - checkicon slot's params.
      */
     checkicon(scope: {
         /**
@@ -167,6 +168,7 @@ export interface TriStateCheckboxSlots {
     }): VNode[];
     /**
      * Custom uncheck icon template.
+     * @param {Object} scope - uncheckicon slot's params.
      */
     uncheckicon(scope: {
         /**
@@ -176,6 +178,7 @@ export interface TriStateCheckboxSlots {
     }): VNode[];
     /**
      * Custom nullable icon template.
+     * @param {Object} scope - nullableicon slot's params.
      */
     nullableicon(scope: {
         /**

@@ -191,8 +191,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<label for="date1">Date</label>
+                basic: `<label for="date1">Date</label>
 <Calendar inputId="date1" />
 
 <span id="date2">Date</span>

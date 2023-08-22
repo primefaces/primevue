@@ -32,8 +32,7 @@ export default {
             customers: null,
             dialogVisible: false,
             code: {
-                basic: `
-<Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
+                basic: `<Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
 <Dialog v-model:visible="dialogVisible" header="Flex Scroll" :style="{ width: '75vw' }" maximizable modal :contentStyle="{ height: '300px' }">
     <DataTable :value="customers" scrollable scrollHeight="flex" tableStyle="min-width: 50rem">
         <Column field="name" header="Name"></Column>
@@ -45,8 +44,7 @@ export default {
         <Button label="Ok" icon="pi pi-check" @click="dialogVisible = false" />
     </template>
 </Dialog>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
 
@@ -81,8 +79,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Button label="Show" icon="pi pi-external-link" @click="dialogVisible = true" />
 

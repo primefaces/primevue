@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PaginatorPassThroughOptionType } from '../paginator';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type DataViewPassThroughOptionType = DataViewPassThroughAttributes | ((options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | string) | string | null | undefined;
 
@@ -212,7 +212,7 @@ export interface DataViewProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DataViewPassThroughOptions}
      */
-    pt?: DataViewPassThroughOptions;
+    pt?: PTOptions<DataViewPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -49,8 +49,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<template>
+                basic: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <Knob v-model="value" aria-describedby="text-error" />
@@ -59,8 +58,7 @@ export default {
         </form>
     </div>
 </template>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <Knob v-model="value" aria-describedby="text-error" />
@@ -107,8 +105,7 @@ export default {
     },
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column gap-2">
             <Knob id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />

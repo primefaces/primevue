@@ -14,10 +14,8 @@ export default {
         return {
             date: null,
             code: {
-                basic: `
-<Calendar v-model="date" touchUI />`,
-                options: `
-<template>
+                basic: `<Calendar v-model="date" touchUI />`,
+                options: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="date" touchUI />
     </div>
@@ -32,8 +30,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Calendar v-model="date" touchUI />
     </div>

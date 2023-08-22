@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { DropdownPassThroughOptionType } from '../dropdown';
 import { InputNumberPassThroughOptionType } from '../inputnumber';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type PaginatorPassThroughOptionType = PaginatorPassThroughAttributes | ((options: PaginatorPassThroughMethodOptions) => PaginatorPassThroughAttributes | string) | string | null | undefined;
 
@@ -235,7 +235,7 @@ export interface PaginatorProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {PaginatorPassThroughOptions}
      */
-    pt?: PaginatorPassThroughOptions;
+    pt?: PTOptions<PaginatorPassThroughOptions>;
 }
 
 /**

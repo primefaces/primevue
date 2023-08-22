@@ -19,8 +19,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-<style scoped>
+                basic: `<style scoped>
 :deep(.p-panel .p-panel-header) {
     background-color: var(--teal-500);
     border-color: var(--teal-500);
@@ -35,8 +34,7 @@ export default {
             },
 
             code2: {
-                basic: `
-<template>
+                basic: `<template>
     <Panel header="Scoped Panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

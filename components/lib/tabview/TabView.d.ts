@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { TabPanelPassThroughOptionType } from '../tabpanel';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TabViewPassThroughOptionType = TabViewPassThroughAttributes | ((options: { props: TabViewProps; state: TabViewState }) => TabViewPassThroughAttributes | string) | string | null | undefined;
 
@@ -181,7 +181,7 @@ export interface TabViewProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TabViewPassThroughOptions}
      */
-    pt?: TabViewPassThroughOptions;
+    pt?: PTOptions<TabViewPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

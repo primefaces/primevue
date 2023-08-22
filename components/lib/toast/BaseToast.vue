@@ -5,6 +5,12 @@ import { useStyle } from 'primevue/usestyle';
 const styles = `
 .p-toast {
     width: 25rem;
+    white-space: pre-line;
+    word-break: break-word;
+}
+
+.p-toast-message-icon {
+    flex-shrink: 0;
 }
 
 .p-toast-message-content {

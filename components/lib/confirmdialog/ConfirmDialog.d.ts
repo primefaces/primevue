@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ConfirmDialogPassThroughOptionType = ConfirmDialogPassThroughAttributes | ((options: ConfirmDialogPassThroughMethodOptions) => ConfirmDialogPassThroughAttributes | string) | string | null | undefined;
 
@@ -152,7 +152,7 @@ export interface ConfirmDialogProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ConfirmDialogPassThroughOptions}
      */
-    pt?: ConfirmDialogPassThroughOptions;
+    pt?: PTOptions<ConfirmDialogPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -176,6 +176,7 @@ export interface ConfirmDialogSlots {
     }): VNode[];
     /**
      * Custom icon template.
+     * @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**

@@ -14,7 +14,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
 import { DataTablePassThroughOptions } from '../datatable';
 import { DropdownPassThroughOptionType } from '../dropdown';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
 export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | string) | string | null | undefined;
@@ -567,7 +567,7 @@ export interface ColumnProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ColumnPassThroughOptions}
      */
-    pt?: ColumnPassThroughOptions;
+    pt?: PTOptions<ColumnPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -679,8 +679,9 @@ export interface ColumnSlots {
         frozenRow: boolean;
         /**
          * Callback function
+         * @param {Event} event - Browser event
          */
-        editorInitCallback(): void;
+        editorInitCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom header template.
@@ -729,12 +730,14 @@ export interface ColumnSlots {
         frozenRow: boolean;
         /**
          * Callback function
+         * @param {Event} event - Browser event
          */
-        editorSaveCallback(): void;
+        editorSaveCallback: (event: Event) => void;
         /**
          * Callback function
+         * @param {Event} event - Browser event
          */
-        editorCancelCallback(): void;
+        editorCancelCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom filter template.
@@ -753,7 +756,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter header template.
@@ -772,7 +775,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter footer template.
@@ -791,7 +794,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter clear template.
@@ -810,7 +813,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom filter apply template.
@@ -829,7 +832,7 @@ export interface ColumnSlots {
         /**
          * Callback function
          */
-        filterCallback(): void;
+        filterCallback: () => void;
     }): VNode[];
     /**
      * Custom loading template.

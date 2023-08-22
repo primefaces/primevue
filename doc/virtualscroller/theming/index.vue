@@ -16,7 +16,7 @@ export default {
         return {
             docs: [
                 {
-                    id: 'styled',
+                    id: 'theming.styled',
                     label: 'Styled',
                     component: StyledDoc
                 }

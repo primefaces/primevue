@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" v-bind="ptm('root')">
-        <div v-if="showSourceControls" :class="cx('sourceControls')" v-bind="ptm('sourceControls')">
+        <div v-if="showSourceControls" :class="cx('sourceControls')" v-bind="ptm('sourceControls')" data-pc-group-section="controls">
             <slot name="sourcecontrolsstart"></slot>
             <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(0)" type="button" @click="moveUp($event, 0)" :pt="ptm('sourceMoveUpButton')" v-bind="moveUpButtonProps" :unstyled="unstyled">
                 <template #icon>
@@ -32,8 +32,8 @@
             </PLButton>
             <slot name="sourcecontrolsend"></slot>
         </div>
-        <div :class="cx('sourceWrapper')" v-bind="ptm('sourceWrapper')">
-            <div v-if="$slots.sourceheader" :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')">
+        <div :class="cx('sourceWrapper')" v-bind="ptm('sourceWrapper')" data-pc-group-section="listwrapper">
+            <div v-if="$slots.sourceheader" :class="cx('sourceHeader')" v-bind="ptm('sourceHeader')" data-pc-group-section="header">
                 <slot name="sourceheader"></slot>
             </div>
             <transition-group
@@ -51,6 +51,7 @@
                 @blur="onListBlur($event, 'sourceList')"
                 @keydown="onItemKeyDown($event, 'sourceList')"
                 v-bind="{ ...sourceListProps, ...ptm('sourceList'), ...ptm('transition') }"
+                data-pc-group-section="list"
             >
                 <template v-for="(item, i) of sourceList" :key="getItemKey(item, i)">
                     <li
@@ -72,7 +73,7 @@
                 </template>
             </transition-group>
         </div>
-        <div :class="cx('buttons')" v-bind="ptm('buttons')">
+        <div :class="cx('buttons')" v-bind="ptm('buttons')" data-pc-group-section="controls">
             <slot name="movecontrolsstart"></slot>
             <PLButton :aria-label="moveToTargetAriaLabel" type="button" @click="moveToTarget" :disabled="moveDisabled(0)" :pt="ptm('moveToTargetButton')" v-bind="moveToTargetProps" :unstyled="unstyled">
                 <template #icon>
@@ -104,8 +105,8 @@
             </PLButton>
             <slot name="movecontrolsend"></slot>
         </div>
-        <div :class="cx('targetWrapper')" v-bind="ptm('targetWrapper')">
-            <div v-if="$slots.targetheader" :class="cx('targetHeader')" v-bind="ptm('targetHeader')">
+        <div :class="cx('targetWrapper')" v-bind="ptm('targetWrapper')" data-pc-group-section="listwrapper">
+            <div v-if="$slots.targetheader" :class="cx('targetHeader')" v-bind="ptm('targetHeader')" data-pc-group-section="header">
                 <slot name="targetheader"></slot>
             </div>
             <transition-group
@@ -123,6 +124,7 @@
                 @blur="onListBlur($event, 'targetList')"
                 @keydown="onItemKeyDown($event, 'targetList')"
                 v-bind="{ ...targetListProps, ...ptm('targetList'), ...ptm('transition') }"
+                data-pc-group-section="list"
             >
                 <template v-for="(item, i) of targetList" :key="getItemKey(item, i)">
                     <li
@@ -145,7 +147,7 @@
                 </template>
             </transition-group>
         </div>
-        <div v-if="showTargetControls" :class="cx('targetControls')" v-bind="ptm('targetControls')">
+        <div v-if="showTargetControls" :class="cx('targetControls')" v-bind="ptm('targetControls')" data-pc-group-section="controls">
             <slot name="targetcontrolsstart"></slot>
             <PLButton :aria-label="moveUpAriaLabel" :disabled="moveDisabled(1)" type="button" @click="moveUp($event, 1)" :pt="ptm('targetMoveUpButton')" v-bind="moveUpButtonProps" :unstyled="unstyled">
                 <template #icon>
@@ -779,6 +781,7 @@ export default {
                 this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = `

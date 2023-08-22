@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
 
@@ -373,7 +373,7 @@ export interface PickListProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {PickListPassThroughOptions}
      */
-    pt?: PickListPassThroughOptions;
+    pt?: PTOptions<PickListPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

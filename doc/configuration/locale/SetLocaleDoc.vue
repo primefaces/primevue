@@ -24,8 +24,7 @@ export default {
 });`
             },
             code2: {
-                basic: `
-import { defineComponent, onMounted } from "vue";
+                basic: `import { defineComponent, onMounted } from "vue";
 import { usePrimeVue } from "primevue/config";
 
 export default defineComponent({

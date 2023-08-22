@@ -25,8 +25,7 @@ export default {
             },
             items: [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }],
             code: {
-                basic: `
-<Breadcrumb :home="home" :model="items"
+                basic: `<Breadcrumb :home="home" :model="items"
     :pt="{
         root: { class: 'surface-ground' },
         label: ({ props }) => ({
@@ -34,8 +33,7 @@ export default {
         })
     }"
 />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items"
             :pt="{
@@ -67,8 +65,7 @@ export default {
     }
 }
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <Breadcrumb :home="home" :model="items"
             :pt="{

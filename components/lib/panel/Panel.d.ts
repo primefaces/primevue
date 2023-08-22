@@ -9,7 +9,7 @@
  */
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -136,7 +136,7 @@ export interface PanelProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {PanelPassThroughOptions}
      */
-    pt?: PanelPassThroughOptions;
+    pt?: PTOptions<PanelPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -154,6 +154,7 @@ export interface PanelSlots {
     default(): VNode[];
     /**
      * Custom header template.
+     * @param {Object} scope - header slot's params.
      */
     header(scope: {
         /**

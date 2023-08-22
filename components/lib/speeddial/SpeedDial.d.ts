@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | string) | string | null | undefined;
 
@@ -239,7 +239,7 @@ export interface SpeedDialProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {SpeedDialPassThroughOptions}
      */
-    pt?: SpeedDialPassThroughOptions;
+    pt?: PTOptions<SpeedDialPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -262,9 +262,10 @@ export interface SpeedDialSlots {
          */
         item: MenuItem;
         /**
-         * ıtem click function
+         * Item click function
+         * @param {Event} event - Browser event.
          */
-        onClick: void;
+        onClick: (event: Event) => void;
     }): VNode[];
     /**
      * Custom button template.
@@ -272,9 +273,10 @@ export interface SpeedDialSlots {
      */
     button(scope: {
         /**
-         * Toggle metadata
+         * Button click function
+         * @param {Event} event - Browser event.
          */
-        toggle(): void;
+        onClick: (event: Event) => void;
     }): VNode[];
     /**
      * Custom icon template.
@@ -282,7 +284,7 @@ export interface SpeedDialSlots {
      */
     icon(scope: {
         /**
-         *
+         * Visible state of the item
          */
         visible: boolean;
     }): VNode[];

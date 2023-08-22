@@ -17,11 +17,9 @@ export default {
         return {
             value: 50,
             code: {
-                basic: `
-<InputText v-model.number="value" />
+                basic: `<InputText v-model.number="value" />
 <Slider v-model="value" />`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <div class="w-14rem">
             <InputText v-model.number="value" class="w-full" />
@@ -39,8 +37,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <div class="w-14rem">
             <InputText v-model.number="value" class="w-full" />

@@ -8,7 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TerminalPassThroughOptionType = TerminalPassThroughAttributes | ((options: TerminalPassThroughMethodOptions) => TerminalPassThroughAttributes | string) | string | null | undefined;
 
@@ -106,7 +106,7 @@ export interface TerminalProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TerminalPassThroughOptions}
      */
-    pt?: TerminalPassThroughOptions;
+    pt?: PTOptions<TerminalPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

@@ -18,6 +18,7 @@
             :value="customers"
             lazy
             paginator
+            :first="0"
             :rows="10"
             dataKey="id"
             :totalRecords="totalRecords"
@@ -96,8 +97,7 @@ export default {
                 { field: 'representative.name', header: 'Representative' }
             ],
             code: {
-                basic: `
-<DataTable :value="customers" lazy paginator :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
+                basic: `<DataTable :value="customers" lazy paginator :first="0" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
         :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
         :globalFilterFields="['name','country.name', 'company', 'representative.name']"
         v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
@@ -123,10 +123,9 @@ export default {
         </template>
     </Column>
 </DataTable>`,
-                options: `
-<template>
+                options: `<template>
 	<div class="card p-fluid">
-        <DataTable :value="customers" lazy paginator :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
+        <DataTable :value="customers" lazy paginator :first="0" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
                 :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
                 :globalFilterFields="['name','country.name', 'company', 'representative.name']"
                 v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
@@ -185,7 +184,7 @@ export default {
         this.loading = true;
 
         this.lazyParams = {
-            first: 0,
+            first: this.$refs.dt.first,
             rows: this.$refs.dt.rows,
             sortField: null,
             sortOrder: null,
@@ -242,10 +241,9 @@ export default {
 }
 <\/script>
 `,
-                composition: `
-<template>
+                composition: `<template>
 	<div class="card p-fluid">
-        <DataTable :value="customers" lazy paginator :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
+        <DataTable :value="customers" lazy paginator :first="0" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
             :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
             :globalFilterFields="['name','country.name', 'company', 'representative.name']"
             v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
@@ -282,7 +280,7 @@ onMounted(() => {
     loading.value = true;
 
     lazyParams.value = {
-        first: 0,
+        first: dt.value.first,
         rows: dt.value.rows,
         sortField: null,
         sortOrder: null,
@@ -385,7 +383,7 @@ const onRowUnselect = () => {
         this.loading = true;
 
         this.lazyParams = {
-            first: 0,
+            first: this.$refs.dt.first,
             rows: this.$refs.dt.rows,
             sortField: null,
             sortOrder: null,

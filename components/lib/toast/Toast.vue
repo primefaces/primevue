@@ -24,7 +24,7 @@
 <script>
 import Portal from 'primevue/portal';
 import ToastEventBus from 'primevue/toasteventbus';
-import { ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
+import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from 'primevue/utils';
 import BaseToast from './BaseToast.vue';
 import ToastMessage from './ToastMessage.vue';
 
@@ -113,6 +113,7 @@ export default {
             if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
+                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';

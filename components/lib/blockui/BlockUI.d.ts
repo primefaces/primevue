@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type BlockUIPassThroughOptionType = BlockUIPassThroughAttributes | ((options: BlockUIPassThroughMethodOptions) => BlockUIPassThroughAttributes | string) | string | null | undefined;
 
@@ -88,7 +88,7 @@ export interface BlockUIProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {BlockUIPassThroughOptions}
      */
-    pt?: BlockUIPassThroughOptions;
+    pt?: PTOptions<BlockUIPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

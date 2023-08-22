@@ -15,12 +15,10 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<ConfirmDialog></ConfirmDialog>>
+                basic: `<ConfirmDialog></ConfirmDialog>>
 <Button @click="confirm1()" icon="pi pi-check" label="Confirm"></Button>
 <Button @click="confirm2()" icon="pi pi-times" label="Delete"></Button>`,
-                options: `
-<template>
+                options: `<template>
     <Toast />
     <ConfirmDialog></ConfirmDialog>
     <div class="card flex flex-wrap gap-2 justify-content-center">
@@ -62,8 +60,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <Toast />
     <ConfirmDialog></ConfirmDialog>
     <div class="card flex flex-wrap gap-2 justify-content-center">

@@ -516,6 +516,7 @@ export default {
             if (!this.carouselStyle) {
                 this.carouselStyle = document.createElement('style');
                 this.carouselStyle.type = 'text/css';
+                DomHandler.setAttribute(this.carouselStyle, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.body.appendChild(this.carouselStyle);
             }
 
@@ -527,6 +528,7 @@ export default {
 
             if (this.responsiveOptions && !this.isUnstyled) {
                 let _responsiveOptions = [...this.responsiveOptions];
+                const comparer = new Intl.Collator(undefined, { numeric: true }).compare;
 
                 _responsiveOptions.sort((data1, data2) => {
                     const value1 = data1.breakpoint;
@@ -536,7 +538,7 @@ export default {
                     if (value1 == null && value2 != null) result = -1;
                     else if (value1 != null && value2 == null) result = 1;
                     else if (value1 == null && value2 == null) result = 0;
-                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = value1.localeCompare(value2, undefined, { numeric: true });
+                    else if (typeof value1 === 'string' && typeof value2 === 'string') result = comparer(value1, value2);
                     else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
 
                     return -1 * result;

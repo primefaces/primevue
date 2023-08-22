@@ -5,7 +5,7 @@
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-        <p>A playground sample with the pre-built Tailwind theme.</p>
+        <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" :service="['CustomerService']" embedded />
     </DocSectionText>
 </template>
@@ -15,8 +15,7 @@ export default {
     data() {
         return {
             code1: {
-                basic: `
-export const TRANSITIONS = {
+                basic: `export const TRANSITIONS = {
     overlay: {
         enterFromClass: 'opacity-0 scale-75',
         enterActiveClass: 'transition-transform transition-opacity duration-150 ease-in',
@@ -323,8 +322,7 @@ export default {
 `
             },
             code2: {
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <DataTable v-model:filters="filters" :value="customers" paginator showGridlines :rows="10" dataKey="id"
                 filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">

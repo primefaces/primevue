@@ -9,6 +9,7 @@
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';
+import { PTOptions } from '../ts-helpers';
 
 export declare type TooltipDirectivePassThroughOptionType = TooltipDirectivePassThroughAttributes | ((options: TooltipPassThroughMethodOptions) => TooltipDirectivePassThroughAttributes) | null | undefined;
 
@@ -64,7 +65,7 @@ export interface TooltipOptions {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TooltipDirectivePassThroughOptions}
      */
-    pt?: TooltipDirectivePassThroughOptions;
+    pt?: PTOptions<TooltipDirectivePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

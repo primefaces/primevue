@@ -39,8 +39,7 @@ export default {
             ],
             formObject: {},
             code: {
-                basic: `
-<div class="card">
+                basic: `<div class="card">
     <Steps :model="items" aria-label="Form Steps" />
 </div>
 
@@ -49,8 +48,7 @@ export default {
         <component :is="Component" />
     </keep-alive>
 </router-view>`,
-                options: `
-<template>
+                options: `<template>
     <div>
         <Toast />
         
@@ -118,8 +116,7 @@ export default {
     padding: 2rem;
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div>
         <Toast />
 

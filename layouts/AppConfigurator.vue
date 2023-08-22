@@ -81,7 +81,7 @@
                         <span class="white-space-nowrap">Indigo</span>
                     </div>
                     <div class="col-3 flex flex-column align-items-center gap-2">
-                        <button class="px-link h-3rem" @click="changeTheme('md-dark-purple', true)">
+                        <button class="px-link h-3rem" @click="changeTheme('md-dark-deeppurple', true)">
                             <img src="https://primefaces.org/cdn/primevue/images/themes/md-dark-deeppurple.svg" alt="Material Dark Deep Purple" class="w-3rem border-round" />
                         </button>
                         <span class="white-space-nowrap">Deep Purple</span>

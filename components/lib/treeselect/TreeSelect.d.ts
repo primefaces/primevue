@@ -10,7 +10,7 @@
 import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { TreeExpandedKeys, TreeNode, TreePassThroughOptionType } from '../tree';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -208,7 +208,7 @@ export interface TreeSelectProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreeSelectPassThroughOptions}
      */
-    pt?: TreeSelectPassThroughOptions;
+    pt?: PTOptions<TreeSelectPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -273,6 +273,7 @@ export interface TreeSelectSlots {
     indicator(): VNode[];
     /**
      * Custom indicator template.
+     * @param {Object} scope - triggericon slot's params.
      */
     triggericon(scope: {
         /**

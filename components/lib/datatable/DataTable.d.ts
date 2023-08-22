@@ -13,7 +13,7 @@ import { ColumnPassThroughOptionType } from '../column';
 import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { RowPassThroughOptionType } from '../row';
-import { ClassComponent, GlobalComponentConstructor, Nullable } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, Nullable, PTOptions } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
@@ -1069,7 +1069,7 @@ export interface DataTableProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DataTablePassThroughOptions}
      */
-    pt?: DataTablePassThroughOptions;
+    pt?: PTOptions<DataTablePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -1103,6 +1103,7 @@ export interface DataTableSlots {
     empty(): VNode[];
     /**
      * Custom group header template.
+     * @param {Object} scope - group header slot's params.
      */
     groupheader(scope: {
         /**
@@ -1130,6 +1131,7 @@ export interface DataTableSlots {
     }): VNode[];
     /**
      * Custom loading template.
+     * @param {Object} scope - loading slot's params.
      */
     loading(): VNode[];
     /**

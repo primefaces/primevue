@@ -143,8 +143,7 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<Menubar :model="items">
+                basic: `<Menubar :model="items">
     <template #start>
         <img alt="logo" src="/images/logo.svg" height="40" class="mr-2" />
     </template>
@@ -152,8 +151,7 @@ export default {
         <InputText placeholder="Search" type="text" />
     </template>
 </Menubar>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
             <template #start>
@@ -297,8 +295,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
             <template #start>

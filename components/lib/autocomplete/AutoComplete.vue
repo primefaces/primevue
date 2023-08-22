@@ -55,7 +55,7 @@
                 <slot name="chip" :value="option">
                     <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getOptionLabel(option) }}</span>
                 </slot>
-                <slot name="removetokenicon" :class="cx(removeTokenIcon)" :onClick="(event) => removeOption(event, i)">
+                <slot name="removetokenicon" :class="cx(removeTokenIcon)" :index="i" :onClick="(event) => removeOption(event, i)">
                     <component :is="removeTokenIcon ? 'span' : 'TimesCircleIcon'" :class="[cx(removeTokenIcon), removeTokenIcon]" @click="removeOption($event, i)" aria-hidden="true" v-bind="ptm('removeTokenIcon')" />
                 </slot>
             </li>
@@ -87,7 +87,7 @@
                 />
             </li>
         </ul>
-        <slot v-if="searching" :class="cx('loadingIcon')" name="loadingicon">
+        <slot v-if="searching || loading" :class="cx('loadingIcon')" name="loadingicon">
             <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
             <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
         </slot>
@@ -477,7 +477,7 @@ export default {
             }
         },
         onContainerClick(event) {
-            if (this.disabled || this.searching || this.isInputClicked(event) || this.isDropdownClicked(event)) {
+            if (this.disabled || this.searching || this.loading || this.isInputClicked(event) || this.isDropdownClicked(event)) {
                 return;
             }
 

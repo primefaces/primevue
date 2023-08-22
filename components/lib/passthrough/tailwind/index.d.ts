@@ -1,5 +1,4 @@
 import { PrimeVuePTOptions } from '../../config';
 
-interface Tailwind extends PrimeVuePTOptions {}
-
+declare const Tailwind: PrimeVuePTOptions;
 export default Tailwind;

@@ -30,45 +30,6 @@ export default {
     name: 'ColorPicker',
     extends: BaseColorPicker,
     emits: ['update:modelValue', 'change', 'show', 'hide'],
-    props: {
-        modelValue: {
-            type: null,
-            default: null
-        },
-        defaultColor: {
-            type: null,
-            default: 'ff0000'
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        },
-        format: {
-            type: String,
-            default: 'hex'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: String,
-            default: null
-        },
-        autoZIndex: {
-            type: Boolean,
-            default: true
-        },
-        baseZIndex: {
-            type: Number,
-            default: 0
-        },
-        appendTo: {
-            type: String,
-            default: 'body'
-        },
-        panelClass: null
-    },
     data() {
         return {
             overlayVisible: false
@@ -384,7 +345,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+                ZIndexUtils.set('overlay', el, this.baseZIndex, this.$primevue.config.zIndex.overlay);
             }
 
             this.$emit('show');

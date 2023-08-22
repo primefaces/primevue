@@ -66,7 +66,8 @@ export default {
             return this.ptm(key, {
                 context: {
                     active: this.isSelected(option),
-                    disabled: this.isOptionDisabled(option)
+                    disabled: this.isOptionDisabled(option),
+                    option
                 }
             });
         },

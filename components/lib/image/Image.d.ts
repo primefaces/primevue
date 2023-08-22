@@ -9,7 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ImagePassThroughOptionType = ImagePassThroughAttributes | ((options: ImagePassThroughMethodOptions) => ImagePassThroughAttributes | string) | string | null | undefined;
 
@@ -181,7 +181,7 @@ export interface ImageProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ImagePassThroughOptions}
      */
-    pt?: ImagePassThroughOptions;
+    pt?: PTOptions<ImagePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -219,6 +219,7 @@ export interface ImageSlots {
     close(): VNode[];
     /**
      * Custom image template.
+     * @param {Object} scope - image slot's params.
      */
     image(scope: {
         /**
@@ -232,10 +233,11 @@ export interface ImageSlots {
         /**
          * Image error function.
          */
-        onError: void;
+        onError: () => void;
     }): VNode[];
     /**
      * Custom preview template.
+     * @param {Object} scope - preview slot's params.
      */
     preview(scope: {
         /**
@@ -249,7 +251,7 @@ export interface ImageSlots {
         /**
          * Preview click function.
          */
-        onClick: void;
+        onClick: () => void;
     }): VNode[];
 }
 

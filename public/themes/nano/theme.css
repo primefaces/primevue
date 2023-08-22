@@ -2340,8 +2340,15 @@
   font-size: 1.25rem;
   padding: 0.3125rem 0.625rem;
 }
+.p-splitbutton.p-button-lg > .p-button.p-button-icon-only {
+  width: auto;
+}
 .p-splitbutton.p-button-lg > .p-button .p-button-icon {
   font-size: 1.25rem;
+}
+.p-splitbutton.p-button-lg > .p-button .p-icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .p-splitbutton.p-button-secondary.p-button-outlined > .p-button {
@@ -4374,6 +4381,10 @@
   color: #343a3f;
   border-bottom-right-radius: 1px;
   border-bottom-left-radius: 1px;
+}
+.p-fileupload .p-fileupload-content.p-fileupload-highlight {
+  border: 1px dashed #1174c0;
+  background-color: #44A1D9;
 }
 .p-fileupload .p-fileupload-file {
   padding: 1rem;

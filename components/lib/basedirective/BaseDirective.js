@@ -22,8 +22,8 @@ const BaseDirective = {
         };
 
         const datasetPrefix = 'data-pc-';
-        const self = getValue(obj, key, params);
-        const globalPT = searchInDefaultPT ? getValue(instance.defaultPT, key, params) : undefined;
+        const self = BaseDirective._usePT(BaseDirective._getPT(obj, instance.$name), getValue, key, params);
+        const globalPT = searchInDefaultPT ? BaseDirective._useDefaultPT(instance.defaultPT, getValue, key, params) : undefined;
         const merged = mergeProps(self, globalPT, {
             ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
             [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
@@ -31,15 +31,52 @@ const BaseDirective = {
 
         return merged;
     },
+    _getPT(pt, key = '', callback) {
+        const _usept = pt?.['_usept'];
+
+        const getValue = (value) => {
+            const computedValue = callback ? callback(value) : value;
+
+            return computedValue?.[ObjectUtils.toFlatCase(key)] ?? computedValue;
+        };
+
+        return ObjectUtils.isNotEmpty(_usept)
+            ? {
+                  _usept,
+                  originalValue: getValue(pt.originalValue),
+                  value: getValue(pt.value)
+              }
+            : getValue(pt);
+    },
+    _usePT(pt, callback, key, params) {
+        const fn = (value) => callback(value, key, params);
+
+        if (pt?.hasOwnProperty('_usept')) {
+            const { merge, useMergeProps } = pt['_usept'];
+            const originalValue = fn(pt.originalValue);
+            const value = fn(pt.value);
+
+            if (originalValue === undefined && value === undefined) return undefined;
+            else if (ObjectUtils.isString(value)) return value;
+            else if (ObjectUtils.isString(originalValue)) return originalValue;
+
+            return merge ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+        }
+
+        return fn(pt);
+    },
+    _useDefaultPT(defaultPT = {}, callback, key, params) {
+        return BaseDirective._usePT(defaultPT, callback, key, params);
+    },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${ObjectUtils.toCapitalCase(hookName)}`;
         const config = binding?.instance?.$primevue?.config;
-        const selfHook = binding?.value?.pt?.hooks?.[name];
-        const globalHook = config?.pt?.directives?.[directiveName]?.hooks?.[name];
+        const selfHook = BaseDirective._usePT(BaseDirective._getPT(binding?.value?.pt, directiveName), BaseDirective._getOptionValue, `hooks.${name}`);
+        const defaultHook = BaseDirective._useDefaultPT(config?.pt?.directives?.[directiveName], BaseDirective._getOptionValue, `hooks.${name}`);
         const options = { el, binding, vnode, prevVnode };
 
         selfHook?.(el?.$instance, options);
-        globalHook?.(el?.$instance, options);
+        defaultHook?.(el?.$instance, options);
     },
     _extend: (name, options = {}) => {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {
@@ -57,8 +94,9 @@ const BaseDirective = {
                 $binding: binding,
                 $el: $prevInstance['$el'] || undefined,
                 $css: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.css },
+                $config: config,
                 /* computed instance variables */
-                defaultPT: config?.pt?.directives?.[name],
+                defaultPT: BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: el.unstyled !== undefined ? el.unstyled : config?.unstyled,
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
@@ -78,8 +116,10 @@ const BaseDirective = {
                 handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
-                loadBaseStyle();
-                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle();
+                const config = binding?.instance?.$primevue?.config;
+
+                loadBaseStyle(undefined, { nonce: config?.csp?.nonce });
+                !el.$instance?.isUnstyled && el.$instance?.$css?.loadStyle(undefined, { nonce: config?.csp?.nonce });
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
             },
             mounted: (el, binding, vnode, prevVnode) => {

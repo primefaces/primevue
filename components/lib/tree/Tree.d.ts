@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions) => TreePassThroughAttributes | string) | string | null | undefined;
 
@@ -313,7 +313,7 @@ export interface TreeProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {TreePassThroughOptions}
      */
-    pt?: TreePassThroughOptions;
+    pt?: PTOptions<TreePassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -327,6 +327,7 @@ export interface TreeProps {
 export interface TreeSlots {
     /**
      * Custom loading icon template.
+     * @param {Object} scope - loadingicon slot's params.
      */
     loadingicon(scope: {
         /**
@@ -336,6 +337,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom search icon template.
+     * @param {Object} scope - searchicon slot's params.
      */
     searchicon(scope: {
         /**
@@ -345,6 +347,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom toggler icon template.
+     * @param {Object} scope - togglericon slot's params.
      */
     togglericon(scope: {
         /**
@@ -358,6 +361,7 @@ export interface TreeSlots {
     }): VNode[];
     /**
      * Custom checkbox icon
+     * @param {Object} scope - checkboxicon slot's params.
      */
     checkboxicon(scope: {
         /**

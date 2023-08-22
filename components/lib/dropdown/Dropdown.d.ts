@@ -9,7 +9,7 @@
  */
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DropdownPassThroughOptionType = DropdownPassThroughAttributes | ((options: DropdownPassThroughMethodOptions) => DropdownPassThroughAttributes | string) | string | null | undefined;
@@ -409,7 +409,7 @@ export interface DropdownProps {
     emptyFilterMessage?: string | undefined;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No results foun
+     * @defaultValue No results found
      */
     emptyMessage?: string | undefined;
     /**
@@ -428,7 +428,7 @@ export interface DropdownProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DropdownPassThroughOptions}
      */
-    pt?: DropdownPassThroughOptions;
+    pt?: PTOptions<DropdownPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -540,13 +540,13 @@ export interface DropdownSlots {
          * Referance of the content
          * @param {HTMLElement} el - Element of 'ref' property
          */
-        contentRef(el: any): void;
+        contentRef: (el: any) => void;
         /**
          * Options of the items
          * @param {number} index - Rendered index
-         * @return {@link VirtualScroller.VirtualScrollerItemOptions}
+         * @return {@link VirtualScrollerItemOptions}
          */
-        getItemOptions(index: number): VirtualScrollerItemOptions;
+        getItemOptions: (index: number) => VirtualScrollerItemOptions;
     }): VNode[];
     /**
      * Custom loader template.
@@ -564,9 +564,14 @@ export interface DropdownSlots {
      */
     clearicon(scope: {
         /**
-         * Clear icon click function.
+         * Style class of the clear icon
          */
-        onClick: void;
+        class: any;
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        onClick: (event: Event) => void;
     }): VNode[];
     /**
      * Custom dropdown icon template.
@@ -574,7 +579,7 @@ export interface DropdownSlots {
      */
     dropdownicon(scope: {
         /**
-         * Style class of the component
+         * Style class of the dropdown icon
          */
         class: any;
     }): VNode[];
@@ -584,14 +589,20 @@ export interface DropdownSlots {
      */
     loadingicon(scope: {
         /**
-         * Style class of the component
+         * Style class of the loading icon
          */
         class: any;
     }): VNode[];
     /**
      * Custom filter icon template.
+     * @param {Object} scope - filter icon slot's params.
      */
-    filtericon(): VNode[];
+    filtericon(scope: {
+        /**
+         * Style class of the filter icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

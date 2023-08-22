@@ -43,8 +43,7 @@ export default {
                 { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
             ],
             code: {
-                basic: `
-<Timeline :value="events" align="alternate" class="customized-timeline">
+                basic: `<Timeline :value="events" align="alternate" class="customized-timeline">
     <template #marker="slotProps">
         <span class="flex w-2rem h-2rem align-items-center justify-content-center text-white border-circle z-1 shadow-1" :style="{ backgroundColor: slotProps.item.color }">
             <i :class="slotProps.item.icon"></i>
@@ -69,8 +68,7 @@ export default {
         </Card>
     </template>
 </Timeline>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Timeline :value="events" align="alternate" class="customized-timeline">
             <template #marker="slotProps">
@@ -136,8 +134,7 @@ export default {
     }
 }
 </style>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Timeline :value="events" align="alternate" class="customized-timeline">
             <template #marker="slotProps">

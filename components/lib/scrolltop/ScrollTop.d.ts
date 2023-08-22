@@ -9,7 +9,7 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttributes | ((options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes | string) | string | null | undefined;
 
@@ -94,7 +94,7 @@ export interface ScrollTopProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ScrollTopPassThroughOptions}
      */
-    pt?: ScrollTopPassThroughOptions;
+    pt?: PTOptions<ScrollTopPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

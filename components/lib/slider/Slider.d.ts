@@ -8,7 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | ((options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes | string) | string | null | undefined;
 
@@ -128,7 +128,7 @@ export interface SliderProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {SliderPassThroughOptions}
      */
-    pt?: SliderPassThroughOptions;
+    pt?: PTOptions<SliderPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

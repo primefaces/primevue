@@ -10,7 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptionType } from '../button';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type CalendarPassThroughOptionType = CalendarPassThroughAttributes | ((options: CalendarPassThroughMethodOptions) => CalendarPassThroughAttributes | string) | string | null | undefined;
 
@@ -691,7 +691,7 @@ export interface CalendarProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {CalendarPassThroughOptions}
      */
-    pt?: CalendarPassThroughOptions;
+    pt?: PTOptions<CalendarPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -735,20 +735,44 @@ export interface CalendarSlots {
     dropdownicon(): VNode[];
     /**
      * Custom previous icon template.
+     * @param {Object} scope - previous icon slot's params.
      */
-    previousicon(): VNode[];
+    previousicon(scope: {
+        /**
+         * Style class of the dropdown icon
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom next icon template.
+     * @param {Object} scope - next icon slot's params.
      */
-    nexticon(): VNode[];
+    nexticon(scope: {
+        /**
+         * Style class of the dropdown icon
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom increment icon template.
+     * @param {Object} scope - increment icon slot's params.
      */
-    incrementicon(): VNode[];
+    incrementicon(scope: {
+        /**
+         * Style class of the dropdown icon
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom decrement icon template.
+     * @param {Object} scope - decrement icon slot's params.
      */
-    decrementicon(): VNode[];
+    decrementicon(scope: {
+        /**
+         * Style class of the dropdown icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**

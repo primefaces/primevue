@@ -349,7 +349,7 @@ export default {
         getRowIndex(index) {
             const getItemOptions = this.getVirtualScrollerProp('getItemOptions');
 
-            return getItemOptions ? getItemOptions(index).index : this.first + index;
+            return getItemOptions ? getItemOptions(index).index : index;
         },
         getRowStyle(rowData) {
             if (this.rowStyle) {

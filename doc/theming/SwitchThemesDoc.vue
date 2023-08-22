@@ -46,8 +46,7 @@ PrimeVue.changeTheme('md-dark-indigo', 'md-light-indigo', 'theme-link', () => {}
         `
             },
             code4: {
-                basic: `
-<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">
+                basic: `<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">
         `
             },
             code5: {

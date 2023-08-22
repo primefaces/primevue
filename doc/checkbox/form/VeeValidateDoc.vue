@@ -42,8 +42,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<template>
+                basic: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="chbx">I've read and accept the terms & conditions.</label>
@@ -54,8 +53,7 @@ export default {
         <Toast />
     </div>
 </template>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="chbx">I've read and accept the terms & conditions.</label>
@@ -95,8 +93,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <form @submit="onSubmit" class="flex flex-column align-items-center gap-2">
             <label for="chbx">I've read and accept the terms & conditions.</label>

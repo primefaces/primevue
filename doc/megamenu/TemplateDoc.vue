@@ -138,8 +138,7 @@ export default {
                 }
             ],
             code: {
-                basic: `
-<MegaMenu :model="items" orientation="horizontal">
+                basic: `<MegaMenu :model="items" orientation="horizontal">
     <template #start>
         <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
     </template>
@@ -147,8 +146,7 @@ export default {
         <InputText placeholder="Search" type="text" />
     </template>
 </MegaMenu>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <MegaMenu :model="items" orientation="horizontal">
             <template #start>
@@ -287,8 +285,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<MegaMenu :model="items" orientation="horizontal">
+                composition: `<MegaMenu :model="items" orientation="horizontal">
     <template #start>
         <span class="flex align-items-center">
             <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />

@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type ConfirmPopupPassThroughOptionType = ConfirmPopupPassThroughAttributes | ((options: ConfirmPopupPassThroughMethodOptions) => ConfirmPopupPassThroughAttributes | string) | string | null | undefined;
 
@@ -106,7 +106,7 @@ export interface ConfirmPopupProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {ConfirmPopupPassThroughOptions}
      */
-    pt?: ConfirmPopupPassThroughOptions;
+    pt?: PTOptions<ConfirmPopupPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false
@@ -130,6 +130,7 @@ export interface ConfirmPopupSlots {
     }): VNode[];
     /**
      * Custom icon template.
+     *  @param {Object} scope - icon slot's params.
      */
     icon(scope: {
         /**

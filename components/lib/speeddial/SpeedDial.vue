@@ -1,6 +1,6 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptm('root')" data-pc-name="speeddial">
-        <slot name="button" :toggle="onClick">
+        <slot name="button" :onClick="onClick">
             <SDButton
                 type="button"
                 :class="[cx('button'), buttonClass]"
@@ -28,8 +28,8 @@
                 <li v-if="isItemVisible(item)" :id="`${id}_${index}`" :aria-controls="`${id}_item`" :class="cx('menuitem', { id: `${id}_${index}` })" :style="getItemStyle(index)" role="menuitem" v-bind="getPTOptions(`${id}_${index}`, 'menuitem')">
                     <template v-if="!$slots.item">
                         <a
-                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             v-ripple
+                            v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             :tabindex="-1"
                             :href="item.url || '#'"
                             role="menuitem"

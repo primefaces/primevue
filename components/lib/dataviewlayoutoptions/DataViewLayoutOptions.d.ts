@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { ClassComponent, GlobalComponentConstructor, PTOptions } from '../ts-helpers';
 
 export declare type DataViewLayoutOptionsPassThroughOptionType =
     | DataViewLayoutOptionsPassThroughAttributes
@@ -94,7 +94,7 @@ export interface DataViewLayoutOptionsProps {
      * Used to pass attributes to DOM elements inside the component.
      * @type {DataViewLayoutOptionsPassThroughOptions}
      */
-    pt?: DataViewLayoutOptionsPassThroughOptions;
+    pt?: PTOptions<DataViewLayoutOptionsPassThroughOptions>;
     /**
      * When enabled, it removes component related styles in the core.
      * @defaultValue false

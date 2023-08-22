@@ -23,8 +23,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<DeferredContent @load="onDataLoad" role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
+                basic: `<DeferredContent @load="onDataLoad" role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
     <DataTable :value="products">
         <Column field="code" header="Code"></Column>
         <Column field="name" header="Name"></Column>
@@ -32,8 +31,7 @@ export default {
         <Column field="quantity" header="Quantity"></Column>
     </DataTable>
 </DeferredContent>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Toast />
         <div style="height: 800px">Scroll down to lazy load a DataTable.</div>
@@ -66,8 +64,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Toast />
         <div style="height: 800px">Scroll down to lazy load a DataTable.</div>

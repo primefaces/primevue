@@ -33,8 +33,7 @@ export default {
     data() {
         return {
             code: {
-                basic: `
-<Accordion :multiple="true" :activeIndex="[0]">
+                basic: `<Accordion :multiple="true" :activeIndex="[0]">
     <AccordionTab header="Header I">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -56,8 +55,7 @@ export default {
     </AccordionTab>
     <AccordionTab header="Header IV" :disabled="true"> </AccordionTab>
 </Accordion>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card">
         <Accordion :multiple="true" :activeIndex="[0]">
             <AccordionTab header="Header I">
@@ -85,8 +83,7 @@ export default {
 
 <script>
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <Accordion :multiple="true" :activeIndex="[0]">
             <AccordionTab header="Header I">

@@ -25,13 +25,11 @@ export default {
                 { name: 'Research', key: 'R' }
             ],
             code: {
-                basic: `
-<div v-for="category of categories" :key="category.key" class="flex align-items-center">
+                basic: `<div v-for="category of categories" :key="category.key" class="flex align-items-center">
     <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
     <label :for="category.key">{{ category.name }}</label>
 </div>`,
-                options: `
-<template>
+                options: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-3">
             <div v-for="category of categories" :key="category.key" class="flex align-items-center">
@@ -57,8 +55,7 @@ export default {
     }
 };
 <\/script>`,
-                composition: `
-<template>
+                composition: `<template>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-3">
             <div v-for="category of categories" :key="category.key" class="flex align-items-center">

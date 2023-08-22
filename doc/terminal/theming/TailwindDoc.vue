@@ -5,7 +5,7 @@
             <PrimeVueNuxtLink to="/tailwind">Tailwind Customization</PrimeVueNuxtLink> section for an example.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideCodeSandbox hideStackBlitz />
-        <p>A playground sample with the pre-built Tailwind theme.</p>
+        <p class="mt-4">A playground sample with the pre-built Tailwind theme.</p>
         <DocSectionCode :code="code2" embedded />
     </DocSectionText>
 </template>
@@ -29,8 +29,7 @@ export default {
 `
             },
             code2: {
-                composition: `
-<template>
+                composition: `<template>
     <div class="card">
         <p class="text-gray-700 dark:text-white/80">Enter "date" to display the current date, "greet {0}" for a message and "random" to get a random number.</p>
         <Terminal welcomeMessage="Welcome to PrimeVue" prompt="primevue $" class="dark-demo-terminal" aria-label="PrimeVue Terminal Service" />
