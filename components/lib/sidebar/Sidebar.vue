@@ -8,7 +8,7 @@
                             <slot name="header"></slot>
                         </div>
                         <button v-if="showCloseIcon" :ref="closeButtonRef" v-ripple autofocus type="button" :class="cx('closeButton')" :aria-label="closeAriaLabel" @click="hide" v-bind="ptm('closeButton')" data-pc-group-section="iconcontainer">
-                            <slot name="closeicon">
+                            <slot name="closeicon" :class="cx('closeIcon')">
                                 <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')"></component>
                             </slot>
                         </button>

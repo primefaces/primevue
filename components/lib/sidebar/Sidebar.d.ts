@@ -161,8 +161,14 @@ export interface SidebarSlots {
     header(): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - close icon slot's params.
      */
-    closeicon(): VNode[];
+    closeicon(scope: {
+        /**
+         * Style class of the close icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**
