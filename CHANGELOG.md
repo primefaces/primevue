@@ -1,5 +1,27 @@
 # Changelog
 
+## [3.32.2](https://github.com/primefaces/primevue/tree/3.32.2) (2023-08-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.32.1...3.32.2)
+
+**Implemented New Features and Enhancements:**
+
+-   PassThrough: component option improvements [\#4322](https://github.com/primefaces/primevue/issues/4322)
+
+**Fixed bugs:**
+
+-   \[AutoComplete\] wrong removetokenicon pt implementation [\#4320](https://github.com/primefaces/primevue/issues/4320)
+-   \[Editor\] - Tailwind theme is not working. Structure needs adjustments [\#4317](https://github.com/primefaces/primevue/issues/4317)
+-   Dialog: Uncaught TypeError: getComputedStyle is not a function [\#4312](https://github.com/primefaces/primevue/issues/4312)
+-   Toast message content overflows the toast border [\#4309](https://github.com/primefaces/primevue/issues/4309)
+-   Column: `colspan` only applied to `thead>tr>td` but should be applied to `tbody>tr>td` [\#4307](https://github.com/primefaces/primevue/issues/4307)
+-   Calendar: Icon classes not being correctly exposed [\#4305](https://github.com/primefaces/primevue/issues/4305)
+-   Listbox: Typing filtericon slot does not expose class [\#4304](https://github.com/primefaces/primevue/issues/4304)
+-   Sidebar: Icon classes not being correctly exposed [\#4303](https://github.com/primefaces/primevue/issues/4303)
+-   Toast: Icon classes not being correctly exposed [\#4302](https://github.com/primefaces/primevue/issues/4302)
+-   Dialog: Draggable Fails [\#4298](https://github.com/primefaces/primevue/issues/4298)
+-   Datatable Cell Edit: Numpad Enter not saving new data on InputNumber [\#4292](https://github.com/primefaces/primevue/issues/4292)
+
 ## [3.32.1](https://github.com/primefaces/primevue/tree/3.32.1) (2023-08-18)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.32.0...3.32.1)
