@@ -2745,10 +2745,6 @@
 .p-datatable .p-column-resizer-helper {
   background: #5E81AC;
 }
-.p-datatable .p-datatable-scrollable-header,
-.p-datatable .p-datatable-scrollable-footer {
-  background: #ffffff;
-}
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot, .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-tfoot {

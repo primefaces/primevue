@@ -2717,10 +2717,6 @@
 .p-datatable .p-column-resizer-helper {
   background: #14B8A6;
 }
-.p-datatable .p-datatable-scrollable-header,
-.p-datatable .p-datatable-scrollable-footer {
-  background: #f8f9fa;
-}
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-tfoot, .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-thead,
 .p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-virtualscroller > .p-datatable-table > .p-datatable-tfoot {
