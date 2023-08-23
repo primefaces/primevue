@@ -323,9 +323,9 @@ export default {
                     let leftPos = offset.left + deltaX;
                     let topPos = offset.top + deltaY;
                     let viewport = DomHandler.getViewport();
-                    let getComputedStyle = getComputedStyle(this.container);
-                    let marginLeft = parseFloat(getComputedStyle.marginLeft);
-                    let marginTop = parseFloat(getComputedStyle.marginTop);
+                    let containerComputedStyle = getComputedStyle(this.container);
+                    let marginLeft = parseFloat(containerComputedStyle.marginLeft);
+                    let marginTop = parseFloat(containerComputedStyle.marginTop);
 
                     this.container.style.position = 'fixed';
 
