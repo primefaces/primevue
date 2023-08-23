@@ -19010,7 +19010,14 @@
                         },
                         {
                             "name": "closeicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>class</b>: any, // Style class of the close icon\n  }",
+                                    "description": "close icon slot's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close icon template."
                         },
@@ -19020,7 +19027,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>maximized</b>: boolean, // Maximized state as a boolean\n  }",
+                                    "type": "{\n  \t <b>maximized</b>: boolean, // Maximized state as a boolean\n  \t <b>class</b>: any, // Style class of the maximize icon\n  }",
                                     "description": "maximize icon slot's params."
                                 }
                             ],
