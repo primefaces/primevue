@@ -252,12 +252,24 @@ export interface ToastSlots {
     }): VNode[];
     /**
      * Custom icon template.
+     * @param {Object} scope - icon slot's params.
      */
-    icon(): VNode[];
+    icon(scope: {
+        /**
+         * Style class of the icon
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - close icon slot's params.
      */
-    closeicon(): VNode[];
+    closeicon(scope: {
+        /**
+         * Style class of the close icon
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**
