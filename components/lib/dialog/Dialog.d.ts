@@ -286,8 +286,14 @@ export interface DialogSlots {
     footer(): VNode[];
     /**
      * Custom close icon template.
+     * @param {Object} scope - close icon slot's params.
      */
-    closeicon(): VNode[];
+    closeicon(scope: {
+        /**
+         * Style class of the close icon
+         */
+        class: any;
+    }): VNode[];
     /**
      * Custom maximize icon template of dialog.
      * @param {Object} scope - maximize icon slot's params.
@@ -297,6 +303,10 @@ export interface DialogSlots {
          * Maximized state as a boolean
          */
         maximized: boolean;
+        /**
+         * Style class of the maximize icon
+         */
+        class: any;
     }): VNode[];
 }
 

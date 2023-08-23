@@ -20,7 +20,7 @@
                                 v-bind="ptm('maximizableButton')"
                                 data-pc-group-section="headericon"
                             >
-                                <slot name="maximizeicon" :maximized="maximized">
+                                <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
                                     <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableIcon')" />
                                 </slot>
                             </button>
@@ -36,7 +36,7 @@
                                 v-bind="{ ...closeButtonProps, ...ptm('closeButton') }"
                                 data-pc-group-section="headericon"
                             >
-                                <slot name="closeicon">
+                                <slot name="closeicon" :class="cx('closeButtonIcon')">
                                     <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon]" v-bind="ptm('closeButtonIcon')"></component>
                                 </slot>
                             </button>
