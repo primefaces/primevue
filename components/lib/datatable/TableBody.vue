@@ -10,7 +10,7 @@
                     role="row"
                     v-bind="ptm('rowGroupHeader')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...ptm('column.root'), ...ptm('column.bodyCell') }" data-pc-section="bodycell">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }" data-pc-section="bodycell">
                         <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="ptm('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
@@ -102,7 +102,7 @@
                     role="row"
                     v-bind="ptm('rowGroupFooter')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...ptm('column.root'), ...ptm('column.footerCell') }" data-pc-section="footercell">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('footerCell') }" data-pc-section="footercell">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
@@ -307,16 +307,15 @@ export default {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
         },
-        getColumnPT(currentColumn, key) {
+        getColumnPT(key) {
             const columnMetaData = {
-                props: currentColumn.props,
                 parent: {
                     props: this.$props,
                     state: this.$data
                 }
             };
 
-            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp(currentColumn), key, columnMetaData));
+            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp({}), key, columnMetaData));
         },
         getColumnProp(column) {
             return column.props && column.props.pt ? column.props.pt : undefined; //@todo
