@@ -283,10 +283,7 @@ export default {
                 this.styleElement = null;
             }
         },
-        initDrag(event) {
-            if (DomHandler.findSingle(event.target, '[data-pc-section="headeraction"]') || DomHandler.findSingle(event.target.parentElement, '[data-pc-section="headeraction"]')) {
-                return;
-            }
+        initDrag(event) {          
 
             if (this.draggable) {
                 this.dragging = true;
