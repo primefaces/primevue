@@ -13,7 +13,7 @@ const MultiSelectProps = [
     },
     {
         name: 'optionLabel',
-        type: 'string',
+        type: 'string | function',
         default: 'null',
         description: 'Property name or getter function to use as the label of an option.'
     },

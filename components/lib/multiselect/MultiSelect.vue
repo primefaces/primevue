@@ -261,10 +261,10 @@ export default {
             return this.virtualScrollerDisabled ? index : fn && fn(index)['index'];
         },
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option['label'] || option;
         },
         getOptionValue(option) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option['value'] || option;
         },
         getOptionRenderKey(option) {
             return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
@@ -451,8 +451,8 @@ export default {
             let selected = this.isSelected(option);
             let value = null;
 
-            if (selected) value = this.modelValue.filter((val) => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
-            else value = [...(this.modelValue || []), this.getOptionValue(option)];
+            if (selected) value = this.modelValue.filter((val) => this.getOptionValue(val) === this.getOptionValue(option));
+            else value = [...(this.modelValue || []), option];
 
             this.updateModel(event, value);
             index !== -1 && (this.focusedOptionIndex = index);
@@ -764,7 +764,7 @@ export default {
         },
         getLabelByValue(value) {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
-            const matchedOption = options.find((option) => !this.isOptionGroup(option) && ObjectUtils.equals(this.getOptionValue(option), value, this.equalityKey));
+            const matchedOption = options.find((option) => !this.isOptionGroup(option) && this.getOptionValue(option) === this.getOptionValue(value));
 
             return matchedOption ? this.getOptionLabel(matchedOption) : null;
         },
@@ -811,7 +811,7 @@ export default {
         isSelected(option) {
             const optionValue = this.getOptionValue(option);
 
-            return (this.modelValue || []).some((value) => ObjectUtils.equals(value, optionValue, this.equalityKey));
+            return (this.modelValue || []).some((value) => this.getOptionValue(value) === optionValue);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -979,7 +979,7 @@ export default {
             // TODO: Refactor
             let label;
 
-            if (this.modelValue && this.modelValue.length) {
+            if (this.modelValue?.length) {
                 if (ObjectUtils.isNotEmpty(this.maxSelectedLabels) && this.modelValue.length > this.maxSelectedLabels) {
                     return this.getSelectedItemsLabel();
                 } else {
@@ -1009,7 +1009,7 @@ export default {
             return ObjectUtils.isNotEmpty(this.modelValue);
         },
         equalityKey() {
-            return this.optionValue ? null : this.dataKey;
+            return this.optionValue || this.dataKey;
         },
         searchFields() {
             return this.filterFields || [this.optionLabel];

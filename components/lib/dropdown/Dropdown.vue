@@ -245,10 +245,10 @@ export default {
             return this.virtualScrollerDisabled ? index : fn && fn(index)['index'];
         },
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option['label'] || option;
         },
         getOptionValue(option) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option['value'] || option;
         },
         getOptionRenderKey(option, index) {
             return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
@@ -428,9 +428,7 @@ export default {
             DomHandler.focus(focusableEl);
         },
         onOptionSelect(event, option, isHide = true) {
-            const value = this.getOptionValue(option);
-
-            this.updateModel(event, value);
+            this.updateModel(event, option);
             isHide && this.hide(true);
         },
         onOptionMouseMove(event, index) {
@@ -708,7 +706,7 @@ export default {
             return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
-            return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
+            return this.isValidOption(option) && this.getOptionValue(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
             return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
@@ -717,7 +715,7 @@ export default {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isSelected(option) {
-            return this.isValidOption(option) && ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            return this.isValidOption(option) && this.getOptionValue(this.modelValue) === this.getOptionValue(option);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -878,7 +876,7 @@ export default {
             return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.modelValue || '';
         },
         equalityKey() {
-            return this.optionValue ? null : this.dataKey;
+            return this.optionValue || this.dataKey;
         },
         searchFields() {
             return this.filterFields || [this.optionLabel];
