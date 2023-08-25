@@ -451,7 +451,7 @@ export default {
             let selected = this.isSelected(option);
             let value = null;
 
-            if (selected) value = this.modelValue.filter((val) => this.getOptionValue(val) === this.getOptionValue(option));
+            if (selected) value = this.modelValue.filter((val) => this.getOptionValue(val) !== this.getOptionValue(option));
             else value = [...(this.modelValue || []), option];
 
             this.updateModel(event, value);
@@ -781,7 +781,7 @@ export default {
             if (this.selectAll !== null) {
                 this.$emit('selectall-change', { originalEvent: event, checked: !this.allSelected });
             } else {
-                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
+                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => this.isValidOption(option));
 
                 this.updateModel(event, value);
             }
