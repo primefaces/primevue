@@ -283,8 +283,7 @@ export default {
                 this.styleElement = null;
             }
         },
-        initDrag(event) {          
-
+        initDrag(event) {
             if (this.draggable) {
                 this.dragging = true;
                 this.lastPageX = event.pageX;
