@@ -35,7 +35,7 @@
                     @dblclick="onRowDblClick($event, rowData, getRowIndex(index))"
                     @contextmenu="onRowRightClick($event, rowData, getRowIndex(index))"
                     @touchend="onRowTouchEnd($event)"
-                    @keydown="onRowKeyDown($event, rowData, getRowIndex(index))"
+                    @keydown.self="onRowKeyDown($event, rowData, getRowIndex(index))"
                     @mousedown="onRowMouseDown($event)"
                     @dragstart="onRowDragStart($event, getRowIndex(index))"
                     @dragover="onRowDragOver($event, getRowIndex(index))"
