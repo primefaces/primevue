@@ -137,6 +137,10 @@ const SplitButtonSlots = [
     {
         name: 'menubuttonicon',
         description: 'Custom menu button icon template.'
+    },
+    {
+        name: 'menuitemicon',
+        description: 'Custom menu item icon template.'
     }
 ];
 

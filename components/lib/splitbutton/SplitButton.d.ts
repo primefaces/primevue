@@ -205,6 +205,16 @@ export interface SplitButtonSlots {
          */
         class: string;
     }): VNode[];
+    /**
+     * Custom menu item icon template.
+     * @param {Object} scope - menubuttonicon slot's params.
+     */
+    menuitemicon(scope: {
+        /**
+         * Menuitem instance
+         */
+        item: MenuItem;
+    }): VNode[];
 }
 
 /**
