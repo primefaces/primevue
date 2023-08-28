@@ -5,7 +5,17 @@
         </div>
         <div :class="[cx('content'), contentClass]" v-bind="ptm('content')">
             <div :class="[cx('container'), containerClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('container')">
-                <button v-if="showNavigators" v-ripple type="button" :class="cx('previousButton')" :disabled="backwardIsDisabled" :aria-label="ariaPrevButtonLabel" @click="navBackward" v-bind="{ ...prevButtonProps, ...ptm('previousButton') }">
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="cx('previousButton')"
+                    :disabled="backwardIsDisabled"
+                    :aria-label="ariaPrevButtonLabel"
+                    @click="navBackward"
+                    v-bind="{ ...prevButtonProps, ...ptm('previousButton') }"
+                    data-pc-group-section="navigator"
+                >
                     <slot name="previousicon">
                         <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="cx('previousButtonIcon')" v-bind="ptm('previousButtonIcon')" />
                     </slot>
@@ -49,7 +59,17 @@
                     </div>
                 </div>
 
-                <button v-if="showNavigators" v-ripple type="button" :class="cx('nextButton')" :disabled="forwardIsDisabled" :aria-label="ariaNextButtonLabel" @click="navForward" v-bind="{ ...nextButtonProps, ...ptm('nextButton') }">
+                <button
+                    v-if="showNavigators"
+                    v-ripple
+                    type="button"
+                    :class="cx('nextButton')"
+                    :disabled="forwardIsDisabled"
+                    :aria-label="ariaNextButtonLabel"
+                    @click="navForward"
+                    v-bind="{ ...nextButtonProps, ...ptm('nextButton') }"
+                    data-pc-group-section="navigator"
+                >
                     <slot name="nexticon">
                         <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('nextButtonIcon')" v-bind="ptm('nextButtonIcon')" />
                     </slot>

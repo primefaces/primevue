@@ -52,7 +52,17 @@
             <BarsIcon v-else :class="cx('rowReorderIcon')" v-bind="getColumnPT('rowReorderIcon')" />
         </template>
         <template v-else-if="columnProp('expander')">
-            <button v-ripple :class="cx('rowToggler')" type="button" :aria-expanded="isRowExpanded" :aria-controls="ariaControls" :aria-label="expandButtonAriaLabel" @click="toggleRow" v-bind="getColumnPT('rowToggler')">
+            <button
+                v-ripple
+                :class="cx('rowToggler')"
+                type="button"
+                :aria-expanded="isRowExpanded"
+                :aria-controls="ariaControls"
+                :aria-label="expandButtonAriaLabel"
+                @click="toggleRow"
+                v-bind="getColumnPT('rowToggler')"
+                data-pc-group-section="rowactionbutton"
+            >
                 <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :rowExpanded="isRowExpanded" />
                 <template v-else>
                     <span v-if="isRowExpanded && expandedRowIcon" :class="[cx('rowTogglerIcon'), expandedRowIcon]" />
@@ -63,13 +73,13 @@
             </button>
         </template>
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
-            <button v-if="!d_editing" v-ripple :class="cx('rowEditorInitButton')" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPT('rowEditorInitButton')">
+            <button v-if="!d_editing" v-ripple :class="cx('rowEditorInitButton')" type="button" :aria-label="initButtonAriaLabel" @click="onRowEditInit" v-bind="getColumnPT('rowEditorInitButton')" data-pc-group-section="rowactionbutton">
                 <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="cx('rowEditorInitIcon')" v-bind="getColumnPT('rowEditorInitIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple :class="cx('rowEditorSaveButton')" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPT('rowEditorSaveButton')">
+            <button v-if="d_editing" v-ripple :class="cx('rowEditorSaveButton')" type="button" :aria-label="saveButtonAriaLabel" @click="onRowEditSave" v-bind="getColumnPT('rowEditorSaveButton')" data-pc-group-section="rowactionbutton">
                 <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="cx('rowEditorSaveIcon')" v-bind="getColumnPT('rowEditorSaveIcon')" />
             </button>
-            <button v-if="d_editing" v-ripple :class="cx('rowEditorCancelButton')" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPT('rowEditorCancelButton')">
+            <button v-if="d_editing" v-ripple :class="cx('rowEditorCancelButton')" type="button" :aria-label="cancelButtonAriaLabel" @click="onRowEditCancel" v-bind="getColumnPT('rowEditorCancelButton')" data-pc-group-section="rowactionbutton">
                 <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="cx('rowEditorCancelIcon')" v-bind="getColumnPT('rowEditorCancelIcon')" />
             </button>
         </template>
