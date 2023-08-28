@@ -2,16 +2,16 @@
  * @todo: Add dynamic params support;
  *
  * Exp;
- * usePassThrough(pt1, pt2, pt3, pt*, { merge: true });
- * usePassThrough(pt1, { merge: true });
+ * usePassThrough(pt1, pt2, pt3, pt*, { mergeSections: true });
+ * usePassThrough(pt1, { mergeSections: true });
  */
-export const usePassThrough = (pt1 = {}, pt2 = {}, { merge = true, useMergeProps = true } = {}) => {
+export const usePassThrough = (pt1 = {}, pt2 = {}, { mergeSections = true, mergeProps = false } = {}) => {
     return {
         _usept: {
-            merge,
-            useMergeProps
+            mergeSections,
+            mergeProps
         },
         originalValue: pt1,
-        value: pt2
+        value: { ...pt1, ...pt2 }
     };
 };

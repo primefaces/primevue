@@ -508,7 +508,7 @@ export default {
             const fn = (value) => callback(value, key, params);
 
             if (pt?.hasOwnProperty('_usept')) {
-                const { merge, useMergeProps } = pt['_usept'];
+                const { mergeSections, mergeProps: useMergeProps } = pt['_usept'];
                 const originalValue = fn(pt.originalValue);
                 const value = fn(pt.value);
 
@@ -516,7 +516,7 @@ export default {
                 else if (ObjectUtils.isString(value)) return value;
                 else if (ObjectUtils.isString(originalValue)) return originalValue;
 
-                return merge ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+                return mergeSections || (!mergeSections && value) ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
             }
 
             return fn(pt);
