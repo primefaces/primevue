@@ -386,9 +386,12 @@ export default {
                 this.updateExpandedRowKeys(newValue);
             }
         },
-        editingRows(newValue) {
-            if (this.dataKey) {
-                this.updateEditingRowKeys(newValue);
+        editingRows: {
+            deep: true,
+            handler(newValue) {
+                if (this.dataKey) {
+                    this.updateEditingRowKeys(newValue);
+                }
             }
         },
         filters: {
