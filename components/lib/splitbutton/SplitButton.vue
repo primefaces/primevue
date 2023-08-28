@@ -17,7 +17,7 @@
                 :unstyled="unstyled"
                 data-pc-section="button"
             >
-                <template v-if="icon" #icon="slotProps">
+                <template #icon="slotProps">
                     <slot name="icon" :class="slotProps.class">
                         <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
                     </slot>
