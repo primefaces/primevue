@@ -30,7 +30,6 @@ export default {
                         {
                             label: 'Update',
                             icon: 'pi pi-refresh',
-
                             command: () => {
                                 this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
                             }
