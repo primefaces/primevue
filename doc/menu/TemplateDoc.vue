@@ -13,6 +13,13 @@
                     </div>
                 </button>
             </template>
+            <template #item="{ item, label, props }">
+                <a class="flex" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                </a>
+            </template>
             <template #end>
                 <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
                     <i class="pi pi-sign-out" />
@@ -28,7 +35,19 @@
 export default {
     data() {
         return {
-            items: [{ separator: true }, { label: 'Profile', icon: 'pi pi-fw pi-user' }, { label: 'Settings', icon: 'pi pi-fw pi-cog' }, { separator: true }],
+            items: [
+                { separator: true },
+                {
+                    label: 'Profile',
+                    icon: 'pi pi-fw pi-user'
+                },
+                {
+                    label: 'Settings',
+                    icon: 'pi pi-fw pi-cog',
+                    badge: 2
+                },
+                { separator: true }
+            ],
             code: {
                 basic: `<Menu :model="items">
     <template #start>
@@ -39,6 +58,13 @@ export default {
                 <span class="text-sm">Agent</span>
             </div>
         </button>
+    </template>
+    <template #item="{ item, label, props }">
+        <a class="flex" v-bind="props.action">
+            <span v-bind="props.icon" />
+            <span v-bind="props.label">{{ label }}</span>
+            <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+        </a>
     </template>
     <template #end>
         <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
@@ -59,6 +85,13 @@ export default {
                     </div>
                 </button>
             </template>
+            <template #item="{ item, label, props }">
+                <a class="flex" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                </a>
+            </template>
             <template #end>
                 <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
                     <i class="pi pi-sign-out" />
@@ -76,8 +109,15 @@ export default {
         return {
             items: [
                 { separator: true },
-                { label: 'Profile', icon: 'pi pi-fw pi-user' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog' },
+                {
+                    label: 'Profile',
+                    icon: 'pi pi-fw pi-user'
+                },
+                {
+                    label: 'Settings',
+                    icon: 'pi pi-fw pi-cog',
+                    badge: 2
+                },
                 { separator: true }
             ]
         };
@@ -101,6 +141,13 @@ export default {
                     </div>
                 </button>
             </template>
+            <template #item="{ item, label, props }">
+                <a class="flex" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                </a>
+            </template>
             <template #end>
                 <button class="w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround">
                     <i class="pi pi-sign-out" />
@@ -118,8 +165,15 @@ import { useToast } from "primevue/usetoast";
 
 const items = ref([
     { separator: true },
-    { label: 'Profile', icon: 'pi pi-fw pi-user' },
-    { label: 'Settings', icon: 'pi pi-fw pi-cog' },
+    {
+        label: 'Profile',
+        icon: 'pi pi-fw pi-user'
+    },
+    {
+        label: 'Settings',
+        icon: 'pi pi-fw pi-cog',
+        badge: 2
+    },
     { separator: true }
 ]);
 

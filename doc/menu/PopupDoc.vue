@@ -32,21 +32,6 @@ export default {
                             }
                         }
                     ]
-                },
-                {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
-                        }
-                    ]
                 }
             ],
             code: {
@@ -82,21 +67,6 @@ export default {
                             command: () => {
                                 this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                             }
-                        }
-                    ]
-                },
-                {
-                    label: 'Navigate',
-                    items: [
-                        {
-                            label: 'Vue Website',
-                            icon: 'pi pi-external-link',
-                            url: 'https://vuejs.org/'
-                        },
-                        {
-                            label: 'Router',
-                            icon: 'pi pi-upload',
-                            to: '/fileupload'
                         }
                     ]
                 }
@@ -144,21 +114,6 @@ const items = ref([
                 command: () => {
                     toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
                 }
-            }
-        ]
-    },
-    {
-        label: 'Navigate',
-        items: [
-            {
-                label: 'Vue Website',
-                icon: 'pi pi-external-link',
-                url: 'https://vuejs.org/'
-            },
-            {
-                label: 'Router',
-                icon: 'pi pi-upload',
-                to: '/fileupload'
             }
         ]
     }
