@@ -28011,6 +28011,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item icon template."
+                        },
+                        {
+                            "name": "submenuheader",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>submenuheader</b>: MenuItem, // Menuitem instance\n  }",
+                                    "description": "submenuheader slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom item template."
                         }
                     ]
                 },
