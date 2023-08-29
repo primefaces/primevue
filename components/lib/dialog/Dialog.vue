@@ -7,7 +7,7 @@
                         <slot name="header">
                             <span v-if="header" :id="ariaLabelledById" :class="cx('headerTitle')" v-bind="ptm('headerTitle')">{{ header }}</span>
                         </slot>
-                        <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')">
+                        <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')" data-pc-section="headericons">
                             <button
                                 v-if="maximizable"
                                 :ref="maximizableRef"
@@ -284,11 +284,10 @@ export default {
             }
         },
         initDrag(event) {
-            if (DomHandler.findSingle(event.target, '[data-pc-section="headeraction"]') || DomHandler.findSingle(event.target.parentElement, '[data-pc-section="headeraction"]')) {
-                return;
-            }
+            const headerIcons = DomHandler.findSingle(this.container, '[data-pc-section="headericons"]');
+            const isContainsHeaderIcons = headerIcons.contains(event.target);
 
-            if (this.draggable) {
+            if (this.draggable && !isContainsHeaderIcons) {
                 this.dragging = true;
                 this.lastPageX = event.pageX;
                 this.lastPageY = event.pageY;
