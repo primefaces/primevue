@@ -233,6 +233,16 @@ export interface MenuSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom item template.
+     * @param {Object} scope - submenuheader slot's params.
+     */
+    submenuheader(scope: {
+        /**
+         * Menuitem instance
+         */
+        submenuheader: MenuItem;
+    }): VNode[];
 }
 
 /**

@@ -71,11 +71,15 @@ const MenuSlots = [
     },
     {
         name: 'item',
-        description: 'Template of a menuitem.'
+        description: 'Custom item template.'
     },
     {
         name: 'itemicon',
         description: 'Custom item icon template.'
+    },
+    {
+        name: 'submenuheader',
+        description: 'Custom submenuheader template.'
     }
 ];
 
