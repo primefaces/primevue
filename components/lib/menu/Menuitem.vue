@@ -26,7 +26,7 @@
                     <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
                 </a>
             </template>
-            <component v-else :is="templates.item" :item="item"></component>
+            <component v-else-if="templates.item" :is="templates.item" :item="item" :label="label()" :props="getMenuItemProps(item)"></component>
         </div>
     </li>
 </template>
@@ -35,6 +35,7 @@
 import BaseComponent from 'primevue/basecomponent';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'Menuitem',
@@ -83,6 +84,30 @@ export default {
         },
         label() {
             return typeof this.item.label === 'function' ? this.item.label() : this.item.label;
+        },
+        getMenuItemProps(item) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        tabindex: '-1',
+                        'aria-hidden': true
+                    },
+                    this.getPTOptions('action')
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), item.icon]
+                    },
+                    this.getPTOptions('icon')
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions('label')
+                )
+            };
         }
     },
     directives: {

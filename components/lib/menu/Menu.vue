@@ -22,7 +22,7 @@
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
                             <li v-if="item.items" :id="id + '_' + i" :class="cx('submenuHeader')" role="none" v-bind="ptm('submenuHeader')">
-                                <slot name="item" :item="item">{{ label(item) }}</slot>
+                                <slot name="submenuheader" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <PVMenuitem v-if="visible(child) && !child.separator" :id="id + '_' + i + '_' + j" :item="child" :templates="$slots" :exact="exact" :focusedOptionId="focusedOptionId" @item-click="itemClick" :pt="pt" />
@@ -73,6 +73,11 @@ export default {
     resizeListener: null,
     container: null,
     list: null,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         this.id = this.id || UniqueComponentId();
 
