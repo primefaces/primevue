@@ -183,13 +183,13 @@ export default {
     },
 
     setAttribute(element, attribute = '', value) {
-        if (element && value !== null && value !== undefined) {
+        if (this.isElement(element) && value !== null && value !== undefined) {
             element.setAttribute(attribute, value);
         }
     },
 
     setAttributes(element, attributes = {}) {
-        if (element) {
+        if (this.isElement(element)) {
             const computedStyles = (rule, value) => {
                 const styles = element?.$attrs?.[rule] ? [element?.$attrs?.[rule]] : [];
 
@@ -231,7 +231,7 @@ export default {
     },
 
     getAttribute(element, name) {
-        if (element) {
+        if (this.isElement(element)) {
             const value = element.getAttribute(name);
 
             if (!isNaN(value)) {
@@ -249,7 +249,7 @@ export default {
     },
 
     isAttributeEquals(element, name, value) {
-        return element ? this.getAttribute(element, name) === value : false;
+        return this.isElement(element) ? this.getAttribute(element, name) === value : false;
     },
 
     isAttributeNotEquals(element, name, value) {
