@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/menu/BasicDoc';
 import GroupDoc from '@/doc/menu/GroupDoc';
 import ImportDoc from '@/doc/menu/ImportDoc';
 import PopupDoc from '@/doc/menu/PopupDoc';
+import RouterDoc from '@/doc/menu/RouterDoc';
 import TemplateDoc from '@/doc/menu/TemplateDoc';
 import PTComponent from '@/doc/menu/pt/index.vue';
 import ThemingDoc from '@/doc/menu/theming/index.vue';
@@ -48,6 +49,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',
