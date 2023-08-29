@@ -109,6 +109,10 @@ export default {
             type: Boolean,
             default: true
         },
+        itemSlotInput:{
+            type:Boolean,
+            default:false
+        },
         targetListProps: {
             type: null,
             default: null

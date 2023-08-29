@@ -651,9 +651,8 @@ export default {
             event.preventDefault();
         },
         onSpaceKey(event, listType) {
-            event.preventDefault();
-
             if (event.shiftKey) {
+                event.preventDefault();
                 const listId = listType === 'sourceList' ? 0 : 1;
                 const items = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]');
                 const selectedItemIndex = ObjectUtils.findIndexInList(this.d_selection[listId][0], [...this.modelValue[listId]]);
@@ -662,7 +661,13 @@ export default {
 
                 this.d_selection[listId] = [...this.modelValue[listId]].slice(Math.min(selectedItemIndex, matchedOptionIndex), Math.max(selectedItemIndex, matchedOptionIndex) + 1);
                 this.$emit('update:selection', this.d_selection);
-            } else {
+                event.preventDefault();
+            } 
+            else if(this.itemSlotInput){
+                return
+            }
+            else {
+                event.preventDefault();
                 this.onEnterKey(event, listType);
             }
         },
