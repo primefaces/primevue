@@ -1,6 +1,6 @@
 <template>
     <li v-if="visible()" :class="[cx('menuitem'), item.class]" v-bind="ptm('menuitem', ptmOptions)">
-        <template v-if="!templates || !templates.item">
+        <template v-if="!templates.item">
             <router-link v-if="item.to" v-slot="{ navigate, href, isActive, isExactActive }" :to="item.to" custom>
                 <a :href="href" :class="cx('action', { isActive, isExactActive })" :aria-current="isCurrentUrl()" @click="onClick($event, navigate)" v-bind="ptm('action', ptmOptions)">
                     <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('icon')" />
@@ -14,12 +14,13 @@
                 <span v-if="item.label" :class="cx('label')" v-bind="ptm('label', ptmOptions)">{{ label() }}</span>
             </a>
         </template>
-        <component v-else :is="templates.item" :item="item"></component>
+        <component v-else :is="templates.item" :item="item" :label="item.label && label()" :props="getMenuItemProps"></component>
     </li>
 </template>
 
 <script>
 import BaseComponent from 'primevue/basecomponent';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'BreadcrumbItem',
@@ -55,7 +56,7 @@ export default {
         },
         isCurrentUrl() {
             const { to, url } = this.item;
-            let lastPath = this.$router ? this.$router.currentRoute.path : '';
+            const lastPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
             return to === lastPath || url === lastPath ? 'page' : undefined;
         }
@@ -67,6 +68,30 @@ export default {
                     item: this.item,
                     index: this.index
                 }
+            };
+        },
+        getMenuItemProps() {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        'aria-current': this.isCurrentUrl(),
+                        onClick: ($event) => this.onClick($event)
+                    },
+                    this.ptm('action', this.ptmOptions)
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), this.item.icon]
+                    },
+                    this.ptm('icon', this.ptmOptions)
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.ptm('label', this.ptmOptions)
+                )
             };
         }
     }
