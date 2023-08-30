@@ -1,5 +1,10 @@
 <template>
-    <DocSectionText v-bind="$attrs"> </DocSectionText>
+    <DocSectionText v-bind="$attrs">
+        <p>
+            Since v3.23.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
+            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
+        </p>
+    </DocSectionText>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
@@ -55,9 +60,7 @@ export default {
                         {
                             label: 'Upload',
                             icon: 'pi pi-upload',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Upload', detail: 'File Uploaded', life: 3000 });
-                            }
+                            to: '/fileupload'
                         }
                     ]
                 }

@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Two slots named "start" and "end" are provided to embed content before or after the menu. In additon Menu, offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter.</p>
+        <p>
+            Menu offers item customization with the <i>item</i> template that receives the menuitem instance from the model as a parameter. When item templating is used, it is suggested to bind the <i>action</i> prop from the slot props to handle
+            accessibility and pass through attributes. Additionally, two slots named <i>start</i> and <i>end</i> are provided to embed content before or after the menu.
+        </p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Menu :model="items">
