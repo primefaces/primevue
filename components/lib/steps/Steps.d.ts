@@ -137,6 +137,18 @@ export interface StepsSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Order of the menuitem
+         */
+        index: number;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: (...args: any) => string;
     }): VNode[];
 }
 
