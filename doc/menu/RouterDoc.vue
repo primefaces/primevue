@@ -8,7 +8,7 @@
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
-                <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
@@ -60,7 +60,7 @@ export default {
                         {
                             label: 'Upload',
                             icon: 'pi pi-upload',
-                            to: '/fileupload'
+                            route: '/fileupload'
                         }
                     ]
                 }
@@ -68,7 +68,7 @@ export default {
             code: {
                 basic: `<Menu :model="items">
     <template #item="{ label, item, props }">
-        <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
                 <span v-bind="props.icon" />
                 <span v-bind="props.label">{{ label }}</span>
@@ -84,7 +84,7 @@ export default {
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
-                <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
@@ -137,9 +137,7 @@ export default {
                         {
                             label: 'Upload',
                             icon: 'pi pi-upload',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Upload', detail: 'File Uploaded', life: 3000 });
-                            }
+                            route: '/fileupload'
                         }
                     ]
                 }
@@ -152,7 +150,7 @@ export default {
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
-                <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
@@ -204,9 +202,7 @@ const items = ref(items: [
             {
                 label: 'Upload',
                 icon: 'pi pi-upload',
-                command: () => {
-                    this.$toast.add({ severity: 'success', summary: 'Upload', detail: 'File Uploaded', life: 3000 });
-                }
+                route: '/fileupload'
             }
         ]
     }
