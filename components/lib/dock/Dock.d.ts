@@ -210,6 +210,14 @@ export interface DockSlots {
          * Index of the menuitem
          */
         index: number;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: (...args: any) => string;
     }): VNode[];
     /**
      * Custom icon content.
