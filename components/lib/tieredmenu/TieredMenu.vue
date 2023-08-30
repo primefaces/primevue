@@ -20,6 +20,7 @@
                     :exact="exact"
                     :level="0"
                     :pt="pt"
+                    :unstyled="unstyled"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
@@ -75,6 +76,11 @@ export default {
                     this.unbindResizeListener();
                 }
             }
+        }
+    },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     mounted() {
