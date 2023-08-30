@@ -1,13 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content can be placed inside the menubar using the <i>start</i> and <i>end</i> properties.</p>
+        <p>
+            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
+            <i>NuxtLink</i> or <i>router-link</i>.
+        </p>
     </DocSectionText>
-    <div class="card relative z-2">
-        <Menubar :model="items">
-            <template #start>
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
-            </template>
-            <template #item="{ label, item, props, root }">
+    <div class="card flex justify-content-center">
+        <TieredMenu :model="items">
+            <template #item="{ label, item, props, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
@@ -17,13 +17,10 @@
                 <a v-else :href="item.url" :target="item.target" v-bind="props.action">
                     <span v-bind="props.icon" />
                     <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-right" v-bind="props.submenuicon" />
                 </a>
             </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
-            </template>
-        </Menubar>
+        </TieredMenu>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -156,55 +153,18 @@ export default {
                     route: '/fileupload'
                 },
                 {
+                    separator: true
+                },
+                {
                     label: 'Quit',
                     icon: 'pi pi-fw pi-power-off'
                 }
             ],
             code: {
-                basic: `<Menubar :model="items">
-    <template #start>
-        <img alt="logo" src="/images/logo.svg" height="40" class="mr-2" />
-    </template>
-    <template #item="{ label, item, props, root }">
-        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-            <a :href="routerProps.href" v-bind="props.action">
-                <span v-bind="props.icon" />
-                <span v-bind="props.label">{{ label }}</span>
-            </a>
-        </router-link>
-        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-            <span v-bind="props.icon" />
-            <span v-bind="props.label">{{ label }}</span>
-            <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
-        </a>
-    </template>
-    <template #end>
-        <InputText placeholder="Search" type="text" />
-    </template>
-</Menubar>`,
+                basic: `<TieredMenu :model="items" />`,
                 options: `<template>
-    <div class="card relative z-2">
-        <Menubar :model="items">
-            <template #start>
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
-            </template>
-            <template #item="{ label, item, props, root }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
-                    </a>
-                </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
-                </a>
-            </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
-            </template>
-        </Menubar>
+    <div class="card flex justify-content-center">
+        <TieredMenu :model="items" />
     </div>
 </template>
 
@@ -336,6 +296,9 @@ export default {
                     route: '/fileupload'
                 },
                 {
+                    separator: true
+                },
+                {
                     label: 'Quit',
                     icon: 'pi pi-fw pi-power-off'
                 }
@@ -345,34 +308,14 @@ export default {
 };
 <\/script>`,
                 composition: `<template>
-    <div class="card relative z-2">
-        <Menubar :model="items">
-            <template #start>
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
-            </template>
-            <template #item="{ label, item, props, root }">
-                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-                    <a :href="routerProps.href" v-bind="props.action">
-                        <span v-bind="props.icon" />
-                        <span v-bind="props.label">{{ label }}</span>
-                    </a>
-                </router-link>
-                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-                    <span v-bind="props.icon" />
-                    <span v-bind="props.label">{{ label }}</span>
-                    <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
-                </a>
-            </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
-            </template>
-        </Menubar>
+    <div class="card flex justify-content-center">
+        <TieredMenu :model="items" />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-
+            
 const items = ref([
     {
         label: 'File',
@@ -454,8 +397,8 @@ const items = ref([
                         ]
                     },
                     {
-                        label: 'List',
-                        icon: 'pi pi-fw pi-bars'
+                        icon: 'pi pi-fw pi-bars',
+                        label: 'List'
                     }
                 ]
             }
@@ -495,6 +438,9 @@ const items = ref([
         label: 'Upload',
         icon: 'pi pi-fw pi-upload',
         route: '/fileupload'
+    },
+    {
+        separator: true
     },
     {
         label: 'Quit',

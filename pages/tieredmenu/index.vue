@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/tieredmenu/AccessibilityDoc';
 import BasicDoc from '@/doc/tieredmenu/BasicDoc';
 import ImportDoc from '@/doc/tieredmenu/ImportDoc';
 import PopupDoc from '@/doc/tieredmenu/PopupDoc';
+import RouterDoc from '@/doc/tieredmenu/RouterDoc';
 import PTComponent from '@/doc/tieredmenu/pt/index.vue';
 import ThemingDoc from '@/doc/tieredmenu/theming/index.vue';
 
@@ -36,6 +37,11 @@ export default {
                     id: 'popup',
                     label: 'Popup',
                     component: PopupDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',

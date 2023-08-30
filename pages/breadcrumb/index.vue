@@ -14,6 +14,7 @@
 import AccessibilityDoc from '@/doc/breadcrumb/AccessibilityDoc';
 import BasicDoc from '@/doc/breadcrumb/BasicDoc';
 import ImportDoc from '@/doc/breadcrumb/ImportDoc';
+import RouterDoc from '@/doc/breadcrumb/RouterDoc';
 import TemplateDoc from '@/doc/breadcrumb/TemplateDoc';
 import PTComponent from '@/doc/breadcrumb/pt/index.vue';
 import ThemingDoc from '@/doc/breadcrumb/theming/index.vue';
@@ -36,6 +37,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',

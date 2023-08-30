@@ -1,14 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content can be placed inside the megamenu using the <i>start</i> and <i>end</i> properties.</p>
+        <p>
+            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
+            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
+        </p>
     </DocSectionText>
     <div class="card">
-        <MegaMenu :model="items" orientation="horizontal">
-            <template #start>
-                <span class="flex align-items-center">
-                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
-                </span>
-            </template>
+        <MegaMenu :model="items">
             <template #item="{ label, item, props, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
@@ -21,9 +19,6 @@
                     <span v-bind="props.label">{{ label }}</span>
                     <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
                 </a>
-            </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
             </template>
         </MegaMenu>
     </div>
@@ -156,10 +151,7 @@ export default {
                 }
             ],
             code: {
-                basic: `<MegaMenu :model="items" orientation="horizontal">
-    <template #start>
-        <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
-    </template>
+                basic: `<MegaMenu :model="items">
     <template #item="{ label, item, props, hasSubmenu }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
@@ -173,18 +165,10 @@ export default {
             <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
         </a>
     </template>
-    <template #end>
-        <InputText placeholder="Search" type="text" />
-    </template>
 </MegaMenu>`,
                 options: `<template>
     <div class="card">
-        <MegaMenu :model="items" orientation="horizontal">
-            <template #start>
-                <span class="flex align-items-center">
-                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
-                </span>
-            </template>
+        <MegaMenu :model="items">
             <template #item="{ label, item, props, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
@@ -197,9 +181,6 @@ export default {
                     <span v-bind="props.label">{{ label }}</span>
                     <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
                 </a>
-            </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
             </template>
         </MegaMenu>
     </div>
@@ -334,29 +315,25 @@ export default {
     }
 };
 <\/script>`,
-                composition: `<MegaMenu :model="items" orientation="horizontal">
-    <template #start>
-        <span class="flex align-items-center">
-            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/primevue-logo-dark.svg" height="24" class="mr-2" />
-        </span>
-    </template>
-    <template #item="{ label, item, props, hasSubmenu }">
-        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
-            <a :href="routerProps.href" v-bind="props.action">
-                <span v-bind="props.icon" />
-                <span v-bind="props.label">{{ label }}</span>
-            </a>
-        </router-link>
-        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
-            <span v-bind="props.icon" />
-            <span v-bind="props.label">{{ label }}</span>
-            <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
-        </a>
-    </template>
-    <template #end>
-        <InputText placeholder="Search" type="text" />
-    </template>
-</MegaMenu>
+                composition: `<template>
+    <div class="card">
+        <MegaMenu :model="items">
+            <template #item="{ label, item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action">
+                        <span v-bind="props.icon" />
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                    <span :class="[hasSubmenu && 'pi pi-fw pi-angle-down']" v-bind="props.submenuicon" />
+                </a>
+            </template>
+        </MegaMenu>
+    </div>
+</template>
 
 <script setup>
 import { ref } from "vue";
