@@ -64,7 +64,7 @@
                                 <component v-else :is="templates['icon']" :item="processedItem" :class="cx('icon')"></component>
                             </a>
                         </template>
-                        <component v-else :is="templates['item']" :item="processedItem" :index="index"></component>
+                        <component v-else :is="templates['item']" :item="processedItem" :index="index" :label="processedItem.label" :props="getMenuItemProps(processedItem, index)"></component>
                     </div>
                 </li>
             </template>
@@ -275,6 +275,24 @@ export default {
         },
         disabled(item) {
             return typeof item.disabled === 'function' ? item.disabled() : item.disabled;
+        },
+        getMenuItemProps(item, index) {
+            return {
+                action: mergeProps(
+                    {
+                        tabindex: -1,
+                        'aria-hidden': true,
+                        class: this.cx('action')
+                    },
+                    this.getPTOptions('action', item, index)
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), item.icon]
+                    },
+                    this.getPTOptions('icon', item, index)
+                )
+            };
         }
     },
     computed: {
