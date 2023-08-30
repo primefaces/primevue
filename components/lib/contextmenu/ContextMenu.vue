@@ -22,6 +22,7 @@
                     :level="0"
                     :visible="submenuVisible"
                     :pt="pt"
+                    :unstyled="unstyled"
                     @focus="onFocus"
                     @blur="onBlur"
                     @keydown="onKeyDown"
@@ -78,6 +79,18 @@ export default {
             }
         }
     },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
+    mounted() {
+        this.id = this.id || UniqueComponentId();
+
+        if (this.global) {
+            this.bindDocumentContextMenuListener();
+        }
+    },
     beforeUnmount() {
         this.unbindResizeListener();
         this.unbindOutsideClickListener();
@@ -89,13 +102,6 @@ export default {
 
         this.target = null;
         this.container = null;
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
-
-        if (this.global) {
-            this.bindDocumentContextMenuListener();
-        }
     },
     methods: {
         getItemProp(item, name) {
