@@ -50,6 +50,7 @@
                                 @header-focus="updateFocusedHeader"
                                 :exact="exact"
                                 :pt="pt"
+                                :unstyled="unstyled"
                             />
                         </div>
                     </div>
@@ -79,6 +80,11 @@ export default {
     watch: {
         '$attrs.id': function (newValue) {
             this.id = newValue || UniqueComponentId();
+        }
+    },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     mounted() {

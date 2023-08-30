@@ -35,7 +35,7 @@
                             <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>
-                    <component v-else :is="templates.item" :item="processedItem.item"></component>
+                    <component v-else :is="templates.item" :item="processedItem.item" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
                     <div v-show="isItemActive(processedItem)" :class="cx('toggleableContent')" v-bind="ptm('toggleableContent')">
@@ -52,6 +52,7 @@
                             :exact="exact"
                             @item-toggle="onItemToggle"
                             :pt="pt"
+                            :unstyled="unstyled"
                             v-bind="ptm('submenu')"
                         />
                     </div>
@@ -74,6 +75,7 @@ import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'PanelMenuSub',
@@ -167,6 +169,36 @@ export default {
         },
         getAriaPosInset(index) {
             return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
+        },
+        getMenuItemProps(processedItem, index) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        tabindex: -1,
+                        'aria-hidden': true
+                    },
+                    this.getPTOptions('action', processedItem, index)
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), this.getItemProp(processedItem, 'icon')]
+                    },
+                    this.getPTOptions('icon', processedItem, index)
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions('label', processedItem, index)
+                ),
+                submenuicon: mergeProps(
+                    {
+                        class: this.cx('submenuIcon')
+                    },
+                    this.getPTOptions('submenuicon', processedItem, index)
+                )
+            };
         }
     },
     components: {
