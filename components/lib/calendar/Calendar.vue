@@ -2518,8 +2518,6 @@ export default {
             event.target.value = this.formatValue(this.modelValue);
         },
         onKeyDown(event) {
-            console.log('test');
-
             if (event.code === 'ArrowDown' && this.overlay) {
                 this.trapFocus(event);
             } else if (event.code === 'ArrowDown' && !this.overlay) {
