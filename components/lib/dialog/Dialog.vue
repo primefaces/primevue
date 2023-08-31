@@ -4,7 +4,7 @@
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="{ ...$attrs, ...ptm('root') }">
                     <div v-if="showHeader" :ref="headerContainerRef" :class="cx('header')" @mousedown="initDrag" v-bind="ptm('header')">
-                        <slot name="header">
+                        <slot name="header" :class="cx('headerTitle')">
                             <span v-if="header" :id="ariaLabelledById" :class="cx('headerTitle')" v-bind="ptm('headerTitle')">{{ header }}</span>
                         </slot>
                         <div :class="cx('headerIcons')" v-bind="ptm('headerIcons')">
@@ -284,7 +284,7 @@ export default {
             }
         },
         initDrag(event) {
-            if (DomHandler.findSingle(event.target, '[data-pc-section="headeraction"]') || DomHandler.findSingle(event.target.parentElement, '[data-pc-section="headeraction"]')) {
+            if (event.target.closest('div').getAttribute('data-pc-section') === 'headericons') {
                 return;
             }
 
