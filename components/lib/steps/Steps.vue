@@ -165,7 +165,7 @@ export default {
             focusableItem.focus();
         },
         isActive(item) {
-            return item.to || item.route ? this.$router.resolve(item.to || item.route).path === this.$route.path : false;
+            return item.to ? this.$router.resolve(item.to).path === this.$route.path : false;
         },
         isItemDisabled(item) {
             return this.disabled(item) || (this.readonly && !this.isActive(item));
