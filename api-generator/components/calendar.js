@@ -243,7 +243,7 @@ const CalendarProps = [
         name: 'manualInput',
         type: 'boolean',
         default: 'true',
-        description: 'Wheter to allow prevents entering the date manually via typing.'
+        description: 'Whether to allow entering the date manually via typing.'
     },
     {
         name: 'appendTo',
