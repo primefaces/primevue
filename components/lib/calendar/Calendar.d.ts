@@ -624,7 +624,7 @@ export interface CalendarProps {
      */
     showWeek?: boolean | undefined;
     /**
-     * Wheter to allow prevents entering the date manually via typing.
+     * Whether to allow entering the date manually via typing.
      * @defaultValue true
      */
     manualInput?: boolean | undefined;
