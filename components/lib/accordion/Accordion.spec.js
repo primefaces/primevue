@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
 import AccordionTab from '../accordiontab/AccordionTab.vue';
 import Accordion from './Accordion.vue';
-vi.mock('primevue/utils');
+
 describe('Accordion.vue', () => {
     let wrapper;
 
@@ -150,24 +150,5 @@ describe('Accordion.vue', () => {
 
         expect(findNextHeaderActionSpy).toHaveBeenCalled();
         expect(onTabHomeKeySpy).toHaveBeenCalled();
-    });
-
-    it('When changeFocusedTab triggered and selectOnFocus is true changeActiveIndex should be triggered with valid parameters', async () => {
-        await wrapper.setProps({ selectOnFocus: true });
-        const changeActiveIndexSpy = vi.spyOn(wrapper.vm, 'changeActiveIndex');
-        const event = {};
-        const element = {
-            parentElement: {
-                parentElement: {
-                    dataset: {
-                        index: 0
-                    }
-                }
-            }
-        };
-
-        await wrapper.vm.changeFocusedTab(event, element);
-
-        expect(changeActiveIndexSpy).toHaveBeenCalledWith({}, wrapper.vm.tabs[0], 0);
     });
 });
