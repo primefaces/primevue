@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>TabMenu requires a collection of menuitems as its <i>model</i>.</p>
+        <p>
+            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
+            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
+        </p>
     </DocSectionText>
     <div class="card">
         <TabMenu v-model:activeIndex="active" :model="items">
@@ -11,6 +14,10 @@
                         <span v-bind="props.label">{{ label }}</span>
                     </a>
                 </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                </a>
             </template>
         </TabMenu>
         <router-view />
@@ -28,7 +35,8 @@ export default {
                 { label: 'Calendar', icon: 'pi pi-fw pi-calendar', route: '/tabmenu/calendar' },
                 { label: 'Edit', icon: 'pi pi-fw pi-pencil', route: '/tabmenu/edit' },
                 { label: 'Documentation', icon: 'pi pi-fw pi-file', route: '/tabmenu/documentation' },
-                { label: 'Settings', icon: 'pi pi-fw pi-cog', route: '/tabmenu/settings' }
+                { label: 'Settings', icon: 'pi pi-fw pi-cog', route: '/tabmenu/settings' },
+                { label: 'FileUpload', icon: 'pi pi-fw pi-upload', url: '/fileupload' }
             ],
             code: {
                 basic: `<TabMenu v-model:activeIndex="active" :model="items">
@@ -39,6 +47,10 @@ export default {
                 <span v-bind="props.label">{{ label }}</span>
             </a>
         </router-link>
+        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+            <span v-bind="props.icon" />
+            <span v-bind="props.label">{{ label }}</span>
+        </a>
     </template>
 </TabMenu>
 <router-view />`,
@@ -52,6 +64,10 @@ export default {
                         <span v-bind="props.label">{{ label }}</span>
                     </a>
                 </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                </a>
             </template>
         </TabMenu>
         <router-view />
@@ -88,6 +104,11 @@ export default {
                     label: 'Settings',
                     icon: 'pi pi-fw pi-cog',
                     route: '/settings'
+                },
+                { 
+                    label: 'FileUpload',
+                    icon: 'pi pi-fw pi-upload',
+                    url: '/fileupload'
                 }
             ]
         }
@@ -112,6 +133,10 @@ export default {
                         <span v-bind="props.label">{{ label }}</span>
                     </a>
                 </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span v-bind="props.icon" />
+                    <span v-bind="props.label">{{ label }}</span>
+                </a>
             </template>
         </TabMenu>
         <router-view />
@@ -151,6 +176,11 @@ const items = ref([
         label: 'Settings',
         icon: 'pi pi-fw pi-cog',
         route: '/settings'
+    },
+    { 
+        label: 'FileUpload',
+        icon: 'pi pi-fw pi-upload',
+        url: '/fileupload'
     }
 ]);
 
@@ -165,6 +195,7 @@ watch(
     },
     { immediate: true }
 );
+
 <\/script>`,
                 pages: [
                     {

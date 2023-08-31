@@ -17,6 +17,7 @@ import AccessibilityDoc from '../doc/tabmenu/AccessibilityDoc.vue';
 import BasicDoc from '../doc/tabmenu/BasicDoc.vue';
 import ControlledDoc from '../doc/tabmenu/ControlledDoc.vue';
 import ImportDoc from '../doc/tabmenu/ImportDoc.vue';
+import RouterDoc from '../doc/tabmenu/RouterDoc.vue';
 
 export default {
     data() {
@@ -36,6 +37,11 @@ export default {
                     id: 'controlled',
                     label: 'Controlled',
                     component: ControlledDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',
