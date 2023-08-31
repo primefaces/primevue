@@ -47,9 +47,9 @@
         "@babel/preset-env": "^7.21.5",
         "@rollup/plugin-babel": "^6.0.3",
         "@stackblitz/sdk": "^1.8.2",
+        "@vitejs/plugin-vue": "4.1.0",
         "@vitest/coverage-istanbul": "^0.29.8",
         "@vue/test-utils": "^2.0.0",
-        "@vitejs/plugin-vue": "4.1.0",
         "chart.js": "3.3.2",
         "eslint": "^8.30.0",
         "eslint-config-prettier": "^8.5.0",
@@ -79,6 +79,7 @@
     },
     "dependencies": {
         "@docsearch/js": "^3.3.3",
+        "nuxt-gtag": "^0.6.2",
         "vee-validate": "^4.8.2"
     }
 }
