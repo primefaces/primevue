@@ -391,13 +391,13 @@
                             <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
                         </div>
                         <div v-if="hourFormat == '12'" :class="cx('ampmPicker')" v-bind="ptm('ampmPicker')">
-                            <button v-ripple :class="cx('incrementButton')" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
+                            <button v-ripple :class="cx('incrementButton')" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" @keydown="onContainerButtonKeydown" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
                                 <slot name="incrementicon" :class="cx('incrementIcon')">
                                     <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="cx('incrementIcon')" v-bind="ptm('incrementIcon')" />
                                 </slot>
                             </button>
                             <span v-bind="ptm('ampm')">{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
-                            <button v-ripple :class="cx('decrementButton')" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
+                            <button v-ripple :class="cx('decrementButton')" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" @keydown="onContainerButtonKeydown" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
                                 <slot name="decrementicon" :class="cx('decrementIcon')">
                                     <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="cx('decrementIcon')" v-bind="ptm('decrementIcon')" />
                                 </slot>
