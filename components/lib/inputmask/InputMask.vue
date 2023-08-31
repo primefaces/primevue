@@ -380,7 +380,9 @@ export default {
             return this.partialPosition ? i : this.firstNonMaskPos;
         },
         handleInputChange(event) {
-            if (this.readonly) {
+            const isPasteEvent = event.type === 'paste';
+
+            if (this.readonly || isPasteEvent) {
                 return;
             }
 
@@ -388,6 +390,7 @@ export default {
 
             this.caret(pos);
             this.updateModel(event);
+            console.log('completed', event.type);
 
             if (this.isCompleted()) {
                 this.$emit('complete', event);
