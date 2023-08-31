@@ -53,7 +53,7 @@
                             <span :class="cx('label')" v-bind="getPTOptions('label', item, i)">{{ label(item) }}</span>
                         </a>
                     </template>
-                    <component v-else :is="$slots.item" :item="item" :index="i"></component>
+                    <component v-else :is="$slots.item" :item="item" :index="i" :label="label(item)" :props="getMenuItemProps(item, i)"></component>
                 </li>
             </template>
             <li ref="inkbar" role="none" :class="cx('inkbar')" v-bind="ptm('inkbar')"></li>
@@ -64,6 +64,7 @@
 <script>
 import Ripple from 'primevue/ripple';
 import { DomHandler } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import BaseTabMenu from './BaseTabMenu.vue';
 
 export default {
@@ -263,6 +264,31 @@ export default {
                 this.$refs.inkbar.style.width = '0px';
                 this.$refs.inkbar.style.left = '0px';
             }
+        },
+        getMenuItemProps(item, index) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        tabindex: -1,
+                        onClick: ($event) => this.onItemClick($event, item, index),
+                        onKeyDown: ($event) => this.onKeydownItem($event, item, index)
+                    },
+                    this.getPTOptions('action', item, index)
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), item.icon]
+                    },
+                    this.getPTOptions('icon', item, index)
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions('label', item, index)
+                )
+            };
         }
     },
     directives: {
