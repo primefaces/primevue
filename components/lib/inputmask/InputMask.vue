@@ -390,7 +390,6 @@ export default {
 
             this.caret(pos);
             this.updateModel(event);
-            console.log('completed', event.type);
 
             if (this.isCompleted()) {
                 this.$emit('complete', event);
