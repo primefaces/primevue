@@ -2,7 +2,6 @@ import { mount } from '@vue/test-utils';
 import { beforeEach, expect } from 'vitest';
 import BlockUI from './BlockUI.vue';
 
-vi.mock('primevue/utils');
 let wrapper = null;
 
 describe('BlockUI.vue', () => {

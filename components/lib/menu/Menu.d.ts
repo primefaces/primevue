@@ -218,6 +218,14 @@ export interface MenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: (...args: any) => string;
     }): VNode[];
     /**
      * Custom item icon template.
@@ -232,6 +240,16 @@ export interface MenuSlots {
          * Style class of the item icon element.
          */
         class: any;
+    }): VNode[];
+    /**
+     * Custom item template.
+     * @param {Object} scope - submenuheader slot's params.
+     */
+    submenuheader(scope: {
+        /**
+         * Menuitem instance
+         */
+        submenuheader: MenuItem;
     }): VNode[];
 }
 

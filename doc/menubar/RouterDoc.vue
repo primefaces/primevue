@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content can be placed inside the menubar using the <i>start</i> and <i>end</i> properties.</p>
+        <p>
+            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
+            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
+        </p>
     </DocSectionText>
     <div class="card relative z-2">
         <Menubar :model="items">
-            <template #start>
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
-            </template>
             <template #item="{ label, item, props, root }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
@@ -19,9 +19,6 @@
                     <span v-bind="props.label">{{ label }}</span>
                     <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
                 </a>
-            </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
             </template>
         </Menubar>
     </div>
@@ -162,9 +159,6 @@ export default {
             ],
             code: {
                 basic: `<Menubar :model="items">
-    <template #start>
-        <img alt="logo" src="/images/logo.svg" height="40" class="mr-2" />
-    </template>
     <template #item="{ label, item, props, root }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
@@ -178,16 +172,10 @@ export default {
             <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
         </a>
     </template>
-    <template #end>
-        <InputText placeholder="Search" type="text" />
-    </template>
 </Menubar>`,
                 options: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
-            <template #start>
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
-            </template>
             <template #item="{ label, item, props, root }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
@@ -200,9 +188,6 @@ export default {
                     <span v-bind="props.label">{{ label }}</span>
                     <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
                 </a>
-            </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
             </template>
         </Menubar>
     </div>
@@ -347,9 +332,6 @@ export default {
                 composition: `<template>
     <div class="card relative z-2">
         <Menubar :model="items">
-            <template #start>
-                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" height="40" class="mr-2" />
-            </template>
             <template #item="{ label, item, props, root }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
@@ -362,9 +344,6 @@ export default {
                     <span v-bind="props.label">{{ label }}</span>
                     <span :class="[root ? 'pi pi-fw pi-angle-down' : 'pi pi-fw pi-angle-right']" v-bind="props.submenuicon" />
                 </a>
-            </template>
-            <template #end>
-                <InputText placeholder="Search" type="text" />
             </template>
         </Menubar>
     </div>
@@ -454,8 +433,8 @@ const items = ref([
                         ]
                     },
                     {
-                        label: 'List',
-                        icon: 'pi pi-fw pi-bars'
+                        icon: 'pi pi-fw pi-bars',
+                        label: 'List'
                     }
                 ]
             }

@@ -38,7 +38,7 @@
                             </template>
                         </a>
                     </template>
-                    <component v-else :is="templates.item" :item="processedItem.item"></component>
+                    <component v-else :is="templates.item" :item="processedItem.item" :root="root" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
                 </div>
                 <MenubarSub
                     v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
@@ -76,6 +76,7 @@ import AngleDownIcon from 'primevue/icons/angledown';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'MenubarSub',
@@ -179,6 +180,36 @@ export default {
         },
         getAriaPosInset(index) {
             return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
+        },
+        getMenuItemProps(processedItem, index) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        tabindex: -1,
+                        'aria-hidden': true
+                    },
+                    this.getPTOptions(processedItem, index, 'action')
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), this.getItemProp(processedItem, 'icon')]
+                    },
+                    this.getPTOptions(processedItem, index, 'icon')
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions(processedItem, index, 'label')
+                ),
+                submenuicon: mergeProps(
+                    {
+                        class: this.cx('submenuIcon')
+                    },
+                    this.getPTOptions(processedItem, index, 'submenuIcon')
+                )
+            };
         }
     },
     components: {

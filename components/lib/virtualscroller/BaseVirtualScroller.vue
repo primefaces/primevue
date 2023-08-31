@@ -152,13 +152,13 @@ export default {
             default: false
         }
     },
-    css: {
-        loadStyle
-    },
     provide() {
         return {
             $parentInstance: this
         };
+    },
+    beforeMount() {
+        loadStyle();
     }
 };
 </script>

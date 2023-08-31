@@ -26,20 +26,20 @@
                             <a v-ripple :href="href" :class="cx('action', { isActive, isExactActive })" tabindex="-1" aria-hidden="true" @click="onItemActionClick($event, navigate)" v-bind="getPTOptions(processedItem, index, 'action')">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
                                 <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'icon')" />
-                                <span :class="cx('text')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
+                                <span :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
                             </a>
                         </router-link>
                         <a v-else v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('action')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'action')">
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" />
                             <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('icon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'icon')" />
-                            <span :class="cx('text')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
+                            <span :class="cx('label')" v-bind="getPTOptions(processedItem, index, 'label')">{{ getItemLabel(processedItem) }}</span>
                             <template v-if="isItemGroup(processedItem)">
                                 <component v-if="templates.submenuicon" :is="templates.submenuicon" :active="isItemActive(processedItem)" :class="cx('submenuIcon')" v-bind="getPTOptions(processedItem, index, 'submenuIcon')" />
                                 <component v-else :is="horizontal ? 'AngleDownIcon' : 'AngleRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions(processedItem, index, 'submenuIcon')" />
                             </template>
                         </a>
                     </template>
-                    <component v-else :is="templates.item" :item="processedItem.item"></component>
+                    <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="isItemGroup(processedItem)" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
                 </div>
                 <div v-if="isItemVisible(processedItem) && isItemGroup(processedItem)" :class="cx('panel')" v-bind="ptm('panel')">
                     <div :class="cx('grid')" v-bind="ptm('grid')">
@@ -84,6 +84,7 @@ import AngleDownIcon from 'primevue/icons/angledown';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'MegaMenuSub',
@@ -191,6 +192,36 @@ export default {
         },
         getAriaPosInset(index) {
             return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
+        },
+        getMenuItemProps(processedItem, index) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        tabindex: -1,
+                        'aria-hidden': true
+                    },
+                    this.getPTOptions(processedItem, index, 'action')
+                ),
+                icon: mergeProps(
+                    {
+                        class: [this.cx('icon'), this.getItemProp(processedItem, 'icon')]
+                    },
+                    this.getPTOptions(processedItem, index, 'icon')
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions(processedItem, index, 'label')
+                ),
+                submenuicon: mergeProps(
+                    {
+                        class: this.cx('submenuIcon')
+                    },
+                    this.getPTOptions(processedItem, index, 'submenuIcon')
+                )
+            };
         }
     },
     components: {

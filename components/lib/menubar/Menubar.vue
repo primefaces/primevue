@@ -39,6 +39,7 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :pt="pt"
+            :unstyled="unstyled"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
@@ -88,6 +89,11 @@ export default {
     outsideClickListener: null,
     container: null,
     menubar: null,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         this.id = this.id || UniqueComponentId();
     },

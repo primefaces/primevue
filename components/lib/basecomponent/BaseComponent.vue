@@ -508,7 +508,7 @@ export default {
             const fn = (value) => callback(value, key, params);
 
             if (pt?.hasOwnProperty('_usept')) {
-                const { merge, useMergeProps } = pt['_usept'];
+                const { mergeSections, mergeProps: useMergeProps } = pt['_usept'];
                 const originalValue = fn(pt.originalValue);
                 const value = fn(pt.value);
 
@@ -516,7 +516,7 @@ export default {
                 else if (ObjectUtils.isString(value)) return value;
                 else if (ObjectUtils.isString(originalValue)) return originalValue;
 
-                return merge ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
+                return mergeSections || (!mergeSections && value) ? (useMergeProps ? mergeProps(originalValue, value) : { ...originalValue, ...value }) : value;
             }
 
             return fn(pt);
@@ -555,7 +555,7 @@ export default {
             return this._getPT(this.$config?.pt, undefined, (value) => this._getOptionValue(value, this.$name, { ...this.$params }) || ObjectUtils.getItemValue(value, { ...this.$params }));
         },
         isUnstyled() {
-            return this.unstyled !== undefined ? this.unstyled : this.$config.unstyled;
+            return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
         },
         $params() {
             return { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance };

@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Breadcrumb from './Breadcrumb.vue';
+import BreadcrumbItem from './BreadcrumbItem.vue';
 
 describe('Breadcrumb', () => {
     it('should exist', () => {
@@ -7,6 +8,9 @@ describe('Breadcrumb', () => {
             global: {
                 stubs: {
                     'router-link': true
+                },
+                components: {
+                    BreadcrumbItem
                 },
                 mocks: {
                     $router: {

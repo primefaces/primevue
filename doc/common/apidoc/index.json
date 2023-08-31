@@ -5181,7 +5181,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -14771,7 +14771,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -19670,7 +19670,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Custom content for item.\n  \t <b>index</b>: number, // Index of the menuitem\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Custom content for item.\n  \t <b>index</b>: number, // Index of the menuitem\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -27505,7 +27505,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -27992,7 +27992,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -28011,6 +28011,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom item icon template."
+                        },
+                        {
+                            "name": "submenuheader",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>submenuheader</b>: MenuItem, // Menuitem instance\n  }",
+                                    "description": "submenuheader slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom item template."
                         }
                     ]
                 },
@@ -28464,7 +28477,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>root</b>: boolean, // State of the root\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -32987,7 +33000,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -39195,7 +39208,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>index</b>: number, // Order of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -41436,7 +41449,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
