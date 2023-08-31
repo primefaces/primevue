@@ -39634,7 +39634,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
                                     "description": "item slot's params."
                                 }
                             ],
