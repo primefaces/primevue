@@ -214,6 +214,10 @@ export interface SplitButtonSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Style class of the item icon element.
+         */
+        class: any;
     }): VNode[];
 }
 
