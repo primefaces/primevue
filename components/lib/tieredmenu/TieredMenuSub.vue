@@ -38,7 +38,7 @@
                             </template>
                         </a>
                     </template>
-                    <component v-else :is="templates.item" :item="processedItem.item" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
+                    <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="getItemProp(processedItem, 'items')" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
                 </div>
                 <TieredMenuSub
                     v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
@@ -75,6 +75,7 @@ import BaseComponent from 'primevue/basecomponent';
 import AngleRightIcon from 'primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { ObjectUtils } from 'primevue/utils';
+import { mergeProps } from 'vue';
 
 export default {
     name: 'TieredMenuSub',

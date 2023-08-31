@@ -39,7 +39,7 @@
                             </template>
                         </a>
                     </template>
-                    <component v-else :is="templates.item" :item="processedItem.item" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
+                    <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="isItemGroup(processedItem)" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
                 </div>
                 <div v-if="isItemVisible(processedItem) && isItemGroup(processedItem)" :class="cx('panel')" v-bind="ptm('panel')">
                     <div :class="cx('grid')" v-bind="ptm('grid')">

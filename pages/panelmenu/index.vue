@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/panelmenu/BasicDoc';
 import ImportDoc from '@/doc/panelmenu/ImportDoc';
 import MultipleDoc from '@/doc/panelmenu/MultipleDoc';
 import ProgrammaticDoc from '@/doc/panelmenu/ProgrammaticDoc';
+import RouterDoc from '@/doc/panelmenu/RouterDoc';
 import PTComponent from '@/doc/panelmenu/pt/index.vue';
 import ThemingDoc from '@/doc/panelmenu/theming/index.vue';
 
@@ -42,6 +43,11 @@ export default {
                     id: 'multiple',
                     label: 'Multiple',
                     component: MultipleDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',

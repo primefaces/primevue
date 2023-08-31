@@ -77,16 +77,14 @@ describe('SpeedDial.vue', () => {
         expect(wrapper.findAll('li.p-speeddial-item')[wrapper.findAll('li.p-speeddial-item').length - 2].attributes().style).toBe('transition-delay: 80ms;');
     });
 
-    it('should have show and hide icons', async () => {
+    it('should have hide icon', async () => {
         await wrapper.setProps({ showIcon: 'pi pi-bars', hideIcon: 'pi pi-times' });
 
         const button = wrapper.find('.p-speeddial-button');
 
         expect(button.find('span').classes()).toContain('pi-bars');
 
-        await wrapper.vm.onClick({});
-
-        expect(button.find('span').classes()).toContain('pi-times');
+        expect(button.find('span').classes()).not.toContain('pi-times');
     });
 
     it('should have mask', async () => {

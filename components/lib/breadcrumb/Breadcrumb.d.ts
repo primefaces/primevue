@@ -138,6 +138,14 @@ export interface BreadcrumbSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: (...args: any) => string;
     }): VNode[];
     /**
      * Custom separator template.

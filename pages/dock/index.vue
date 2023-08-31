@@ -7,6 +7,7 @@ import AccessibilityDoc from '@/doc/dock/AccessibilityDoc';
 import AdvancedDoc from '@/doc/dock/AdvancedDoc';
 import BasicDoc from '@/doc/dock/BasicDoc';
 import ImportDoc from '@/doc/dock/ImportDoc';
+import RouterDoc from '@/doc/dock/RouterDoc';
 import PTComponent from '@/doc/dock/pt/index.vue';
 import ThemingDoc from '@/doc/dock/theming/index.vue';
 
@@ -28,6 +29,11 @@ export default {
                     id: 'advance',
                     label: 'Advanced',
                     component: AdvancedDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',

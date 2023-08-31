@@ -14,7 +14,7 @@
                 <span v-if="item.label" :class="cx('label')" v-bind="ptm('label', ptmOptions)">{{ label() }}</span>
             </a>
         </template>
-        <component v-else :is="templates.item" :item="item" :label="item.label && label()" :props="getMenuItemProps"></component>
+        <component v-else :is="templates.item" :item="item" :label="label()" :props="getMenuItemProps"></component>
     </li>
 </template>
 
