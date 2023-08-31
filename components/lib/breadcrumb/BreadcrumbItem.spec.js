@@ -21,7 +21,9 @@ beforeEach(() => {
         },
         props: {
             item: { label: 'Computer', visible: () => true },
-            template: null
+            templates: {
+                item: undefined
+            }
         }
     });
 });
@@ -31,8 +33,8 @@ afterEach(() => {
 });
 
 describe('BreadcrumbItem', () => {
-    it('When component is mount, text should be exists', () => {
-        expect(wrapper.find('.p-menuitem-text').exists()).toBe(true);
+    it('When component is mount and template.item equal to null, text should not be exists', () => {
+        expect(wrapper.find('.p-menuitem-text').exists()).toBe(false);
     });
 
     it('When tag is triggered, onClick method should be called', async () => {
@@ -51,18 +53,6 @@ describe('BreadcrumbItem', () => {
 
         wrapper.vm.onClick();
         expect(spy).toHaveBeenCalled();
-    });
-
-    it('When linkClass method called and isActive-isExactActive, tag classes should be effected', async () => {
-        await wrapper.setProps({ exact: true });
-
-        expect(wrapper.vm.linkClass({ isActive: true, isExactActive: true })).toEqual([
-            'p-menuitem-link',
-            {
-                'router-link-active': true,
-                'router-link-active-exact': true
-            }
-        ]);
     });
 
     it('When item prop has a visible, visible method should be return falsy', async () => {

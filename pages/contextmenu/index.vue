@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/contextmenu/AccessibilityDoc';
 import BasicDoc from '@/doc/contextmenu/BasicDoc';
 import DocumentDoc from '@/doc/contextmenu/DocumentDoc';
 import ImportDoc from '@/doc/contextmenu/ImportDoc';
+import RouterDoc from '@/doc/contextmenu/RouterDoc';
 import PTComponent from '@/doc/contextmenu/pt/index.vue';
 import ThemingDoc from '@/doc/contextmenu/theming/index.vue';
 
@@ -36,6 +37,11 @@ export default {
                     id: 'document',
                     label: 'Document',
                     component: DocumentDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',

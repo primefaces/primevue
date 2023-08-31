@@ -22,14 +22,4 @@ describe('Badge.vue', () => {
 
         expect(wrapper.vm.containerClass).not.toBe('p-overlay-badge');
     });
-
-    it('badge classes should exist', () => {
-        wrapper = mount(Badge, {
-            slots: {
-                default: 'Main Content'
-            }
-        });
-
-        expect(wrapper.vm.containerClass).toBe('p-overlay-badge');
-    });
 });

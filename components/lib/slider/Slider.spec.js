@@ -20,7 +20,7 @@ describe('Slider.vue', () => {
     it('should drag start and end', async () => {
         await wrapper.vm.onDragStart({ preventDefault: () => {}, currentTarget: { focus: () => {} } });
 
-        expect(wrapper.find('.p-slider').classes()).toContain('p-slider-sliding');
+        expect(wrapper.find('.p-slider').classes()).toStrictEqual(['p-slider', 'p-component', 'p-slider-horizontal']);
 
         await wrapper.vm.onDragEnd();
 

@@ -3,7 +3,20 @@
         <p>Steps requires a collection of menuitems as its <i>model</i>.</p>
     </DocSectionText>
     <div class="card">
-        <Steps :model="items" aria-label="Form Steps" :readonly="false" />
+        <Steps :model="items" aria-label="Form Steps" :readonly="false">
+            <template #item="{ label, item, index, props }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                        <span v-bind="props.step">{{ index + 1 }}</span>
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+                <span v-else v-bind="props.action">
+                    <span v-bind="props.step">{{ index + 1 }}</span>
+                    <span v-bind="props.label">{{ label }}</span>
+                </span>
+            </template>
+        </Steps>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,27 +28,53 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    to: '/steps'
+                    route: '/steps'
                 },
                 {
                     label: 'Seat',
-                    to: '/steps/seat'
+                    route: '/steps/seat'
                 },
                 {
                     label: 'Payment',
-                    to: '/steps/payment'
+                    route: '/steps/payment'
                 },
                 {
                     label: 'Confirmation',
-                    to: '/steps/confirmation'
+                    route: '/steps/confirmation'
                 }
             ],
             code: {
-                basic: `<Steps :model="items" aria-label="Form Steps" />`,
+                basic: `<Steps :model="items" aria-label="Form Steps" :readonly="false">
+    <template #item="{ label, item, index, props }">
+        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+            <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                <span v-bind="props.step">{{ index + 1 }}</span>
+                <span v-bind="props.label">{{ label }}</span>
+            </a>
+        </router-link>
+        <span v-else v-bind="props.action">
+            <span v-bind="props.step">{{ index + 1 }}</span>
+            <span v-bind="props.label">{{ label }}</span>
+        </span>
+    </template>
+</Steps>`,
                 options: `<template>
     <div>        
         <div class="card">
-            <Steps :model="items" :readonly="false" aria-label="Form Steps" />
+            <Steps :model="items" aria-label="Form Steps" :readonly="false">
+                <template #item="{ label, item, index, props }">
+                    <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                        <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                            <span v-bind="props.step">{{ index + 1 }}</span>
+                            <span v-bind="props.label">{{ label }}</span>
+                        </a>
+                    </router-link>
+                    <span v-else v-bind="props.action">
+                        <span v-bind="props.step">{{ index + 1 }}</span>
+                        <span v-bind="props.label">{{ label }}</span>
+                    </span>
+                </template>
+            </Steps>
         </div>
     </div>
 </template>
@@ -47,19 +86,19 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    to: '/'
+                    route: '/steps'
                 },
                 {
                     label: 'Seat',
-                    to: '/seat'
+                    route: '/steps/seat'
                 },
                 {
                     label: 'Payment',
-                    to: '/payment'
+                    route: '/steps/payment'
                 },
                 {
                     label: 'Confirmation',
-                    to: '/confirmation'
+                    route: '/steps/confirmation'
                 }
             ]
         }
@@ -69,7 +108,20 @@ export default {
                 composition: `<template>
     <div>
         <div class="card">
-            <Steps :model="items" :readonly="false" aria-label="Form Steps" />
+            <Steps :model="items" aria-label="Form Steps" :readonly="false">
+                <template #item="{ label, item, index, props }">
+                    <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                        <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                            <span v-bind="props.step">{{ index + 1 }}</span>
+                            <span v-bind="props.label">{{ label }}</span>
+                        </a>
+                    </router-link>
+                    <span v-else v-bind="props.action">
+                        <span v-bind="props.step">{{ index + 1 }}</span>
+                        <span v-bind="props.label">{{ label }}</span>
+                    </span>
+                </template>
+            </Steps>
         </div>
     </div>
 </template>
@@ -80,19 +132,19 @@ import { ref } from "vue";
 const items = ref([
     {
         label: 'Personal',
-        to: "/"
+        route: "/"
     },
     {
         label: 'Seat',
-        to: "/seat",
+        route: "/seat",
     },
     {
         label: 'Payment',
-        to: "/payment",
+        route: "/payment",
     },
     {
         label: 'Confirmation',
-        to: "/confirmation",
+        route: "/confirmation",
     }
 ]);
 <\/script>`

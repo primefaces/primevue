@@ -23,7 +23,7 @@
                             <span :class="cx('label')" v-bind="getPTOptions('label', item, index)">{{ label(item) }}</span>
                         </span>
                     </template>
-                    <component v-else :is="$slots.item" :item="item"></component>
+                    <component v-else :is="$slots.item" :item="item" :index="index" :label="label(item)" :props="getMenuItemProps(item, index)"></component>
                 </li>
             </template>
         </ol>
@@ -32,11 +32,17 @@
 
 <script>
 import { DomHandler } from 'primevue/utils';
+import { mergeProps } from 'vue';
 import BaseSteps from './BaseSteps.vue';
 
 export default {
     name: 'Steps',
     extends: BaseSteps,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     mounted() {
         const firstItem = this.findFirstItem();
 
@@ -159,7 +165,7 @@ export default {
             focusableItem.focus();
         },
         isActive(item) {
-            return item.to ? this.$router.resolve(item.to).path === this.$route.path : false;
+            return item.to || item.route ? this.$router.resolve(item.to || item.route).path === this.$route.path : false;
         },
         isItemDisabled(item) {
             return this.disabled(item) || (this.readonly && !this.isActive(item));
@@ -172,6 +178,30 @@ export default {
         },
         label(item) {
             return typeof item.label === 'function' ? item.label() : item.label;
+        },
+        getMenuItemProps(item, index) {
+            return {
+                action: mergeProps(
+                    {
+                        class: this.cx('action'),
+                        onClick: ($event) => this.onItemClick($event, item),
+                        onKeyDown: ($event) => this.onItemKeydown($event, item)
+                    },
+                    this.getPTOptions('action', item, index)
+                ),
+                step: mergeProps(
+                    {
+                        class: this.cx('step')
+                    },
+                    this.getPTOptions('step', item, index)
+                ),
+                label: mergeProps(
+                    {
+                        class: this.cx('label')
+                    },
+                    this.getPTOptions('label', item, index)
+                )
+            };
         }
     }
 };

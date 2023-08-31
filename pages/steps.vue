@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/steps/AccessibilityDoc';
 import BasicDoc from '@/doc/steps/BasicDoc';
 import ImportDoc from '@/doc/steps/ImportDoc';
 import InteractiveDoc from '@/doc/steps/InteractiveDoc';
+import RouterDoc from '@/doc/steps/RouterDoc';
 import PTComponent from '@/doc/steps/pt/index.vue';
 import ThemingDoc from '@/doc/steps/theming/index.vue';
 
@@ -36,6 +37,11 @@ export default {
                     id: 'interactive',
                     label: 'Interactive',
                     component: InteractiveDoc
+                },
+                {
+                    id: 'router',
+                    label: 'Router',
+                    component: RouterDoc
                 },
                 {
                     id: 'accessibility',

@@ -236,6 +236,18 @@ export interface TieredMenuSlots {
          * Menuitem instance
          */
         item: MenuItem;
+        /**
+         * Label property of the menuitem
+         */
+        label: string | ((...args: any) => string) | undefined;
+        /**
+         * Binding properties of the menuitem
+         */
+        props: (...args: any) => string;
+        /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
     }): VNode[];
     /**
      * Custom submenu icon template.

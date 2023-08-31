@@ -3,7 +3,16 @@
         <p>In order to add interactivity to the component, disable <i>readonly</i> to control the Steps.</p>
     </DocSectionText>
     <div class="card">
-        <Steps :model="items" aria-label="Form Steps" />
+        <Steps :model="items" aria-label="Form Steps">
+            <template #item="{ label, item, index, props }">
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                    <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                        <span v-bind="props.step">{{ index + 1 }}</span>
+                        <span v-bind="props.label">{{ label }}</span>
+                    </a>
+                </router-link>
+            </template>
+        </Steps>
     </div>
 
     <NuxtPage v-slot="{ Component }" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
@@ -22,25 +31,34 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    to: '/steps'
+                    route: '/steps'
                 },
                 {
                     label: 'Seat',
-                    to: '/steps/seat'
+                    route: '/steps/seat'
                 },
                 {
                     label: 'Payment',
-                    to: '/steps/payment'
+                    route: '/steps/payment'
                 },
                 {
                     label: 'Confirmation',
-                    to: '/steps/confirmation'
+                    route: '/steps/confirmation'
                 }
             ],
             formObject: {},
             code: {
                 basic: `<div class="card">
-    <Steps :model="items" aria-label="Form Steps" />
+    <Steps :model="items" aria-label="Form Steps">
+        <template #item="{ label, item, index, props }">
+            <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                    <span v-bind="props.step">{{ index + 1 }}</span>
+                    <span v-bind="props.label">{{ label }}</span>
+                </a>
+            </router-link>
+        </template>
+    </Steps>
 </div>
 
 <router-view v-slot="{ Component }" :formData="formObject" @prev-page="prevPage($event)" @next-page="nextPage($event)" @complete="complete">
@@ -50,11 +68,19 @@ export default {
 </router-view>`,
                 options: `<template>
     <div>
-        <Toast />
-        
         <div class="card">
-            <Steps :model="items" aria-label="Form Steps" />
+            <Steps :model="items" aria-label="Form Steps">
+                <template #item="{ label, item, index, props }">
+                    <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                        <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                            <span v-bind="props.step">{{ index + 1 }}</span>
+                            <span v-bind="props.label">{{ label }}</span>
+                        </a>
+                    </router-link>
+                </template>
+            </Steps>
         </div>
+        <Toast />
 
         <router-view v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
             <keep-alive>
@@ -71,19 +97,19 @@ export default {
             items: [
                 {
                     label: 'Personal',
-                    to: '/'
+                    route: '/'
                 },
                 {
                     label: 'Seat',
-                    to: '/seat'
+                    route: '/seat'
                 },
                 {
                     label: 'Payment',
-                    to: '/payment'
+                    route: '/payment'
                 },
                 {
                     label: 'Confirmation',
-                    to: '/confirmation'
+                    route: '/confirmation'
                 }
             ],
             formObject: {}
@@ -118,11 +144,19 @@ export default {
 </style>`,
                 composition: `<template>
     <div>
-        <Toast />
-
         <div class="card">
-            <Steps :model="items" aria-label="Form Steps" />
+            <Steps :model="items" aria-label="Form Steps">
+                <template #item="{ label, item, index, props }">
+                    <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
+                        <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
+                            <span v-bind="props.step">{{ index + 1 }}</span>
+                            <span v-bind="props.label">{{ label }}</span>
+                        </a>
+                    </router-link>
+                </template>
+            </Steps>
         </div>
+        <Toast />
 
         <router-view v-slot="{Component}" :formData="formObject" @prevPage="prevPage($event)" @nextPage="nextPage($event)" @complete="complete">
             <keep-alive>
@@ -142,19 +176,19 @@ const toast = useToast();
 const items = ref([
     {
         label: 'Personal',
-        to: "/"
+        route: "/"
     },
     {
         label: 'Seat',
-        to: "/seat",
+        route: "/seat",
     },
     {
         label: 'Payment',
-        to: "/payment",
+        route: "/payment",
     },
     {
         label: 'Confirmation',
-        to: "/confirmation",
+        route: "/confirmation",
     }
 ]);
 const formObject = ref({});

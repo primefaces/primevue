@@ -16,6 +16,7 @@
         @keydown="onKeyDown"
         @item-toggle="onItemToggle"
         :pt="pt"
+        :unstyled="unstyled"
         v-bind="ptm('menu')"
     />
 </template>

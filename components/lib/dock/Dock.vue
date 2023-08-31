@@ -23,6 +23,11 @@ import DockSub from './DockSub.vue';
 export default {
     name: 'Dock',
     extends: BaseDock,
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
+        }
+    },
     computed: {
         containerClass() {
             return [this.class, this.cx('root')];

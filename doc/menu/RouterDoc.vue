@@ -1,9 +1,14 @@
 <template>
-    <DocSectionText v-bind="$attrs"> </DocSectionText>
+    <DocSectionText v-bind="$attrs">
+        <p>
+            Since v3.33.0 the vue-router dependency of menu components is deprecated and templating should be used to define router links instead. This approach provides flexibility to be able to use any kind of router link component such as
+            <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
+        </p>
+    </DocSectionText>
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
-                <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
@@ -55,9 +60,7 @@ export default {
                         {
                             label: 'Upload',
                             icon: 'pi pi-upload',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Upload', detail: 'File Uploaded', life: 3000 });
-                            }
+                            route: '/fileupload'
                         }
                     ]
                 }
@@ -65,7 +68,7 @@ export default {
             code: {
                 basic: `<Menu :model="items">
     <template #item="{ label, item, props }">
-        <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+        <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
             <a :href="routerProps.href" v-bind="props.action">
                 <span v-bind="props.icon" />
                 <span v-bind="props.label">{{ label }}</span>
@@ -81,7 +84,7 @@ export default {
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
-                <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
@@ -134,9 +137,7 @@ export default {
                         {
                             label: 'Upload',
                             icon: 'pi pi-upload',
-                            command: () => {
-                                this.$toast.add({ severity: 'success', summary: 'Upload', detail: 'File Uploaded', life: 3000 });
-                            }
+                            route: '/fileupload'
                         }
                     ]
                 }
@@ -149,7 +150,7 @@ export default {
     <div class="card flex justify-content-center">
         <Menu :model="items">
             <template #item="{ label, item, props }">
-                <router-link v-if="item.to" v-slot="routerProps" :to="item.to" custom>
+                <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action">
                         <span v-bind="props.icon" />
                         <span v-bind="props.label">{{ label }}</span>
@@ -201,9 +202,7 @@ const items = ref(items: [
             {
                 label: 'Upload',
                 icon: 'pi pi-upload',
-                command: () => {
-                    this.$toast.add({ severity: 'success', summary: 'Upload', detail: 'File Uploaded', life: 3000 });
-                }
+                route: '/fileupload'
             }
         ]
     }

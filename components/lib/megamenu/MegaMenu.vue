@@ -22,6 +22,7 @@
             :exact="exact"
             :level="0"
             :pt="pt"
+            :unstyled="unstyled"
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
@@ -43,36 +44,6 @@ export default {
     name: 'MegaMenu',
     extends: BaseMegaMenu,
     emits: ['focus', 'blur'],
-    props: {
-        model: {
-            type: Array,
-            default: null
-        },
-        orientation: {
-            type: String,
-            default: 'horizontal'
-        },
-        exact: {
-            type: Boolean,
-            default: true
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        tabindex: {
-            type: Number,
-            default: 0
-        },
-        'aria-labelledby': {
-            type: String,
-            default: null
-        },
-        'aria-label': {
-            type: String,
-            default: null
-        }
-    },
     outsideClickListener: null,
     resizeListener: null,
     container: null,
@@ -100,6 +71,11 @@ export default {
                 this.unbindOutsideClickListener();
                 this.unbindResizeListener();
             }
+        }
+    },
+    beforeMount() {
+        if (!this.$slots.item) {
+            console.warn('In future versions, vue-router support will be removed. Item templating should be used.');
         }
     },
     mounted() {
