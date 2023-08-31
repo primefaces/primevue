@@ -3,7 +3,15 @@
         <p>In order to add interactivity to the component, disable <i>readonly</i> to control the Steps.</p>
     </DocSectionText>
     <div class="card">
-        <Steps :model="items" aria-label="Form Steps">
+        <Steps
+            :model="items"
+            aria-label="Form Steps"
+            :pt="{
+                menuitem: ({ context }) => ({
+                    class: isActive(context.item) && 'p-highlight p-steps-current'
+                })
+            }"
+        >
             <template #item="{ label, item, index, props }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                     <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
@@ -49,7 +57,15 @@ export default {
             formObject: {},
             code: {
                 basic: `<div class="card">
-    <Steps :model="items" aria-label="Form Steps">
+        <Steps
+            :model="items"
+            aria-label="Form Steps"
+            :pt="{
+                menuitem: ({ context }) => ({
+                    class: isActive(context.item) && 'p-highlight p-steps-current'
+                })
+            }"
+        >
         <template #item="{ label, item, index, props }">
             <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                 <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
@@ -69,7 +85,15 @@ export default {
                 options: `<template>
     <div>
         <div class="card">
-            <Steps :model="items" aria-label="Form Steps">
+            <Steps
+                :model="items"
+                aria-label="Form Steps"
+                :pt="{
+                    menuitem: ({ context }) => ({
+                        class: isActive(context.item) && 'p-highlight p-steps-current'
+                    })
+                }"
+            >
                 <template #item="{ label, item, index, props }">
                     <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                         <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
@@ -128,6 +152,9 @@ export default {
         },
         complete() {
             this.$toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.'});
+        },
+        isActive(item) {
+            return item.route ? this.$router.resolve(item.route).path === this.$route.path : false;
         }
     }
 }
@@ -145,7 +172,15 @@ export default {
                 composition: `<template>
     <div>
         <div class="card">
-            <Steps :model="items" aria-label="Form Steps">
+            <Steps
+                :model="items"
+                aria-label="Form Steps"
+                :pt="{
+                    menuitem: ({ context }) => ({
+                        class: isActive(context.item) && 'p-highlight p-steps-current'
+                    })
+                }"
+            >
                 <template #item="{ label, item, index, props }">
                     <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
                         <a :href="routerProps.href" v-bind="props.action" @click="($event) => routerProps.navigate($event)" @keydown.enter="($event) => routerProps.navigate($event)">
@@ -205,6 +240,10 @@ const prevPage = (event) => {
 };
 const complete = () => {
     toast.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + formObject.value.firstname + ' ' + formObject.value.lastname + ' your order completed.'});
+};
+
+const isActive = (item) => {
+    return item.route ? router.resolve(item.route).path === route.path : false;
 };
 <\/script>
 
@@ -537,6 +576,9 @@ export default {
         },
         complete() {
             this.$toast.add({ severity: 'success', summary: 'Order submitted', detail: 'Dear, ' + this.formObject.firstname + ' ' + this.formObject.lastname + ' your order completed.' });
+        },
+        isActive(item) {
+            return item.route ? this.$router.resolve(item.route).path === this.$route.path : false;
         }
     }
 };
