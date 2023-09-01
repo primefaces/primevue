@@ -16234,6 +16234,14 @@
                             "description": "Used to pass attributes to the rowgroup header's DOM element."
                         },
                         {
+                            "name": "rowGroupHeaderCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the rowgroup header cell's DOM element."
+                        },
+                        {
                             "name": "bodyRow",
                             "optional": true,
                             "readonly": false,
@@ -16250,6 +16258,14 @@
                             "description": "Used to pass attributes to the row expansion's DOM element."
                         },
                         {
+                            "name": "rowExpansionCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the row expansion cell's DOM element."
+                        },
+                        {
                             "name": "rowGroupFooter",
                             "optional": true,
                             "readonly": false,
@@ -16258,12 +16274,28 @@
                             "description": "Used to pass attributes to the rowgroup footer's DOM element."
                         },
                         {
+                            "name": "rowGroupFooterCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the rowgroup footer cell's DOM element."
+                        },
+                        {
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
                             "type": "DataTablePassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the empty message's DOM element."
+                        },
+                        {
+                            "name": "emptyMessageCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DataTablePassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the empty message cell's DOM element."
                         },
                         {
                             "name": "tfoot",
