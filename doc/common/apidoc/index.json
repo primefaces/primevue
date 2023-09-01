@@ -16829,6 +16829,13 @@
                             "description": "Name of the exported file."
                         },
                         {
+                            "name": "exportFunction",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "resizableColumns",
                             "optional": true,
                             "readonly": false,
@@ -17069,20 +17076,7 @@
                             "description": "When enabled, it removes component related styles in the core."
                         }
                     ],
-                    "methods": [
-                        {
-                            "name": "exportFunction",
-                            "parameters": [
-                                {
-                                    "name": "options",
-                                    "optional": false,
-                                    "type": "DataTableExportFunctionOptions"
-                                }
-                            ],
-                            "returnType": "any",
-                            "description": "Custom function to export data."
-                        }
-                    ]
+                    "methods": []
                 },
                 "DataTableSlots": {
                     "description": "Defines valid slots in DataTable component.",
