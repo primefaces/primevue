@@ -5,7 +5,7 @@
             <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
         </p>
     </DocSectionText>
-    <div class="card">
+    <!-- <div class="card">
         <Steps
             :model="items"
             aria-label="Form Steps"
@@ -29,7 +29,7 @@
                 </a>
             </template>
         </Steps>
-    </div>
+    </div> -->
     <DocSectionCode :code="code" />
 </template>
 

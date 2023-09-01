@@ -5,7 +5,7 @@
             <i>NuxtLink</i> or <i>router-link</i>. Here is an example with vue-router.
         </p>
     </DocSectionText>
-    <div class="card">
+    <!-- <div class="card">
         <TabMenu v-model:activeIndex="active" :model="items">
             <template #item="{ label, item, props }">
                 <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
@@ -21,7 +21,7 @@
             </template>
         </TabMenu>
         <router-view />
-    </div>
+    </div> -->
     <DocSectionCode :code="code" />
 </template>
 
@@ -280,14 +280,14 @@ export default {
                 ]
             }
         };
-    },
-    watch: {
-        $route() {
-            this.active = this.items.findIndex((item) => this.$route.path === this.$router.resolve(item.route).path);
-        }
-    },
-    mounted() {
-        this.active = this.items.findIndex((item) => this.$route.path === this.$router.resolve(item.route).path);
     }
+    // watch: {
+    //     $route() {
+    //         this.active = this.items.findIndex((item) => this.$route.path === this.$router.resolve(item.route).path);
+    //     }
+    // },
+    // mounted() {
+    //     this.active = this.items.findIndex((item) => this.$route.path === this.$router.resolve(item.route).path);
+    // }
 };
 </script>
