@@ -1,5 +1,37 @@
 # Changelog
 
+## [3.33.0](https://github.com/primefaces/primevue/tree/3.33.0) (2023-08-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.32.2...3.33.0)
+
+**Breaking Changes:**
+
+-   Rename `merge` and `useMergeProps` options with `mergeSections` and `mergeProps` options on `usePassThrough` method [\#4342](https://github.com/primefaces/primevue/issues/4342)
+
+**Deprecated:**
+
+-   `to` option deprecation of MenuModel for Menu components [\#4372](https://github.com/primefaces/primevue/issues/4372)
+-   Vue-Router deprecation in Menu components [\#4351](https://github.com/primefaces/primevue/issues/4351)
+
+**Implemented New Features and Enhancements:**
+
+-   Menu: new `submenuheader` slot [\#4352](https://github.com/primefaces/primevue/issues/4352)
+-   DataTable: exportCSV file name [\#4329](https://github.com/primefaces/primevue/issues/4329)
+-   SplitButton: MenuIcon [\#4201](https://github.com/primefaces/primevue/issues/4201)
+
+**Fixed bugs:**
+
+-   FileUpload: drag over border implementation bug [\#4371](https://github.com/primefaces/primevue/issues/4371)
+-   Dialog: drag cannot work as expected [\#4367](https://github.com/primefaces/primevue/issues/4367)
+-   Testing components will throw a `Cannot read properties of undefined (reading 'unstyled')` error [\#4360](https://github.com/primefaces/primevue/issues/4360)
+-   VirtualScroller: Unstyled mode is removing needed classes for core functionality [\#4348](https://github.com/primefaces/primevue/issues/4348)
+-   Component Name: Splitter [\#4341](https://github.com/primefaces/primevue/issues/4341)
+-   DataTable: v-model:editingRows is not reactive when changed from outside [\#4337](https://github.com/primefaces/primevue/issues/4337)
+-   DataTable: PT Options missing for Expansion Row Cell [\#4306](https://github.com/primefaces/primevue/issues/4306)
+-   Calendar: Accessibility features broken when hour-format="12" [\#4287](https://github.com/primefaces/primevue/issues/4287)
+-   SplitButton: Not rendering icon slot without icon property [\#4200](https://github.com/primefaces/primevue/issues/4200)
+-   Dialog: Draggable fails if Dialog contains a TabView/TabPanel [\#4182](https://github.com/primefaces/primevue/issues/4182)
+
 ## [3.32.2](https://github.com/primefaces/primevue/tree/3.32.2) (2023-08-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.32.1...3.32.2)
