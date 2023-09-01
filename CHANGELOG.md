@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.33.0](https://github.com/primefaces/primevue/tree/3.33.0) (2023-08-23)
+## [3.33.0](https://github.com/primefaces/primevue/tree/3.33.0) (2023-09-01)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.32.2...3.33.0)
 
