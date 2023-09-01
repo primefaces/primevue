@@ -40,6 +40,7 @@ export interface MenuItem {
     icon?: string | undefined;
     /**
      * Route configuration such as path, name and parameters.
+     * @deprecated since v3.33.0.
      */
     to?: RouteLocationRaw | undefined;
     /**
