@@ -8,15 +8,14 @@
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
             <Column field="quantity" header="Quantity"></Column>
-            <template #empty>
-                <p>Empty DataTable</p>
-            </template>
         </DataTable>
     </div>
     <DocSectionCode :code="code" :service="['ProductService']" />
 </template>
 
 <script>
+import { ProductService } from '@/service/ProductService';
+
 export default {
     data() {
         return {
@@ -94,7 +93,7 @@ const products = ref();
         };
     },
     mounted() {
-        // ProductService.getProductsMini().then((data) => (this.products = data));
+        ProductService.getProductsMini().then((data) => (this.products = data));
     }
 };
 </script>

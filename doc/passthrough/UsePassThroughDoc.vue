@@ -39,7 +39,7 @@ const CustomTailwind = usePassThrough(
     },
     {
         mergeSections: true,
-        mergeProps: false
+        useMergeProps: false
     }
 );
 
