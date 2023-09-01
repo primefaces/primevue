@@ -245,6 +245,10 @@ export interface MenubarSlots {
          * State of the root
          */
         root: boolean;
+        /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
     }): VNode[];
     /**
      * Custom popup icon template on responsive mode.
