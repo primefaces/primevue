@@ -33143,14 +33143,14 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "merge",
+                            "name": "mergeSections",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": ""
                         },
                         {
-                            "name": "useMergeProps",
+                            "name": "mergeProps",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
