@@ -28598,7 +28598,8 @@
                             "readonly": false,
                             "type": "RouteLocationRaw",
                             "default": "",
-                            "description": "Route configuration such as path, name and parameters."
+                            "description": "Route configuration such as path, name and parameters.",
+                            "deprecated": "since v3.33.0."
                         },
                         {
                             "name": "command",
