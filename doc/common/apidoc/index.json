@@ -38492,7 +38492,7 @@
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
-                                    "description": "menubuttonicon slot's params."
+                                    "description": "menuitemicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
