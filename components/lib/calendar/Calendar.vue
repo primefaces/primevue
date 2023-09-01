@@ -79,6 +79,7 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                         v-bind="ptm('previousButton')"
+                                        data-pc-group-section="navigator"
                                     >
                                         <slot name="previousicon" :class="cx('previousIcon')">
                                             <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[cx('previousIcon'), previousIcon]" v-bind="ptm('previousIcon')" />
@@ -94,6 +95,7 @@
                                             :disabled="switchViewButtonDisabled"
                                             :aria-label="$primevue.config.locale.chooseMonth"
                                             v-bind="ptm('monthTitle')"
+                                            data-pc-group-section="view"
                                         >
                                             {{ getMonthName(month.month) }}
                                         </button>
@@ -106,6 +108,7 @@
                                             :disabled="switchViewButtonDisabled"
                                             :aria-label="$primevue.config.locale.chooseYear"
                                             v-bind="ptm('yearTitle')"
+                                            data-pc-group-section="view"
                                         >
                                             {{ getYear(month) }}
                                         </button>
@@ -124,6 +127,7 @@
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.nextDecade : currentView === 'month' ? $primevue.config.locale.nextYear : $primevue.config.locale.nextMonth"
                                         v-bind="ptm('nextButton')"
+                                        data-pc-group-section="navigator"
                                     >
                                         <slot name="nexticon" :class="cx('nextIcon')">
                                             <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="[cx('nextIcon'), nextIcon]" v-bind="ptm('nextIcon')" />
@@ -134,18 +138,18 @@
                                     <table :class="cx('table')" role="grid" v-bind="ptm('table')">
                                         <thead v-bind="ptm('tableHeader')">
                                             <tr v-bind="ptm('tableHeaderRow')">
-                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek">
-                                                    <span v-bind="ptm('weekLabel')">{{ weekHeaderLabel }}</span>
+                                                <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
+                                                    <span v-bind="ptm('weekLabel')" data-pc-group-section="tableheadercelllabel">{{ weekHeaderLabel }}</span>
                                                 </th>
-                                                <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')">
-                                                    <span v-bind="ptm('weekDay')">{{ weekDay }}</span>
+                                                <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell">
+                                                    <span v-bind="ptm('weekDay')" data-pc-group-section="tableheadercelllabel">{{ weekDay }}</span>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody v-bind="ptm('tableBody')">
                                             <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
-                                                <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')">
-                                                    <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer', { context: { disabled: showWeek } })" :data-p-disabled="showWeek">
+                                                <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')" data-pc-group-section="tablebodycell">
+                                                    <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tablebodycelllabel">
                                                         <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
                                                         {{ month.weekNumbers[i] }}
                                                     </span>
@@ -166,6 +170,7 @@
                                                     "
                                                     :data-p-today="date.today"
                                                     :data-p-other-month="date.otherMonth"
+                                                    data-pc-group-section="tablebodycell"
                                                 >
                                                     <span
                                                         v-ripple
@@ -186,6 +191,7 @@
                                                         "
                                                         :data-p-disabled="!date.selectable"
                                                         :data-p-highlight="isSelected(date)"
+                                                        data-pc-group-section="tablebodycelllabel"
                                                     >
                                                         <slot name="date" :date="date">{{ date.day }}</slot>
                                                     </span>
@@ -254,7 +260,7 @@
                         </div>
                     </template>
                     <div v-if="(showTime || timeOnly) && currentView === 'date'" :class="cx('timePicker')" v-bind="ptm('timePicker')">
-                        <div :class="cx('hourPicker')" v-bind="ptm('hourPicker')">
+                        <div :class="cx('hourPicker')" v-bind="ptm('hourPicker')" data-pc-group-section="timepickerContainer">
                             <button
                                 v-ripple
                                 :class="cx('incrementButton')"
@@ -269,12 +275,13 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                                 v-bind="ptm('incrementButton')"
+                                data-pc-group-section="timepickerbutton"
                             >
                                 <slot name="incrementicon">
-                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" v-bind="ptm('incrementIcon')" />
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" v-bind="ptm('incrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
-                            <span v-bind="ptm('hour')">{{ formattedCurrentHour }}</span>
+                            <span v-bind="ptm('hour')" data-pc-group-section="timepickerlabel">{{ formattedCurrentHour }}</span>
                             <button
                                 v-ripple
                                 :class="cx('decrementButton')"
@@ -289,16 +296,17 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                                 v-bind="ptm('decrementButton')"
+                                data-pc-group-section="timepickerbutton"
                             >
                                 <slot name="decrementicon">
-                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" v-bind="ptm('decrementIcon')" />
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" v-bind="ptm('decrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
                         </div>
-                        <div :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
-                            <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
+                        <div :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')" data-pc-group-section="timepickerContainer">
+                            <span v-bind="ptm('separator')" data-pc-group-section="timepickerlabel">{{ timeSeparator }}</span>
                         </div>
-                        <div :class="cx('minutePicker')" v-bind="ptm('minutePicker')">
+                        <div :class="cx('minutePicker')" v-bind="ptm('minutePicker')" data-pc-group-section="timepickerContainer">
                             <button
                                 v-ripple
                                 :class="cx('incrementButton')"
@@ -314,12 +322,13 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                                 v-bind="ptm('incrementButton')"
+                                data-pc-group-section="timepickerbutton"
                             >
                                 <slot name="incrementicon">
-                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" v-bind="ptm('incrementIcon')" />
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" v-bind="ptm('incrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
-                            <span v-bind="ptm('minute')">{{ formattedCurrentMinute }}</span>
+                            <span v-bind="ptm('minute')" data-pc-group-section="timepickerlabel">{{ formattedCurrentMinute }}</span>
                             <button
                                 v-ripple
                                 :class="cx('decrementButton')"
@@ -335,16 +344,17 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                                 v-bind="ptm('decrementButton')"
+                                data-pc-group-section="timepickerbutton"
                             >
                                 <slot name="decrementicon">
-                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" v-bind="ptm('decrementIcon')" />
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" v-bind="ptm('decrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
                         </div>
-                        <div v-if="showSeconds" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
-                            <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
+                        <div v-if="showSeconds" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')" data-pc-group-section="timepickerContainer">
+                            <span v-bind="ptm('separator')" data-pc-group-section="timepickerlabel">{{ timeSeparator }}</span>
                         </div>
-                        <div v-if="showSeconds" :class="cx('secondPicker')" v-bind="ptm('secondPicker')">
+                        <div v-if="showSeconds" :class="cx('secondPicker')" v-bind="ptm('secondPicker')" data-pc-group-section="timepickerContainer">
                             <button
                                 v-ripple
                                 :class="cx('incrementButton')"
@@ -360,12 +370,13 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                                 v-bind="ptm('incrementButton')"
+                                data-pc-group-section="timepickerbutton"
                             >
                                 <slot name="incrementicon">
-                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" v-bind="ptm('incrementIcon')" />
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="incrementIcon" v-bind="ptm('incrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
-                            <span v-bind="ptm('second')">{{ formattedCurrentSecond }}</span>
+                            <span v-bind="ptm('second')" data-pc-group-section="timepickerlabel">{{ formattedCurrentSecond }}</span>
                             <button
                                 v-ripple
                                 :class="cx('decrementButton')"
@@ -381,25 +392,46 @@
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 type="button"
                                 v-bind="ptm('decrementButton')"
+                                data-pc-group-section="timepickerbutton"
                             >
                                 <slot name="decrementicon">
-                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" v-bind="ptm('decrementIcon')" />
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="decrementIcon" v-bind="ptm('decrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
                         </div>
-                        <div v-if="hourFormat == '12'" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')">
-                            <span v-bind="ptm('separator')">{{ timeSeparator }}</span>
+                        <div v-if="hourFormat == '12'" :class="cx('separatorContainer')" v-bind="ptm('separatorContainer')" data-pc-group-section="timepickerContainer">
+                            <span v-bind="ptm('separator')" data-pc-group-section="timepickerlabel">{{ timeSeparator }}</span>
                         </div>
                         <div v-if="hourFormat == '12'" :class="cx('ampmPicker')" v-bind="ptm('ampmPicker')">
-                            <button v-ripple :class="cx('incrementButton')" :aria-label="$primevue.config.locale.am" @click="toggleAMPM($event)" @keydown="onContainerButtonKeydown" type="button" :disabled="disabled" v-bind="ptm('incrementButton')">
+                            <button
+                                v-ripple
+                                :class="cx('incrementButton')"
+                                :aria-label="$primevue.config.locale.am"
+                                @click="toggleAMPM($event)"
+                                @keydown="onContainerButtonKeydown"
+                                type="button"
+                                :disabled="disabled"
+                                v-bind="ptm('incrementButton')"
+                                data-pc-group-section="timepickerbutton"
+                            >
                                 <slot name="incrementicon" :class="cx('incrementIcon')">
-                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="cx('incrementIcon')" v-bind="ptm('incrementIcon')" />
+                                    <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="cx('incrementIcon')" v-bind="ptm('incrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
-                            <span v-bind="ptm('ampm')">{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
-                            <button v-ripple :class="cx('decrementButton')" :aria-label="$primevue.config.locale.pm" @click="toggleAMPM($event)" @keydown="onContainerButtonKeydown" type="button" :disabled="disabled" v-bind="ptm('decrementButton')">
+                            <span v-bind="ptm('ampm')" data-pc-group-section="timepickerlabel">{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
+                            <button
+                                v-ripple
+                                :class="cx('decrementButton')"
+                                :aria-label="$primevue.config.locale.pm"
+                                @click="toggleAMPM($event)"
+                                @keydown="onContainerButtonKeydown"
+                                type="button"
+                                :disabled="disabled"
+                                v-bind="ptm('decrementButton')"
+                                data-pc-group-section="timepickerbutton"
+                            >
                                 <slot name="decrementicon" :class="cx('decrementIcon')">
-                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="cx('decrementIcon')" v-bind="ptm('decrementIcon')" />
+                                    <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="cx('decrementIcon')" v-bind="ptm('decrementIcon')" data-pc-group-section="timepickerlabel" />
                                 </slot>
                             </button>
                         </div>
@@ -414,6 +446,7 @@
                             :unstyled="unstyled"
                             :pt="ptm('todayButton')"
                             data-pc-section="todaybutton"
+                            data-pc-group-section="button"
                         />
                         <CalendarButton
                             type="button"
@@ -424,6 +457,7 @@
                             :unstyled="unstyled"
                             :pt="ptm('clearButton')"
                             data-pc-section="clearbutton"
+                            data-pc-group-section="button"
                         />
                     </div>
                     <slot name="footer"></slot>
