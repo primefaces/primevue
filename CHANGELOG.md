@@ -16,7 +16,6 @@
 **Implemented New Features and Enhancements:**
 
 -   Menu: new `submenuheader` slot [\#4352](https://github.com/primefaces/primevue/issues/4352)
--   DataTable: exportCSV file name [\#4329](https://github.com/primefaces/primevue/issues/4329)
 -   SplitButton: MenuIcon [\#4201](https://github.com/primefaces/primevue/issues/4201)
 
 **Fixed bugs:**
