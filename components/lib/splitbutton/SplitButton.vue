@@ -17,7 +17,7 @@
                 :unstyled="unstyled"
                 data-pc-section="button"
             >
-                <template v-if="icon" #icon="slotProps">
+                <template #icon="slotProps">
                     <slot name="icon" :class="slotProps.class">
                         <span :class="[icon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="buttonicon" />
                     </slot>
@@ -49,7 +49,11 @@
                 </slot>
             </template>
         </PVSButton>
-        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')" />
+        <PVSMenu ref="menu" :id="ariaId + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('menu')">
+            <template v-if="$slots.menuitemicon" #itemicon="slotProps">
+                <slot name="menuitemicon" :item="slotProps.item" :class="slotProps.class" />
+            </template>
+        </PVSMenu>
     </div>
 </template>
 
