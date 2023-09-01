@@ -28509,7 +28509,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>root</b>: boolean, // State of the root\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>root</b>: boolean, // State of the root\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
