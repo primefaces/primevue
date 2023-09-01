@@ -38484,6 +38484,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu button icon template."
+                        },
+                        {
+                            "name": "menuitemicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>class</b>: any, // Style class of the item icon element.\n  }",
+                                    "description": "menubuttonicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom menu item icon template."
                         }
                     ]
                 },
