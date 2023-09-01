@@ -10,7 +10,7 @@
                     role="row"
                     v-bind="ptm('rowGroupHeader')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }" data-pc-section="bodycell">
+                    <td :colspan="columnsLength - 1" v-bind="ptm('rowGroupHeaderCell')">
                         <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="ptm('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
@@ -91,7 +91,7 @@
                     role="row"
                     v-bind="ptm('rowExpansion')"
                 >
-                    <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+                    <td :colspan="columnsLength" v-bind="ptm('rowExpansionCell')">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
@@ -102,14 +102,14 @@
                     role="row"
                     v-bind="ptm('rowGroupFooter')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('footerCell') }" data-pc-section="footercell">
+                    <td :colspan="columnsLength - 1" v-bind="ptm('rowGroupFooterCell')">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
             </template>
         </template>
         <tr v-else :class="cx('emptyMessage')" role="row" v-bind="ptm('emptyMessage')">
-            <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+            <td :colspan="columnsLength" v-bind="ptm('emptyMessageCell')">
                 <component v-if="templates.empty" :is="templates.empty" />
             </td>
         </tr>
@@ -121,7 +121,6 @@ import BaseComponent from 'primevue/basecomponent';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
-import { mergeProps } from 'vue';
 import BodyCell from './BodyCell.vue';
 
 export default {
@@ -306,16 +305,6 @@ export default {
     methods: {
         columnProp(col, prop) {
             return ObjectUtils.getVNodeProp(col, prop);
-        },
-        getColumnPT(key) {
-            const columnMetaData = {
-                parent: {
-                    props: this.$props,
-                    state: this.$data
-                }
-            };
-
-            return mergeProps(this.ptm(`column.${key}`, { column: columnMetaData }), this.ptm(`column.${key}`, columnMetaData), this.ptmo(this.getColumnProp({}), key, columnMetaData));
         },
         getColumnProp(column) {
             return column.props && column.props.pt ? column.props.pt : undefined; //@todo

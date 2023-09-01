@@ -470,7 +470,7 @@ export default {
                 self,
                 globalPT,
                 key !== 'transition' && {
-                    ...(key === 'root' && this.$.type.name === this.$options.hostName && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
+                    ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
                     [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
                 }
             );
