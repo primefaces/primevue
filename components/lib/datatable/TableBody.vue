@@ -10,7 +10,7 @@
                     role="row"
                     v-bind="ptm('rowGroupHeader')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }" data-pc-section="bodycell">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('bodycell'), ...ptm('rowGroupHeaderCell') }">
                         <button v-if="expandableRowGroups" :class="cx('rowGroupToggler')" @click="onRowGroupToggle($event, rowData)" type="button" v-bind="ptm('rowGroupToggler')">
                             <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded(rowData)" />
                             <template v-else>
@@ -91,7 +91,7 @@
                     role="row"
                     v-bind="ptm('rowExpansion')"
                 >
-                    <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+                    <td :colspan="columnsLength" v-bind="{ ...getColumnPT('bodycell'), ...ptm('rowExpansionCell') }">
                         <component :is="templates['expansion']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
@@ -102,14 +102,14 @@
                     role="row"
                     v-bind="ptm('rowGroupFooter')"
                 >
-                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('root'), ...getColumnPT('footerCell') }" data-pc-section="footercell">
+                    <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('bodycell'), ...ptm('rowGroupFooterCell') }">
                         <component :is="templates['groupfooter']" :data="rowData" :index="getRowIndex(index)" />
                     </td>
                 </tr>
             </template>
         </template>
         <tr v-else :class="cx('emptyMessage')" role="row" v-bind="ptm('emptyMessage')">
-            <td :colspan="columnsLength" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+            <td :colspan="columnsLength" v-bind="{ ...getColumnPT('bodycell'), ...ptm('emptyMessageCell') }">
                 <component v-if="templates.empty" :is="templates.empty" />
             </td>
         </tr>

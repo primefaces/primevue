@@ -604,6 +604,10 @@ export interface DataTablePassThroughOptions {
      */
     rowGroupHeader?: DataTablePassThroughOptionType;
     /**
+     * Used to pass attributes to the rowgroup header cell's DOM element.
+     */
+    rowGroupHeaderCell?: DataTablePassThroughOptionType;
+    /**
      * Used to pass attributes to the body row's DOM element.
      */
     bodyRow?: DataTablePassThroughOptionType;
@@ -612,13 +616,25 @@ export interface DataTablePassThroughOptions {
      */
     rowExpansion?: DataTablePassThroughOptionType;
     /**
+     * Used to pass attributes to the row expansion cell's DOM element.
+     */
+    rowExpansionCell?: DataTablePassThroughOptionType;
+    /**
      * Used to pass attributes to the rowgroup footer's DOM element.
      */
     rowGroupFooter?: DataTablePassThroughOptionType;
     /**
+     * Used to pass attributes to the rowgroup footer cell's DOM element.
+     */
+    rowGroupFooterCell?: DataTablePassThroughOptionType;
+    /**
      * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DataTablePassThroughOptionType;
+    /**
+     * Used to pass attributes to the empty message cell's DOM element.
+     */
+    emptyMessageCell?: DataTablePassThroughOptionType;
     /**
      * Used to pass attributes to the tfoot's DOM element.
      */
