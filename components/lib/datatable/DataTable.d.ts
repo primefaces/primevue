@@ -956,7 +956,7 @@ export interface DataTableProps {
     /**
      * Custom function to export data.
      */
-    exportFunction?(options: DataTableExportFunctionOptions): any;
+    exportFunction?: (options: DataTableExportFunctionOptions) => any;
     /**
      * When enabled, columns can be resized using drag and drop.
      * @defaultValue false
