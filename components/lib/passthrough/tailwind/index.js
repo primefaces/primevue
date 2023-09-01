@@ -3980,10 +3980,10 @@ export default {
             class: 'bg-white text-gray-600 dark:bg-gray-900 dark:text-white/80'
         },
         rowgroupheader: {
-            class: ['sticky z-[1]', 'bg-white text-gray-600', 'transition duration-200']
+            class: ['sticky z-[1]', 'bg-white text-gray-600', 'dark:bg-gray-900', 'transition duration-200']
         },
         rowgroupfooter: {
-            class: ['sticky z-[1]', 'bg-white text-gray-600', 'transition duration-200']
+            class: ['sticky z-[1]', 'bg-white text-gray-600', 'dark:bg-gray-900', 'transition duration-200']
         },
         rowgrouptoggler: {
             class: [
