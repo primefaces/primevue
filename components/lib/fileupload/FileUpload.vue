@@ -266,7 +266,7 @@ export default {
         },
         onDragOver(event) {
             if (!this.disabled) {
-                !this.isUnstyled && (this.$refs.content, 'p-fileupload-highlight');
+                !this.isUnstyled && DomHandler.addClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', true);
                 event.stopPropagation();
                 event.preventDefault();
