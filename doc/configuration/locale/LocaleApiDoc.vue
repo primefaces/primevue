@@ -125,6 +125,10 @@
                         <td>Pending</td>
                     </tr>
                     <tr>
+                        <td>fileSizeTypes</td>
+                        <td>['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']</td>
+                    </tr>
+                    <tr>
                         <td>dayNames</td>
                         <td>['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'</td>
                     </tr>
