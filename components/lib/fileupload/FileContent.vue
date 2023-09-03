@@ -64,7 +64,7 @@ export default {
             const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
 
             return `${formattedSize} ${sizes[i]}`;
-        },
+        }
     },
     components: {
         FileUploadButton: Button,
