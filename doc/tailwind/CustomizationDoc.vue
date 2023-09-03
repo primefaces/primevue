@@ -65,7 +65,7 @@ const CustomTailwind = usePassThrough(
         }
     },
     {
-        mergeSecitons: true,
+        mergeSections: true,
         mergeProps: false
     }
 );
