@@ -22,16 +22,17 @@ const BaseDirective = {
         };
 
         const datasetPrefix = 'data-pc-';
-        const self = BaseDirective._usePT(BaseDirective._getPT(obj, instance.$name), getValue, key, params);
-        const globalPT = searchInDefaultPT ? BaseDirective._useDefaultPT(instance.defaultPT, getValue, key, params) : undefined;
-        const merged = mergeProps(self, globalPT, {
+        const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || {};
+        const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance.defaultPT, getValue, key, params) : undefined;
+        const self = BaseDirective._usePT(BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global });
+        const datasets = {
             ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
             [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
-        });
+        };
 
-        return merged;
+        return mergeSections || (!mergeSections && self) ? (useMergeProps ? mergeProps(global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
     },
-    _getPT(pt, key = '', callback) {
+    _getPT: (pt, key = '', callback) => {
         const _usept = pt?.['_usept'];
 
         const getValue = (value) => {
@@ -48,11 +49,11 @@ const BaseDirective = {
               }
             : getValue(pt);
     },
-    _usePT(pt, callback, key, params) {
+    _usePT: (pt, callback, key, params) => {
         const fn = (value) => callback(value, key, params);
 
         if (pt?.hasOwnProperty('_usept')) {
-            const { mergeSections, mergeProps: useMergeProps } = pt['_usept'];
+            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
             const originalValue = fn(pt.originalValue);
             const value = fn(pt.value);
 
@@ -65,7 +66,7 @@ const BaseDirective = {
 
         return fn(pt);
     },
-    _useDefaultPT(defaultPT = {}, callback, key, params) {
+    _useDefaultPT: (defaultPT = {}, callback, key, params) => {
         return BaseDirective._usePT(defaultPT, callback, key, params);
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
