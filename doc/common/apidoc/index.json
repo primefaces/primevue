@@ -5107,6 +5107,37 @@
                     ],
                     "methods": []
                 },
+                "BreadcrumbRouterBindProps": {
+                    "description": "Defines valid router binding props in Breadcrumb component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "BreadcrumbProps": {
                     "description": "Defines valid properties in Breadcrumb component.",
                     "relatedProp": "",
@@ -5181,7 +5212,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: BreadcrumbRouterBindProps, // Binding properties of the menuitem\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -14665,6 +14696,45 @@
                     ],
                     "methods": []
                 },
+                "ContextMenuRouterBindProps": {
+                    "description": "Defines valid router binding props in ContextMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Submenuicon elemnt binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "ContextMenuProps": {
                     "description": "Defines valid properties in ContextMenu component.",
                     "relatedProp": "",
@@ -14771,7 +14841,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: ContextMenuRouterBindProps, // Binding properties of the menuitem\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -19582,6 +19652,29 @@
                     ],
                     "methods": []
                 },
+                "DockRouterBindProps": {
+                    "description": "Defines valid router binding props in Dock component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "DockProps": {
                     "description": "Defines valid properties in Dock component.",
                     "relatedProp": "",
@@ -19696,7 +19789,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Custom content for item.\n  \t <b>index</b>: number, // Index of the menuitem\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Custom content for item.\n  \t <b>index</b>: number, // Index of the menuitem\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: DockRouterBindProps, // Binding properties of the menuitem\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -27429,6 +27522,45 @@
                     ],
                     "methods": []
                 },
+                "MegaMenuRouterBindProps": {
+                    "description": "Defines valid router binding props in MegaMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Submenuicon elemnt binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "MegaMenuProps": {
                     "description": "Defines valid properties in MegaMenu component.",
                     "relatedProp": "",
@@ -27531,7 +27663,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: MegaMenuRouterBindProps, // Binding properties of the menuitem\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -27900,6 +28032,37 @@
                     ],
                     "methods": []
                 },
+                "MenuRouterBindProps": {
+                    "description": "Defines valid router binding props in Menu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "MenuProps": {
                     "description": "Defines valid properties in Menu component.",
                     "relatedProp": "",
@@ -28018,7 +28181,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: MenuRouterBindProps, // Binding properties of the menuitem\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -28417,6 +28580,45 @@
                     ],
                     "methods": []
                 },
+                "MenubarRouterBindProps": {
+                    "description": "Defines valid router binding props in Menubar component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Submenuicon elemnt binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "MenubarProps": {
                     "description": "Defines valid properties in Menubar component.",
                     "relatedProp": "",
@@ -28503,7 +28705,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>root</b>: boolean, // State of the root\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: MenubarRouterBindProps, // Binding properties of the menuitem\n  \t <b>root</b>: boolean, // State of the root\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -32961,6 +33163,45 @@
                     "methods": [],
                     "extendedTypes": "PanelMenuPanelOpenEvent"
                 },
+                "PanelMenuRouterBindProps": {
+                    "description": "Defines valid router binding props in PanelMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Submenuicon elemnt binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "PanelMenuProps": {
                     "description": "Defines valid properties in PanelMenu component.",
                     "relatedProp": "",
@@ -33027,7 +33268,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: PanelMenuRouterBindProps, // Binding properties of the menuitem\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -39182,6 +39423,37 @@
                     ],
                     "methods": []
                 },
+                "StepsRouterBindProps": {
+                    "description": "Defines valid router binding props in Steps component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "StepsProps": {
                     "description": "Defines valid properties in Steps component.",
                     "relatedProp": "",
@@ -39248,7 +39520,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>index</b>: number, // Order of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>index</b>: number, // Order of the menuitem\n  \t <b>props</b>: StepsRouterBindProps, // Binding properties of the menuitem\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -39600,6 +39872,37 @@
                     ],
                     "methods": []
                 },
+                "TabMenuRouterBindProps": {
+                    "description": "Defines valid router binding props in TabMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TabMenuProps": {
                     "description": "Defines valid properties in TabMenu component.",
                     "relatedProp": "",
@@ -39674,7 +39977,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: TabMenuRouterBindProps, // Binding properties of the menuitem\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
@@ -41375,6 +41678,45 @@
                     ],
                     "methods": []
                 },
+                "TabMenuRouterBindProps": {
+                    "description": "Defines valid router binding props in TabMenu component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "action",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Action element binding"
+                        },
+                        {
+                            "name": "icon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Icon element binding"
+                        },
+                        {
+                            "name": "label",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Label element binding"
+                        },
+                        {
+                            "name": "submenuicon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Submenuicon elemnt binding"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TieredMenuProps": {
                     "description": "Defines valid properties in TieredMenuMenu component.",
                     "relatedProp": "",
@@ -41489,7 +41831,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n \t <b>props</b>: (args: any) &rArr; string, // Binding properties of the menuitem\n \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
+                                    "type": "{\n  \t <b>item</b>: MenuItem, // Menuitem instance\n  \t <b>label</b>: undefined, // Label property of the menuitem\n  \t <b>props</b>: TabMenuRouterBindProps, // Binding properties of the menuitem\n  \t <b>hasSubmenu</b>: boolean, // Whether or not there is a submenu\n  }",
                                     "description": "item slot's params."
                                 }
                             ],
