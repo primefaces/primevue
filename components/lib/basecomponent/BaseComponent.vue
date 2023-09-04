@@ -506,7 +506,7 @@ export default {
             const fn = (value) => callback(value, key, params);
 
             if (pt?.hasOwnProperty('_usept')) {
-                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
+                const { mergeSections = true, mergeProps: useMergeProps = false } = this.ptOptions || pt['_usept'] || {};
                 const originalValue = fn(pt.originalValue);
                 const value = fn(pt.value);
 

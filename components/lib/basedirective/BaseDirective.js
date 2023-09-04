@@ -23,8 +23,8 @@ const BaseDirective = {
 
         const datasetPrefix = 'data-pc-';
         const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || {};
-        const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance.defaultPT, getValue, key, params) : undefined;
-        const self = BaseDirective._usePT(BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global });
+        const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance, instance.defaultPT, getValue, key, params) : undefined;
+        const self = BaseDirective._usePT(instance, BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global });
         const datasets = {
             ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
             [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
@@ -49,11 +49,11 @@ const BaseDirective = {
               }
             : getValue(pt);
     },
-    _usePT: (pt, callback, key, params) => {
+    _usePT: (instance = {}, pt, callback, key, params) => {
         const fn = (value) => callback(value, key, params);
 
         if (pt?.hasOwnProperty('_usept')) {
-            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || pt['_usept'] || {};
             const originalValue = fn(pt.originalValue);
             const value = fn(pt.value);
 
@@ -66,18 +66,19 @@ const BaseDirective = {
 
         return fn(pt);
     },
-    _useDefaultPT: (defaultPT = {}, callback, key, params) => {
-        return BaseDirective._usePT(defaultPT, callback, key, params);
+    _useDefaultPT: (instance = {}, defaultPT = {}, callback, key, params) => {
+        return BaseDirective._usePT(instance, defaultPT, callback, key, params);
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${ObjectUtils.toCapitalCase(hookName)}`;
         const config = binding?.instance?.$primevue?.config;
-        const selfHook = BaseDirective._usePT(BaseDirective._getPT(binding?.value?.pt, directiveName), BaseDirective._getOptionValue, `hooks.${name}`);
-        const defaultHook = BaseDirective._useDefaultPT(config?.pt?.directives?.[directiveName], BaseDirective._getOptionValue, `hooks.${name}`);
+        const instance = el?.$instance;
+        const selfHook = BaseDirective._usePT(instance, BaseDirective._getPT(binding?.value?.pt, directiveName), BaseDirective._getOptionValue, `hooks.${name}`);
+        const defaultHook = BaseDirective._useDefaultPT(instance, config?.pt?.directives?.[directiveName], BaseDirective._getOptionValue, `hooks.${name}`);
         const options = { el, binding, vnode, prevVnode };
 
-        selfHook?.(el?.$instance, options);
-        defaultHook?.(el?.$instance, options);
+        selfHook?.(instance, options);
+        defaultHook?.(instance, options);
     },
     _extend: (name, options = {}) => {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {
