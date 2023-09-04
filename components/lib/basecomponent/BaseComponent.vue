@@ -492,8 +492,10 @@ export default {
 
             const getValue = (value) => {
                 const computedValue = callback ? callback(value) : value;
+                const _key = ObjectUtils.toFlatCase(key);
+                const _cKey = ObjectUtils.toFlatCase(this.$name);
 
-                return computedValue?.[ObjectUtils.toFlatCase(key)] ?? computedValue;
+                return (_key !== _cKey ? computedValue?.[_key] : undefined) ?? computedValue;
             };
 
             return ObjectUtils.isNotEmpty(_usept)
