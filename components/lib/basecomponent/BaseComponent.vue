@@ -366,6 +366,10 @@ export default {
             type: Object,
             default: undefined
         },
+        ptOptions: {
+            type: Object,
+            default: undefined
+        },
         unstyled: {
             type: Boolean,
             default: undefined
@@ -464,23 +468,15 @@ export default {
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
             const datasetPrefix = 'data-pc-';
             const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
-            const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, params);
-            const globalPT = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
-            const merged = mergeProps(
-                self,
-                globalPT,
-                key !== 'transition' && {
-                    ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
-                    [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
-                }
-            );
+            const { mergeSections = true, mergeProps: useMergeProps = false } = this.ptOptions || {};
+            const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
+            const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global });
+            const datasets = key !== 'transition' && {
+                ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
+                [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
+            };
 
-            return merged;
-            /*
-             * @todo: The 'class' option in self can always be more powerful to style the component easily.
-             *
-             * return self && self['class'] ? { ...merged, ...{ class: self['class'] } } : merged;
-             */
+            return mergeSections || (!mergeSections && self) ? (useMergeProps ? mergeProps(global, self, datasets) : { ...global, ...self, ...datasets }) : { ...self, ...datasets };
         },
         _getPTClassValue(...args) {
             const value = this._getOptionValue(...args);
@@ -510,7 +506,7 @@ export default {
             const fn = (value) => callback(value, key, params);
 
             if (pt?.hasOwnProperty('_usept')) {
-                const { mergeSections, mergeProps: useMergeProps } = pt['_usept'];
+                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
                 const originalValue = fn(pt.originalValue);
                 const value = fn(pt.value);
 
