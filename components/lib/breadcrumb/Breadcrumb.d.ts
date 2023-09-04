@@ -89,6 +89,24 @@ export interface BreadcrumbContext {
 }
 
 /**
+ * Defines valid router binding props in Breadcrumb component.
+ */
+export interface BreadcrumbRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+}
+
+/**
  * Defines valid properties in Breadcrumb component.
  */
 export interface BreadcrumbProps {
@@ -145,7 +163,7 @@ export interface BreadcrumbSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: BreadcrumbRouterBindProps;
     }): VNode[];
     /**
      * Custom separator template.

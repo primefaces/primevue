@@ -135,6 +135,20 @@ export interface DockTooltipOptions {
 }
 
 /**
+ * Defines valid router binding props in Dock component.
+ */
+export interface DockRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+}
+
+/**
  * Defines valid properties in Dock component.
  */
 export interface DockProps {
@@ -217,7 +231,7 @@ export interface DockSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: DockRouterBindProps;
     }): VNode[];
     /**
      * Custom icon content.

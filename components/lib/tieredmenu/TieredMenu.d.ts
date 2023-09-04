@@ -162,6 +162,28 @@ export interface TieredMenuContext {
 }
 
 /**
+ * Defines valid router binding props in TabMenu component.
+ */
+export interface TabMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+    /**
+     * Submenuicon elemnt binding
+     */
+    submenuicon: object;
+}
+
+/**
  * Defines valid properties in TieredMenuMenu component.
  */
 export interface TieredMenuProps {
@@ -243,7 +265,7 @@ export interface TieredMenuSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: TabMenuRouterBindProps;
         /**
          * Whether or not there is a submenu
          */

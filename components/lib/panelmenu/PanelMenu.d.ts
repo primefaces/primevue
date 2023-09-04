@@ -192,6 +192,28 @@ export interface PanelMenuPanelOpenEvent {
 export interface PanelMenuPanelCloseEvent extends PanelMenuPanelOpenEvent {}
 
 /**
+ * Defines valid router binding props in PanelMenu component.
+ */
+export interface PanelMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+    /**
+     * Submenuicon elemnt binding
+     */
+    submenuicon: object;
+}
+
+/**
  * Defines valid properties in PanelMenu component.
  */
 export interface PanelMenuProps {
@@ -245,7 +267,7 @@ export interface PanelMenuSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: PanelMenuRouterBindProps;
         /**
          * Whether or not there is a submenu
          */

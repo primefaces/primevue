@@ -168,6 +168,28 @@ export interface ContextMenuContext {
 }
 
 /**
+ * Defines valid router binding props in ContextMenu component.
+ */
+export interface ContextMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+    /**
+     * Submenuicon elemnt binding
+     */
+    submenuicon: object;
+}
+
+/**
  * Defines valid properties in ContextMenu component.
  */
 export interface ContextMenuProps {
@@ -244,7 +266,7 @@ export interface ContextMenuSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: ContextMenuRouterBindProps;
     }): VNode[];
     /**
      * Custom item icon template.

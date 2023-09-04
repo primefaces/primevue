@@ -91,6 +91,24 @@ export interface StepsContext {
 }
 
 /**
+ * Defines valid router binding props in Steps component.
+ */
+export interface StepsRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+}
+
+/**
  * Defines valid properties in Steps component.
  */
 export interface StepsProps {
@@ -148,7 +166,7 @@ export interface StepsSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: StepsRouterBindProps;
     }): VNode[];
 }
 

@@ -112,6 +112,24 @@ export interface TabMenuChangeEvent {
 }
 
 /**
+ * Defines valid router binding props in TabMenu component.
+ */
+export interface TabMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+}
+
+/**
  * Defines valid properties in TabMenu component.
  */
 export interface TabMenuProps {
@@ -169,7 +187,7 @@ export interface TabMenuSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: TabMenuRouterBindProps;
     }): VNode[];
     /**
      * Custom item icon template.

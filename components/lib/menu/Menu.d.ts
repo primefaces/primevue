@@ -141,6 +141,24 @@ export interface MenuContext {
 }
 
 /**
+ * Defines valid router binding props in Menu component.
+ */
+export interface MenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+}
+
+/**
  * Defines valid properties in Menu component.
  */
 export interface MenuProps {
@@ -225,7 +243,7 @@ export interface MenuSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: MenuRouterBindProps;
     }): VNode[];
     /**
      * Custom item icon template.

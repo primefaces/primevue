@@ -175,6 +175,28 @@ export interface MegaMenuContext {
 }
 
 /**
+ * Defines valid router binding props in MegaMenu component.
+ */
+export interface MegaMenuRouterBindProps {
+    /**
+     * Action element binding
+     */
+    action: object;
+    /**
+     * Icon element binding
+     */
+    icon: object;
+    /**
+     * Label element binding
+     */
+    label: object;
+    /**
+     * Submenuicon elemnt binding
+     */
+    submenuicon: object;
+}
+
+/**
  * Defines valid properties in MegaMenu component.
  */
 export interface MegaMenuProps {
@@ -249,7 +271,7 @@ export interface MegaMenuSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: (...args: any) => string;
+        props: MegaMenuRouterBindProps;
         /**
          * Whether or not there is a submenu
          */
