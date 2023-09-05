@@ -24,7 +24,7 @@ const BaseDirective = {
         const datasetPrefix = 'data-pc-';
         const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || {};
         const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance, instance.defaultPT, getValue, key, params) : undefined;
-        const self = BaseDirective._usePT(instance, BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global });
+        const self = BaseDirective._usePT(instance, BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global: global || {} });
         const datasets = {
             ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
             [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
@@ -37,8 +37,9 @@ const BaseDirective = {
 
         const getValue = (value) => {
             const computedValue = callback ? callback(value) : value;
+            const _key = ObjectUtils.toFlatCase(key);
 
-            return computedValue?.[ObjectUtils.toFlatCase(key)] ?? computedValue;
+            return computedValue?.[_key] ?? computedValue;
         };
 
         return ObjectUtils.isNotEmpty(_usept)
@@ -53,7 +54,7 @@ const BaseDirective = {
         const fn = (value) => callback(value, key, params);
 
         if (pt?.hasOwnProperty('_usept')) {
-            const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || pt['_usept'] || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
             const originalValue = fn(pt.originalValue);
             const value = fn(pt.value);
 

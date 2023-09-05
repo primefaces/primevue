@@ -470,7 +470,7 @@ export default {
             const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
             const { mergeSections = true, mergeProps: useMergeProps = false } = this.ptOptions || {};
             const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
-            const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global });
+            const self = searchOut ? undefined : this._usePT(this._getPT(obj, this.$name), this._getPTClassValue, key, { ...params, global: global || {} });
             const datasets = key !== 'transition' && {
                 ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(this.$.type.name) }),
                 [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
@@ -486,12 +486,12 @@ export default {
         _getPT(pt, key = '', callback) {
             const _usept = pt?.['_usept'];
 
-            const getValue = (value) => {
+            const getValue = (value, checkSameKey = false) => {
                 const computedValue = callback ? callback(value) : value;
                 const _key = ObjectUtils.toFlatCase(key);
                 const _cKey = ObjectUtils.toFlatCase(this.$name);
 
-                return (_key !== _cKey ? computedValue?.[_key] : undefined) ?? computedValue;
+                return (checkSameKey ? (_key !== _cKey ? computedValue?.[_key] : undefined) : computedValue?.[_key]) ?? computedValue;
             };
 
             return ObjectUtils.isNotEmpty(_usept)
@@ -500,13 +500,13 @@ export default {
                       originalValue: getValue(pt.originalValue),
                       value: getValue(pt.value)
                   }
-                : getValue(pt);
+                : getValue(pt, true);
         },
         _usePT(pt, callback, key, params) {
             const fn = (value) => callback(value, key, params);
 
             if (pt?.hasOwnProperty('_usept')) {
-                const { mergeSections = true, mergeProps: useMergeProps = false } = this.ptOptions || pt['_usept'] || {};
+                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || {};
                 const originalValue = fn(pt.originalValue);
                 const value = fn(pt.value);
 
