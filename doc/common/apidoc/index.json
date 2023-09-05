@@ -25,21 +25,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "AccordionProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "AccordionState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -380,28 +383,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "AccordionTabProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
                             "type": "AccordionPassThroughOptions",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines parent instance."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "AccordionTabContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -2699,28 +2706,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "AutoCompleteProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "AutoCompleteState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "AutoCompleteContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -3807,21 +3818,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "AvatarProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
                             "type": "AvatarGroupPassThroughOptions",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines parent instance."
                         }
                     ],
                     "methods": []
@@ -4140,14 +4154,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "BadgeProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -4771,21 +4787,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "BlockUIProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "BlockUIState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -4973,21 +4992,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "BreadcrumbProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "BreadcrumbContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -5283,28 +5305,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ButtonProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "ButtonContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         },
                         {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines parent instance."
                         }
                     ],
                     "methods": []
@@ -5642,28 +5668,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "CalendarProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "CalendarState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "CalendarContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -7314,28 +7344,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "CarouselProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "CarouselState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "CarouselContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -7888,21 +7922,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "CascadeSelectProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "CascadeSelectState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -8703,14 +8740,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ChartProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -8944,28 +8983,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "CheckboxProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "CheckboxState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "CheckboxContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -9351,21 +9394,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ChipProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ChipState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -9607,21 +9653,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ChipsProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ChipsState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -10050,21 +10099,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ColorPickerProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ColorPickerState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -10408,28 +10460,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ColumnProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
                             "type": "DataTablePassThroughOptions",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines parent instance."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "ColumnContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -11886,28 +11942,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ColumnGroupProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
                             "type": "DataTablePassThroughOptions",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines parent instance."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "ColumnGroupContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -13835,21 +13895,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ConfirmDialogProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ConfirmDialogState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -14149,21 +14212,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ConfirmPopupProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ConfirmPopupState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -14436,28 +14502,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ContextMenuProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ContextMenuState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "ContextMenuContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -14998,28 +15068,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DataTableProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "DataTableState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "DataTableContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -17832,21 +17906,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DataViewProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "DataViewState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -18302,21 +18379,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DataViewLayoutOptionsProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "DataViewLayoutOptionsState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -18519,21 +18599,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DeferredContentProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "DeferredContentState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -18675,21 +18758,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DialogProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "DialogState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -19292,14 +19378,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DividerProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -19450,28 +19538,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DockProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "DockState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "DockContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -19888,28 +19980,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "DropdownProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "DropdownState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "DropdownContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -21135,21 +21231,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "EditorProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "EditorState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -21631,21 +21730,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "FieldsetProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "FieldsetState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -21937,21 +22039,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "FileUploadProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "FileUploadState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -22986,28 +23091,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "GalleriaProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "GalleriaState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "GalleriaContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -23921,21 +24030,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ImageProps",
-                            "default": ""
+                            "default": "",
+                            "description": "ˆ\nDefines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ImageState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -24345,21 +24457,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "InlineMessageProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "InlineMessageState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -24532,21 +24647,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "InplaceProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "InplaceState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -24806,21 +24924,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "InputMaskProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "InputMaskContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -25076,21 +25197,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "InputNumberProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "InputNumberState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -25644,21 +25768,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "InputSwitchProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "InputSwitchState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -25934,21 +26061,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "InputTextProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "InputTextContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -26106,21 +26236,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "KnobProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "KnobState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -26465,28 +26598,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ListboxProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ListboxState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "ListboxContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -27238,28 +27375,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "MegaMenuProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "MegaMenuState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "MegaMenuContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -27811,28 +27952,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "MenuProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "MenuState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "MenuContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -28296,28 +28441,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "MenubarProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "MenubarState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "MenubarContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -28953,21 +29102,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "MessageProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "MessageState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -29293,28 +29445,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "MultiSelectProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "MultiSelectState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "MultiSelectContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -30565,28 +30721,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "OrderListProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "OrderListState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "OrderListContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -31135,28 +31295,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "OrganizationChartProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "OrganizationChartState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "OrganizationChartContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -31721,21 +31885,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "OverlayPanelProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "OverlayPanelState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -31994,28 +32161,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "PaginatorProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "PaginatorState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "PaginatorContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -32496,21 +32667,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "PanelProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "PanelState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -32841,28 +33015,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "PanelMenuProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "PanelMenuState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "PanelMenuContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -33463,21 +33641,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "PasswordProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "PasswordState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -34009,28 +34190,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "PickListProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "PickListState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "PickListContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -35050,14 +35235,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ProgressBarProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -35217,14 +35404,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ProgressSpinnerProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -35377,21 +35566,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "RadioButtonProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "RadioButtonState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -35670,28 +35862,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "RatingProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "RatingState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "RatingContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -36207,28 +36403,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "RowProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
                             "type": "ColumnGroupPassThroughOptions",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines parent instance."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "RowContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -36348,21 +36548,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ScrollPanelProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ScrollPanelState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -36561,21 +36764,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ScrollTopProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ScrollTopState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -36762,28 +36968,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SelectButtonProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "SelectButtonState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "SelectButtonContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -37127,21 +37337,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SidebarProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "SidebarState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -37453,14 +37666,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SkeletonProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -37621,14 +37836,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SliderProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -37916,28 +38133,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SpeedDialProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "SpeedDialState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "SpeedDialContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -38451,21 +38672,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SplitButtonProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "SplitButtonState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -38831,28 +39055,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SplitterProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "SplitterState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "SplitterContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -39131,21 +39359,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "SplitterPanelProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "SplitterPanelContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -39296,21 +39527,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "StepsProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "StepsContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -39708,28 +39942,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TabMenuProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "TabMenuState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TabMenuContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -40063,28 +40301,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TabPanelProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
                             "type": "TabViewPassThroughOptions",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines parent instance."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TabPanelContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -40764,14 +41006,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TagProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -40946,21 +41190,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TerminalProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "TerminalState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -41244,21 +41491,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TextareaProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TextareaContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -41426,28 +41676,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TieredMenuProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "TieredMenuState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TieredMenuContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -41970,21 +42224,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TimelineProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TimelineContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -42244,21 +42501,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ToastProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ToastState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -42789,28 +43049,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ToggleButtonProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "ToggleButtonState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "ToggleButtonContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -43182,14 +43446,16 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "ToolbarProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         }
                     ],
                     "methods": []
@@ -43635,28 +43901,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -44369,21 +44639,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeSelectProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeSelectState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
@@ -44973,28 +45246,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeTableProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeTableState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeTableContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -46343,28 +46620,32 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "TriStateCheckboxProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "TriStateCheckboxState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         },
                         {
                             "name": "context",
                             "optional": false,
                             "readonly": false,
                             "type": "TriStateCheckboxContext",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -46925,21 +47206,24 @@
                             "optional": false,
                             "readonly": false,
                             "type": "any",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines instance."
                         },
                         {
                             "name": "props",
                             "optional": false,
                             "readonly": false,
                             "type": "VirtualScrollerProps",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines valid properties."
                         },
                         {
                             "name": "state",
                             "optional": false,
                             "readonly": false,
                             "type": "VirtualScrollerState",
-                            "default": ""
+                            "default": "",
+                            "description": "Defines current inline state."
                         }
                     ],
                     "methods": []
