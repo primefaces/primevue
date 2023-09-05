@@ -380,7 +380,9 @@ export default {
             return this.partialPosition ? i : this.firstNonMaskPos;
         },
         handleInputChange(event) {
-            if (this.readonly) {
+            const isPasteEvent = event.type === 'paste';
+
+            if (this.readonly || isPasteEvent) {
                 return;
             }
 
