@@ -300,6 +300,7 @@ export interface PrimeVueLocaleOptions {
     cancel?: string;
     completed?: string;
     pending?: string;
+    fileSizeTypes: string[];
     dayNames: string[];
     dayNamesShort: string[];
     dayNamesMin: string[];

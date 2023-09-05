@@ -13343,6 +13343,13 @@
                             "default": ""
                         },
                         {
+                            "name": "fileSizeTypes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string[]",
+                            "default": ""
+                        },
+                        {
                             "name": "dayNames",
                             "optional": false,
                             "readonly": false,
