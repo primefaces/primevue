@@ -43,7 +43,7 @@
                             </template>
 
                             <template v-else-if="k === 'parameters'">
-                                <span v-if="v.name" :class="{ 'parameter-bold': label === 'Slots' }"> {{ v.name }} : </span>
+                                <span v-if="v.name" :class="{ 'font-bold': label === 'Slots' }"> {{ v.name }} : </span>
                                 <template v-for="(value, i) in getType(v.type)" :key="value">
                                     {{ i !== 0 ? ' |' : '' }}<NuxtLink v-if="isLinkType(value)" :to="setLinkPath(value)" class="doc-option-link"> {{ value }} </NuxtLink>
                                     <span v-else v-html="value"> </span>
@@ -164,9 +164,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-.parameter-bold {
-    font-weight: bold;
-}
-</style>
